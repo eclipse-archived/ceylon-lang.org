@@ -76,17 +76,11 @@ form.bp {
       list-style-type:none;
       border-left:1px solid $header_color;
       li:hover {
-        background-color:$menu_selected_color;
+        background-color:$menu_hovered_color;
         cursor:pointer;
       }
       li#selected {
         background-color:$menu_selected_color;
-        &:hover {
-          cursor:default;
-        }
-        a:hover {
-          cursor:default;
-        }
       }  
       li {
         background-color:$menu_color;
