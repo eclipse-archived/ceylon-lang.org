@@ -1,0 +1,22 @@
+---
+layout: base
+tab: to-be-defined
+---
+.header-bar
+  = partial( 'header.html.haml' )
+#primary-content
+  #core-page
+    ~ content
+  #sidebar
+    #release
+      :markdown
+        ### Latest release: no latest release
+        
+        Ceylon has not yet been released but we hope to get it out 
+        as soon as possible.
+    #twitter
+      :markdown
+        ### Twitter news
+        \#ceylon is interesting - @emmanuelbernard
+.footer-bar
+  = partial( 'footer.html.haml' )

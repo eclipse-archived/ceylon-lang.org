@@ -1,0 +1,45 @@
+#footer
+  #footer-core
+    #dev
+      :markdown
+        To build the site:
+        
+        * get Ruby
+        * `gem install awestruct` or `sudo gem install awestruct`
+        * `git clone git@github.com:ceylon/ceylon-lang.org.git;cd ceylon-site`
+        * `awestruct --server --auto -d`
+        * open your browser to <http://localhost:4242>
+        You can find two sample files for [.md](/md-sample) and 
+        [.html.haml](/haml-sample) syntaxes. Look at them esp the .md file as it 
+        shows how a page should be written and how to use syntax highlighting.          
+        Don't yell at me on color / style, this work
+        has not been done yet.
+        
+        The menu is in `_layout/header.html.haml`. Note that none of the pages
+        are created yet and that the menu list is a sample.
+        
+        When you create a page, give it the right metadata:
+        
+        * layout (use `layout: default` unless you know what to do)
+        * title
+        * author
+        * tab: this is the tab that will be highlighted when the page is shown. Use the lower case menu name.
+    #todo
+      #todo-left
+        :markdown
+          TODO infra:
+          
+          * FAQ module like TorqueBox
+          * Blog module
+          * rewrite menu module to use a .yaml file and a loop for auto generation
+      #todo-right
+        :markdown
+          TODO design:
+          
+          * everything :)
+          
+          TODO content:
+          
+          * TBD
+    #copyright
+      Copyright Red Hat 2010-2011

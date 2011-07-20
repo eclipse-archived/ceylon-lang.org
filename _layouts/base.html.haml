@@ -1,0 +1,17 @@
+%html
+  %head
+    %title
+      #{site.title}: #{page.title}
+    %link{ :rel=>'stylesheet', :type=>'text/css', :href=>'/stylesheets/screen.css', :media=>'screen, projection' }
+    %link{ :rel=>'stylesheet', :type=>'text/css', :href=>'/stylesheets/print.css', :media=>'print' }
+    %link{ :href=>"/stylesheets/sh/shCore.css", :rel=>"stylesheet", :type=>"text/css" }
+    %link{ :href=>"/stylesheets/sh/shThemeDefault.css", :rel=>"stylesheet", :type=>"text/css" }
+    /[if lt IE 8]
+      %link{ :rel=>'stylesheet', :type=>'text/css', :href=>'/stylesheets/ie.css', :media=>'screen, projection' }
+    <script type="text/javascript" src="/js/sh/shCore.js"></script>
+    <script type="text/javascript" src="/js/sh/shBrushJava.js"></script>
+    <script type="text/javascript" src="/js/sh/shBrushCeylon.js"></script>
+    <script type="text/javascript">SyntaxHighlighter.defaults['gutter'] = false;SyntaxHighlighter.all();</script>
+  %body.bp
+    #container
+      ~ content
