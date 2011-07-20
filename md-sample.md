@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Home
-tab: home
+title: Markdown .md file
+tab: documentation
 author: Emmanuel Bernard
 ---
 # Example of Markdown syntax
