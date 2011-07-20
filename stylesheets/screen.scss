@@ -29,6 +29,7 @@ body.bp {
   @include blueprint-interaction;
   // Remove the scaffolding when you're ready to start doing visual design.
   // Or leave it in if you're happy with how blueprint looks out-of-the-box
+  font-size: inherit;
 }
 
 form.bp {
@@ -59,7 +60,7 @@ form.bp {
       font-size:40pt;
       font-weight: bold;
       color:$ceylon_logo_color;
-      margin: 11px 0 12px 0;
+      margin: 4px 0 4px 0;
       line-height: inherit;
     }
   }
@@ -78,7 +79,7 @@ form.bp {
       font-size:120%;
       padding:0;
       margin:0;
-      height:1.5em;
+      height:2em;
       list-style-type:none;
       border-left:1px solid $header_color;
       li:hover {
@@ -93,8 +94,8 @@ form.bp {
         text-align:center;
         float:left; 
         min-width:10%; 
-        height:1.5em;
-        line-height:1.5em;
+        height:2em;
+        line-height:2em;
         border-right:1px solid #bbb;
         position:relative;
         text-align:center;
