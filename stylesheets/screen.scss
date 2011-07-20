@@ -30,6 +30,34 @@ body.bp {
   // Remove the scaffolding when you're ready to start doing visual design.
   // Or leave it in if you're happy with how blueprint looks out-of-the-box
   font-size: inherit;
+  h1, h2 {
+    color: $h1_text_color;
+  }
+  h3, h4, h5, h6 {
+    color: $h3plus_text_color;
+  }
+  h1 {
+    
+    font-size:200%;
+    font-weight:bold;
+  }
+  h2 {
+    font-size:160%;
+    font-weight:bold;
+  }
+  h3 {
+    font-size:120%;
+    font-weight:bold;
+  }
+  h4 {
+    font-size:100%;
+  }
+  h5 {
+    font-size:100%;
+  }
+  h6 {
+    font-size:100%;
+  }
 }
 
 form.bp {
