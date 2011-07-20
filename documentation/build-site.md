@@ -14,6 +14,7 @@ on Markdown or haml based files and use Git as the CMS.
 You need to:
 
 * get Ruby
+* if on Mac OS, get XCode (needed for native gems)
 * `gem install awestruct` or `sudo gem install awestruct`
 * `git clone git@github.com:ceylon/ceylon-lang.org.git;cd ceylon-lang.org`
 
