@@ -46,6 +46,9 @@ form.bp {
 #header {
   @include container;
   background-color:$header_color;
+  background: url("../images/ceylon-logo.png") no-repeat 0px 10px;
+  height: 120px;
+  padding-left: 120px;
   overflow:hidden;
   #header-logo {
     @include column(7);
@@ -53,8 +56,11 @@ form.bp {
     display:block;
     //margin-left:10em;
     h1 {
-      font-size:400%;
+      font-size:40pt;
+      font-weight: bold;
       color:$ceylon_logo_color;
+      margin: 11px 0 12px 0;
+      line-height: inherit;
     }
   }
   #header-tagline {
@@ -95,9 +101,14 @@ form.bp {
       }
       a {
         display:block;
-        color:#ffffff;
+        color: white;
+        font-weight: bold;
         text-decoration: none;
         text-align:center;
+      }
+      li#selected a,
+      li:hover a {
+        color: black;
       }
       
     }
@@ -121,7 +132,7 @@ form.bp {
         }
         padding:1em;
         margin:1em;
-        background-color:eeeeee;
+        background-color:$header_color;
       }
       #twitter {
         h3 {
@@ -130,7 +141,7 @@ form.bp {
         padding:1em;
         margin:1em;
         margin-top:2em;
-        background-color:eeeeee;
+        background-color:$header_color;
       }
   }
 }
