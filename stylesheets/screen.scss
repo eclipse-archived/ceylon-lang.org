@@ -45,38 +45,35 @@ form.bp {
 }
 
 #header {
-  @include container;
   background-color:$header_color;
-  background: url("../images/ceylon-logo.png") no-repeat 0px 10px;
-  height: 120px;
+  background: url("../images/ceylon-logo.png") no-repeat 0px 20px;
+  height: 141px;
   padding-left: 120px;
+  margin-left: 30px;
   overflow:hidden;
   #header-logo {
-    @include column(7);
-    @include prepend(1);
     display:block;
     //margin-left:10em;
     h1 {
       font-size:40pt;
       font-weight: bold;
       color:$ceylon_logo_color;
-      margin: 4px 0 4px 0;
+      margin: 0;
       line-height: inherit;
     }
   }
   #header-tagline {
-    @include column(16, true);
     text-align:left;
     vertical-align:bottom;
     display:block;
-    padding-top:3em;
+    font-style: italic;
+    margin-left: 100px;
+    margin-top: -10px;
   }
   #menu {
     #menu-core {
-      @include column(24);
-      @include horizontal-list;
       color:#ffffff;
-      font-size:120%;
+      font-size:110%;
       padding:0;
       margin:0;
       height:2em;
@@ -92,13 +89,13 @@ form.bp {
       li {
         background-color:$menu_color;
         text-align:center;
-        float:left; 
         min-width:10%; 
         height:2em;
         line-height:2em;
-        border-right:1px solid #bbb;
         position:relative;
         text-align:center;
+        display: inline-block;
+        padding: 0 4px;
       }
       a {
         display:block;
