@@ -16,27 +16,21 @@ tab: to-be-defined
         - idname = page.tab == "home" ? "selected" : "notselected"
         %li{ :id=>"#{idname}" }
           %a{ :href=>'/' } Home
-        - idname = page.tab == "news" ? "selected" : "notselected"
+        - idname = page.tab == "tour" ? "selected" : "notselected"
         %li{ :id=>"#{idname}" }
-          %a{ :href=>'/news' } News
-        - idname = page.tab == "downloads" ? "selected" : "notselected"
-        %li{ :id=>"#{idname}" }
-          %a{ :href=>'/downloads' } Downloads
+          %a{ :href=>'/tour' } Tour
         - idname = page.tab == "documentation" ? "selected" : "notselected"
         %li{ :id=>"#{idname}" }
           %a{ :href=>'/documentation' } Documentation
-        - idname = page.tab == "faq" ? "selected" : "notselected"
+        - idname = page.tab == "downloads" ? "selected" : "notselected"
         %li{ :id=>"#{idname}" }
-          %a{ :href=>'/faq' } FAQ
+          %a{ :href=>'/downloads' } Downloads
         - idname = page.tab == "community" ? "selected" : "notselected"
         %li{ :id=>"#{idname}" }
           %a{ :href=>'/community' } Community
-        - idname = page.tab == "development" ? "selected" : "notselected"
+        - idname = page.tab == "blog" ? "selected" : "notselected"
         %li{ :id=>"#{idname}" }
-          %a{ :href=>'/development' } Development
-        - idname = page.tab == "license" ? "selected" : "notselected"
-        %li{ :id=>"#{idname}" }
-          %a{ :href=>'/license' } License
+          %a{ :href=>'/blog' } Blog
 #primary-content
   #core-page
     ~ content
