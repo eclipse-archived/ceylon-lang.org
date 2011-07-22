@@ -25,4 +25,5 @@ Tour legs:
 
 1. [Basics](/tour/basics)
 1. [Classes, interfaces and objects](/tour/classes)
+1. [inheritance and refinement (overriding)](/tour/inheritance)
 1. ...

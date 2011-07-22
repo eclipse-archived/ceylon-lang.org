@@ -7,7 +7,7 @@ author: Emmanuel Bernard
 
 # #{page.title}
 
-Let's start from the beginning.
+Let's start!
 
 ## Writing a simple program
 
