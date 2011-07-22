@@ -1,5 +1,5 @@
 ---
-title: FAQ 
+title: FAQs 
 layout: default
 toc: true
 tab: faq
@@ -7,6 +7,12 @@ author: Emmanuel Bernard
 ---
 
 # Frequently Asked Questions
+
+We have specialized FAQs for some subjects:
+
+* [Language design FAQ](language-design)
+
+On this page you will find the most common questions.  
 
 #{page.table_of_contents}
 
