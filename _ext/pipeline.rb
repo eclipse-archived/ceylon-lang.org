@@ -7,7 +7,7 @@ Awestruct::Extensions::Pipeline.new do
   helper Awestruct::Extensions::Partial
   extension TOC.new(:levels => 2)
 
-  # helper Awestruct::Extensions::GoogleAnalytics
+  helper Awestruct::Extensions::GoogleAnalytics
 end
 
 
