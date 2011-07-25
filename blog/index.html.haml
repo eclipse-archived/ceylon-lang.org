@@ -1,0 +1,44 @@
+---
+title: Ceylon's team blog
+layout: default
+author: Emmanuel Bernard
+---
+
+#core-page
+  - for post in page.posts
+    .post
+      %h1.title
+        %a{:href=>post.url}= post.title
+      .byline
+        .author
+          = post.author
+        .date
+          #{post.date.strftime( '%d %B %Y' )}
+        .tags
+          - post.tags.each do |tag|
+            %a{:href=>tag.primary_page.url}
+              = tag
+        .body
+          ~ post.content
+    //    .tail
+    //      = post.intense_debate_comments_link
+  = page.posts.links
+#sidebar
+  .sidebar-block  
+    :markdown
+      ### [Feed](/blog/blog.atom)
+  .sidebar-block  
+    %h3 Recent posts
+    #blog-archive
+      - for post in site.posts[0,50] do
+        %h4 
+          %a{:href=>post.url}= post.title
+          by #{post.author}
+          %br
+          #{post.date.strftime( '%d %B %Y' )}
+  .sidebar-block  
+    %h3 Tags
+    .tag-cloud
+      = site.posts_tag_cloud
+
+      

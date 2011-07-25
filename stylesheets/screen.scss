@@ -266,6 +266,116 @@ form.bp {
   }
 }
 
+
+//News index and posts
+.post {
+  clear:both;
+  margin-bottom: 1em;
+  border-bottom: 1px solid $post_border_color;
+  line-height: 1.5em;
+  h1.title {
+    //font-size: 125%;
+    text-align:left;
+    //font-weight: bold;
+    margin-bottom: 0.5em;
+    //margin-top:2em;
+    a {
+      text-decoration: none;
+    }
+  }
+  .byline {
+    margin-bottom: 2em;
+    font-size: 90%;
+    .date {
+      display: inline;
+      color: $post_date_color;
+      margin-left: 1ex;
+    }
+    .author {
+      font-weight: bold;
+      display: inline;
+    }
+    .tags {
+      display: inline;
+      margin-left:1em;
+      a {
+        font-weight: bold;
+        margin-right: 1ex;
+        text-decoration: none;
+      }
+    }
+  }
+  .body {
+    margin-bottom: 2em;
+  }
+  .comments {
+    border-top: 1px solid $post_comments_border_color;
+    margin-bottom: 2em;
+  }
+  .tail {
+    background-color: $post_tail_background_color;
+    border: 1px solid $post_tail_border_color;
+    padding: .8ex;
+    margin-bottom: 1em;
+    margin-top: 1em;
+  }
+}
+.pagination-links {
+  margin-bottom: 1em;
+  a {
+    text-decoration: none;
+  }
+  a, .current-page, .slip {
+    padding: .5ex;
+    margin-right: .5ex;
+  }
+  a.page-link, .current-page, .previous-link, .next-link {
+    border: 1px solid $pagination_border_color;
+  }
+  .current-page {
+    font-weight: bold;
+  }
+}
+.post-navigation {
+  margin-top:2em;
+  line-height: 1.4em;
+  margin-bottom: 2em;
+  float:left;
+  width:100%;
+  .next, .previous {
+    color: $post_nav_color;
+    margin-bottom: 1em;
+    display:inline;
+    .label {
+      font-weight: bold;
+      display:inline;
+      margin-right:1em;
+    }
+    .nav-link {
+      display:inline;
+    }
+    a {
+      text-decoration: none;
+      padding: 0px;
+    }
+  }
+}
+
+#post-nav-previous {
+  float:left;
+  width:50%;
+}
+
+#post-nav-next {
+  float:right;
+  width:50%;
+}
+
+//Blog archive
+#blog-archive {
+  font-size:80%;
+}
+
 //NOT USED is it?
 // Page layout can be done using mixins applied to your semantic classes and IDs:
 body.two-col {
