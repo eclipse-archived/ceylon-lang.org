@@ -1,0 +1,32 @@
+---
+title: Events where we talk about Ceylon  
+layout: community
+tab: community
+author: Emmanuel Bernard
+---
+:markdown
+
+#upcoming-talks
+  - events = site.events.values.sort{|l,r| l.effective_date <=> r.effective_date}
+  %h1 Upcoming Events
+  - for event in events
+    .item{:effective_date=>event.effective_date}
+      .event_details
+        .event_date
+          #{event.event_date}
+        .event_location
+          #{event.location}
+      %h2
+        %a{:href=>event.event_url}
+          = event.event
+      - if ( event.event_logo_url )
+        %a{:href=>event.event_url}
+          %img.event_logo{:src=>event.event_logo_url}
+      %h3
+        = event.title
+      .details
+        #{event.presentor} will present at #{event.event} in #{event.location}.
+        .links
+          %a{:href=>event.event_url}
+            #{event.event} Site
+

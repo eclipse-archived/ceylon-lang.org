@@ -219,6 +219,53 @@ form.bp {
   }
 }
 
+//Upcoming talks
+#upcoming-talks {
+  .item {
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid $post_tail_border_color;
+  }
+  h1, h2 {
+    font-weight: bold;
+  }
+  h1 {
+    font-size: 160%;
+    border-bottom: 1px solid $top_nav_border_color;
+  }
+  h2 {
+    font-size: 120%;
+    margin-bottom: 0px;
+    a {
+      text-decoration: none;
+    }
+  }
+  h3 {
+    font-size: 100%;
+  }
+  .event_details {
+    float: right;
+    font-weight: bold;
+    text-align: right;
+  }
+  img.event_logo {
+    clear: both;
+    max-width: 200px;
+    display:block;
+    margin: auto;
+    margin-bottom: 2em;
+    margin-top: 2em;
+  }
+  .details {
+    clear: both;
+    margin-bottom: 1ex;
+  }
+  .links {
+    text-align: right;
+    font-weight: bold;
+  }
+}
+
 //NOT USED is it?
 // Page layout can be done using mixins applied to your semantic classes and IDs:
 body.two-col {
