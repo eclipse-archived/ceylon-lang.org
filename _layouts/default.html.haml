@@ -18,13 +18,16 @@ tab: to-be-defined
           %a{ :href=>'/' } Home
         - idname = page.tab == "documentation" ? "selected" : "notselected"
         %li{ :id=>"#{idname}" }
-          %a{ :href=>'/documentation' } Documentation
+          %a{ :href=>'/documentation' } Learn it
         - idname = page.tab == "download" ? "selected" : "notselected"
         %li{ :id=>"#{idname}" }
           %a{ :href=>'/download' } Download
         - idname = page.tab == "community" ? "selected" : "notselected"
         %li{ :id=>"#{idname}" }
           %a{ :href=>'/community' } Community
+        - idname = page.tab == "code" ? "selected" : "notselected"
+        %li{ :id=>"#{idname}" }
+          %a{ :href=>'/code' } Code
         - idname = page.tab == "blog" ? "selected" : "notselected"
         %li{ :id=>"#{idname}" }
           %a{ :href=>'/blog' } Blog
