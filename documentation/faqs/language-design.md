@@ -10,7 +10,9 @@ author: Emmanuel Bernard
 
 #{page.table_of_contents}
 
-Designing a language is about trade offs. Some features are sacrificed to make room for others. Some syntaxes approaches are abandoned to better fit the language goals.
+Designing a language is about trade offs. Some features are sacrificed to make 
+room for others. Some syntaxes approaches are abandoned to better fit the 
+language goals.
 
 ### Goals
 
@@ -62,6 +64,20 @@ that is regular with class and interface declarations. `extends`
 or `implements` would simply not work for an upper bound type
 constraint.
 
+### Immutability
+
+> The distinctions between immutable and mutable, the variable annotation, 
+and = and := look like a lot of rules to remember.
+
+The rules are:
+
+* If you want to be able to assign a value to something more than once, you need 
+  to annotate it `variable`. It's the precise opposite of Java where you need to 
+  annotate something `final` if you don't want to be able to assign to it.
+* To assign to a variable, you use `:=`. Otherwise, you use `=`.
+
+Like in ML, this is to warn you that the code is doing something side-effecty.
+
 ## Visibility model
 
 ### no protected keywords?
@@ -80,7 +96,22 @@ adjectives.
 
 ### Introductions
 
-They are extension methods on steroids.
+Introductions are a compromise between two features you'll find in 
+other languages. Extension methods (best known from C#) and implicit 
+type conversions (featured in several languages including C++ and Scala).
+
+Extension methods are a safe, convenient feature that let you add new 
+members to a pre-existing type. Unfortunately, they don't give you the 
+ability to introduce a new supertype to the type.
+
+Implicit type conversions are a dangerous feature that screw up several 
+useful properties of the type system (including transitivity of 
+assignability), introducing complexity into mechanisms like member 
+resolution and type argument inference, and can easily be abused.
+
+Introduction is a disciplined way to introduce a new supertype to an 
+existing type, using a mechanism akin to extension methods, without the 
+downsides of implicit type conversions.
 
 ### union types
 
