@@ -1,6 +1,6 @@
 ---
 title: Language design Frequently Asked Questions 
-layout: documentation
+layout: faq
 toc: true
 tab: documentation
 author: Emmanuel Bernard

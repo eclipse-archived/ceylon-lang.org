@@ -1,6 +1,6 @@
 ---
 title: FAQs 
-layout: documentation
+layout: faq
 toc: true
 tab: documentation
 author: Emmanuel Bernard
