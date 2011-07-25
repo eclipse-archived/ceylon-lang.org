@@ -16,9 +16,6 @@ tab: to-be-defined
         - idname = page.tab == "home" ? "selected" : "notselected"
         %li{ :id=>"#{idname}" }
           %a{ :href=>'/' } Home
-        - idname = page.tab == "tour" ? "selected" : "notselected"
-        %li{ :id=>"#{idname}" }
-          %a{ :href=>'/tour' } Tour
         - idname = page.tab == "documentation" ? "selected" : "notselected"
         %li{ :id=>"#{idname}" }
           %a{ :href=>'/documentation' } Documentation
