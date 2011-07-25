@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: documentation
 title: Markdown .md file
 tab: documentation
 author: Emmanuel Bernard
