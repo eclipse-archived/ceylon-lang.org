@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Tour of Ceylon&#58; classes, interfaces and objects
-tab: tour
+tab: documentation
 author: Emmanuel Bernard
 ---
 
@@ -213,5 +213,5 @@ void hello() {
 
 There's more...
 
-We'll now explore [inheritance and refinement (overriding)](/tour/inheritance).
+We'll now explore [inheritance and refinement (overriding)](../inheritance).
 

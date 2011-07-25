@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Tour of Ceylon&#58; basics
-tab: tour
+tab: documentation
 author: Emmanuel Bernard
 ---
 
@@ -180,5 +180,5 @@ Ceylon also supports sequenced parameters (varargs), declared using the syntax `
 
 There's more...
 
-Let's now discuss [classes, interfaces, and objects](/tour/classes).
+Let's now discuss [classes, interfaces, and objects](../classes).
 

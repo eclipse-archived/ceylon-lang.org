@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Tour of Ceylon
-tab: tour
+tab: documentation
 author: Emmanuel Bernard
 ---
 
@@ -23,7 +23,7 @@ __TODO should we rather start with some examples without detailing concepts?__
 
 Tour legs:
 
-1. [Basics](/tour/basics)
-1. [Classes, interfaces and objects](/tour/classes)
-1. [inheritance and refinement (overriding)](/tour/inheritance)
+1. [Basics](basics)
+1. [Classes, interfaces and objects](classes)
+1. [inheritance and refinement (overriding)](inheritance)
 1. ...
