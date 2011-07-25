@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: tour
 title: Tour of Ceylon&#58; classes, interfaces and objects
 tab: documentation
 author: Emmanuel Bernard

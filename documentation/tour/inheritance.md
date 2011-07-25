@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: tour
 title: Tour of Ceylon&#58; inheritance and refinement (overloading)
 tab: documentation
 author: Emmanuel Bernard

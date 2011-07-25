@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: tour
 title: Tour of Ceylon&#58; basics
 tab: documentation
 author: Emmanuel Bernard
