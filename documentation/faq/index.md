@@ -2,7 +2,7 @@
 title: FAQs 
 layout: default
 toc: true
-tab: faq
+tab: documentation
 author: Emmanuel Bernard
 ---
 

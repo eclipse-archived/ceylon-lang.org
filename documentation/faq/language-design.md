@@ -2,7 +2,7 @@
 title: Language design Frequently Asked Questions 
 layout: default
 toc: true
-tab: faq
+tab: documentation
 author: Emmanuel Bernard
 ---
 
