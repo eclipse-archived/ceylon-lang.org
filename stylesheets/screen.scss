@@ -163,21 +163,12 @@ form.bp {
   #sidebar {
       @include column(8,true);
       
-      #release {
+      .sidebar-block {
         h3 {
           color:#000000;
         }
         padding:1em;
         margin:1em;
-        background-color:$header_color;
-      }
-      #twitter {
-        h3 {
-          color:#000000;
-        }
-        padding:1em;
-        margin:1em;
-        margin-top:2em;
         background-color:$header_color;
       }
   }

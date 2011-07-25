@@ -22,9 +22,9 @@ tab: to-be-defined
         - idname = page.tab == "documentation" ? "selected" : "notselected"
         %li{ :id=>"#{idname}" }
           %a{ :href=>'/documentation' } Documentation
-        - idname = page.tab == "downloads" ? "selected" : "notselected"
+        - idname = page.tab == "download" ? "selected" : "notselected"
         %li{ :id=>"#{idname}" }
-          %a{ :href=>'/downloads' } Downloads
+          %a{ :href=>'/download' } Download
         - idname = page.tab == "community" ? "selected" : "notselected"
         %li{ :id=>"#{idname}" }
           %a{ :href=>'/community' } Community
@@ -32,18 +32,6 @@ tab: to-be-defined
         %li{ :id=>"#{idname}" }
           %a{ :href=>'/blog' } Blog
 #primary-content
-  #core-page
-    ~ content
-  #sidebar
-    #release
-      :markdown
-        ### Latest release: no latest release
-        
-        Ceylon has not yet been released but we hope to get it out 
-        as soon as possible.
-    #twitter
-      :markdown
-        ### Twitter news
-        \#ceylon is interesting - @emmanuelbernard
+  ~ content
 .footer-bar
   = partial( 'footer.html.haml' )
