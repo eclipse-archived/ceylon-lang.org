@@ -1,13 +1,13 @@
 ---
 layout: documentation
-title: Markdown .md file
+title: Building the website
 tab: documentation
 author: Emmanuel Bernard
 ---
 # How to build the ceylon-lang.org website
 
-Building the website and hack the documentationis fairly simple. It is based
-on Markdown or haml based files and use Git as the CMS.
+Building the website and work the documentation is fairly simple. It is based
+on `Markdown` or `haml` based files and use Git as a rudimentary CMS.
 
 ## infrastructure
 
@@ -21,7 +21,7 @@ You need to:
 ## Serve the site locally
 
 * Go in your `~/ceylon-lang.org` directory.  
-* Run  `awestruct --server --auto -P development`
+* Run  `awestruct -d`
 * Open your browser to <http://localhost:4242>
 
 Any change will be automatically picked up except for `_partials` files 

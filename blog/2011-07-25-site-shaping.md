@@ -12,7 +12,7 @@ I need your feedback on:
 * the structure
 
 The website is available at <git@github.com:ceylon/ceylon-lang.org.git>
-To build the site, check out [documentation/build-site.md](/documentation/build-site)
+To build the site, check out [README.md](/README)
 
 ## The infrastructure
 
