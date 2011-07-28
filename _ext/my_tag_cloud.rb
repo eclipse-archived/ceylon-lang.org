@@ -3,11 +3,12 @@ module Awestruct
   module Extensions
     class MyTagCloud
 
-      def initialize(tagged_items_property, output_path='tags', opts={})
-        @tagged_items_property = tagged_items_property
+      def initialize(items_property, output_path='tags', opts={})
+        @items_property = items_property
         @output_path = output_path
         @layout = opts[:layout].to_s
         @title  = opts[:title] || 'Tags'
+        @suffix = opts[:items_property_suffix] || 'tags'
       end
 
       def execute(site)
@@ -15,9 +16,9 @@ module Awestruct
         page.output_path = File.join( @output_path )
         page.layout = @layout
         page.title  = @title
-        page.tags = site.send( "#{@tagged_items_property}_tags" ) || []
+        page.tags = site.send( "#{@items_property}_#{@suffix}" ) || []
         site.pages << page
-        site.send( "#{@tagged_items_property}_tag_cloud=", LazyPage.new( page ) )
+        site.send( "#{@items_property}_#{@suffix}_cloud=", LazyPage.new( page ) )
       end
     end
 

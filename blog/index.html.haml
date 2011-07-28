@@ -4,6 +4,10 @@ layout: default
 author: Emmanuel Bernard
 ---
 
+- if page.split_title
+  %h1
+    #{page.split_title}
+
 #core-page
   - for post in page.posts
     .post
