@@ -4,6 +4,7 @@ require 'mypaginator'
 require 'my_tag_cloud'
 require 'authorsplitter'
 require 'multiatomizer'
+require 'mydisqus'
 
 Awestruct::Extensions::Pipeline.new do
   extension Awestruct::Extensions::DataDir.new
@@ -30,7 +31,7 @@ Awestruct::Extensions::Pipeline.new do
   extension Awestruct::Extensions::MultiAtomizer.new( :posts, 'author', '/blog/authors' )
 
   extension Awestruct::Extensions::Indexifier.new
-  extension Awestruct::Extensions::Disqus.new
+  extension Awestruct::Extensions::MyDisqus.new
   helper Awestruct::Extensions::Partial
   extension TOC.new(:levels => 2)
 
