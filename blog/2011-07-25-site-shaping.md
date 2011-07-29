@@ -2,6 +2,7 @@
 title: Site is shaping up rapidly &#58; feedback needed
 author: Emmanuel Bernard
 layout: blog
+tab: blog
 tags: [ site ]
 ---
 The website is shaping up rapidly.

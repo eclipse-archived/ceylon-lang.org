@@ -2,6 +2,7 @@
 title: Ceylon progress report
 author: Gavin King
 layout: blog
+tab: blog
 tags: [progress]
 ---
 Hrm, I notice it's been just over three months since I semi-accidentally announced 

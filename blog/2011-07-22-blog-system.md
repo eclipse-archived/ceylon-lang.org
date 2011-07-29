@@ -2,6 +2,7 @@
 title: We now have a blog system and decent structure
 author: Emmanuel Bernard
 layout: blog
+tab: blog
 tags: [ test ]
 ---
 We are at a stage where the website starts to look decent content wise. 
