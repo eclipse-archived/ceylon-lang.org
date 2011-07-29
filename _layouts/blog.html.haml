@@ -24,7 +24,8 @@ tab: blog
   .byline
     .author
       by
-      = page.author
+      /there is only one author per page but the author splitter adds an array here
+      %a{:href=>page.author[0].primary_page.url} #{page.author[0]}
     .date
       = page.date.strftime('%d %b %Y')
     .tags

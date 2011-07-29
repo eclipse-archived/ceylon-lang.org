@@ -16,7 +16,8 @@ tab: blog
         %a{:href=>post.url}= post.title
       .byline
         .author
-          = post.author
+          /there is only one author per page but the author splitter adds an array here
+          %a{:href=>post.author[0].primary_page.url} #{post.author[0]}
         .date
           #{post.date.strftime( '%d %B %Y' )}
         .tags
@@ -35,7 +36,7 @@ tab: blog
   .sidebar-block  
     %h3 Recent posts
     #blog-archive
-      - for post in site.posts[0,50] do
+      - for post in site.posts[0,5] do
         %h4 
           %a{:href=>post.url}= post.title
           by #{post.author}
@@ -44,6 +45,10 @@ tab: blog
   .sidebar-block  
     %h3 Tags
     .tag-cloud
-      = site.posts_tag_cloud
+      = site.posts_tags_cloud
+  .sidebar-block  
+    %h3 Authors
+    .tag-cloud
+      = site.posts_authors_cloud
 
       
