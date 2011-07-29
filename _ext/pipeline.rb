@@ -3,6 +3,7 @@ require 'mytagger'
 require 'mypaginator'
 require 'my_tag_cloud'
 require 'authorsplitter'
+require 'multiatomizer'
 
 Awestruct::Extensions::Pipeline.new do
   extension Awestruct::Extensions::DataDir.new
@@ -26,6 +27,7 @@ Awestruct::Extensions::Pipeline.new do
                                                 :items_property_suffix=>'authors' )
 
   extension Awestruct::Extensions::Atomizer.new( :posts, '/blog/blog.atom' )
+  extension Awestruct::Extensions::MultiAtomizer.new( :posts, 'author', '/blog/authors' )
 
   extension Awestruct::Extensions::Indexifier.new
   helper Awestruct::Extensions::Partial
