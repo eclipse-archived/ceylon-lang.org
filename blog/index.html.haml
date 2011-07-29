@@ -26,8 +26,8 @@ tab: blog
               = tag
         .body
           ~ post.content
-    //    .tail
-    //      = post.intense_debate_comments_link
+        .tail
+          = post.disqus_comments_link
   = page.posts.links
 #sidebar
   .sidebar-block  

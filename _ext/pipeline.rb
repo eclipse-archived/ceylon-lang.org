@@ -30,6 +30,7 @@ Awestruct::Extensions::Pipeline.new do
   extension Awestruct::Extensions::MultiAtomizer.new( :posts, 'author', '/blog/authors' )
 
   extension Awestruct::Extensions::Indexifier.new
+  extension Awestruct::Extensions::Disqus.new
   helper Awestruct::Extensions::Partial
   extension TOC.new(:levels => 2)
 
