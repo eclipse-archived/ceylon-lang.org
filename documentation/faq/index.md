@@ -41,3 +41,17 @@ Blah
 ### The compiler does not build my module, why?
 
 Blah
+
+### What version of Java is required to run Ceylon?
+
+Blah
+
+## Other
+
+### Why is it called 'Ceylon'?
+
+Blah
+
+### What license will Ceylon be released under?
+
+Blah
