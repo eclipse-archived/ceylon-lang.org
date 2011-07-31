@@ -8,6 +8,9 @@ tab: blog
 - if page.split_title
   %h1
     #{page.split_title}
+- else
+  %h1
+    #{page.title}
 
 #core-page
   - for post in page.posts

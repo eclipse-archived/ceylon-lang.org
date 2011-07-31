@@ -1,9 +1,10 @@
 ---
-title: Download  
+title: Download Ceylon
 layout: default
 tab: download
 author: Emmanuel Bernard
 ---
+# #{page.title}
 Ceylon is not yet released to the public. We work as hard as we can to get the first milestone into your hands.
 
 You can follow our progress:
