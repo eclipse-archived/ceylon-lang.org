@@ -27,7 +27,15 @@ You need to:
 Any change will be automatically picked up except for `_partials` files 
 (eg. this footer) and for `_base.css`.
 
-### if serving the site is slow 
+### If your changes are not visible...
+
+If for whatever reason you make some changes which don't show up, you can
+completely regenerate the site:
+
+    rm -fR _site/ .sass-cache/
+    awestruct -d
+
+### If serving the site is slow...
 
 Sometimes on Linux, serving the file is atrociously slow 
 (something to do with WEBRick).
