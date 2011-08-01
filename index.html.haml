@@ -6,21 +6,38 @@ author: Emmanuel Bernard
 ---
 #core-page
   :markdown
-    Ceylon is a new language that's deeply influenced by Java, designed by people who are unapologetic fans of Java.
   
-    So why a new language? Well, we've been designing and building frameworks and libraries for Java for ten years, and we know its limitations intimately. And we're frustrated. The number one technical problem that we simply can't solve to our satisfaction in Java - or in any other existing JVM language - is the problem of defining user interfaces and structured data using a typesafe, hierarchical syntax. Without a solution to this problem, Java remains joined at the hip to XML.
-  
-    But much of our frustration is not even with the Java language itself. The extremely outdated class libraries that form the Java SE SDK are riddled with problems. Developing a great SDK is a top priority of the project.
-  
+    # What?
+    Ceylon is a general purpose, statically typed, object oriented 
+    programming language featuring a regular syntax, subtype and parametric
+    polymorphism, first class functions, and limited type inference. 
+    
+    Since 'Hello World' is the traditional way of introducing a language, 
+    here's how it looks in Ceylon:
+    
     <pre class="brush: ceylon">
-    shared class Hello(String name) {
-      shared String name = name;
+    void hello() {
+        writeLine("Hello, World!");
     }
     </pre>
     
-    Let's take a [tour of Ceylon](/documentation/tour).
-  
+    To see more, take a [tour of Ceylon](/documentation/tour).
     
+    # Why?
+    Ceylon is deeply influenced by Java and designed by people who are 
+    unapologetic fans of Java. It keeps the best bits from Java but 
+    improves those aspects that experience has shown to to be annoying, 
+    tedious and frustrating.
+  
+    # When?
+    Right now there is no working implementation of Ceylon: The language 
+    exists as a specification that is pretty stable. Progress is being made 
+    towards the first milestone of a 3 milestone plan that will deliver a 
+    working toolset (including compiler, application launcher and 
+    documentation generator amongst others) targetting Java Virtual Machine.  
+    Currently the development is not open source, but once we have a working 
+    implementation it will be available under the GPL2.
+  
 #sidebar
   .sidebar-block
     :markdown  
