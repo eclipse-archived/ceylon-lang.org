@@ -44,14 +44,13 @@ Blah
 
 ### What version of Java is required to run Ceylon?
 
-Blah
+Either Java 6 or 7, we don't know for sure yet. We may make use of the new
+`invokedynamic` instruction introduced in Java 7. If we don't end up needing 
+that it should be Java 6 compatible.
 
 ## Other
 
-### Why is it called 'Ceylon'?
-
-Blah
-
 ### What license will Ceylon be released under?
 
-Blah
+[GPL2](http://www.gnu.org/licenses/gpl-2.0.html) 
+(or possibly [GPL3](http://www.gnu.org/licenses/gpl-3.0.html)).
