@@ -37,11 +37,11 @@ A package in Ceylon may be shared or unshared. An unshared package
 We can make the package shared by providing a package descriptor:
 
 <pre class="brush: ceylon">
-Package package {
-    name = 'org.hibernate.query';
-    shared = true;
-    doc = "The typesafe query API.";
-}
+    Package package {
+        name = 'org.hibernate.query';
+        shared = true;
+        doc = "The typesafe query API.";
+    }
 </pre>
 
 (Alert readers will notice that this is just a snippet of Ceylon code, using 
@@ -57,39 +57,39 @@ A module must explicitly specify the other modules on which it depends.
  This is accomplished via a module descriptor:
  
 <pre class="brush: ceylon">
-Module module {
-    name = 'org.hibernate';
-    version = '3.0.0.beta';
-    doc = "The best-ever ORM solution!";
-    license = 'http://www.gnu.org/licenses/lgpl.html';
-    Import {
-        name = 'ceylon.language';
-        version = '1.0.1';
-        export = true;
-    },
-    Import {
-        name = 'java.sql';
-        version = '4.0';
+    Module module {
+        name = 'org.hibernate';
+        version = '3.0.0.beta';
+        doc = "The best-ever ORM solution!";
+        license = 'http://www.gnu.org/licenses/lgpl.html';
+        Import {
+            name = 'ceylon.language';
+            version = '1.0.1';
+            export = true;
+        },
+        Import {
+            name = 'java.sql';
+            version = '4.0';
+        }
     }
-}
 </pre>
 
 A module may be runnable. A runnable module must specify a `run()` method in 
 the module descriptor:
 
 <pre class="brush: ceylon">
-Module module {
-    name = 'org.hibernate.test';
-    version = '3.0.0.beta';
-    doc = "The test suite for Hibernate";
-    license = 'http://www.gnu.org/licenses/lgpl.html';
-    void run() {
-        TestSuite().run();
+    Module module {
+        name = 'org.hibernate.test';
+        version = '3.0.0.beta';
+        doc = "The test suite for Hibernate";
+        license = 'http://www.gnu.org/licenses/lgpl.html';
+        void run() {
+            TestSuite().run();
+        }
+        Import {
+            name = 'org.hibernate'; version = '3.0.0.beta';
+        }
     }
-    Import {
-        name = 'org.hibernate'; version = '3.0.0.beta';
-    }
-}
 </pre>
 
 ## Module archives and module repositories
@@ -128,9 +128,7 @@ module at the command line.
 One of the nice advantages of this architecture is that it's possible to run a 
 module "straight off the internet", just by typing, for example:
 
-<pre>
-ceylon org.jboss.ceylon.demo -rep http://jboss.org/ceylon/modules
-</pre>
+    ceylon org.jboss.ceylon.demo -rep http://jboss.org/ceylon/modules
 
 And all required dependencies get automatically downloaded as needed.
 

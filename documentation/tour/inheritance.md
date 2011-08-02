@@ -16,18 +16,18 @@ folks, this is what makes a program object-oriented. Let's try refactoring the
 of greeting:
 
 <pre class="brush: ceylon">
-doc "A default greeting"
-class DefaultHello() {
- 
-    doc "The greeting"
-    shared default String greeting = "Hello, World!";
+    doc "A default greeting"
+    class DefaultHello() {
      
-    doc "Print the greeting"
-    shared void say(OutputStream stream) {
-        stream.writeLine(greeting);
+        doc "The greeting"
+        shared default String greeting = "Hello, World!";
+         
+        doc "Print the greeting"
+        shared void say(OutputStream stream) {
+            stream.writeLine(greeting);
+        }
+         
     }
-     
-}
 </pre>
 
 Notice that Ceylon forces us to declare attributes or methods that can be 
@@ -39,16 +39,16 @@ the superclass initializer parameters. It looks just like an expression that
 instantiates the superclass:
 
 <pre class="brush: ceylon">
-doc "A personalized greeting"
-class PersonalizedHello(String name)
-        extends DefaultHello() {
+    doc "A personalized greeting"
+    class PersonalizedHello(String name)
+            extends DefaultHello() {
+         
+        doc "The personalized greeting"
+        shared actual String greeting {
+            return "Hello, " name "!";
+        }
      
-    doc "The personalized greeting"
-    shared actual String greeting {
-        return "Hello, " name "!";
     }
- 
-}
 </pre>
 
 Ceylon also forces us to declare that an attribute or method refines 
@@ -70,18 +70,18 @@ not really a kind of default greeting. This is a case for introducing an
 abstract superclass:
 
 <pre class="brush: ceylon">
-doc "A greeting"
-abstract class Hello() {
-     
-    doc "The (abstract) greeting"
-    shared formal String greeting;
-     
-    doc "Print the greeting"
-    shared void say(OutputStream stream) {
-        stream.writeLine(greeting);
+    doc "A greeting"
+    abstract class Hello() {
+         
+        doc "The (abstract) greeting"
+        shared formal String greeting;
+         
+        doc "Print the greeting"
+        shared void say(OutputStream stream) {
+            stream.writeLine(greeting);
+        }
+         
     }
-     
-}
 </pre>
 
 Ceylon requires us to annotate abstract classes `abstract`, just like Java. 
@@ -102,26 +102,26 @@ One way to define an implementation for an inherited abstract attribute is to
 simply assign a value to it in the subclass.
 
 <pre class="brush: ceylon">
-doc "A default greeting"
-class DefaultHello() extends Hello() {
-    greeting = "Hello, World!";
-}
+    doc "A default greeting"
+    class DefaultHello() extends Hello() {
+        greeting = "Hello, World!";
+    }
 </pre>
 
 Of course, we can also define an implementation for an inherited abstract 
 attribute by refining it.
 
 <pre class="brush: ceylon">
-doc "A personalized greeting"
-class PersonalizedHello(String name)
-        extends Hello() {
-     
-    doc "The personalized greeting"
-    shared actual String greeting {
-        return "Hello, " name "!";
+    doc "A personalized greeting"
+    class PersonalizedHello(String name)
+            extends Hello() {
+         
+        doc "The personalized greeting"
+        shared actual String greeting {
+            return "Hello, " name "!";
+        }
+         
     }
-     
-}
 </pre>
 
 Note that there's no way to prevent a other code from extending a class in 
@@ -149,22 +149,22 @@ Let's take advantage of mixin inheritance to define a reusable `Writer`
 interface for Ceylon.
 
 <pre class="brush: ceylon">
-shared interface Writer {
- 
-    shared formal Formatter formatter;
+    shared interface Writer {
      
-    shared formal void write(String string);
-     
-    shared void writeLine(String string) {
-        write(string);
-        write(process.newLine);
+        shared formal Formatter formatter;
+         
+        shared formal void write(String string);
+         
+        shared void writeLine(String string) {
+            write(string);
+            write(process.newLine);
+        }
+         
+        shared void writeFormattedLine(String formatString, Object... args) {
+            writeLine( formatter.format(formatString, args) );
+        }
+         
     }
-     
-    shared void writeFormattedLine(String formatString, Object... args) {
-        writeLine( formatter.format(formatString, args) );
-    }
-     
-}
 </pre>
 
 Note that we can't define a concrete value for the `formatter` attribute, 
@@ -178,16 +178,16 @@ same name.
 Now let's define a concrete implementation of this interface.
 
 <pre class="brush: ceylon">
-shared class ConsoleWriter()
-        satisfies Writer {
-     
-    formatter = StringFormatter();
-     
-    shared actual void write(String string) {
-        writeLine(string);
+    shared class ConsoleWriter()
+            satisfies Writer {
+         
+        formatter = StringFormatter();
+         
+        shared actual void write(String string) {
+            writeLine(string);
+        }
+         
     }
-     
-}
 </pre>
 
 The `satisfies` keyword is used to specify that an interface extends 
@@ -212,84 +212,84 @@ supertype, and the inheriting type itself also refines the member to eliminate
 any ambiguity. The following results in a compilation error:
 
 <pre class="brush: ceylon">
-interface Party {
-    shared formal String legalName;
-    shared default String name {
-        return legalName;
+    interface Party {
+        shared formal String legalName;
+        shared default String name {
+            return legalName;
+        }
     }
-}
- 
-interface User {
-    shared formal String userId;
-    shared default String name {
-        return userId;
+     
+    interface User {
+        shared formal String userId;
+        shared default String name {
+            return userId;
+        }
     }
-}
- 
-class Customer(String name, String email)
-        satisfies User & Party {
-    legalName = name;
-    userId = email;
-    shared actual String name = name;    //error: refines two different members
-}
+     
+    class Customer(String name, String email)
+            satisfies User & Party {
+        legalName = name;
+        userId = email;
+        shared actual String name = name;    //error: refines two different members
+    }
 </pre>
 
 To fix this code, we'll factor out a `formal` declaration of the attribute 
 `name` to a common supertype. The following is legal:
 
 <pre class="brush: ceylon">
-interface Named {
-    shared formal String name;
-}
- 
-interface Party satisfies Named {
-    shared formal String legalName;
-    shared actual default String name {
-        return legalName;
+    interface Named {
+        shared formal String name;
     }
-}
- 
-interface User satisfies Named {
-    shared formal String userId;
-    shared actual default String name {
-        return userId;
+     
+    interface Party satisfies Named {
+        shared formal String legalName;
+        shared actual default String name {
+            return legalName;
+        }
     }
-}
- 
-class Customer(String name, String email)
-        satisfies User & Party {
-    legalName = name;
-    userId = email;
-    shared actual String name = name;
-}
+     
+    interface User satisfies Named {
+        shared formal String userId;
+        shared actual default String name {
+            return userId;
+        }
+    }
+     
+    class Customer(String name, String email)
+            satisfies User & Party {
+        legalName = name;
+        userId = email;
+        shared actual String name = name;
+    }
 </pre>
 
 Oh, of course, the following is illegal:
 
 <pre class="brush: ceylon">
-interface Named {
-    shared formal String name;
-}
- 
-interface Party satisfies Named {
-    shared formal String legalName;
-    shared actual String name {
-        return legalName;
+    interface Named {
+        shared formal String name;
     }
-}
- 
-interface User satisfies Named {
-    shared formal String userId;
-    shared actual String name {
-        return userId;
+     
+    interface Party satisfies Named {
+        shared formal String legalName;
+        shared actual String name {
+            return legalName;
+        }
     }
-}
- 
-class Customer(String name, String email)
-        satisfies User & Party {    //error: inherits multiple definitions of name
-    legalName = name;
-    userId = email;
-}
+     
+    interface User satisfies Named {
+        shared formal String userId;
+        shared actual String name {
+            return userId;
+        }
+    }
+     
+    class Customer(String name, String email)
+            satisfies User & Party {    //error: inherits multiple definitions of name
+        legalName = name;
+        userId = email;
+    }
 </pre>
 
 To fix this code, `name` must be declared `default` in both `User` and `Party` 
@@ -314,21 +314,21 @@ we have not yet either implemented introductions or written the collections
 module, but it will soon!
 
 <pre class="brush: ceylon">
-doc "Decorator that introduces List to Sequence."
-see (List,Sequence)
-shared interface SequenceList<Element>
-        adapts Sequence<Element>
-        satisfies List<Element> {
-     
-    shared actual default List<Element> sortedElements() {
-        //define the operation of List in
-        //terms of operations on Sequence
-        return asList(sortSequence(this));
+    doc "Decorator that introduces List to Sequence."
+    see (List,Sequence)
+    shared interface SequenceList<Element>
+            adapts Sequence<Element>
+            satisfies List<Element> {
+         
+        shared actual default List<Element> sortedElements() {
+            //define the operation of List in
+            //terms of operations on Sequence
+            return asList(sortSequence(this));
+        }
+         
+        ...
+         
     }
-     
-    ...
-     
-}
 </pre>
 
 The `adapts` clause makes `SequenceList` a special kind of interface called an 
@@ -353,15 +353,15 @@ Now, to introduce `List` to `Sequence` in a certain compilation unit, all we
 need to do is `import` the adapter:
 
 <pre class="brush: ceylon">
-import ceylon.collection { List, SequenceList }
- 
-...
- 
-//define a Sequence
-Sequence<String> names = { "Gavin", "Emmanuel", "Andrew", "Ales" };
- 
-//call an operation of List on Sequence
-List<String> sortedNames = names.sortedElements();
+    import ceylon.collection { List, SequenceList }
+     
+    ...
+     
+    //define a Sequence
+    Sequence<String> names = { "Gavin", "Emmanuel", "Andrew", "Ales" };
+     
+    //call an operation of List on Sequence
+    List<String> sortedNames = names.sortedElements();
 </pre>
 
 Note that the introduction is not visible outside the lexical scope of the 
@@ -406,22 +406,22 @@ without actually introducing a new supertype. Indeed, a Ceylon adapter with
 no `satisfies` clause is actually a package of extension methods!
 
 <pre class="brush: ceylon">
-shared interface StringSequenceExtensions
-        adapts Sequence<String> {
-     
-    shared String concatenated {
-        variable String concat = "";
-        for (String s in this) {
-            concat+=s;
+    shared interface StringSequenceExtensions
+            adapts Sequence<String> {
+         
+        shared String concatenated {
+            variable String concat = "";
+            for (String s in this) {
+                concat+=s;
+            }
+            return concat;
         }
-        return concat;
+         
+        shared String join(String separator=", ") {
+            ...
+        }
+         
     }
-     
-    shared String join(String separator=", ") {
-        ...
-    }
-     
-}
 </pre>
 
 On the other hand, introductions are less powerful than implicit type 
@@ -464,13 +464,13 @@ class or interface type, especially if the class or interface is a
 parameterized type. For this, we use a *type alias*, for example:
 
 <pre class="brush: ceylon">
-interface People = Set<Person>;
+    interface People = Set<Person>;
 </pre>
 
 A class alias must declare its formal parameters:
 
 <pre class="brush: ceylon">
-shared class People(Person... people) = ArrayList<Person>;
+    shared class People(Person... people) = ArrayList<Person>;
 </pre>
 
 
@@ -484,20 +484,21 @@ considered a member of the containing type. For example, `BufferedReader`
 defines the member class `Buffer`:
 
 <pre class="brush: ceylon">
-class BufferedReader(Reader reader)
-        satisfies Reader {
-    shared default class Buffer()
-            satisfies List<Character> { ... }
-    ...
-}
+    class BufferedReader(Reader reader)
+            satisfies Reader {
+        shared default class Buffer()
+                satisfies List<Character> { ... }
+        ...
+        
+    }
 </pre>
 
 The member class `Buffer` is annotated shared, so we can instantiate it like 
 this:
 
 <pre class="brush: ceylon">
-BufferedReader br = BufferedReader(reader);
-BufferedReader.Buffer b = br.Buffer();
+    BufferedReader br = BufferedReader(reader);
+    BufferedReader.Buffer b = br.Buffer();
 </pre>
 
 Note that a nested type name must be qualified by the containing type name 
@@ -507,11 +508,12 @@ The member class `Buffer` is also annotated `default`, so we can refine it
 in a subtype of `BufferedReader`:
 
 <pre class="brush: ceylon">
-shared class BufferedFileReader(File file)
-        extends BufferedReader(FileReader(file)) {
-    shared actual class Buffer()
-            extends super.Buffer() { ... }
-}
+    shared class BufferedFileReader(File file)
+            extends BufferedReader(FileReader(file)) {
+        shared actual class Buffer()
+                extends super.Buffer() { ... }
+                
+    }
 </pre>
 
 That's right: Ceylon lets us "override" a member class defined by a supertype!
@@ -529,28 +531,30 @@ It's even possible to define a `formal` member class of an `abstract` class.
 A `formal` member class can declare `formal` members.
 
 <pre class="brush: ceylon">
-abstract class BufferedReader(Reader reader)
-        satisfies Reader {
-    shared formal class Buffer() {
-        shared formal Byte read();
+    abstract class BufferedReader(Reader reader)
+            satisfies Reader {
+        shared formal class Buffer() {
+            shared formal Byte read();
+        }
+        
+        ...
+        
     }
-    ...
-}
 </pre>
 
 In this case, a concrete subclass of the `abstract` class must refine the 
 `formal` member class.
 
 <pre class="brush: ceylon">
-shared class BufferedFileReader(File file)
-        extends BufferedReader(FileReader(file)) {
-    shared actual class Buffer()
-             extends super.Buffer() {
-         shared actual Byte read() {
-             ...
-         }
+    shared class BufferedFileReader(File file)
+            extends BufferedReader(FileReader(file)) {
+        shared actual class Buffer()
+                 extends super.Buffer() {
+             shared actual Byte read() {
+                 ...
+             }
+        }
     }
-}
 </pre>
 
 Notice the difference between an `abstract` class and a `formal` member class. 
@@ -575,19 +579,19 @@ any actual name for the class itself. This is usually most useful when we're
 extending an `abstract` class or implementing an interface.
 
 <pre class="brush: ceylon">
-doc "A default greeting"
-object defaultHello extends Hello() {
-    greeting = "Hello, World!";
-}
-shared object consoleWriter satisfies Writer {
-             
-    formatter = StringFormatter();
-     
-    shared actual void write(String string) {
-        writeLine(string);
+    doc "A default greeting"
+    object defaultHello extends Hello() {
+        greeting = "Hello, World!";
     }
-     
-}
+    shared object consoleWriter satisfies Writer {
+                 
+        formatter = StringFormatter();
+         
+        shared actual void write(String string) {
+            writeLine(string);
+        }
+         
+    }
 </pre>
 
 The downside to an `object` declaration is that we can't write code that 
@@ -606,18 +610,18 @@ but that's not quite right:
 Let's see how this can be useful:
 
 <pre class="brush: ceylon">
-interface Subscription {
-    shared formal void cancel();
-}
-shared Subscription register(Subscriber s) {
-    subscribers.append(s);
-    object subscription satisfies Subscription {
-        shared actual void cancel() {
-            subscribers.remove(s);
-        }
+    interface Subscription {
+        shared formal void cancel();
     }
-    return subscription;
-}
+    shared Subscription register(Subscriber s) {
+        subscribers.append(s);
+        object subscription satisfies Subscription {
+            shared actual void cancel() {
+                subscribers.remove(s);
+            }
+        }
+        return subscription;
+    }
 </pre>
 
 Notice how this code example makes clever use of the fact that the nested 
@@ -633,15 +637,15 @@ think of a method as a parametrized attribute.
 An `object` declaration can refine an attribute declared `formal` or `default`.
 
 <pre class="brush: ceylon">
-shared abstract class App() {
-    shared formal OutputStream stream;
-    ...
-}
-class ConsoleApp() extends App() {
-    shared actual object stream
-            satisfies OutputStream { ... }
-    ...
-}
+    shared abstract class App() {
+        shared formal OutputStream stream;
+        ...
+    }
+    class ConsoleApp() extends App() {
+        shared actual object stream
+                satisfies OutputStream { ... }
+        ...
+    }
 </pre>
 
 However, an `object` may not itself be declared `formal` or `default`.

@@ -77,10 +77,10 @@ option. We can completely eliminate the punctuation, and just list the
 literal values.
 
 <pre class="brush: ceylon">
-doc "The Hello World program"
-by "Gavin"
-   "Stephane"
-   "Emmanuel"
+    doc "The Hello World program"
+    by "Gavin"
+       "Stephane"
+       "Emmanuel"
 </pre>
 
 As a special case of this, if the annotation has no arguments, we can just 

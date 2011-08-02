@@ -17,25 +17,26 @@ happens to be captured by some `shared` declaration.
 Here, `count` is a local variable of the initializer of `Counter`:
 
 <pre class="brush: ceylon">
-class Counter() {
-    variable Natural count := 0;
-}
+    class Counter() {
+        variable Natural count := 0;
+    }
 </pre>
 
 But in the following two examples, `count` is an attribute:
 
 <pre class="brush: ceylon">
-class Counter() {
-    shared variable Natural count := 0;
-}
-</pre>
-<pre class="brush: ceylon">
-class Counter() {
-    variable Natural count := 0;
-    shared Natural inc() {
-        return ++count;
+    class Counter() {
+        shared variable Natural count := 0;
     }
-}
+</pre>
+
+<pre class="brush: ceylon">
+    class Counter() {
+        variable Natural count := 0;
+        shared Natural inc() {
+            return ++count;
+        }
+    }
 </pre>
 
 This might seem a bit strange at first, but it's really just how closure works. 
@@ -43,18 +44,18 @@ The same behavior applies to locals inside a method. Methods can't declare
 `shared` members, but they can return an `object` that captures a local:
 
 <pre class="brush: ceylon">
-interface Counter {
-    shared formal Natural inc();
-}
-Counter createCounter() {
-    variable Natural count := 0;
-    object counter satisfies Counter {
-        shared actual Natural inc() {
-            return ++count;
-        }
+    interface Counter {
+        shared formal Natural inc();
     }
-    return counter;
-}
+    Counter createCounter() {
+        variable Natural count := 0;
+        object counter satisfies Counter {
+            shared actual Natural inc() {
+                return ++count;
+            }
+        }
+        return counter;
+    }
 </pre>
 
 Even though we'll continue to use the words "local" and "attribute", keep in 
@@ -70,18 +71,18 @@ An immutable attribute has its value specified when the object is
 initialized, and is never reassigned.
 
 <pre class="brush: ceylon">
-class Reference&lt;Value>(Value x) {
-    shared Value value = x;
-}
+    class Reference&lt;Value>(Value x) {
+        shared Value value = x;
+    }
 </pre>
 
 If we want to be able to assign a value to a simple attribute or local 
 we need to annotate it `variable`:
 
 <pre class="brush: ceylon">
-class Reference&lt;Value>(Value x) {
-    shared variable Value value := x;
-}
+    class Reference&lt;Value>(Value x) {
+        shared variable Value value := x;
+    }
 </pre>
 
 Notice the use of `:=` instead of `=` here. This is important! In Ceylon, 
@@ -94,9 +95,9 @@ expression. It's just a punctuation character. The following code is not
 only wrong, but even fails to parse:
 
 <pre class="brush: ceylon">
-if (x=true) {   //compile error
-    ...
-}
+    if (x=true) {   //compile error
+        ...
+    }
 </pre>
 
 ## Setters
@@ -109,8 +110,8 @@ Suppose our class has the following simple attributes, intended for internal
 consumption only, so un-shared:
 
 <pre class="brush: ceylon">
-variable String? firstName := null;
-variable String? lastName := null;
+    variable String? firstName := null;
+    variable String? lastName := null;
 </pre>
 
 (Remember, Ceylon never automatically initializes attributes to null.)
@@ -118,15 +119,15 @@ variable String? lastName := null;
 Then we can abstract the simple attribute using a second attribute defined as a getter/setter pair:
 
 <pre class="brush: ceylon">
-shared String fullName {
-    return " ".join(coalesce(firstName,lastName));
-}
- 
-shared assign fullName {
-    Iterator&lt;String> tokens = fullName.tokens();
-    firstName := tokens.head;
-    lastName := tokens.rest.head;
-}
+    shared String fullName {
+        return " ".join(coalesce(firstName,lastName));
+    }
+     
+    shared assign fullName {
+        Iterator&lt;String> tokens = fullName.tokens();
+        firstName := tokens.head;
+        lastName := tokens.rest.head;
+    }
 </pre>
 
 A setter is identified by the keyword `assign` in place of a type declaration. 
@@ -147,37 +148,37 @@ additional commentary. However, one thing to be aware of is that Ceylon doesn't
 allow you to omit the braces in a control structure. The following doesn't parse:
 
 <pre class="brush: ceylon">
-if (x>100) bigNumber();
+    if (x>100) bigNumber();
 </pre>
 
 You are required to write:
 
 <pre class="brush: ceylon">
-if (x>100) { bigNumber(); }
+    if (x>100) { bigNumber(); }
 </pre>
 
 OK, so here's the examples. The `if/else` statement is totally traditional:
 
 <pre class="brush: ceylon">
-if (x>100)) {
-    bigNumber(x);
-}
-else if (x>1000) {
-    reallyBigNumber(x);
-}
-else {
-    littleNumber();
-}
+    if (x>100)) {
+        bigNumber(x);
+    }
+    else if (x>1000) {
+        reallyBigNumber(x);
+    }
+    else {
+        littleNumber();
+    }
 </pre>
 
 The `switch/case` statement eliminates C's much-criticized "fall through" 
 behavior and irregular syntax:
 
 <pre class="brush: ceylon">
-switch (x&lt;=>100)
-case (smaller) { littleNumber(); }
-case (equal) { oneHundred(); }
-case (larger) { bigNumber(); }
+    switch (x&lt;=>100)
+    case (smaller) { littleNumber(); }
+    case (equal) { oneHundred(); }
+    case (larger) { bigNumber(); }
 </pre>
 
 The `for` loop has an optional `else` block, which is executed when the 
@@ -185,26 +186,26 @@ loop completes normally, rather than via a `return` or `break` statement.
 There is no C-style `for`.
 
 <pre class="brush: ceylon">
-Boolean minors;
-for (Person p in people) {
-    if (p.age&lt;18) {
-        minors = true;
-        break;
+    Boolean minors;
+    for (Person p in people) {
+        if (p.age&lt;18) {
+            minors = true;
+            break;
+        }
     }
-}
-else {
-    minors = false;
-}
+    else {
+        minors = false;
+    }
 </pre>
 
 The `while` loop is traditional.
 
 <pre class="brush: ceylon">
-variable local it = names.iterator();
-while (exists String name = it.head) {
-    writeLine(name);
-    it:=it.tail;
-}
+    variable local it = names.iterator();
+    while (exists String name = it.head) {
+        writeLine(name);
+        it:=it.tail;
+    }
 </pre>
 
 There is no `do/while` statement.
@@ -212,22 +213,22 @@ There is no `do/while` statement.
 The `try/catch/finally` statement works like Java's:
 
 <pre class="brush: ceylon">
-try {
-    message.send();
-}
-catch (ConnectionException|MessageException e) {
-    tx.setRollbackOnly();
-}
+    try {
+        message.send();
+    }
+    catch (ConnectionException|MessageException e) {
+        tx.setRollbackOnly();
+    }
 </pre>
 
 And `try` supports a "resource" expression similar to Java 7.
 
 <pre class="brush: ceylon">
-try (Transaction()) {
-    try (Session s = Session()) {
-        s.persist(person);
+    try (Transaction()) {
+        try (Session s = Session()) {
+            s.persist(person);
+        }
     }
-}
 </pre>
 
 ## Sequenced parameters
@@ -237,18 +238,18 @@ There may be only one sequenced parameter for a method or class, and it must
 be the last parameter.
 
 <pre class="brush: ceylon">
-void print(String... strings) { ... }
+    void print(String... strings) { ... }
 </pre>
 
 Inside the method body, the parameter strings has type `String[]`.
 
 <pre class="brush: ceylon">
-void print(String... strings) {
-    for (String string in strings) {
-        write(string);
+    void print(String... strings) {
+        for (String string in strings) {
+            write(string);
+        }
+        writeLine();
     }
-    writeLine();
-}
 </pre>
 
 A slightly more sophisticated example is the `coalesce()` method we saw above. 
@@ -256,7 +257,7 @@ A slightly more sophisticated example is the `coalesce()` method we saw above.
 type `X`. Its signature is:
 
 <pre class="brush: ceylon">
-shared Value[] coalesce&lt;Value>(Value?... sequence) { ... }
+    shared Value[] coalesce&lt;Value>(Value?... sequence) { ... }
 </pre>
 
 Sequenced parameters turn out to be especially interesting when used in 
@@ -280,25 +281,25 @@ The syntax of the `import` statement is slightly different to Java.
 To import a program element, we write:
 
 <pre class="brush: ceylon">
-import org.jboss.hello { Hello }
+    import org.jboss.hello { Hello }
 </pre>
 
 To import several program elements from the same package, we write:
 
 <pre class="brush: ceylon">
-import org.jboss.hello { Hello, defaultHello, PersonalizedHello }
+    import org.jboss.hello { Hello, defaultHello, PersonalizedHello }
 </pre>
 
 To import all toplevel program elements of a package, we write:
 
 <pre class="brush: ceylon">
-import org.jboss.hello { ... }
+    import org.jboss.hello { ... }
 </pre>
 
 To resolve a name conflict, we can rename an imported declaration:
 
 <pre class="brush: ceylon">
-import org.jboss.hello { local Hi = Hello, ... }
+    import org.jboss.hello { local Hi = Hello, ... }
 </pre>
 
 We think renaming is a much cleaner solution than the use of qualified names.

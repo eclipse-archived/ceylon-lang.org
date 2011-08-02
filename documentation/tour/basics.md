@@ -14,9 +14,9 @@ Let's start!
 Here's a classic example program.
 
 <pre class="brush: ceylon">
-void hello() {
-    writeLine("Hello, World!");
-}
+    void hello() {
+        writeLine("Hello, World!");
+    }
 </pre>
 
 This method prints `Hello, World!` on the console. A toplevel method like this 
@@ -25,7 +25,7 @@ it, it's not a member of any specific type. You don't need a receiving object
 to invoke a toplevel method. Instead, you can just call it like this:
 
 <pre class="brush: ceylon">
-hello();
+    hello();
 </pre>
 
 Ceylon doesn't have Java-style `static` methods, but you can think of 
@@ -40,19 +40,19 @@ methods like `hello()`. One way we could do this is by using a C-style
 comment, either like this:
 
 <pre class="brush: ceylon">
-/* The classic Hello World program */
-void hello() {
-    writeLine("Hello, World!");
-}
+    /* The classic Hello World program */
+    void hello() {
+        writeLine("Hello, World!");
+    }
 </pre>
 
 Or like this:
 
 <pre class="brush: ceylon">
-//The classic Hello World program
-void hello() {
-    writeLine("Hello, World!");
-}
+    //The classic Hello World program
+    void hello() {
+        writeLine("Hello, World!");
+    }
 </pre>
 
 But it's much better to use the `doc` annotation for comments that describe 
@@ -83,12 +83,12 @@ definition: `abstract`, `variable`, `shared`, `formal`, `actual` etc.
 Let's ask our program to tell us a little more about itself.
 
 <pre class="brush: ceylon">
-doc "The Hello World program
-     ... version 1.1!"
-void hello() {
-    writeLine("Hello, this is Ceylon " process.languageVersion
-              " running on Java " process.javaVersion "!");
-}
+    doc "The Hello World program
+         ... version 1.1!"
+    void hello() {
+        writeLine("Hello, this is Ceylon " process.languageVersion
+                  " running on Java " process.javaVersion "!");
+    }
 </pre>
 
 As you can see, we can split a string across multiple lines. That's especially 
@@ -99,21 +99,21 @@ A string template must begin and end in a string literal. The following is
 not legal syntax:
 
 <pre class="brush: ceylon">
-writeLine("Hello, this is Ceylon " process.languageVersion); //compile error!
+    writeLine("Hello, this is Ceylon " process.languageVersion); //compile error!
 </pre>
 
 Whereas this one is
 
 <pre class="brush: ceylon">
-writeLine("Hello, this is Ceylon " process.languageVersion "");
+    writeLine("Hello, this is Ceylon " process.languageVersion "");
 </pre>
 
 The `+` operator you're probably used to is an alternative, and more 
 flexible in many cases:
 
 <pre class="brush: ceylon">
-writeLine("Hello, this is Ceylon " + process.languageVersion +
-          " running on Java " + process.javaVersion + "!");
+    writeLine("Hello, this is Ceylon " + process.languageVersion +
+              " running on Java " + process.javaVersion + "!");
 </pre>
 
 ## Dealing with objects that aren't there
@@ -124,18 +124,18 @@ opportunity to explore how `null` values are treated in Ceylon, which is
 quite different to what you're probably used to in Java or C#.
 
 <pre class="brush: ceylon">
-doc "Print a personalized greeting"
-void hello() {
-    String? name = process.arguments.first;
-    String greeting;
-    if (exists name) {
-        greeting = "Hello, " name "!";
+    doc "Print a personalized greeting"
+    void hello() {
+        String? name = process.arguments.first;
+        String greeting;
+        if (exists name) {
+            greeting = "Hello, " name "!";
+        }
+        else {
+            greeting = "Hello, World!";
+        }
+        writeLine(greeting);
     }
-    else {
-        greeting = "Hello, World!";
-    }
-    writeLine(greeting);
-}
 </pre>
 
 `String?` indicates that name may contain a `null` value. We then use 
@@ -160,14 +160,14 @@ evaluates to true if `x` and `y` both evaluate to `null`.
 It's possible to declare the local name inside the `if (exists ... )` condition:
 
 <pre class="brush: ceylon">
-String greeting;
-if (exists String name = process.arguments.first) {
-    greeting = "Hello, " name "!";
-}
-else {
-    greeting = "Hello, World!";
-}
-writeLine(greeting);
+    String greeting;
+    if (exists String name = process.arguments.first) {
+        greeting = "Hello, " name "!";
+    }
+    else {
+        greeting = "Hello, World!";
+    }
+    writeLine(greeting);
 </pre>
 
 This is the preferred style most of the time, since we can't actually use 
@@ -179,7 +179,7 @@ There are a couple of operators that will make you life easier when dealing
 with `null` values.
 
 <pre class="brush: ceylon">
-shared String greeting = "Hello, " + name?"World";
+    shared String greeting = "Hello, " + name?"World";
 </pre>
 
 The `?` operator returns its first argument if the first argument is not 
@@ -190,7 +190,7 @@ The related `?.` operator lets us call operations on optional
 types and provide an alternative value if the type is `null`.
 
 <pre class="brush: ceylon">
-shared String shoutedGreeting = "HELLO, " + name?.uppercase?"WORLD";
+    shared String shoutedGreeting = "HELLO, " + name?.uppercase?"WORLD";
 </pre>
 
 ## Defaulted parameters
@@ -198,17 +198,17 @@ shared String shoutedGreeting = "HELLO, " + name?.uppercase?"WORLD";
 A method parameter may specify a default value.
 
 <pre class="brush: ceylon">
-void hello(String name="World") {
-    writeLine("Hello, " name "!");
-}
+    void hello(String name="World") {
+        writeLine("Hello, " name "!");
+    }
 </pre>
 
 Then we don't need to specify an argument to the parameter when we call 
 the method:
 
 <pre class="brush: ceylon">
-hello(); //Hello, World!
-hello("JBoss"); //Hello, JBoss!
+    hello(); //Hello, World!
+    hello("JBoss"); //Hello, JBoss!
 </pre>
 
 Defaulted parameters must be declared after all required parameters in the 

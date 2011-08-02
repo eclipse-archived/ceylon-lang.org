@@ -16,37 +16,37 @@ referred to in the language specification, other declarations *they* refer to,
 Just like Java, Ceylon has a class named `Object`.
 
 <pre class="brush: ceylon">
-shared abstract class Object()
-        extends Void() {
+    shared abstract class Object()
+            extends Void() {
+             
+        doc "A developer-friendly string representing the instance."
+        shared formal String string;
          
-    doc "A developer-friendly string representing the instance."
-    shared formal String string;
-     
-    doc "Determine if this object belongs to the given Category
-         or is produced by the iterator of the given Iterable
-         object."
-    shared Boolean element(Category|Iterable&lt;Equality> category) {
-        switch (category)
-        case (is Category) {
-            return category.contains(this);
-        }
-        case (is Iterable&lt;Equality>) {
-            if (is Equality self = this) {
-                for (Equality x in category) {
-                    if (x==self) {
-                        return true;
+        doc "Determine if this object belongs to the given Category
+             or is produced by the iterator of the given Iterable
+             object."
+        shared Boolean element(Category|Iterable&lt;Equality> category) {
+            switch (category)
+            case (is Category) {
+                return category.contains(this);
+            }
+            case (is Iterable&lt;Equality>) {
+                if (is Equality self = this) {
+                    for (Equality x in category) {
+                        if (x==self) {
+                            return true;
+                        }
+                    }
+                    fail {
+                        return false;
                     }
                 }
-                fail {
+                else {
                     return false;
                 }
             }
-            else {
-                return false;
-            }
         }
     }
-}
 </pre>
 
 In Ceylon, `Object` *isn't* the root of the type system. An expression of 
@@ -88,28 +88,28 @@ you write will be subclasses of `IdentifiableObject`. All classes with
 variable attributes must extend `IdentifiableObject`.
 
 <pre class="brush: ceylon">
-shared abstract class IdentifiableObject()
-        extends Object()
-        satisfies Equality {
- 
-    shared default actual Boolean equals(Equality that) {
-        if (is IdentifiableObject that) {
-            return this===that;
-        }
-        else {
-            return false;
-        }
-    }
+    shared abstract class IdentifiableObject()
+            extends Object()
+            satisfies Equality {
      
-    shared default actual Integer hash {
-        return identityHash(this);
-    }
-     
-    shared default actual String string {
-        ...
-    }
+        shared default actual Boolean equals(Equality that) {
+            if (is IdentifiableObject that) {
+                return this===that;
+            }
+            else {
+                return false;
+            }
+        }
          
-}
+        shared default actual Integer hash {
+            return identityHash(this);
+        }
+         
+        shared default actual String string {
+            ...
+        }
+             
+    }
 </pre>
 
 `IdentifiableObject` defines a default implementation of the interface 
@@ -117,13 +117,13 @@ shared abstract class IdentifiableObject()
 defined by `java.lang.Object`.
 
 <pre class="brush: ceylon">
-shared interface Equality {
-     
-    shared formal Boolean equals(Equality that);
-     
-    shared formal Integer hash;
-     
-}
+    shared interface Equality {
+         
+        shared formal Boolean equals(Equality that);
+         
+        shared formal Integer hash;
+         
+    }
 </pre>
 
 Just like in Java, you can refine this default implementation in your own 
@@ -341,27 +341,27 @@ should be the union of all types to which the implementing type is castable.
 For example, simplifying slightly the definitions in the language module:
 
 <pre class="brush: ceylon">
-shared class Natural(...)
-        extends Object()
-        satisfies Castable&lt;Natural|Integer|Float|Whole|Decimal> &
-                  Numeric&lt;Natural> &
-                  Invertable&lt;Integer> {
-    ...
-}
-shared class Integer(...)
-        extends Object()
-        satisfies Castable&lt;Integer|Float|Whole|Decimal> &
-                  Numeric&lt;Integer> &
-                  Invertable&lt;Integer> {
-    ...
-}
-shared class Float(...)
-        extends Object()
-        satisfies Castable&lt;Float|Decimal> &
-                  Numeric&lt;Float> &
-                  Invertable&lt;Float> {
-    ...
-}
+    shared class Natural(...)
+            extends Object()
+            satisfies Castable&lt;Natural|Integer|Float|Whole|Decimal> &
+                      Numeric&lt;Natural> &
+                      Invertable&lt;Integer> {
+        ...
+    }
+    shared class Integer(...)
+            extends Object()
+            satisfies Castable&lt;Integer|Float|Whole|Decimal> &
+                      Numeric&lt;Integer> &
+                      Invertable&lt;Integer> {
+        ...
+    }
+    shared class Float(...)
+            extends Object()
+            satisfies Castable&lt;Float|Decimal> &
+                      Numeric&lt;Float> &
+                      Invertable&lt;Float> {
+        ...
+    }
 </pre>
 
 These declarations tell us that `Integer` can be widened to `Float`, `Whole`, 
@@ -372,12 +372,12 @@ Therefore, the definition of a numeric operator like `*` can be represented,
 completely within the type system, in terms of `Numeric` and `Castable`:
 
 <pre class="brush: ceylon">
-Result product&lt;Left,Right,Result>(Left x, Right y)
-        given Result of Left|Right satisfies Numeric&lt;Result>
-        given Left satisfies Castable&lt;Result> & Numeric&lt;Left>
-        given Right satisfies Castable&lt;Result> & Numeric&lt;Right> {
-    return x.as&lt;Result>().times(y.as&lt;Result>());
-}
+    Result product&lt;Left,Right,Result>(Left x, Right y)
+            given Result of Left|Right satisfies Numeric&lt;Result>
+            given Left satisfies Castable&lt;Result> & Numeric&lt;Left>
+            given Right satisfies Castable&lt;Result> & Numeric&lt;Right> {
+        return x.as&lt;Result>().times(y.as&lt;Result>());
+    }
 </pre>
 
 Don't worry too much about the performance implications of all this — 
@@ -396,4 +396,5 @@ along with a discussion of their precedence.
 
 Next we're going to come back to the subject of [object 
 initialization](../initialization), and deal with a subtle problem affecting 
-languages like Java and C#. 
+languages like Java and C#.
+

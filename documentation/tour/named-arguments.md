@@ -35,11 +35,11 @@ invocation protocol that is usually easier to read when there are more than
 one or two arguments:
 
 <pre class="brush: ceylon">
-printf {
-    to = process;
-    format = "Thanks, %s. You have been charged %.2f. Your confirmation number is %d.";
-    user.name, order.total, order.confimationNumber
-};
+    printf {
+        to = process;
+        format = "Thanks, %s. You have been charged %.2f. Your confirmation number is %d.";
+        user.name, order.total, order.confimationNumber
+    };
 </pre>
 
 This invocation protocol is called a *named argument list*. We can recognize a 
@@ -52,11 +52,11 @@ acceptable to call this method like this, passing a sequence to the named
 value parameter:
 
 <pre class="brush: ceylon">
-printf {
-    to = process;
-    format = "Thanks, %s. You have been charged %.2f. Your confirmation number is %d.";
-    values = { user.name, order.total, order.confimationNumber };
-};
+    printf {
+        to = process;
+        format = "Thanks, %s. You have been charged %.2f. Your confirmation number is %d.";
+        values = { user.name, order.total, order.confimationNumber };
+    };
 </pre>
 
 We usually format named argument invocations across multiple lines.
@@ -71,53 +71,53 @@ an object by specifying named arguments to the class initializer.
 We're allowed to abbreviate an attribute definition of the following form:
 
 <pre class="brush: ceylon">
-Payment payment = Payment {
-    method = user.paymentMethod;
-    currency = order.currency;
-    amount = order.total;
-};
+    Payment payment = Payment {
+        method = user.paymentMethod;
+        currency = order.currency;
+        amount = order.total;
+    };
 </pre>
 
 or a named argument specification of this form:
 
 <pre class="brush: ceylon">
-payment = Payment {
-    method = user.paymentMethod;
-    currency = order.currency;
-    amount = order.total;
-};
+    payment = Payment {
+        method = user.paymentMethod;
+        currency = order.currency;
+        amount = order.total;
+    };
 </pre>
 
 to the following more declarative (and less redundant) style:
 
 <pre class="brush: ceylon">
-Payment payment {
-    method = user.paymentMethod;
-    currency = order.currency;
-    amount = order.total;
-}
+    Payment payment {
+        method = user.paymentMethod;
+        currency = order.currency;
+        amount = order.total;
+    }
 </pre>
 
 We're even allowed to write a method of the following form:
 
 <pre class="brush: ceylon">
-Payment createPayment(Order order) {
-    return Payment {
-        method = user.paymentMethod;
-        currency = order.currency;
-        amount = order.total;
-    };
-}
+    Payment createPayment(Order order) {
+        return Payment {
+            method = user.paymentMethod;
+            currency = order.currency;
+            amount = order.total;
+        };
+    }
 </pre>
 
 using the following abbreviated syntax:
 
 <pre class="brush: ceylon">
-Payment createPayment(Order order) {
-    method = user.paymentMethod;
-    currency = order.currency;
-    amount = order.total;
-}
+    Payment createPayment(Order order) {
+        method = user.paymentMethod;
+        currency = order.currency;
+        amount = order.total;
+    }
 </pre>
 
 Perhaps you're worried that this looks like a method that assigns the values 
@@ -138,17 +138,17 @@ usually stand out immediately.
 The following classes define a data structure for building tables:
 
 <pre class="brush: ceylon">
-class Table(String title, Natural rows, Border border, Column... columns) { ... }
-class Column(String heading, Natural width, String content(Natural row)) { ... }
-class Border(Natural padding, Natural weight) { ... }
+    class Table(String title, Natural rows, Border border, Column... columns) { ... }
+    class Column(String heading, Natural width, String content(Natural row)) { ... }
+    class Border(Natural padding, Natural weight) { ... }
 </pre>
 
 Of course, we could built a `Table` using positional argument lists:
 
 <pre class="brush: ceylon">
-String x(Natural row) { return row.string; }
-String xSquared(Natural row) { return (row**2).string; }
-Table table = Table("Squares", 5, Border(2,1), Column("x",10, x), Column("x**2",12, xSquared));
+    String x(Natural row) { return row.string; }
+    String xSquared(Natural row) { return (row**2).string; }
+    Table table = Table("Squares", 5, Border(2,1), Column("x",10, x), Column("x**2",12, xSquared));
 </pre>
 
 However, it's far more common to use named arguments to build a complex 
@@ -180,28 +180,28 @@ derives from language regularity.
 So we could rewrite the code that builds a `Table` as follows:
 
 <pre class="brush: ceylon">
-Table table = Table {
-    title="Squares";
-    rows=5;
-    border = Border {
-        padding=2;
-        weight=1;
+    Table table = Table {
+        title="Squares";
+        rows=5;
+        border = Border {
+            padding=2;
+            weight=1;
+        };
+        Column {
+            heading="x";
+            width=10;
+            String content(Natural row) {
+                return row.string;
+            }
+        },
+        Column {
+            heading="x**2";
+            width=12;
+            String content(Natural row) {
+                return (row**2).string;
+            }
+        }
     };
-    Column {
-        heading="x";
-        width=10;
-        String content(Natural row) {
-            return row.string;
-        }
-    },
-    Column {
-        heading="x**2";
-        width=12;
-        String content(Natural row) {
-            return (row**2).string;
-        }
-    }
-};
 </pre>
 
 Notice that we've specified the value of the parameter named content using the 
@@ -210,28 +210,28 @@ usual syntax for declaring a method.
 Even better, our example can be abbreviated like this:
 
 <pre class="brush: ceylon">
-Table table {
-    title="Squares";
-    rows=5;
-    Border border {
-        padding=2;
-        weight=1;
-    }
-    Column {
-        heading="x";
-        width=10;
-        String content(Natural row) {
-            return row.string;
+    Table table {
+        title="Squares";
+        rows=5;
+        Border border {
+            padding=2;
+            weight=1;
         }
-    },
-    Column {
-        heading="x**2";
-        width=10;
-        String content(Natural row) {
-            return (row**2).string;
+        Column {
+            heading="x";
+            width=10;
+            String content(Natural row) {
+                return row.string;
+            }
+        },
+        Column {
+            heading="x**2";
+            width=10;
+            String content(Natural row) {
+                return (row**2).string;
+            }
         }
     }
-}
 </pre>
 
 Notice how we've transformed our code from a form which emphasized invocation 
@@ -254,37 +254,37 @@ Now let's see an example of a named argument list with an inline getter
 declaration:
 
 <pre class="brush: ceylon">
-shared class Payment(PaymentMethod method, Currency currency, Float amount) { ... }
-Payment payment {
-    method = user.paymentMethod;
-    currency = order.currency;
-    Float amount {
-        variable Float total := 0.0;
-        for (Item item in order.items) {
-            total += item.quantity * item.product.unitPrice;
+    shared class Payment(PaymentMethod method, Currency currency, Float amount) { ... }
+    Payment payment {
+        method = user.paymentMethod;
+        currency = order.currency;
+        Float amount {
+            variable Float total := 0.0;
+            for (Item item in order.items) {
+                total += item.quantity * item.product.unitPrice;
+            }
+            return total;
         }
-        return total;
     }
-}
 </pre>
 
 Finally, here's an example of a named argument list with an inline `object` 
 declaration:
 
 <pre class="brush: ceylon">
-shared interface Observable {
-    shared void addObserver(Observer&lt;Bottom> observer) { ... }
-}
-shared interface Observer&lt;in Event> {
-    shared formal on(Event event);
-}
-observable.addObserver {
-    object observer satisfies Observer&lt;UpdateEvent> {
-        shared actual void on(UpdateEvent e) {
-            writeLine("Update:" + e.string);
-        }
+    shared interface Observable {
+        shared void addObserver(Observer&lt;Bottom> observer) { ... }
     }
-};
+    shared interface Observer&lt;in Event> {
+        shared formal on(Event event);
+    }
+    observable.addObserver {
+        object observer satisfies Observer&lt;UpdateEvent> {
+            shared actual void on(UpdateEvent e) {
+                writeLine("Update:" + e.string);
+            }
+        }
+    };
 </pre>
 
 Note that `Observer<T>` is assignable to `Observer<Bottom>` for any type `T`, 
@@ -295,14 +295,14 @@ Of course, as we saw in Part 8, a better way to solve this problem might be
 to eliminate the `Observer` interface and pass a method directly:
 
 <pre class="brush: ceylon">
-shared interface Observable {
-    shared void addObserver&lt;Event>(void on(Event event)) { ... }
-}
-observable.addObserver {
-    void on(UpdateEvent e) {
-        writeLine("Update:" + e.string);
+    shared interface Observable {
+        shared void addObserver&lt;Event>(void on(Event event)) { ... }
     }
-};
+    observable.addObserver {
+        void on(UpdateEvent e) {
+            writeLine("Update:" + e.string);
+        }
+    };
 </pre>
 
 A quick tangent here: note that we need a type parameter `T` of the 
@@ -313,9 +313,9 @@ workaround to make function types contravariant in their parameter types,
 allowing us to write:
 
 <pre class="brush: ceylon">
-shared interface Observable {
-    shared void addObserver(void on(Bottom event)) { ... }
-}
+    shared interface Observable {
+        shared void addObserver(void on(Bottom event)) { ... }
+    }
 </pre>
 
 ## Defining user interfaces
@@ -325,50 +325,50 @@ writing HTML templates in Ceylon. A fragment of static HTML would look
 something like this:
 
 <pre class="brush: ceylon">
-Html {
-    Head head {
-        title = "Hello World";
-        cssStyleSheet = 'hello.css';
-    }
-    Body body {
-        Div {
-            cssClass = "greeting";
-            "Hello World"
-        },
-        Div {
-            cssClass = "footer";
-            "Powered by Ceylon"
+    Html {
+        Head head {
+            title = "Hello World";
+            cssStyleSheet = 'hello.css';
+        }
+        Body body {
+            Div {
+                cssClass = "greeting";
+                "Hello World"
+            },
+            Div {
+                cssClass = "footer";
+                "Powered by Ceylon"
+            }
         }
     }
-}
 </pre>
 
 A complete HTML template might look like this:
 
 <pre class="brush: ceylon">
-import ceylon.html { ... }
- 
-doc "A web page that displays a greeting"
-page '/hello.html'
-Html hello(Request request) {
+    import ceylon.html { ... }
      
-    Head head {
-        title = "Hello World";
-        cssStyleSheet = 'hello.css';
-    }
-     
-    Body body {
-        Div {
-            cssClass = "greeting";
-            Hello( request.parameters["name"] ).greeting
-        },
-        Div {
-            cssClass = "footer";
-            "Powered by Ceylon"
+    doc "A web page that displays a greeting"
+    page '/hello.html'
+    Html hello(Request request) {
+         
+        Head head {
+            title = "Hello World";
+            cssStyleSheet = 'hello.css';
         }
-    }
- 
-};
+         
+        Body body {
+            Div {
+                cssClass = "greeting";
+                Hello( request.parameters["name"] ).greeting
+            },
+            Div {
+                cssClass = "footer";
+                "Powered by Ceylon"
+            }
+        }
+     
+    };
 </pre>
 
 ## There's more...

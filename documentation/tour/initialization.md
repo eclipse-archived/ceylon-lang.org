@@ -239,20 +239,20 @@ Now, according to the language spec:
 > class may not:
 > 
 > * evaluate attributes, invoke methods, or instantiate member classes that are 
-> declared later in the body of the class upon the instance that is being 
-> initialized, including upon a *self reference* to the instance being 
-> initialized.
+>   declared later in the body of the class upon the instance that is being 
+>   initialized, including upon a *self reference* to the instance being 
+>   initialized.
 > * pass a *self reference* to the instance being initialized as an argument 
-> of an instantiation or method invocation or as the value of an attribute 
-> assignment or specification.
+>   of an instantiation or method invocation or as the value of an attribute 
+>   assignment or specification.
 > * return a *self reference* to the instance being initialized.
 > * evaluate attributes, invoke methods, or instantiate member classes 
-> declared in the declaration section of a superclass of the instance being 
-> initialized, including upon a self reference to the instance being initialized.
+>   declared in the declaration section of a superclass of the instance being 
+>   initialized, including upon a self reference to the instance being initialized.
 > * invoke or evaluate a formal member of the instance being initialized, 
-> including upon a *self reference* to the instance being initialized.
+>   including upon a *self reference* to the instance being initialized.
 > * invoke or evaluate a default member of the instance that is being 
-> initialized, except via the special `super` self reference.
+>   initialized, except via the special `super` self reference.
 
 ## Declaration section
 
@@ -304,17 +304,17 @@ Eventually, Ceylon will probably need some specialized machinery for dealing
 with this problem, but for now, here is a partial solution:
 
 <pre class="brush: ceylon">
-abstract class Child() {
-    shared formal Parent parent;
-}
- 
-class Parent() {
-    shared object child extends Child() {
-        shared actual parent {
-            return outer;
+    abstract class Child() {
+        shared formal Parent parent;
+    }
+     
+    class Parent() {
+        shared object child extends Child() {
+            shared actual parent {
+                return outer;
+            }
         }
     }
-}
 </pre>
 
 ## Definite initialization of methods

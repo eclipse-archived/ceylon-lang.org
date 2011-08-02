@@ -15,61 +15,61 @@ this for us at class-loading time.
 All we need to do is have our `Transactional` class implement the interfaces `MethodAnnotation` and `AttributeAnnotation`:
 
 <pre class="brush: ceylon">
-shared class Transactional(Boolean requiresNew)
-        satisfies OptionalAnnotation&lt;Transactional,Member&lt;Bottom,Void>> &
-                  MethodAnnotation & AttributeAnnotation {
+    shared class Transactional(Boolean requiresNew)
+            satisfies OptionalAnnotation&lt;Transactional,Member&lt;Bottom,Void>> &
+                      MethodAnnotation & AttributeAnnotation {
+             
+        shared Boolean requiresNew = requiresNew;
          
-    shared Boolean requiresNew = requiresNew;
-     
-    doc "This method is called whenever Ceylon loads a class with a method
-         annotated |transactional|. It registers a transaction management
-         interceptor for the method."
-    shared actual void onDefineMethod&lt;Instance,Result,Argument...>(OpenMethod&lt;Instance,Result,Argument...> method) {
-        method.intercept()
-                onInvoke(Instance instance, Result proceed(Argument... args), Argument... args) {
-            if (currentTransaction.inProcess || !requiresNew) {
-                return proceed(args);
-            }
-            else {
-                currentTransaction.begin();
-                try {
-                    Result result = proceed(args);
-                    currentTransaction.commit();
-                    return result;
+        doc "This method is called whenever Ceylon loads a class with a method
+             annotated |transactional|. It registers a transaction management
+             interceptor for the method."
+        shared actual void onDefineMethod&lt;Instance,Result,Argument...>(OpenMethod&lt;Instance,Result,Argument...> method) {
+            method.intercept()
+                    onInvoke(Instance instance, Result proceed(Argument... args), Argument... args) {
+                if (currentTransaction.inProcess || !requiresNew) {
+                    return proceed(args);
                 }
-                catch (Exception e) {
-                    currentTransaction.rollback();
-                    throw e;
-                }
-            }
-        }
-    }
-     
-    doc "This method is called whenever Ceylon loads a class with an attribute
-         annotated |transactional|. It registers a transaction management
-         interceptor for the attribute."
-    shared actual void onDefineAttribute&lt;Instance,Result>(OpenAttribute&lt;Instance,Result> attribute) {
-        attribute.intercept()
-                onGet(Instance instance, Result proceed()) {
-            if (currentTransaction.inProcess || !requiresNew) {
-                return proceed();
-            }
-            else {
-                currentTransaction.begin();
-                try {
-                    Result result = proceed();
-                    currentTransaction.commit();
-                    return result;
-                }
-                catch (Exception e) {
-                    currentTransaction.rollback();
-                    throw e;
+                else {
+                    currentTransaction.begin();
+                    try {
+                        Result result = proceed(args);
+                        currentTransaction.commit();
+                        return result;
+                    }
+                    catch (Exception e) {
+                        currentTransaction.rollback();
+                        throw e;
+                    }
                 }
             }
         }
+         
+        doc "This method is called whenever Ceylon loads a class with an attribute
+             annotated |transactional|. It registers a transaction management
+             interceptor for the attribute."
+        shared actual void onDefineAttribute&lt;Instance,Result>(OpenAttribute&lt;Instance,Result> attribute) {
+            attribute.intercept()
+                    onGet(Instance instance, Result proceed()) {
+                if (currentTransaction.inProcess || !requiresNew) {
+                    return proceed();
+                }
+                else {
+                    currentTransaction.begin();
+                    try {
+                        Result result = proceed();
+                        currentTransaction.commit();
+                        return result;
+                    }
+                    catch (Exception e) {
+                        currentTransaction.rollback();
+                        throw e;
+                    }
+                }
+            }
+        }
+         
     }
-     
-}
 </pre>
 
 The `intercept()` method registers the interceptor - a kind of callback method. 

@@ -41,7 +41,7 @@ In Ceylon, a single type `Callable` abstracts *all* functions. It's
 declaration is the following:
 
 <pre class="brush: ceylon">
-shared interface Callable&lt;out Result, Argument...> {}
+    shared interface Callable&lt;out Result, Argument...> {}
 </pre>
 
 The syntax `P...` is called a *sequenced type parameter*. By analogy with a 
@@ -53,7 +53,7 @@ type parameter `Argument...` represents the parameter types of the function.
 So the type of sum in Ceylon is:
 
 <pre class="brush: ceylon">
-Callable&lt;Natural, Natural, Natural>
+    Callable&lt;Natural, Natural, Natural>
 </pre>
 
 What about void functions? Well, remember that way back in Part 1 we said 
@@ -61,7 +61,7 @@ that the return type of a void function is `Void`. So the type of a function
 like `print()` is:
 
 <pre class="brush: ceylon">
-Callable&lt;Void,String>
+    Callable&lt;Void,String>
 </pre>
 
 ## Representing the type of a method
@@ -72,21 +72,21 @@ metamodel representable within the type system. For example, we could represent
 the type of a method like this:
 
 <pre class="brush: ceylon">
-shared interface Method&lt;out Result, in Instance, Argument...>
-    satisfies Callable&lt;Callable&lt;Result,Argument...>, Instance> {}
+    shared interface Method&lt;out Result, in Instance, Argument...>
+        satisfies Callable&lt;Callable&lt;Result,Argument...>, Instance> {}
 </pre>
 
 Where `Instance` is the type that declares the method. So the type of the 
 method` iterator()` of `Iterable<String>` would be:
 
 <pre class="brush: ceylon">
-Method&lt;Iterator&lt;String>, Iterable&lt;String>>
+    Method&lt;Iterator&lt;String>, Iterable&lt;String>>
 </pre>
 
 And the type of the method `compare()` of `Comparable<Natural>` would be:
 
 <pre class="brush: ceylon">
-Method&lt;Comparison,Comparable&lt;Natural>,Natural>
+    Method&lt;Comparison,Comparable&lt;Natural>,Natural>
 </pre>
 
 Notice that we've declared a method to be a function that accepts a 
@@ -94,8 +94,8 @@ receiver object and returns a function. As a consequence of this, an
 alternative method invocation protocol is the following:
 
 <pre class="brush: ceylon">
-Iterable&lt;String>.iterator(strings)();
-Comparable&lt;Natural>.compare(0)(num);
+    Iterable&lt;String>.iterator(strings)();
+    Comparable&lt;Natural>.compare(0)(num);
 </pre>
 
 Don't worry if you can't make sense of that right now. And actually I'm 
@@ -110,18 +110,18 @@ For example, we could create a `repeat()` function that repeatedly executes a
 function.
 
 <pre class="brush: ceylon">
-void repeat(Natural times, Callable&lt;Void,Natural> perform) {
-    for (Natural i in 1..times) {
-        perform(i);
+    void repeat(Natural times, Callable&lt;Void,Natural> perform) {
+        for (Natural i in 1..times) {
+            perform(i);
+        }
     }
-}
 </pre>
 
 And call it like this:
 
 <pre class="brush: ceylon">
-void print(Natural n) { writeLine(n); }
-repeat(10, print);
+    void print(Natural n) { writeLine(n); }
+    repeat(10, print);
 </pre>
 
 Which would print the numbers 1 to 10 to the console.
@@ -132,11 +132,11 @@ names of the function parameters. So Ceylon has an alternative, more elegant,
 syntax for declaring a parameter of type `Callable`:
 
 <pre class="brush: ceylon">
-void repeat(Natural times, void perform(Natural n)) {
-    for (Natural i in 1..times) {
-        perform(i);
+    void repeat(Natural times, void perform(Natural n)) {
+        for (Natural i in 1..times) {
+            perform(i);
+        }
     }
-}
 </pre>
 
 I find this version also slightly more readable and more regular. This is the 
@@ -155,29 +155,29 @@ useful here, since it means that we can assign a function with a non-`Void`
 return type to any parameter which expects a void method:
 
 <pre class="brush: ceylon">
-Boolean attemptPrint(Natural n) {
-    try {
-        writeLine(n);
-        return true;
+    Boolean attemptPrint(Natural n) {
+        try {
+            writeLine(n);
+            return true;
+        }
+        catch (Exception e) {
+            return false;
+        }
     }
-    catch (Exception e) {
-        return false;
-    }
-}
-repeat(10, attemptPrint);
+    repeat(10, attemptPrint);
 </pre>
 
 Another way we can produce a function reference is by partially applying a 
 method to a receiver expression. For example, we could write the following:
 
 <pre class="brush: ceylon">
-class Hello(String name) {
-    shared void say(Natural n) {
-        writeLine("Hello, " name ", for the " n "th time!");
+    class Hello(String name) {
+        shared void say(Natural n) {
+            writeLine("Hello, " name ", for the " n "th time!");
+        }
     }
-}
- 
-repeat(10, Hello("Gavin").say);
+     
+    repeat(10, Hello("Gavin").say);
 </pre>
 
 Here the expression `Hello("Gavin").say` has the same type as `print` above. 
@@ -191,23 +191,23 @@ can be observed by other objects in the system. We could use something like
 Java's `Observer`/`Observable` pattern:
 
 <pre class="brush: ceylon">
-shared interface Observer {
-    shared formal void observe(Event event);
-}
-shared abstract class Component() {
-     
-    OpenList&lt;Observer> observers = OpenList&lt;Observer>();
-     
-    shared void addObserver(Observer o) {
-        observers.append(o);
+    shared interface Observer {
+        shared formal void observe(Event event);
     }
-     
-    shared void fire(Event event) {
-        for (Observer o in observers) {
-            o.observe(event);
+    shared abstract class Component() {
+         
+        OpenList&lt;Observer> observers = OpenList&lt;Observer>();
+         
+        shared void addObserver(Observer o) {
+            observers.append(o);
+        }
+         
+        shared void fire(Event event) {
+            for (Observer o in observers) {
+                o.observe(event);
+            }
         }
     }
-}
 </pre>
 
 But now all event observers have to implement the interface `Observer`, which 
@@ -217,20 +217,20 @@ following code, we define the `addObserver()` method to accept a function as
 a parameter.
 
 <pre class="brush: ceylon">
-shared abstract class Component() {
-     
-    OpenList&lt;Callable&lt;Void,Event>> observers = OpenList&lt;Callable&lt;Void,Event>>();
-     
-    shared void addObserver(void observe(Event event)) {
-        observers.append(observe);
-    }
-     
-    shared void fire(Event event) {
-        for (void observe(Event event) in observers) {
-            observe(event);
+    shared abstract class Component() {
+         
+        OpenList&lt;Callable&lt;Void,Event>> observers = OpenList&lt;Callable&lt;Void,Event>>();
+         
+        shared void addObserver(void observe(Event event)) {
+            observers.append(observe);
+        }
+         
+        shared void fire(Event event) {
+            for (void observe(Event event) in observers) {
+                observe(event);
+            }
         }
     }
-}
 </pre>
 
 Here we see the difference between the two ways of specifying a function type:
@@ -242,18 +242,18 @@ Now, any event observer can just pass a reference to one of its own methods to
 `addObserver()`:
 
 <pre class="brush: ceylon">
-shared class Listener(Component component) {
- 
-    void onEvent(Event e) {
-        //respond to the event
+    shared class Listener(Component component) {
+     
+        void onEvent(Event e) {
+            //respond to the event
+            ...
+        }
+         
+        component.addObserver(onEvent);
+         
         ...
+     
     }
-     
-    component.addObserver(onEvent);
-     
-    ...
- 
-}
 </pre>
 
 When the name of a method appears in an expression without a list of 
@@ -266,19 +266,19 @@ If `onEvent()` were shared, we could even wire together the `Component` and
 on `Component`:
 
 <pre class="brush: ceylon">
-shared class Listener() {
- 
-    shared void onEvent(Event e) {
-        //respond to the event
-        ...
-    }
+    shared class Listener() {
      
-    ...
- 
-}
-void listen(Component component, Listener listener) {
-    component.addObserver(listener.onEvent);
-}
+        shared void onEvent(Event e) {
+            //respond to the event
+            ...
+        }
+         
+        ...
+     
+    }
+    void listen(Component component, Listener listener) {
+        component.addObserver(listener.onEvent);
+    }
 </pre>
 
 Here, the syntax `listener.onEvent` is a kind of partial application of the 
@@ -293,47 +293,47 @@ ability to remove observers from a `Component`. We could use a `Subscription`
 interface:
 
 <pre class="brush: ceylon">
-shared interface Subscription {
-    shared void cancel();
-}
-shared abstract class Component() {
-     
-    ...
-     
-    shared Subscription addObserver(void observe(Event event)) {
-        observers.append(observe);
-        object subscription satisfies Subscription {
-            shared actual void cancel() {
-                observers.remove(observe);
-            }
-        }
-        return subscription;
+    shared interface Subscription {
+        shared void cancel();
     }
+    shared abstract class Component() {
+         
+        ...
+         
+        shared Subscription addObserver(void observe(Event event)) {
+            observers.append(observe);
+            object subscription satisfies Subscription {
+                shared actual void cancel() {
+                    observers.remove(observe);
+                }
+            }
+            return subscription;
+        }
+         
+        ...
      
-    ...
- 
-}
+    }
 </pre>
 
 But a simpler solution might be to just eliminate the interface and return the 
 `cancel()` method directly:
 
 <pre class="brush: ceylon">
-shared abstract class Component() {
-     
-    ...
-     
-    shared void addObserver(void observe(Event event))() {
-        observers.append(observe);
-        void cancel() {
-            observers.remove(observe);
+    shared abstract class Component() {
+         
+        ...
+         
+        shared void addObserver(void observe(Event event))() {
+            observers.append(observe);
+            void cancel() {
+                observers.remove(observe);
+            }
+            return cancel;
         }
-        return cancel;
-    }
+         
+        ...
      
-    ...
- 
-}
+    }
 </pre>
 
 Note the second parameter list of `addObserver()`.
@@ -360,7 +360,7 @@ how regular the language is.
 We could invoke our method like this:
 
 <pre class="brush: ceylon">
-addObserver(onEvent)();
+    addObserver(onEvent)();
 </pre>
 
 But if we were planning to use the method in this way, there would be no good 
@@ -369,9 +369,9 @@ planning to store or pass the reference to the inner method somewhere before
 invoking it.
 
 <pre class="brush: ceylon">
-void cancel() = addObserver(onEvent);
-...
-cancel();
+    void cancel() = addObserver(onEvent);
+    ...
+    cancel();
 </pre>
 
 The first line demonstrates how a method can be defined using a `=` 
@@ -405,17 +405,17 @@ which define specialized control structures.
 In Introduction to Ceylon Part 8 we discussed Ceylon's support for defining higher order functions, in particular the two different ways to represent the type of a parameter which accepts a reference to a function. The following declarations are essentially equivalent:
 
 <pre class="brush: ceylon">
-X[] filter&lt;X>(X[] sequence, Callable&lt;Boolean,X> by) { ... }
-X[] filter&lt;X>(X[] sequence, Boolean by(X x)) { ... }
+    X[] filter&lt;X>(X[] sequence, Callable&lt;Boolean,X> by) { ... }
+    X[] filter&lt;X>(X[] sequence, Boolean by(X x)) { ... }
 </pre>
 
 We've even seen how we can pass a reference to a method to such a higher-order function:
 
 <pre class="brush: ceylon">
-Boolean stringNonempty(String string) {
-    return !string.empty;
-}
-String[] nonemptyStrings = filter(strings, stringNonempty);
+    Boolean stringNonempty(String string) {
+        return !string.empty;
+    }
+    String[] nonemptyStrings = filter(strings, stringNonempty);
 </pre>
 
 Of course, almost all of the convenience of general-purpose higher order 
@@ -430,28 +430,28 @@ part of the expression. My favored syntax for this in a C-like language would
 be the following:
 
 <pre class="brush: ceylon">
-(String string) { return !string.empty; }
+    (String string) { return !string.empty; }
 </pre>
 
 This is an ordinary method declaration with the return type and name eliminated. 
 Then we could call `filter()` as follows:
 
 <pre class="brush: ceylon">
-String[] nonemptyStrings = filter( strings, (String string) { return !string.empty; } );
+    String[] nonemptyStrings = filter( strings, (String string) { return !string.empty; } );
 </pre>
 
 Since it's extremely common for anonymous functions to consist of a 
 single expression, I favor allowing the following abbreviation:
 
 <pre class="brush: ceylon">
-(String string) (!string.empty)
+    (String string) (!string.empty)
 </pre>
 
 The parenthesized expression is understood to be the return value of the 
 method. Then the invocation of `filter()` is a bit less noisy:
 
 <pre class="brush: ceylon">
-String[] nonemptyStrings = filter(strings, (String string) (!string.empty));
+    String[] nonemptyStrings = filter(strings, (String string) (!string.empty));
 </pre>
 
 This works, and we could support this syntax in the Ceylon language.
@@ -506,16 +506,16 @@ built-in control structures like `for` and `if`. And the problem gets
 worse for multi-line anonymous functions. Consider:
 
 <pre class="brush: ceylon">
-repeat (n, () {
-    String greeting;
-    if (exists name) {
-        greeting = "Hello, " name "!";
-    }
-    else {
-        greeting = "Hello, World!";
-    }
-    writeLine(greeting);
-});
+    repeat (n, () {
+        String greeting;
+        if (exists name) {
+            greeting = "Hello, " name "!";
+        }
+        else {
+            greeting = "Hello, World!";
+        }
+        writeLine(greeting);
+    });
 </pre>
 
 Definitely much uglier than a for loop!
@@ -528,7 +528,7 @@ preceded by the parameter name, and aren't delimited by parentheses. Let's
 transliterate this idea to Ceylon.
 
 <pre class="brush: ceylon">
-String[] nonemptyStrings = filter(strings) by (String string) (!string.empty);
+    String[] nonemptyStrings = filter(strings) by (String string) (!string.empty);
 </pre>
 
 Note that we have not changed the syntax of the anonymous function here, we've 
@@ -537,17 +537,17 @@ could make empty parameter lists optional, without introducing any syntactic
 ambiguity, allowing the following:
 
 <pre class="brush: ceylon">
-repeat (n)
-perform {
-    String greeting;
-    if (exists name) {
-        greeting = "Hello, " name "!";
-    }
-    else {
-        greeting = "Hello, World!";
-    }
-    writeLine(greeting);
-};
+    repeat (n)
+    perform {
+        String greeting;
+        if (exists name) {
+            greeting = "Hello, " name "!";
+        }
+        else {
+            greeting = "Hello, World!";
+        }
+        writeLine(greeting);
+    };
 </pre>
 
 This looks much more like a built-in control structure. Now let's see some of 
@@ -556,43 +556,43 @@ our other examples:
 * Assertion: 
 
 <pre class="brush: ceylon">
-assert ("x must be positive") that (x>0.0)
+    assert ("x must be positive") that (x>0.0)
 </pre>
 
 * Conditionals: 
 
 <pre class="brush: ceylon">
-when (x>100.0) then (100.0) otherwise (x)
+    when (x>100.0) then (100.0) otherwise (x)
 </pre>
 
 * Repetition: 
 
 <pre class="brush: ceylon">
-repeat(n) perform { writeLine("Hello"); }
+    repeat(n) perform { writeLine("Hello"); }
 </pre>
 
 * Tabulation: 
 
 <pre class="brush: ceylon">
-tabulateList(20) containing (Natural i) (i**3)
+    tabulateList(20) containing (Natural i) (i**3)
 </pre>
 
 * Comprehension: 
 
 <pre class="brush: ceylon">
-from (people) select (Person p) (p.name) where (Person p) (p.age>18)
+    from (people) select (Person p) (p.name) where (Person p) (p.age>18)
 </pre>
 
 * Quantification: 
 
 <pre class="brush: ceylon">
-forAll (people) every (Person p) (p.age>18)
+    forAll (people) every (Person p) (p.age>18)
 </pre>
 
 * Accumulation (folds): 
 
 <pre class="brush: ceylon">
-accumulate (items, 0.0) using (Float sum, Item item) (sum+item.quantity*item.product.price)
+    accumulate (items, 0.0) using (Float sum, Item item) (sum+item.quantity*item.product.price)
 </pre>
 
 Well, I'm not sure about you, but I find all these examples more readable 
@@ -636,7 +636,7 @@ The answer just isn't crystal clear to us.
 A method reference like `Float.times` is represented in "curried" form in 
 Ceylon. I can write:
 <pre class="brush: ceylon">
-Float twoTimes(Float x) = 2.times;
+    Float twoTimes(Float x) = 2.times;
 </pre>
 
 Here, the expression `2.times` is a typical first-class function reference 
@@ -646,7 +646,7 @@ receiver expression `2`.
 But I can also write:
 
 <pre class="brush: ceylon">
-Float times(Float x)(Float y) = Float.times;
+    Float times(Float x)(Float y) = Float.times;
 </pre>
 
 Actually, the expression `Float.times` is really a metamodel reference to a 
@@ -657,7 +657,7 @@ function reference.
 Therefore, an alternative definition of `twoTimes()` is:
 
 <pre class="brush: ceylon">
-Float twoTimes(Float x) = Float.times(2);
+    Float twoTimes(Float x) = Float.times(2);
 </pre>
 
 (We're partially applying `Float.times` by supplying one of its two 
@@ -666,7 +666,7 @@ argument lists.)
 Unfortunately, the following isn't correctly typed:
 
 <pre class="brush: ceylon">
-Float product(Float x, Float y) = Float.times;  //error: Float.times not a Callable<Float,Float,Float>
+    Float product(Float x, Float y) = Float.times;  //error: Float.times not a Callable<Float,Float,Float>
 </pre>
 
 The problem is that `Float.times`, when considered as a function reference, 
@@ -679,17 +679,17 @@ function with a single parameter list?
 Well, one really simple way would be to fall back to writing:
 
 <pre class="brush: ceylon">
-Float product(Float x, Float y) {
-    return x.times(y);   //or even: x*y
-}
+    Float product(Float x, Float y) {
+        return x.times(y);   //or even: x*y
+    }
 </pre>
 
 But there's another way. Instead, we're going to use a really cool higher-order function that will be part of the Ceylon language module. It's just two lines of code, so I'm sure you'll immediately understand it:
 
 <pre class="brush: ceylon">
-R uncurry&lt;R,T,P...>(R curried(T t)(P... p))(T receiver, P... args) {
-    return curried(receiver)(args);
-}
+    R uncurry&lt;R,T,P...>(R curried(T t)(P... p))(T receiver, P... args) {
+        return curried(receiver)(args);
+    }
 </pre>
 
 Whoah! Wtf?
@@ -718,15 +718,15 @@ lists of `curried()()` into a single list of parameters. So we can write the
 following:
 
 <pre class="brush: ceylon">
-Float product(Float x, Float y) = uncurry(Float.times);
+    Float product(Float x, Float y) = uncurry(Float.times);
 </pre>
 
 Other kinds of operations on functions can be represented in a similar way. Consider:
 
 <pre class="brush: ceylon">
-R curry&lt;R,T,P...>(R uncurried(T t, P... p))(T receiver)(P... args) {
-    return uncurried(receiver,args);
-}
+    R curry&lt;R,T,P...>(R uncurried(T t, P... p))(T receiver)(P... args) {
+        return uncurried(receiver,args);
+    }
 </pre>
 
 This function does precisely the opposite of `uncurry()()`, it takes the 
@@ -734,22 +734,22 @@ first parameter of an argument function, and separates it out into its own
 parameter list, allowing the argument function to be partially applied:
 
 <pre class="brush: ceylon">
-Float times(Float x)(Float y) = curry(product);
-Float double(Float y) = times(2.0);
+    Float times(Float x)(Float y) = curry(product);
+    Float double(Float y) = times(2.0);
 </pre>
 
 Now consider:
 
 <pre class="brush: ceylon">
-R compose&lt;R,S,P...>(R f (S s), S g(P... p))(P... args) {
-    return f(g(args));
-}
+    R compose&lt;R,S,P...>(R f (S s), S g(P... p))(P... args) {
+        return f(g(args));
+    }
 </pre>
 
 This function composes two functions:
 
 <pre class="brush: ceylon">
-Float incrementThenDouble(Float x) = compose(2.0.times,1.0.plus);
+    Float incrementThenDouble(Float x) = compose(2.0.times,1.0.plus);
 </pre>
 
 Fortunately, you won't need to be writing functions like 
