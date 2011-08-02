@@ -33,10 +33,11 @@ of greeting:
 Notice that Ceylon forces us to declare attributes or methods that can be 
 refined (overridden) by annotating them `default`.
 
-Subclasses specify their superclass using the `extends` keyword, followed by 
-the name of the superclass, followed by a list of arguments to be sent to 
-the superclass initializer parameters. It looks just like an expression that 
-instantiates the superclass:
+Subclasses specify their superclass using the `extends` keyword
+([here's why](/documentation/faq/language-design/#colon_vs_extends_in_class_definition)), 
+followed by the name of the superclass, followed by a list of arguments to be 
+sent to the superclass initializer parameters. It looks just like an expression 
+that instantiates the superclass:
 
 <pre class="brush: ceylon">
     doc "A personalized greeting"
@@ -52,7 +53,8 @@ instantiates the superclass:
 </pre>
 
 Ceylon also forces us to declare that an attribute or method refines 
-(overrides) an attribute or method of a superclass by annotating it `actual`. 
+(overrides) an attribute or method of a superclass by annotating it `actual`
+([not 'overrides' like Java](/documentation/faq/language-design/#_override_vs_actual)). 
 All this annotating stuff costs a few extra keystrokes, but it helps the 
 compiler detect errors. We can't inadvertently refine a member or the 
 superclass, or inadvertently fail to refine it.
@@ -190,11 +192,13 @@ Now let's define a concrete implementation of this interface.
     }
 </pre>
 
-The `satisfies` keyword is used to specify that an interface extends 
-another interface or that a class implements an interface. Unlike an `extends` 
-declaration, a `satisfies` declaration does not specify arguments, since 
-interfaces do not have parameters or initialization logic. Furthermore, the 
-`satisfies` declaration can specify more than one interface.
+The `satisfies` keyword 
+([not `implements` like Java](/documentation/faq/language-design/#_implements_vs_satisfies))
+is used to specify that an interface extends 
+another interface or that a class implements an interface. 
+Unlike an `extends` declaration, a `satisfies` declaration does not specify 
+arguments, since interfaces do not have parameters or initialization logic. 
+Furthermore, the `satisfies` declaration can specify more than one interface.
 
 Ceylon's approach to interfaces eliminates a common pattern in Java 
 where a separate abstract class defines a default implementation of some 

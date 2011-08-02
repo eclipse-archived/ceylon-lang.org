@@ -108,6 +108,10 @@ Whereas this one is
     writeLine("Hello, this is Ceylon " process.languageVersion "");
 </pre>
 
+(If you're wondering why the syntax isn't 
+`"Hello, this is Ceylon ${process.languageVersion}"` 
+[here's why](/documentation/faq/language-design/#string_interpolation_syntax))
+
 The `+` operator you're probably used to is an alternative, and more 
 flexible in many cases:
 

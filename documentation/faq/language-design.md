@@ -94,7 +94,7 @@ In our view, there is zero software-engineering justification for
 `protected`. A dependency is a dependency. Whether its coming from
 a subtype or not is irrelevant.
 
-It's worth noting that Ceylon supports modular programming allowing control 
+It's worth noting that Ceylon supports [modular programming](/documentation/tour/modules) allowing control 
 over the visibilty of classes, methods and attributes between packages and 
 modules.
 

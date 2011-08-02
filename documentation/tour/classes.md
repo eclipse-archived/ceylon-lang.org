@@ -40,6 +40,9 @@ single method:
 </pre>
 
 `shared` describes the accessibility of the attribute or method.
+Ceylon doesn't make a distinction between `public`, `protected` and 'default' 
+visibility like Java; 
+[here's why](/documentation/faq/language-design/#no_protected_keyword).
 
 ## Hiding implementation details
 
