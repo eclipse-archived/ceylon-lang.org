@@ -5,6 +5,11 @@ tab: documentation
 author: Emmanuel Bernard
 ---
 
+# Quick Introduction
+
+The [quick introduction](introduction) is a one page summary of some of the features 
+Ceylon has to offer.
+
 # Tour of Ceylon
 
 Let's take a little tour of the main features of the Ceylon language.
