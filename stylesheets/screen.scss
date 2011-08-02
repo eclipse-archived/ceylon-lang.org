@@ -375,6 +375,19 @@ form.bp {
   font-size:80%;
 }
 
+//Code from Markdown
+body.bp {
+  pre {
+    background-color:#f5f5f5;
+    code {
+      font-family:'Courier New', 'Andale Mono', Consolas, 'Bitstream Vera Sans Mono', Courier, monospace;
+      font-style:normal;
+      font-size:.99em;
+      line-height:1em;
+    }
+  }
+}
+
 //NOT USED is it?
 // Page layout can be done using mixins applied to your semantic classes and IDs:
 body.two-col {
