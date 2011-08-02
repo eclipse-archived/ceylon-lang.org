@@ -7,10 +7,6 @@ author: Gavin King
 
 # #{page.title}
 
-Introduction to Ceylon Part 12
-
-This is the final installment in a series of articles introducing the Ceylon language. Note that some features of the language may change before the final release.
-
 ## Annotations
 
 If you've made it this far into this series of articles, you've already seen 
@@ -102,11 +98,11 @@ must be a subtype of `ConstrainedAnnotation`:
     doc "An annotation. This interface encodes
          constraints upon the annotation in its
          type arguments."
-    shared interface ConstrainedAnnotation<out Value, out Values, in ProgramElement>
-            of OptionalAnnotation<Value,ProgramElement> |     
-                SequencedAnnotation<Value,ProgramElement>
-            satisfies Annotation<Value>
-            given Value satisfies Annotation<Value>
+    shared interface ConstrainedAnnotation&lt;out Value, out Values, in ProgramElement>
+            of OptionalAnnotation&lt;Value,ProgramElement> |     
+                SequencedAnnotation&lt;Value,ProgramElement>
+            satisfies Annotation&lt;Value>
+            given Value satisfies Annotation&lt;Value>
             given ProgramElement satisfies Annotated {
         shared Boolean occurs(Annotated programElement) {
             return programElement is ProgramElement;
@@ -135,15 +131,15 @@ annotation of a given program element may be of this annotation type.
 <pre class="brush: ceylon">
     doc "An annotation that may occur at most once at
          a single program element."
-    shared interface OptionalAnnotation<out Value, in ProgramElement>
-            satisfies ConstrainedAnnotation<Value,Value?,ProgramElement>
-            given Value satisfies Annotation<Value>
+    shared interface OptionalAnnotation&lt;out Value, in ProgramElement>
+            satisfies ConstrainedAnnotation&lt;Value,Value?,ProgramElement>
+            given Value satisfies Annotation&lt;Value>
             given ProgramElement satisfies Annotated {}
     doc "An annotation that may occur multiple times at
          a single program element."
-    shared interface SequencedAnnotation<out Value, in ProgramElement>
-            satisfies ConstrainedAnnotation<Value,Value[],ProgramElement>
-            given Value satisfies Annotation<Value>
+    shared interface SequencedAnnotation&lt;out Value, in ProgramElement>
+            satisfies ConstrainedAnnotation&lt;Value,Value[],ProgramElement>
+            given Value satisfies Annotation&lt;Value>
             given ProgramElement satisfies Annotated {}
 </pre>
 
@@ -157,12 +153,13 @@ at program elements that declare an attribute of type `String`.
 
 Here's a couple of examples I copied and pasted straight from the 
 language spec:
+
 <pre class="brush: ceylon">
     shared interface Scope
             of request | session | application
-            satisfies OptionalAnnotation<Scope,Type<Object>> {}
+            satisfies OptionalAnnotation&lt;Scope,Type&lt;Object>> {}
     shared class Todo(String text)
-            satisfies OptionalAnnotation<Todo,Annotated> {
+            satisfies OptionalAnnotation&lt;Todo,Annotated> {
         shared actual String string = text;
     }
 </pre>
@@ -173,10 +170,10 @@ Annotation values may be obtained by calling the toplevel method
 `annotations()` defined in the language module.
 
 <pre class="brush: ceylon">
-    shared Values annotations<Value,Values,ProgramElement>(
-                   Type<ConstrainedAnnotation<Value,Values,ProgramElement>> annotationType,
+    shared Values annotations&lt;Value,Values,ProgramElement>(
+                   Type&lt;ConstrainedAnnotation&lt;Value,Values,ProgramElement>> annotationType,
                    ProgramElement programElement)
-               given Value satisfies ConstrainedAnnotation<Value,Values,ProgramElement>
+               given Value satisfies ConstrainedAnnotation&lt;Value,Values,ProgramElement>
                given ProgramElement satisfies Annotated { ... }
 </pre>
 
@@ -214,12 +211,12 @@ Of course, it's much more common to work with annotations in generic code,
 so you're more likely to be writing code like this:
 
 <pre class="brush: ceylon">
-    Entry<Attribute<Bottom,Object?>,String> [] attributeColumnNames(Class<Object> clazz) {
-        return from (clazz.members(Attribute<Bottom,Object?>))
-                select (Attribute<Bottom,Object?> att) (att->columnName(att));
+    Entry&lt;Attribute&lt;Bottom,Object?>,String> [] attributeColumnNames(Class&lt;Object> clazz) {
+        return from (clazz.members(Attribute&lt;Bottom,Object?>))
+                select (Attribute&lt;Bottom,Object?> att) (att->columnName(att));
     }
      
-    String columnName(Attribute<Bottom,Object?> member) {
+    String columnName(Attribute&lt;Bottom,Object?> member) {
         return annotations(Column, member)?.name ? member.name;
     }
 </pre>
@@ -246,10 +243,11 @@ and attributes, and may occur at most once on any member.
 
 <pre class="brush: ceylon">
     shared class Transactional(Boolean requiresNew)
-            satisfies OptionalAnnotation<Transactional,Member<Bottom,Void>> {
+            satisfies OptionalAnnotation&lt;Transactional,Member&lt;Bottom,Void>> {
         shared Boolean requiresNew = requiresNew;
     }
 </pre>
+
 
 Now we can apply our annotation to a method of any class.
 
@@ -279,3 +277,6 @@ We won't need to use reflection in our example, since Ceylon's module
 architecture includes special built-in support for using annotations to add
 interceptors to methods and attributes.
 
+## There's more
+
+Next we're going to touch on Ceylons support for [interceptors](../interceptors).
