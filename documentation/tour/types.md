@@ -349,11 +349,11 @@ There are some restrictions applying to this feature. You can't use `local`:
 These restrictions mean that Ceylon's type inference rules are quite simple. 
 Type inference is purely "right-to-left" and "top-to-bottom". The type of 
 any expression is already known without needing to look to any types declared 
-to the left of the `= specifier`, or further down the block of statements.
+to the left of the `=` specifier, or further down the block of statements.
 
 * The inferred type of a local declared `local` is just the type of the 
   expression assigned to it using `=` or `:=`.
-* The inferred type of a method declared local is just the type of the 
+* The inferred type of a method declared `local` is just the type of the 
   returned expression.
 
 ## Type inference for sequence enumeration expressions
