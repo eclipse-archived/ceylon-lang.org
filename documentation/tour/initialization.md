@@ -133,12 +133,11 @@ acceptable in Ceylon, where most types don't have an acceptable "default"
 value. For example, consider the type `Person`. What would be an acceptable 
 default value of this type? The value `null` certainly won't do, since it's 
 not even an instance of `Person`. (It's an instance of `Nothing`, remember! XXX) 
-I suppose we could say that evaluation of an uninitialized instance variable 
-always results in an immediate runtime exception, but this is really just our 
-old friend `NullPointerException` creeping back in by the back door, and, well, 
-it's Just Not How We Do Things Around Here.
+Although evaluation of an uninitialized instance variable could be defined to
+result in an immediate runtime exception, that would just be our 
+old friend `NullPointerException` creeping back in by the back door. 
 
-Indeed, "few" object-oriented languages (i.e. none that I know of) perform 
+Indeed, "few" object-oriented languages  (and possibly none) perform 
 the necessary static analysis to ensure definite initialization of instance 
 variables, and this is perhaps one main reasons why object-oriented 
 languages have never featured typesafe handling of `null` values.

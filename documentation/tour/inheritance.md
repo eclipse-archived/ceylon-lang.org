@@ -428,8 +428,8 @@ On the other hand, introductions are less powerful than implicit type
 conversions. This is by design! In this case, "less powerful" means 
 "safer, more disciplined". The power of implicit type conversions comes partly 
 from their ability to work around some of the designed-in limitations of the 
-type system. But these limitations have a purpose! I'm especially thinking 
-of the prohibitions against:
+type system. But these limitations have a purpose! In particular, the 
+prohibitions against:
 
 * inheriting the same generic type twice, with different type arguments (in most languages), and
 * overloading (in Ceylon).

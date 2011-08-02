@@ -132,8 +132,8 @@ operator, the only constraint being, that for subtypes of
 `IdentifiableObject`, `x===y` should imply `x==y` — equality should be 
 consistent with identity.
 
-Occasionally that's not what we want. For example, for numeric types, I 
-don't care whether a value is of class `Natural`, `Integer`, or `Whole` when 
+Occasionally that's not what we want. For example, for numeric types, it 
+doesn't matter whether a value is of class `Natural`, `Integer`, or `Whole` when 
 comparing it to `0`. Fortunately, numeric types extend `Object` directly, and 
 are not subject to the additional constraints defined by `IdentifiableObject`.
 
@@ -269,7 +269,7 @@ standard SI unit prefixes: m, u, n, p, f, k, M, G, T, P.
 
 ## Numeric widening
 
-I mentioned earlier that Ceylon doesn't have implicit type conversions, 
+As mentioned earlier, Ceylon doesn't have implicit type conversions, 
 not even built-in conversions for numeric types. Assignment does not 
 automatically widen (or narrow) numeric values. Instead, we need to call 
 one of the operations (well, attributes, actually) defined by the interface 

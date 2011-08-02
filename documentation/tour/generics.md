@@ -384,10 +384,6 @@ With type inference, the compiler chooses an appropriate type argument to
 
 ## There's more...
 
-I was about to start talking about sequenced type parameters, the foundation 
-of Ceylon's typesafe metamodel. But I realize I already hit my word limit. 
-If you're really impatient, you can skip forward to Part 8.
-
 Next we're going to back up a bit and cover a [couple of topics that got 
 kinda glossed over](../missing-pieces).
 

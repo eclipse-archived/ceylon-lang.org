@@ -151,8 +151,7 @@ elements that declare a subtype of `Number`. The argument
 `Attribute<Bottom,String>` would constrain the annotation to occur only 
 at program elements that declare an attribute of type `String`.
 
-Here's a couple of examples I copied and pasted straight from the 
-language spec:
+Here's a couple of examples from the language spec:
 
 <pre class="brush: ceylon">
     shared interface Scope

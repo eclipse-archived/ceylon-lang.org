@@ -61,8 +61,7 @@ The same behavior applies to locals inside a method. Methods can't declare
 Even though we'll continue to use the words "local" and "attribute", keep in 
 mind that there's no really strong distinction between the terms. Any named 
 value might be captured by some other declaration in the same containing 
-scope. (I'm still searching for a really good word to collectively describe 
-attributes and locals.)
+scope.
 
 ## Variables
 
@@ -143,9 +142,10 @@ you're getting or setting.
 ## Control structures
 
 Ceylon has five built-in control structures. There's nothing much new here for 
-Java or C# developers, so I'll just give a few quick examples without much 
-additional commentary. However, one thing to be aware of is that Ceylon doesn't 
-allow you to omit the braces in a control structure. The following doesn't parse:
+Java or C# developers, so a few quick examples without much 
+additional commentary should suffice. However, one thing to be aware of is 
+that Ceylon doesn't allow you to omit the braces in a control structure. 
+The following doesn't parse:
 
 <pre class="brush: ceylon">
     if (x>100) bigNumber();

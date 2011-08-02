@@ -10,8 +10,7 @@ author: Gavin King
 ## Modules in Ceylon
 
 Built-in support for modularity is a major goal of the Ceylon project, but 
-what am I really talking about when I use this word? Well, I suppose there's 
-multiple layers to this:
+what does 'modularity' mean? There are several layers to this:
 
 * Language-level support for a unit of visibility that is bigger than a package, 
   but smaller than "all packages".
@@ -24,11 +23,6 @@ multiple layers to this:
   per module) and the ability to manage multiple versions of the same module.
 * An ecosystem of remote module repositories where folks can share code 
   with others.
-
-I'm not going to get into a whole lot of fine detail of this, partly because 
-what I have written down in the language spec today will probably change by 
-the time you actually get to use any of this stuff, but let me give you a 
-taste of the overall architecture proposed.
 
 ## Module-level visibility
 
@@ -108,9 +102,8 @@ the module it is compiling. And when it finishes compiling the module,
 it puts the resulting module archive in the right place in a local module 
 repository.
 
-(The architecture also includes support for source directories, source 
-archives, and module documentation directories, but I'm not going to cover 
-all that today.)
+The architecture also includes support for source directories, source 
+archives, and module documentation directories.
 
 ## Module runtime
 

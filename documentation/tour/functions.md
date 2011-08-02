@@ -98,8 +98,8 @@ alternative method invocation protocol is the following:
     Comparable&lt;Natural>.compare(0)(num);
 </pre>
 
-Don't worry if you can't make sense of that right now. And actually I'm 
-skipping over some details here, that's not quite *exactly* how Method is 
+Don't worry if you can't make sense of that right now. A few details 
+are being glossed over here, that's not quite *exactly* how Method is 
 defined. But we'll come back to this in a future installment. Let's get back 
 to the current topic.
 
@@ -139,8 +139,8 @@ syntax for declaring a parameter of type `Callable`:
     }
 </pre>
 
-I find this version also slightly more readable and more regular. This is the 
-preferred syntax for defining higher-order functions.
+Many pepple find this version also slightly more readable and more regular. 
+This is the preferred syntax for defining higher-order functions.
 
 ## Function references
 

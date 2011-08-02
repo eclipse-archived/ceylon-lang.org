@@ -54,7 +54,7 @@ writing code that would cause a `NullPointerException`.
 
 We've seen a few examples of how ad-hoc union types are used in Ceylon. Let's 
 just revisit the notion to make sure we completely understand it. When 
-I declare the type of something using a union type `X|Y`, I'm saying that 
+the type of something is declared using a union type `X|Y`, that means 
 only expressions of type `X` and expressions of type `Y` are assignable to it. 
 The type `X|Y` is a supertype of both `X` and `Y`. The following code is 
 well-typed:
@@ -188,7 +188,7 @@ interface:
 Notice that the code of `printVisitor` looks just like a `switch` statement. 
 It must explicitly enumerate all subtypes of `Node`. It "breaks" if we add 
 a new subtype of `Node` to the `Visitor` interface. This is correct, and is the 
-desired behavior. By "break", I mean that the compiler lets us know that 
+desired behavior; "break" means that the compiler lets us know that 
 we have to update our code to handle the new subtype.
 
 In Ceylon, we can achieve the same effect, with less verbosity, by 
@@ -325,7 +325,7 @@ Now, the `Comparable` interface itself:
 ## Type inference
 
 So far, we've always been explicitly specifying the type of every declaration. 
-I think this generally makes code, especially example code, much easier to 
+This generally makes code, especially example code, much easier to 
 read and understand.
 
 However, Ceylon does have the ability to infer the type of a locals or the 

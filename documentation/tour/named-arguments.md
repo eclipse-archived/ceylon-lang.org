@@ -30,7 +30,7 @@ position in the list. Let's see just one more example, just in case:
             user.name, order.total, order.confimationNumber);
 </pre>
 
-This works fine, I suppose. However, Ceylon provides an alternative method 
+This works fine, however Ceylon provides an alternative method 
 invocation protocol that is usually easier to read when there are more than 
 one or two arguments:
 
