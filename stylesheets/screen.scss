@@ -375,7 +375,22 @@ form.bp {
   font-size:80%;
 }
 
-//Code from Markdown
+//Team page
+.teammemberbio {
+  font-size: 90%;
+  display:inline;
+  ul {
+    list-style-position:inside;
+  }
+}
+
+.teammemberphoto {
+  float:left;
+  margin: 0 20px 20px 0;
+  display:inline;
+}
+
+//Code for Markdown
 body.bp {
   pre {
     background-color:#f5f5f5;
