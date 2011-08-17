@@ -1,4 +1,5 @@
 require 'mypaginator'
+require 'extend_string'
 
 module Awestruct
   module Extensions
@@ -75,13 +76,19 @@ module Awestruct
         end
 
         @authors.values.each do |author|
-          paginator = Awestruct::Extensions::MyPaginator.new( @authored_items_property, @input_path, { :remove_input=>false, :output_prefix=>File.join( @output_path, author.to_s), :split_title=>'Blog of ' + author.to_s,:collection=>author.pages }.merge( @pagination_opts ) )
+          output_prefix = File.join( @output_path, sanitize(author.to_s) )
+          paginator = Awestruct::Extensions::MyPaginator.new( @authored_items_property, @input_path, { :remove_input=>false, :output_prefix=>output_prefix, :split_title=>'Blog of ' + author.to_s,:collection=>author.pages }.merge( @pagination_opts ) )
           primary_page = paginator.execute( site )
           #site.splitter_title = ''
           author.primary_page = primary_page
         end
 
         site.send( "#{@authored_items_property}_authors=", ordered_authors )
+      end
+      
+      def sanitize(author)
+        #replace accents with unaccented version, go lowercase and replace and space with dash
+        author.to_s.urlize({:convert_spaces=>true})
       end
     end
   end

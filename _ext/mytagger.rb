@@ -1,3 +1,5 @@
+require 'mypaginator'
+require 'extend_string'
 
 module Awestruct
   module Extensions
@@ -76,12 +78,18 @@ module Awestruct
         end
 
         @tags.values.each do |tag|
-          paginator = Awestruct::Extensions::Paginator.new( @tagged_items_property, @input_path, { :remove_input=>false, :output_prefix=>File.join( @output_path, tag.to_s), :collection=>tag.pages }.merge( @pagination_opts ) )
+          output_prefix = File.join( @output_path, sanitize(tag.to_s) )
+          paginator = Awestruct::Extensions::MyPaginator.new( @tagged_items_property, @input_path, { :remove_input=>false, :output_prefix=>output_prefix, :split_title=>'Blog tagged ' + tag.to_s, :collection=>tag.pages }.merge( @pagination_opts ) )
           primary_page = paginator.execute( site )
           tag.primary_page = primary_page
         end
 
         site.send( "#{@tagged_items_property}_tags=", ordered_tags )
+      end
+      
+      def sanitize(author)
+        #replace accents with unaccented version, go lowercase and replace and space with dash
+        author.to_s.urlize({:convert_spaces=>true})
       end
     end
   end
