@@ -1,3 +1,5 @@
+require 'extend_string'
+
 module Awestruct
   module Extensions
     class MultiAtomizer
@@ -41,10 +43,15 @@ module Awestruct
         input_page = File.join( File.dirname(__FILE__), 'template.atom.haml' )
         page = site.engine.load_page( input_page )
         page.date = page.timestamp unless page.timestamp.nil?
-        page.output_path = @output_path + "/" + name.to_s + "/" + @output_file
+        page.output_path = @output_path + "/" + sanitize(name) + "/" + @output_file
         page.entries = atom_pages
         page.title = site.title || site.base_url
         site.pages << page
+      end
+      
+      def sanitize(name)
+        #replace accents with unaccented version, go lowercase and replace and space with dash
+        name.to_s.urlize({:convert_spaces=>true})
       end
     end
   end
