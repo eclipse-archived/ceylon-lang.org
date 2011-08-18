@@ -18,7 +18,7 @@ tab: blog
         %a{:href=>post.url}= post.title
       .byline
         .author
-          /there is only one author per page but the author splitter adds an array here
+          /there is only one author per post but the author splitter adds an array here
           %a{:href=>post.author[0].primary_page.url} #{post.author[0]}
         .date
           #{post.date.strftime( '%d %B %Y' )}
@@ -32,6 +32,13 @@ tab: blog
           = post.disqus_comments_link
   = page.posts.links
 #sidebar
+  - if page.author_for_bio
+    - member = site.team.values.detect{|member| member.name == page.author_for_bio}
+    - if member
+      .sidebar-block
+        .expandable
+          %h3 Bio
+          #{member.content}
   .sidebar-block  
     :markdown
       ### [Feed](blog.atom)
@@ -52,5 +59,31 @@ tab: blog
     %h3 Authors
     .tag-cloud
       = site.posts_authors_cloud
-
       
+:javascript
+  /* place div.expandable to 
+   * - minHeight by default 
+   * - full size on click
+   * - back to minHeight on second click
+   * with a jQuery animation
+   */
+  var minHeight=150;
+  $(document).ready( function() {
+    $("div.expandable").height(minHeight);     
+    $("div.expandable").click(function(e) 
+      {
+        if( !$(e.target).is("a")) {
+          $this = $(this); 
+          var currentHeight = $this.height();
+          if(currentHeight==minHeight) {
+            $this.css('height', 'auto');
+          }
+          else{
+            $this.css('height', minHeight + 'px');
+          };
+          var height = $this.height();
+          $this.css('height', currentHeight + 'px');
+          $this.animate({'height':height}, 500);
+      }
+    })
+  });

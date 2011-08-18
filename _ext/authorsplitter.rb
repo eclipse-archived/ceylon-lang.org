@@ -77,9 +77,9 @@ module Awestruct
 
         @authors.values.each do |author|
           output_prefix = File.join( @output_path, sanitize(author.to_s) )
-          paginator = Awestruct::Extensions::MyPaginator.new( @authored_items_property, @input_path, { :remove_input=>false, :output_prefix=>output_prefix, :split_title=>'Blog of ' + author.to_s,:collection=>author.pages }.merge( @pagination_opts ) )
+          options = { :remove_input=>false, :output_prefix=>output_prefix, :split_title=>'Blog of ' + author.to_s, :author_for_bio=> author.to_s, :collection=>author.pages }.merge( @pagination_opts )
+          paginator = Awestruct::Extensions::MyPaginator.new( @authored_items_property, @input_path, options )
           primary_page = paginator.execute( site )
-          #site.splitter_title = ''
           author.primary_page = primary_page
         end
 

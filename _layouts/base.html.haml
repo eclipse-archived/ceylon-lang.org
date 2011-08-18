@@ -10,10 +10,13 @@
     %link{ :href=>"/stylesheets/sh/shThemeDefault.css", :rel=>"stylesheet", :type=>"text/css" }
     /[if lt IE 8]
       %link{ :rel=>'stylesheet', :type=>'text/css', :href=>'/stylesheets/ie.css', :media=>'screen, projection' }
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
     <script type="text/javascript" src="/js/sh/shCore.js"></script>
     <script type="text/javascript" src="/js/sh/shBrushJava.js"></script>
     <script type="text/javascript" src="/js/sh/shBrushCeylon.js"></script>
-    <script type="text/javascript">SyntaxHighlighter.defaults['gutter'] = false;SyntaxHighlighter.all();</script>
+    :javascript
+      SyntaxHighlighter.defaults['gutter'] = false;
+      SyntaxHighlighter.all();
   %body.bp
     #container
       ~ content

@@ -171,6 +171,9 @@ form.bp {
         margin-top:0em;
         background-color:$header_color;
       }
+      .expandable {
+        overflow:hidden;
+      }
   }
 }
 

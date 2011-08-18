@@ -54,6 +54,7 @@ module Awestruct
         @output_prefix = opts[:output_prefix] || File.dirname( @input_path )
         @collection    = opts[:collection]
         @split_title = opts[:split_title] 
+        @author_for_bio = opts[:author_for_bio]
       end
 
       def execute(site)
@@ -90,6 +91,7 @@ module Awestruct
           page.posts.pages              = paginated_pages
           page.posts.window             = 1
           page.split_title              = @split_title
+          page.author_for_bio           = @author_for_bio
 
           if ( prev_page != nil )
             prev_page.send( @prop_name ).next_page = page
