@@ -6,8 +6,8 @@ author: Emmanuel Bernard
 ---
 %h1 #{page.title}
 
-- events = site.team.values.sort{|l,r| l.level <=> r.level}
-- for member in events
+- members = site.team.values.sort{|l,r| l.level <=> r.level}
+- for member in members
   %h2 #{member.name}
   .teammember
     .teammemberphoto
