@@ -5,14 +5,13 @@ author: Emmanuel Bernard
 tab: blog
 ---
 
-- if page.split_title
-  %h1
-    #{page.split_title}
-- else
-  %h1
-    #{page.title}
-
 #core-page
+  - if page.split_title
+    %h1
+      #{page.split_title}
+  - else
+    %h1
+      #{page.title}
   - for post in page.posts
     .post
       %h1.title
