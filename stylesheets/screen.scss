@@ -189,31 +189,10 @@ form.bp {
   overflow:hidden;
   #footer-core {
     display:block;
-    #dev {
-      @include column(24, true);
-    }
-    #todo {
-      @include column(24, true);
-      display:inline;
-      background-color:#FFE4C4;
-      //opacity:0.4;
-      padding:.5em;
-      color:#000000;
-      #todo-left {
-        display:inline;
-        float:left;
-        width:40%;
-      }
-      #todo-right{
-        display:inline;
-        float:right;
-        width:40%;
-      }
-    }
     #copyright {
       padding-top:2em;
+      font-size:.75em;
       @include column(24, true);
-      text-align:center;
     }  
   }
 }

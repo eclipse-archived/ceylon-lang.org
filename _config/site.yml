@@ -3,6 +3,7 @@ title: Ceylon
 profiles:
   development:
     disqus_developer: true
+    dev: true
   production:
       
 google_analytics: UA-24748553-1

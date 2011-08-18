@@ -1,42 +1,8 @@
 #footer
   #footer-core
-    #dev
-      :markdown
-        [How to build the site](/README)
-        
-        You can find two sample files for [.md](/md-sample) and 
-        [.html.haml](/haml-sample) syntaxes. Look at them esp the .md file as it 
-        shows how a page should be written and how to use syntax highlighting.          
-        Don't yell at me on color / style, this work
-        has not been done yet.
-        
-        The menu is in `_layout/default.html.haml`. Note that none of the pages
-        are created yet and that the menu list is a sample.
-        
-        When you create a page, give it the right metadata:
-        
-        * layout (use `layout: default` unless you know what to do)
-        * title
-        * author
-        * tab: this is the tab that will be highlighted when the page is shown. Use the lower case menu name.
-    #todo
-      #todo-left
-        :markdown
-          TODO infra:
-          
-          * FAQ module like TorqueBox
-          * Blog module
-          * rewrite menu module to use a .yaml file and a loop for auto generation
-      #todo-right
-        :markdown
-          TODO design:
-          
-          * everything :)
-          
-          TODO content:
-          
-          * TBD
     #copyright
       :markdown
-        Site generated the #{Time.now.strftime( '%d %B %Y at %H:%M' )} - Copyright Red Hat 2010-2011  
+        Site generated the #{Time.now.strftime( '%d %B %Y at %H:%M' )} - Copyright Red Hat 2010-2011 - 
         Ceylon is a trademark of Red Hat Inc.
+      - if site.dev
+        %a{:href=>'/README'} Get help on writing a page
