@@ -6,7 +6,7 @@ author: Emmanuel Bernard
 ---
 %h1 #{page.title}
 
-- members = site.team.values.sort{|l,r| l.level <=> r.level}
+- members = site.team.values.sort_by{|a| [a.level, a.name]}
 - for member in members
   %h2 #{member.name}
   .teammember
