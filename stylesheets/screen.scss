@@ -58,6 +58,27 @@ body.bp {
   h6 {
     font-size:100%;
   }
+
+
+  //Home news info
+  .news_entry {
+    font-size: 80%;
+    margin-bottom:0;
+    padding-bottom:0;
+    p {
+      margin-bottom:0;
+    }
+    h4 {
+      font-size:120%;
+      margin-bottom:0;
+      padding-bottom:0;
+    }
+    hr {
+      margin-top:20px;
+      margin-bottom :20px;
+      background-color:#999;
+    }
+  }
 }
 
 form.bp {
@@ -352,6 +373,7 @@ form.bp {
   float:right;
   width:50%;
 }
+
 
 //Blog archive
 #blog-archive {

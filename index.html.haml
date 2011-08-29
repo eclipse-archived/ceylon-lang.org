@@ -49,6 +49,19 @@ author: Emmanuel Bernard
       ### Latest release: no latest release
       Ceylon has not yet been released, [check out our roadmap](/documentation/roadmap)
   .sidebar-block
-    :markdown
-      ### Twitter news
-      \#ceylon is interesting @emmanuelbernard
+    %h3 News
+    - news = site.news.values.sort{|l,r| r.effective_date <=> l.effective_date}
+    - for entry in news
+      .news_entry
+        %h4
+          - if ( entry.more_info_url )
+            %a{:href=>entry.more_info_url}
+              = entry.title
+          - else 
+            = entry.title
+        .news_date
+          #{entry.date}
+        .news_detail
+          #{entry.content}
+        %hr
+      
