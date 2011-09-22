@@ -20,17 +20,16 @@ of the type `Sequence` aren't defined by `Empty`, so you can't call them if
 all you have is `X[]`. Therefore, we need the `if (nonempty ... )` construct 
 to gain access to these operations.
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     void printBounds(String[] strings) {
         if (nonempty strings) {
-            //strings is a Sequence&lt;String>
+            //strings is a Sequence<String>
             writeLine(strings.first + ".." + strings.last);
         }
         else {
             writeLine("Empty");
         }
     }
-</pre>
 
 Note how this is just a continuation of the pattern established for `null`
 value handling.
@@ -40,36 +39,32 @@ value handling.
 There's lots more syntactic sugar for sequences. We can use a bunch of 
 familiar Java-like syntax:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     String[] operators = { "+", "-", "*", "/" };
     String? plus = operators[0];
     String[] multiplicative = operators[2..3];
-</pre>
 
 Oh, and the expression `{}` returns a value of type `Empty`.
 
 However, unlike Java, all these syntactic constructs are pure abbreviations. 
 The code above is exactly equivalent to the following de-sugared code:
 
-<pre class="brush: ceylon">
-    Empty|Sequence&lt;String> operators = Array("+", "-", "*", "/");
+<!-- lang: ceylon -->
+    Empty|Sequence<String> operators = Array("+", "-", "*", "/");
     Nothing|String plus = operators.value(0);
-    Empty|Sequence&lt;String> multiplicative = operators.range(2,3);
-</pre>
+    Empty|Sequence<String> multiplicative = operators.range(2,3);
 
 A `Range` is also a subtype of `Sequence`. The following:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     Character[] uppercaseLetters = 'A'..'Z';
     Natural[] countDown = 10..0;
-</pre>
 
 Is just sugar for:
 
-<pre class="brush: ceylon">
-    Empty|Sequence&lt;Character> uppercaseLetters = Range('A','Z');
-    Empty|Sequence&lt;Natural> countDown = Range(10,0);
-</pre>
+<!-- lang: ceylon -->
+    Empty|Sequence<Character> uppercaseLetters = Range('A','Z');
+    Empty|Sequence<Natural> countDown = Range(10,0);
 
 In fact, this is just a sneak preview of the fact that almost all operators 
 in Ceylon are just sugar for method calls upon a type. We'll come back to this 
@@ -81,32 +76,29 @@ later, when we talk about operator polymorphism.
 The `Sequence` interface extends `Iterable`, so we can iterate a `Sequence` 
 using a `for` loop:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     for (String op in operators) {
         writeLine(op);
     }
-</pre>
 
 Ceylon doesn't need C-style `for` loops. Instead, combine `for` with the 
 range operator `..`.
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     variable Natural fac:=1;
     for (Natural n in 1..100) {
         fac*=n;
         writeLine("Factorial " n "! = " fac "");
     }
-</pre>
 
 If, for any reason, we need to use the index of each element of a sequence 
 we can use a special variation of the `for` loop that is designed for 
 iterating instances of `Entries`:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     for (Natural i -> String op in entries(operators)) {
         writeLine($i + ": " + op);
     }
-</pre>
 
 The `entries()` function returns an instance of `Entries<Natural,String>` 
 containing the indexed elements of the sequence.
@@ -118,10 +110,10 @@ place to find some than in the language module itself?
 
 Here's how the language module defines the type `Sequence`:
 
-<pre class="brush: ceylon">
-    shared interface Sequence&lt;out Element>
-            satisfies Correspondence&lt;Natural, Element> &
-                      Iterable&lt;Element> & Sized {
+<!-- lang: ceylon -->
+    shared interface Sequence<out Element>
+            satisfies Correspondence<Natural, Element> &
+                      Iterable<Element> & Sized {
          
         doc "The index of the last element of the sequence."
         shared formal Natural lastIndex;
@@ -153,26 +145,25 @@ Here's how the language module defines the type `Sequence`:
             }
         }
      
-        shared actual default Iterator&lt;Element> iterator() {
+        shared actual default Iterator<Element> iterator() {
             class SequenceIterator(Natural from)
-                    satisfies Iterator&lt;Element> {
+                    satisfies Iterator<Element> {
                 shared actual Element? head {
                     return value(from);
                 }
-                shared actual Iterator&lt;Element> tail {
+                shared actual Iterator<Element> tail {
                     return SequenceIterator(from+1);
                 }
             }
             return SequenceIterator(0);
         }
     }
-</pre>
 
 The most interesting operations are inherited from `Correspondence`, 
 `Iterable` and `Sized`:
 
-<pre class="brush: ceylon">
-    shared interface Correspondence&lt;in Key, out Value>
+<!-- lang: ceylon -->
+    shared interface Correspondence<in Key, out Value>
             given Key satisfies Equality {
          
         doc "Return the value defined for the
@@ -180,12 +171,12 @@ The most interesting operations are inherited from `Correspondence`,
         shared formal Value? value(Key key);
              
     }
-    shared interface Iterable&lt;out Element>
+    shared interface Iterable<out Element>
             satisfies Container {
          
         doc "An iterator of values belonging
              to the container."
-        shared formal Iterator&lt;Element> iterator();
+        shared formal Iterator<Element> iterator();
          
         shared actual default Boolean empty {
             return !(first exists);
@@ -214,27 +205,26 @@ The most interesting operations are inherited from `Correspondence`,
         shared formal Boolean empty;
          
     }
-</pre>
 
 ## Empty sequences and the Bottom type
 
 Now let's see the definition of Empty:
 
-<pre class="brush: ceylon">
-    object emptyIterator satisfies Iterator&lt;Bottom> {
+<!-- lang: ceylon -->
+    object emptyIterator satisfies Iterator<Bottom> {
          
         shared actual Nothing head {
             return null;
         }
-        shared actual Iterator&lt;Bottom> tail {
+        shared actual Iterator<Bottom> tail {
             return this;
         }
          
     }
      
     shared interface Empty
-               satisfies Correspondence&lt;Natural, Bottom> &
-                         Iterable&lt;Bottom> & Sized {
+               satisfies Correspondence<Natural, Bottom> &
+                         Iterable<Bottom> & Sized {
          
         shared actual Natural size {
             return 0;
@@ -242,7 +232,7 @@ Now let's see the definition of Empty:
         shared actual Boolean empty {
             return true;
         }
-        shared actual Iterator&lt;Bottom> iterator() {
+        shared actual Iterator<Bottom> iterator() {
             return emptyIterator;
         }
         shared actual Nothing value(Natural key) {
@@ -253,7 +243,6 @@ Now let's see the definition of Empty:
         }
          
     }
-</pre>
 
 The special type `Bottom` represents:
 
@@ -267,15 +256,14 @@ in the type parameter `Element`. So `Empty` is assignable to
 `Correspondence<Natural,T>` and `Iterable<T>` for any type `T`. That's why 
 `Empty` doesn't need a type parameter. The following code is well-typed:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     void printAll(String[] strings) {
-        variable Iterator&lt;String> i := strings.iterator();
+        variable Iterator<String> i := strings.iterator();
         while (exists String s = i.head) {
             writeLine(s);
             i := i.tail;
         }
     }
-</pre>
 
 Since both `Empty` and `Sequence<String>` are subtypes of `Iterable<String>`, 
 the union type `String[]` is also a subtype of `Iterable<String>`.
@@ -300,22 +288,20 @@ very, very different! First, of course, a sequence type
 `Sequence<String>` is an immutable interface, it's not a mutable concrete 
 type like an array. We can't set the value of an element:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
 String[] operators = .... ;
 operators[0] := "**"; //compile error
-</pre>
 
 Furthermore, the index operation `operators[i]` returns an optional type 
 `String?`, which results in quite different code idioms. To begin with, 
 we don't iterate sequences by index like in C or Java. The following code 
 does not compile:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     for (Natural i in 0..operators.size-1) {
         String op = operators[i]; //compile error
         ...
     }
-</pre>
 
 Here, `operators[i]` is a `String?`, which is not directly assignable to 
 `String`.
@@ -323,50 +309,45 @@ Here, `operators[i]` is a `String?`, which is not directly assignable to
 Instead, if we need access to the index, we use the special form of for shown 
 above.
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     for (Natural i -> String op in entries(operators)) {
         ...
     }
-</pre>
 
 Likewise, we don't usually do an upfront check of an index against the sequence length:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     if (i>operators.size-1) {
         throw IndexOutOfBoundException();
     }
     else {
         return operators[i]; //compile error
     }
-</pre>
 
 Instead, we do the check *after* accessing the sequence element:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     if (exists String op = operators[i]) {
         return op;
     }
     else {
         throw IndexOutOfBoundException();
     }
-</pre>
 
 We especially don't ever need to write the following:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     if (i>operators.size-1) {
         return "";
     }
     else {
         return operators[i]; //compile error
     }
-</pre>
 
 This is much cleaner:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     return operators[i] ? "";
-</pre>
 
 All this may take a little getting used to. But what's nice is that all the 
 exact same idioms also apply to other kinds of `Correspondence`, including 

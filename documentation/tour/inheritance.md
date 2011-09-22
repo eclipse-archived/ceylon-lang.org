@@ -15,7 +15,7 @@ folks, this is what makes a program object-oriented. Let's try refactoring the
 `Hello` class from Part 2 into two classes, with two different implementations 
 of greeting:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     doc "A default greeting"
     class DefaultHello() {
      
@@ -28,7 +28,6 @@ of greeting:
         }
          
     }
-</pre>
 
 Notice that Ceylon forces us to declare attributes or methods that can be 
 refined (overridden) by annotating them `default`.
@@ -39,7 +38,7 @@ followed by the name of the superclass, followed by a list of arguments to be
 sent to the superclass initializer parameters. It looks just like an expression 
 that instantiates the superclass:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     doc "A personalized greeting"
     class PersonalizedHello(String name)
             extends DefaultHello() {
@@ -50,7 +49,6 @@ that instantiates the superclass:
         }
      
     }
-</pre>
 
 Ceylon also forces us to declare that an attribute or method refines 
 (overrides) an attribute or method of a superclass by annotating it `actual`
@@ -71,7 +69,7 @@ There's one problem with what we've just seen. A personalized greeting is
 not really a kind of default greeting. This is a case for introducing an 
 abstract superclass:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     doc "A greeting"
     abstract class Hello() {
          
@@ -84,7 +82,6 @@ abstract superclass:
         }
          
     }
-</pre>
 
 Ceylon requires us to annotate abstract classes `abstract`, just like Java. 
 This annotation specifies that a class cannot be instantiated, and can define 
@@ -103,17 +100,16 @@ explicitly tell it to!
 One way to define an implementation for an inherited abstract attribute is to 
 simply assign a value to it in the subclass.
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     doc "A default greeting"
     class DefaultHello() extends Hello() {
         greeting = "Hello, World!";
     }
-</pre>
 
 Of course, we can also define an implementation for an inherited abstract 
 attribute by refining it.
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     doc "A personalized greeting"
     class PersonalizedHello(String name)
             extends Hello() {
@@ -124,7 +120,6 @@ attribute by refining it.
         }
          
     }
-</pre>
 
 Note that there's no way to prevent a other code from extending a class in 
 Ceylon. Since only members explicitly declared as supporting refinement using 
@@ -150,7 +145,7 @@ objects.
 Let's take advantage of mixin inheritance to define a reusable `Writer` 
 interface for Ceylon.
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     shared interface Writer {
      
         shared formal Formatter formatter;
@@ -167,7 +162,6 @@ interface for Ceylon.
         }
          
     }
-</pre>
 
 Note that we can't define a concrete value for the `formatter` attribute, 
 since an interface may not define a simple attribute, and may not hold a 
@@ -179,7 +173,7 @@ same name.
 
 Now let's define a concrete implementation of this interface.
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     shared class ConsoleWriter()
             satisfies Writer {
          
@@ -190,7 +184,6 @@ Now let's define a concrete implementation of this interface.
         }
          
     }
-</pre>
 
 The `satisfies` keyword 
 ([not `implements` like Java](/documentation/faq/language-design/#_implements_vs_satisfies))
@@ -215,7 +208,7 @@ two members both (directly or indirectly) refine a common member of a common
 supertype, and the inheriting type itself also refines the member to eliminate 
 any ambiguity. The following results in a compilation error:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     interface Party {
         shared formal String legalName;
         shared default String name {
@@ -236,12 +229,11 @@ any ambiguity. The following results in a compilation error:
         userId = email;
         shared actual String name = name;    //error: refines two different members
     }
-</pre>
 
 To fix this code, we'll factor out a `formal` declaration of the attribute 
 `name` to a common supertype. The following is legal:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     interface Named {
         shared formal String name;
     }
@@ -266,11 +258,10 @@ To fix this code, we'll factor out a `formal` declaration of the attribute
         userId = email;
         shared actual String name = name;
     }
-</pre>
 
 Oh, of course, the following is illegal:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     interface Named {
         shared formal String name;
     }
@@ -294,7 +285,6 @@ Oh, of course, the following is illegal:
         legalName = name;
         userId = email;
     }
-</pre>
 
 To fix this code, `name` must be declared `default` in both `User` and `Party` 
 and explicitly refined in `Customer`.
@@ -317,7 +307,7 @@ interface called `SequenceList` for this purpose. Well, it doesn't yet, since
 we have not yet either implemented introductions or written the collections 
 module, but it will soon!
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     doc "Decorator that introduces List to Sequence."
     see (List,Sequence)
     shared interface SequenceList<Element>
@@ -333,7 +323,6 @@ module, but it will soon!
         ...
          
     }
-</pre>
 
 The `adapts` clause makes `SequenceList` a special kind of interface called an 
 *adapter* (in the terminology used by this book). According to the language 
@@ -356,7 +345,7 @@ All it does is "fill in" the definitions of the missing operations. Here, the
 Now, to introduce `List` to `Sequence` in a certain compilation unit, all we 
 need to do is `import` the adapter:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     import ceylon.collection { List, SequenceList }
      
     ...
@@ -366,7 +355,6 @@ need to do is `import` the adapter:
      
     //call an operation of List on Sequence
     List<String> sortedNames = names.sortedElements();
-</pre>
 
 Note that the introduction is not visible outside the lexical scope of the 
 `import` statement (the compilation unit). But within the compilation unit 
@@ -409,7 +397,7 @@ From our point of view, an extension method introduces a member to a type,
 without actually introducing a new supertype. Indeed, a Ceylon adapter with 
 no `satisfies` clause is actually a package of extension methods!
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     shared interface StringSequenceExtensions
             adapts Sequence<String> {
          
@@ -426,7 +414,6 @@ no `satisfies` clause is actually a package of extension methods!
         }
          
     }
-</pre>
 
 On the other hand, introductions are less powerful than implicit type 
 conversions. This is by design! In this case, "less powerful" means 
@@ -467,15 +454,13 @@ It's often useful to provide a shorter or more semantic name to an existing
 class or interface type, especially if the class or interface is a 
 parameterized type. For this, we use a *type alias*, for example:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     interface People = Set<Person>;
-</pre>
 
 A class alias must declare its formal parameters:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     shared class People(Person... people) = ArrayList<Person>;
-</pre>
 
 
 ## Member classes and member class refinement
@@ -487,7 +472,7 @@ more than natural. But in Ceylon, a non-abstract nested class is actually
 considered a member of the containing type. For example, `BufferedReader` 
 defines the member class `Buffer`:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     class BufferedReader(Reader reader)
             satisfies Reader {
         shared default class Buffer()
@@ -495,15 +480,13 @@ defines the member class `Buffer`:
         ...
         
     }
-</pre>
 
 The member class `Buffer` is annotated shared, so we can instantiate it like 
 this:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     BufferedReader br = BufferedReader(reader);
     BufferedReader.Buffer b = br.Buffer();
-</pre>
 
 Note that a nested type name must be qualified by the containing type name 
 when used outside of the containing type.
@@ -511,14 +494,13 @@ when used outside of the containing type.
 The member class `Buffer` is also annotated `default`, so we can refine it 
 in a subtype of `BufferedReader`:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     shared class BufferedFileReader(File file)
             extends BufferedReader(FileReader(file)) {
         shared actual class Buffer()
                 extends super.Buffer() { ... }
                 
     }
-</pre>
 
 That's right: Ceylon lets us "override" a member class defined by a supertype!
 
@@ -534,7 +516,7 @@ our code.
 It's even possible to define a `formal` member class of an `abstract` class. 
 A `formal` member class can declare `formal` members.
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     abstract class BufferedReader(Reader reader)
             satisfies Reader {
         shared formal class Buffer() {
@@ -544,12 +526,11 @@ A `formal` member class can declare `formal` members.
         ...
         
     }
-</pre>
 
 In this case, a concrete subclass of the `abstract` class must refine the 
 `formal` member class.
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     shared class BufferedFileReader(File file)
             extends BufferedReader(FileReader(file)) {
         shared actual class Buffer()
@@ -559,7 +540,6 @@ In this case, a concrete subclass of the `abstract` class must refine the
              }
         }
     }
-</pre>
 
 Notice the difference between an `abstract` class and a `formal` member class. 
 An `abstract` nested class *may not* be instantiated, and *need not* be refined 
@@ -582,7 +562,7 @@ declaration which defines a named instance of the class, without providing
 any actual name for the class itself. This is usually most useful when we're 
 extending an `abstract` class or implementing an interface.
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     doc "A default greeting"
     object defaultHello extends Hello() {
         greeting = "Hello, World!";
@@ -596,7 +576,6 @@ extending an `abstract` class or implementing an interface.
         }
          
     }
-</pre>
 
 The downside to an `object` declaration is that we can't write code that 
 refers to the concrete type of `defaultHello` or `consoleWriter`, only to the 
@@ -613,7 +592,7 @@ but that's not quite right:
 
 Let's see how this can be useful:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     interface Subscription {
         shared formal void cancel();
     }
@@ -626,7 +605,6 @@ Let's see how this can be useful:
         }
         return subscription;
     }
-</pre>
 
 Notice how this code example makes clever use of the fact that the nested 
 `object` declaration receives a closure of the locals defined in the containing 
@@ -640,7 +618,7 @@ think of a method as a parametrized attribute.
 
 An `object` declaration can refine an attribute declared `formal` or `default`.
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     shared abstract class App() {
         shared formal OutputStream stream;
         ...
@@ -650,7 +628,6 @@ An `object` declaration can refine an attribute declared `formal` or `default`.
                 satisfies OutputStream { ... }
         ...
     }
-</pre>
 
 However, an `object` may not itself be declared `formal` or `default`.
 

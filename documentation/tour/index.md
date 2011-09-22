@@ -16,11 +16,10 @@ Let's take a little tour of the main features of the Ceylon language.
 
 Here's a classic example program.
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     void hello() {
         writeLine("Hello, World!");
     }
-</pre>
 
 This tour is separated into a number parts and will cover the main features of 
 Ceylon. But let's first start with the [Basics](basics). 

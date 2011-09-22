@@ -13,20 +13,18 @@ Let's start!
 
 Here's a classic example program.
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     void hello() {
         writeLine("Hello, World!");
     }
-</pre>
 
 This method prints `Hello, World!` on the console. A toplevel method like this 
 is just like a C function - it belongs directly to the package that contains 
 it, it's not a member of any specific type. You don't need a receiving object 
 to invoke a toplevel method. Instead, you can just call it like this:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     hello();
-</pre>
 
 Ceylon doesn't have Java-style `static` methods, but you can think of 
 toplevel methods as filling the same role. Ceylon has a very strict 
@@ -39,26 +37,24 @@ It's usually a good idea to add some kind of documentation to important
 methods like `hello()`. One way we could do this is by using a C-style 
 comment, either like this:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     /* The classic Hello World program */
     void hello() {
         writeLine("Hello, World!");
     }
-</pre>
 
 Or like this:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     //The classic Hello World program
     void hello() {
         writeLine("Hello, World!");
     }
-</pre>
 
 But it's much better to use the `doc` annotation for comments that describe 
 declarations.
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
 	doc "The classic Hello World program"
 	by "Gavin"
 	see (goodbye)
@@ -66,7 +62,6 @@ declarations.
 	void hello() {
 	    writeLine("Hello, World!");
 	}
-</pre>
 
 The `doc`, `by`, `see` and `throw` annotations contain documentation that is 
 included in the output of the Ceylon documentation compiler.
@@ -82,14 +77,13 @@ definition: `abstract`, `variable`, `shared`, `formal`, `actual` etc.
 
 Let's ask our program to tell us a little more about itself.
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     doc "The Hello World program
          ... version 1.1!"
     void hello() {
         writeLine("Hello, this is Ceylon " process.languageVersion
                   " running on Java " process.javaVersion "!");
     }
-</pre>
 
 As you can see, we can split a string across multiple lines. That's especially 
 useful when we're writing documentation in a `doc` annotation. We can 
@@ -98,15 +92,13 @@ interpolate expressions inside a string: we call that a string templage.
 A string template must begin and end in a string literal. The following is 
 not legal syntax:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     writeLine("Hello, this is Ceylon " process.languageVersion); //compile error!
-</pre>
 
 Whereas this one is
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     writeLine("Hello, this is Ceylon " process.languageVersion "");
-</pre>
 
 (If you're wondering why the syntax isn't 
 `"Hello, this is Ceylon ${process.languageVersion}"` 
@@ -115,10 +107,9 @@ Whereas this one is
 The `+` operator you're probably used to is an alternative, and more 
 flexible in many cases:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     writeLine("Hello, this is Ceylon " + process.languageVersion +
               " running on Java " + process.javaVersion + "!");
-</pre>
 
 ## Dealing with objects that aren't there
 
@@ -127,7 +118,7 @@ case where nothing was specified at the command line, which gives us an
 opportunity to explore how `null` values are treated in Ceylon, which is 
 quite different to what you're probably used to in Java or C#.
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     doc "Print a personalized greeting"
     void hello() {
         String? name = process.arguments.first;
@@ -140,7 +131,6 @@ quite different to what you're probably used to in Java or C#.
         }
         writeLine(greeting);
     }
-</pre>
 
 `String?` indicates that name may contain a `null` value. We then use 
 the `if (exists ...)` control structure to split the code that deals with a 
@@ -163,7 +153,7 @@ evaluates to true if `x` and `y` both evaluate to `null`.
 
 It's possible to declare the local name inside the `if (exists ... )` condition:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     String greeting;
     if (exists String name = process.arguments.first) {
         greeting = "Hello, " name "!";
@@ -172,7 +162,6 @@ It's possible to declare the local name inside the `if (exists ... )` condition:
         greeting = "Hello, World!";
     }
     writeLine(greeting);
-</pre>
 
 This is the preferred style most of the time, since we can't actually use 
 `name` for anything useful outside of the `if (exists ... )` construct.
@@ -182,9 +171,8 @@ This is the preferred style most of the time, since we can't actually use
 There are a couple of operators that will make you life easier when dealing 
 with `null` values.
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     shared String greeting = "Hello, " + name?"World";
-</pre>
 
 The `?` operator returns its first argument if the first argument is not 
 `null`, or its second argument otherwise. Its a more convenient way to 
@@ -193,27 +181,24 @@ handle `null` values in simple cases.
 The related `?.` operator lets us call operations on optional 
 types and provide an alternative value if the type is `null`.
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     shared String shoutedGreeting = "HELLO, " + name?.uppercase?"WORLD";
-</pre>
 
 ## Defaulted parameters
 
 A method parameter may specify a default value.
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     void hello(String name="World") {
         writeLine("Hello, " name "!");
     }
-</pre>
 
 Then we don't need to specify an argument to the parameter when we call 
 the method:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     hello(); //Hello, World!
     hello("JBoss"); //Hello, JBoss!
-</pre>
 
 Defaulted parameters must be declared after all required parameters in the 
 parameter list of a method.

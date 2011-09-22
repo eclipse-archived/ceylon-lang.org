@@ -19,7 +19,7 @@ String `Name`, you'll get a compilation error.
 Our first version of the `Hello` class has a single attribute and a 
 single method:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     doc "A personalized greeting"
     class Hello(String? name) {
          
@@ -37,7 +37,6 @@ single method:
             stream.writeLine(greeting);
         }
     }
-</pre>
 
 `shared` describes the accessibility of the attribute or method.
 Ceylon doesn't make a distinction between `public`, `protected` and 'default' 
@@ -69,20 +68,18 @@ Got the idea? We are playing russian dolls here.
 The attribute `greeting` is a simple attribute, the closest thing Ceylon has 
 to a Java field.
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     shared String greeting = "Hello, " name "!";
     shared Natural months = years * 12;
-</pre>
 
 The Ceylon compiler forces you to specify a value of any simple attribute or 
 local before making use of the simple attribute or local in an expression.
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     Natural count;
     shared void inc() {
         count++;   //compile error
     }
-</pre>
 
 Think of an attribute as 'field + getter + setter' done right and defined in 
 the language. Some attributes are simple value holders like the one we've 
@@ -91,7 +88,7 @@ getter and setter method pair.
 
 We could rewrite the attribute greeting as a getter:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     shared String greeting {
         if (exists name) {
             return "Hello, " name "!";
@@ -100,7 +97,6 @@ We could rewrite the attribute greeting as a getter:
             return "Hello, World!";
         }
     }
-</pre>
 
 Notice that the syntax of a getter declaration looks a lot like a method 
 declaration with no parameter list.
@@ -116,7 +112,7 @@ Instead:
 * the code to initialize the new instance of the class goes directly in the 
   body of the class.
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     class Hello(String? name) {
         
         shared String greeting;
@@ -131,7 +127,6 @@ Instead:
             stream.writeLine(greeting);
         }
     }
-</pre>
   
 The syntax of Ceylon is more regular than Java. Regularity makes a language 
 easy to learn and easy to refactor.
@@ -139,7 +134,7 @@ easy to learn and easy to refactor.
 Now let's turn our attention to a different possible implementation of 
 greeting:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     class Hello(String? name) {
         shared String greeting {
             if (exists name) {
@@ -151,7 +146,6 @@ greeting:
         }
         ... 
     }
-</pre>
 
 The class initializer parameter `name` is used inside the getter `greeting`. 
 Parameters can be used in the scope of their block structure. Like method 
@@ -166,12 +160,11 @@ value of name, even after the initializer completes.
 We have not done this work for nothing! Let's no see how to use the 
 `Hello` class.
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     doc "Print a personalized greeting"
     void hello() {
         Hello(process.args.first).say(process.output);
     }
-</pre>
 
 Our rewritten `hello()` method just creates a new instance of `Hello`, and 
 invokes `say()`. Ceylon doesn't need a `new` keyword to instantiate a class.
@@ -188,23 +181,21 @@ or method overloading using:
 We're not going to get into all the details of these workarounds right now, 
 but here's a quick example of each of the three techniques:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     //defaulted parameter
     void println(String value, String eol = "\n") {
         writeLine(value + eol);
     }
-</pre>
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     //sequenced parameter
     void print(String... strings) {
         for (String string in strings) {
             writeLine(string);
         }
     }
-</pre>
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     //union type
     void print(String|Named printable) {
         String string;
@@ -217,13 +208,12 @@ but here's a quick example of each of the three techniques:
         }
         writeLine(string);
     }
-</pre>
 
 Don't worry if you don't completely understand the third example just yet. 
 
 Let's overload `Hello`, and its `say()` method, using defaulted parameters:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     doc "A command line greeting"
     class Hello(String? name = process.args.first) {
         ...
@@ -234,17 +224,15 @@ Let's overload `Hello`, and its `say()` method, using defaulted parameters:
         }
          
     }
-</pre>
 
 Our `hello()` method is now looking really simple as we use the default 
 parameter values:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     doc "Print a personalized greeting"
     void hello() {
         Hello().say();
     }
-</pre>
 
 ## There's more...
 

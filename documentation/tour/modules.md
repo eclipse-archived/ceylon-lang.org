@@ -30,13 +30,12 @@ A package in Ceylon may be shared or unshared. An unshared package
 (the default) is visible only to the module which contains the package. 
 We can make the package shared by providing a package descriptor:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     Package package {
         name = 'org.hibernate.query';
         shared = true;
         doc = "The typesafe query API.";
     }
-</pre>
 
 (Alert readers will notice that this is just a snippet of Ceylon code, using 
 the "declarative" object builder syntax.)
@@ -50,7 +49,7 @@ can directly access shared declarations in a `shared` package.
 A module must explicitly specify the other modules on which it depends.
  This is accomplished via a module descriptor:
  
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     Module module {
         name = 'org.hibernate';
         version = '3.0.0.beta';
@@ -66,12 +65,11 @@ A module must explicitly specify the other modules on which it depends.
             version = '4.0';
         }
     }
-</pre>
 
 A module may be runnable. A runnable module must specify a `run()` method in 
 the module descriptor:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     Module module {
         name = 'org.hibernate.test';
         version = '3.0.0.beta';
@@ -84,7 +82,6 @@ the module descriptor:
             name = 'org.hibernate'; version = '3.0.0.beta';
         }
     }
-</pre>
 
 ## Module archives and module repositories
 

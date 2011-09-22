@@ -11,11 +11,10 @@ author: Gavin King
 
 Consider the following method:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     void printf(OutputStream to, String format, Object... values) { 
         ... 
     }
-</pre>
 
 (Remember, the last parameter is a sequenced parameter which accepts 
 multiple arguments, just like a Java "varargs" parameter.)
@@ -25,22 +24,20 @@ using a familiar C-style syntax where arguments are delimited by in parentheses
 and separated by commas. Arguments are matched to parameters by their 
 position in the list. Let's see just one more example, just in case:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     printf(process, "Thanks, %s. You have been charged %.2f. Your confirmation number is %d.",
             user.name, order.total, order.confimationNumber);
-</pre>
 
 This works fine, however Ceylon provides an alternative method 
 invocation protocol that is usually easier to read when there are more than 
 one or two arguments:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     printf {
         to = process;
         format = "Thanks, %s. You have been charged %.2f. Your confirmation number is %d.";
         user.name, order.total, order.confimationNumber
     };
-</pre>
 
 This invocation protocol is called a *named argument list*. We can recognize a 
 named argument list by the use of braces as delimiters instead of parentheses. 
@@ -51,13 +48,12 @@ always appear at the end of the named parameter list. Note that it's also
 acceptable to call this method like this, passing a sequence to the named 
 value parameter:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     printf {
         to = process;
         format = "Thanks, %s. You have been charged %.2f. Your confirmation number is %d.";
         values = { user.name, order.total, order.confimationNumber };
     };
-</pre>
 
 We usually format named argument invocations across multiple lines.
 
@@ -70,37 +66,34 @@ an object by specifying named arguments to the class initializer.
 
 We're allowed to abbreviate an attribute definition of the following form:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     Payment payment = Payment {
         method = user.paymentMethod;
         currency = order.currency;
         amount = order.total;
     };
-</pre>
 
 or a named argument specification of this form:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     payment = Payment {
         method = user.paymentMethod;
         currency = order.currency;
         amount = order.total;
     };
-</pre>
 
 to the following more declarative (and less redundant) style:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     Payment payment {
         method = user.paymentMethod;
         currency = order.currency;
         amount = order.total;
     }
-</pre>
 
 We're even allowed to write a method of the following form:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     Payment createPayment(Order order) {
         return Payment {
             method = user.paymentMethod;
@@ -108,17 +101,15 @@ We're even allowed to write a method of the following form:
             amount = order.total;
         };
     }
-</pre>
 
 using the following abbreviated syntax:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     Payment createPayment(Order order) {
         method = user.paymentMethod;
         currency = order.currency;
         amount = order.total;
     }
-</pre>
 
 Perhaps you're worried that this looks like a method that assigns the values 
 of three attributes of the declaring class, rather than a shortcut syntax for 
@@ -137,19 +128,17 @@ usually stand out immediately.
 
 The following classes define a data structure for building tables:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     class Table(String title, Natural rows, Border border, Column... columns) { ... }
     class Column(String heading, Natural width, String content(Natural row)) { ... }
     class Border(Natural padding, Natural weight) { ... }
-</pre>
 
 Of course, we could built a `Table` using positional argument lists:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     String x(Natural row) { return row.string; }
     String xSquared(Natural row) { return (row**2).string; }
     Table table = Table("Squares", 5, Border(2,1), Column("x",10, x), Column("x**2",12, xSquared));
-</pre>
 
 However, it's far more common to use named arguments to build a complex 
 graph of objects. In this section we're going to meet some new features of 
@@ -179,7 +168,7 @@ derives from language regularity.
 
 So we could rewrite the code that builds a `Table` as follows:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     Table table = Table {
         title="Squares";
         rows=5;
@@ -202,14 +191,13 @@ So we could rewrite the code that builds a `Table` as follows:
             }
         }
     };
-</pre>
 
 Notice that we've specified the value of the parameter named content using the 
 usual syntax for declaring a method.
 
 Even better, our example can be abbreviated like this:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     Table table {
         title="Squares";
         rows=5;
@@ -232,7 +220,6 @@ Even better, our example can be abbreviated like this:
             }
         }
     }
-</pre>
 
 Notice how we've transformed our code from a form which emphasized invocation 
 into a form that emphasizes declaration of a hierarchical structure. 
@@ -253,7 +240,7 @@ defining the syntax tree for the mini-language.)
 Now let's see an example of a named argument list with an inline getter 
 declaration:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     shared class Payment(PaymentMethod method, Currency currency, Float amount) { ... }
     Payment payment {
         method = user.paymentMethod;
@@ -266,26 +253,24 @@ declaration:
             return total;
         }
     }
-</pre>
 
 Finally, here's an example of a named argument list with an inline `object` 
 declaration:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     shared interface Observable {
-        shared void addObserver(Observer&lt;Bottom> observer) { ... }
+        shared void addObserver(Observer<Bottom> observer) { ... }
     }
-    shared interface Observer&lt;in Event> {
+    shared interface Observer<in Event> {
         shared formal on(Event event);
     }
     observable.addObserver {
-        object observer satisfies Observer&lt;UpdateEvent> {
+        object observer satisfies Observer<UpdateEvent> {
             shared actual void on(UpdateEvent e) {
                 writeLine("Update:" + e.string);
             }
         }
     };
-</pre>
 
 Note that `Observer<T>` is assignable to `Observer<Bottom>` for any type `T`, 
 since `Observer<T>` is contravariant in its type parameter `T`. If this 
@@ -294,16 +279,15 @@ doesn't make sense, please read XXX again.
 Of course, as we saw in Part 8, a better way to solve this problem might be 
 to eliminate the `Observer` interface and pass a method directly:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     shared interface Observable {
-        shared void addObserver&lt;Event>(void on(Event event)) { ... }
+        shared void addObserver<Event>(void on(Event event)) { ... }
     }
     observable.addObserver {
         void on(UpdateEvent e) {
             writeLine("Update:" + e.string);
         }
     };
-</pre>
 
 A quick tangent here: note that we need a type parameter `T` of the 
 method `addObserver()` here only because Ceylon inherits Java's limitation 
@@ -312,11 +296,10 @@ actually pretty unnatural. We should probably eventually come up with a
 workaround to make function types contravariant in their parameter types, 
 allowing us to write:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     shared interface Observable {
         shared void addObserver(void on(Bottom event)) { ... }
     }
-</pre>
 
 ## Defining user interfaces
 
@@ -324,7 +307,7 @@ One of the first modules we're going to write for Ceylon will be a library for
 writing HTML templates in Ceylon. A fragment of static HTML would look 
 something like this:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     Html {
         Head head {
             title = "Hello World";
@@ -341,11 +324,10 @@ something like this:
             }
         }
     }
-</pre>
 
 A complete HTML template might look like this:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     import ceylon.html { ... }
      
     doc "A web page that displays a greeting"
@@ -369,7 +351,6 @@ A complete HTML template might look like this:
         }
      
     };
-</pre>
 
 ## There's more...
 

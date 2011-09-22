@@ -23,16 +23,15 @@ must test and narrow the type of an object reference in one step, using the
 special `if (is ... )` construct. This construct is very, very similar 
 to `if (exists ... )` and `if (nonempty ... )`, which we met earlier.
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     Object obj = ... ;
     if (is Hello obj) {
         obj.say();
     }
-</pre>
 
 The switch statement can be used in a similar way:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     Object obj = ... ;
     switch(obj)
     case (is Hello) {
@@ -44,7 +43,6 @@ The switch statement can be used in a similar way:
     else {
         stream.writeLine("Some miscellaneous thing");
     }
-</pre>
 
 These constructs protect us from inadvertantly writing code that would cause a 
 `ClassCastException` in Java, just like `if (exists ... )` protects us from 
@@ -59,25 +57,23 @@ only expressions of type `X` and expressions of type `Y` are assignable to it.
 The type `X|Y` is a supertype of both `X` and `Y`. The following code is 
 well-typed:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     void print(String|Natural|Integer val) { ... }
      
     print("hello");
     print(69);
     print(-1);
-</pre>
 
 But what operations does a type like `String|Natural|Integer` have? What 
 are its supertypes? Well, the answer is pretty intuitive: `T` is a supertype of 
 `X|Y` if and only if it is a supertype of both `X` and `Y`. The Ceylon compiler 
 determines this automatically. So the following code is also well-typed:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     Natural|Integer i = ... ;
     Number num = i;
     String|Natural|Integer val = i;
     Object obj = val;
-</pre>
 
 However, `num` is not assignable to `val`, since `Number` is not a supertype 
 of `String`.
@@ -88,14 +84,13 @@ clause in a `switch`, to remind us that there might be additional cases
 which we have not handled. But if we exhaust all cases of a union type, 
 the compiler will let us leave off the `else` clause.
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     void print(String|Natural|Integer val) {
         switch (val)
         case (is String) { writeLine(val); }
         case (is Natural) { writeLine("Natural: " + val); }
         case (is Integer) { writeLine("Integer: " + val); }
     }
-</pre>
 
 ## Enumerated subtypes
 
@@ -103,12 +98,11 @@ Sometimes it's useful to be able to do the same kind of thing with the
 subtypes of an ordinary type. First, we need to explicitly enumerate the 
 subtypes of the type using the `of` clause:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     abstract class Hello()
             of DefaultHello | PersonalizedHello {
         ...
     }
-</pre>
 
 (This makes `Hello` into Ceylon's version of what the functional programming 
 community calls an "algebraic" data type.)
@@ -118,7 +112,7 @@ so the union type `DefaultHello|PersonalizedHello` is exactly the same type
 as `Hello`. Therefore, we can write `switch` statements without an `else` 
 clause:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     Hello hello = ... ;
     switch (hello)
     case (is DefaultHello) {
@@ -127,7 +121,6 @@ clause:
     case (is PersonalizedHello) {
         writeLine("Nice to hear from you again!");
     }
-</pre>
 
 Now, it's usually considered bad practice to write long `switch` statements 
 that handle all subtypes of a type. It makes the code non-extensible. 
@@ -144,7 +137,7 @@ solved using the 'visitor' pattern.
 
 Let's consider the following tree visitor implementation:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     abstract class Node() {
         shared formal void accept(Visitor v);
     }
@@ -165,12 +158,11 @@ Let's consider the following tree visitor implementation:
         shared formal void visitLeaf(Leaf l);
         shared formal void visitBranch(Branch b);
     }
-</pre>
 
 We can create a method which prints out the tree by implementing the `Visitor` 
 interface:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     void print(Node node) {
         object printVisitor satisfies Visitor {
             shared actual void visitLeaf(Leaf l) {
@@ -183,7 +175,6 @@ interface:
         }
         node.accept(printVisitor);
     }
-</pre>
 
 Notice that the code of `printVisitor` looks just like a `switch` statement. 
 It must explicitly enumerate all subtypes of `Node`. It "breaks" if we add 
@@ -194,7 +185,7 @@ we have to update our code to handle the new subtype.
 In Ceylon, we can achieve the same effect, with less verbosity, by 
 enumerating the subtypes of `Node` in its definition, and using a `switch`:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     abstract class Node() of Leaf | Branch {}
     class Leaf(Object val) extends Node() {
         shared Object value = val;
@@ -203,12 +194,11 @@ enumerating the subtypes of `Node` in its definition, and using a `switch`:
         shared Node leftChild = left;
         shared Node rightChild = right;
     }
-</pre>
 
 Our `print()` method is now much simpler, but still has the desired behavior 
 of "breaking" when a new subtype of `Node` is added.
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     void print(Node node) {
         switch (node)
         case (is Leaf) {
@@ -219,7 +209,6 @@ of "breaking" when a new subtype of `Node` is added.
             print(node.rightChild);
         }
     }
-</pre>
 
 
 ## Typesafe enumerations
@@ -227,7 +216,7 @@ of "breaking" when a new subtype of `Node` is added.
 Ceylon doesn't have anything exactly like Java's `enum` declaration. 
 But we can emulate the effect using the `of` clause.
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     shared class Suit(String name)
             of hearts | diamonds | clubs | spades
             extends Case(name) {}
@@ -236,14 +225,13 @@ But we can emulate the effect using the `of` clause.
     shared object diamonds extends Suit("diamonds") {}
     shared object clubs extends Suit("clubs") {}
     shared object spades extends Suit("spades") {}
-</pre>
 
 We're allowed to use the names of `object` declarations in the `of` clause if 
 they extend the language module class `Case`.
 
 Now we can exhaust all cases of `Suit` in a `switch`:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     void print(Suit suit) {
         switch (suit)
         case (hearts) { writeLine("Heartzes"); }
@@ -251,7 +239,6 @@ Now we can exhaust all cases of `Suit` in a `switch`:
         case (clubs) { writeLine("Clidubs"); }
         case (spades) { writeLine("Spidades"); }
     }
-</pre>
 (Note that these cases are ordinary value cases, not `case (is...)` type cases.)
 
 Yes, this is a bit more verbose than a Java `enum`, but it's also slightly 
@@ -260,18 +247,17 @@ more flexible.
 For a more practical example, let's see the definition of `Boolean` from the 
 language module:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     shared abstract class Boolean(String name)
             of true | false
             extends Case(name) {}
     shared object false extends Boolean("false") {}
     shared object true extends Boolean("true") {}
-</pre>
 
 And here's how `Comparable` is defined. First, the typesafe 
 enumeration `Comparison`:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     doc "The result of a comparison between two
          Comparable objects."
     shared abstract class Comparison(String name)
@@ -286,16 +272,15 @@ enumeration `Comparison`:
     doc "The receiving object is larger than
          the given object."
     shared object larger extends Comparison("larger") {}
-</pre>
 
 Now, the `Comparable` interface itself:
 
-<pre class="brush: ceylon">
-    shared interface Comparable&lt;in Other>
+<!-- lang: ceylon -->
+    shared interface Comparable<in Other>
             satisfies Equality
-            given T satisfies Comparable&lt;Other> {
+            given T satisfies Comparable<Other> {
          
-        doc "The &lt;=> operator."
+        doc "The <=> operator."
         shared formal Comparison compare(Other other);
          
         doc "The > operator."
@@ -303,7 +288,7 @@ Now, the `Comparable` interface itself:
             return compare(other)==larger;
         }
          
-        doc "The &lt; operator."
+        doc "The < operator."
         shared Boolean smallerThan(Other other) {
             return compare(other)==smaller;
         }
@@ -313,13 +298,12 @@ Now, the `Comparable` interface itself:
             return compare(other)!=smaller;
         }
          
-        doc "The &lt;= operator."
+        doc "The <= operator."
         shared Boolean asSmallAs(Other other) {
             return compare(other)!=larger;
         }
          
     }
-</pre>
 
 
 ## Type inference
@@ -332,11 +316,10 @@ However, Ceylon does have the ability to infer the type of a locals or the
 return type of a local method. Just place the keyword `local` in place of the 
 type declaration.
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     local hello = DefaultHello();
     local operators = { "+", "-", "*", "/" };
     local add(Natural x, Natural y) { return x+y; }
-</pre>
 
 There are some restrictions applying to this feature. You can't use `local`:
 
@@ -360,9 +343,8 @@ to the left of the `=` specifier, or further down the block of statements.
 
 What about sequence enumeration expressions like this:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     local sequence  = { DefaultHello(), "Hello", 12.0 };
-</pre>
 
 What type is inferred for sequence? You might answer: "`Sequence<X>` 
 where `X` is the common superclass or super-interface of all the 
@@ -374,26 +356,23 @@ union of all the element expression types. In this case, the type is
 `Sequence<DefaultHello|String|Float>`. Now, this works out nicely, because 
 `Sequence<T>` is covariant in `T`. So the following code is well typed:
 
-<pre class="brush: ceylon">
-    local sequence  = { DefaultHello(), "Hello", 12.0 }; //type Sequence&lt;DefaultHello|String|Float>
-    Object[] objects = sequence; //type Empty|Sequence&lt;Object>
-</pre>
+<!-- lang: ceylon -->
+    local sequence  = { DefaultHello(), "Hello", 12.0 }; //type Sequence<DefaultHello|String|Float>
+    Object[] objects = sequence; //type Empty|Sequence<Object>
 
 As is the following code:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     local nums = { 12.0, 1, -3 }; //type Sequence&l;tFloat|Natural|Integer>
-    Number[] numbers = nums; //type Empty|Sequence&lt;Number>
-</pre>
+    Number[] numbers = nums; //type Empty|Sequence<Number>
 
 What about sequences that contain `null`? Well, do you remember the type of 
 `null` from Part 1 was `Nothing`?
 
-<pre class="brush: ceylon">
-    local sequence = { null, "Hello", "World" }; //type Sequence&lt;Nothing|String>
-    String?[] strings = sequence; //type Empty|Sequence&lt;Nothing|String>
+<!-- lang: ceylon -->
+    local sequence = { null, "Hello", "World" }; //type Sequence<Nothing|String>
+    String?[] strings = sequence; //type Empty|Sequence<Nothing|String>
     String? s = sequence[0]; //type Nothing|Nothing|String which is just Nothing|String
-</pre>
 
 It's interesting just how useful union types turn out to be. Even if you only 
 very rarely explicitly write code with any explicit union type declaration 
