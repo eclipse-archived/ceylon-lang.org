@@ -6,6 +6,7 @@ require 'authorsplitter'
 require 'multiatomizer'
 require 'mydisqus'
 require 'gsub'
+require 'deeplink'
 
 Awestruct::Extensions::Pipeline.new do
   extension Awestruct::Extensions::DataDir.new
@@ -40,6 +41,8 @@ Awestruct::Extensions::Pipeline.new do
   transformer Awestruct::Extensions::Gsub.new(
     /\<!--\s*lang:\s*ceylon\s*--\>\s*<pre><code>(.*?)<\/code><\/pre>/, 
     "<pre class=\"brush: ceylon\">\\1</pre>")
+    
+  transformer Awestruct::Extensions::DeepLink.new
 end
 
 
