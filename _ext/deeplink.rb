@@ -1,4 +1,4 @@
-require 'nokogiri'
+require 'rexml/document'
 
 module Awestruct
   module Extensions
@@ -10,11 +10,8 @@ module Awestruct
       
       class ElementVisitor
         def visit(node)
-          if node.element?
+          if node.kind_of?(REXML::Element)
             visitElement(node)
-          end
-          node.children.each do |child|
-            child.accept(self)
           end
         end
       end
@@ -31,11 +28,11 @@ module Awestruct
         end
       
         def visitElement(node)
-          if node["id"]
-            @existing_ids[node["id"]] = node
+          if node.attributes["id"]
+            @existing_ids[node.attributes["id"]] = node
           end
-          if node["name"]
-            @existing_ids[node["name"]] = node
+          if node.attributes["name"]
+            @existing_ids[node.attributes["name"]] = node
           end
         end
       end # IdCollector
@@ -50,10 +47,10 @@ module Awestruct
         end
         
         def visitElement(node)
-          if !node["id"] and 
-                !node["name"] and
-                @id_generators.has_key?(node.node_name)
-            id_generator = @id_generators[node.node_name]
+          if !node.attributes["id"] and 
+                !node.attributes["name"] and
+                @id_generators.has_key?(node.name)
+            id_generator = @id_generators[node.name]
             id = id_generator.generate_id(node)
             if !id.nil?
               ids = [id]
@@ -67,7 +64,7 @@ module Awestruct
                 ids << id
               end
               if !id.nil?
-                node["id"] = ids.last
+                node.attributes["id"] = ids.last
                 @generated_ids[ids.last] = node
               end
             end
@@ -85,12 +82,27 @@ module Awestruct
         result = result.gsub(/[\]\!\"\#\$\%\&\'\(\)\*\+\,\.\/:;<=>?@\[\\^`{|}~-]/, "")
       end
       
+      def DeepLink.text_content(element)
+        # It seems *unbelievable* that REXML doesn't have a method to get the 
+        # full text content of an element (rather than just the first text node)
+        # So we have this rigmarole
+        result = ""
+        element.children.each do |child|
+          if child.kind_of?(REXML::Element)
+            result << DeepLink.text_content(child)
+          elsif child.kind_of?(REXML::Text) or child.kind_of?(REXML::CData)
+            result << child.value
+          end
+        end
+        result
+      end
+      
       # Id generator which uses the normalized text content of the element to
       # construct the element's id. This is suited to section headings 
       # (<h1> etc) because the text content of those elements tends to be short
       class ContentIdGenerator
         def generate_id(node)
-          DeepLink.normalize(node.content)
+          DeepLink.normalize(DeepLink.text_content(node))
         end
         
         def disambiguate(node, generated_ids, conflicting_element)
@@ -110,7 +122,7 @@ module Awestruct
         end
         
         def first_words_normalized(node, num_words)
-          words = DeepLink.normalize(node.content).split(/_/)
+          words = DeepLink.normalize(DeepLink.text_content(node)).split(/_/)
           result = words[0..(num_words-1)].join("_")
           if words.length > num_words
             result += "..."
@@ -152,26 +164,24 @@ module Awestruct
           @id_generators = id_generators
         end
       end
-
-      # TODO Make a static method of Deeplink
-      #def normalize(text)
-      #  result = text.strip.downcase
-      #  result = result.gsub(/\s+/, "_")
-      #  result = result.gsub(/(\w)-(\w)/, "\\1_\\2") # e.g. foo-style -> foo_style
-      #  result = result.gsub(/(\w)'(\w)/, "\\1\\2") # e.g. don't -> dont
-      #  result = result.gsub(/[\]\!\"\#\$\%\&\'\(\)\*\+\,\.\/:;<=>?@\[\\^`{|}~-]/, "")
-      #end
       
       # Transformer entry point
       def transform(site, page, rendered)
+        result = rendered
         if page.output_path.end_with?(".html") 
-          doc = Nokogiri::XML(rendered)
+          doc = REXML::Document.new(rendered)
           collector = IdCollectingVisitor.new
-          doc.accept(collector)
-          doc.accept(IdGeneratingVisitor.new(collector.existing_ids, @id_generators))
-          rendered = doc.serialize()
+          doc.root.each_recursive do |elem|
+            collector.visit(elem)
+          end
+          generator = IdGeneratingVisitor.new(collector.existing_ids, @id_generators)
+          doc.root.each_recursive do |elem|
+            generator.visit(elem)
+          end
+          result = ""
+          doc.write(result)
         end
-        rendered
+        result
       end
     end
   end
