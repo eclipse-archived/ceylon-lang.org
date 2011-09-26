@@ -21,11 +21,10 @@ Just like in Java, only types and methods may declare type parameters. Also
 just like in Java, type parameters are listed before ordinary parameters, 
 enclosed in angle brackets.
 
-<pre class="brush: ceylon">
-    shared interface Iterator&lt;out Element> { ... }
-    class Array&lt;Element>(Element... elements) satisfies Sequence&lt;Element> { ... }
-    shared Entries&lt;Natural,Value> entries&lt;Value>(Value... sequence) { ... }
-</pre>
+<!-- lang: ceylon -->
+    shared interface Iterator<out Element> { ... }
+    class Array<Element>(Element... elements) satisfies Sequence<Element> { ... }
+    shared Entries<Natural,Value> entries<Value>(Value... sequence) { ... }
 
 As you can see, the convention in Ceylon is to use meaningful names for 
 type parameters (in Java the convention is to use single letter names).
@@ -33,51 +32,45 @@ type parameters (in Java the convention is to use single letter names).
 Unlike Java, we always do need to specify type arguments in a type declaration 
 (there are no 'raw types' in Ceylon). The following will not compile:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     Iterator it = ...;   //error: missing type argument to parameter Element of Iterator
-</pre>
 
 We always have to specify a type argument in a type declaration:
 
-<pre class="brush: ceylon">
-    Iterator&lt;String> it = ...;
-</pre>
+<!-- lang: ceylon -->
+    Iterator<String> it = ...;
 
 On the other hand, we shouldn't need to explicitly specify type arguments in 
 most method invocations or class instantiations. In principle it's very 
 often possible to infer the type arguments from the ordinary arguments. 
 The following code should be possible, just like it is in Java:
 
-<pre class="brush: ceylon">
-    Array&lt;String> strings = Array("Hello", "World");
-    Entries&lt;Natural,String> entries = entries(strings);
-</pre>
+<!-- lang: ceylon -->
+    Array<String> strings = Array("Hello", "World");
+    Entries<Natural,String> entries = entries(strings);
 
 But we haven't yet figured out what exactly the type inference algorithm will 
 be (probably something involving union types!) and so the Ceylon compiler 
 currently requires that all type arguments be explicitly specified like this:
 
-<pre class="brush: ceylon">
-    Array&lt;String> strings = Array&lt;String>("Hello", "World");
-    Entries&lt;Natural,String> entries = entries&lt;Natural,String>(strings);
-</pre>
+<!-- lang: ceylon -->
+    Array<String> strings = Array<String>("Hello", "World");
+    Entries<Natural,String> entries = entries<Natural,String>(strings);
 
 On the other hand, the following code does already compile:
 
-<pre class="brush: ceylon">
-    local strings = Array&lt;String>("Hello", "World");
-    local entries = entries&lt;Natural,String>(strings);
-</pre>
+<!-- lang: ceylon -->
+    local strings = Array<String>("Hello", "World");
+    local entries = entries<Natural,String>(strings);
 
 The root cause of very many problems when working with generic types in 
 Java is *type erasure*. Generic type parameters and arguments are discarded 
 by the compiler, and simply aren't available at runtime. So the following, 
 perfectly sensible, code fragments just wouldn't compile in Java:
 
-<pre class="brush: ceylon">
-    if (is List&lt;Person> list) { ... }
+<!-- lang: ceylon -->
+    if (is List<Person> list) { ... }
     if (is Element obj) { ... }
-</pre>
 
 (Where `Element` is a generic type parameter.)
 
@@ -105,22 +98,20 @@ collection of `Persons`. That's a reasonable intuition, but especially in
 non-functional languages, where collections can be mutable, it turns out to be 
 incorrect. Consider the following possible definition of `Collection`:
 
-<pre class="brush: ceylon">
-    shared interface Collection&lt;Element> {
-        shared formal Iterator&lt;Element> iterator();
+<!-- lang: ceylon -->
+    shared interface Collection<Element> {
+        shared formal Iterator<Element> iterator();
         shared formal void add(Element x);
     }
-</pre>
 
 And let's suppose that `Geek` is a subtype of `Person`. Reasonable.
 
 The intuitive expectation is that the following code should work:
 
-<pre class="brush: ceylon">
-    Collection&lt;Geek> geeks = ... ;
-    Collection&lt;Person> people = geeks;    //compiler error
+<!-- lang: ceylon -->
+    Collection<Geek> geeks = ... ;
+    Collection<Person> people = geeks;    //compiler error
     for (Person person in people) { ... }
-</pre>
 
 This code is, frankly, perfectly reasonable taken at face value. Yet in both 
 Java and Ceylon, this code results in a compiler error at the second line, 
@@ -128,11 +119,10 @@ where the `Collection<Geek>` is assigned to a `Collection<Person>`. Why?
 Well, because if we let the assignment through, the following code would also 
 compile:
 
-<pre class="brush: ceylon">
-    Collection&lt;Geek> geeks = ... ;
-    Collection&lt;Person> people = geeks;    //compiler error
+<!-- lang: ceylon -->
+    Collection<Geek> geeks = ... ;
+    Collection<Person> people = geeks;    //compiler error
     people.add( Person("Fonzie") );
-</pre>
 
 We can't let that code by — Fonzie isn't a `Geek`!
 
@@ -149,14 +139,13 @@ to follow Java down the hole.
 Instead, we're going to refactor `Collection` into a pure producer interface 
 and a pure consumer interface:
 
-<pre class="brush: ceylon">
-    shared interface Producer&lt;out Output> {
-        shared formal Iterator&lt;Output> iterator();
+<!-- lang: ceylon -->
+    shared interface Producer<out Output> {
+        shared formal Iterator<Output> iterator();
     }
-    shared interface Consumer&lt;in Input> {
+    shared interface Consumer<in Input> {
         shared formal void add(Input x);
     }
-</pre>
 
 Notice that we've annotated the type parameters of these interfaces.
 
@@ -181,10 +170,9 @@ Now, let's see what that buys us:
 
 We can define our `Collection` interface as a mixin of `Producer` with `Consumer`.
 
-<pre class="brush: ceylon">
-    shared interface Collection&lt;Element>
-            satisfies Producer&lt;Element> & Consumer&lt;Element> {}
-</pre>
+<!-- lang: ceylon -->
+    shared interface Collection<Element>
+            satisfies Producer<Element> & Consumer<Element> {}
 
 Notice that `Collection` remains nonvariant in `Element`. If we tried to add a 
 variance annotation to `Element` in `Collection`, a compile time error would 
@@ -192,21 +180,19 @@ result.
 
 Now, the following code finally compiles:
 
-<pre class="brush: ceylon">
-    Collection&lt;Geek> geeks = ... ;
-    Producer&lt;Person> people = geeks;
+<!-- lang: ceylon -->
+    Collection<Geek> geeks = ... ;
+    Producer<Person> people = geeks;
     for (Person person in people) { ... }
-</pre>
 
 Which matches our original intuition.
 
 The following code also compiles:
 
-<pre class="brush: ceylon">
-    Collection&lt;Person> people = ... ;
-    Consumer&lt;Geek> geekConsumer = people;
+<!-- lang: ceylon -->
+    Collection<Person> people = ... ;
+    Consumer<Geek> geekConsumer = people;
     geekConsumer.add( Geek("James") );
-</pre>
 
 Which is also intuitively correct — `James` is most certainly a `Person`!
 
@@ -243,8 +229,8 @@ defined for expressions of type `Equality`, we need some way to assert that
 constraint* — in fact, it's an example of the most common kind of type 
 constraint, an *upper bound*.
 
-<pre class="brush: ceylon">
-    shared class Set&lt;out Element>(Element... elements)
+<!-- lang: ceylon -->
+    shared class Set<out Element>(Element... elements)
             given Element satisfies Equality {
         ...
      
@@ -258,14 +244,12 @@ constraint, an *upper bound*.
         }
      
     }
-</pre>
 
 A type argument to `Element` must be a subtype of `Equality`.
 
-<pre class="brush: ceylon">
-    Set&lt;String> set = Set("C", "Java", "Ceylon"); //ok
-    Set&lt;String?> set = Set("C", "Java", "Ceylon", null); //compile error
-</pre>
+<!-- lang: ceylon -->
+    Set<String> set = Set("C", "Java", "Ceylon"); //ok
+    Set<String?> set = Set("C", "Java", "Ceylon", null); //compile error
 
 In Ceylon, a generic type parameter is considered a proper type, so a type 
 constraint looks a lot like a class or interface declaration. This is another 
@@ -277,8 +261,8 @@ reified generics, we'll be able to add a new kind of type constraint to
 Ceylon. An *initialization parameter specification* lets us actually 
 instantiate the type parameter.
 
-<pre class="brush: ceylon">
-    shared class Factory&lt;out Result>()
+<!-- lang: ceylon -->
+    shared class Factory<out Result>()
             given Result(String s) {
      
         shared Result produce(String string) {
@@ -286,22 +270,20 @@ instantiate the type parameter.
         }
      
     }
-</pre>
 
 A type argument to `Result` of `Factory` must be a class with a single 
 initialization parameter of type `String`.
 
-<pre class="brush: ceylon">
-    Factory&lt;Hello> = Factory&lt;PersonalizedHello>(); //ok
-    Factory&lt;Hello> = Factory&lt;DefaultHello>(); //compile error
-</pre>
+<!-- lang: ceylon -->
+    Factory<Hello> = Factory<PersonalizedHello>(); //ok
+    Factory<Hello> = Factory<DefaultHello>(); //compile error
 
 A third kind of type constraint is an *enumerated type bound*, which constrains 
 the type argument to be one of an enumerated list of types. 
 It lets us write an exhaustive switch on the type parameter:
 
-<pre class="brush: ceylon">
-    Value sqrt&lt;Value>(Value x)
+<!-- lang: ceylon -->
+    Value sqrt<Value>(Value x)
             given Value of Float | Decimal {
         switch (Value)
         case (satisfies Float) {
@@ -311,7 +293,6 @@ It lets us write an exhaustive switch on the type parameter:
             return sqrtDecimal(x);
         }
     }
-</pre>
 
 This is one of the workarounds we mentioned earlier for Ceylon's lack of 
 overloading.
@@ -323,64 +304,60 @@ a *supertype* of some other type. There's only really one situation where
 this is useful. Consider adding a `union()` operation to our `Set` interface. 
 We might try the following:
 
-<pre class="brush: ceylon">
-    shared class Set&lt;out Element>(Element... elements)
+<!-- lang: ceylon -->
+    shared class Set<out Element>(Element... elements)
             given Element satisfies Equality {
         ...
          
-        shared Set&lt;Element> union(Set&lt;Element> set) {   //compile error
+        shared Set<Element> union(Set<Element> set) {   //compile error
             return ....
         }
          
     }
-</pre>
 
 This doesn't compile because we can't use the covariant type parameter `T` 
 in the type declaration of a method parameter. The following declaration 
 would compile:
 
-<pre class="brush: ceylon">
-    shared class Set&lt;out Element>(Element... elements)
+<!-- lang: ceylon -->
+    shared class Set<out Element>(Element... elements)
             given Element satisfies Equality {
         ...
          
-        shared Set&lt;Object> union(Set&lt;Object> set) {
+        shared Set<Object> union(Set<Object> set) {
             return ....
         }
          
     }
-</pre>
 
 But, unfortunately, we get back a `Set<Object>` no matter what kind of 
 set we pass in. A lower bound is the solution to our dilemma:
 
-<pre class="brush: ceylon">
-    shared class Set&lt;out Element>(Element... elements)
+<!-- lang: ceylon -->
+    shared class Set<out Element>(Element... elements)
             given Element satisfies Equality {
         ...
          
-        shared Set&lt;UnionElement> union(Set&lt;UnionElement> set)
+        shared Set<UnionElement> union(Set<UnionElement> set)
                 given UnionElement abstracts Element {
             return ...
         }
          
     }
-</pre>
 
 With type inference, the compiler chooses an appropriate type argument to 
 `UnionElement` for the given argument to `union()`:
 
-<pre class="brush: ceylon">
-    Set&lt;String> strings = Set("abc", "xyz") ;
-    Set&lt;String> moreStrings = Set("foo", "bar", "baz");
-    Set&lt;String> allTheStrings = strings.union(moreStrings);
-    Set&lt;Decimal> decimals = Set(1.2.decimal, 3.67.decimal) ;
-    Set&lt;Float> floats = Set(0.33, 22.0, 6.4);
-    Set&lt;Number> allTheNumbers = decimals.union(floats);
-    Set&lt;Hello> hellos = Set( DefaultHello(), PersonalizedHello(name) );
-    Set&lt;Object> objects = Set("Gavin", 12, true);
-    Set&lt;Object> allTheObjects = hellos.union(objects);
-</pre>
+<!-- lang: ceylon -->
+    Set<String> strings = Set("abc", "xyz") ;
+    Set<String> moreStrings = Set("foo", "bar", "baz");
+    Set<String> allTheStrings = strings.union(moreStrings);
+    Set<Decimal> decimals = Set(1.2.decimal, 3.67.decimal) ;
+    Set<Float> floats = Set(0.33, 22.0, 6.4);
+    Set<Number> allTheNumbers = decimals.union(floats);
+    Set<Hello> hellos = Set( DefaultHello(), PersonalizedHello(name) );
+    Set<Object> objects = Set("Gavin", 12, true);
+    Set<Object> allTheObjects = hellos.union(objects);
 
 ## There's more...
 

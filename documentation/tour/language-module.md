@@ -15,7 +15,7 @@ referred to in the language specification, other declarations *they* refer to,
 
 Just like Java, Ceylon has a class named `Object`.
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     shared abstract class Object()
             extends Void() {
              
@@ -25,12 +25,12 @@ Just like Java, Ceylon has a class named `Object`.
         doc "Determine if this object belongs to the given Category
              or is produced by the iterator of the given Iterable
              object."
-        shared Boolean element(Category|Iterable&lt;Equality> category) {
+        shared Boolean element(Category|Iterable<Equality> category) {
             switch (category)
             case (is Category) {
                 return category.contains(this);
             }
-            case (is Iterable&lt;Equality>) {
+            case (is Iterable<Equality>) {
                 if (is Equality self = this) {
                     for (Equality x in category) {
                         if (x==self) {
@@ -47,7 +47,6 @@ Just like Java, Ceylon has a class named `Object`.
             }
         }
     }
-</pre>
 
 In Ceylon, `Object` *isn't* the root of the type system. An expression of 
 type `Object` has a definite, well-defined, non-`null` value. 
@@ -87,7 +86,7 @@ a user-written class to directly extend `Object`, but most of the classes
 you write will be subclasses of `IdentifiableObject`. All classes with 
 variable attributes must extend `IdentifiableObject`.
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     shared abstract class IdentifiableObject()
             extends Object()
             satisfies Equality {
@@ -110,13 +109,12 @@ variable attributes must extend `IdentifiableObject`.
         }
              
     }
-</pre>
 
 `IdentifiableObject` defines a default implementation of the interface 
 `Equality`, which is very similar to the `equals()` and `hashCode()` methods 
 defined by `java.lang.Object`.
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     shared interface Equality {
          
         shared formal Boolean equals(Equality that);
@@ -124,7 +122,6 @@ defined by `java.lang.Object`.
         shared formal Integer hash;
          
     }
-</pre>
 
 Just like in Java, you can refine this default implementation in your own 
 classes. This is the normal way to get a customized behavior for the `==` 
@@ -152,27 +149,23 @@ For example, the `<` operator is defined in terms of the interface
 `smallerThan()`, which is in turn defined in terms of another method named 
 `compare()`.
 
-<pre class="brush: ceylon">
-    x&lt;y
-</pre>
+<!-- lang: ceylon -->
+    x<y
 
 means, by definition,
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     x.smallerThan(y)
-</pre>
 
 The equality operator `==` is defined in terms of the interface `Equality`, 
 which has a method named `equals()`.
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     x==y
-</pre>
 
 means, by definition,
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     x.equals(y)
-</pre>
 
 Therefore, it's easy to customize operators like `<` and `==` with specific 
 behavior for our own classes, just by implementing or refining methods 
@@ -208,9 +201,8 @@ practical value of this is to allow the use of the operator `|` for set
 union, the operator `&` for set intersection, and the infix `~` operator for 
 set complement.
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     Set<Person> children = males|females ~ adults;
-</pre>
 
 These aren't the traditional symbols representing these operations. 
 But if you think carefully about the definition of these operations, you'll 
@@ -241,31 +233,28 @@ compiler is free to ignore (and it currently does).
 There are only two kinds of numeric literals: literals for `Naturals`, and 
 literals for `Floats`:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     Natural one = 1;
     Float oneHundredth = 0.01;
     Float oneMillion = 1.0E+6;
-</pre>
 
 The digits of a numeric literal may be grouped using underscores. If the 
 digits are grouped, then groups must contain exactly three digits.
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     Natural twoMillionAndOne = 2_000_001;
     Float pi = 3.141_592_654;
-</pre>
 
 A very large or small numeric literals may be qualified by one of the 
 standard SI unit prefixes: m, u, n, p, f, k, M, G, T, P.
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     Float red = 390.0n; //n (nano) means E-9
     Float galaxyDiameter = 900.0P; //P (peta) means E15
     Float hydrogenRadius = 25.0p; //p (pico) means E-12
     Float usGovDebt = 14.33T; //T (tera) means E12
     Float brainCellSize = 4.0u; //u (micro) means E-6
     Natural deathsUnderCommunism = 94M; //M (mega) means E6
-</pre>
 
 ## Numeric widening
 
@@ -275,26 +264,23 @@ automatically widen (or narrow) numeric values. Instead, we need to call
 one of the operations (well, attributes, actually) defined by the interface 
 `Number`.
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     Whole zero = 0.whole; //explicitly widen from Natural
     Decimal half = 0.5.decimal; //explicitly widen from Float
-</pre>
 
 Usefully, the unary prefix operators `+` and `-` always widen `Natural` 
 to `Integer`:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     Integer negativeOne = -1;
     Integer three = +3;
-</pre>
 
 You can use all the operators you're used to from other C-style languages 
 with the numeric types. You can also use the `**` operator to raise a 
 number to a power:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     Float diagonal = (length**2.0+width**2.0)**0.5;
-</pre>
 
 Of course, if you want to use the increment `++` operator, decrement `--` 
 operator, or one of the compound assignment operators such as `+=`, you'll 
@@ -304,9 +290,8 @@ Since it's quite noisy to explicitly perform numeric widening in numeric
 expressions, the numeric operators automatically widen their operands, 
 so we could write the expression above like this:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     Float diagonal = (length**2+width**2)**(1.0/2);
-</pre>
 
 The "built-in" widening conversions are the following:
 
@@ -328,41 +313,39 @@ The numeric operators are defined in terms of these methods of `Numeric`.
 The numeric types also implement the interface `Castable`, which enables the 
 widening conversions we just mentioned.
 
-<pre class="brush: ceylon">
-    shared interface Castable&lt;in Types> {
-        shared formal CastValue as&lt;CastValue>()
+<!-- lang: ceylon -->
+    shared interface Castable<in Types> {
+        shared formal CastValue as<CastValue>()
             given CastValue satisfies Types;
     }
-</pre>
 
 The type parameter `Types` uses a special trick. The argument to `Types` 
 should be the union of all types to which the implementing type is castable.
 
 For example, simplifying slightly the definitions in the language module:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     shared class Natural(...)
             extends Object()
-            satisfies Castable&lt;Natural|Integer|Float|Whole|Decimal> &
-                      Numeric&lt;Natural> &
-                      Invertable&lt;Integer> {
+            satisfies Castable<Natural|Integer|Float|Whole|Decimal> &
+                      Numeric<Natural> &
+                      Invertable<Integer> {
         ...
     }
     shared class Integer(...)
             extends Object()
-            satisfies Castable&lt;Integer|Float|Whole|Decimal> &
-                      Numeric&lt;Integer> &
-                      Invertable&lt;Integer> {
+            satisfies Castable<Integer|Float|Whole|Decimal> &
+                      Numeric<Integer> &
+                      Invertable<Integer> {
         ...
     }
     shared class Float(...)
             extends Object()
-            satisfies Castable&lt;Float|Decimal> &
-                      Numeric&lt;Float> &
-                      Invertable&lt;Float> {
+            satisfies Castable<Float|Decimal> &
+                      Numeric<Float> &
+                      Invertable<Float> {
         ...
     }
-</pre>
 
 These declarations tell us that `Integer` can be widened to `Float`, `Whole`, 
 or `Decimal`, but that `Float` can only be widened to `Decimal`. So we can 
@@ -371,14 +354,13 @@ infer that the expression `-1 * 0.4` is of type Float.
 Therefore, the definition of a numeric operator like `*` can be represented, 
 completely within the type system, in terms of `Numeric` and `Castable`:
 
-<pre class="brush: ceylon">
-    Result product&lt;Left,Right,Result>(Left x, Right y)
-            given Result of Left|Right satisfies Numeric&lt;Result>
-            given Left satisfies Castable&lt;Result> & Numeric&lt;Left>
-            given Right satisfies Castable&lt;Result> & Numeric&lt;Right> {
-        return x.as&lt;Result>().times(y.as&lt;Result>());
+<!-- lang: ceylon -->
+    Result product<Left,Right,Result>(Left x, Right y)
+            given Result of Left|Right satisfies Numeric<Result>
+            given Left satisfies Castable<Result> & Numeric<Left>
+            given Right satisfies Castable<Result> & Numeric<Right> {
+        return x.as<Result>().times(y.as<Result>());
     }
-</pre>
 
 Don't worry too much about the performance implications of all this — 
 in practice, the compiler is permitted to optimize the types `Natural`, 

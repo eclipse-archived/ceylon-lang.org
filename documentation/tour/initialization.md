@@ -21,7 +21,7 @@ member of a superinterface.
 In addition to `this` and `super`, Ceylon features the keyword `outer`, which 
 refers to the parent instance of the current instance of a nested class.
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     class Parent(String name) {
         shared String name = name;
         shared class Child(String name) {
@@ -29,7 +29,6 @@ refers to the parent instance of the current instance of a nested class.
             shared Parent parent { return outer; }
         }
     }
-</pre>
 
 There are some restrictions on the use of `this`, `super`, and `outer`, which 
 we'll explore below.
@@ -78,7 +77,7 @@ variable has definitely been assigned a value before allowing use of the
 local variable in an expression. So, for example, the following code compiles 
 without error:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     String greeting;
     if (person==me) {
         greeting = "You're beautiful!";
@@ -87,17 +86,15 @@ without error:
         greeting = "You're ugly!";
     }
     print(greeting);
-</pre>
 
 But the following code results in an error at compile time:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     String greeting;
     if (person==me) {
         greeting = "You're beautiful!";
     }
     print(greeting);   //error: greeting not definitely initialized
-</pre>
 
 Many (most?) languages don't perform this kind of static analysis, which 
 means that use of an uninitialized variable results in an error at runtime 
@@ -110,7 +107,7 @@ default value (zero or `null`). Surprisingly, it's even possible to see this
 default value for a `final` instance variable that is eventually assigned a 
 value by the constructor. Consider the following code:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     //Java code that prints "null"
     class Broken {
         final String greeting;
@@ -126,7 +123,6 @@ value by the constructor. Consider the following code:
      
     }
     new Broken();
-</pre>
 
 This behavior is bad enough in and of itself. But it would be even less 
 acceptable in Ceylon, where most types don't have an acceptable "default" 
@@ -181,7 +177,7 @@ only called after the instance has been fully initialized.
 
 Consider the following example:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     class Hello(String? name) {
          
         //initializer section:
@@ -220,7 +216,6 @@ Consider the following example:
         }
          
     }
-</pre>
 
 To prevent a reference to a new instance of the class "leaking" before the 
 new instance has been completely initialized, the language spec defines the 
@@ -289,7 +284,7 @@ references between two objects without resort to non-variable attributes.
 This is a problem Ceylon has in common with functional languages, which also 
 emphasize immutability. We can't write the following code in Ceylon:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     abstract class Child(Parent p) {
         shared formal Parent parent = p;
     }
@@ -297,12 +292,11 @@ emphasize immutability. We can't write the following code in Ceylon:
     class Parent() {
         shared Child child = Child(this); //compile error (this passed as argument in initializer section)
     }
-</pre>
 
 Eventually, Ceylon will probably need some specialized machinery for dealing 
 with this problem, but for now, here is a partial solution:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     abstract class Child() {
         shared formal Parent parent;
     }
@@ -314,7 +308,6 @@ with this problem, but for now, here is a partial solution:
             }
         }
     }
-</pre>
 
 ## Definite initialization of methods
 
@@ -322,7 +315,7 @@ Ceylon lets us separate the declaration of a method defined using a method
 reference from the actual specification statement that specifies the method 
 reference.
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     Float x = ... ;
     Float op(Float y);
     switch (symbol)
@@ -330,7 +323,6 @@ reference.
     case ("-") { op = x.minus; }
     case ("*") { op = x.times; }
     case ("/") { op = x.divided; }
-</pre>
 
 The rules for definite initialization of locals and attributes also apply to 
 methods defined using a specification statement.
@@ -342,7 +334,7 @@ like the Java compiler, also performs definite return checking, to ensure
 that a method or getter always has an explicitly specified return value. 
 So, this code compiles without error:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     String greeting {
         if (person==me) {
             return "You're beautiful!";
@@ -351,17 +343,15 @@ So, this code compiles without error:
             return "You're ugly!";
         }
     }
-</pre>
 
 But the following code results in an error at compile time:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     String greeting {   //error: greeting does not definitely return
         if (person==me) {
             return "You're beautiful!";
         }
     }
-</pre>
 
 There's more...
 

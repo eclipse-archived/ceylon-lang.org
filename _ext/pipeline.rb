@@ -5,6 +5,8 @@ require 'my_tag_cloud'
 require 'authorsplitter'
 require 'multiatomizer'
 require 'mydisqus'
+require 'gsub'
+require 'deeplink'
 
 Awestruct::Extensions::Pipeline.new do
   extension Awestruct::Extensions::DataDir.new
@@ -36,6 +38,11 @@ Awestruct::Extensions::Pipeline.new do
   extension TOC.new(:levels => 2)
 
   helper Awestruct::Extensions::GoogleAnalytics
+  transformer Awestruct::Extensions::Gsub.new(
+    /\<!--\s*lang:\s*ceylon\s*--\>\s*<pre><code>(.*?)<\/code><\/pre>/, 
+    "<pre class=\"brush: ceylon\">\\1</pre>")
+    
+  transformer Awestruct::Extensions::DeepLink.new
 end
 
 

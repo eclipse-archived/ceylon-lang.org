@@ -14,9 +14,9 @@ this for us at class-loading time.
 
 All we need to do is have our `Transactional` class implement the interfaces `MethodAnnotation` and `AttributeAnnotation`:
 
-<pre class="brush: ceylon">
+<!-- lang: ceylon -->
     shared class Transactional(Boolean requiresNew)
-            satisfies OptionalAnnotation&lt;Transactional,Member&lt;Bottom,Void>> &
+            satisfies OptionalAnnotation<Transactional,Member<Bottom,Void>> &
                       MethodAnnotation & AttributeAnnotation {
              
         shared Boolean requiresNew = requiresNew;
@@ -24,7 +24,7 @@ All we need to do is have our `Transactional` class implement the interfaces `Me
         doc "This method is called whenever Ceylon loads a class with a method
              annotated |transactional|. It registers a transaction management
              interceptor for the method."
-        shared actual void onDefineMethod&lt;Instance,Result,Argument...>(OpenMethod&lt;Instance,Result,Argument...> method) {
+        shared actual void onDefineMethod<Instance,Result,Argument...>(OpenMethod<Instance,Result,Argument...> method) {
             method.intercept()
                     onInvoke(Instance instance, Result proceed(Argument... args), Argument... args) {
                 if (currentTransaction.inProcess || !requiresNew) {
@@ -48,7 +48,7 @@ All we need to do is have our `Transactional` class implement the interfaces `Me
         doc "This method is called whenever Ceylon loads a class with an attribute
              annotated |transactional|. It registers a transaction management
              interceptor for the attribute."
-        shared actual void onDefineAttribute&lt;Instance,Result>(OpenAttribute&lt;Instance,Result> attribute) {
+        shared actual void onDefineAttribute<Instance,Result>(OpenAttribute<Instance,Result> attribute) {
             attribute.intercept()
                     onGet(Instance instance, Result proceed()) {
                 if (currentTransaction.inProcess || !requiresNew) {
@@ -70,7 +70,6 @@ All we need to do is have our `Transactional` class implement the interfaces `Me
         }
          
     }
-</pre>
 
 The `intercept()` method registers the interceptor - a kind of callback method. 
 Again, we're using the syntax discussed XXXXX.
