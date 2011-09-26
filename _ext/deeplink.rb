@@ -165,6 +165,24 @@ module Awestruct
         end
       end
       
+      class Formatter < REXML::Formatters::Default
+        def write_element( node, output )
+          output << "<#{node.expanded_name}"
+
+          node.attributes.to_a.sort_by {|attr| attr.name}.each do |attr|
+            output << " "
+            attr.write( output )
+          end unless node.attributes.empty?
+          output << ">"
+          
+          node.children.each { |child|
+            write( child, output )
+          }
+          
+          output << "</#{node.expanded_name}>"
+        end
+      end
+      
       # Transformer entry point
       def transform(site, page, rendered)
         result = rendered
@@ -179,7 +197,8 @@ module Awestruct
             generator.visit(elem)
           end
           result = ""
-          doc.write(result)
+          formatter = Formatter.new
+          formatter.write(doc, result)
         end
         result
       end
