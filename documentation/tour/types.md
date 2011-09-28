@@ -363,7 +363,7 @@ union of all the element expression types. In this case, the type is
 As is the following code:
 
 <!-- lang: ceylon -->
-    local nums = { 12.0, 1, -3 }; //type Sequence&l;tFloat|Natural|Integer>
+    local nums = { 12.0, 1, -3 }; //type Sequence<Float|Natural|Integer>
     Number[] numbers = nums; //type Empty|Sequence<Number>
 
 What about sequences that contain `null`? Well, do you remember the type of 
