@@ -9,7 +9,8 @@ author: Tom Bentley
 
 ## Usage 
 
-The left-associative, binary `+` operator is used to *sum* two operands:
+The left-associative, binary `+` operator is used to *sum* two operands, for 
+example:
 
 <!-- lang: ceylon -->
 
@@ -20,8 +21,30 @@ The left-associative, binary `+` operator is used to *sum* two operands:
 
 As the above example shows, the sum operator is not limited to numeric 
 operands. The meaning of *sum* corresponds to the 
-[`Summable`](../../ceylon.language/Summable) interface. Note that the types of 
-the operands need not match.
+[`Summable`](../../ceylon.language/Summable) interface. 
+
+### Widening
+
+The types of the operands need not match, because an expression such as 
+
+<!-- lang: ceylon -->
+
+    X lhs;
+    Y rhs;
+    // some code assigning lhs and rhs
+    Z z = lhs + rhs;
+
+(where `X` satisfies `Castable<N> & Summable<X>` and `Y` 
+satisfies `Castable<N> & Summable<Y>`) is equivalent to 
+
+<!-- lang: ceylon -->
+
+    Z z = lhs.cast<N>().plus(rhs.cast<N>());
+
+where `Z` is assignable to one of `X` or `Y`. In other words assuming it's possible to 
+widen one of the `lhs` or `rhs` so that it's the same type as the other then 
+such a widening will automatically be performed. It is a compile time error if 
+such a widening is not possible.
 
 ### Meaning of sum for built-in types
 
