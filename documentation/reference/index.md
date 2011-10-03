@@ -67,7 +67,7 @@ author: Tom Bentley
 * [`+`   (sum)](operator/sum)
 * [`++`  (increment)](operator/increment)
 * [`+=`  (add assign)](operator/add-assign)
-* [`-`   (difference)](operator/different)
+* [`-`   (difference)](operator/difference)
 * [`--`  (decrement)](operator/decrement)
 * [`-=`  (subtract assign)](operator/subtract-assign)
 * [`->`  (entry)](operator/entry)
