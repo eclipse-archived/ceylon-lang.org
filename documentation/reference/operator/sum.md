@@ -23,6 +23,17 @@ As the above example shows, the sum operator is not limited to numeric
 operands. The meaning of *sum* corresponds to the 
 [`Summable`](../../ceylon.language/Summable) interface. 
 
+### Meaning of sum for built-in types
+
+For the built-in numeric types ([`Natural`](../../ceylon.language/Natural), 
+[`Integer`](../../ceylon.language/Integer),
+[`Float`](../../ceylon.language/Float),
+[`Whole`](../../ceylon.language/Whole) and
+[`Decimal`](../../ceylon.language/Decimal)) `+` 
+performs addition.
+
+For [`String`](../../ceylon.language/String), `+` performs concatenation.
+
 ### Widening
 
 The types of the operands need not match, because an expression such as 
@@ -45,17 +56,6 @@ where `Z` is assignable to one of `X` or `Y`. In other words assuming it's possi
 widen one of the `lhs` or `rhs` so that it's the same type as the other then 
 such a widening will automatically be performed. It is a compile time error if 
 such a widening is not possible.
-
-### Meaning of sum for built-in types
-
-For the built-in numeric types ([`Natural`](../../ceylon.language/Natural), 
-[`Integer`](../../ceylon.language/Integer),
-[`Float`](../../ceylon.language/Float),
-[`Whole`](../../ceylon.language/Whole) and
-[`Decimal`](../../ceylon.language/Decimal)) `+` 
-performs addition.
-
-For [`String`](../../ceylon.language/String), `+` performs concatenation.
 
 ## See also
 

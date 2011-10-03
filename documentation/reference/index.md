@@ -34,12 +34,12 @@ author: Tom Bentley
 * [`continue` statements](statement/continue)
 * [expression statements](statement/expression)
 * [`for` statements](statement/for)
+* [`if` statements](statement/if)
 * [`import` statements](statement/import)
-* [`if/else/elseif` statements](statement/if)
 * [`return` statements](statement/return)
-* [`switch/case/else` statements](statement/switch)
+* [`switch` statements](statement/switch)
 * [`throw` statements](statement/throw)
-* [`try/catch/finally` statements](statement/try)
+* [`try` statements](statement/try)
 * [`while/else` statements](statement/while)
 
 ## Expressions
