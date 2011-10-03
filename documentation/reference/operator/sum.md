@@ -61,7 +61,7 @@ such a widening is not possible.
 
 * [`Summable`](../../ceylon.language/Summable)
 * [`Castable`](../../ceylon.language/Castable)
-* [sum in the language specification](FIXME#arithmetic)
+* [sum in the language specification](#{site.urls.spec}#arithmetic)
 * [Operator polymorphism](/documentation/tour/language-module/#operator_polymorphism) 
   and 
   [Numeric operator semantics](/documentation/tour/language-module/#numeric_operator_semantics) 

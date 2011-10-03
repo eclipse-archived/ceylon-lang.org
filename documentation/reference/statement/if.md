@@ -87,9 +87,9 @@ as a subtype of `X`.
 
 * The [`switch` statement] (../switch) is an alternative control structure
   better suited to handling exhaustive lists of cases
-* [`if` in the language specification] (FIXME)
-* [`if (is ...)` in the language specification] (FIXME)
-* [`if (exists ...)` in the language specification] (FIXME)
-* [`if (nonempty ...)` in the language specification] (FIXME)
-* [`if (satisfies ...)` in the language specification] (FIXME)
+* [`if` in the language specification](#{site.urls.spec}#ifelse)
+* [`if (is ...)` in the language specification](#{site.urls.spec}#assignabilityexistencenonemptinessconditions)
+* [`if (exists ...)` in the language specification](#{site.urls.spec}#assignabilityexistencenonemptinessconditions)
+* [`if (nonempty ...)` in the language specification](#{site.urls.spec}#assignabilityexistencenonemptinessconditions)
+* [`if (satisfies ...)` in the language specification](#{site.urls.spec}#subtypeconditions)
 
