@@ -60,5 +60,5 @@ other words the following is perfectly acceptable to the Ceylon compiler:
 
 * [`try` statement](../try)
 * [`ceylon.language.Exception`](../../ceylon.language/Exception)
-* [`throw` in the language specification] (FIXME)
+* [`throw` in the language specification](#{site.urls.spec}#trycatchfinally)
 
