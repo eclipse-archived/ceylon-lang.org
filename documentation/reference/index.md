@@ -1,5 +1,5 @@
 ---
-layout: documentation
+layout: reference
 title: Reference
 tab: documentation
 author: Tom Bentley
@@ -107,11 +107,11 @@ author: Tom Bentley
 
 ### Literals
 
-* [Integer literals](literals/integer)
-* [Float literals](literals/float)
-* [String literals](literals/string)
-* [Character literals](literals/character)
-* [Single-quoted literals](literals/single-quoted)
+* [Number literals](literal/number)
+* [Float literals](literal/float)
+* [String literals](literal/string)
+* [Character literals](literal/character)
+* [Single-quoted literals](literal/single-quoted)
 
 ## Language module (`ceylon.language`)
 
