@@ -289,8 +289,8 @@ very, very different! First, of course, a sequence type
 type like an array. We can't set the value of an element:
 
 <!-- lang: ceylon -->
-String[] operators = .... ;
-operators[0] := "**"; //compile error
+    String[] operators = .... ;
+    operators[0] := "**"; //compile error
 
 Furthermore, the index operation `operators[i]` returns an optional type 
 `String?`, which results in quite different code idioms. To begin with, 
