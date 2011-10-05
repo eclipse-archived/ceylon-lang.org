@@ -56,7 +56,7 @@ already has an `id` then it's untouched. If there's a matching `id`
 disambiguate the generated one.
 
 The long and the short of this is that we can now easily and accurately link 
-into the middle of documents. The /caveat/ is that you should be aware that 
+into the middle of documents. The *caveat* is that you should be aware that 
 changing the first few words of a paragraph (or the text of a heading) is 
 likely to break any links which point to it. To prevent such broken links 
 you can always use an explicit `<a name="">` at the relevant point.
