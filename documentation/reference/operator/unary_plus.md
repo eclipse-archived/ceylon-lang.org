@@ -12,26 +12,23 @@ author: Tom Bentley
 The unary `+` operator is used to get the clarify the positive value of 
 its operand, for example:
 
-<!-- lang: ceylon -->
-
     Integer one = +1;
 
 ## Description
 
 Note that `+` does not change the sign of a negative number:
 
-<!-- lang: ceylon -->
-
     Integer minusOne = +(-1);
 
-However, the result type need not be the same as the operand type. This 
-allows unary plus to effect a type conversion. 
-An example of this is `Natural` which is declared to satisfy 
-`Inverable<Integer>`, so unary plus on a `Natural` results in an `Integer`.
+### Polymorphism
 
-The unary plus operator is not limited to numeric 
-operands. The meaning of *unary plus* is defined by 
-[`Invertable.positiveValue()`](../../ceylon.language/Invertable). 
+The unary `+` operator is [polymorphic](/documentation/tour/language-module/#operator_polymorphism). 
+The meaning of `+` depends on 
+[`Invertable`](../../ceylon.language/Invertable) interface as follows:
+
+    rhs.positiveValue;
+
+See the [language specification](#{site.urls.spec}#arithmetic) for more details.
 
 ### Meaning of unary plus for built-in types
 
@@ -44,6 +41,13 @@ For the other built in numeric types
 [`Decimal`](../../ceylon.language/Decimal)) `+` 
 is essentially a no-op: Those types are already able to represent negative 
 numbers.
+
+### Widening
+
+The result type need not be the same as the operand type. This 
+allows unary plus to effect a type conversion. 
+An example of this is `Natural` which is declared to satisfy 
+`Inverable<Integer>`, so unary plus on a `Natural` results in an `Integer`.
 
 ## See also
 

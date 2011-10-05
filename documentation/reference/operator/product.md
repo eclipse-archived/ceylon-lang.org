@@ -18,9 +18,16 @@ two operands, for example:
 
 ## Description
 
-The product operator is not limited to numeric 
-operands. The meaning of *product* is defined by 
-[`Numeric.times()`](../../ceylon.language/Numeric). 
+### Polymorphism
+
+The `*` operator is [polymorphic](/documentation/tour/language-module/#operator_polymorphism). 
+The meaning of `*` depends on the 
+[`Numeric`](../../ceylon.language/Numeric) and
+[`Castable`](../../ceylon.language/Castable) interfaces as follows:
+
+    lhs.cast<N>().times(rhs.cast<N>());
+
+See the [language specification](#{site.urls.spec}#arithmetic) for more details.
 
 ### Meaning of product for built-in types
 
@@ -28,28 +35,14 @@ For the built-in numeric types ([`Natural`](../../ceylon.language/Natural),
 [`Integer`](../../ceylon.language/Integer),
 [`Float`](../../ceylon.language/Float),
 [`Whole`](../../ceylon.language/Whole) and
-[`Decimal`](../../ceylon.language/Decimal)) `*` 
-performs the usual numeric multiplication.
+[`Decimal`](../../ceylon.language/Decimal)) 
+`*` performs normal mathematical multiplication, subject to the limitations
+of the relevant type.
 
 ### Widening
 
-The types of the operands need not match, because an expression such as 
-
-<!-- lang: ceylon -->
-
-    X lhs;
-    Y rhs;
-    // some code assigning lhs and rhs
-    Z z = lhs * rhs;
-
-(where `X` satisfies `Castable<N> & Numeric<X>` and `Y` 
-satisfies `Castable<N> & Numeric<Y>`) is equivalent to 
-
-<!-- lang: ceylon -->
-
-    Z z = lhs.cast<N>().times(rhs.cast<N>())
-
-where `Z` is assignable to one of `X` or `Y`. In other words assuming it's possible to 
+The types of the operands need not match because of the calls to `cast<N>()` 
+in the definition of the operator. In other words assuming it's possible to 
 widen one of the `lhs` or `rhs` so that it's the same type as the other then 
 such a widening will automatically be performed. It is a compile time error if 
 such a widening is not possible.

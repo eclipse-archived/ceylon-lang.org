@@ -18,15 +18,15 @@ its operand, for example:
 
 ## Description
 
-The result type need not be the same as the operand type. This 
-allows unary minus to effect a type conversion. 
-An example of this is `Natural` which is declared to satisfy 
-`Inverable<Integer>`, so unary minus on a `Natural` results in an `Integer`, as
-expected.
+### Polymorphism
 
-The unary minus operator is not limited to numeric 
-operands. The meaning of *unary minus* is defined by 
-[`Invertable.negativeValue()`](../../ceylon.language/Invertable).
+The unary `-` operator is [polymorphic](/documentation/tour/language-module/#operator_polymorphism). 
+The meaning of `-` depends on 
+[`Invertable`](../../ceylon.language/Invertable) interface as follows:
+
+    rhs.negativeValue;
+
+See the [language specification](#{site.urls.spec}#arithmetic) for more details.
 
 ### Meaning of unary plus for built-in types
 
@@ -39,6 +39,14 @@ For the other built in numeric types
 [`Decimal`](../../ceylon.language/Decimal)) `-` 
 essentially just changes the sign: Those types are already able to represent 
 negative numbers.
+
+### Widening
+
+The result type need not be the same as the operand type. This 
+allows unary minus to effect a type conversion. 
+An example of this is `Natural` which is declared to satisfy 
+`Inverable<Integer>`, so unary minus on a `Natural` results in an `Integer`, as
+expected.
 
 ## See also
 

@@ -18,38 +18,30 @@ integer division, for example:
 
 ## Description
 
-The remainder operator is not limited to numeric 
-operands. The meaning of *remainder* is defined by 
-[`Integral.remainder()`](../../ceylon.language/Integral). 
+### Polymorphism
+
+The `%` operator is [polymorphic](/documentation/tour/language-module/#operator_polymorphism). 
+The meaning of `%` depends on the 
+[`Integral`](../../ceylon.language/Integral) and
+[`Castable`](../../ceylon.language/Castable) interfaces as follows:
+
+    lhs.cast<N>().remainder(rhs.cast<N>());
+
+See the [language specification](#{site.urls.spec}#arithmetic) for more details.
 
 ### Meaning of product for built-in types
 
 For the built-in numeric types ([`Natural`](../../ceylon.language/Natural) and
 [`Integer`](../../ceylon.language/Integer) `/` 
-performs the usual mathematical remainder operation.
+`%` computes normal mathematical remainder.
 
 Since the other built-in numeric types do not satisfy `Integral`, the
 remainder operator cannot be used on them.
 
 ### Widening
 
-The types of the operands need not match, because an expression such as 
-
-<!-- lang: ceylon -->
-
-    X lhs;
-    Y rhs;
-    // some code assigning lhs and rhs
-    Z z = lhs % rhs;
-
-(where `X` satisfies `Castable<N> & Integral<X>` and `Y` 
-satisfies `Castable<N> & Integral<Y>`) is equivalent to 
-
-<!-- lang: ceylon -->
-
-    Z z = lhs.cast<N>().remainder(rhs.cast<N>())
-
-where `Z` is assignable to one of `X` or `Y`. In other words assuming it's possible to 
+The types of the operands need not match because of the calls to `cast<N>()` 
+in the definition of the operator. In other words assuming it's possible to 
 widen one of the `lhs` or `rhs` so that it's the same type as the other then 
 such a widening will automatically be performed. It is a compile time error if 
 such a widening is not possible.

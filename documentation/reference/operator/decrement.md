@@ -34,10 +34,22 @@ prefix operator updates its operand and evaluates to the updated value.
 The postfix operator, in contrast, decrements its operand but evaluates to the 
 value of the operand *before* the decrement.
 
-For both operators if the return type is `T`, the operand type must be 
-`Settable<Ordinal<T>>`. [`Ordinal`](../../ceylon.lang/Ordinal) is the 
-interface which defines `successor` and `predecessor` attributes. 
-The increment operations are defined in terms of these attributes.
+### Polymorphism
+
+The `--` operator is [polymorphic](/documentation/tour/language-module/#operator_polymorphism). 
+The meaning of `--` depends on the 
+[`Ordinal`](../../ceylon.language/Ordinal) and
+[`Settable`](../../ceylon.language/Settable) interfaces.
+
+The prefix `--` is defined as:
+
+    rhs:=rhs.predecessor
+    
+The postfix `--` is defined as:
+
+    (--lhs).successor
+
+See the [language specification](#{site.urls.spec}#arithmetic) for more details.
 
 ## See also
 

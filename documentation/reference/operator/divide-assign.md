@@ -35,6 +35,25 @@ The above code doesn't half the `index`<sup>th</sup> element of `seq`, as it
 may appear, it instead halves the `index`<sup>th</sup> element and 
 assigns the result to the (`index+1`)<sup>th</sup> element.
 
+### Polymorphism
+
+The `/=` operator is polymorphic. The definition of the `/=` operator depends 
+on the [`Numeric`](../../ceylon.language/Numeric) and 
+[`Castable`](../../ceylon.language/Castable) and
+[`Settable`](../../ceylon.language/Settable) interfaces as follows:
+
+    lhs:=lhs.divided(rhs.cast<N>())
+
+See the [language specification](#{site.urls.spec}#arithmetic) for more details.
+
+### Widening
+
+The types of the operands need not match because of the call to `cast<N>()` 
+in the definition of the operator. In other words assuming it's possible to 
+widen the `rhs` so that it's the same type as the `lhs` then 
+such a widening will automatically be performed. It is a compile time error if 
+such a widening is not possible.
+
 ## See also
 
 * [arithmetic operators](#{site.urls.spec}#arithmetic) in the 
