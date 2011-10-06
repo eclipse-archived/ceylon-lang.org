@@ -312,16 +312,18 @@ So far, we've always been explicitly specifying the type of every declaration.
 This generally makes code, especially example code, much easier to 
 read and understand.
 
-However, Ceylon does have the ability to infer the type of a locals or the 
-return type of a local method. Just place the keyword `local` in place of the 
-type declaration.
+However, Ceylon does have the ability to infer the type of a local variable 
+or the return type of a local method. Just place the keyword 
+`value` (in the case of a local variable) or `function` (in the case of a 
+local method) in place of the type declaration.
 
 <!-- lang: ceylon -->
-    local hello = DefaultHello();
-    local operators = { "+", "-", "*", "/" };
-    local add(Natural x, Natural y) { return x+y; }
+    value hello = DefaultHello();
+    value operators = { "+", "-", "*", "/" };
+    function add(Natural x, Natural y) { return x+y; }
 
-There are some restrictions applying to this feature. You can't use `local`:
+There are some restrictions applying to this feature. You can't use `value` 
+or `function`:
 
 * for declarations annotated `shared`,
 * for declarations annotated `formal`,
@@ -334,9 +336,9 @@ Type inference is purely "right-to-left" and "top-to-bottom". The type of
 any expression is already known without needing to look to any types declared 
 to the left of the `=` specifier, or further down the block of statements.
 
-* The inferred type of a local declared `local` is just the type of the 
-  expression assigned to it using `=` or `:=`.
-* The inferred type of a method declared `local` is just the type of the 
+* The inferred type of a local declared `value` is just the 
+  type of the expression assigned to it using `=` or `:=`.
+* The inferred type of a method declared `function` is just the type of the 
   returned expression.
 
 ## Type inference for sequence enumeration expressions
@@ -344,9 +346,9 @@ to the left of the `=` specifier, or further down the block of statements.
 What about sequence enumeration expressions like this:
 
 <!-- lang: ceylon -->
-    local sequence  = { DefaultHello(), "Hello", 12.0 };
+    value sequence  = { DefaultHello(), "Hello", 12.0 };
 
-What type is inferred for sequence? You might answer: "`Sequence<X>` 
+What type is inferred for `sequence`? You might answer: "`Sequence<X>`
 where `X` is the common superclass or super-interface of all the 
 element types". But that can't be right, since there might be more than one 
 common supertype.
@@ -357,20 +359,20 @@ union of all the element expression types. In this case, the type is
 `Sequence<T>` is covariant in `T`. So the following code is well typed:
 
 <!-- lang: ceylon -->
-    local sequence  = { DefaultHello(), "Hello", 12.0 }; //type Sequence<DefaultHello|String|Float>
+    value sequence  = { DefaultHello(), "Hello", 12.0 }; //type Sequence<DefaultHello|String|Float>
     Object[] objects = sequence; //type Empty|Sequence<Object>
 
 As is the following code:
 
 <!-- lang: ceylon -->
-    local nums = { 12.0, 1, -3 }; //type Sequence<Float|Natural|Integer>
+    value nums = { 12.0, 1, -3 }; //type Sequence<Float|Natural|Integer>
     Number[] numbers = nums; //type Empty|Sequence<Number>
 
 What about sequences that contain `null`? Well, do you remember the type of 
-`null` from Part 1 was `Nothing`?
+`null` from [the first part of the tour](../basics) was `Nothing`?
 
 <!-- lang: ceylon -->
-    local sequence = { null, "Hello", "World" }; //type Sequence<Nothing|String>
+    value sequence = { null, "Hello", "World" }; //type Sequence<Nothing|String>
     String?[] strings = sequence; //type Empty|Sequence<Nothing|String>
     String? s = sequence[0]; //type Nothing|Nothing|String which is just Nothing|String
 
