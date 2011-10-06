@@ -39,7 +39,7 @@ assigns the result to the (`index+1`)<sup>th</sup> element.
 ### Polymorphism
 
 The `+=` operator is polymorphic. The definition of the `+=` operator depends 
-on the [`Numeric`](../../ceylon.language/Numeric) and 
+on the [`Summable`](../../ceylon.language/Summable),
 [`Castable`](../../ceylon.language/Castable) and
 [`Settable`](../../ceylon.language/Settable) interfaces as follows:
 
