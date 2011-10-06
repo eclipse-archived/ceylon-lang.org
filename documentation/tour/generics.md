@@ -7,10 +7,12 @@ author: Gavin King
 
 # #{page.title}
 
-## Defining generic types
-
-We've seen plenty of parameterized types in this series of articles, but now 
+This is the sixth part of the Tour of Ceylon. The previous leg looked at
+Ceylon's type powerful system. In this part we're looking at *generic* types.
+We've seen plenty of parameterized types already, but now 
 let's explore a few more details.
+
+## Defining generic types
 
 Programming with generic types is one of the most difficult parts of Java. 
 That's still true, to some extent, in Ceylon. But because the Ceylon language 

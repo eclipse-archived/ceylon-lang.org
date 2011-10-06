@@ -7,6 +7,11 @@ author: Gavin King
 
 # #{page.title}
 
+This is the tenth leg in the Tour of Ceylon. In the 
+[previous leg](../functions) we learnt about functions. This part builds on 
+that by covering Ceylon's support for calling functions using 
+*named arguments*.
+
 ## Named arguments
 
 Consider the following method:
@@ -276,7 +281,8 @@ Note that `Observer<T>` is assignable to `Observer<Bottom>` for any type `T`,
 since `Observer<T>` is contravariant in its type parameter `T`. If this 
 doesn't make sense, please read XXX again.
 
-Of course, as we saw in Part 8, a better way to solve this problem might be 
+Of course, as we saw in the leg on [functions](../functions), 
+a better way to solve this problem might be 
 to eliminate the `Observer` interface and pass a method directly:
 
 <!-- lang: ceylon -->

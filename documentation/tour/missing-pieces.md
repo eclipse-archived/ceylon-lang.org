@@ -7,6 +7,11 @@ author: Gavin King
 
 # #{page.title}
 
+This is the seventh part of the Tour of Ceylon. If you found the 
+[previous part](../generics) on generic types a little overwhelming, don't 
+worry; this part is going to cover a some details which should be more 
+familiar.
+
 ## Attributes and locals
 
 In Java, a field of a class is quite easily distinguished from a local 

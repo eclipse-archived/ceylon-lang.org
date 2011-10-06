@@ -1,19 +1,23 @@
 ---
 layout: tour
-title: Tour of Ceylon&#58; Inheritance and Refinement (Overloading)
+title: Tour of Ceylon&#58; Inheritance and Refinement
 tab: documentation
 author: Emmanuel Bernard
 ---
 
 # #{page.title}
 
+This is the third leg of the Tour of Ceylon. In the [previous leg](../classes)
+you learned about classes. In this leg you're going to learn about 
+*inheritance* and *refinement* (known as overloading in some other languages).
+
 ## Inheritance and refinement
 
 In object-oriented programming, we often replace conditionals 
 (`if`, and especially `switch`) with subtyping. Indeed, according to some 
 folks, this is what makes a program object-oriented. Let's try refactoring the 
-`Hello` class from Part 2 into two classes, with two different implementations 
-of greeting:
+`Hello` class [from the previous leg of the tour](../classes) into two classes, 
+with two different implementations of greeting:
 
 <!-- lang: ceylon -->
     doc "A default greeting"

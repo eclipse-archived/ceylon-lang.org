@@ -7,12 +7,19 @@ author: Gavin King
 
 # #{page.title}
 
+This is the final part of the Tour of Ceylon. The 
+[previous part](../annotations) disected annotations. 
+This part covers Ceylons support for *interceptors*.
+
+## Interceptors
+
 An interceptor allows frameworks to react to events like method invocations, 
 class instantiations, or attribute evaluations. We don't need to write any 
 special annotation scanning code to make use of interceptors. Ceylon handles 
 this for us at class-loading time.
 
-All we need to do is have our `Transactional` class implement the interfaces `MethodAnnotation` and `AttributeAnnotation`:
+All we need to do is have our `Transactional` class implement the interfaces 
+`MethodAnnotation` and `AttributeAnnotation`:
 
 <!-- lang: ceylon -->
     shared class Transactional(Boolean requiresNew)

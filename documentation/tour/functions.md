@@ -7,6 +7,9 @@ author: Gavin King
 
 # #{page.title}
 
+This is the ninth part of the Tour of Ceylon. In the 
+[previous leg](../modules) we looked at modules. This leg covers
+functions.
 
 ## First class and higher order functions
 
@@ -54,7 +57,8 @@ So the type of sum in Ceylon is:
 <!-- lang: ceylon -->
     Callable<Natural, Natural, Natural>
 
-What about void functions? Well, remember that way back in Part 1 we said 
+What about void functions? Well, remember that way back in 
+[the first part of the tour](../basics) we said 
 that the return type of a void function is `Void`. So the type of a function 
 like `print()` is:
 
@@ -382,7 +386,10 @@ which define specialized control structures.
 
 
 
-In Introduction to Ceylon Part 8 we discussed Ceylon's support for defining higher order functions, in particular the two different ways to represent the type of a parameter which accepts a reference to a function. The following declarations are essentially equivalent:
+When the [tour covered functions](../functions) we discussed Ceylon's support 
+for defining higher order functions, in particular the two different ways to 
+represent the type of a parameter which accepts a reference to a function. 
+The following declarations are essentially equivalent:
 
 <!-- lang: ceylon -->
     X[] filter<X>(X[] sequence, Callable<Boolean,X> by) { ... }
@@ -643,9 +650,10 @@ But there's another way. Instead, we're going to use a really cool higher-order 
         return curried(receiver)(args);
     }
 
-Whoah! Wtf?
+Whoah! What's *that*?
 
-Well, it's obviously time for you to re-read Part 8! Ok, done that? Cool, 
+Well, it's obviously time for you to re-read the 
+[tour leg on functions](../functions)! Ok, done that? Cool, 
 now let's try to unwind this:
 
 * First, it's a function with two parameter lists, so `uncurry()()` is a 
