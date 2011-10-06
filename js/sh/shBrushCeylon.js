@@ -28,7 +28,7 @@
 //						'object of return ' +
 //						'satisfies super switch then this throw ' +
 //						'try void while';
-            var keywords = 'import class interface object given assign void subtype local of ' +
+            var keywords = 'import class interface object given assign void subtype value function of ' +
                            'extends satisfies adapts abstracts in out return break continue throw ' +
                            'retry if else switch case for fail do while try catch finally this ' +
                            'outer super is exists nonempty';
