@@ -18,7 +18,7 @@ Here's a classic example program.
 
 <!-- lang: ceylon -->
     void hello() {
-        writeLine("Hello, World!");
+        print("Hello, World!");
     }
 
 This tour is separated into a number parts and will cover the main features of 

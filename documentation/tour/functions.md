@@ -112,8 +112,8 @@ function.
 And call it like this:
 
 <!-- lang: ceylon -->
-    void print(Natural n) { writeLine(n); }
-    repeat(10, print);
+    void printNum(Natural n) { print(n); }
+    repeat(10, printNum);
 
 Which would print the numbers 1 to 10 to the console.
 
@@ -147,7 +147,7 @@ return type to any parameter which expects a void method:
 <!-- lang: ceylon -->
     Boolean attemptPrint(Natural n) {
         try {
-            writeLine(n);
+            print(n);
             return true;
         }
         catch (Exception e) {
@@ -162,7 +162,7 @@ method to a receiver expression. For example, we could write the following:
 <!-- lang: ceylon -->
     class Hello(String name) {
         shared void say(Natural n) {
-            writeLine("Hello, " name ", for the " n "th time!");
+            print("Hello, " name ", for the " n "th time!");
         }
     }
      
@@ -445,7 +445,7 @@ Let's look at some more examples of how we would use anonymous functions:
 * Repetition:
 
 <!-- lang: ceylon -->
-    repeat(n, () { writeLine("Hello"); })
+    repeat(n, () { print("Hello"); })
 
 * Tabulation:
 
@@ -481,7 +481,7 @@ worse for multi-line anonymous functions. Consider:
         else {
             greeting = "Hello, World!";
         }
-        writeLine(greeting);
+        print(greeting);
     });
 
 Definitely much uglier than a for loop!
@@ -511,7 +511,7 @@ ambiguity, allowing the following:
         else {
             greeting = "Hello, World!";
         }
-        writeLine(greeting);
+        print(greeting);
     };
 
 This looks much more like a built-in control structure. Now let's see some of 
@@ -530,7 +530,7 @@ our other examples:
 * Repetition: 
 
 <!-- lang: ceylon -->
-    repeat(n) perform { writeLine("Hello"); }
+    repeat(n) perform { print("Hello"); }
 
 * Tabulation: 
 

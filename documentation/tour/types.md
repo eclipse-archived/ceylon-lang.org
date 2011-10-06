@@ -87,9 +87,9 @@ the compiler will let us leave off the `else` clause.
 <!-- lang: ceylon -->
     void print(String|Natural|Integer val) {
         switch (val)
-        case (is String) { writeLine(val); }
-        case (is Natural) { writeLine("Natural: " + val); }
-        case (is Integer) { writeLine("Integer: " + val); }
+        case (is String) { print(val); }
+        case (is Natural) { print("Natural: " + val); }
+        case (is Integer) { print("Integer: " + val); }
     }
 
 ## Enumerated subtypes
@@ -116,10 +116,10 @@ clause:
     Hello hello = ... ;
     switch (hello)
     case (is DefaultHello) {
-        writeLine("What's your name?");
+        print("What's your name?");
     }
     case (is PersonalizedHello) {
-        writeLine("Nice to hear from you again!");
+        print("Nice to hear from you again!");
     }
 
 Now, it's usually considered bad practice to write long `switch` statements 
@@ -166,7 +166,7 @@ interface:
     void print(Node node) {
         object printVisitor satisfies Visitor {
             shared actual void visitLeaf(Leaf l) {
-                writeLine("Found a leaf: " l.value "!");
+                print("Found a leaf: " l.value "!");
             }
             shared actual void visitBranch(Branch b) {
                 b.leftChild.accept(this);
@@ -202,7 +202,7 @@ of "breaking" when a new subtype of `Node` is added.
     void print(Node node) {
         switch (node)
         case (is Leaf) {
-            writeLine("Found a leaf: " node.value "!");
+            print("Found a leaf: " node.value "!");
         }
         case (is Branch) {
             print(node.leftChild);
@@ -234,10 +234,10 @@ Now we can exhaust all cases of `Suit` in a `switch`:
 <!-- lang: ceylon -->
     void print(Suit suit) {
         switch (suit)
-        case (hearts) { writeLine("Heartzes"); }
-        case (diamonds) { writeLine("Diamondzes"); }
-        case (clubs) { writeLine("Clidubs"); }
-        case (spades) { writeLine("Spidades"); }
+        case (hearts) { print("Heartzes"); }
+        case (diamonds) { print("Diamondzes"); }
+        case (clubs) { print("Clidubs"); }
+        case (spades) { print("Spidades"); }
     }
 (Note that these cases are ordinary value cases, not `case (is...)` type cases.)
 

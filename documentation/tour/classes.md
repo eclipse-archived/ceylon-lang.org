@@ -184,14 +184,14 @@ but here's a quick example of each of the three techniques:
 <!-- lang: ceylon -->
     //defaulted parameter
     void println(String value, String eol = "\n") {
-        writeLine(value + eol);
+        print(value + eol);
     }
 
 <!-- lang: ceylon -->
     //sequenced parameter
     void print(String... strings) {
         for (String string in strings) {
-            writeLine(string);
+            print(string);
         }
     }
 
@@ -206,7 +206,7 @@ but here's a quick example of each of the three techniques:
         case (is Named) {
             string = printable.name;
         }
-        writeLine(string);
+        print(string);
     }
 
 Don't worry if you don't completely understand the third example just yet. 

@@ -212,7 +212,7 @@ Consider the following example:
         }
          
         default void print(String message) {
-            writeLine(message);
+            print(message);
         }
          
     }

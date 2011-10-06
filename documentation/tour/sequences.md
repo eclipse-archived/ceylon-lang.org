@@ -24,10 +24,10 @@ to gain access to these operations.
     void printBounds(String[] strings) {
         if (nonempty strings) {
             //strings is a Sequence<String>
-            writeLine(strings.first + ".." + strings.last);
+            print(strings.first + ".." + strings.last);
         }
         else {
-            writeLine("Empty");
+            print("Empty");
         }
     }
 
@@ -78,7 +78,7 @@ using a `for` loop:
 
 <!-- lang: ceylon -->
     for (String op in operators) {
-        writeLine(op);
+        print(op);
     }
 
 Ceylon doesn't need C-style `for` loops. Instead, combine `for` with the 
@@ -88,7 +88,7 @@ range operator `..`.
     variable Natural fac:=1;
     for (Natural n in 1..100) {
         fac*=n;
-        writeLine("Factorial " n "! = " fac "");
+        print("Factorial " n "! = " fac "");
     }
 
 If, for any reason, we need to use the index of each element of a sequence 
@@ -97,7 +97,7 @@ iterating instances of `Entries`:
 
 <!-- lang: ceylon -->
     for (Natural i -> String op in entries(operators)) {
-        writeLine($i + ": " + op);
+        print($i + ": " + op);
     }
 
 The `entries()` function returns an instance of `Entries<Natural,String>` 
@@ -260,7 +260,7 @@ in the type parameter `Element`. So `Empty` is assignable to
     void printAll(String[] strings) {
         variable Iterator<String> i := strings.iterator();
         while (exists String s = i.head) {
-            writeLine(s);
+            print(s);
             i := i.tail;
         }
     }

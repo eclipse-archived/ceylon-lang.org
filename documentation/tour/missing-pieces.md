@@ -189,7 +189,7 @@ The `while` loop is traditional.
 <!-- lang: ceylon -->
     variable local it = names.iterator();
     while (exists String name = it.head) {
-        writeLine(name);
+        print(name);
         it:=it.tail;
     }
 
@@ -230,7 +230,7 @@ Inside the method body, the parameter strings has type `String[]`.
         for (String string in strings) {
             write(string);
         }
-        writeLine();
+        print();
     }
 
 A slightly more sophisticated example is the `coalesce()` method we saw above. 

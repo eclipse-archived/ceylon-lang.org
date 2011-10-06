@@ -267,7 +267,7 @@ declaration:
     observable.addObserver {
         object observer satisfies Observer<UpdateEvent> {
             shared actual void on(UpdateEvent e) {
-                writeLine("Update:" + e.string);
+                print("Update:" + e.string);
             }
         }
     };
@@ -285,7 +285,7 @@ to eliminate the `Observer` interface and pass a method directly:
     }
     observable.addObserver {
         void on(UpdateEvent e) {
-            writeLine("Update:" + e.string);
+            print("Update:" + e.string);
         }
     };
 

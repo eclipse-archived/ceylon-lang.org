@@ -15,7 +15,7 @@ Here's a classic example program.
 
 <!-- lang: ceylon -->
     void hello() {
-        writeLine("Hello, World!");
+        print("Hello, World!");
     }
 
 This method prints `Hello, World!` on the console. A toplevel method like this 
@@ -40,7 +40,7 @@ comment, either like this:
 <!-- lang: ceylon -->
     /* The classic Hello World program */
     void hello() {
-        writeLine("Hello, World!");
+        print("Hello, World!");
     }
 
 Or like this:
@@ -48,7 +48,7 @@ Or like this:
 <!-- lang: ceylon -->
     //The classic Hello World program
     void hello() {
-        writeLine("Hello, World!");
+        print("Hello, World!");
     }
 
 But it's much better to use the `doc` annotation for comments that describe 
@@ -60,7 +60,7 @@ declarations.
 	see (goodbye)
 	throws (IOException)
 	void hello() {
-	    writeLine("Hello, World!");
+	    print("Hello, World!");
 	}
 
 The `doc`, `by`, `see` and `throw` annotations contain documentation that is 
@@ -81,7 +81,7 @@ Let's ask our program to tell us a little more about itself.
     doc "The Hello World program
          ... version 1.1!"
     void hello() {
-        writeLine("Hello, this is Ceylon " process.languageVersion
+        print("Hello, this is Ceylon " process.languageVersion
                   " running on Java " process.javaVersion "!");
     }
 
@@ -93,12 +93,12 @@ A string template must begin and end in a string literal. The following is
 not legal syntax:
 
 <!-- lang: ceylon -->
-    writeLine("Hello, this is Ceylon " process.languageVersion); //compile error!
+    print("Hello, this is Ceylon " process.languageVersion); //compile error!
 
 Whereas this one is
 
 <!-- lang: ceylon -->
-    writeLine("Hello, this is Ceylon " process.languageVersion "");
+    print("Hello, this is Ceylon " process.languageVersion "");
 
 (If you're wondering why the syntax isn't 
 `"Hello, this is Ceylon ${process.languageVersion}"` 
@@ -108,7 +108,7 @@ The `+` operator you're probably used to is an alternative, and more
 flexible in many cases:
 
 <!-- lang: ceylon -->
-    writeLine("Hello, this is Ceylon " + process.languageVersion +
+    print("Hello, this is Ceylon " + process.languageVersion +
               " running on Java " + process.javaVersion + "!");
 
 ## Dealing with objects that aren't there
@@ -129,7 +129,7 @@ quite different to what you're probably used to in Java or C#.
         else {
             greeting = "Hello, World!";
         }
-        writeLine(greeting);
+        print(greeting);
     }
 
 `String?` indicates that name may contain a `null` value. We then use 
@@ -161,7 +161,7 @@ It's possible to declare the local name inside the `if (exists ... )` condition:
     else {
         greeting = "Hello, World!";
     }
-    writeLine(greeting);
+    print(greeting);
 
 This is the preferred style most of the time, since we can't actually use 
 `name` for anything useful outside of the `if (exists ... )` construct.
@@ -190,7 +190,7 @@ A method parameter may specify a default value.
 
 <!-- lang: ceylon -->
     void hello(String name="World") {
-        writeLine("Hello, " name "!");
+        print("Hello, " name "!");
     }
 
 Then we don't need to specify an argument to the parameter when we call 

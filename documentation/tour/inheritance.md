@@ -180,7 +180,7 @@ Now let's define a concrete implementation of this interface.
         formatter = StringFormatter();
          
         shared actual void write(String string) {
-            writeLine(string);
+            print(string);
         }
          
     }
@@ -572,7 +572,7 @@ extending an `abstract` class or implementing an interface.
         formatter = StringFormatter();
          
         shared actual void write(String string) {
-            writeLine(string);
+            process.write(string);
         }
          
     }
