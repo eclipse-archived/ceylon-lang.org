@@ -42,7 +42,7 @@ on the [`Numeric`](../../ceylon.language/Numeric) and
 [`Castable`](../../ceylon.language/Castable) and
 [`Settable`](../../ceylon.language/Settable) interfaces as follows:
 
-    lhs:=lhs.divided(rhs.cast<N>())
+    lhs:=lhs.divided(rhs.castTo<N>())
 
 See the [language specification](#{site.urls.spec}#arithmetic) for more details.
 

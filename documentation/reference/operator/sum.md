@@ -24,7 +24,7 @@ The meaning of `+` depends on the
 [`Summable`](../../ceylon.language/Summable) and
 [`Castable`](../../ceylon.language/Castable) interfaces as follows:
 
-    lhs.cast<N>().plus(rhs.cast<N>());
+    lhs.castTo<N>().plus(rhs.castTo<N>());
 
 See the [language specification](#{site.urls.spec}#arithmetic) for more details.
 

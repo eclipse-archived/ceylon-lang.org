@@ -44,7 +44,7 @@ on the [`Integral`](../../ceylon.language/Integral) and
 [`Castable`](../../ceylon.language/Castable) and
 [`Settable`](../../ceylon.language/Settable) interfaces as follows:
 
-    lhs:=lhs.remainder(rhs.cast<N>())
+    lhs:=lhs.remainder(rhs.castTo<N>())
 
 See the [language specification](#{site.urls.spec}#arithmetic) for more details.
 

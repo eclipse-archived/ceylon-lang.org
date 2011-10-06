@@ -365,7 +365,7 @@ completely within the type system, in terms of `Numeric` and `Castable`:
             given Result of Left|Right satisfies Numeric<Result>
             given Left satisfies Castable<Result> & Numeric<Left>
             given Right satisfies Castable<Result> & Numeric<Right> {
-        return x.as<Result>().times(y.as<Result>());
+        return x.castTo<Result>().times(y.castTo<Result>());
     }
 
 Don't worry too much about the performance implications of all this — 
