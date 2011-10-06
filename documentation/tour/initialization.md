@@ -7,7 +7,7 @@ author: Gavin King
 
 # #{page.title}
 
-This is the twelth part of the Tour of Ceylon. In the part part we learned 
+This is the twelth part of the Tour of Ceylon. In the [last part](../language-module) we learned 
 about the language module, `ceylon.language`. Now we're going to go into the
 details of *initialization*.
 

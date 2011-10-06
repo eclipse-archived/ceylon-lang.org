@@ -8,7 +8,7 @@ author: Gavin King
 # #{page.title}
 
 Wow, part thirteen of the Tour of Ceylon and the end is in sight! 
-The [last part](../initialization] covered initialization. This part is all 
+The [last part](../initialization) covered initialization. This part is all 
 about *annotations*.
 
 ## Annotations
