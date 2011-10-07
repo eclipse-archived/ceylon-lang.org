@@ -111,21 +111,24 @@ two direct subtypes. So any annotation type must be a subtype of one of
 these two interfaces:
 
 * If an annotation type is a suptype of `OptionalAnnotation`, at most one 
-annotation of a given program element may be of this annotation type, or, 
-otherwise
+  annotation of a given program element may be of this annotation type, or, 
+  otherwise
 * if an annotation type is a suptype of `SequencedAnnotation`, more than one
-annotation of a given program element may be of this annotation type.
+  annotation of a given program element may be of this annotation type.
+
+<!-- this comment is working around a bug in rdiscount -->
 
     doc "An annotation that may occur at most once at
          a single program element."
     shared interface OptionalAnnotation<out Value, in ProgramElement>
-            satisfies ConstrainedAnnotation<Value,Value?,ProgramElement>
+            satisfies ConstrainedAnnotation<Value, Value?, ProgramElement>
             given Value satisfies Annotation<Value>
             given ProgramElement satisfies Annotated {}
+
     doc "An annotation that may occur multiple times at
          a single program element."
     shared interface SequencedAnnotation<out Value, in ProgramElement>
-            satisfies ConstrainedAnnotation<Value,Value[],ProgramElement>
+            satisfies ConstrainedAnnotation<Value, Value[], ProgramElement>
             given Value satisfies Annotation<Value>
             given ProgramElement satisfies Annotated {}
 
