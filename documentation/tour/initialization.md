@@ -67,7 +67,7 @@ initializers are executed in a multiple-inheritance model. This is the basic
 reason why interfaces are stateless in Ceylon.
 
 (Note that these arguments are even stronger in the case of 
-*adapter introduction*, where linearization or statefulness would be even 
+[adapter introduction](../inheritance/#introduction), where linearization or statefulness would be even 
 more fragile.)
 
 So Ceylon is more restrictive than some other languages here. But we think 
