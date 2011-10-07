@@ -24,6 +24,11 @@ to invoke a toplevel method. Instead, you can just call it like this:
 
     hello();
 
+Or you can run it directly from the command line:
+
+    ceylonc -src .
+    ceylon -run hello
+
 Ceylon doesn't have Java-style `static` methods, but you can think of 
 toplevel methods as filling the same role. Ceylon has a very strict 
 block structure - a nested block always has access to declarations in all 
