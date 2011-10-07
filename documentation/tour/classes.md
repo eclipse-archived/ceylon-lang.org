@@ -159,7 +159,7 @@ We have not done this work for nothing! Let's no see how to use the
 
     doc "Print a personalized greeting"
     void hello() {
-        Hello(process.args.first).say(process.output);
+        Hello(process.arguments.first).say(process.output);
     }
 
 Our rewritten `hello()` method just creates a new instance of `Hello`, and 
@@ -178,28 +178,26 @@ We're not going to get into all the details of these workarounds right now,
 but here's a quick example of each of the three techniques:
 
     //defaulted parameter
-    void println(String value, String eol = "\n") {
-        print(value + eol);
+    void println(String line, String eol = "\n") {
+        process.write(line + eol);
     }
 
     //sequenced parameter
-    void print(String... strings) {
+    void printlns(String... lines) {
         for (string in strings) {
-            print(string);
+            println(string);
         }
     }
 
     //union type
-    void print(String|Named printable) {
-        String string;
-        switch (printable)
+    void printName(String|Named name) {
+        switch (name)
         case (is String) {
-            string = printable;
+            println(name);
         }
         case (is Named) {
-            string = printable.name;
+            println(name.first + " " + name.last);
         }
-        print(string);
     }
 
 Don't worry if you don't completely understand the third example just yet. 
@@ -207,7 +205,7 @@ Don't worry if you don't completely understand the third example just yet.
 Let's overload `Hello`, and its `say()` method, using defaulted parameters:
 
     doc "A command line greeting"
-    class Hello(String? name = process.args.first) {
+    class Hello(String? name = process.arguments.first) {
         ...
          
         doc "Print the greeting"
