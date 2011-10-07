@@ -190,8 +190,10 @@ author: Tom Bentley
 
 ## Interoperability
 
-* Calling Ceylon from Java
-* Calling Java from Ceylon
+* ['Calling' Ceylon from Java](interoperability/ceylon-from-java)
+* ['Calling' Java from Ceylon](interoperability/java-from-ceylon)
+* [Erasure](interoperability/erasure)
+* [Ceylon Annotations for Java](interoperability/annotations)
 
 ## Other
 
