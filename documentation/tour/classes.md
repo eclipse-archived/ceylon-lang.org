@@ -14,41 +14,50 @@ going to look in more detail at classes.
 
 ## Creating your own classes
 
-Type (interfaces, classes, and type parameters) names are capitalized. 
-Members (methods and attributes) and locals names are not. The Ceylon 
-compiler is watching you. If you try to write class `hello` or 
-String `Name`, you'll get a compilation error.
+Type (interface, class, and type parameter) names are capitalized. 
+Member (method and attribute) and local names are not. The Ceylon 
+compiler is watching you. If you try to write `class hello` or 
+`String Name`, you'll get a compilation error.
 
-Our first version of the `Hello` class has a single attribute and a 
-single method:
+Our first class is going to represent points in a polar coordinate 
+system. Our class has two parameters and two methods.
 
-    doc "A personalized greeting"
-    class Hello(String? name) {
-         
-        doc "The greeting"
-        shared String greeting;
-        if (exists name) {
-            greeting = "Hello, " name "!";
+    doc "A polar coordinate"
+    class Polar(Float angle, Float radius) {
+        
+        shared Polar rotate(Float rotation) {
+            return Polar(angle+rotation, radius);
         }
-        else {
-            greeting = "Hello, World!";
+        
+        shared Polar dilate(Float dilation) {
+            return Polar(angle, radius*dilation);
         }
-         
-        doc "Print the greeting"
-        shared void say(OutputStream stream) {
-            stream.writeLine(greeting);
-        }
+        
     }
 
-`shared` describes the accessibility of the attribute or method.
-Ceylon doesn't make a distinction between `public`, `protected` and 'default' 
-visibility like Java; 
-[here's why](/documentation/faq/language-design/#no_protected_keyword).
+Notice that the parameters used to instantiate a class are specified as part
+of the class declaration. There's no Java-style constructors in Ceylon. Also
+notice that if we only use the parameters within the body of the class, we
+don't need to define explicit members of the class to hold their values. We
+can access them directly from the `rotate()` and `dilate()` methods.
+
+Notice also that Ceylon doesn't have a `new` keyword to indicate instantiation.
+
+The `shared` annotation describes the accessibility of the annotated type, 
+attribute, or method. Before we go any further, let's see how we can hide the 
+internal implementation of a class from other code.
 
 ## Hiding implementation details
 
-Ceylon tries to simplify how to expose or hide members and make that safer 
-than Java.
+Ceylon doesn't make a distinction between `public`, `protected` and "default" 
+visibility like Java does; 
+[here's why](/documentation/faq/language-design/#no_protected_keyword). Instead,
+Ceylon distinguishes between: 
+
+* program elements which are visible only inside the scope in which they are 
+  defined, and 
+* program elements which are visible wherever the thing they belong to (a type, 
+  package, or module) is visible.
 
 By default, members of a class are hidden from code outside the body of the 
 class. By annotating a member with the `shared` annotation, we declare that 
@@ -65,13 +74,77 @@ other modules.
 
 Got the idea? We are playing russian dolls here.
 
-## Abstracting state using attributes
+## Exposing parameters as attributes
 
-The attribute `greeting` is a simple attribute, the closest thing Ceylon has 
-to a Java field.
+If we want to expose the `angle` and `radius` of our `Polar` coordinate to
+other code, we need to define attributes of the class. It's very common to 
+assign parameters of a class directly to a `shared` attribute of the class, 
+so Ceylon lets us reuse the name of a parameter as the name of an attribute.
 
+    doc "A polar coordinate"
+    class Polar(Float angle, Float radius) {
+        
+        shared Float angle=angle;
+        shared Float radius=radius;
+        
+        shared Polar rotate(Float rotation) {
+            return Polar(angle+rotation, radius);
+        }
+        
+        shared Polar dilate(Float dilation) {
+            return Polar(angle, radius*dilation);
+        }
+        
+    }
+
+Code that used `Polar` can access the attributes of the class using a very
+convenient syntax.
+
+    void printPolar(Polar polar) {
+        print("(" polar.radius "," polar.angle ")");
+    }
+
+## Initializing attributes
+
+The attributes `angle` and `radius` are _simple attributes_, the closest thing 
+Ceylon has to a Java field. Usually we specify the value of a simple attribute
+as part of the declaration of the attribute.
+
+    shared Float x = radius * sin(angle);
     shared String greeting = "Hello, " name "!";
     shared Natural months = years * 12;
+
+On the other hand, it's sometimes useful to separate declaration from specification 
+of a value.
+
+    shared String description;
+    if (exists label) {
+        description = label;
+    }
+    else {
+        description = "(" radius "," angle ")";
+    }
+
+But if there's no constructors in Ceylon, where precisely should we put this
+code? We put it directly in the body of the class!
+
+    doc "A polar coordinate with an optional label"
+    class Polar(Float angle, Float radius, String? label) {
+        
+        shared Float angle=angle;
+        shared Float radius=radius;
+        
+        shared String description;
+        if (exists label) {
+            description = label;
+        }
+        else {
+            description = "(" radius "," angle ")";
+        }
+        
+        ...
+        
+    }
 
 The Ceylon compiler forces you to specify a value of any simple attribute or 
 local before making use of the simple attribute or local in an expression.
@@ -81,98 +154,65 @@ local before making use of the simple attribute or local in an expression.
         count++;   //compile error
     }
 
-Think of an attribute as 'field + getter + setter' done right and defined in 
-the language. Some attributes are simple value holders like the one we've 
-just seen; others are more like a getter method, or, sometimes, like a 
-getter and setter method pair.
+## Abstracting state using attributes
 
-We could rewrite the attribute greeting as a getter:
+If you're used to writing JavaBeans, you can think of a simple attribute as a
+combination of several things:
 
-    shared String greeting {
-        if (exists name) {
-            return "Hello, " name "!";
-        }
-        else {
-            return "Hello, World!";
-        }
+* a field,
+* a getter, and, sometimes, 
+* a setter. 
+
+But not all attributes are simple value holders like the one we've just seen; 
+others are more like a getter method, or, sometimes, like a getter and setter 
+method pair.
+
+We'll need to expose the equivalent cartesian coordinates of a `Polar`.
+Since the cartesian coordinates can be computed from the polar coordinates,
+we don't need to define state-holding simple attributes. Instead, we can
+define the attributes as _getters_.
+
+    doc "A polar coordinate"
+    class Polar(Float angle, Float radius) {
+        
+        shared Float angle=angle;
+        shared Float radius=radius;
+        
+        shared Float x { return radius * cos(angle); }
+        shared Float y { return radius * sin(angle); }
+        
+        ...
+        
     }
 
 Notice that the syntax of a getter declaration looks a lot like a method 
 declaration with no parameter list.
 
-## Understanding object initialization
+Code that uses `Polar` never needs to know if an attribute is a simple
+attribute or a getter. No that we know about getters, we could rewrite
+our `description` attribute as a getter, without affecting any code 
+that uses it.
 
-In Ceylon, classes don't have constructors. 
-
-Instead:
-
-* the parameters needed to instantiate the class are declared directly after 
-  the name of the class (like a method would), and
-* the code to initialize the new instance of the class goes directly in the 
-  body of the class.
-
-    class Hello(String? name) {
-        
-        shared String greeting;
-        if (exists name) {
-            greeting = "Hello, " name "!";
+    shared String description {
+        if (exists label) {
+            return label;
         }
         else {
-            greeting = "Hello, World!";
-        }
-         
-        shared void say(OutputStream stream) {
-            stream.writeLine(greeting);
+            return "(" radius "," angle ")";
         }
     }
-  
-The syntax of Ceylon is more regular than Java. Regularity makes a language 
-easy to learn and easy to refactor.
 
-Now let's turn our attention to a different possible implementation of 
-greeting:
 
-    class Hello(String? name) {
-        shared String greeting {
-            if (exists name) {
-                return "Hello, " name "!";
-            }
-            else {
-                return "Hello, World!";
-            }
-        }
-        ... 
-    }
+## Living without overloading
 
-The class initializer parameter `name` is used inside the getter `greeting`. 
-Parameters can be used in the scope of their block structure. Like method 
-parameters in Java are visible in the method, class parameters in Ceylon are 
-visible to the elements in the body of their class.
-
-That's just a fancy way of obfuscating the idea that greeting holds onto the 
-value of name, even after the initializer completes.
-
-## Instantiating classes and overloading their initializer parameters
-
-We have not done this work for nothing! Let's no see how to use the 
-`Hello` class.
-
-    doc "Print a personalized greeting"
-    void hello() {
-        Hello(process.arguments.first).say(process.output);
-    }
-
-Our rewritten `hello()` method just creates a new instance of `Hello`, and 
-invokes `say()`. Ceylon doesn't need a `new` keyword to instantiate a class.
-
-Bad news: Ceylon doesn't support method overloading (the truth is that 
-overloading is the source of various problems in Java, especially when generics 
-come into play). However we can emulate most non-evil uses of constructor 
-or method overloading using:
+It's time for some bad news: Ceylon doesn't support method or constructor 
+overloading (the truth is that overloading is the source of various problems 
+in Java, especially when generics come into play). However we can emulate most 
+non-evil uses of constructor or method overloading using:
 
 * defaulted parameters, 
 * sequenced parameters, i.e. varargs, and
-* union types or enumerated type constraints
+* union types or enumerated type constraints.
 
 We're not going to get into all the details of these workarounds right now, 
 but here's a quick example of each of the three techniques:
@@ -202,26 +242,30 @@ but here's a quick example of each of the three techniques:
 
 Don't worry if you don't completely understand the third example just yet. 
 
-Let's overload `Hello`, and its `say()` method, using defaulted parameters:
+Let's make use of this idea to "overload" the "constructor" of `Polar`.
 
-    doc "A command line greeting"
-    class Hello(String? name = process.arguments.first) {
-        ...
-         
-        doc "Print the greeting"
-        shared void say(OutputStream stream = process.output) {
-            stream.writeLine(greeting);
+    doc "A polar coordinate with an optional label"
+    class Polar(Float angle, Float radius, String? label=null) {
+        
+        shared Float angle=angle;
+        shared Float radius=radius;
+        
+        shared String description;
+        if (exists label) {
+            description = label;
         }
-         
+        else {
+            description = "(" radius "," angle ")";
+        }
+        
+        ...
+        
     }
 
-Our `hello()` method is now looking really simple as we use the default 
-parameter values:
+Now we can create `Polar` coordinates with or without labels:
 
-    doc "Print a personalized greeting"
-    void hello() {
-        Hello().say();
-    }
+    Polar origin = Polar(0, 0, "origin");
+    Polar coord = Polar(r, theta);
 
 ## There's more...
 
