@@ -29,7 +29,8 @@ Tour legs:
 
 1. [Basics](basics)
 1. [Classes, interfaces and objects](classes)
-1. [Inheritance and refinement (overriding)](inheritance)
+1. [Inheritance and refinement](inheritance)
+1. [Introduction and member classes](introduction)
 1. [Sequences](sequences)
 1. [Types](types)
 1. [Generics](generics)

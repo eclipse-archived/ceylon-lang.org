@@ -1,6 +1,6 @@
 ---
 layout: tour
-title: Tour of Ceylon&#58; initialization
+title: Tour of Ceylon&#58; Initialization
 tab: documentation
 author: Gavin King
 ---

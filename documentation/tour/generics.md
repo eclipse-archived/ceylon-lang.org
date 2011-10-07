@@ -24,7 +24,10 @@ just like in Java, type parameters are listed before ordinary parameters,
 enclosed in angle brackets.
 
     shared interface Iterator<out Element> { ... }
-    class Array<Element>(Element... elements) satisfies Sequence<Element> { ... }
+
+    class Array<Element>(Element... elements) 
+            satisfies Sequence<Element> { ... }
+
     shared Entries<Natural,Value> entries<Value>(Value... sequence) { ... }
 
 As you can see, the convention in Ceylon is to use meaningful names for 

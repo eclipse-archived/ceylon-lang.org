@@ -20,7 +20,7 @@ compiler is watching you. If you try to write `class hello` or
 `String Name`, you'll get a compilation error.
 
 Our first class is going to represent points in a polar coordinate 
-system. Our class has two parameters and two methods.
+system. Our class has two parameters, two methods, and an attribute.
 
     doc "A polar coordinate"
     class Polar(Float angle, Float radius) {
@@ -33,13 +33,16 @@ system. Our class has two parameters and two methods.
             return Polar(angle, radius*dilation);
         }
         
+        shared String description = "(" radius "," angle ")";
+        
     }
 
 Notice that the parameters used to instantiate a class are specified as part
 of the class declaration. There's no Java-style constructors in Ceylon. Also
 notice that if we only use the parameters within the body of the class, we
 don't need to define explicit members of the class to hold their values. We
-can access them directly from the `rotate()` and `dilate()` methods.
+can access them directly from the `rotate()` and `dilate()` methods, and
+from the expression which specifies the value of `description`.
 
 Notice also that Ceylon doesn't have a `new` keyword to indicate instantiation.
 
@@ -250,12 +253,13 @@ Let's make use of this idea to "overload" the "constructor" of `Polar`.
         shared Float angle=angle;
         shared Float radius=radius;
         
-        shared String description;
-        if (exists label) {
-            description = label;
-        }
-        else {
-            description = "(" radius "," angle ")";
+        shared String description {
+            if (exists label) {
+                description = label;
+            }
+            else {
+                description = "(" radius "," angle ")";
+            }
         }
         
         ...

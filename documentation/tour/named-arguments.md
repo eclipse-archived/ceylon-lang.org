@@ -28,7 +28,8 @@ using a familiar C-style syntax where arguments are delimited by in parentheses
 and separated by commas. Arguments are matched to parameters by their 
 position in the list. Let's see just one more example, just in case:
 
-    printf(process, "Thanks, %s. You have been charged %.2f. Your confirmation number is %d.",
+    printf(process, "Thanks, %s. You have been charged %.2f. 
+                     Your confirmation number is %d.",
             user.name, order.total, order.confimationNumber);
 
 This works fine, however Ceylon provides an alternative method 
@@ -37,7 +38,8 @@ one or two arguments:
 
     printf {
         to = process;
-        format = "Thanks, %s. You have been charged %.2f. Your confirmation number is %d.";
+        format = "Thanks, %s. You have been charged %.2f. 
+                  Your confirmation number is %d.";
         user.name, order.total, order.confimationNumber
     };
 
@@ -52,7 +54,8 @@ value parameter:
 
     printf {
         to = process;
-        format = "Thanks, %s. You have been charged %.2f. Your confirmation number is %d.";
+        format = "Thanks, %s. You have been charged %.2f. 
+                  Your confirmation number is %d.";
         values = { user.name, order.total, order.confimationNumber };
     };
 
