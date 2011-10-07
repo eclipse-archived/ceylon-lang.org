@@ -75,8 +75,11 @@ Let's ask our program to tell us a little more about itself.
     doc "The Hello World program
          ... version 1.1!"
     void hello() {
-        print("Hello, this is Ceylon " process.languageVersion
-                  " running on Java " process.javaVersion "!");
+        print("Hello, this is Ceylon " 
+              process.languageVersion
+              " running on Java " 
+              process.javaVersion 
+              "!");
     }
 
 As you can see, we can split a string across multiple lines. That's especially 
@@ -86,21 +89,29 @@ interpolate expressions inside a string: we call that a string templage.
 A string template must begin and end in a string literal. The following is 
 not legal syntax:
 
-    print("Hello, this is Ceylon " process.languageVersion); //compile error!
+    print("Hello, this is Ceylon " 
+          process.languageVersion); //compile error!
 
-Whereas this one is
+But we can easily fix it:
 
-    print("Hello, this is Ceylon " process.languageVersion "");
+    print("Hello, this is Ceylon " 
+          process.languageVersion 
+          "");
 
-(If you're wondering why the syntax isn't 
-`"Hello, this is Ceylon ${process.languageVersion}"` 
-[here's why](/documentation/faq/language-design/#string_interpolation_syntax))
+(If you're wondering why the syntax isn't something like
 
-The `+` operator you're probably used to is an alternative, and more 
-flexible in many cases:
+    "Hello, this is Ceylon ${process.languageVersion}"
+ 
+[here's why](/documentation/faq/language-design/#string_interpolation_syntax).)
 
-    print("Hello, this is Ceylon " + process.languageVersion +
-              " running on Java " + process.javaVersion + "!");
+The `+` operator you're probably used to is an alternative way to concatenate
+strings, and more flexible in many cases:
+
+    print("Hello, this is Ceylon " + 
+          process.languageVersion +
+          " running on Java " + 
+          process.javaVersion + 
+          "!");
 
 ## Dealing with objects that aren't there
 
@@ -109,7 +120,7 @@ case where nothing was specified at the command line, which gives us an
 opportunity to explore how `null` values are treated in Ceylon, which is 
 quite different to what you're probably used to in Java or C#.
 
-Let's consider an over-verbose example to start with:
+Let's consider an overly-verbose example to start with:
 
     doc "Print a personalized greeting"
     void hello() {
@@ -124,9 +135,9 @@ Let's consider an over-verbose example to start with:
         print(greeting);
     }
 
-`String?` indicates that name may contain a `null` value. We then use 
-the `if (exists ...)` control structure to split the code that deals with a 
-non-`null` vs a `null` name.
+The type `String?` indicates that `name` may contain a `null` value. We then 
+use the `if (exists ...)` control structure to split the code that deals with 
+a non-`null` vs a `null` name.
 
 Unlike Java, locals, parameters, and attributes that may contain `null` values 
 must be explicitly declared as being of optional type (the `?` sugar syntax). 
@@ -144,7 +155,7 @@ Java. This helps avoid the undesirable behavior of `==` in Java where `x==y`
 evaluates to true if `x` and `y` both evaluate to `null`.
 
 It's possible to declare the local name inside the `if (exists ... )` 
-condition (and because of [type inference](../types#type_inference), 
+condition (and because Ceylon has [type inference](../types#type_inference), 
 you don't even have to declare the type):
 
     String greeting;
@@ -164,20 +175,23 @@ This is the preferred style most of the time, since we can't actually use
 There are a couple of operators that will make you life easier when dealing 
 with `null` values.
 
-    shared String greeting = "Hello, " + name?"World";
+    shared String greeting = "Hello, " + 
+                             name ? "World";
 
 The `?` operator returns its first argument if the first argument is not 
-`null`, or its second argument otherwise. Its a more convenient way to 
+`null`, or its second argument otherwise. It's a more convenient way to 
 handle `null` values in simple cases.
 
 The related `?.` operator lets us call operations on optional 
 types and provide an alternative value if the type is `null`.
 
-    shared String shoutedGreeting = "HELLO, " + name?.uppercase?"WORLD";
+    shared String shoutedGreeting = "HELLO, " + 
+                                    name?.uppercase ? "WORLD";
 
 ## Defaulted parameters
 
-A method parameter may specify a default value.
+While we're on the topic of values that aren't there, it's worth mentioning 
+that a method parameter may specify a default value.
 
     void hello(String name="World") {
         print("Hello, " name "!");
@@ -192,8 +206,8 @@ the method:
 Defaulted parameters must be declared after all required parameters in the 
 parameter list of a method.
 
-Ceylon also supports sequenced parameters (varargs), declared using the 
-syntax `T...`. We'll come back to them after we discuss sequences and 
+Ceylon also supports sequenced parameters (varargs), declared using an ellipsis 
+(i.e. `String...`). But we'll come back to them after we discuss sequences and 
 `for` loops.
 
 ## There's more...
