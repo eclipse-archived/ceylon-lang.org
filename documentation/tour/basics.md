@@ -109,6 +109,8 @@ case where nothing was specified at the command line, which gives us an
 opportunity to explore how `null` values are treated in Ceylon, which is 
 quite different to what you're probably used to in Java or C#.
 
+Let's consider an over-verbose example to start with:
+
     doc "Print a personalized greeting"
     void hello() {
         String? name = process.arguments.first;
@@ -141,10 +143,12 @@ expression of optional type. You can't write `if (x==null)` like you can in
 Java. This helps avoid the undesirable behavior of `==` in Java where `x==y` 
 evaluates to true if `x` and `y` both evaluate to `null`.
 
-It's possible to declare the local name inside the `if (exists ... )` condition:
+It's possible to declare the local name inside the `if (exists ... )` 
+condition (and because of [type inference](../types#type_inference), 
+you don't even have to declare the type):
 
     String greeting;
-    if (exists String name = process.arguments.first) {
+    if (exists name = process.arguments.first) {
         greeting = "Hello, " name "!";
     }
     else {

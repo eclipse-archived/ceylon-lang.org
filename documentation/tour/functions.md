@@ -100,7 +100,7 @@ For example, we could create a `repeat()` function that repeatedly executes a
 function.
 
     void repeat(Natural times, Callable<Void,Natural> perform) {
-        for (Natural i in 1..times) {
+        for (i in 1..times) {
             perform(i);
         }
     }
@@ -118,7 +118,7 @@ names of the function parameters. So Ceylon has an alternative, more elegant,
 syntax for declaring a parameter of type `Callable`:
 
     void repeat(Natural times, void perform(Natural n)) {
-        for (Natural i in 1..times) {
+        for (i in 1..times) {
             perform(i);
         }
     }
@@ -182,7 +182,7 @@ Java's `Observer`/`Observable` pattern:
         }
          
         shared void fire(Event event) {
-            for (Observer o in observers) {
+            for (o in observers) {
                 o.observe(event);
             }
         }

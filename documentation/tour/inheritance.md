@@ -394,7 +394,7 @@ no `satisfies` clause is actually a package of extension methods!
          
         shared String concatenated {
             variable String concat = "";
-            for (String s in this) {
+            for (s in this) {
                 concat+=s;
             }
             return concat;

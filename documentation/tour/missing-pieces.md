@@ -165,7 +165,7 @@ loop completes normally, rather than via a `return` or `break` statement.
 There is no C-style `for`.
 
     Boolean minors;
-    for (Person p in people) {
+    for (p in people) {
         if (p.age<18) {
             minors = true;
             break;
@@ -178,7 +178,7 @@ There is no C-style `for`.
 The `while` loop is traditional.
 
     variable value it = names.iterator();
-    while (exists String name = it.head) {
+    while (exists name = it.head) {
         print(name);
         it:=it.tail;
     }
@@ -197,7 +197,7 @@ The `try/catch/finally` statement works like Java's:
 And `try` supports a "resource" expression similar to Java 7.
 
     try (Transaction()) {
-        try (Session s = Session()) {
+        try (s = Session()) {
             s.persist(person);
         }
     }
@@ -213,7 +213,7 @@ be the last parameter.
 Inside the method body, the parameter strings has type `String[]`.
 
     void print(String... strings) {
-        for (String string in strings) {
+        for (string in strings) {
             write(string);
         }
         print();

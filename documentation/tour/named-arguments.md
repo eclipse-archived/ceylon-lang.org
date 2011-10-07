@@ -238,7 +238,7 @@ declaration:
         currency = order.currency;
         Float amount {
             variable Float total := 0.0;
-            for (Item item in order.items) {
+            for (item in order.items) {
                 total += item.quantity * item.product.unitPrice;
             }
             return total;

@@ -184,7 +184,7 @@ but here's a quick example of each of the three techniques:
 
     //sequenced parameter
     void print(String... strings) {
-        for (String string in strings) {
+        for (string in strings) {
             print(string);
         }
     }

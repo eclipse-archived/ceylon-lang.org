@@ -35,7 +35,7 @@ Just like Java, Ceylon has a class named `Object`.
             }
             case (is Iterable<Equality>) {
                 if (is Equality self = this) {
-                    for (Equality x in category) {
+                    for (x in category) {
                         if (x==self) {
                             return true;
                         }

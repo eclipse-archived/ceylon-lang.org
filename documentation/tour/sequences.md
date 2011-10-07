@@ -75,7 +75,7 @@ later, when we talk about operator polymorphism.
 The `Sequence` interface extends `Iterable`, so we can iterate a `Sequence` 
 using a `for` loop:
 
-    for (String op in operators) {
+    for (op in operators) {
         print(op);
     }
 
@@ -83,7 +83,7 @@ Ceylon doesn't need C-style `for` loops. Instead, combine `for` with the
 range operator `..`.
 
     variable Natural fac:=1;
-    for (Natural n in 1..100) {
+    for (n in 1..100) {
         fac*=n;
         print("Factorial " n "! = " fac "");
     }
@@ -92,7 +92,7 @@ If, for any reason, we need to use the index of each element of a sequence
 we can use a special variation of the `for` loop that is designed for 
 iterating instances of `Entries`:
 
-    for (Natural i -> String op in entries(operators)) {
+    for (i -> op in entries(operators)) {
         print($i + ": " + op);
     }
 
@@ -130,7 +130,7 @@ Here's how the language module defines the type `Sequence`:
          
         doc "The last element of the sequence."
         shared default Element last {
-            if (exists Element x = value(lastIndex)) {
+            if (exists x = value(lastIndex)) {
                 return x;
             }
             else {
@@ -251,7 +251,7 @@ in the type parameter `Element`. So `Empty` is assignable to
 
     void printAll(String[] strings) {
         variable Iterator<String> i := strings.iterator();
-        while (exists String s = i.head) {
+        while (exists s = i.head) {
             print(s);
             i := i.tail;
         }
@@ -289,7 +289,7 @@ Furthermore, the index operation `operators[i]` returns an optional type
 we don't iterate sequences by index like in C or Java. The following code 
 does not compile:
 
-    for (Natural i in 0..operators.size-1) {
+    for (i in 0..operators.size-1) {
         String op = operators[i]; //compile error
         ...
     }
@@ -300,7 +300,7 @@ Here, `operators[i]` is a `String?`, which is not directly assignable to
 Instead, if we need access to the index, we use the special form of for shown 
 above.
 
-    for (Natural i -> String op in entries(operators)) {
+    for (i -> op in entries(operators)) {
         ...
     }
 
@@ -315,7 +315,7 @@ Likewise, we don't usually do an upfront check of an index against the sequence 
 
 Instead, we do the check *after* accessing the sequence element:
 
-    if (exists String op = operators[i]) {
+    if (exists op = operators[i]) {
         return op;
     }
     else {

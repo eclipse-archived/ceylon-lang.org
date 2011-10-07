@@ -104,7 +104,7 @@ The intuitive expectation is that the following code should work:
 
     Collection<Geek> geeks = ... ;
     Collection<Person> people = geeks;    //compiler error
-    for (Person person in people) { ... }
+    for (person in people) { ... }
 
 This code is, frankly, perfectly reasonable taken at face value. Yet in both 
 Java and Ceylon, this code results in a compiler error at the second line, 
@@ -172,7 +172,7 @@ Now, the following code finally compiles:
 
     Collection<Geek> geeks = ... ;
     Producer<Person> people = geeks;
-    for (Person person in people) { ... }
+    for (person in people) { ... }
 
 Which matches our original intuition.
 
