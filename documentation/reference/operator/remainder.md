@@ -25,7 +25,7 @@ The meaning of `%` depends on the
 [`Integral`](../../ceylon.language/Integral) and
 [`Castable`](../../ceylon.language/Castable) interfaces as follows:
 
-    lhs.cast<N>().remainder(rhs.cast<N>());
+    lhs.castTo<N>().remainder(rhs.castTo<N>());
 
 See the [language specification](#{site.urls.spec}#arithmetic) for more details.
 

@@ -1,11 +1,15 @@
 ---
 layout: tour
-title: Tour of Ceylon&#58; compiler
+title: Tour of Ceylon&#58; initialization
 tab: documentation
 author: Gavin King
 ---
 
 # #{page.title}
+
+This is the twelth part of the Tour of Ceylon. In the [last part](../language-module) we learned 
+about the language module, `ceylon.language`. Now we're going to go into the
+details of *initialization*.
 
 ## Self references and outer instance references
 

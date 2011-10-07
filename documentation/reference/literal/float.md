@@ -35,7 +35,7 @@ part from the whole number part. Like [`Number` literals](../number) use of an
 underscore (`_`) to separate groups of three digits in the integer part of the 
 number is supported (it is not permitted in the fractional part).
 
-XXX The one of exception to the *always-has-a-decimal* rule is when one of the 
+The one exception to the *always-has-a-decimal* rule is when one of the 
 following metric magnitudes is used as a suffix:
 
 * `m` (milli), 10<sup>-3</sup>

@@ -7,6 +7,9 @@ author: Gavin King
 
 # #{page.title}
 
+This is the fifth leg in the Tour of Ceylon. The [previous leg](../sequences) 
+looked at sequences. Now we will cover Ceylon's type system in more detail.
+
 ## Narrowing the type of an object reference
 
 In any language with subtyping there is the (hopefully) occasional need to
@@ -312,16 +315,17 @@ So far, we've always been explicitly specifying the type of every declaration.
 This generally makes code, especially example code, much easier to 
 read and understand.
 
-However, Ceylon does have the ability to infer the type of a locals or the 
-return type of a local method. Just place the keyword `value` or `function` in 
-place of the type declaration..
+However, Ceylon does have the ability to infer the type of a local variable 
+or the return type of a local method. Just place the keyword 
+`value` (in the case of a local variable) or `function` (in the case of a 
+local method) in place of the type declaration.
 
 <!-- lang: ceylon -->
     value hello = DefaultHello();
     value operators = { "+", "-", "*", "/" };
     function add(Natural x, Natural y) { return x+y; }
 
-There are some restrictions applying to this feature. You can't use `value`
+There are some restrictions applying to this feature. You can't use `value` 
 or `function`:
 
 * for declarations annotated `shared`,
@@ -347,7 +351,7 @@ What about sequence enumeration expressions like this:
 <!-- lang: ceylon -->
     value sequence  = { DefaultHello(), "Hello", 12.0 };
 
-What type is inferred for sequence? You might answer: "`Sequence<X>` 
+What type is inferred for `sequence`? You might answer: "`Sequence<X>`
 where `X` is the common superclass or super-interface of all the 
 element types". But that can't be right, since there might be more than one 
 common supertype.
@@ -368,7 +372,7 @@ As is the following code:
     Number[] numbers = nums; //type Empty|Sequence<Number>
 
 What about sequences that contain `null`? Well, do you remember the type of 
-`null` from Part 1 was `Nothing`?
+`null` from [the first part of the tour](../basics) was `Nothing`?
 
 <!-- lang: ceylon -->
     value sequence = { null, "Hello", "World" }; //type Sequence<Nothing|String>

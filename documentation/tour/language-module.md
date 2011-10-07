@@ -7,11 +7,15 @@ author: Gavin King
 
 # #{page.title}
 
+This is the eleventh part of the Tour of Ceylon. The 
+[previous leg](../named-arguments) looked at invoking functions
+using named arguments. We're now going to learn about the 'language module'.
+
 ## An overview of the language module
 
 The module `ceylon.language` contains classes and interfaces that are 
 referred to in the language specification, other declarations *they* refer to,
- and a number of related declarations. Let's meet the main characters.
+and a number of related declarations. Let's meet the main characters.
 
 Just like Java, Ceylon has a class named `Object`.
 
@@ -54,16 +58,18 @@ As we've seen, the Ceylon type system can also represent some more exotic
 types, for example `Nothing`, which is the type of `null`.
 
 Therefore, Ceylon's `Object` has a superclass, named `Void`, which we already 
-met in Part 1. All Ceylon types are assignable to `Void`. Expressions of 
+met in the [first part](../basics) of the tour. 
+All Ceylon types are assignable to `Void`. Expressions of 
 type `Void` aren't useful for very much, since `Void` has no members or 
 operations. You can't even narrow an expression of type `Void` to a different 
 type. The one useful thing you can do with `Void` is use it to represent the 
 signature of a method when you don't care about the return type, since a 
 method declared `void` is considered to have return type `Void`, as we saw in 
-Part 8.
+the [part about functions](../functions).
 
-As we also saw in Part 1, the type `Nothing` directly extends `Void`. All 
-types that represent well-defined values extend `Object`, including:
+As we also saw in the [first part](../basics), the type `Nothing` directly 
+extends `Void`. All types that represent well-defined values extend `Object`, 
+including:
 
 * user-written classes,
 * all interfaces, and
@@ -145,9 +151,9 @@ Instead, almost every operator (every one except the primitive `.`, `()`,
 `is`, and `:=` operators) is considered a shortcut way of writing some more 
 complex expression involving other operators and ordinary method calls. 
 For example, the `<` operator is defined in terms of the interface 
-`Comparable<Other>`, which we met in Part 5, and which has a method named 
-`smallerThan()`, which is in turn defined in terms of another method named 
-`compare()`.
+`Comparable<Other>`, which we met in the [lesson on types](../types), 
+and which has a method named `smallerThan()`, which is in turn defined in 
+terms of another method named `compare()`.
 
 <!-- lang: ceylon -->
     x<y
@@ -359,7 +365,7 @@ completely within the type system, in terms of `Numeric` and `Castable`:
             given Result of Left|Right satisfies Numeric<Result>
             given Left satisfies Castable<Result> & Numeric<Left>
             given Right satisfies Castable<Result> & Numeric<Right> {
-        return x.as<Result>().times(y.as<Result>());
+        return x.castTo<Result>().times(y.castTo<Result>());
     }
 
 Don't worry too much about the performance implications of all this — 

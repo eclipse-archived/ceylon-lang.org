@@ -7,6 +7,10 @@ author: Gavin King
 
 # #{page.title}
 
+This is the fourth leg of the Tour of Ceylon. In the 
+[previous leg](../inheritance) we covered inheritance. Now we're going to 
+look at *sequences*.
+
 ## Sequences
 
 Some kind of array or list construct is a universal feature of all programming 
@@ -271,7 +275,8 @@ the union type `String[]` is also a subtype of `Iterable<String>`.
 Another cool thing to notice here is the return type of the `first` and 
 `value()` operations of `Empty`. You might have been expecting to see `Bottom?` 
 here, since they override supertype members of type `T?`. But as we saw in 
-Part 1, `Bottom?` is just an abbreviation for `Nothing|Bottom`. And `Bottom` is 
+the [first part](../basics) of the Tour,
+`Bottom?` is just an abbreviation for `Nothing|Bottom`. And `Bottom` is 
 the empty set, so the union `Bottom|T` of `Bottom` with any other type `T` 
 is just `T` itself.
 

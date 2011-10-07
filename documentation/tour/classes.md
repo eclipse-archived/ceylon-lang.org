@@ -8,6 +8,9 @@ author: Emmanuel Bernard
 # #{page.title}
 
 This is the second step in our tour of the Ceylon language.
+In the [previous leg](../basics)
+you learned some of the basics of Ceylon programming. In this leg we're 
+going to look in more detail at classes.
 
 ## Creating your own classes
 

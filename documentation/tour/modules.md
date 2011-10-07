@@ -7,6 +7,10 @@ author: Gavin King
 
 # #{page.title}
 
+This is the eighth part of the Tour of Ceylon. In the 
+[previous part](../missing-pieces) we looked at attributes, variables, 
+control structures and a few other missing pieces. Now we turn to *modules*.
+
 ## Modules in Ceylon
 
 Built-in support for modularity is a major goal of the Ceylon project, but 

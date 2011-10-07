@@ -25,7 +25,7 @@ The meaning of `-` depends on the
 [`Numeric`](../../ceylon.language/Numeric) and
 [`Castable`](../../ceylon.language/Castable) interfaces as follows:
 
-    lhs.cast<N>().minus(rhs.cast<N>());
+    lhs.castTo<N>().minus(rhs.castTo<N>());
 
 See the [language specification](#{site.urls.spec}#arithmetic) for more details.
 
