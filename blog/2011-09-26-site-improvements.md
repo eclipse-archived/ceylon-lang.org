@@ -22,7 +22,6 @@ By default `<pre>` blocks will *not* be subject to highlighting. To enable
 highlighting simply preceed the block with an HTML comment hinting at the 
 language being included. For example
 
-    <!-- lang: ceylon -->
         class Foo() {
             void bar() {
             

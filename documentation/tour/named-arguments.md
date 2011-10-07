@@ -16,7 +16,6 @@ that by covering Ceylon's support for calling functions using
 
 Consider the following method:
 
-<!-- lang: ceylon -->
     void printf(OutputStream to, String format, Object... values) { 
         ... 
     }
@@ -29,7 +28,6 @@ using a familiar C-style syntax where arguments are delimited by in parentheses
 and separated by commas. Arguments are matched to parameters by their 
 position in the list. Let's see just one more example, just in case:
 
-<!-- lang: ceylon -->
     printf(process, "Thanks, %s. You have been charged %.2f. Your confirmation number is %d.",
             user.name, order.total, order.confimationNumber);
 
@@ -37,7 +35,6 @@ This works fine, however Ceylon provides an alternative method
 invocation protocol that is usually easier to read when there are more than 
 one or two arguments:
 
-<!-- lang: ceylon -->
     printf {
         to = process;
         format = "Thanks, %s. You have been charged %.2f. Your confirmation number is %d.";
@@ -53,7 +50,6 @@ always appear at the end of the named parameter list. Note that it's also
 acceptable to call this method like this, passing a sequence to the named 
 value parameter:
 
-<!-- lang: ceylon -->
     printf {
         to = process;
         format = "Thanks, %s. You have been charged %.2f. Your confirmation number is %d.";
@@ -71,7 +67,6 @@ an object by specifying named arguments to the class initializer.
 
 We're allowed to abbreviate an attribute definition of the following form:
 
-<!-- lang: ceylon -->
     Payment payment = Payment {
         method = user.paymentMethod;
         currency = order.currency;
@@ -80,7 +75,6 @@ We're allowed to abbreviate an attribute definition of the following form:
 
 or a named argument specification of this form:
 
-<!-- lang: ceylon -->
     payment = Payment {
         method = user.paymentMethod;
         currency = order.currency;
@@ -89,7 +83,6 @@ or a named argument specification of this form:
 
 to the following more declarative (and less redundant) style:
 
-<!-- lang: ceylon -->
     Payment payment {
         method = user.paymentMethod;
         currency = order.currency;
@@ -98,7 +91,6 @@ to the following more declarative (and less redundant) style:
 
 We're even allowed to write a method of the following form:
 
-<!-- lang: ceylon -->
     Payment createPayment(Order order) {
         return Payment {
             method = user.paymentMethod;
@@ -109,7 +101,6 @@ We're even allowed to write a method of the following form:
 
 using the following abbreviated syntax:
 
-<!-- lang: ceylon -->
     Payment createPayment(Order order) {
         method = user.paymentMethod;
         currency = order.currency;
@@ -133,14 +124,12 @@ usually stand out immediately.
 
 The following classes define a data structure for building tables:
 
-<!-- lang: ceylon -->
     class Table(String title, Natural rows, Border border, Column... columns) { ... }
     class Column(String heading, Natural width, String content(Natural row)) { ... }
     class Border(Natural padding, Natural weight) { ... }
 
 Of course, we could built a `Table` using positional argument lists:
 
-<!-- lang: ceylon -->
     String x(Natural row) { return row.string; }
     String xSquared(Natural row) { return (row**2).string; }
     Table table = Table("Squares", 5, Border(2,1), Column("x",10, x), Column("x**2",12, xSquared));
@@ -173,7 +162,6 @@ derives from language regularity.
 
 So we could rewrite the code that builds a `Table` as follows:
 
-<!-- lang: ceylon -->
     Table table = Table {
         title="Squares";
         rows=5;
@@ -202,7 +190,6 @@ usual syntax for declaring a method.
 
 Even better, our example can be abbreviated like this:
 
-<!-- lang: ceylon -->
     Table table {
         title="Squares";
         rows=5;
@@ -245,7 +232,6 @@ defining the syntax tree for the mini-language.)
 Now let's see an example of a named argument list with an inline getter 
 declaration:
 
-<!-- lang: ceylon -->
     shared class Payment(PaymentMethod method, Currency currency, Float amount) { ... }
     Payment payment {
         method = user.paymentMethod;
@@ -262,7 +248,6 @@ declaration:
 Finally, here's an example of a named argument list with an inline `object` 
 declaration:
 
-<!-- lang: ceylon -->
     shared interface Observable {
         shared void addObserver(Observer<Bottom> observer) { ... }
     }
@@ -285,7 +270,6 @@ Of course, as we saw in the leg on [functions](../functions),
 a better way to solve this problem might be 
 to eliminate the `Observer` interface and pass a method directly:
 
-<!-- lang: ceylon -->
     shared interface Observable {
         shared void addObserver<Event>(void on(Event event)) { ... }
     }
@@ -302,7 +286,6 @@ actually pretty unnatural. We should probably eventually come up with a
 workaround to make function types contravariant in their parameter types, 
 allowing us to write:
 
-<!-- lang: ceylon -->
     shared interface Observable {
         shared void addObserver(void on(Bottom event)) { ... }
     }
@@ -313,7 +296,6 @@ One of the first modules we're going to write for Ceylon will be a library for
 writing HTML templates in Ceylon. A fragment of static HTML would look 
 something like this:
 
-<!-- lang: ceylon -->
     Html {
         Head head {
             title = "Hello World";
@@ -333,7 +315,6 @@ something like this:
 
 A complete HTML template might look like this:
 
-<!-- lang: ceylon -->
     import ceylon.html { ... }
      
     doc "A web page that displays a greeting"

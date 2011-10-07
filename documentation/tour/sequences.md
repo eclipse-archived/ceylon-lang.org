@@ -24,7 +24,6 @@ of the type `Sequence` aren't defined by `Empty`, so you can't call them if
 all you have is `X[]`. Therefore, we need the `if (nonempty ... )` construct 
 to gain access to these operations.
 
-<!-- lang: ceylon -->
     void printBounds(String[] strings) {
         if (nonempty strings) {
             //strings is a Sequence<String>
@@ -43,7 +42,6 @@ value handling.
 There's lots more syntactic sugar for sequences. We can use a bunch of 
 familiar Java-like syntax:
 
-<!-- lang: ceylon -->
     String[] operators = { "+", "-", "*", "/" };
     String? plus = operators[0];
     String[] multiplicative = operators[2..3];
@@ -53,20 +51,17 @@ Oh, and the expression `{}` returns a value of type `Empty`.
 However, unlike Java, all these syntactic constructs are pure abbreviations. 
 The code above is exactly equivalent to the following de-sugared code:
 
-<!-- lang: ceylon -->
     Empty|Sequence<String> operators = Array("+", "-", "*", "/");
     Nothing|String plus = operators.value(0);
     Empty|Sequence<String> multiplicative = operators.range(2,3);
 
 A `Range` is also a subtype of `Sequence`. The following:
 
-<!-- lang: ceylon -->
     Character[] uppercaseLetters = 'A'..'Z';
     Natural[] countDown = 10..0;
 
 Is just sugar for:
 
-<!-- lang: ceylon -->
     Empty|Sequence<Character> uppercaseLetters = Range('A','Z');
     Empty|Sequence<Natural> countDown = Range(10,0);
 
@@ -80,7 +75,6 @@ later, when we talk about operator polymorphism.
 The `Sequence` interface extends `Iterable`, so we can iterate a `Sequence` 
 using a `for` loop:
 
-<!-- lang: ceylon -->
     for (String op in operators) {
         print(op);
     }
@@ -88,7 +82,6 @@ using a `for` loop:
 Ceylon doesn't need C-style `for` loops. Instead, combine `for` with the 
 range operator `..`.
 
-<!-- lang: ceylon -->
     variable Natural fac:=1;
     for (Natural n in 1..100) {
         fac*=n;
@@ -99,7 +92,6 @@ If, for any reason, we need to use the index of each element of a sequence
 we can use a special variation of the `for` loop that is designed for 
 iterating instances of `Entries`:
 
-<!-- lang: ceylon -->
     for (Natural i -> String op in entries(operators)) {
         print($i + ": " + op);
     }
@@ -114,7 +106,6 @@ place to find some than in the language module itself?
 
 Here's how the language module defines the type `Sequence`:
 
-<!-- lang: ceylon -->
     shared interface Sequence<out Element>
             satisfies Correspondence<Natural, Element> &
                       Iterable<Element> & Sized {
@@ -166,7 +157,6 @@ Here's how the language module defines the type `Sequence`:
 The most interesting operations are inherited from `Correspondence`, 
 `Iterable` and `Sized`:
 
-<!-- lang: ceylon -->
     shared interface Correspondence<in Key, out Value>
             given Key satisfies Equality {
          
@@ -214,7 +204,6 @@ The most interesting operations are inherited from `Correspondence`,
 
 Now let's see the definition of Empty:
 
-<!-- lang: ceylon -->
     object emptyIterator satisfies Iterator<Bottom> {
          
         shared actual Nothing head {
@@ -260,7 +249,6 @@ in the type parameter `Element`. So `Empty` is assignable to
 `Correspondence<Natural,T>` and `Iterable<T>` for any type `T`. That's why 
 `Empty` doesn't need a type parameter. The following code is well-typed:
 
-<!-- lang: ceylon -->
     void printAll(String[] strings) {
         variable Iterator<String> i := strings.iterator();
         while (exists String s = i.head) {
@@ -293,7 +281,6 @@ very, very different! First, of course, a sequence type
 `Sequence<String>` is an immutable interface, it's not a mutable concrete 
 type like an array. We can't set the value of an element:
 
-<!-- lang: ceylon -->
     String[] operators = .... ;
     operators[0] := "**"; //compile error
 
@@ -302,7 +289,6 @@ Furthermore, the index operation `operators[i]` returns an optional type
 we don't iterate sequences by index like in C or Java. The following code 
 does not compile:
 
-<!-- lang: ceylon -->
     for (Natural i in 0..operators.size-1) {
         String op = operators[i]; //compile error
         ...
@@ -314,14 +300,12 @@ Here, `operators[i]` is a `String?`, which is not directly assignable to
 Instead, if we need access to the index, we use the special form of for shown 
 above.
 
-<!-- lang: ceylon -->
     for (Natural i -> String op in entries(operators)) {
         ...
     }
 
 Likewise, we don't usually do an upfront check of an index against the sequence length:
 
-<!-- lang: ceylon -->
     if (i>operators.size-1) {
         throw IndexOutOfBoundException();
     }
@@ -331,7 +315,6 @@ Likewise, we don't usually do an upfront check of an index against the sequence 
 
 Instead, we do the check *after* accessing the sequence element:
 
-<!-- lang: ceylon -->
     if (exists String op = operators[i]) {
         return op;
     }
@@ -341,7 +324,6 @@ Instead, we do the check *after* accessing the sequence element:
 
 We especially don't ever need to write the following:
 
-<!-- lang: ceylon -->
     if (i>operators.size-1) {
         return "";
     }
@@ -351,7 +333,6 @@ We especially don't ever need to write the following:
 
 This is much cleaner:
 
-<!-- lang: ceylon -->
     return operators[i] ? "";
 
 All this may take a little getting used to. But what's nice is that all the 

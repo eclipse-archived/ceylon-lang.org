@@ -14,7 +14,6 @@ There are two versions of the increment `++` operator.
 The left-associative, postfix unary `++` operator has the operator after the
 operand:
 
-<!-- lang: ceylon -->
 
     variable Natural num := 1;
     num++;
@@ -22,7 +21,6 @@ operand:
 The right-associative prefix unary `++` operator  puts the operator before
 the operand:
 
-<!-- lang: ceylon -->
 
     variable Natural num := 1;
     ++num;

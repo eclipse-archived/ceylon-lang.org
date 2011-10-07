@@ -9,7 +9,6 @@ author: Tom Bentley
 
 ## Usage 
 
-<!-- lang: ceylon -->
     try {
         // some code
     } catch (ExceptionType e) {

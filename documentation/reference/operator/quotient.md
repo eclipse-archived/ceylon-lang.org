@@ -12,7 +12,6 @@ author: Tom Bentley
 The left-associative, binary `/` operator is used to compute the *quotient* of 
 two operands, for example:
 
-<!-- lang: ceylon -->
 
     Natural three = 6 / 2;
 

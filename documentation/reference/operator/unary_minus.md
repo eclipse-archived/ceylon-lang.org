@@ -12,7 +12,6 @@ author: Tom Bentley
 The unary `-` operator is used to invert the sign of
 its operand, for example:
 
-<!-- lang: ceylon -->
 
     Integer minusOne = -1;
 

@@ -26,7 +26,6 @@ must test and narrow the type of an object reference in one step, using the
 special `if (is ... )` construct. This construct is very, very similar 
 to `if (exists ... )` and `if (nonempty ... )`, which we met earlier.
 
-<!-- lang: ceylon -->
     Object obj = ... ;
     if (is Hello obj) {
         obj.say();
@@ -34,7 +33,6 @@ to `if (exists ... )` and `if (nonempty ... )`, which we met earlier.
 
 The switch statement can be used in a similar way:
 
-<!-- lang: ceylon -->
     Object obj = ... ;
     switch(obj)
     case (is Hello) {
@@ -60,7 +58,6 @@ only expressions of type `X` and expressions of type `Y` are assignable to it.
 The type `X|Y` is a supertype of both `X` and `Y`. The following code is 
 well-typed:
 
-<!-- lang: ceylon -->
     void print(String|Natural|Integer val) { ... }
      
     print("hello");
@@ -72,7 +69,6 @@ are its supertypes? Well, the answer is pretty intuitive: `T` is a supertype of
 `X|Y` if and only if it is a supertype of both `X` and `Y`. The Ceylon compiler 
 determines this automatically. So the following code is also well-typed:
 
-<!-- lang: ceylon -->
     Natural|Integer i = ... ;
     Number num = i;
     String|Natural|Integer val = i;
@@ -87,7 +83,6 @@ clause in a `switch`, to remind us that there might be additional cases
 which we have not handled. But if we exhaust all cases of a union type, 
 the compiler will let us leave off the `else` clause.
 
-<!-- lang: ceylon -->
     void print(String|Natural|Integer val) {
         switch (val)
         case (is String) { print(val); }
@@ -101,7 +96,6 @@ Sometimes it's useful to be able to do the same kind of thing with the
 subtypes of an ordinary type. First, we need to explicitly enumerate the 
 subtypes of the type using the `of` clause:
 
-<!-- lang: ceylon -->
     abstract class Hello()
             of DefaultHello | PersonalizedHello {
         ...
@@ -115,7 +109,6 @@ so the union type `DefaultHello|PersonalizedHello` is exactly the same type
 as `Hello`. Therefore, we can write `switch` statements without an `else` 
 clause:
 
-<!-- lang: ceylon -->
     Hello hello = ... ;
     switch (hello)
     case (is DefaultHello) {
@@ -140,7 +133,6 @@ solved using the 'visitor' pattern.
 
 Let's consider the following tree visitor implementation:
 
-<!-- lang: ceylon -->
     abstract class Node() {
         shared formal void accept(Visitor v);
     }
@@ -165,7 +157,6 @@ Let's consider the following tree visitor implementation:
 We can create a method which prints out the tree by implementing the `Visitor` 
 interface:
 
-<!-- lang: ceylon -->
     void print(Node node) {
         object printVisitor satisfies Visitor {
             shared actual void visitLeaf(Leaf l) {
@@ -188,7 +179,6 @@ we have to update our code to handle the new subtype.
 In Ceylon, we can achieve the same effect, with less verbosity, by 
 enumerating the subtypes of `Node` in its definition, and using a `switch`:
 
-<!-- lang: ceylon -->
     abstract class Node() of Leaf | Branch {}
     class Leaf(Object val) extends Node() {
         shared Object value = val;
@@ -201,7 +191,6 @@ enumerating the subtypes of `Node` in its definition, and using a `switch`:
 Our `print()` method is now much simpler, but still has the desired behavior 
 of "breaking" when a new subtype of `Node` is added.
 
-<!-- lang: ceylon -->
     void print(Node node) {
         switch (node)
         case (is Leaf) {
@@ -219,7 +208,6 @@ of "breaking" when a new subtype of `Node` is added.
 Ceylon doesn't have anything exactly like Java's `enum` declaration. 
 But we can emulate the effect using the `of` clause.
 
-<!-- lang: ceylon -->
     shared class Suit(String name)
             of hearts | diamonds | clubs | spades
             extends Case(name) {}
@@ -234,7 +222,6 @@ they extend the language module class `Case`.
 
 Now we can exhaust all cases of `Suit` in a `switch`:
 
-<!-- lang: ceylon -->
     void print(Suit suit) {
         switch (suit)
         case (hearts) { print("Heartzes"); }
@@ -250,7 +237,6 @@ more flexible.
 For a more practical example, let's see the definition of `Boolean` from the 
 language module:
 
-<!-- lang: ceylon -->
     shared abstract class Boolean(String name)
             of true | false
             extends Case(name) {}
@@ -260,7 +246,6 @@ language module:
 And here's how `Comparable` is defined. First, the typesafe 
 enumeration `Comparison`:
 
-<!-- lang: ceylon -->
     doc "The result of a comparison between two
          Comparable objects."
     shared abstract class Comparison(String name)
@@ -278,7 +263,6 @@ enumeration `Comparison`:
 
 Now, the `Comparable` interface itself:
 
-<!-- lang: ceylon -->
     shared interface Comparable<in Other>
             satisfies Equality
             given T satisfies Comparable<Other> {
@@ -320,7 +304,6 @@ or the return type of a local method. Just place the keyword
 `value` (in the case of a local variable) or `function` (in the case of a 
 local method) in place of the type declaration.
 
-<!-- lang: ceylon -->
     value hello = DefaultHello();
     value operators = { "+", "-", "*", "/" };
     function add(Natural x, Natural y) { return x+y; }
@@ -348,7 +331,6 @@ to the left of the `=` specifier, or further down the block of statements.
 
 What about sequence enumeration expressions like this:
 
-<!-- lang: ceylon -->
     value sequence  = { DefaultHello(), "Hello", 12.0 };
 
 What type is inferred for `sequence`? You might answer: "`Sequence<X>`
@@ -361,20 +343,17 @@ union of all the element expression types. In this case, the type is
 `Sequence<DefaultHello|String|Float>`. Now, this works out nicely, because 
 `Sequence<T>` is covariant in `T`. So the following code is well typed:
 
-<!-- lang: ceylon -->
     value sequence  = { DefaultHello(), "Hello", 12.0 }; //type Sequence<DefaultHello|String|Float>
     Object[] objects = sequence; //type Empty|Sequence<Object>
 
 As is the following code:
 
-<!-- lang: ceylon -->
     value nums = { 12.0, 1, -3 }; //type Sequence<Float|Natural|Integer>
     Number[] numbers = nums; //type Empty|Sequence<Number>
 
 What about sequences that contain `null`? Well, do you remember the type of 
 `null` from [the first part of the tour](../basics) was `Nothing`?
 
-<!-- lang: ceylon -->
     value sequence = { null, "Hello", "World" }; //type Sequence<Nothing|String>
     String?[] strings = sequence; //type Empty|Sequence<Nothing|String>
     String? s = sequence[0]; //type Nothing|Nothing|String which is just Nothing|String

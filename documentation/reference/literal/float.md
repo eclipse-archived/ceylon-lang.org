@@ -11,7 +11,6 @@ author: Tom Bentley
 
 A `Float` literal can be written in a variety of ways:
 
-<!-- lang: ceylon -->
 
     variable Float one := 1.0;
     one := 1.0000;
@@ -59,7 +58,6 @@ Exponential notation is supported using `e` or `E` to separate the mantissa
 
 Invoking `Float` members directly on `Float` literals is permitted:
 
-<!-- lang: ceylon -->
 
     Integer minusOneHalf = 0.5.negativeValue;
 

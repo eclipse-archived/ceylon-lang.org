@@ -11,13 +11,11 @@ author: Tom Bentley
 
 A bare `throw` doesn't supply an exception instance:
 
-<!-- lang: ceylon -->
     throw;
 
 Otherwise an exception instance may be specified; commonly a new instance is 
 created at the point the `throw` statement is used:
 
-<!-- lang: ceylon -->
     throw Exception();
 
 ## Description
@@ -45,7 +43,6 @@ This includes Ceylon code throwing what in Java would
 be considered to be checked exceptions (such as `java.lang.Exception`). In 
 other words the following is perfectly acceptable to the Ceylon compiler:
 
-<!-- lang: ceylon -->
     import java.lang {CheckedException=Exception};
     
     void m() {

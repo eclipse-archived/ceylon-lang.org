@@ -21,19 +21,16 @@ happens to be captured by some `shared` declaration.
 
 Here, `count` is a local variable of the initializer of `Counter`:
 
-<!-- lang: ceylon -->
     class Counter() {
         variable Natural count := 0;
     }
 
 But in the following two examples, `count` is an attribute:
 
-<!-- lang: ceylon -->
     class Counter() {
         shared variable Natural count := 0;
     }
 
-<!-- lang: ceylon -->
     class Counter() {
         variable Natural count := 0;
         shared Natural inc() {
@@ -45,7 +42,6 @@ This might seem a bit strange at first, but it's really just how closure works.
 The same behavior applies to locals inside a method. Methods can't declare 
 `shared` members, but they can return an `object` that captures a local:
 
-<!-- lang: ceylon -->
     interface Counter {
         shared formal Natural inc();
     }
@@ -70,7 +66,6 @@ Ceylon encourages you to use immutable attributes as much as possible.
 An immutable attribute has its value specified when the object is 
 initialized, and is never reassigned.
 
-<!-- lang: ceylon -->
     class Reference<Value>(Value x) {
         shared Value val = x;
     }
@@ -78,7 +73,6 @@ initialized, and is never reassigned.
 If we want to be able to assign a value to a simple attribute or local 
 we need to annotate it `variable`:
 
-<!-- lang: ceylon -->
     class Reference<Value>(Value x) {
         shared variable Value val := x;
     }
@@ -92,7 +86,6 @@ The `=` specifier is not an operator, and can never appear inside an
 expression. It's just a punctuation character. The following code is not 
 only wrong, but even fails to parse:
 
-<!-- lang: ceylon -->
     if (x=true) {   //compile error
         ...
     }
@@ -106,7 +99,6 @@ attribute you're trying to set the value of indirectly.
 Suppose our class has the following simple attributes, intended for internal 
 consumption only, so un-shared:
 
-<!-- lang: ceylon -->
     variable String? firstName := null;
     variable String? lastName := null;
 
@@ -114,7 +106,6 @@ consumption only, so un-shared:
 
 Then we can abstract the simple attribute using a second attribute defined as a getter/setter pair:
 
-<!-- lang: ceylon -->
     shared String fullName {
         return " ".join(coalesce(firstName,lastName));
     }
@@ -143,17 +134,14 @@ additional commentary should suffice. However, one thing to be aware of is
 that Ceylon doesn't allow you to omit the braces in a control structure. 
 The following doesn't parse:
 
-<!-- lang: ceylon -->
     if (x>100) bigNumber();
 
 You are required to write:
 
-<!-- lang: ceylon -->
     if (x>100) { bigNumber(); }
 
 OK, so here's the examples. The `if/else` statement is totally traditional:
 
-<!-- lang: ceylon -->
     if (x>100)) {
         bigNumber(x);
     }
@@ -167,7 +155,6 @@ OK, so here's the examples. The `if/else` statement is totally traditional:
 The `switch/case` statement eliminates C's much-criticized "fall through" 
 behavior and irregular syntax:
 
-<!-- lang: ceylon -->
     switch (x<=>100)
     case (smaller) { littleNumber(); }
     case (equal) { oneHundred(); }
@@ -177,7 +164,6 @@ The `for` loop has an optional `else` block, which is executed when the
 loop completes normally, rather than via a `return` or `break` statement. 
 There is no C-style `for`.
 
-<!-- lang: ceylon -->
     Boolean minors;
     for (Person p in people) {
         if (p.age<18) {
@@ -191,7 +177,6 @@ There is no C-style `for`.
 
 The `while` loop is traditional.
 
-<!-- lang: ceylon -->
     variable value it = names.iterator();
     while (exists String name = it.head) {
         print(name);
@@ -202,7 +187,6 @@ There is no `do/while` statement.
 
 The `try/catch/finally` statement works like Java's:
 
-<!-- lang: ceylon -->
     try {
         message.send();
     }
@@ -212,7 +196,6 @@ The `try/catch/finally` statement works like Java's:
 
 And `try` supports a "resource" expression similar to Java 7.
 
-<!-- lang: ceylon -->
     try (Transaction()) {
         try (Session s = Session()) {
             s.persist(person);
@@ -225,12 +208,10 @@ A sequenced parameter of a method or class is declared using an ellipsis.
 There may be only one sequenced parameter for a method or class, and it must 
 be the last parameter.
 
-<!-- lang: ceylon -->
     void print(String... strings) { ... }
 
 Inside the method body, the parameter strings has type `String[]`.
 
-<!-- lang: ceylon -->
     void print(String... strings) {
         for (String string in strings) {
             write(string);
@@ -242,7 +223,6 @@ A slightly more sophisticated example is the `coalesce()` method we saw above.
 `coalesce()` accepts `X?[]` and eliminates nulls, returning `X[]`, for any 
 type `X`. Its signature is:
 
-<!-- lang: ceylon -->
     shared Value[] coalesce<Value>(Value?... sequence) { ... }
 
 Sequenced parameters turn out to be especially interesting when used in 
@@ -265,22 +245,18 @@ file. We can't write `org.jboss.hello.Hello` in Ceylon.
 The syntax of the `import` statement is slightly different to Java. 
 To import a program element, we write:
 
-<!-- lang: ceylon -->
     import org.jboss.hello { Hello }
 
 To import several program elements from the same package, we write:
 
-<!-- lang: ceylon -->
     import org.jboss.hello { Hello, defaultHello, PersonalizedHello }
 
 To import all toplevel program elements of a package, we write:
 
-<!-- lang: ceylon -->
     import org.jboss.hello { ... }
 
 To resolve a name conflict, we can rename an imported declaration:
 
-<!-- lang: ceylon -->
     import org.jboss.hello { Hi = Hello, ... }
 
 We think renaming is a much cleaner solution than the use of qualified names.

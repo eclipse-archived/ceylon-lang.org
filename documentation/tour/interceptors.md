@@ -21,7 +21,6 @@ this for us at class-loading time.
 All we need to do is have our `Transactional` class implement the interfaces 
 `MethodAnnotation` and `AttributeAnnotation`:
 
-<!-- lang: ceylon -->
     shared class Transactional(Boolean requiresNew)
             satisfies OptionalAnnotation<Transactional,Member<Bottom,Void>> &
                       MethodAnnotation & AttributeAnnotation {

@@ -22,7 +22,6 @@ String `Name`, you'll get a compilation error.
 Our first version of the `Hello` class has a single attribute and a 
 single method:
 
-<!-- lang: ceylon -->
     doc "A personalized greeting"
     class Hello(String? name) {
          
@@ -71,14 +70,12 @@ Got the idea? We are playing russian dolls here.
 The attribute `greeting` is a simple attribute, the closest thing Ceylon has 
 to a Java field.
 
-<!-- lang: ceylon -->
     shared String greeting = "Hello, " name "!";
     shared Natural months = years * 12;
 
 The Ceylon compiler forces you to specify a value of any simple attribute or 
 local before making use of the simple attribute or local in an expression.
 
-<!-- lang: ceylon -->
     Natural count;
     shared void inc() {
         count++;   //compile error
@@ -91,7 +88,6 @@ getter and setter method pair.
 
 We could rewrite the attribute greeting as a getter:
 
-<!-- lang: ceylon -->
     shared String greeting {
         if (exists name) {
             return "Hello, " name "!";
@@ -115,7 +111,6 @@ Instead:
 * the code to initialize the new instance of the class goes directly in the 
   body of the class.
 
-<!-- lang: ceylon -->
     class Hello(String? name) {
         
         shared String greeting;
@@ -137,7 +132,6 @@ easy to learn and easy to refactor.
 Now let's turn our attention to a different possible implementation of 
 greeting:
 
-<!-- lang: ceylon -->
     class Hello(String? name) {
         shared String greeting {
             if (exists name) {
@@ -163,7 +157,6 @@ value of name, even after the initializer completes.
 We have not done this work for nothing! Let's no see how to use the 
 `Hello` class.
 
-<!-- lang: ceylon -->
     doc "Print a personalized greeting"
     void hello() {
         Hello(process.args.first).say(process.output);
@@ -184,13 +177,11 @@ or method overloading using:
 We're not going to get into all the details of these workarounds right now, 
 but here's a quick example of each of the three techniques:
 
-<!-- lang: ceylon -->
     //defaulted parameter
     void println(String value, String eol = "\n") {
         print(value + eol);
     }
 
-<!-- lang: ceylon -->
     //sequenced parameter
     void print(String... strings) {
         for (String string in strings) {
@@ -198,7 +189,6 @@ but here's a quick example of each of the three techniques:
         }
     }
 
-<!-- lang: ceylon -->
     //union type
     void print(String|Named printable) {
         String string;
@@ -216,7 +206,6 @@ Don't worry if you don't completely understand the third example just yet.
 
 Let's overload `Hello`, and its `say()` method, using defaulted parameters:
 
-<!-- lang: ceylon -->
     doc "A command line greeting"
     class Hello(String? name = process.args.first) {
         ...
@@ -231,7 +220,6 @@ Let's overload `Hello`, and its `say()` method, using defaulted parameters:
 Our `hello()` method is now looking really simple as we use the default 
 parameter values:
 
-<!-- lang: ceylon -->
     doc "Print a personalized greeting"
     void hello() {
         Hello().say();

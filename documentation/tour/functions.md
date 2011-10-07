@@ -43,7 +43,6 @@ representable within the type system as a class or interface declaration.
 In Ceylon, a single type `Callable` abstracts *all* functions. It's 
 declaration is the following:
 
-<!-- lang: ceylon -->
     shared interface Callable<out Result, Argument...> {}
 
 The syntax `P...` is called a *sequenced type parameter*. By analogy with a 
@@ -54,7 +53,6 @@ type parameter `Argument...` represents the parameter types of the function.
 
 So the type of sum in Ceylon is:
 
-<!-- lang: ceylon -->
     Callable<Natural, Natural, Natural>
 
 What about void functions? Well, remember that way back in 
@@ -62,7 +60,6 @@ What about void functions? Well, remember that way back in
 that the return type of a void function is `Void`. So the type of a function 
 like `print()` is:
 
-<!-- lang: ceylon -->
     Callable<Void,String>
 
 ## Representing the type of a method
@@ -72,26 +69,22 @@ declarations are "first class". That is to say, they all have a reified
 metamodel representable within the type system. For example, we could represent 
 the type of a method like this:
 
-<!-- lang: ceylon -->
     shared interface Method<out Result, in Instance, Argument...>
         satisfies Callable<Callable<Result,Argument...>, Instance> {}
 
 Where `Instance` is the type that declares the method. So the type of the 
 method` iterator()` of `Iterable<String>` would be:
 
-<!-- lang: ceylon -->
     Method<Iterator<String>, Iterable<String>>
 
 And the type of the method `compare()` of `Comparable<Natural>` would be:
 
-<!-- lang: ceylon -->
     Method<Comparison,Comparable<Natural>,Natural>
 
 Notice that we've declared a method to be a function that accepts a 
 receiver object and returns a function. As a consequence of this, an 
 alternative method invocation protocol is the following:
 
-<!-- lang: ceylon -->
     Iterable<String>.iterator(strings)();
     Comparable<Natural>.compare(0)(num);
 
@@ -106,7 +99,6 @@ We now have enough machinery to be able to write higher order functions.
 For example, we could create a `repeat()` function that repeatedly executes a 
 function.
 
-<!-- lang: ceylon -->
     void repeat(Natural times, Callable<Void,Natural> perform) {
         for (Natural i in 1..times) {
             perform(i);
@@ -115,7 +107,6 @@ function.
 
 And call it like this:
 
-<!-- lang: ceylon -->
     void printNum(Natural n) { print(n); }
     repeat(10, printNum);
 
@@ -126,7 +117,6 @@ functions using named arguments, but the Callable type does not encode the
 names of the function parameters. So Ceylon has an alternative, more elegant, 
 syntax for declaring a parameter of type `Callable`:
 
-<!-- lang: ceylon -->
     void repeat(Natural times, void perform(Natural n)) {
         for (Natural i in 1..times) {
             perform(i);
@@ -148,7 +138,6 @@ void method, and also the logical root of the type hierarchy? Well that's
 useful here, since it means that we can assign a function with a non-`Void` 
 return type to any parameter which expects a void method:
 
-<!-- lang: ceylon -->
     Boolean attemptPrint(Natural n) {
         try {
             print(n);
@@ -163,7 +152,6 @@ return type to any parameter which expects a void method:
 Another way we can produce a function reference is by partially applying a 
 method to a receiver expression. For example, we could write the following:
 
-<!-- lang: ceylon -->
     class Hello(String name) {
         shared void say(Natural n) {
             print("Hello, " name ", for the " n "th time!");
@@ -182,7 +170,6 @@ function type. Suppose we have some kind of user interface component which
 can be observed by other objects in the system. We could use something like 
 Java's `Observer`/`Observable` pattern:
 
-<!-- lang: ceylon -->
     shared interface Observer {
         shared formal void observe(Event event);
     }
@@ -207,7 +194,6 @@ observers just register a function object as their event listener? In the
 following code, we define the `addObserver()` method to accept a function as 
 a parameter.
 
-<!-- lang: ceylon -->
     shared abstract class Component() {
          
         OpenList<Callable<Void,Event>> observers = OpenList<Callable<Void,Event>>();
@@ -231,7 +217,6 @@ Here we see the difference between the two ways of specifying a function type:
 Now, any event observer can just pass a reference to one of its own methods to 
 `addObserver()`:
 
-<!-- lang: ceylon -->
     shared class Listener(Component component) {
      
         void onEvent(Event e) {
@@ -254,7 +239,6 @@ If `onEvent()` were shared, we could even wire together the `Component` and
 `Listener` from some other code, to eliminate the dependency of `Listener` 
 on `Component`:
 
-<!-- lang: ceylon -->
     shared class Listener() {
      
         shared void onEvent(Event e) {
@@ -280,7 +264,6 @@ returns a function has multiple parameter lists. Let's consider adding the
 ability to remove observers from a `Component`. We could use a `Subscription` 
 interface:
 
-<!-- lang: ceylon -->
     shared interface Subscription {
         shared void cancel();
     }
@@ -305,7 +288,6 @@ interface:
 But a simpler solution might be to just eliminate the interface and return the 
 `cancel()` method directly:
 
-<!-- lang: ceylon -->
     shared abstract class Component() {
          
         ...
@@ -345,7 +327,6 @@ how regular the language is.
 
 We could invoke our method like this:
 
-<!-- lang: ceylon -->
     addObserver(onEvent)();
 
 But if we were planning to use the method in this way, there would be no good 
@@ -353,7 +334,6 @@ reason for giving it two parameter lists. It's much more likely that we're
 planning to store or pass the reference to the inner method somewhere before 
 invoking it.
 
-<!-- lang: ceylon -->
     void cancel() = addObserver(onEvent);
     ...
     cancel();
@@ -391,13 +371,11 @@ for defining higher order functions, in particular the two different ways to
 represent the type of a parameter which accepts a reference to a function. 
 The following declarations are essentially equivalent:
 
-<!-- lang: ceylon -->
     X[] filter<X>(X[] sequence, Callable<Boolean,X> by) { ... }
     X[] filter<X>(X[] sequence, Boolean by(X x)) { ... }
 
 We've even seen how we can pass a reference to a method to such a higher-order function:
 
-<!-- lang: ceylon -->
     Boolean stringNonempty(String string) {
         return !string.empty;
     }
@@ -414,25 +392,21 @@ Most languages with higher order functions support anonymous functions
 part of the expression. My favored syntax for this in a C-like language would 
 be the following:
 
-<!-- lang: ceylon -->
     (String string) { return !string.empty; }
 
 This is an ordinary method declaration with the return type and name eliminated. 
 Then we could call `filter()` as follows:
 
-<!-- lang: ceylon -->
     String[] nonemptyStrings = filter( strings, (String string) { return !string.empty; } );
 
 Since it's extremely common for anonymous functions to consist of a 
 single expression, I favor allowing the following abbreviation:
 
-<!-- lang: ceylon -->
     (String string) (!string.empty)
 
 The parenthesized expression is understood to be the return value of the 
 method. Then the invocation of `filter()` is a bit less noisy:
 
-<!-- lang: ceylon -->
     String[] nonemptyStrings = filter(strings, (String string) (!string.empty));
 
 This works, and we could support this syntax in the Ceylon language.
@@ -441,37 +415,30 @@ Let's look at some more examples of how we would use anonymous functions:
 
 * Assertion:
 
-<!-- lang: ceylon -->
     assert ("x must be positive", () (x>0.0))
 
 * Conditionals:
 
-<!-- lang: ceylon -->
     when (x>100.0, () (100.0), () (x))
 
 * Repetition:
 
-<!-- lang: ceylon -->
     repeat(n, () { print("Hello"); })
 
 * Tabulation:
 
-<!-- lang: ceylon -->
     tabulateList(20, (Natural i) (i**3))
 
 * Comprehension:
 
-<!-- lang: ceylon -->
     from (people, (Person p) (p.name), (Person p) (p.age>18))
 
 * Quantification:
 
-<!-- lang: ceylon -->
     forAll (people, (Person p) (p.age>18))
 
 * Accumulation (folds):
 
-<!-- lang: ceylon -->
     accumulate (items, 0.0, (Float sum, Item item) (sum+item.quantity*item.product.price))
 
 The problem is that I don't find these code snippets especially readable. 
@@ -479,7 +446,6 @@ Too much nested punctuation. They certainly fall short of the readability of
 built-in control structures like `for` and `if`. And the problem gets 
 worse for multi-line anonymous functions. Consider:
 
-<!-- lang: ceylon -->
     repeat (n, () {
         String greeting;
         if (exists name) {
@@ -500,7 +466,6 @@ Method arguments are listed positionally, like in C or Java, but they must be
 preceded by the parameter name, and aren't delimited by parentheses. Let's 
 transliterate this idea to Ceylon.
 
-<!-- lang: ceylon -->
     String[] nonemptyStrings = filter(strings) by (String string) (!string.empty);
 
 Note that we have not changed the syntax of the anonymous function here, we've 
@@ -508,7 +473,6 @@ just moved it outside the parentheses. If we were to adopt this syntax, we
 could make empty parameter lists optional, without introducing any syntactic 
 ambiguity, allowing the following:
 
-<!-- lang: ceylon -->
     repeat (n)
     perform {
         String greeting;
@@ -526,37 +490,30 @@ our other examples:
 
 * Assertion: 
 
-<!-- lang: ceylon -->
     assert ("x must be positive") that (x>0.0)
 
 * Conditionals: 
 
-<!-- lang: ceylon -->
     when (x>100.0) then (100.0) otherwise (x)
 
 * Repetition: 
 
-<!-- lang: ceylon -->
     repeat(n) perform { print("Hello"); }
 
 * Tabulation: 
 
-<!-- lang: ceylon -->
     tabulateList(20) containing (Natural i) (i**3)
 
 * Comprehension: 
 
-<!-- lang: ceylon -->
     from (people) select (Person p) (p.name) where (Person p) (p.age>18)
 
 * Quantification: 
 
-<!-- lang: ceylon -->
     forAll (people) every (Person p) (p.age>18)
 
 * Accumulation (folds): 
 
-<!-- lang: ceylon -->
     accumulate (items, 0.0) using (Float sum, Item item) (sum+item.quantity*item.product.price)
 
 Well, I'm not sure about you, but I find all these examples more readable 
@@ -599,7 +556,6 @@ The answer just isn't crystal clear to us.
 
 A method reference like `Float.times` is represented in "curried" form in 
 Ceylon. I can write:
-<!-- lang: ceylon -->
     Float twoTimes(Float x) = 2.times;
 
 Here, the expression `2.times` is a typical first-class function reference 
@@ -608,7 +564,6 @@ receiver expression `2`.
 
 But I can also write:
 
-<!-- lang: ceylon -->
     Float times(Float x)(Float y) = Float.times;
 
 Actually, the expression `Float.times` is really a metamodel reference to a 
@@ -618,7 +573,6 @@ function reference.
 
 Therefore, an alternative definition of `twoTimes()` is:
 
-<!-- lang: ceylon -->
     Float twoTimes(Float x) = Float.times(2);
 
 (We're partially applying `Float.times` by supplying one of its two 
@@ -626,7 +580,6 @@ argument lists.)
 
 Unfortunately, the following isn't correctly typed:
 
-<!-- lang: ceylon -->
     Float product(Float x, Float y) = Float.times;  //error: Float.times not a Callable<Float,Float,Float>
 
 The problem is that `Float.times`, when considered as a function reference, 
@@ -638,14 +591,12 @@ function with a single parameter list?
 
 Well, one really simple way would be to fall back to writing:
 
-<!-- lang: ceylon -->
     Float product(Float x, Float y) {
         return x.times(y);   //or even: x*y
     }
 
 But there's another way. Instead, we're going to use a really cool higher-order function that will be part of the Ceylon language module. It's just two lines of code, so I'm sure you'll immediately understand it:
 
-<!-- lang: ceylon -->
     R uncurry<R,T,P...>(R curried(T t)(P... p))(T receiver, P... args) {
         return curried(receiver)(args);
     }
@@ -676,12 +627,10 @@ original parameters of the argument function. It's "flattening" the parameter
 lists of `curried()()` into a single list of parameters. So we can write the 
 following:
 
-<!-- lang: ceylon -->
     Float product(Float x, Float y) = uncurry(Float.times);
 
 Other kinds of operations on functions can be represented in a similar way. Consider:
 
-<!-- lang: ceylon -->
     R curry<R,T,P...>(R uncurried(T t, P... p))(T receiver)(P... args) {
         return uncurried(receiver,args);
     }
@@ -690,20 +639,17 @@ This function does precisely the opposite of `uncurry()()`, it takes the
 first parameter of an argument function, and separates it out into its own 
 parameter list, allowing the argument function to be partially applied:
 
-<!-- lang: ceylon -->
     Float times(Float x)(Float y) = curry(product);
     Float double(Float y) = times(2.0);
 
 Now consider:
 
-<!-- lang: ceylon -->
     R compose<R,S,P...>(R f (S s), S g(P... p))(P... args) {
         return f(g(args));
     }
 
 This function composes two functions:
 
-<!-- lang: ceylon -->
     Float incrementThenDouble(Float x) = compose(2.0.times,1.0.plus);
 
 Fortunately, you won't need to be writing functions like 

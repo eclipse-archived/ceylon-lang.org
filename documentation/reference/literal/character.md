@@ -12,7 +12,6 @@ author: Tom Bentley
 A `Character` literal is a single character enclosed between backticks (`\``), 
 for example:
 
-<!-- lang: ceylon -->
 
     Character x = `x`;
     Character backtick = `\``;
@@ -24,7 +23,6 @@ for example:
 Since Ceylon source files are preprocessed for unicode escapes prior to parsing
 you can use unicode escapes within character literals, like this:
 
-<!-- lang: ceylon -->
 
     Character therefore = `\u2234`; // an escaped Unicode therefore symbol
 

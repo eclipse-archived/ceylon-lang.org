@@ -11,7 +11,6 @@ author: Tom Bentley
 
 The general form of the `if` statement is
 
-<!-- lang: ceylon -->
 
     if ( /* some condition */ ) {
         /* code executed if some condition is true */

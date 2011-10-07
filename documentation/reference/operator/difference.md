@@ -12,7 +12,6 @@ author: Tom Bentley
 The left-associative, binary `-` operator is used to take the *difference* of 
 two operands, for example:
 
-<!-- lang: ceylon -->
 
     Natural one = 3 - 2;
 

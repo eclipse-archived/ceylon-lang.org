@@ -16,7 +16,6 @@ Let's take a little tour of the main features of the Ceylon language.
 
 Here's a classic example program.
 
-<!-- lang: ceylon -->
     void hello() {
         print("Hello, World!");
     }

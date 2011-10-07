@@ -25,7 +25,6 @@ member of a superinterface.
 In addition to `this` and `super`, Ceylon features the keyword `outer`, which 
 refers to the parent instance of the current instance of a nested class.
 
-<!-- lang: ceylon -->
     class Parent(String name) {
         shared String name = name;
         shared class Child(String name) {
@@ -81,7 +80,6 @@ variable has definitely been assigned a value before allowing use of the
 local variable in an expression. So, for example, the following code compiles 
 without error:
 
-<!-- lang: ceylon -->
     String greeting;
     if (person==me) {
         greeting = "You're beautiful!";
@@ -93,7 +91,6 @@ without error:
 
 But the following code results in an error at compile time:
 
-<!-- lang: ceylon -->
     String greeting;
     if (person==me) {
         greeting = "You're beautiful!";
@@ -111,7 +108,6 @@ default value (zero or `null`). Surprisingly, it's even possible to see this
 default value for a `final` instance variable that is eventually assigned a 
 value by the constructor. Consider the following code:
 
-<!-- lang: ceylon -->
     //Java code that prints "null"
     class Broken {
         final String greeting;
@@ -181,7 +177,6 @@ only called after the instance has been fully initialized.
 
 Consider the following example:
 
-<!-- lang: ceylon -->
     class Hello(String? name) {
          
         //initializer section:
@@ -288,7 +283,6 @@ references between two objects without resort to non-variable attributes.
 This is a problem Ceylon has in common with functional languages, which also 
 emphasize immutability. We can't write the following code in Ceylon:
 
-<!-- lang: ceylon -->
     abstract class Child(Parent p) {
         shared formal Parent parent = p;
     }
@@ -300,7 +294,6 @@ emphasize immutability. We can't write the following code in Ceylon:
 Eventually, Ceylon will probably need some specialized machinery for dealing 
 with this problem, but for now, here is a partial solution:
 
-<!-- lang: ceylon -->
     abstract class Child() {
         shared formal Parent parent;
     }
@@ -319,7 +312,6 @@ Ceylon lets us separate the declaration of a method defined using a method
 reference from the actual specification statement that specifies the method 
 reference.
 
-<!-- lang: ceylon -->
     Float x = ... ;
     Float op(Float y);
     switch (symbol)
@@ -338,7 +330,6 @@ like the Java compiler, also performs definite return checking, to ensure
 that a method or getter always has an explicitly specified return value. 
 So, this code compiles without error:
 
-<!-- lang: ceylon -->
     String greeting {
         if (person==me) {
             return "You're beautiful!";
@@ -350,7 +341,6 @@ So, this code compiles without error:
 
 But the following code results in an error at compile time:
 
-<!-- lang: ceylon -->
     String greeting {   //error: greeting does not definitely return
         if (person==me) {
             return "You're beautiful!";

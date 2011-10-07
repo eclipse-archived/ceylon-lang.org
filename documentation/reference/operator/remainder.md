@@ -12,7 +12,6 @@ author: Tom Bentley
 The binary left-associative `%` operator is used to get the remainder of an
 integer division, for example:
 
-<!-- lang: ceylon -->
 
     Integer two = 5 % 3;
 

@@ -13,7 +13,6 @@ Let's start!
 
 Here's a classic example program.
 
-<!-- lang: ceylon -->
     void hello() {
         print("Hello, World!");
     }
@@ -23,7 +22,6 @@ is just like a C function - it belongs directly to the package that contains
 it, it's not a member of any specific type. You don't need a receiving object 
 to invoke a toplevel method. Instead, you can just call it like this:
 
-<!-- lang: ceylon -->
     hello();
 
 Ceylon doesn't have Java-style `static` methods, but you can think of 
@@ -37,7 +35,6 @@ It's usually a good idea to add some kind of documentation to important
 methods like `hello()`. One way we could do this is by using a C-style 
 comment, either like this:
 
-<!-- lang: ceylon -->
     /* The classic Hello World program */
     void hello() {
         print("Hello, World!");
@@ -45,7 +42,6 @@ comment, either like this:
 
 Or like this:
 
-<!-- lang: ceylon -->
     //The classic Hello World program
     void hello() {
         print("Hello, World!");
@@ -54,7 +50,6 @@ Or like this:
 But it's much better to use the `doc` annotation for comments that describe 
 declarations.
 
-<!-- lang: ceylon -->
 	doc "The classic Hello World program"
 	by "Gavin"
 	see (goodbye)
@@ -77,7 +72,6 @@ definition: `abstract`, `variable`, `shared`, `formal`, `actual` etc.
 
 Let's ask our program to tell us a little more about itself.
 
-<!-- lang: ceylon -->
     doc "The Hello World program
          ... version 1.1!"
     void hello() {
@@ -92,12 +86,10 @@ interpolate expressions inside a string: we call that a string templage.
 A string template must begin and end in a string literal. The following is 
 not legal syntax:
 
-<!-- lang: ceylon -->
     print("Hello, this is Ceylon " process.languageVersion); //compile error!
 
 Whereas this one is
 
-<!-- lang: ceylon -->
     print("Hello, this is Ceylon " process.languageVersion "");
 
 (If you're wondering why the syntax isn't 
@@ -107,7 +99,6 @@ Whereas this one is
 The `+` operator you're probably used to is an alternative, and more 
 flexible in many cases:
 
-<!-- lang: ceylon -->
     print("Hello, this is Ceylon " + process.languageVersion +
               " running on Java " + process.javaVersion + "!");
 
@@ -118,7 +109,6 @@ case where nothing was specified at the command line, which gives us an
 opportunity to explore how `null` values are treated in Ceylon, which is 
 quite different to what you're probably used to in Java or C#.
 
-<!-- lang: ceylon -->
     doc "Print a personalized greeting"
     void hello() {
         String? name = process.arguments.first;
@@ -153,7 +143,6 @@ evaluates to true if `x` and `y` both evaluate to `null`.
 
 It's possible to declare the local name inside the `if (exists ... )` condition:
 
-<!-- lang: ceylon -->
     String greeting;
     if (exists String name = process.arguments.first) {
         greeting = "Hello, " name "!";
@@ -171,7 +160,6 @@ This is the preferred style most of the time, since we can't actually use
 There are a couple of operators that will make you life easier when dealing 
 with `null` values.
 
-<!-- lang: ceylon -->
     shared String greeting = "Hello, " + name?"World";
 
 The `?` operator returns its first argument if the first argument is not 
@@ -181,14 +169,12 @@ handle `null` values in simple cases.
 The related `?.` operator lets us call operations on optional 
 types and provide an alternative value if the type is `null`.
 
-<!-- lang: ceylon -->
     shared String shoutedGreeting = "HELLO, " + name?.uppercase?"WORLD";
 
 ## Defaulted parameters
 
 A method parameter may specify a default value.
 
-<!-- lang: ceylon -->
     void hello(String name="World") {
         print("Hello, " name "!");
     }
@@ -196,7 +182,6 @@ A method parameter may specify a default value.
 Then we don't need to specify an argument to the parameter when we call 
 the method:
 
-<!-- lang: ceylon -->
     hello(); //Hello, World!
     hello("JBoss"); //Hello, JBoss!
 

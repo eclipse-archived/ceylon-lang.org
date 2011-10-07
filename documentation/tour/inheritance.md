@@ -19,7 +19,6 @@ folks, this is what makes a program object-oriented. Let's try refactoring the
 `Hello` class [from the previous leg of the tour](../classes) into two classes, 
 with two different implementations of greeting:
 
-<!-- lang: ceylon -->
     doc "A default greeting"
     class DefaultHello() {
      
@@ -42,7 +41,6 @@ followed by the name of the superclass, followed by a list of arguments to be
 sent to the superclass initializer parameters. It looks just like an expression 
 that instantiates the superclass:
 
-<!-- lang: ceylon -->
     doc "A personalized greeting"
     class PersonalizedHello(String name)
             extends DefaultHello() {
@@ -73,7 +71,6 @@ There's one problem with what we've just seen. A personalized greeting is
 not really a kind of default greeting. This is a case for introducing an 
 abstract superclass:
 
-<!-- lang: ceylon -->
     doc "A greeting"
     abstract class Hello() {
          
@@ -104,7 +101,6 @@ explicitly tell it to!
 One way to define an implementation for an inherited abstract attribute is to 
 simply assign a value to it in the subclass.
 
-<!-- lang: ceylon -->
     doc "A default greeting"
     class DefaultHello() extends Hello() {
         greeting = "Hello, World!";
@@ -113,7 +109,6 @@ simply assign a value to it in the subclass.
 Of course, we can also define an implementation for an inherited abstract 
 attribute by refining it.
 
-<!-- lang: ceylon -->
     doc "A personalized greeting"
     class PersonalizedHello(String name)
             extends Hello() {
@@ -149,7 +144,6 @@ objects.
 Let's take advantage of mixin inheritance to define a reusable `Writer` 
 interface for Ceylon.
 
-<!-- lang: ceylon -->
     shared interface Writer {
      
         shared formal Formatter formatter;
@@ -177,7 +171,6 @@ same name.
 
 Now let's define a concrete implementation of this interface.
 
-<!-- lang: ceylon -->
     shared class ConsoleWriter()
             satisfies Writer {
          
@@ -212,7 +205,6 @@ two members both (directly or indirectly) refine a common member of a common
 supertype, and the inheriting type itself also refines the member to eliminate 
 any ambiguity. The following results in a compilation error:
 
-<!-- lang: ceylon -->
     interface Party {
         shared formal String legalName;
         shared default String name {
@@ -237,7 +229,6 @@ any ambiguity. The following results in a compilation error:
 To fix this code, we'll factor out a `formal` declaration of the attribute 
 `name` to a common supertype. The following is legal:
 
-<!-- lang: ceylon -->
     interface Named {
         shared formal String name;
     }
@@ -265,7 +256,6 @@ To fix this code, we'll factor out a `formal` declaration of the attribute
 
 Oh, of course, the following is illegal:
 
-<!-- lang: ceylon -->
     interface Named {
         shared formal String name;
     }
@@ -311,7 +301,6 @@ interface called `SequenceList` for this purpose. Well, it doesn't yet, since
 we have not yet either implemented introductions or written the collections 
 module, but it will soon!
 
-<!-- lang: ceylon -->
     doc "Decorator that introduces List to Sequence."
     see (List,Sequence)
     shared interface SequenceList<Element>
@@ -349,7 +338,6 @@ All it does is "fill in" the definitions of the missing operations. Here, the
 Now, to introduce `List` to `Sequence` in a certain compilation unit, all we 
 need to do is `import` the adapter:
 
-<!-- lang: ceylon -->
     import ceylon.collection { List, SequenceList }
      
     ...
@@ -401,7 +389,6 @@ From our point of view, an extension method introduces a member to a type,
 without actually introducing a new supertype. Indeed, a Ceylon adapter with 
 no `satisfies` clause is actually a package of extension methods!
 
-<!-- lang: ceylon -->
     shared interface StringSequenceExtensions
             adapts Sequence<String> {
          
@@ -458,12 +445,10 @@ It's often useful to provide a shorter or more semantic name to an existing
 class or interface type, especially if the class or interface is a 
 parameterized type. For this, we use a *type alias*, for example:
 
-<!-- lang: ceylon -->
     interface People = Set<Person>;
 
 A class alias must declare its formal parameters:
 
-<!-- lang: ceylon -->
     shared class People(Person... people) = ArrayList<Person>;
 
 
@@ -476,7 +461,6 @@ more than natural. But in Ceylon, a non-abstract nested class is actually
 considered a member of the containing type. For example, `BufferedReader` 
 defines the member class `Buffer`:
 
-<!-- lang: ceylon -->
     class BufferedReader(Reader reader)
             satisfies Reader {
         shared default class Buffer()
@@ -488,7 +472,6 @@ defines the member class `Buffer`:
 The member class `Buffer` is annotated shared, so we can instantiate it like 
 this:
 
-<!-- lang: ceylon -->
     BufferedReader br = BufferedReader(reader);
     BufferedReader.Buffer b = br.Buffer();
 
@@ -498,7 +481,6 @@ when used outside of the containing type.
 The member class `Buffer` is also annotated `default`, so we can refine it 
 in a subtype of `BufferedReader`:
 
-<!-- lang: ceylon -->
     shared class BufferedFileReader(File file)
             extends BufferedReader(FileReader(file)) {
         shared actual class Buffer()
@@ -520,7 +502,6 @@ our code.
 It's even possible to define a `formal` member class of an `abstract` class. 
 A `formal` member class can declare `formal` members.
 
-<!-- lang: ceylon -->
     abstract class BufferedReader(Reader reader)
             satisfies Reader {
         shared formal class Buffer() {
@@ -534,7 +515,6 @@ A `formal` member class can declare `formal` members.
 In this case, a concrete subclass of the `abstract` class must refine the 
 `formal` member class.
 
-<!-- lang: ceylon -->
     shared class BufferedFileReader(File file)
             extends BufferedReader(FileReader(file)) {
         shared actual class Buffer()
@@ -566,7 +546,6 @@ declaration which defines a named instance of the class, without providing
 any actual name for the class itself. This is usually most useful when we're 
 extending an `abstract` class or implementing an interface.
 
-<!-- lang: ceylon -->
     doc "A default greeting"
     object defaultHello extends Hello() {
         greeting = "Hello, World!";
@@ -596,7 +575,6 @@ but that's not quite right:
 
 Let's see how this can be useful:
 
-<!-- lang: ceylon -->
     interface Subscription {
         shared formal void cancel();
     }
@@ -622,7 +600,6 @@ think of a method as a parametrized attribute.
 
 An `object` declaration can refine an attribute declared `formal` or `default`.
 
-<!-- lang: ceylon -->
     shared abstract class App() {
         shared formal OutputStream stream;
         ...

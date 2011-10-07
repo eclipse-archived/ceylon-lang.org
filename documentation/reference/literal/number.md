@@ -11,7 +11,6 @@ author: Tom Bentley
 
 A `Number` literal can be written an a variety of ways
 
-<!-- lang: ceylon -->
 
     Number one = 1;
     variable Number oneMillion := 1000000;
@@ -46,7 +45,6 @@ required the [unary plus](../../operator/unary_plus)
 (or [unary minus](../../operator/unary_minus), if a negative value is required) 
 operator can be used in the  declaration of the `Integer`, like this:
 
-<!-- lang: ceylon -->
 
     Integer two = +2;
     Integer minusTwo = -2;

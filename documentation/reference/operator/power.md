@@ -12,7 +12,6 @@ author: Tom Bentley
 The right-associative, binary `**` operator is used to compute the *power* 
 (or exponent) of two operands, for example:
 
-<!-- lang: ceylon -->
 
     Natural eight = 2 ** 3;
 

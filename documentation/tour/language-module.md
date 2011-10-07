@@ -19,7 +19,6 @@ and a number of related declarations. Let's meet the main characters.
 
 Just like Java, Ceylon has a class named `Object`.
 
-<!-- lang: ceylon -->
     shared abstract class Object()
             extends Void() {
              
@@ -92,7 +91,6 @@ a user-written class to directly extend `Object`, but most of the classes
 you write will be subclasses of `IdentifiableObject`. All classes with 
 variable attributes must extend `IdentifiableObject`.
 
-<!-- lang: ceylon -->
     shared abstract class IdentifiableObject()
             extends Object()
             satisfies Equality {
@@ -120,7 +118,6 @@ variable attributes must extend `IdentifiableObject`.
 `Equality`, which is very similar to the `equals()` and `hashCode()` methods 
 defined by `java.lang.Object`.
 
-<!-- lang: ceylon -->
     shared interface Equality {
          
         shared formal Boolean equals(Equality that);
@@ -155,22 +152,18 @@ For example, the `<` operator is defined in terms of the interface
 and which has a method named `smallerThan()`, which is in turn defined in 
 terms of another method named `compare()`.
 
-<!-- lang: ceylon -->
     x<y
 
 means, by definition,
 
-<!-- lang: ceylon -->
     x.smallerThan(y)
 
 The equality operator `==` is defined in terms of the interface `Equality`, 
 which has a method named `equals()`.
 
-<!-- lang: ceylon -->
     x==y
 
 means, by definition,
-<!-- lang: ceylon -->
     x.equals(y)
 
 Therefore, it's easy to customize operators like `<` and `==` with specific 
@@ -207,7 +200,6 @@ practical value of this is to allow the use of the operator `|` for set
 union, the operator `&` for set intersection, and the infix `~` operator for 
 set complement.
 
-<!-- lang: ceylon -->
     Set<Person> children = males|females ~ adults;
 
 These aren't the traditional symbols representing these operations. 
@@ -239,7 +231,6 @@ compiler is free to ignore (and it currently does).
 There are only two kinds of numeric literals: literals for `Naturals`, and 
 literals for `Floats`:
 
-<!-- lang: ceylon -->
     Natural one = 1;
     Float oneHundredth = 0.01;
     Float oneMillion = 1.0E+6;
@@ -247,14 +238,12 @@ literals for `Floats`:
 The digits of a numeric literal may be grouped using underscores. If the 
 digits are grouped, then groups must contain exactly three digits.
 
-<!-- lang: ceylon -->
     Natural twoMillionAndOne = 2_000_001;
     Float pi = 3.141_592_654;
 
 A very large or small numeric literals may be qualified by one of the 
 standard SI unit prefixes: m, u, n, p, f, k, M, G, T, P.
 
-<!-- lang: ceylon -->
     Float red = 390.0n; //n (nano) means E-9
     Float galaxyDiameter = 900.0P; //P (peta) means E15
     Float hydrogenRadius = 25.0p; //p (pico) means E-12
@@ -270,14 +259,12 @@ automatically widen (or narrow) numeric values. Instead, we need to call
 one of the operations (well, attributes, actually) defined by the interface 
 `Number`.
 
-<!-- lang: ceylon -->
     Whole zero = 0.whole; //explicitly widen from Natural
     Decimal half = 0.5.decimal; //explicitly widen from Float
 
 Usefully, the unary prefix operators `+` and `-` always widen `Natural` 
 to `Integer`:
 
-<!-- lang: ceylon -->
     Integer negativeOne = -1;
     Integer three = +3;
 
@@ -285,7 +272,6 @@ You can use all the operators you're used to from other C-style languages
 with the numeric types. You can also use the `**` operator to raise a 
 number to a power:
 
-<!-- lang: ceylon -->
     Float diagonal = (length**2.0+width**2.0)**0.5;
 
 Of course, if you want to use the increment `++` operator, decrement `--` 
@@ -296,7 +282,6 @@ Since it's quite noisy to explicitly perform numeric widening in numeric
 expressions, the numeric operators automatically widen their operands, 
 so we could write the expression above like this:
 
-<!-- lang: ceylon -->
     Float diagonal = (length**2+width**2)**(1.0/2);
 
 The "built-in" widening conversions are the following:
@@ -319,7 +304,6 @@ The numeric operators are defined in terms of these methods of `Numeric`.
 The numeric types also implement the interface `Castable`, which enables the 
 widening conversions we just mentioned.
 
-<!-- lang: ceylon -->
     shared interface Castable<in Types> {
         shared formal CastValue as<CastValue>()
             given CastValue satisfies Types;
@@ -330,7 +314,6 @@ should be the union of all types to which the implementing type is castable.
 
 For example, simplifying slightly the definitions in the language module:
 
-<!-- lang: ceylon -->
     shared class Natural(...)
             extends Object()
             satisfies Castable<Natural|Integer|Float|Whole|Decimal> &
@@ -360,7 +343,6 @@ infer that the expression `-1 * 0.4` is of type Float.
 Therefore, the definition of a numeric operator like `*` can be represented, 
 completely within the type system, in terms of `Numeric` and `Castable`:
 
-<!-- lang: ceylon -->
     Result product<Left,Right,Result>(Left x, Right y)
             given Result of Left|Right satisfies Numeric<Result>
             given Left satisfies Castable<Result> & Numeric<Left>

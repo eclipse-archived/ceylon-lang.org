@@ -11,7 +11,6 @@ author: Tom Bentley
 
 A `String` literal is enclosed between double quotes (`"`)
 
-<!-- lang: ceylon -->
 
     String example = "This is a trivial example";
     String escaping = "Special characters are \"escaped\" with a backslash";
@@ -25,7 +24,6 @@ A `String` literal is enclosed between double quotes (`"`)
 Since Ceylon source files are preprocessed for unicode escapes prior to parsing
 you can use unicode escapes within string literals, like this:
 
-<!-- lang: ceylon -->
 
     String quotation = "I think \u2234 I am"; // an escaped Unicode therefore symbol
 
