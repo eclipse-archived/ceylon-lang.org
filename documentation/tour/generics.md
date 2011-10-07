@@ -60,8 +60,8 @@ currently requires that all type arguments be explicitly specified like this:
 On the other hand, the following code does already compile:
 
 <!-- lang: ceylon -->
-    local strings = Array<String>("Hello", "World");
-    local entries = entries<Natural,String>(strings);
+    value strings = Array<String>("Hello", "World");
+    value entries = entries<Natural,String>(strings);
 
 The root cause of very many problems when working with generic types in 
 Java is *type erasure*. Generic type parameters and arguments are discarded 

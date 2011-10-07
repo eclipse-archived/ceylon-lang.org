@@ -11,7 +11,7 @@ author: Gavin King
 
 In Java, a field of a class is quite easily distinguished from a local 
 constant or variable of a method or constructor. Ceylon doesn't really make 
-this distinction very strongly. An attribute is really just a `local` that 
+this distinction very strongly. An attribute is really just a local that 
 happens to be captured by some `shared` declaration.
 
 Here, `count` is a local variable of the initializer of `Counter`:
@@ -67,7 +67,7 @@ initialized, and is never reassigned.
 
 <!-- lang: ceylon -->
     class Reference<Value>(Value x) {
-        shared Value value = x;
+        shared Value val = x;
     }
 
 If we want to be able to assign a value to a simple attribute or local 
@@ -75,7 +75,7 @@ we need to annotate it `variable`:
 
 <!-- lang: ceylon -->
     class Reference<Value>(Value x) {
-        shared variable Value value := x;
+        shared variable Value val := x;
     }
 
 Notice the use of `:=` instead of `=` here. This is important! In Ceylon, 
@@ -187,7 +187,7 @@ There is no C-style `for`.
 The `while` loop is traditional.
 
 <!-- lang: ceylon -->
-    variable local it = names.iterator();
+    variable value it = names.iterator();
     while (exists String name = it.head) {
         print(name);
         it:=it.tail;
@@ -276,7 +276,7 @@ To import all toplevel program elements of a package, we write:
 To resolve a name conflict, we can rename an imported declaration:
 
 <!-- lang: ceylon -->
-    import org.jboss.hello { local Hi = Hello, ... }
+    import org.jboss.hello { Hi = Hello, ... }
 
 We think renaming is a much cleaner solution than the use of qualified names.
 

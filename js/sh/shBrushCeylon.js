@@ -28,13 +28,13 @@
 //						'object of return ' +
 //						'satisfies super switch then this throw ' +
 //						'try void while';
-            var keywords = 'import class interface object given assign void subtype local of ' +
+            var keywords = 'import class interface object given assign void value function of ' +
                            'extends satisfies adapts abstracts in out return break continue throw ' +
-                           'retry if else switch case for fail do while try catch finally this ' +
-                           'outer super is exists nonempty';
+                           'if else switch case for while try catch finally ' +
+                           'this outer super is exists nonempty';
 //		var annotations = 'actual doc formal in out see shared';
             var annotations = 'shared abstract formal default actual variable deprecated small ' +
-                              'literal annotation inherited doc by see throws';
+                              'literal doc by see throws';
 
 		this.regexList = [
 			{ regex: SyntaxHighlighter.regexLib.singleLineCComments,	css: 'comments' },		// one line comments
