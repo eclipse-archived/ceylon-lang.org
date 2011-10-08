@@ -214,9 +214,9 @@ Inside the method body, the parameter strings has type `String[]`.
 
     void print(String... strings) {
         for (string in strings) {
-            write(string);
+            process.write(string);
         }
-        print();
+        process.writeLine();
     }
 
 A slightly more sophisticated example is the `coalesce()` method we saw above. 
