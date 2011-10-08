@@ -28,7 +28,7 @@ enclosed in angle brackets.
     class Array<Element>(Element... elements) 
             satisfies Sequence<Element> { ... }
 
-    shared Entries<Natural,Value> entries<Value>(Value... sequence) { ... }
+    shared Entries<Natural,Element> entries<Element>(Element... sequence) { ... }
 
 As you can see, the convention in Ceylon is to use meaningful names for 
 type parameters (in Java the convention is to use single letter names).
@@ -42,25 +42,26 @@ We always have to specify a type argument in a type declaration:
 
     Iterator<String> it = ...;
 
-On the other hand, we shouldn't need to explicitly specify type arguments in 
-most method invocations or class instantiations. In principle it's very 
-often possible to infer the type arguments from the ordinary arguments. 
-The following code should be possible, just like it is in Java:
+On the other hand, we don't need to explicitly specify type arguments in most 
+method invocations or class instantiations. We don't usually need to write:
 
-    Array<String> strings = Array("Hello", "World");
-    Entries<Natural,String> entries = entries(strings);
 
-But we haven't yet figured out what exactly the type inference algorithm will 
-be (probably something involving union types!) and so the Ceylon compiler 
-currently requires that all type arguments be explicitly specified like this:
+    Array<String> strings = Array<String>("Hello", "World"); 
+    Entries<Natural,String> entries = entries<String>(strings);
 
-    Array<String> strings = Array<String>("Hello", "World");
-    Entries<Natural,String> entries = entries<Natural,String>(strings);
+Instead, it's very often possible to infer the type arguments from the ordinary 
+arguments.
 
-On the other hand, the following code does already compile:
+    value strings = Array("Hello", "World"); //type Array<String>
+    value entries = entries(strings); //type Entries<Natural,String>
 
-    value strings = Array<String>("Hello", "World");
-    value entries = entries<Natural,String>(strings);
+The generic type argument inference algorithm is slightly involved, so you
+should refer to the language specification for a complete definition. But
+essentially what happens is that Ceylon infers a type by combining the types
+of corresponding arguments using union.
+
+    value points = Array(Polar(pi/4, 0.5), Cartesian(-1.0, 2.5)); //type Array<Polar|Cartesian>
+    value entries = entries(points); //type Entries<Natural,Polar|Cartesian>
 
 The root cause of very many problems when working with generic types in 
 Java is *type erasure*. Generic type parameters and arguments are discarded 
@@ -337,9 +338,9 @@ With type inference, the compiler chooses an appropriate type argument to
     Set<Decimal> decimals = Set(1.2.decimal, 3.67.decimal) ;
     Set<Float> floats = Set(0.33, 22.0, 6.4);
     Set<Number> allTheNumbers = decimals.union(floats);
-    Set<Hello> hellos = Set( DefaultHello(), PersonalizedHello(name) );
+    Set<Point> points = Set( Polar(pi,3.5), Cartesian(1.0, -2.0) );
     Set<Object> objects = Set("Gavin", 12, true);
-    Set<Object> allTheObjects = hellos.union(objects);
+    Set<Object> allTheObjects = points.union(objects);
 
 ## There's more...
 
