@@ -19,7 +19,7 @@ example:
 
 ### Polymorphism
 
-The `+` operator is [polymorphic](/documentation/tour/language-module/#operator_polymorphism). 
+The `+` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
 The meaning of `+` depends on the 
 [`Summable`](../../ceylon.language/Summable) and
 [`Castable`](../../ceylon.language/Castable) interfaces as follows:

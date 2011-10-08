@@ -23,8 +23,8 @@ In other words, '~=' is 'set minus' with assign.
 
 ### Polymorphism
 
-The `~=` operator is [polymorphic](/documentation/tour/language-module/#operator_polymorphism). 
-And is defined as follows:
+The `~=` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism),
+and is defined as follows:
 
     lhs := lhs~rhs
 
@@ -34,7 +34,7 @@ Where `~` is the [complement in](../complement-in) operator which depends on the
 See the [language specification](#{site.urls.spec}#slotwiseoperators) for 
 more details.
 
-### Meaning of and for built-in types
+### Meaning of *complement assign* for built-in types
 
 TODO
 

@@ -34,7 +34,7 @@ value of the operand *before* the increment.
 
 ### Polymorphism
 
-The `++` operator is [polymorphic](/documentation/tour/language-module/#operator_polymorphism). 
+The `++` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
 The meaning of `++` depends on the 
 [`Ordinal`](../../ceylon.language/Ordinal) and
 [`Settable`](../../ceylon.language/Settable) interfaces.

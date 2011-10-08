@@ -38,7 +38,8 @@ assigns the result to the (`index+1`)<sup>th</sup> element.
 
 ### Polymorphism
 
-The `-=` operator is polymorphic. The definition of the `-=` operator depends 
+The `-=` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism).
+The definition of the `-=` operator depends 
 on the [`Numeric`](../../ceylon.language/Numeric) and 
 [`Castable`](../../ceylon.language/Castable) and
 [`Settable`](../../ceylon.language/Settable) interfaces as follows:

@@ -19,7 +19,7 @@ two operands, for example:
 
 ### Polymorphism
 
-The `-` operator is [polymorphic](/documentation/tour/language-module/#operator_polymorphism). 
+The `-` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
 The meaning of `-` depends on the 
 [`Numeric`](../../ceylon.language/Numeric) and
 [`Castable`](../../ceylon.language/Castable) interfaces as follows:
@@ -28,7 +28,7 @@ The meaning of `-` depends on the
 
 See the [language specification](#{site.urls.spec}#arithmetic) for more details.
 
-### Meaning of difference for built-in types
+### Meaning of *difference* for built-in types
 
 For the built-in numeric types ([`Natural`](../../ceylon.language/Natural), 
 [`Integer`](../../ceylon.language/Integer),

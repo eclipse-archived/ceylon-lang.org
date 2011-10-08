@@ -19,7 +19,7 @@ its operand, for example:
 
 ### Polymorphism
 
-The unary `-` operator is [polymorphic](/documentation/tour/language-module/#operator_polymorphism). 
+The unary `-` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
 The meaning of `-` depends on 
 [`Invertable`](../../ceylon.language/Invertable) interface as follows:
 

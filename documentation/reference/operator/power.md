@@ -19,7 +19,7 @@ The right-associative, binary `**` operator is used to compute the *power*
 
 ### Polymorphism
 
-The `**` operator is [polymorphic](/documentation/tour/language-module/#operator_polymorphism). 
+The `**` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
 The meaning of `**` depends on the 
 [`Numeric`](../../ceylon.language/Numeric) and
 [`Castable`](../../ceylon.language/Castable) interfaces as follows:

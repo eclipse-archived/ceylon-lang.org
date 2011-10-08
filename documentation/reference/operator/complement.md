@@ -18,7 +18,7 @@ The right-associative, unary `~` operator is used to compute the
 
 ### Polymorphism
 
-The `~` operator is [polymorphic](/documentation/tour/language-module/#operator_polymorphism). 
+The `~` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
 The meaning of `~` depends on the 
 [`FixedSlots`](../../ceylon.language/FixedSlots) interface as follows:
 
@@ -27,7 +27,7 @@ The meaning of `~` depends on the
 See the [language specification](#{site.urls.spec}#slotwiseoperators) for 
 more details.
 
-### Meaning of and for built-in types
+### Meaning of *complement* for built-in types
 
 For the built-in numeric types ([`Natural`](../../ceylon.language/Natural), 
 [`Integer`](../../ceylon.language/Integer) and
