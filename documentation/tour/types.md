@@ -293,6 +293,19 @@ Now, the `Comparable` interface itself:
     }
 
 
+## Type aliases
+
+It's often useful to provide a shorter or more semantic name to an existing 
+class or interface type, especially if the class or interface is a 
+parameterized type. For this, we use a *type alias*, for example:
+
+    interface People = Set<Person>;
+
+A class alias must declare its formal parameters:
+
+    shared class People(Person... people) = ArrayList<Person>;
+
+
 ## Type inference
 
 So far, we've always been explicitly specifying the type of every declaration. 

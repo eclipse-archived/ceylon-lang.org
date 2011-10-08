@@ -8,72 +8,87 @@ author: Emmanuel Bernard
 # #{page.title}
 
 This is the fourth leg of the Tour of Ceylon. In the [previous leg](../inheritance)
-you learned about inheritance and refinement. In this leg you're going to learn about 
-*introduction* and *member classes*.
+you learned about inheritance and refinement. In this leg you're going to learn 
+about *introduction* and *member classes*.
 
 ## Introduction
 
 Sometimes, especially when we're working with code from modules we don't have 
 control over, we would like to mix an interface into a type that has already 
-been defined in another module. For example, we might like to introduce the 
-Ceylon collections module type `List` into the language module type `Sequence`, 
-so that all `Sequences` support all operations of `List`. But the language 
-module shouldn't have a dependency to the collections module, so we can't 
-specify that interface `Sequence` satisfies `List` in the declaration of 
-`Sequence` in the language module.
+been defined in another module. For example, suppose we wanted to use a
+`Polar` class, like the one we met in the [second leg](../classes), in some 
+packaged module with some other packaged library that defines the following 
+`Position` interface:
 
-Instead, we can introduce the type `Sequence` in the code which uses the 
-collections and language modules. The collections module already defines an 
-interface called `SequenceList` for this purpose. Well, it doesn't yet, since 
-we have not yet either implemented introductions or written the collections 
-module, but it will soon!
-
-    doc "Decorator that introduces List to Sequence."
-    see (List,Sequence)
-    shared interface SequenceList<Element>
-            adapts Sequence<Element>
-            satisfies List<Element> {
-         
-        shared actual default List<Element> sortedElements() {
-            //define the operation of List in
-            //terms of operations on Sequence
-            return asList(sortSequence(this));
-        }
-         
-        ...
-         
+    shared interface Position {
+        shared formal Float vertical;
+        shared formal Float horizontal;
     }
 
-The `adapts` clause makes `SequenceList` a special kind of interface called an 
-*adapter* (in the terminology used by this book). According to the language 
-spec:
+To make this a little more concrete, suppose the library also defined the 
+following useful toplevel method:
 
-> The interface may not:
+    shared void drawLine(Position from, Position to) { .... }
+
+We would like to be able to pass `Polar` coordinates to `drawLine()`.
+Since `Polar` is defined in a module that is out of our control, we can't 
+simply write:
+
+    class Polar(Float angle, Float radius) satisfies Position { ... }
+
+Even if `Polar` _is_ our own class, there might be good reasons why we don't
+want want to introduce a dependency to the library which defines `Position`
+and `drawLine()` into our general-purpose coordinates module.
+
+Instead, we can introduce the type `Position` in the code which uses the 
+`Polar` coordinates as `Position`s.
+
+    import com.redhat.polar.core { Polar }
+    import com.somecompany.positions { Position }
+    
+    doc "Adapter that introduces Position to Polar."
+    shared interface PolarPosition
+            adapts Polar
+            satisfies Position {
+        
+        shared actual default Float horizontal { 
+            return radius * cos(angle);
+        }         
+        
+        shared actual default Float vertical { 
+            return radius * sin(angle);
+        }
+        
+    }
+
+The `adapts` clause makes `PolarPosition` a special kind of interface called an 
+*adapter*. There's a couple of restrictions applying to the members of an adapter. 
+According to the language spec:
+
+> An adapter may not:
 >
 > * declare or inherit a member that refines a member of any adapted type, or
-> * declare or inherit a formal or non-default actual member unless the member 
->   is inherited from an adapted type.
+> * declare or inherit a `formal` or non-`default` `actual` member unless the
+>   member is inherited from an adapted type.
 
 The purpose of an adapter is to add a new supertype, called an 
 *introduced type*, to an existing type, called the *adapted type*. The adapter 
 doesn't change the original definition of the adapted type, and it doesn't 
 affect the internal workings of an instance of the adapted type in any way. 
 All it does is "fill in" the definitions of the missing operations. Here, the 
-`SequenceList` interface provides concrete implementations of all methods of 
-`List` that are not already implemented by `Sequence`.
+`PolarPosition` interface provides concrete implementations of all members of 
+`Position` that are not implemented by `Polar`.
 
-Now, to introduce `List` to `Sequence` in a certain compilation unit, all we 
+Now, to introduce `Position` to `Polar` in a certain compilation unit, all we 
 need to do is `import` the adapter:
 
-    import ceylon.collection { List, SequenceList }
-     
+    import com.redhat.polar.core { Polar, pi }
+    import com.somecompany.positions { drawLine }
+    import com.redhat.polar.adapters { PolarPosition }
+    
     ...
-     
-    //define a Sequence
-    Sequence<String> names = { "Gavin", "Emmanuel", "Andrew", "Ales" };
-     
-    //call an operation of List on Sequence
-    List<String> sortedNames = names.sortedElements();
+    
+    drawLine(Polar(0.0), Polar(pi/2, 1.0));
 
 Note that the introduction is not visible outside the lexical scope of the 
 `import` statement (the compilation unit). But within the compilation unit 
@@ -102,6 +117,10 @@ Again, according to the spec:
 > * Otherwise, the operation is dispatched to the introduction that has the 
 >   most-refined member defining the operation.
 
+Don't bust your brain thinking through this passage. What matters is that
+the compiler will make sure that you don't ever use introductions in a way
+that would result in ambiguities, arbitrary behavior, or loss of polymorphism.
+
 ## Introduction compared to extension methods and implicit type conversions
 
 Introduction is Ceylon's way of extending a type after it's been defined. 
@@ -118,19 +137,23 @@ no `satisfies` clause is actually a package of extension methods!
 
     shared interface StringSequenceExtensions
             adapts Sequence<String> {
-         
+        
         shared String concatenated {
-            variable String concat = "";
-            for (s in this) {
-                concat+=s;
+            variable String concatenation := "";
+            for (string in this) {
+                concatenation += string;
             }
-            return concat;
+            return concatenation;
         }
-         
+        
         shared String join(String separator=", ") {
-            ...
+            variable String concatenation := this.first;
+            for (string in this.rest) {
+                concatenation += separator + string;
+            }
+            return concatenation;
         }
-         
+        
     }
 
 On the other hand, introductions are less powerful than implicit type 
@@ -164,19 +187,6 @@ the compiler introduces these "magic" calls.
 Introductions are a kind of elegant compromise: more powerful than plain 
 extension methods, safer than implicit type conversions. We think the beauty 
 of this model is a major advantage of Ceylon over similar languages.
-
-
-## Type aliases
-
-It's often useful to provide a shorter or more semantic name to an existing 
-class or interface type, especially if the class or interface is a 
-parameterized type. For this, we use a *type alias*, for example:
-
-    interface People = Set<Person>;
-
-A class alias must declare its formal parameters:
-
-    shared class People(Person... people) = ArrayList<Person>;
 
 
 ## Member classes and member class refinement
