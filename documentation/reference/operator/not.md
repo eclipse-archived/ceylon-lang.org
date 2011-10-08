@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `&&` (and) operator
+title: `!` (not) operator
 tab: documentation
 author: Tom Bentley
 ---
@@ -9,18 +9,18 @@ author: Tom Bentley
 
 ## Usage 
 
-The left-associative, binary `&&` operator is used to compute the 
-logical *and* of two operands, for example:
+The right-associative, unary `||` operator is used to compute the 
+logical *not* of its operand, for example:
 
-    Boolean false_ = true && false;
+    Boolean true_ = !false;
 
 ## Description
 
 ### Polymorphism
 
-The `&&` operator is defined as:
+The `!` operator is defined as:
 
-    if (lhs) rhs else false
+    if (rhs) false else true
 
 See the [language specification](#{site.urls.spec}#logicaloperators) for 
 more details.

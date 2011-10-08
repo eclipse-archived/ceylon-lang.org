@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `&&` (and) operator
+title: `&&=` (and assign) operator
 tab: documentation
 author: Tom Bentley
 ---
@@ -9,18 +9,21 @@ author: Tom Bentley
 
 ## Usage 
 
-The left-associative, binary `&&` operator is used to compute the 
-logical *and* of two operands, for example:
+The right-associative, binary `&&=` operator is used to compute the 
+logical *and* of two operands, assigning the result to the left hand operand. 
+For example:
 
-    Boolean false_ = true && false;
+    variable Boolean a = true;
+    Boolean b = false;
+    a &&= b; // a becomes false
 
 ## Description
 
 ### Polymorphism
 
-The `&&` operator is defined as:
+The `&&=` operator is defined as:
 
-    if (lhs) rhs else false
+    if (lhs) lhs:=rhs else false
 
 See the [language specification](#{site.urls.spec}#logicaloperators) for 
 more details.

@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `&&` (and) operator
+title: `||` (or) operator
 tab: documentation
 author: Tom Bentley
 ---
@@ -9,18 +9,18 @@ author: Tom Bentley
 
 ## Usage 
 
-The left-associative, binary `&&` operator is used to compute the 
-logical *and* of two operands, for example:
+The left-associative, binary `||` operator is used to compute the 
+logical *or* of two operands, for example:
 
-    Boolean false_ = true && false;
+    Boolean true_ = true || false;
 
 ## Description
 
 ### Polymorphism
 
-The `&&` operator is defined as:
+The `||` operator is defined as:
 
-    if (lhs) rhs else false
+    if (lhs) true else rhs
 
 See the [language specification](#{site.urls.spec}#logicaloperators) for 
 more details.
