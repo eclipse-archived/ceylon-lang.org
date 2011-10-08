@@ -14,7 +14,7 @@ look at *sequences*.
 ## Sequences
 
 Some kind of array or list construct is a universal feature of all programming 
-languages. The Ceylon language module defines support for sequence types. 
+languages. The Ceylon language module defines support for *sequence types*. 
 A sequence type is usually written `X[]` for some element type `X`. But this 
 is really just an abbreviation for the union type `Empty|Sequence<X>`.
 
@@ -52,7 +52,7 @@ However, unlike Java, all these syntactic constructs are pure abbreviations.
 The code above is exactly equivalent to the following de-sugared code:
 
     Empty|Sequence<String> operators = Array("+", "-", "*", "/");
-    Nothing|String plus = operators.value(0);
+    Nothing|String plus = operators.item(0);
     Empty|Sequence<String> multiplicative = operators.range(2,3);
 
 A `Range` is also a subtype of `Sequence`. The following:
@@ -130,7 +130,7 @@ Here's how the language module defines the type `Sequence`:
          
         doc "The last element of the sequence."
         shared default Element last {
-            if (exists x = value(lastIndex)) {
+            if (exists x = item(lastIndex)) {
                 return x;
             }
             else {
@@ -144,7 +144,7 @@ Here's how the language module defines the type `Sequence`:
             class SequenceIterator(Natural from)
                     satisfies Iterator<Element> {
                 shared actual Element? head {
-                    return value(from);
+                    return item(from);
                 }
                 shared actual Iterator<Element> tail {
                     return SequenceIterator(from+1);
@@ -157,14 +157,15 @@ Here's how the language module defines the type `Sequence`:
 The most interesting operations are inherited from `Correspondence`, 
 `Iterable` and `Sized`:
 
-    shared interface Correspondence<in Key, out Value>
+    shared interface Correspondence<in Key, out Item>
             given Key satisfies Equality {
          
         doc "Return the value defined for the
              given key."
-        shared formal Value? value(Key key);
+        shared formal Item? item(Key key);
              
     }
+    
     shared interface Iterable<out Element>
             satisfies Container {
          
@@ -194,6 +195,7 @@ The most interesting operations are inherited from `Correspondence`,
         }
          
     }
+    
     shared interface Container {
              
         shared formal Boolean empty;
@@ -228,7 +230,7 @@ Now let's see the definition of Empty:
         shared actual Iterator<Bottom> iterator() {
             return emptyIterator;
         }
-        shared actual Nothing value(Natural key) {
+        shared actual Nothing item(Natural key) {
             return null;
         }
         shared actual Nothing first {
@@ -269,7 +271,7 @@ the empty set, so the union `Bottom|T` of `Bottom` with any other type `T`
 is just `T` itself.
 
 The Ceylon compiler is able to do all this reasoning automatically. So when 
-it sees an `Iterable<Bottom>`, it knows that the operation first is of type 
+it sees an `Iterable<Bottom>`, it knows that the operation `first` is of type 
 `Nothing`, i.e. it is the value `null`.
 
 Cool, huh?
@@ -297,8 +299,8 @@ does not compile:
 Here, `operators[i]` is a `String?`, which is not directly assignable to 
 `String`.
 
-Instead, if we need access to the index, we use the special form of for shown 
-above.
+Instead, if we need access to the index, we use the special form of `for` 
+shown above.
 
     for (i -> op in entries(operators)) {
         ...
