@@ -97,6 +97,7 @@ author: Tom Bentley
 * [`||`  (or)](operator/or)
 * [`||=` (or assign)](operator/or-assign)
 * [`~`   (complement)](operator/complement)
+* [`~`   (complement in)](operator/complement-in)
 * [`~=`  (complement assign)](operator/complement-assign)
 
 ???
