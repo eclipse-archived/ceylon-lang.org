@@ -9,8 +9,8 @@ author: Tom Bentley
 
 ## Usage 
 
-The left-associative, binary `.` operator is used to access the named member of 
-the operators left-hand operand. For example:
+The left-associative, binary `.` operator is used to  access the member 
+named by the right hand operand from left-hand operand. For example:
 
     process.args;
 

@@ -31,7 +31,7 @@ See the [language specification](#{site.urls.spec}#equalityandcomparisonoperator
 ## See also
 
 * [`Category`](../../ceylon.language/Category)
-* [in in the language specification](#{site.urls.spec}#equalityandcomparisonoperators)
+* [`in` in the language specification](#{site.urls.spec}#equalityandcomparisonoperators)
 * [Operator polymorphism](/documentation/tour/language-module/#operator_polymorphism) 
   in the Tour of Ceylon
 

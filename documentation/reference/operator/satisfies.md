@@ -32,7 +32,7 @@ for more details.
 ## See also
 
 * [`Type`](../../ceylon.language/Type)
-* [in in the language specification](#{site.urls.spec}#equalityandcomparisonoperators)
+* [`is` in the language specification](#{site.urls.spec}#equalityandcomparisonoperators)
 * [Operator polymorphism](/documentation/tour/language-module/#operator_polymorphism) 
   in the Tour of Ceylon
 
