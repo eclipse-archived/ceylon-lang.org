@@ -408,6 +408,27 @@ body.bp {
   }
 }
 
+// for Milestone indicators
+.milestone {
+ float: right;
+ display: block;
+ background: $menu_color;
+ padding: 0.2em 0.5em;
+ color: white;
+ font-weight: bold;
+ 
+ p {
+  margin: 0 !important;
+ }
+ a {
+  color: white !important;
+ }
+}
+
+.milestone.future {
+ background: red;
+}
+
 //NOT USED is it?
 // Page layout can be done using mixins applied to your semantic classes and IDs:
 body.two-col {
