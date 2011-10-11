@@ -82,4 +82,16 @@ class String
     str.gsub!(/\ /,'-') if options[:convert_spaces]
     str.gsub(options[:regexp], '')
   end
+
+  # This follows the generated ID rules
+  def anchorize(options = {})
+    options[:downcase] ||= true
+    options[:convert_spaces] ||= false
+    options[:regexp] ||= /[^-_A-Za-z0-9]/
+    
+    str = self.strip.removeaccents
+    str.downcase! if options[:downcase]
+    str.gsub!(/\ /,'_') if options[:convert_spaces]
+    str.gsub(options[:regexp], '')
+  end
 end
