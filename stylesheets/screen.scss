@@ -409,13 +409,15 @@ body.bp {
 }
 
 // for Milestone indicators
-.milestone {
+div.milestone {
  float: right;
  display: block;
- background: $menu_color;
- padding: 0.2em 0.5em;
- color: white;
  font-weight: bold;
+}
+.milestone {
+ background: $menu_color;
+ padding: 0.2em 0.4em;
+ color: white;
  
  p {
   margin: 0 !important;
