@@ -45,18 +45,21 @@ As an example variables `x` and `y` of a type `T` which has overridden
 `Invertable` and `Numeric`; according to the rules of arithmetic the 
 following identity *should* apply:
 
-    x - y ≡ x + (-y)
+<pre>
+    <i>x</i> - <i>y</i> ≡ <i>x</i> + (-<i>y</i>)
+</pre>
 
 Ceylon does not (and cannot) check whether the above identity holds for 
 `T`'s implementation of `Invertable` and `Numeric`. 
 
-If an identity does not apply for `T` then you cannot use that identity to 
-rewrite expressions involving `T`.
+The single most important thing to remember is that 
+**if an identity does not apply for `T` then you cannot use that identity to 
+rewrite expressions involving `T`**.
 
 Philosphically, the operator symbols are just notation and Ceylon simply
 defines how those operators work in terms of the various interfaces. It's up 
-to the author to decide what those symbols ought to
-mean, *bearing in mind those symbols have a conventional meaning*.
+to the author of a class to decide what those symbols ought to
+mean for that class, *bearing in mind those symbols have a conventional meaning*.
 
 Pragmatically, that same author would be ill-advised to try giving radically 
 different meanings to those operators: Doing so will only confuse 
