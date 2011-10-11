@@ -32,7 +32,7 @@ with two different implementations of `description`. Here's the superclass:
         
         doc "The default description"
         shared default String description = "(" radius "," angle ")";
-     
+    
     }
 
 Notice that Ceylon forces us to declare attributes or methods that can be 
@@ -104,9 +104,10 @@ this construct this later in the tour.
 
 ## Abstract classes
 
-Now let's consider a much more interesting problem: abstracting over cartesian
-an polar coordinates. Since a cartesian coordinate isn't just a special kind of 
-polar coordinate, this is a case for introduction of an abstract superclass:
+Now let's consider a much more interesting problem: abstracting over the polar
+and cartesian coordinate systems. Since a cartesian coordinate isn't just a 
+special kind of polar coordinate, this is a case for introduction of an abstract 
+superclass:
 
     doc "A coordinate-system free abstraction 
          of a geometric point"
@@ -168,8 +169,7 @@ attribute by refining it.
         shared actual Polar dilate(Float dilation) {
             return Polar(angle, radius*dilation);
         }
-        
-        
+           
     }
 
 Note that there's no way to prevent other code from extending a class in 
@@ -178,6 +178,31 @@ either `formal` or `default` can be refined, a subtype can never break the
 implementation of a supertype. Unless the supertype was explicitly designed 
 to be extended, a subtype can add members, but never change the behavior of
 inherited members.
+
+Oh, I suppose you would like to see `Cartesian`...
+
+    doc "A cartesian coordinate"
+    class Cartesian(Float x, Float y) 
+            extends Point() {
+        
+        shared actual Polar polar { 
+            return Polar( (x**2+y**2)**0.5, arctan(y/x) ); 
+        }
+        
+        shared actual Cartesian cartesian {
+            return this;
+        }
+        
+        shared actual Cartesian rotate(Float rotation) {
+            return polar.rotate(rotation).cartesian;
+        }
+        
+        shared actual Cartesian dilate(Float dilation) {
+            return Cartesian(x*dilation, y*dilation);
+        }
+                
+    }
+
 
 ## Interfaces and "mixin" inheritance
 
@@ -204,7 +229,7 @@ interface for Ceylon.
          
         shared void writeLine(String string) {
             write(string);
-            write(process.newLine);
+            write("\n");
         }
          
         shared void writeFormattedLine(String formatString, Object... args) {
@@ -216,10 +241,6 @@ interface for Ceylon.
 Note that we can't define a concrete value for the `formatter` attribute, 
 since an interface may not define a simple attribute, and may not hold a 
 reference to another object.
-
-Note also that the call to `writeLine()` from `writeFormattedLine()` resolves 
-to the instance method of `Writer`, which hides the toplevel method of the 
-same name.
 
 Now let's define a concrete implementation of this interface.
 
@@ -344,7 +365,7 @@ extending an `abstract` class or implementing an interface.
 
     doc "The origin"
     object origin extends Polar(0.0, 0.0) {
-        description = "origin";
+        shared actual String description = "origin";
     }
 
 An anonymous class may extend an ordinary class and satisfy interfaces.
@@ -366,7 +387,7 @@ named instances.
 You might be tempted to think of object declarations as defining singletons, 
 but that's not quite right:
 
-* A toplevel object declaration does define a singleton.
+* A toplevel object declaration does indeed define a singleton.
 * An object declaration nested inside a class defines an object per instance 
   of the containing class.
 * An object declaration nested inside a method, getter, or setter results in 
@@ -398,7 +419,8 @@ big difference: a `class` declaration defines a named type that we can refer
 to in other parts of the program.) We'll see later that Ceylon also lets us 
 think of a method as a parametrized attribute.
 
-An `object` declaration can refine an attribute declared `formal` or `default`.
+An `object` declaration can refine an attribute declared `formal` or `default`,
+as long as it is a subtype of the declared type of the attribute.
 
     shared abstract class App() {
         shared formal OutputStream stream;

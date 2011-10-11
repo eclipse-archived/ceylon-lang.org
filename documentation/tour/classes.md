@@ -37,18 +37,25 @@ system. Our class has two parameters, two methods, and an attribute.
         
     }
 
-Notice that the parameters used to instantiate a class are specified as part
-of the class declaration. There's no Java-style constructors in Ceylon. Also
-notice that if we only use the parameters within the body of the class, we
-don't need to define explicit members of the class to hold their values. We
-can access them directly from the `rotate()` and `dilate()` methods, and
-from the expression which specifies the value of `description`.
+There's two things in particular to notice here:
+
+1. The parameters used to instantiate a class are specified as part of the 
+   class declaration, right after the name of the class. There's no Java-style 
+   constructors in Ceylon. This syntax is less verbose and more regular than 
+   Java.
+   
+2. We make can use of the parameters of a class anywhere within the body of 
+   the class. In Ceylon, we often don't need to define explicit members of the 
+   class to hold the parameter values. Instead, we can access the parameters
+   `angle` and `radius` directly from the `rotate()` and `dilate()` methods, 
+   and from the expression which specifies the value of `description`.
 
 Notice also that Ceylon doesn't have a `new` keyword to indicate instantiation.
 
-The `shared` annotation describes the accessibility of the annotated type, 
+The `shared` annotation determines the accessibility of the annotated type, 
 attribute, or method. Before we go any further, let's see how we can hide the 
 internal implementation of a class from other code.
+
 
 ## Hiding implementation details
 
@@ -77,6 +84,7 @@ other modules.
 
 Got the idea? We are playing russian dolls here.
 
+
 ## Exposing parameters as attributes
 
 If we want to expose the `angle` and `radius` of our `Polar` coordinate to
@@ -87,8 +95,8 @@ so Ceylon lets us reuse the name of a parameter as the name of an attribute.
     doc "A polar coordinate"
     class Polar(Float angle, Float radius) {
         
-        shared Float angle=angle;
-        shared Float radius=radius;
+        shared Float angle = angle;
+        shared Float radius = radius;
         
         shared Polar rotate(Float rotation) {
             return Polar(angle+rotation, radius);
@@ -98,14 +106,18 @@ so Ceylon lets us reuse the name of a parameter as the name of an attribute.
             return Polar(angle, radius*dilation);
         }
         
+        shared String description = "(" radius "," angle ")";
+        
     }
 
-Code that used `Polar` can access the attributes of the class using a very
+Code that uses `Polar` can access the attributes of the class using a very
 convenient syntax.
 
-    void printPolar(Polar polar) {
-        print("(" polar.radius "," polar.angle ")");
+    shared Cartesian cartesian(Polar polar) {
+        return Cartesian(polar.radius*polar.cos(angle), 
+                         polar.radius*polar.sin(angle));
     }
+
 
 ## Initializing attributes
 
@@ -134,8 +146,8 @@ code? We put it directly in the body of the class!
     doc "A polar coordinate with an optional label"
     class Polar(Float angle, Float radius, String? label) {
         
-        shared Float angle=angle;
-        shared Float radius=radius;
+        shared Float angle = angle;
+        shared Float radius = radius;
         
         shared String description;
         if (exists label) {
@@ -157,6 +169,7 @@ local before making use of the simple attribute or local in an expression.
         count++;   //compile error
     }
 
+
 ## Abstracting state using attributes
 
 If you're used to writing JavaBeans, you can think of a simple attribute as a
@@ -166,9 +179,9 @@ combination of several things:
 * a getter, and, sometimes, 
 * a setter. 
 
-But not all attributes are simple value holders like the one we've just seen; 
-others are more like a getter method, or, sometimes, like a getter and setter 
-method pair.
+That's because not all attributes are simple value holders like the one we've 
+just seen; others are more like a getter method, or, sometimes, like a getter 
+and setter method pair.
 
 We'll need to expose the equivalent cartesian coordinates of a `Polar`.
 Since the cartesian coordinates can be computed from the polar coordinates,
@@ -178,8 +191,8 @@ define the attributes as _getters_.
     doc "A polar coordinate"
     class Polar(Float angle, Float radius) {
         
-        shared Float angle=angle;
-        shared Float radius=radius;
+        shared Float angle = angle;
+        shared Float radius = radius;
         
         shared Float x { return radius * cos(angle); }
         shared Float y { return radius * sin(angle); }
@@ -192,9 +205,8 @@ Notice that the syntax of a getter declaration looks a lot like a method
 declaration with no parameter list.
 
 Code that uses `Polar` never needs to know if an attribute is a simple
-attribute or a getter. No that we know about getters, we could rewrite
-our `description` attribute as a getter, without affecting any code 
-that uses it.
+attribute or a getter. Now that we know about getters, we could rewrite our 
+`description` attribute as a getter, without affecting any code that uses it.
 
     shared String description {
         if (exists label) {
@@ -270,6 +282,7 @@ Now we can create `Polar` coordinates with or without labels:
 
     Polar origin = Polar(0, 0, "origin");
     Polar coord = Polar(r, theta);
+
 
 ## There's more...
 
