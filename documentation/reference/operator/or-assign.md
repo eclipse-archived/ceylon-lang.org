@@ -8,11 +8,10 @@ milestone: Milestone 1
 
 # #{page.title}
 
-## Usage 
-
 The right-associative, binary `||=` operator is used to compute the 
-logical *or* of two operands, assigning the result to the left hand operand. 
-For example:
+logical *or* of two operands, assigning the result to the left-hand operand. 
+
+## Usage 
 
     variable Boolean a = false;
     Boolean b = true;
@@ -20,7 +19,7 @@ For example:
 
 ## Description
 
-### Polymorphism
+### Definition
 
 The `||=` operator is defined as:
 
@@ -28,6 +27,10 @@ The `||=` operator is defined as:
 
 See the [language specification](#{site.urls.spec}#logicaloperators) for 
 more details.
+
+### Polymorphism
+
+The `||` operator is not [polymorphic](/documentation/reference/operator/operator-polymorphism). 
 
 ## See also
 

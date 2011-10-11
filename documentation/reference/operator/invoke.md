@@ -8,10 +8,10 @@ milestone: Milestone 1
 
 # #{page.title}
 
-## Usage 
+The left-associative, unary `()` and `{}` operators are used to invoke methods
+and instantiate classes
 
-The left-associative, unary `()` and `{}` operators are used to invoke methods, 
-functions and instantiate classes:
+## Usage
 
     print("hello, world!");       // positional style
     print{                        // named-arguments style
@@ -25,9 +25,13 @@ For detailed information see the reference documentation on
 [method invocation](/documentation/reference/expression/method-invocation) and 
 [class invocation](/documentation/reference/expression/class-invocation).
 
+### Definition
+
+The `()` and `{}` operators are primitive.
+
 ### Polymorphism
 
-The `()` and `{}` operators are not [polymorphic](/documentation/tour/language-module/#operator_polymorphism). 
+The `()` and `{}` operators are not [polymorphic](/documentation/reference/operator/operator-polymorphism). 
 
 ## See also
 

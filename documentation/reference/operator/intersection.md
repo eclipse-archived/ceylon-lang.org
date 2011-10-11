@@ -8,30 +8,34 @@ milestone: Milestone 2
 
 # #{page.title}
 
-## Usage 
-
 The left-associative, binary `&` operator is used to compute the 
-*intersection* of two operands, for example:
+*intersection* of its operands.
+
+## Usage 
 
     Natural one = 1 & 2;
 
-It it also commonly used to intersect types, so that the declared entity 
-is assignable to both (or all) of the given types:
+## Description
+
+The operator is also commonly used to [intersect types](/documentation/reference/structure/type), 
+so that the declared entity is assignable to both (or all) of the given types:
 
     Foo&Bar foobar;
 
-## Description
+### Definition
 
-### Polymorphism
-
-The `&` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
-The meaning of `&` depends on the 
-[`Slots`](../../ceylon.language/Slots) interface as follows:
+The `&` operator is defined as follows:
 
     lhs.and(rhs)
 
 See the [language specification](#{site.urls.spec}#slotwiseoperators) for 
 more details.
+
+### Polymorphism
+
+The `&` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
+The meaning of `&` depends on the 
+[`Slots`](../../ceylon.language/Slots) interface 
 
 ### Meaning of *intersection* for built-in types
 

@@ -19,7 +19,9 @@ variable.
 
 ## Description
 
+### Definition
 
+The `is` operator is primitive.
 
 ### Polymorphism
 

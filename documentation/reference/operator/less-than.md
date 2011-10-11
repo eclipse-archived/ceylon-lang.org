@@ -8,10 +8,10 @@ milestone: Milestone 1
 
 # #{page.title}
 
-## Usage 
+The non-associating, binary `<` operator is used to test whether its left-hand 
+operand is *less than* its right-hand operand.
 
-The non-associating, binary `<` operator is used to test whether its left hand 
-operand is *less than* its right hand operand
+## Usage 
 
     Comparable<T> x;
     T y;
@@ -19,15 +19,19 @@ operand is *less than* its right hand operand
 
 ## Description
 
-### Polymorphism
+### Definition
 
-The `<` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
-The meaning of `<` depends on the 
-[`Comparable`](../../ceylon.language/Comparable) interface as follows:
+The `<` operator is defined as follows:
 
     lhs.smallerThan(rhs);
 
 See the [language specification](#{site.urls.spec}#equalityandcomparisonoperators) for more details.
+
+### Polymorphism
+
+The `<` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
+The meaning of `<` depends on the 
+[`Comparable`](../../ceylon.language/Comparable) interface. 
 
 ## See also
 

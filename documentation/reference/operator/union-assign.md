@@ -8,29 +8,32 @@ milestone: Milestone 2
 
 # #{page.title}
 
-## Usage 
-
 The right-associative, binary `|=` operator is used to compute the 
-*union* of two operands, assigning the result to the left hand 
-operand, for example:
+*union* of two operands, assigning the result to the left-hand 
+operand.
+
+## Usage
 
     variable Natural one = 1;
     one |= 2; // now 'one' has value 3
 
 ## Description
 
-### Polymorphism
 
-The `|=` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
-And is defined as follows:
+### Definition
+
+The `|=` operator is defined as follows:
 
     lhs:=lhs|rhs
 
-Where `|` is the [union operator](../union) which depends on the 
-[`Slots`](../../ceylon.language/Slots) interface.
-
 See the [language specification](#{site.urls.spec}#slotwiseoperators) for 
 more details.
+
+### Polymorphism
+
+The `|=` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
+Tge `|` in its definition is the [union operator](../union) which depends on the 
+[`Slots`](../../ceylon.language/Slots) interface.
 
 ### Meaning of *union assign* for built-in types
 

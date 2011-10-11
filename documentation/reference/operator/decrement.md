@@ -8,20 +8,18 @@ milestone: Milestone 1
 
 # #{page.title}
 
+The left-associative, unary `--` operators decrement their operand; they
+differ in whether the result is assigned before or after the decrement.
+
 ## Usage 
 
-There are two versions of the increment `--` operator. 
-
-The left-associative, postfix unary `--` operator has the operator after the
-operand:
+Postfix `--` has the operator after the operand:
 
 
     variable Natural num := 1;
     num--;
     
-The right-associative prefix unary `--` operator  puts the operator before
-the operand:
-
+Prefix `--` puts the operator before the operand:
 
     variable Natural num := 1;
     --num;
@@ -33,12 +31,7 @@ prefix operator updates its operand and evaluates to the updated value.
 The postfix operator, in contrast, decrements its operand but evaluates to the 
 value of the operand *before* the decrement.
 
-### Polymorphism
-
-The `--` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
-The meaning of `--` depends on the 
-[`Ordinal`](../../ceylon.language/Ordinal) and
-[`Settable`](../../ceylon.language/Settable) interfaces.
+### Definition
 
 The prefix `--` is defined as:
 
@@ -49,6 +42,13 @@ The postfix `--` is defined as:
     (--lhs).successor
 
 See the [language specification](#{site.urls.spec}#arithmetic) for more details.
+
+### Polymorphism
+
+The `--` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
+The meaning of `--` depends on the 
+[`Ordinal`](../../ceylon.language/Ordinal) and
+[`Settable`](../../ceylon.language/Settable) interfaces.
 
 ## See also
 

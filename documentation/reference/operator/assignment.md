@@ -8,17 +8,22 @@ milestone: Milestone 1
 
 # #{page.title}
 
-## Usage 
-
 The right-associative, binary `:=` operator is used to assign a value to a
-`variable`-annotated attribute or local variable:
+`variable`-annotated attribute or local variable.
+
+## Usage 
 
     variable Natural num := 1;
     num := 2;
 
 ## Description
 
+You have to use `:=` if you want to assign a value to a `variable`, attempting
+to use `=` will result in a compile error.
 
+### Definition
+
+The `:=` operator is primitive.
 
 ### Polymorphism
 

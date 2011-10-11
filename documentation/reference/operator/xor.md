@@ -8,25 +8,29 @@ milestone: Milestone 2
 
 # #{page.title}
 
-## Usage 
-
 The left-associative, binary `^` operator is used to compute the 
-*exclusive-or* of two operands, for example:
+*exclusive-or* of two operands.
+
+## Usage
 
     Natural two = 1 ^ 3;
 
 ## Description
 
-### Polymorphism
+### Definition
 
-The `^` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
-The meaning of `^` depends on the 
-[`Slots`](../../ceylon.language/Slots) interface as follows:
+The `^` operator is defined as follows:
 
     lhs.xor(rhs)
 
 See the [language specification](#{site.urls.spec}#slotwiseoperators) for 
 more details.
+
+### Polymorphism
+
+The `^` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
+The meaning of `^` depends on the 
+[`Slots`](../../ceylon.language/Slots) interface 
 
 ### Meaning of *xor* for built-in types
 

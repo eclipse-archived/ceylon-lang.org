@@ -10,10 +10,25 @@ milestone: Milestone 1
 
 ## Description
 
-Ceylon supports *operator polymorphism*, which means that most of the
-[operators](../..index#operators) in the language correspond to methods
-defined on interfaces in the language module. This means that it is possible to 
-specify the behaviour of operators in a type-specific way.
+### Primitive and polymorphic operators
+
+Almost all of the operators in Ceylon can be expressed in terms of 
+methods defined on classes and/or interfaces in the language module. 
+Those operators which do not have such a definition are called 
+*primitive* operators. The primitive operators are:
+
+* `.` (member), 
+* `:=` (assignment), 
+* `is`, 
+* `()` (positional invocation),
+* `{}` (named argument invocation)
+
+Many non-primitive operators are *polymorphic*, which means that it is 
+possible to specify the behaviour of operators in a type-specific way by 
+satisfying the interface(s) used in the operator's definition.
+
+Not all non-primitive operators are polymorphic. Some are defined only in 
+terms of the primitive operators, for example.
 
 ### Simple Example
 
@@ -52,6 +67,8 @@ following identity *should* apply:
 Ceylon does not (and cannot) check whether the above identity holds for 
 `T`'s implementation of `Invertable` and `Numeric`. 
 
+### Advice
+
 The single most important thing to remember is that 
 **if an identity does not apply for `T` then you cannot use that identity to 
 rewrite expressions involving `T`**.
@@ -77,16 +94,6 @@ calls will be clearest.
 The user of a class which implements the various operator interfaces is 
 advised to be cautious about assuming the truth of identities which are not 
 documented as being satisfied.
-
-### Non-polymorphic operators
-
-The following operators are fundamental and not polymorphic: 
-
-* `.` (member), 
-* `:=` (assignment), 
-* `is`, 
-* `()` (positional invocation),
-* `{}` (named argument invocation)
 
 
 ## See also

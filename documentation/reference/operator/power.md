@@ -8,26 +8,29 @@ milestone: Milestone 1
 
 # #{page.title}
 
+The right-associative, binary `**` operator is used to compute its left-hand 
+operand *raised to the power* of its right-hand operand.
+
 ## Usage 
-
-The right-associative, binary `**` operator is used to compute the *power* 
-(or exponent) of two operands, for example:
-
 
     Natural eight = 2 ** 3;
 
 ## Description
+
+### Definition
+
+The `**` operator is defined as follows:
+
+    lhs.castTo<N>().power(rhs.castTo<N>());
+
+See the [language specification](#{site.urls.spec}#arithmetic) for more details.
 
 ### Polymorphism
 
 The `**` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
 The meaning of `**` depends on the 
 [`Numeric`](../../ceylon.language/Numeric) and
-[`Castable`](../../ceylon.language/Castable) interfaces as follows:
-
-    lhs.castTo<N>().power(rhs.castTo<N>());
-
-See the [language specification](#{site.urls.spec}#arithmetic) for more details.
+[`Castable`](../../ceylon.language/Castable) interfaces.
 
 ### Meaning of product for built-in types
 

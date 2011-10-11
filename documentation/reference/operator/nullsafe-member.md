@@ -3,14 +3,15 @@ layout: reference
 title: `?.` (null-safe member) operator
 tab: documentation
 author: Tom Bentley
+milestone: Milestone 1
 ---
 
 # #{page.title}
 
-## Usage 
-
 The left-associative, binary `?.` operator is used to access a member if
-the owner of the member is not `null`:
+the its right-hand operand is not `null`.
+
+## Usage 
 
     Number? num;
     Integer int = num?.positiveValue;
@@ -25,7 +26,7 @@ The meaning of `?.` is defined as follows:
 
 ### Polymorphism
 
-The `?.` operator is not polymorphic.
+The `?.` operator is not [polymorphic](/documentation/reference/operator/operator-polymorphism). 
 
 ## See also
 

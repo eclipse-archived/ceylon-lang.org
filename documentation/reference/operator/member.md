@@ -8,16 +8,20 @@ milestone: Milestone 1
 
 # #{page.title}
 
-## Usage 
-
 The left-associative, binary `.` operator is used to  access the member 
-named by the right hand operand from left-hand operand. For example:
+named by the right-hand operand from left-hand operand.
+
+## Usage 
 
     process.args;
 
 ## Description
 
 Members include attributes, methods, classes and interfaces.
+
+### Definition
+
+The `.` operator is primitive.
 
 ### Polymorphism
 

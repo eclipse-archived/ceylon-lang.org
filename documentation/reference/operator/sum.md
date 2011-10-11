@@ -8,26 +8,29 @@ milestone: Milestone 1
 
 # #{page.title}
 
-## Usage 
+The left-associative, binary `+` operator is used to *sum* two operands.
 
-The left-associative, binary `+` operator is used to *sum* two operands, for 
-example:
+## Usage 
 
     Natural three = 1 + 2;
     String concatenated = "foo" + "bar";
 
 ## Description
 
+### Definition
+
+The `+` operator is defined as follows:
+
+    lhs.castTo<N>().plus(rhs.castTo<N>());
+
+See the [language specification](#{site.urls.spec}#arithmetic) for more details.
+
 ### Polymorphism
 
 The `+` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
 The meaning of `+` depends on the 
 [`Summable`](../../ceylon.language/Summable) and
-[`Castable`](../../ceylon.language/Castable) interfaces as follows:
-
-    lhs.castTo<N>().plus(rhs.castTo<N>());
-
-See the [language specification](#{site.urls.spec}#arithmetic) for more details.
+[`Castable`](../../ceylon.language/Castable) interfaces.
 
 ### Meaning of `+` for built-in types
 

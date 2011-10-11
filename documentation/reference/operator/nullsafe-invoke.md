@@ -3,6 +3,7 @@ layout: reference
 title: `()` or `{}` (null-safe invoke) operator
 tab: documentation
 author: Tom Bentley
+milestone: Milestone 1
 ---
 
 # #{page.title}
@@ -33,7 +34,7 @@ invocation.
 
 ### Polymorphism
 
-This operator is not polymorphic.
+This operator is not [polymorphic](/documentation/reference/operator/operator-polymorphism). 
 
 ## See also
 

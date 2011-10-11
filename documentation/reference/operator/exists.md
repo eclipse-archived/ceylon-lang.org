@@ -3,26 +3,30 @@ layout: reference
 title: `exists` operator
 tab: documentation
 author: Tom Bentley
+milestone: Milestone 1
 ---
 
 # #{page.title}
 
-## Usage 
-
 The non-associating, unary `exists` operator is used to test its operand for 
 nullness.
+
+## Usage 
 
     Natural? num;
     Boolean haveNum = num exists;
 
 ## Description
 
-### Polymorphism
+### Definition
 
-The `exists` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
 The meaning of `exists` is defined as follows:
 
     if (exists lhs) true else false
+
+### Polymorphism
+
+The `exists` operator is not [polymorphic](/documentation/reference/operator/operator-polymorphism). 
 
 ## See also
 

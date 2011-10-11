@@ -8,6 +8,10 @@ milestone: Milestone 2
 
 # #{page.title}
 
+The right-associative, binary `~=` operator is used to compute the 
+*complement* of its left-hand operand in its right-hand operand, assigning the 
+result to the left-hand operand. 
+
 ## Usage 
 
     Set<T> a;
@@ -17,23 +21,22 @@ milestone: Milestone 2
 
 ## Description
 
-The right-associative, binary `~=` operator is used to compute the 
-*complement* of its left hand operand in its right hand operand, assigning the 
-result to the left hand operand. 
-In other words, '~=' is 'set minus' with assign.
 
-### Polymorphism
+### Definition
 
-The `~=` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism),
-and is defined as follows:
+The `~` operator is defined as follows:
 
     lhs := lhs~rhs
 
-Where `~` is the [complement in](../complement-in) operator which depends on the 
-[`Slots`](../../ceylon.language/Slots) interface.
-
 See the [language specification](#{site.urls.spec}#slotwiseoperators) for 
 more details.
+
+### Polymorphism
+
+The `~=` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism).
+
+The `~` in the definition is the [complement in](../complement-in) operator 
+which depends on the [`Slots`](../../ceylon.language/Slots) interface.
 
 ### Meaning of *complement assign* for built-in types
 

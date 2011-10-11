@@ -8,10 +8,10 @@ milestone: Milestone 1
 
 # #{page.title}
 
-## Usage 
+The right-associative, unary `+` operator is used to get the clarify the 
+positive value of its operand.
 
-The unary `+` operator is used to get the clarify the positive value of 
-its operand, for example:
+## Usage 
 
     Integer one = +1;
 
@@ -21,15 +21,19 @@ Note that `+` does not change the sign of a negative number:
 
     Integer minusOne = +(-1);
 
-### Polymorphism
+### Definition 
 
-The unary `+` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
-The meaning of `+` depends on 
-[`Invertable`](../../ceylon.language/Invertable) interface as follows:
+The `+` operator is defined as follows:
 
     rhs.positiveValue;
 
 See the [language specification](#{site.urls.spec}#arithmetic) for more details.
+
+### Polymorphism
+
+The unary `+` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
+The meaning of `+` depends on 
+[`Invertable`](../../ceylon.language/Invertable) interface 
 
 ### Meaning of unary plus for built-in types
 

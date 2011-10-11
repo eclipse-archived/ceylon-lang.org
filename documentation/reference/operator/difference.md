@@ -8,26 +8,29 @@ milestone: Milestone 1
 
 # #{page.title}
 
-## Usage 
-
 The left-associative, binary `-` operator is used to take the *difference* of 
-two operands, for example:
+two operands.
 
+## Usage 
 
     Natural one = 3 - 2;
 
 ## Description
+
+### Definition
+
+The `-` operator is defined as 
+
+    lhs.castTo<N>().minus(rhs.castTo<N>());
+
+See the [language specification](#{site.urls.spec}#arithmetic) for more details.
 
 ### Polymorphism
 
 The `-` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
 The meaning of `-` depends on the 
 [`Numeric`](../../ceylon.language/Numeric) and
-[`Castable`](../../ceylon.language/Castable) interfaces as follows:
-
-    lhs.castTo<N>().minus(rhs.castTo<N>());
-
-See the [language specification](#{site.urls.spec}#arithmetic) for more details.
+[`Castable`](../../ceylon.language/Castable) interfaces.
 
 ### Meaning of *difference* for built-in types
 

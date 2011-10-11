@@ -8,30 +8,34 @@ milestone: Milestone 2
 
 # #{page.title}
 
-## Usage 
-
 The left-associative, binary `|` operator is used to compute the 
-*union* of two operands, for example:
+*union* of two operands.
+
+## Usage 
 
     Natural two = 1 | 2;
 
-It it also commonly used to union types, so that the declared entity 
-is assignable to either (or one) of the given types:
+## Description
+
+The `|` operator is also commonly used to [union types](/documentation/reference/structure/type), 
+so that the declared entity is assignable to either (or one) of the given types:
 
     Foo|Bar fooOrBar;
 
-## Description
+### Definition
 
-### Polymorphism
-
-The `|` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
-The meaning of `|` depends on the 
-[`Slots`](../../ceylon.language/Slots) interface as follows:
+The `|` operator is defined as follows:
 
     lhs.or(rhs)
 
 See the [language specification](#{site.urls.spec}#slotwiseoperators) for 
 more details.
+
+### Polymorphism
+
+The `|` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
+The meaning of `|` depends on the 
+[`Slots`](../../ceylon.language/Slots) interface 
 
 ### Meaning of *union* for built-in types
 

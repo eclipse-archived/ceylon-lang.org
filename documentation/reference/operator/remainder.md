@@ -8,26 +8,29 @@ milestone: Milestone 1
 
 # #{page.title}
 
+The binary, left-associative `%` operator is used to get the remainder of an
+integer division.
+
 ## Usage 
-
-The binary left-associative `%` operator is used to get the remainder of an
-integer division, for example:
-
 
     Integer two = 5 % 3;
 
 ## Description
+
+### Definition
+
+The `%` operator is defined as follows:
+
+    lhs.castTo<N>().remainder(rhs.castTo<N>());
+
+See the [language specification](#{site.urls.spec}#arithmetic) for more details.
 
 ### Polymorphism
 
 The `%` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
 The meaning of `%` depends on the 
 [`Integral`](../../ceylon.language/Integral) and
-[`Castable`](../../ceylon.language/Castable) interfaces as follows:
-
-    lhs.castTo<N>().remainder(rhs.castTo<N>());
-
-See the [language specification](#{site.urls.spec}#arithmetic) for more details.
+[`Castable`](../../ceylon.language/Castable) interfaces 
 
 ### Meaning of product for built-in types
 

@@ -8,6 +8,9 @@ milestone: Milestone 2
 
 # #{page.title}
 
+The left-associative, binary `~` operator is used to compute the 
+*complement* of its left-hand operand in its right-hand operand. 
+
 ## Usage 
 
     Set<T> a;
@@ -17,20 +20,22 @@ milestone: Milestone 2
 
 ## Description
 
-The left-associative, binary `~` operator is used to compute the 
-*complement* of its left hand operand in its right hand operand. In other 
-words, binary '~' is 'set minus'.
+Another way of describing this operator is 'set minus'.
 
-### Polymorphism
+### Definition
 
-The `~` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
-The meaning of `~` depends on the 
-[`Slots`](../../ceylon.language/Slots) interface as follows:
+The `~` operator is defined as follows:
 
     lhs.complement(rhs);
 
 See the [language specification](#{site.urls.spec}#slotwiseoperators) for 
 more details.
+
+### Polymorphism
+
+The `~` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
+The meaning of `~` depends on the 
+[`Slots`](../../ceylon.language/Slots) interface.
 
 ### Meaning of *complement in* for built-in types
 

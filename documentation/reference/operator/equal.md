@@ -8,10 +8,10 @@ milestone: Milestone 1
 
 # #{page.title}
 
-## Usage 
-
 The non-associating, binary `==` operator is used to test whether its operands 
-are *equal*:
+are *equal*.
+
+## Usage 
 
     Equality<T> x;
     T y;
@@ -19,15 +19,19 @@ are *equal*:
 
 ## Description
 
-### Polymorphism
+### Definition
 
-The `==` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
-The meaning of `==` depends on the 
-[`Equality`](../../ceylon.language/Equality) interface as follows:
+The `==` operator is defined as follows:
 
     lhs.equals(rhs);
 
 See the [language specification](#{site.urls.spec}#equalityandcomparisonoperators) for more details.
+
+### Polymorphism
+
+The `==` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
+The meaning of `==` depends on the 
+[`Equality`](../../ceylon.language/Equality) interface.
 
 ### Meaning of *identical* for built-in types
 

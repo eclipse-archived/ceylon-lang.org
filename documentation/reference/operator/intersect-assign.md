@@ -8,29 +8,30 @@ milestone: Milestone 2
 
 # #{page.title}
 
-## Usage 
-
 The right-associative, binary `&=` operator is used to compute the 
-*intersection* of two operands, assigning the result to the left hand 
-operand, for example:
+*intersection* of two operands, assigning the result to the left-hand 
+operand.
+
+## Usage 
 
     variable Natural one = 1;
     one &= 2; // still one
 
 ## Description
 
-### Polymorphism
-
-The `&=` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
 And is defined as follows:
 
     lhs:=lhs&rhs
 
-Where `&=` is the [intersect operator](../intersect) which depends on the 
-[`Slots`](../../ceylon.language/Slots) interface.
-
 See the [language specification](#{site.urls.spec}#slotwiseoperators) for 
 more details.
+
+### Polymorphism
+
+The `&=` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
+
+The `&` in the definition is the [intersect operator](../intersect) which 
+depends on the [`Slots`](../../ceylon.language/Slots) interface.
 
 ### Meaning of *intersect assign* for built-in types
 

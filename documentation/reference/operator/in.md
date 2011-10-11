@@ -8,10 +8,10 @@ milestone: Milestone 1
 
 # #{page.title}
 
-## Usage 
+The non-associating, binary `in` operator is used to test whether its left-hand 
+operand is *contained in* its right-hand operand
 
-The non-associating, binary `in` operator is used to test whether its left hand 
-operand is *contained in* its right hand operand
+## Usage 
 
     Object x;
     Category y;
@@ -19,15 +19,18 @@ operand is *contained in* its right hand operand
 
 ## Description
 
-### Polymorphism
-
-The `in` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
-The meaning of `in` depends on the 
-[`Category`](../../ceylon.language/Category) interface as follows:
+### Definition
+The `in` operator is defined as follows:
 
     lhs.contained(rhs);
 
 See the [language specification](#{site.urls.spec}#equalityandcomparisonoperators) for more details.
+
+### Polymorphism
+
+The `in` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
+The meaning of `in` depends on the 
+[`Category`](../../ceylon.language/Category) interface
 
 ## See also
 

@@ -8,25 +8,27 @@ milestone: Milestone 1
 
 # #{page.title}
 
+The right-associative, unary `-` operator is used to invert the sign of its operand
+
 ## Usage 
-
-The unary `-` operator is used to invert the sign of
-its operand, for example:
-
 
     Integer minusOne = -1;
 
 ## Description
 
-### Polymorphism
+### Definition
 
-The unary `-` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
-The meaning of `-` depends on 
-[`Invertable`](../../ceylon.language/Invertable) interface as follows:
+The `-` operator is defined as follows:
 
     rhs.negativeValue;
 
 See the [language specification](#{site.urls.spec}#arithmetic) for more details.
+
+### Polymorphism
+
+The unary `-` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
+The meaning of `-` depends on 
+[`Invertable`](../../ceylon.language/Invertable) interface
 
 ### Meaning of unary plus for built-in types
 

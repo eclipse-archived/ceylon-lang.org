@@ -8,11 +8,11 @@ milestone: Milestone 1
 
 # #{page.title}
 
-## Usage 
-
 The right-associative, binary `.=` operator is used to access the member 
-named by the right hand operand from left-hand operand and assign the result to 
-the left hand operand.
+named by the right-hand operand from left-hand operand and assign the result to 
+the left-hand operand.
+
+## Usage 
 
 The *follow* version is used for accessing attributes:
 
@@ -30,19 +30,21 @@ The *apply* version is used for invoking methods:
 
 ## Description
 
-### Polymorphism
+### Definition
 
-The *follow* and *apply* operators are [polymorphic](/documentation/reference/operator/operator-polymorphism). 
-The meaning of *follow* depends on the 
-[`Attribute`](../../ceylon.language/Attribute) interface as follows:
+The *follow* operator is defined as:
 
     lhs:=lhs.member
 
-The *apply* operator depends on [`Method`](../../ceylon.language/Method)
+The *apply* operator is defined as:
 
     lhs:=lhs.member(x,y,z)
 
 See the [language specification](#{site.urls.spec}#basic) for more details.
+
+### Polymorphism 
+
+The *follow* and *apply* operators are not [polymorphic](/documentation/reference/operator/operator-polymorphism). 
 
 ## See also
 

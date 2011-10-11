@@ -8,29 +8,31 @@ milestone: Milestone 2
 
 # #{page.title}
 
-## Usage 
-
 The right-associative, binary `^=` operator is used to compute the 
-*exclusive or* of two operands, assigning the result to the left hand 
-operand, for example:
+*exclusive or* of two operands, assigning the result to the left-hand 
+operand.
+
+## Usage 
 
     variable Natural one = 1;
     one ^= 3; // now 'one' has value 2
 
 ## Description
 
-### Polymorphism
+### Definition
 
-The `^=` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
-And is defined as follows:
+The `^=` operator is defined as follows:
 
     lhs:=lhs^rhs
 
-Where `^` is the [xor operator](../xor) which depends on the 
-[`Slots`](../../ceylon.language/Slots) interface.
-
 See the [language specification](#{site.urls.spec}#slotwiseoperators) for 
 more details.
+
+### Polymorphism
+
+The `^=` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
+The `^` in the definition is the [xor operator](../xor) which depends on the 
+[`Slots`](../../ceylon.language/Slots) interface.
 
 ### Meaning of *xor assign* for built-in types
 

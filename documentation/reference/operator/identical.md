@@ -8,10 +8,10 @@ milestone: Milestone 1
 
 # #{page.title}
 
-## Usage 
-
 The non-associating, binary `===` operator is used to test whether its operands 
-are *identical*:
+are *identical*
+
+## Usage 
 
     IdentifiableObject x;
     IdentifiableObject y;
@@ -19,15 +19,19 @@ are *identical*:
 
 ## Description
 
-### Polymorphism
+### Definition 
 
-The `===` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
-The meaning of `===` depends on the 
-[`IdentifiableObject`](../../ceylon.language/IdentifiableObject) interface as follows:
+The `===` operator is defined as follows:
 
     lhs.identical(rhs);
 
 See the [language specification](#{site.urls.spec}#equalityandcomparisonoperators) for more details.
+
+### Polymorphism
+
+The `===` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
+The meaning of `===` depends on the 
+[`IdentifiableObject`](../../ceylon.language/IdentifiableObject) interface
 
 ### Meaning of *identical* for built-in types
 

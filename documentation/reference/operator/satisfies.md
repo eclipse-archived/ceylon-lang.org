@@ -8,10 +8,10 @@ milestone: Milestone 1
 
 # #{page.title}
 
-## Usage 
-
 The non-associating, binary `satisfies` operator is used to test whether its 
-left hand  operand is *satisfies* its right hand operand
+left-hand  operand is *satisfies* its right-hand operand.
+
+## Usage 
 
     Type<Void> x;
     Type<Void> y;
@@ -19,16 +19,20 @@ left hand  operand is *satisfies* its right hand operand
 
 ## Description
 
-### Polymorphism
+### Definition
 
-The `satisfies` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
-The meaning of `satisfies` depends on the 
-[`Type`](../../ceylon.language/Type) interface as follows:
+The `satisfies` operator is defined as follows:
 
     lhs.satisfiesType(rhs);
 
 See the [language specification](#{site.urls.spec}#equalityandcomparisonoperators) 
 for more details.
+
+### Polymorphism
+
+TODO The `satisfies` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
+The meaning of `satisfies` depends on the 
+[`Type`](../../ceylon.language/Type) interface.
 
 ## See also
 

@@ -8,9 +8,10 @@ milestone: Milestone 1
 
 # #{page.title}
 
-## Usage 
+The non-associating, binary `<=>` operator is used to *compare* the order of 
+its operands.
 
-The non-associating, binary `<=>` operator is used to *compare* its operands:
+## Usage 
 
     Comparable<T> x;
     T y;
@@ -18,15 +19,19 @@ The non-associating, binary `<=>` operator is used to *compare* its operands:
 
 ## Description
 
-### Polymorphism
+### Definition
 
-The `<=>` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
-The meaning of `<=>` depends on the 
-[`Comparable`](../../ceylon.language/Comparable) interface as follows:
+The `<=>` operator is defined as follows:
 
     lhs.compare(rhs);
 
 See the [language specification](#{site.urls.spec}#equalityandcomparisonoperators) for more details.
+
+### Polymorphism
+
+The `<=>` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
+The meaning of `<=>` depends on the 
+[`Comparable`](../../ceylon.language/Comparable) interface 
 
 ## See also
 
