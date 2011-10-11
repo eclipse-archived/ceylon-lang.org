@@ -63,15 +63,23 @@ declarations.
 	    print("Hello, World!");
 	}
 
-The `doc`, `by`, `see` and `throw` annotations contain documentation that is 
+The `doc`, `by`, `see` and `throws` annotations contain documentation that is 
 included in the output of the Ceylon documentation compiler.
 
 Notice that when an annotation argument is a literal, it doesn't need to be 
-enclosed in parentheses.
+enclosed in parentheses. We can write simply: 
 
-Annotations like `doc`, `by`, `see` etc aren't keywords. They're just ordinary 
-identifiers. The same is true for annotations which are part of the language 
-definition: `abstract`, `variable`, `shared`, `formal`, `actual` etc.
+    by "Gavin"
+
+instead of:
+
+    by ("Gavin")
+
+Annotations like `doc`, `by`, `see`, and `throws`, aren't keywords. They're 
+just ordinary identifiers. The same is true for annotations which are part of 
+the language definition, for example: `abstract`, `variable`, `shared`, `formal`, 
+`default`, `actual`, etc. This is quite different to other C-like languages. On 
+the other hand, `void` _is_ a keyword, just like in C or Java.
 
 ## Strings and string interpolation
 
