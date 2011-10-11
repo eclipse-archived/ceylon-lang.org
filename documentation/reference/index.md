@@ -62,6 +62,8 @@ author: Tom Bentley
 * [`&&=` (and assign)](operator/and-assign)
 * [`&=`  (intersect assign)](operator/intersect-assign) <!-- m2 -->
 * [`()`  (invoke)](operator/invoke)
+* [`()`  (null-safe invoke)](operator/nullsafe-invoke)
+* [`()`  (spread invoke)](operator/spread-invoke)
 * [`*`   (product)](operator/product)
 * [`**`  (power)](operator/power)
 * [`*=`  (multiply assign)](operator/multiply-assign)
@@ -89,6 +91,12 @@ author: Tom Bentley
 * [`>`   (greater than)](operator/greater-than)
 * [`>=`  (greater than or equal)](operator/greater-than-or-equal)
 * [`?=`  (default assign)](operator/default-assign)
+* [`?[x]` (nullsafe-lookup)](operator/nullsafe-lookup)
+* [`[x]` (lookup)](operator/lookup)
+* [`[x]` (sequenced-lookup)](operator/sequenced-lookup)
+* [`[x..y]` (subrange)](operator/subrange)
+* [`[x...]` (upper range)](operator/upper-range)
+* [`[].` (spread member)](operator/spread)
 * [`^`   (xor)](operator/xor) <!-- m2 -->
 * [`^=`  (xor assign)](operator/xor-assign) <!-- m2 -->
 * [`in`  (in)](operator/in)
@@ -98,14 +106,11 @@ author: Tom Bentley
 * [`||`  (or)](operator/or)
 * [`||=` (or assign)](operator/or-assign)
 * [`{}`  (invoke)](operator/invoke)
+* [`{}`  (null-safe invoke)](operator/nullsafe-invoke)
+* [`{}`  (spread invoke)](operator/spread-invoke)
 * [`~`   (complement)](operator/complement) <!-- m2 -->
 * [`~`   (complement in)](operator/complement-in) <!-- m2 -->
 * [`~=`  (complement assign)](operator/complement-assign) <!-- m2 -->
-
-???
-
-* `? :` (ternary operator)
-* `[]` (subscript)
 
 
 ### Literals
