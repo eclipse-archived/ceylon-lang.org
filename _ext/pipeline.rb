@@ -50,6 +50,15 @@ Awestruct::Extensions::Pipeline.new do
   transformer Awestruct::Extensions::Gsub.new(
     /<pre><code>(.*?)<\/code><\/pre>/, 
     "<pre class=\"brush: ceylon\">\\1</pre>")
+  transformer Awestruct::Extensions::Gsub.new(
+    /\<!--\s*m1\s*--\>\s*/, 
+    "<span class='milestone'><a href='/documentation/roadmap/#milestone_1' title='Support for this feature was introduced in Milestone 1'>Milestone 1</a></span>")
+  transformer Awestruct::Extensions::Gsub.new(
+    /\<!--\s*m2\s*--\>\s*/, 
+    "<span class='milestone future'><a href='/documentation/roadmap/#milestone_2' title='Support for this feature will be introduced in Milestone 2'>Milestone 2</a></span>")
+  transformer Awestruct::Extensions::Gsub.new(
+    /\<!--\s*m3\s*--\>\s*/, 
+    "<span class='milestone future'><a href='/documentation/roadmap/#milestone_3' title='Support for this feature will be introduced in Milestone 3'>Milestone 3</a></span>")
     
   transformer Awestruct::Extensions::DeepLink.new
 end

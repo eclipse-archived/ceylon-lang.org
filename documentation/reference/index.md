@@ -57,10 +57,10 @@ author: Tom Bentley
 * [`$`   (format)](operator/format)
 * [`%`   (remainder)](operator/remainder)
 * [`%=`  (remainder assign)](operator/remainder-assign)
-* [`&`   (intersection)](operator/intersection) <span class="milestone future">[Milestone 2](/documentation/roadmap/#Milestone_2 "Support for this feature will be introduced in Milestone 2")</span>
+* [`&`   (intersection)](operator/intersection) <!-- m2 -->
 * [`&&`  (and)](operator/and)
 * [`&&=` (and assign)](operator/and-assign)
-* [`&=`  (intersect assign)](operator/intersect-assign) <span class="milestone future">[Milestone 2](/documentation/roadmap/#Milestone_2 "Support for this feature will be introduced in Milestone 2")</span>
+* [`&=`  (intersect assign)](operator/intersect-assign) <!-- m2 -->
 * [`()`  (invoke)](operator/invoke)
 * [`*`   (product)](operator/product)
 * [`**`  (power)](operator/power)
@@ -89,18 +89,18 @@ author: Tom Bentley
 * [`>`   (greater than)](operator/greater-than)
 * [`>=`  (greater than or equal)](operator/greater-than-or-equal)
 * [`?=`  (default assign)](operator/default-assign)
-* [`^`   (xor)](operator/xor) <span class="milestone future">[Milestone 2](/documentation/roadmap/#Milestone_2 "Support for this feature will be introduced in Milestone 2")</span>
-* [`^=`  (xor assign)](operator/xor-assign) <span class="milestone future">[Milestone 2](/documentation/roadmap/#Milestone_2 "Support for this feature will be introduced in Milestone 2")</span>
+* [`^`   (xor)](operator/xor) <!-- m2 -->
+* [`^=`  (xor assign)](operator/xor-assign) <!-- m2 -->
 * [`in`  (in)](operator/in)
 * [`is`  (is)](operator/is)
-* [`|`   (union)](operator/union) <span class="milestone future">[Milestone 2](/documentation/roadmap/#Milestone_2 "Support for this feature will be introduced in Milestone 2")</span>
-* [`|=`  (union assign)](operator/union-assign) <span class="milestone future">[Milestone 2](/documentation/roadmap/#Milestone_2 "Support for this feature will be introduced in Milestone 2")</span>
+* [`|`   (union)](operator/union) <!-- m2 -->
+* [`|=`  (union assign)](operator/union-assign) <!-- m2 -->
 * [`||`  (or)](operator/or)
 * [`||=` (or assign)](operator/or-assign)
 * [`{}`  (invoke)](operator/invoke)
-* [`~`   (complement)](operator/complement) <span class="milestone future">[Milestone 2](/documentation/roadmap/#Milestone_2 "Support for this feature will be introduced in Milestone 2")</span>
-* [`~`   (complement in)](operator/complement-in) <span class="milestone future">[Milestone 2](/documentation/roadmap/#Milestone_2 "Support for this feature will be introduced in Milestone 2")</span>
-* [`~=`  (complement assign)](operator/complement-assign) <span class="milestone future">[Milestone 2](/documentation/roadmap/#Milestone_2 "Support for this feature will be introduced in Milestone 2")</span>
+* [`~`   (complement)](operator/complement) <!-- m2 -->
+* [`~`   (complement in)](operator/complement-in) <!-- m2 -->
+* [`~=`  (complement assign)](operator/complement-assign) <!-- m2 -->
 
 ???
 
