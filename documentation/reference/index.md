@@ -52,6 +52,7 @@ author: Tom Bentley
 
 ## Operators
 
+* [operator polymorphism](operator/operator-polymorphism)
 * [`!`   (not)](operator/not)
 * [`!=`  (not equal)](operator/not-equal)
 * [`$`   (format)](operator/format)
