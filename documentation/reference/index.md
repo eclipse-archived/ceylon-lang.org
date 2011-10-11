@@ -25,8 +25,8 @@ author: Tom Bentley
 * [`extends` (inheritance)](type/inheritance)
 * [`satisfies` (satisfaction)](type/satisfaction)
 * [Generics](type/generics)
-* [Introductions](type/introduction)
-* [Annotations](type/annotation)
+* [Introductions](type/introduction) <!-- m2 -->
+* [Annotations](type/annotation) <!-- m3 -->
 
 ## Statements
 
