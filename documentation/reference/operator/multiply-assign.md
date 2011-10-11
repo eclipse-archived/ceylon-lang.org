@@ -51,7 +51,9 @@ See the [language specification](#{site.urls.spec}#arithmetic) for more details.
 
 ### Widening
 
-The types of the operands need not match because of the call to `cast<N>()` 
+Widening will be implemented in <!-- m2 -->
+
+The types of the operands need not match because of the call to `castTo<N>()` 
 in the definition of the operator. In other words assuming it's possible to 
 widen the `rhs` so that it's the same type as the `lhs` then 
 such a widening will automatically be performed. It is a compile time error if 

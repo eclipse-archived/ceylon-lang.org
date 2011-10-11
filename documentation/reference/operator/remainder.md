@@ -40,7 +40,9 @@ remainder operator cannot be used on them.
 
 ### Widening
 
-The types of the operands need not match because of the calls to `cast<N>()` 
+Widening will be implemented in <!-- m2 -->
+
+The types of the operands need not match because of the calls to `castTo<N>()` 
 in the definition of the operator. In other words assuming it's possible to 
 widen one of the `lhs` or `rhs` so that it's the same type as the other then 
 such a widening will automatically be performed. It is a compile time error if 
