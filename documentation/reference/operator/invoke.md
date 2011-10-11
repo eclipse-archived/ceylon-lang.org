@@ -31,5 +31,7 @@ The `()` and `{}` operators are not [polymorphic](/documentation/tour/language-m
 
 ## See also
 
+* [null-safe version](../nullsafe-invoke) of invoke.
+* [spread invoke](../spread-invoke) for calling a `Callable[]`
 * [`Callable`](../../ceylon.language/Callable)
 

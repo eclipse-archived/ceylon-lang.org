@@ -1,0 +1,41 @@
+---
+layout: reference
+title: `()` or `{}` (null-safe invoke) operator
+tab: documentation
+author: Tom Bentley
+---
+
+# #{page.title}
+
+The left-associative, unary null-safe version of the invoke 
+`()` and `{}` operators are used to invoke methods on possibly `null`
+primaries.
+
+## Usage 
+
+    Number? num;
+    Integer int = num?.positiveValue;
+
+## Description
+
+Visually the null-safe invoke operators look identical to their
+[invoke operator](../invoke) counterparts, the difference is in the
+types of their operands.
+
+### Definition
+
+The meaning of null-safe `()` invoke is defined as follows:
+
+    if (exists lhs) lhs(x,y,z) else null
+
+With the named-argument version entirely analogous only using `{}` in the 
+invocation.
+
+### Polymorphism
+
+This operator is not polymorphic.
+
+## See also
+
+* Ordinary [`()` and `{}` (invoke)](../invoke) operator
+
