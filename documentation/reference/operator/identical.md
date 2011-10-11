@@ -3,6 +3,7 @@ layout: reference
 title: `===` (identical) operator
 tab: documentation
 author: Tom Bentley
+milestone: Milestone 1
 ---
 
 # #{page.title}

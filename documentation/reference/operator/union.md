@@ -3,6 +3,7 @@ layout: reference
 title: `|` (union) operator
 tab: documentation
 author: Tom Bentley
+milestone: Milestone 2
 ---
 
 # #{page.title}
