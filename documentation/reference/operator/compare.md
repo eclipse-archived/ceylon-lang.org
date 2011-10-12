@@ -37,6 +37,8 @@ The meaning of `<=>` depends on the
 
 * [`Comparable`](../../ceylon.language/Comparable)
 * [compare in the language specification](#{site.urls.spec}#equalityandcomparisonoperators)
+* [operator precedence](#{site.urls.spec}#operatorprecedence) in the 
+  language specification
 * [Operator polymorphism](/documentation/tour/language-module/#operator_polymorphism) 
   in the Tour of Ceylon
 

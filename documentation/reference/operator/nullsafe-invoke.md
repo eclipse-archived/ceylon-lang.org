@@ -39,4 +39,5 @@ This operator is not [polymorphic](/documentation/reference/operator/operator-po
 ## See also
 
 * Ordinary [`()` and `{}` (invoke)](../invoke) operator
-
+* [operator precedence](#{site.urls.spec}#operatorprecedence) in the 
+  language specification

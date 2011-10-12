@@ -42,6 +42,8 @@ TODO
 * [`===` (identical)](../identical) operator
 * [`Equality`](../../ceylon.language/Equality)
 * [equality in the language specification](#{site.urls.spec}#equalityandcomparisonoperators)
+* [operator precedence](#{site.urls.spec}#operatorprecedence) in the 
+  language specification
 * [Operator polymorphism](/documentation/tour/language-module/#operator_polymorphism) 
   in the Tour of Ceylon
 

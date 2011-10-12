@@ -57,6 +57,8 @@ such a widening is not possible.
 * [`Numeric`](../../ceylon.language/Numeric)
 * [`Castable`](../../ceylon.language/Castable)
 * [difference in the language specification](#{site.urls.spec}#arithmetic)
+* [operator precedence](#{site.urls.spec}#operatorprecedence) in the 
+  language specification
 * [Operator polymorphism](/documentation/tour/language-module/#operator_polymorphism) 
   and 
   [Numeric operator semantics](/documentation/tour/language-module/#numeric_operator_semantics) 

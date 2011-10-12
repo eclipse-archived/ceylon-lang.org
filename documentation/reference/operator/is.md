@@ -31,4 +31,5 @@ The `is` operator is not [polymorphic](/documentation/tour/language-module/#oper
 
 * [`extends` operator](../extends)
 * [`satisfies` operator](../satisfies)
-
+* [operator precedence](#{site.urls.spec}#operatorprecedence) in the 
+  language specification

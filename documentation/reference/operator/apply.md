@@ -51,6 +51,8 @@ The *follow* and *apply* operators are not [polymorphic](/documentation/referenc
 * [`Attribute`](../../ceylon.language/Attribute)
 * [`Method`](../../ceylon.language/Method)
 * [`.=` in the language specification](#{site.urls.spec}#basic)
+* [operator precedence](#{site.urls.spec}#operatorprecedence) in the 
+  language specification
 * [Operator polymorphism](/documentation/tour/language-module/#operator_polymorphism) 
   in the Tour of Ceylon
 

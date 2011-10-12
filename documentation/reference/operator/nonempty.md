@@ -33,3 +33,5 @@ The `nonempty` operator is not [polymorphic](/documentation/reference/operator/o
 ## See also
 
 * [`nonempty`](#{site.urls.spec}#nullvalues) in the language specification.
+* [operator precedence](#{site.urls.spec}#operatorprecedence) in the 
+  language specification

@@ -38,6 +38,8 @@ The meaning of `satisfies` depends on the
 
 * [`Type`](../../ceylon.language/Type)
 * [`is` in the language specification](#{site.urls.spec}#equalityandcomparisonoperators)
+* [operator precedence](#{site.urls.spec}#operatorprecedence) in the 
+  language specification
 * [Operator polymorphism](/documentation/tour/language-module/#operator_polymorphism) 
   in the Tour of Ceylon
 

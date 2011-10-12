@@ -37,7 +37,9 @@ The meaning of `!=` depends on the
 
 * [`==` (equal)](../equal) operator
 * [`Equality`](../../ceylon.language/Equality)
-* [equality in the language specification](#{site.urls.spec}#equalityandcomparisonoperators)
+* [not equal in the language specification](#{site.urls.spec}#equalityandcomparisonoperators)
+* [operator precedence](#{site.urls.spec}#operatorprecedence) in the 
+  language specification
 * [Operator polymorphism](/documentation/tour/language-module/#operator_polymorphism) 
   in the Tour of Ceylon
 

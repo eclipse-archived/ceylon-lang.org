@@ -39,6 +39,8 @@ The meaning of `extends` depends on the
 * [`Class`](../../ceylon.language/Class)
 * [`Type`](../../ceylon.language/Type)
 * [`extends` in the language specification](#{site.urls.spec}#equalityandcomparisonoperators)
+* [operator precedence](#{site.urls.spec}#operatorprecedence) in the 
+  language specification
 * [Operator polymorphism](/documentation/tour/language-module/#operator_polymorphism) 
   in the Tour of Ceylon
 

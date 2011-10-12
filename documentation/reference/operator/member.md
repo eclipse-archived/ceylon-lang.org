@@ -29,4 +29,5 @@ The `.` operator is not [polymorphic](/documentation/tour/language-module/#opera
 
 ## See also
 
-
+* [operator precedence](#{site.urls.spec}#operatorprecedence) in the 
+  language specification

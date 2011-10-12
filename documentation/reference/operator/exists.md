@@ -31,3 +31,5 @@ The `exists` operator is not [polymorphic](/documentation/reference/operator/ope
 ## See also
 
 * [`exists`](#{site.urls.spec}#nullvalues) in the language specification.
+* [operator precedence](#{site.urls.spec}#operatorprecedence) in the 
+  language specification
