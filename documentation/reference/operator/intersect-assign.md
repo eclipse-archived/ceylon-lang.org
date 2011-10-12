@@ -17,7 +17,7 @@ operand.
     variable Natural one = 1;
     one &= 2; // still one
 
-## Description
+## Definition
 
 And is defined as follows:
 
@@ -42,7 +42,7 @@ For the built-in numeric types ([`Natural`](../../ceylon.language/Natural),
 
 ## See also
 
-* [`&` (intersec)](../intersect) operator
+* [`&` (intersect)](../intersect) operator
 * [`Slots`](../../ceylon.language/Slots)
 * [slotwise operators](#{site.urls.spec}#slotwiseoperators) in the 
   language specification
