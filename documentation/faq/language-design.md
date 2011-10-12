@@ -30,7 +30,7 @@ important ones:
 
 ### String interpolation syntax
 
-Why not `"Hello $name"` or `"Hello ${name.uppercase}"` instead of `"Hello" name ""`?
+Why not `"Hello $name"` or `"Hello ${name.uppercased}"` instead of `"Hello" name ""`?
 
 In a word because it works much better for designing UIs.
 

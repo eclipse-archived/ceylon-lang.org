@@ -199,7 +199,7 @@ The related `?.` operator lets us call operations on optional
 types and provide an alternative value if the type is `null`.
 
     shared String shoutedGreeting = "HELLO, " + 
-                                    name?.uppercase ? "WORLD";
+                                    name?.uppercased ? "WORLD";
 
 ## Defaulted parameters
 
