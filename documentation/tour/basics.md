@@ -26,6 +26,8 @@ to invoke a toplevel method. Instead, you can just call it like this:
 
 Or you can run it directly from the command line:
 
+<!-- lang: none -->
+
     ceylonc -src .
     ceylon -run hello
 
@@ -64,7 +66,7 @@ declarations.
 	}
 
 The `doc`, `by`, `see` and `throws` annotations contain documentation that is 
-included in the output of the Ceylon documentation compiler.
+included in the output of the Ceylon documentation compiler, `ceylond`.
 
 Notice that when an annotation argument is a literal, it doesn't need to be 
 enclosed in parentheses. We can write simply: 
@@ -83,7 +85,7 @@ the other hand, `void` _is_ a keyword, just like in C or Java.
 
 ## Strings and string interpolation
 
-Let's ask our program to tell us a little more about itself.
+Let's make our program to tell us a little more about itself.
 
     doc "The Hello World program
          ... version 1.1!"
@@ -95,9 +97,9 @@ Let's ask our program to tell us a little more about itself.
               "!");
     }
 
-As you can see, we can split a string across multiple lines. That's especially 
+As you can see from the `doc` annotation we can split a string across multiple lines. That's especially 
 useful when we're writing documentation in a `doc` annotation. We can 
-interpolate expressions inside a string: we call that a string templage.
+interpolate expressions inside a string: we call that a string template.
 
 A string template must begin and end in a string literal. The following is 
 not legal syntax:
@@ -111,10 +113,7 @@ But we can easily fix it:
           process.languageVersion 
           "");
 
-(If you're wondering why the syntax isn't something like
-
-    "Hello, this is Ceylon ${process.languageVersion}"
- 
+(If you're wondering why the syntax isn't something like `"Hello, this is Ceylon ${process.languageVersion}"`
 [here's why](/documentation/faq/language-design/#string_interpolation_syntax).)
 
 The `+` operator you're probably used to is an alternative way to concatenate
@@ -133,7 +132,8 @@ case where nothing was specified at the command line, which gives us an
 opportunity to explore how `null` values are treated in Ceylon, which is 
 quite different to what you're probably used to in Java or C#.
 
-Let's consider an overly-verbose example to start with:
+Let's consider an overly-verbose example to start with (we'll get on to the
+preferred form in a moment):
 
     doc "Print a personalized greeting"
     void hello() {
@@ -185,7 +185,7 @@ This is the preferred style most of the time, since we can't actually use
 
 # Operators for handling null values
 
-There are a couple of operators that will make you life easier when dealing 
+There are a couple of operators that will make your life easier when dealing 
 with `null` values.
 
     shared String greeting = "Hello, " + 
