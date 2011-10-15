@@ -8,8 +8,9 @@ author: Gavin King
 # #{page.title}
 
 This is the fourth leg of the Tour of Ceylon. In the 
-[previous leg](../inheritance) we covered inheritance. Now we're going to 
-look at *sequences*.
+[previous leg](../introduction) we covered introduction and member classes. 
+Now we're going to look at *sequences*.
+
 
 ## Sequences
 
@@ -18,7 +19,7 @@ languages. The Ceylon language module defines support for *sequence types*.
 A sequence type is usually written `X[]` for some element type `X`. But this 
 is really just an abbreviation for the union type `Empty|Sequence<X>`.
 
-The interface `Sequence` represents a sequence with at least one element. The 
+The interface `Sequence` represents a sequence *with at least one element*. The 
 type `Empty` represents an empty sequence with no elements. Some operations 
 of the type `Sequence` aren't defined by `Empty`, so you can't call them if 
 all you have is `X[]`. Therefore, we need the `if (nonempty ... )` construct 
@@ -34,8 +35,8 @@ to gain access to these operations.
         }
     }
 
-Note how this is just a continuation of the pattern established for `null`
-value handling.
+Note how this is just a continuation of the [pattern established](../basics#dealing_with_objects_that_arent_there) for `null` value handling.
+
 
 ## Sequence syntax sugar
 
@@ -67,7 +68,7 @@ Is just sugar for:
 
 In fact, this is just a sneak preview of the fact that almost all operators 
 in Ceylon are just sugar for method calls upon a type. We'll come back to this 
-later, when we talk about operator polymorphism.
+later, when we talk about [operator polymorphism](../language-module#operator_polymorphism).
 
 
 ## Iterating sequences
@@ -97,7 +98,8 @@ iterating instances of `Entries`:
     }
 
 The `entries()` function returns an instance of `Entries<Natural,String>` 
-containing the indexed elements of the sequence.
+containing the indexed elements of the sequence. The `->` is syntax sugar 
+for `Entry`.
 
 ## Sequence and its supertypes
 
@@ -183,6 +185,7 @@ The most interesting operations are inherited from `Correspondence`,
         }
      
     }
+    
     shared interface Sized
             satisfies Container {
              
@@ -275,6 +278,7 @@ it sees an `Iterable<Bottom>`, it knows that the operation `first` is of type
 `Nothing`, i.e. it is the value `null`.
 
 Cool, huh?
+
 
 ## Sequence gotchas for Java developers
 

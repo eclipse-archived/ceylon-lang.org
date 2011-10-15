@@ -50,7 +50,8 @@ There's two things in particular to notice here:
    `angle` and `radius` directly from the `rotate()` and `dilate()` methods, 
    and from the expression which specifies the value of `description`.
 
-Notice also that Ceylon doesn't have a `new` keyword to indicate instantiation.
+Notice also that Ceylon doesn't have a `new` keyword to indicate instantiation,
+we just 'call the class': `Polar(angle, radius)`.
 
 The `shared` annotation determines the accessibility of the annotated type, 
 attribute, or method. Before we go any further, let's see how we can hide the 
@@ -75,7 +76,7 @@ the member is visible to any code to which the class itself is visible.
 
 And, of course, a class itself may be hidden from other code. By default, 
 a toplevel class is hidden from code outside the package in which the class is 
-defined. Annotating a top level class with `shared` make it visible to any 
+defined. Annotating a top level class with `shared` makes it visible to any 
 code to which the package containing the class is visible.
 
 Finally, packages are hidden from code outside the module to which the 
@@ -114,8 +115,8 @@ Code that uses `Polar` can access the attributes of the class using a very
 convenient syntax.
 
     shared Cartesian cartesian(Polar polar) {
-        return Cartesian(polar.radius*polar.cos(angle), 
-                         polar.radius*polar.sin(angle));
+        return Cartesian(polar.radius*cos(polar.angle), 
+                         polar.radius*sin(polar.angle));
     }
 
 
@@ -255,7 +256,8 @@ but here's a quick example of each of the three techniques:
         }
     }
 
-Don't worry if you don't completely understand the third example just yet. 
+Don't worry if you don't completely understand the third example just yet, 
+we'll come back to it in a [later lesson](../types#more_about_union_types). 
 
 Let's make use of this idea to "overload" the "constructor" of `Polar`.
 

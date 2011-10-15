@@ -10,6 +10,7 @@ author: Gavin King
 This is the fifth leg in the Tour of Ceylon. The [previous leg](../sequences) 
 looked at sequences. Now we will cover Ceylon's type system in more detail.
 
+
 ## Narrowing the type of an object reference
 
 In any language with subtyping there is the (hopefully) occasional need to
@@ -24,7 +25,9 @@ As you can imagine, Ceylon, with its emphasis upon static typing, does
 things differently. Ceylon doesn't have C-style typecasts. Instead, we 
 must test and narrow the type of an object reference in one step, using the 
 special `if (is ... )` construct. This construct is very, very similar 
-to `if (exists ... )` and `if (nonempty ... )`, which we met earlier.
+to [`if (exists ... )`](../basics#dealing_with_objects_that_arent_there) and 
+[`if (nonempty ... )`](../sequences#the_interface_sequence_represents_a...), 
+which we met earlier.
 
     Object obj = ... ;
     if (is Printable obj) {
@@ -49,11 +52,10 @@ These constructs protect us from inadvertantly writing code that would cause a
 `ClassCastException` in Java, just like `if (exists ... )` protects us from 
 writing code that would cause a `NullPointerException`.
 
+
 ## More about union types
 
-We've seen a few examples of how ad-hoc union types are used in Ceylon. Let's 
-just revisit the notion to make sure we completely understand it. When 
-the type of something is declared using a union type `X|Y`, that means 
+When the type of something is declared using a union type `X|Y`, that means 
 only expressions of type `X` and expressions of type `Y` are assignable to it. 
 The type `X|Y` is a supertype of both `X` and `Y`. The following code is 
 well-typed:
@@ -70,12 +72,12 @@ are its supertypes? Well, the answer is pretty intuitive: `T` is a supertype of
 determines this automatically. So the following code is also well-typed:
 
     Natural|Integer i = -1;
-    Number num = i;  //Number is a supertype of both Natural and Integer
-    String|Natural|Integer val = i; //String|Natural|Integer is a supertype of Natural|Integer
-    Object obj = val; //Object is a supertype of String, Natural, and Integer
+    Number num = i;  // Number is a supertype of both Natural and Integer
+    String|Natural|Integer val = i; // String|Natural|Integer is a supertype of Natural|Integer
+    Object obj = val; // Object is a supertype of String, Natural, and Integer
 
-However, the following code is not well-typed, since since `Number` is not a supertype 
-of `String`.
+However, the following code is *not* well-typed, since since `Number` is not a 
+supertype of `String`.
 
     Natural|Integer i = -1;
     Number num = i;
@@ -93,6 +95,7 @@ the compiler will let us leave off the `else` clause.
         case (is Natural) { print("Natural: " + val); }
         case (is Integer) { print("Integer: " + val); }
     }
+
 
 ## Enumerated subtypes
 
@@ -133,6 +136,7 @@ that is overridden as appropriate by subclasses.
 However, there are a class of problems where this kind of refactoring isn't 
 appropriate. In most object-oriented languages, these problems are usually 
 solved using the "visitor" pattern.
+
 
 ## Visitors
 
@@ -341,6 +345,7 @@ to the left of the `=` specifier, or further down the block of statements.
   returned expression types appearing in the method's `return` statements
   (or `Bottom` if the method has no `return` statement).
 
+
 ## Type inference for sequence enumeration expressions
 
 What about sequence enumeration expressions like this:
@@ -355,7 +360,8 @@ common supertype.
 The answer is that the inferred type is `Sequence<X>` where `X` is the 
 union of all the element expression types. In this case, the type is 
 `Sequence<Polar|Cartesian>`. Now, this works out nicely, because 
-`Sequence<T>` is covariant in `T`. So the following code is well typed:
+`Sequence<T>` is [covariant](../generics#covariance_and_contravariance) in `T`. 
+So the following code is well-typed:
 
     value sequence  = { Polar(0.0, 0.0), Cartesian(1.0, 2.0) }; //type Sequence<Polar|Cartesian>
     Point[] points = sequence; //type Empty|Sequence<Point>
@@ -365,8 +371,9 @@ As is the following code:
     value nums = { 12.0, 1, -3 }; //type Sequence<Float|Natural|Integer>
     Number[] numbers = nums; //type Empty|Sequence<Number>
 
-What about sequences that contain `null`? Well, do you remember the type of 
-`null` from [the first part of the tour](../basics) was `Nothing`?
+What about sequences that contain `null`? Well, do you 
+[remember](../basics#dealing_with_objects_that_arent_there) 
+the type of `null` was `Nothing`?
 
     value sequence = { null, "Hello", "World" }; //type Sequence<Nothing|String>
     String?[] strings = sequence; //type Empty|Sequence<Nothing|String>
@@ -379,7 +386,5 @@ helping the compiler solve some hairy, otherwise-ambiguous, typing problems.
 
 
 ## There's more...
-
-A more advanced example of an algebraic datatype is shown here.
 
 Next we'll explore Ceylon's [generic type system](../generics) in more depth. 

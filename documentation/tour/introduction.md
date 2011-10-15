@@ -62,7 +62,7 @@ Instead, we can introduce the type `Position` in the code which uses the
     }
 
 The `adapts` clause makes `PolarPosition` a special kind of interface called an 
-*adapter*. There's a couple of restrictions applying to the members of an adapter. 
+*adapter*. There are a couple of restrictions applying to the members of an adapter. 
 According to the language spec:
 
 > An adapter may not:
@@ -92,9 +92,9 @@ need to do is `import` the adapter:
 
 Note that the introduction is not visible outside the lexical scope of the 
 `import` statement (the compilation unit). But within the compilation unit 
-containing the `import` statement, every instance of of the adapted type 
-`Sequence` now has all the attributes and methods of the introduced type 
-`List`, and is assignable to the introduced type.
+containing the `import` statement, every instance of the adapted type 
+`Polar` now has all the attributes and methods of the introduced type 
+`Position`, and is assignable to the introduced type.
 
 Again, according to the spec:
 
@@ -120,6 +120,7 @@ Again, according to the spec:
 Don't bust your brain thinking through this passage. What matters is that
 the compiler will make sure that you don't ever use introductions in a way
 that would result in ambiguities, arbitrary behavior, or loss of polymorphism.
+
 
 ## Introduction compared to extension methods and implicit type conversions
 

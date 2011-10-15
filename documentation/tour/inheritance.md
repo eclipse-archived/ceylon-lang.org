@@ -126,7 +126,8 @@ This annotation specifies that a class cannot be instantiated, and can define
 abstract members. Like Java, Ceylon also requires us to annotate "abstract" 
 members that don't specify an implementation. However, in this case, the 
 required annotation is `formal`. The reason for having two different 
-annotations, as we'll see later, is that nested classes may be either 
+annotations, as we'll see [later](../introduction#its_even_possible_to_define...), 
+is that nested classes may be either 
 `abstract` or `formal`, and `abstract` nested classes are slightly different 
 to `formal` member classes. A `formal` member class may be instantiated; 
 an abstract class may not be.
@@ -136,7 +137,7 @@ attribute. Ceylon doesn't initialize attributes to zero or `null` unless you
 explicitly tell it to!
 
 One way to define an implementation for an inherited abstract attribute is to 
-simply assign a value to it in the subclass.
+simply *assign* a value to it in the subclass.
 
     doc "A polar coordinate"
     class Polar(Float angle, Float radius) 
@@ -149,8 +150,8 @@ simply assign a value to it in the subclass.
         
     }
 
-Of course, we can also define an implementation for an inherited abstract 
-attribute by refining it.
+alternatively, we can also define an implementation for an inherited abstract 
+attribute by *refining* it.
 
     doc "A polar coordinate"
     class Polar(Float angle, Float radius) 
@@ -173,7 +174,7 @@ attribute by refining it.
     }
 
 Note that there's no way to prevent other code from extending a class in 
-Ceylon. Since only members explicitly declared as supporting refinement using 
+Ceylon (like a `final` class in Java). Since only members explicitly declared as supporting refinement using 
 either `formal` or `default` can be refined, a subtype can never break the
 implementation of a supertype. Unless the supertype was explicitly designed 
 to be extended, a subtype can add members, but never change the behavior of
@@ -437,9 +438,6 @@ However, an `object` may not itself be declared `formal` or `default`.
 
 
 ## There's more...
-
-If you're interested, XXX some crazy ideas about how to generalize the 
-notion of refinement to toplevel declarations.
 
 Next, we're going to learn about [introduction and member classes](../introduction),
 two more advanced features of Ceylon's type system.
