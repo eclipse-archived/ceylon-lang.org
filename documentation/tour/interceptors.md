@@ -81,4 +81,15 @@ The `intercept()` method registers the interceptor - a kind of callback method.
 Again, we're using the syntax discussed XXXXX.
 
 
+## There's more!
+
+Well actually, this was the last leg, so there isn't any more of the *Tour*.
+However, there's still lots of scope for you to explore Ceylon on your own.
+You should now know enough to start writing Ceylon code for yourself, 
+and use the SDK classes effectively.
+
+Alternatively, if you want to keep reading you can peruse the 
+[reference documentation](/documentation/reference) 
+or (if you're sitting comfortably) read the 
+[specification](#{site.urls.spec}).
 

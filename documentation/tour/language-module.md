@@ -7,7 +7,7 @@ author: Gavin King
 
 # #{page.title}
 
-This is the eleventh part of the Tour of Ceylon. The 
+This is the twelfth part of the Tour of Ceylon. The 
 [previous leg](../named-arguments) looked at invoking functions
 using named arguments. We're now going to learn about the 'language module'.
 
@@ -78,6 +78,7 @@ including:
 Since an expression of type `Object` always evaluates to a definite, 
 well-defined value, it's possible to obtain the runtime type of an 
 `Object`, or narrow an expression of type `Object` to a more specific type.
+
 
 ## Equality and identity
 
@@ -209,6 +210,7 @@ probably agree that these symbols are reasonable.
 We could even define a `Permission` class that implements `Slots`, allowing us 
 to write things like `permissions&(read|execute)`.
 
+
 ## Numeric types
 
 As we've mentioned several times before, Ceylon doesn't have anything like 
@@ -244,12 +246,12 @@ digits are grouped, then groups must contain exactly three digits.
 A very large or small numeric literals may be qualified by one of the 
 standard SI unit prefixes: m, u, n, p, f, k, M, G, T, P.
 
-    Float red = 390.0n; //n (nano) means E-9
-    Float galaxyDiameter = 900.0P; //P (peta) means E15
-    Float hydrogenRadius = 25.0p; //p (pico) means E-12
-    Float usGovDebt = 14.33T; //T (tera) means E12
-    Float brainCellSize = 4.0u; //u (micro) means E-6
-    Natural deathsUnderCommunism = 94M; //M (mega) means E6
+    Float red = 390.0n; // n (nano) means E-9
+    Float galaxyDiameter = 900.0P; // P (peta) means E15
+    Float hydrogenRadius = 25.0p; // p (pico) means E-12
+    Float usGovDebt = 14.33T; // T (tera) means E12
+    Float brainCellSize = 4.0u; // u (micro) means E-6
+    Natural deathsUnderCommunism = 94M; // M (mega) means E6
 
 ## Numeric widening
 
@@ -259,8 +261,8 @@ automatically widen (or narrow) numeric values. Instead, we need to call
 one of the operations (well, attributes, actually) defined by the interface 
 `Number`.
 
-    Whole zero = 0.whole; //explicitly widen from Natural
-    Decimal half = 0.5.decimal; //explicitly widen from Float
+    Whole zero = 0.whole; // explicitly widen from Natural
+    Decimal half = 0.5.decimal; // explicitly widen from Float
 
 Usefully, the unary prefix operators `+` and `-` always widen `Natural` 
 to `Integer`:
@@ -276,7 +278,7 @@ number to a power:
 
 Of course, if you want to use the increment `++` operator, decrement `--` 
 operator, or one of the compound assignment operators such as `+=`, you'll 
-have to declare the value variable.
+have to declare the value `variable`.
 
 Since it's quite noisy to explicitly perform numeric widening in numeric 
 expressions, the numeric operators automatically widen their operands, 
@@ -294,12 +296,14 @@ The "built-in" widening conversions are the following:
 But these conversions aren't defined by special-case rules in the 
 language specification.
 
+
 ## Numeric operator semantics
 
 Operators in Ceylon are, in principle, just abbreviations for some 
 expression involving a method call. So the numeric types all implement the 
 `Numeric` interface, refining the methods `plus()`, `minus()`, `times()`, 
-`divided()` and `power()`, and the `Invertable` interface, refining `inverse`. 
+`divided()` and `power()`, and the `Invertable` interface, refining `negativeValue`
+and `positiveValue`. 
 The numeric operators are defined in terms of these methods of `Numeric`. 
 The numeric types also implement the interface `Castable`, which enables the 
 widening conversions we just mentioned.
@@ -338,7 +342,7 @@ For example, simplifying slightly the definitions in the language module:
 
 These declarations tell us that `Integer` can be widened to `Float`, `Whole`, 
 or `Decimal`, but that `Float` can only be widened to `Decimal`. So we can 
-infer that the expression `-1 * 0.4` is of type Float.
+infer that the expression `-1 * 0.4` is of type `Float`.
 
 Therefore, the definition of a numeric operator like `*` can be represented, 
 completely within the type system, in terms of `Numeric` and `Castable`:
@@ -359,10 +363,8 @@ definition and type checker — is that a library can define its own
 specialized numeric types, without losing any of the nice language-level 
 syntax support for numeric arithmetic and numeric widening conversions.
 
-## There's more...
 
-If you're interested, you can check out a complete list of Ceylon's operators 
-along with a discussion of their precedence.
+## There's more...
 
 Next we're going to come back to the subject of [object 
 initialization](../initialization), and deal with a subtle problem affecting 

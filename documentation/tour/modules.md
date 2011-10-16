@@ -7,9 +7,10 @@ author: Gavin King
 
 # #{page.title}
 
-This is the eighth part of the Tour of Ceylon. In the 
+This is the ninth part of the Tour of Ceylon. In the 
 [previous part](../missing-pieces) we looked at attributes, variables, 
 control structures and a few other missing pieces. Now we turn to *modules*.
+
 
 ## Modules in Ceylon
 
@@ -23,10 +24,11 @@ what does 'modularity' mean? There are several layers to this:
 * A built-in module archive format and module repository layout that is 
   understood by all tools written for the language, from the compiler, to the 
   IDE, to the runtime.
-* A runtime that features a peer-to-peer classloading (one classloader 
+* A runtime that features peer-to-peer classloading (one classloader 
   per module) and the ability to manage multiple versions of the same module.
 * An ecosystem of remote module repositories where folks can share code 
   with others.
+
 
 ## Module-level visibility
 
@@ -40,9 +42,6 @@ We can make the package shared by providing a package descriptor:
         doc = "The typesafe query API.";
     }
 
-(Alert readers will notice that this is just a snippet of Ceylon code, using 
-the "declarative" object builder syntax.)
-
 A `shared` package defines part of the "public" API of the module. Other modules 
 can directly access shared declarations in a `shared` package.
 
@@ -50,7 +49,7 @@ can directly access shared declarations in a `shared` package.
 ## Module descriptors
 
 A module must explicitly specify the other modules on which it depends.
- This is accomplished via a module descriptor:
+This is accomplished via a module descriptor:
  
     Module module {
         name = 'org.hibernate';
@@ -68,7 +67,7 @@ A module must explicitly specify the other modules on which it depends.
         }
     }
 
-A module may be runnable. A runnable module must specify a `run()` method in 
+A module may be *runnable*. A runnable module must specify a `run()` method in 
 the module descriptor:
 
     Module module {
@@ -83,6 +82,7 @@ the module descriptor:
             name = 'org.hibernate'; version = '3.0.0.beta';
         }
     }
+
 
 ## Module archives and module repositories
 
@@ -103,6 +103,7 @@ repository.
 The architecture also includes support for source directories, source 
 archives, and module documentation directories.
 
+
 ## Module runtime
 
 Ceylon's module runtime is based on JBoss Modules, a technology that also 
@@ -113,6 +114,7 @@ remote repositories if necessary.
 
 Normally, the Ceylon runtime is invoked by specifying the name of a runnable 
 module at the command line.
+
 
 ## Module repository ecosystem
 

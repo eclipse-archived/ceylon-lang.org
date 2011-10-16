@@ -7,7 +7,7 @@ author: Gavin King
 
 # #{page.title}
 
-This is the twelth part of the Tour of Ceylon. In the [last part](../language-module) we learned 
+This is the thirteenth part of the Tour of Ceylon. In the [last part](../language-module) we learned 
 about the language module, `ceylon.language`. Now we're going to go into the
 details of *initialization*.
 
@@ -36,6 +36,7 @@ refers to the parent instance of the current instance of a nested class.
 There are some restrictions on the use of `this`, `super`, and `outer`, which 
 we'll explore below.
 
+
 ## Multiple inheritance and "linearization"
 
 There's a good reason why `super` always refers to a super*class*, and never 
@@ -63,7 +64,7 @@ is explicitly declared to refine the second.
 For a similar reason, interfaces shouldn't be able to define initialization 
 logic. There's no non-fragile way to define the ordering in which supertype 
 initializers are executed in a multiple-inheritance model. This is the basic 
-reason why interfaces are stateless in Ceylon.
+reason why [interfaces are stateless](../inheritance#interfaces_and_mixin_inheritance) in Ceylon.
 
 (Note that these arguments are even stronger in the case of 
 [adapter introduction](../inheritance/#introduction), where linearization or statefulness would be even 
@@ -72,6 +73,7 @@ more fragile.)
 So Ceylon is more restrictive than some other languages here. But we think 
 that this restriction makes a subtype less vulnerable to breakage due to 
 changes in its supertypes.
+
 
 ## Definite assignment and definite initialization
 
@@ -108,6 +110,8 @@ default value (zero or `null`). Surprisingly, it's even possible to see this
 default value for a `final` instance variable that is eventually assigned a 
 value by the constructor. Consider the following code:
 
+<!-- lang: java -->
+
     //Java code that prints "null"
     class Broken {
         final String greeting;
@@ -128,15 +132,16 @@ This behavior is bad enough in and of itself. But it would be even less
 acceptable in Ceylon, where most types don't have an acceptable "default" 
 value. For example, consider the type `Person`. What would be an acceptable 
 default value of this type? The value `null` certainly won't do, since it's 
-not even an instance of `Person`. (It's an instance of `Nothing`, remember! XXX) 
+not even an instance of `Person`. (It's an instance of `Nothing`, [remember!](../basics)) 
 Although evaluation of an uninitialized instance variable could be defined to
 result in an immediate runtime exception, that would just be our 
 old friend `NullPointerException` creeping back in by the back door. 
 
 Indeed, "few" object-oriented languages  (and possibly none) perform 
 the necessary static analysis to ensure definite initialization of instance 
-variables, and this is perhaps one main reasons why object-oriented 
+variables, and this is perhaps one of the main reasons why object-oriented 
 languages have never featured typesafe handling of `null` values.
+
 
 ## Class bodies
 
@@ -276,10 +281,11 @@ essentially the same rules governing the body of an interface. That makes
 sense, because interfaces don't have initialization logic — what interfaces and 
 declaration sections have in common is statelessness.
 
+
 ## Circular references
 
 Unfortunately, these rules make it a little tricky to set up circular 
-references between two objects without resort to non-variable attributes. 
+references between two objects without resort to non-`variable` attributes. 
 This is a problem Ceylon has in common with functional languages, which also 
 emphasize immutability. We can't write the following code in Ceylon:
 
@@ -306,6 +312,7 @@ with this problem, but for now, here is a partial solution:
         }
     }
 
+
 ## Definite initialization of methods
 
 Ceylon lets us separate the declaration of a method defined using a method 
@@ -322,6 +329,7 @@ reference.
 
 The rules for definite initialization of locals and attributes also apply to 
 methods defined using a specification statement.
+
 
 ## Definite return
 
@@ -347,7 +355,8 @@ But the following code results in an error at compile time:
         }
     }
 
-There's more...
+
+## There's more...
 
 Now, we're going to discuss [annotations](../annotations), and take a little 
 peek at using the metamodel to build framework code. 

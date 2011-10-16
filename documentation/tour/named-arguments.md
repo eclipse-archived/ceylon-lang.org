@@ -7,10 +7,11 @@ author: Gavin King
 
 # #{page.title}
 
-This is the tenth leg in the Tour of Ceylon. In the 
+This is the eleventh leg in the Tour of Ceylon. In the 
 [previous leg](../functions) we learnt about functions. This part builds on 
 that by covering Ceylon's support for calling functions using 
 *named arguments*.
+
 
 ## Named arguments
 
@@ -20,13 +21,13 @@ Consider the following method:
         ... 
     }
 
-(Remember, the last parameter is a sequenced parameter which accepts 
+Remember, the last parameter is a [sequenced parameter](../missing-pieces#sequenced_parameters) which accepts 
 multiple arguments, just like a Java "varargs" parameter.)
 
 We've seen lots of examples of invoking a method or instantiating a class 
-using a familiar C-style syntax where arguments are delimited by in parentheses 
+using a familiar C-style syntax where arguments are delimited by parentheses 
 and separated by commas. Arguments are matched to parameters by their 
-position in the list. Let's see just one more example, just in case:
+position in the list. Let's see one more example, just in case:
 
     printf(process, "Thanks, %s. You have been charged %.2f. 
                      Your confirmation number is %d.",
@@ -61,12 +62,15 @@ value parameter:
 
 We usually format named argument invocations across multiple lines.
 
+
 ## Declarative object instantiation syntax
 
 Named arguments are very commonly used for building graphs of objects. 
 Therefore, Ceylon provides a special abbreviated syntax that simplifies the 
 declaration of an attribute getter, named parameter, or method that builds 
-an object by specifying named arguments to the class initializer.
+an object by specifying named arguments to the class initializer. 
+You've actually [already encountered](../modules#module_descriptors) this 
+abbreviated syntax, though you probably didn't know it.
 
 We're allowed to abbreviate an attribute definition of the following form:
 
@@ -122,6 +126,7 @@ things that should alert you to what's really going on. The above method:
 
 Once you're used to Ceylon's more flexible syntax, these differences will 
 usually stand out immediately.
+
 
 ## More about named arguments
 
@@ -188,7 +193,7 @@ So we could rewrite the code that builds a `Table` as follows:
         }
     };
 
-Notice that we've specified the value of the parameter named content using the 
+Notice that we've specified the value of the parameter named `content` using the 
 usual syntax for declaring a method.
 
 Even better, our example can be abbreviated like this:
@@ -225,7 +230,7 @@ We could put the above totally declarative code in a file by itself and it
 would look like some kind of "mini-language" for defining tables. In fact, 
 it's executable Ceylon code that may be validated for syntactic correctness by 
 the Ceylon compiler and then compiled to Java bytecode. Even better, the 
-Ceylon IDE (when it exists) will provide authoring support for our 
+Ceylon IDE will provide authoring support for our 
 mini-language. In complete contrast to the DSL support in some dynamic 
 languages, any Ceylon DSL is completely typesafe! You can think of the 
 definition of the `Table`, `Column` and `Border` classes as defining 
@@ -267,7 +272,7 @@ declaration:
 
 Note that `Observer<T>` is assignable to `Observer<Bottom>` for any type `T`, 
 since `Observer<T>` is contravariant in its type parameter `T`. If this 
-doesn't make sense, please read XXX again.
+doesn't make sense, please read the section on [generics](../generics) again.
 
 Of course, as we saw in the leg on [functions](../functions), 
 a better way to solve this problem might be 
@@ -282,16 +287,6 @@ to eliminate the `Observer` interface and pass a method directly:
         }
     };
 
-A quick tangent here: note that we need a type parameter `T` of the 
-method `addObserver()` here only because Ceylon inherits Java's limitation 
-that function types are nonvariant in their parameter types. This is 
-actually pretty unnatural. We should probably eventually come up with a 
-workaround to make function types contravariant in their parameter types, 
-allowing us to write:
-
-    shared interface Observable {
-        shared void addObserver(void on(Bottom event)) { ... }
-    }
 
 ## Defining user interfaces
 
@@ -346,8 +341,8 @@ A complete HTML template might look like this:
 
 There's plenty of potential applications of this syntax aside from user 
 interface definition. For example, Ceylon lets us use a named argument list to 
-the specify arguments of a program element annotation. But we'll have to come 
-back to the subject of annotations in a future installment. 
+specify the arguments of a program element annotation. But we'll have to come 
+back to the subject of [annotations](../annotations) in a future installment. 
 
 Now we're going to discuss some of the basic types from the 
 [language module](../language-module), in particular numeric types, and introduce 

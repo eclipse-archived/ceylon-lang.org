@@ -7,7 +7,7 @@ author: Gavin King
 
 # #{page.title}
 
-This is the fifth leg in the Tour of Ceylon. The [previous leg](../sequences) 
+This is the sixth leg in the Tour of Ceylon. The [previous leg](../sequences) 
 looked at sequences. Now we will cover Ceylon's type system in more detail.
 
 

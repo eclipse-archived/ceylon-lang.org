@@ -7,10 +7,11 @@ author: Gavin King
 
 # #{page.title}
 
-This is the sixth part of the Tour of Ceylon. The [previous leg](../types) looked at
+This is the seventh part of the Tour of Ceylon. The [previous leg](../types) looked at
 Ceylon's type powerful system. In this part we're looking at *generic* types.
 We've seen plenty of parameterized types already, but now 
 let's explore a few more details.
+
 
 ## Defining generic types
 
@@ -52,16 +53,17 @@ method invocations or class instantiations. We don't usually need to write:
 Instead, it's very often possible to infer the type arguments from the ordinary 
 arguments.
 
-    value strings = Array("Hello", "World"); //type Array<String>
-    value entries = entries(strings); //type Entries<Natural,String>
+    value strings = Array("Hello", "World"); // type Array<String>
+    value entries = entries(strings); // type Entries<Natural,String>
 
 The generic type argument inference algorithm is slightly involved, so you
-should refer to the language specification for a complete definition. But
+should refer to the [language specification](#{site.urls.spec}#typeargumentinference) 
+for a complete definition. But
 essentially what happens is that Ceylon infers a type by combining the types
 of corresponding arguments using union.
 
-    value points = Array(Polar(pi/4, 0.5), Cartesian(-1.0, 2.5)); //type Array<Polar|Cartesian>
-    value entries = entries(points); //type Entries<Natural,Polar|Cartesian>
+    value points = Array(Polar(pi/4, 0.5), Cartesian(-1.0, 2.5)); // type Array<Polar|Cartesian>
+    value entries = entries(points); // type Entries<Natural,Polar|Cartesian>
 
 The root cause of very many problems when working with generic types in 
 Java is *type erasure*. Generic type parameters and arguments are discarded 
@@ -88,7 +90,8 @@ The bad news is we haven't implemented this yet ;-)
 Finally, Ceylon eliminates one of the bits of Java generics that's really 
 hard to get your head around: wildcard types. Wildcard types were Java's 
 solution to the problem of *covariance* in a generic type system. Let's first 
-explore the idea of covariance, and then see how covariance in Ceylon works.
+explore the idea of covariance, and then see how covariance works in Ceylon.
+
 
 ## Covariance and contravariance
 
@@ -170,7 +173,8 @@ We can define our `Collection` interface as a mixin of `Producer` with `Consumer
 
 Notice that `Collection` remains nonvariant in `Element`. If we tried to add a 
 variance annotation to `Element` in `Collection`, a compile time error would 
-result.
+result, because the annotation would contradict the variance annotation of either
+`Producer` or `Consumer`.
 
 Now, the following code finally compiles:
 
@@ -263,9 +267,6 @@ instantiate the type parameter.
 A type argument to `Result` of `Factory` must be a class with a single 
 initialization parameter of type `String`.
 
-    Factory<Hello> = Factory<PersonalizedHello>(); //ok
-    Factory<Hello> = Factory<DefaultHello>(); //compile error
-
 A third kind of type constraint is an *enumerated type bound*, which constrains 
 the type argument to be one of an enumerated list of types. 
 It lets us write an exhaustive switch on the type parameter:
@@ -281,8 +282,8 @@ It lets us write an exhaustive switch on the type parameter:
         }
     }
 
-This is one of the workarounds we mentioned earlier for Ceylon's lack of 
-overloading.
+This is one of the workarounds we [mentioned earlier](../bascis/#living_without_overloading) 
+for Ceylon's lack of overloading.
 
 Finally, the fourth kind of type constraint, which is much less common, and 
 which most people find much more confusing, is a *lower bound*. A lower 
@@ -341,6 +342,7 @@ With type inference, the compiler chooses an appropriate type argument to
     Set<Point> points = Set( Polar(pi,3.5), Cartesian(1.0, -2.0) );
     Set<Object> objects = Set("Gavin", 12, true);
     Set<Object> allTheObjects = points.union(objects);
+
 
 ## There's more...
 

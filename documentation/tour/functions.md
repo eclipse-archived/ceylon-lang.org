@@ -7,9 +7,10 @@ author: Gavin King
 
 # #{page.title}
 
-This is the ninth part of the Tour of Ceylon. In the 
+This is the tenth part of the Tour of Ceylon. In the 
 [previous leg](../modules) we looked at modules. This leg covers
 functions.
+
 
 ## First class and higher order functions
 
@@ -34,7 +35,7 @@ function support' will be used from now on.
 ## Representing the type of a function
 
 Ceylon is a (very) statically typed language. So if we're going to treat a 
-function as a value, the very first question that arises is: what is the 
+function as a value, the very first question that arises is: What is the 
 type of the function? We need a way to encode the return type and parameter 
 types of a function into the type system. Remember that Ceylon doesn't have 
 "primitive" types. A strong design principle is that every type should be 
@@ -55,12 +56,13 @@ So the type of sum in Ceylon is:
 
     Callable<Natural, Natural, Natural>
 
-What about void functions? Well, remember that way back in 
+What about `void` functions? Well, remember that way back in 
 [the first part of the tour](../basics) we said 
 that the return type of a void function is `Void`. So the type of a function 
 like `print()` is:
 
     Callable<Void,String>
+
 
 ## Representing the type of a method
 
@@ -92,6 +94,7 @@ Don't worry if you can't make sense of that right now. A few details
 are being glossed over here, that's not quite *exactly* how Method is 
 defined. But we'll come back to this in a future installment. Let's get back 
 to the current topic.
+
 
 ## Defining higher order functions
 
@@ -126,11 +129,12 @@ syntax for declaring a parameter of type `Callable`:
 Many pepple find this version also slightly more readable and more regular. 
 This is the preferred syntax for defining higher-order functions.
 
+
 ## Function references
 
-When a name of a function appears without any arguments, like `print` does 
+When a name of a function appears without any arguments, like `printNum` does 
 above, it's called a *function reference*. A function reference is the 
-thing that really has the type `Callable`. In this case, print has the type 
+thing that really has the type `Callable`. In this case, `printNum` has the type 
 `Callable<Void,Natural>`.
 
 Now, remember how we said that `Void` is both the return type of a 
@@ -162,6 +166,7 @@ method to a receiver expression. For example, we could write the following:
 
 Here the expression `Hello("Gavin").say` has the same type as `print` above. 
 It is a `Callable<Void,Natural>`.
+
 
 ## More about higher-order functions
 
@@ -232,10 +237,10 @@ Now, any event observer can just pass a reference to one of its own methods to
 
 When the name of a method appears in an expression without a list of 
 arguments after it, it is a reference to the method, not an invocation of the 
-method. Here, the expression onEvent is an expression of type 
+method. Here, the expression `onEvent` is an expression of type 
 `Callable<Void,Event>` that refers to the method `onEvent()`.
 
-If `onEvent()` were shared, we could even wire together the `Component` and 
+If `onEvent()` were `shared`, we could even wire together the `Component` and 
 `Listener` from some other code, to eliminate the dependency of `Listener` 
 on `Component`:
 
@@ -318,7 +323,7 @@ In case you're wondering, the type of the method `addObserver()` is
 
 Notice that `cancel()` is able to use the parameter `observe` of 
 `addObserver()`. We say that the inner method receives a *closure* of the 
-non-variable locals and parameters of the outer method — just like a method 
+non-`variable` locals and parameters of the outer method — just like a method 
 of a class receives a closure of the class initialization parameters and 
 locals of the class initializer. In general, any inner class, method, or 
 attribute declaration always receives the closure of the members of the class, 
@@ -351,6 +356,7 @@ parameter lists. Either kind of member can be defined by reference, using `=`,
 or directly, by specifying a block of code to be executed.
 
 Cool, huh? That's more regularity.
+
 
 ## There's more...
 

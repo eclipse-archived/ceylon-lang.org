@@ -7,7 +7,7 @@ author: Gavin King
 
 # #{page.title}
 
-Wow, part thirteen of the Tour of Ceylon and the end is in sight! 
+Wow, part fourteenth of the Tour of Ceylon and the end is in sight! 
 The [last part](../initialization) covered initialization. This part is all 
 about *annotations*.
 
@@ -43,9 +43,10 @@ Of course, we can define our own annotations. (That's the whole point!)
 Since annotations are methods, annotation names always begin with a lowercase 
 letter.
 
+
 ## Annotation arguments
 
-When we specify an annotation with a non-empty parameter list at a program 
+When we specify an annotation with a non-empty parameter list on a program 
 element, we need to specify arguments for the parameters of the annotation. 
 Just like with a normal method invocation, we have the choice between a
 positional argument list or a named argument list. We could write:
@@ -78,6 +79,7 @@ write the annotation name and leave it at that. We do this all the time with
 annotations like `shared`, `formal`, `default`, `actual`, `abstract`, 
 `deprecated`, and `variable`.
 
+
 ## Annotation types
 
 The return type of an annotation is called the *annotation type*. 
@@ -102,6 +104,7 @@ The type arguments of this interface express constraints upon how annotations
 which return the annotation type occur. The first type parameter, 
 `Value`, is simply the annotation type itself.
 
+
 ## Annotation constraints
 
 The second type parameter, `Values`, governs how many different annotations 
@@ -110,10 +113,10 @@ of given program element may return the annotation type. Notice that
 two direct subtypes. So any annotation type must be a subtype of one of 
 these two interfaces:
 
-* If an annotation type is a suptype of `OptionalAnnotation`, at most one 
+* If an annotation type is a subtype of `OptionalAnnotation`, at most one 
   annotation of a given program element may be of this annotation type, or, 
   otherwise
-* if an annotation type is a suptype of `SequencedAnnotation`, more than one
+* if an annotation type is a subtype of `SequencedAnnotation`, more than one
   annotation of a given program element may be of this annotation type.
 
 <!-- this comment is working around a bug in rdiscount -->
@@ -140,7 +143,7 @@ elements that declare a subtype of `Number`. The argument
 `Attribute<Bottom,String>` would constrain the annotation to occur only 
 at program elements that declare an attribute of type `String`.
 
-Here's a couple of examples from the language spec:
+Here are a couple of examples from the language spec:
 
     shared interface Scope
             of request | session | application
@@ -149,6 +152,7 @@ Here's a couple of examples from the language spec:
             satisfies OptionalAnnotation<Todo,Annotated> {
         shared actual String string = text;
     }
+
 
 ## Reading annotation values at runtime
 
@@ -176,7 +180,7 @@ we can write:
 Note that the expression `Thread.stop` returns the metamodel object for the 
 method `stop()` of `Thread`, an instance of `Method<Thread,Void>`.
 
-Here's two more examples, to make sure you get the idea:
+Here are two more examples, to make sure you get the idea:
 
     Scope scope = annotations(Scope, Person) ? request;
     Todo[] todos = annotations(Todo, method);
@@ -199,6 +203,7 @@ so you're more likely to be writing code like this:
 
 As you can see, Ceylon annotations are framework-developer-heaven.
 
+
 ## Defining annotations
 
 We've seen plenty of examples of annotations built into Ceylon. Application 
@@ -219,7 +224,6 @@ and attributes, and may occur at most once on any member.
             satisfies OptionalAnnotation<Transactional,Member<Bottom,Void>> {
         shared Boolean requiresNew = requiresNew;
     }
-
 
 Now we can apply our annotation to a method of any class.
 
