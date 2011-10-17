@@ -7,6 +7,10 @@ author: Tom Bentley
 
 # #{page.title}
 
+The `try` statement is used to execute a block of code providing other 
+blocks to handle exceptional circumstances, and, optional, another block
+to be executed in all circumstances.
+
 ## Usage 
 
     try {

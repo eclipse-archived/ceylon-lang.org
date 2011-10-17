@@ -7,6 +7,9 @@ author: Tom Bentley
 
 # #{page.title}
 
+The `throw` statement is used to indicate that an exception to the normal 
+flow of control has ocurred.
+
 ## Usage 
 
 A bare `throw` doesn't supply an exception instance:

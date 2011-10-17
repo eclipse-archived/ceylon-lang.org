@@ -7,6 +7,8 @@ author: Tom Bentley
 
 # #{page.title}
 
+The `if` statement allows a block of code to be executed conditionally.
+
 ## Usage 
 
 The general form of the `if` statement is

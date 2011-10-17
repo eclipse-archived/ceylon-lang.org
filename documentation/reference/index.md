@@ -30,8 +30,6 @@ author: Tom Bentley
 
 ## Statements
 
-* [`break` statements](statement/break)
-* [`continue` statements](statement/continue)
 * [expression statements](statement/expression)
 * [`for` statements](statement/for)
 * [`if` statements](statement/if)
@@ -40,7 +38,7 @@ author: Tom Bentley
 * [`switch` statements](statement/switch)
 * [`throw` statements](statement/throw)
 * [`try` statements](statement/try)
-* [`while/else` statements](statement/while)
+* [`while` statements](statement/while)
 
 ## Expressions
 
