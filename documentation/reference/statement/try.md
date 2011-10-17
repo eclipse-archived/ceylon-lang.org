@@ -8,7 +8,7 @@ author: Tom Bentley
 # #{page.title}
 
 The `try` statement is used to execute a block of code providing other 
-blocks to handle exceptional circumstances, and, optional, another block
+blocks to handle exceptional circumstances, and, optionally, another block
 to be executed in all circumstances.
 
 ## Usage 
@@ -26,7 +26,7 @@ to be executed in all circumstances.
 ## Description
 
 The `try` statment is used to handle exceptions thrown by the 
-[`throw`](../throw) statement. The statement is made up of a number of parts. 
+[`throw`](../throw) statement.
 
 The mandatory `try` block is code to be executed which is anticipated to 
 throw some kind of exception. 
@@ -47,9 +47,9 @@ Note that [intersection types](FIXME) can and should be used to avoid using
 multiple `catch` blocks which use the same logic to handle disparate 
 exception types.
 
-## Grammar
+## `try` with resources
 
-    tryCatchFinally : tryBlock ( catchBlock )* ( finallyBlock )? ;
+`try` with resources will be implemented in  <!-- m2 -->
 
 ## See also
 

@@ -35,7 +35,7 @@ author: Tom Bentley
 * [`if` statements](statement/if)
 * [`import` statements](statement/import)
 * [`return` statements](statement/return)
-* [`switch` statements](statement/switch)
+* [`switch` statements](statement/switch) <!-- m2 -->
 * [`throw` statements](statement/throw)
 * [`try` statements](statement/try)
 * [`while` statements](statement/while)
