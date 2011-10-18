@@ -30,11 +30,14 @@ author: Tom Bentley
 
 ## Statements
 
+* [`break` statements](statement/break)
+* [`continue` statements](statement/continue)
 * [expression statements](statement/expression)
 * [`for` statements](statement/for)
 * [`if` statements](statement/if)
 * [`import` statements](statement/import)
 * [`return` statements](statement/return)
+* [`=` (specification) statement](statement/specification)
 * [`switch` statements](statement/switch) <!-- m2 -->
 * [`throw` statements](statement/throw)
 * [`try` statements](statement/try)

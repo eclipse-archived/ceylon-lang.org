@@ -3,6 +3,7 @@ layout: reference
 title: `for` statement
 tab: documentation
 author: Tom Bentley
+milestone: Milestone 1
 ---
 
 # #{page.title}
@@ -37,16 +38,17 @@ proceeds until the `Iterator` is exhausted or an ['early exit'](#early_exit) occ
 
 ### `break` and `continue`
 
-Within the `for` block the `break` directive can be used to exit the block 
-early without iterating over the remaining items in the `Iterator`. This is 
+Within the `for` block the [`break` directive](../break/) can be used to exit 
+the block early without iterating over the remaining items in the `Iterator`. This is 
 one form of ['early exit'](#early_exit).
 
-The `contine` directive can be used to skip execution of
+The [`contine` directive](../continue) can be used to skip execution of
 the remainder of the block and proceed with the next item from the `Iterator`.
 
 ### Early Exit
 
-If the `for` block ends with a `return`, `break`, or `throw` directive the 
+If the `for` block ends with a [`return`](../return/), 
+[`break`](../break/), or [`throw`](../throw/) directive the 
 iteration is said to have *exited early*. In the `return` and `throw` cases
 control is returned directly to the caller; in the `break` case execution 
 proceeds with the code following the `else` clause. Therefore, in all cases of 
@@ -75,13 +77,11 @@ iteration statement and termination condition.
 This isn't a problem in practice; see 
 [what the Tour has to say](/documentation/tour/sequences#iterating_sequences).
 
-Java's 'labelled' `break` and `continue` directives are not supported. The 
-`break` and `continue` directives operate on the directly enclosing `for` or 
-`while` statment.
-
 ## See also
 
-* The [`while` statement](../while).
+* The [`break` statement](../break)
+* The [`continue` statement](../continue)
+* The [`while` statement](../while)
 * [`Iterable`](../../ceylon.language/Iterable)
 * The [`for` statement](/documentation/tour/missing-pieces#control_structures) 
   and [Iterating Sequences](/documentation/tour/sequences#iterating_sequences)
