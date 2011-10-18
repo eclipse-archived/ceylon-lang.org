@@ -32,7 +32,7 @@ author: Tom Bentley
 
 * [`break` statements](statement/break)
 * [`continue` statements](statement/continue)
-* [expression statements](statement/expression)
+* [expression statements](expression)
 * [`for` statements](statement/for)
 * [`if` statements](statement/if)
 * [`import` statements](statement/import)
@@ -45,11 +45,17 @@ author: Tom Bentley
 
 ## Expressions
 
+* [Attribute Evaluation](expression/attribute-evalaution)
+* [Attribute Assignment](expression/attribute-assignment)
+* [Callable References](expression/callable-references) <!-- m2 -->
+* [Class Instantiation](expression/class-instantiation)
+* [Literals](#literals)
+* [Metamodel References](expression/metamodel-references) <!-- m3 -->
 * [Method Invocation](expression/method-invocation)
-* [Class Invocation](expression/class-invocation)
+* [Operators](#operators)
+* [Self References](expression/self-references)
 * [Sequence Instantiation](expression/sequence-instantiation)
 * [String Templates](expression/string-template)
-* [Self References](expression/self-references)
 
 ## Operators
 
@@ -116,7 +122,7 @@ author: Tom Bentley
 * [`~=`  (complement assign)](operator/complement-assign) <!-- m2 -->
 
 
-### Literals
+## Literals
 
 * [Number literals](literal/number)
 * [Float literals](literal/float)
