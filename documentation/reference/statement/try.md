@@ -28,6 +28,8 @@ to be executed in all circumstances.
 The `try` statment is used to handle exceptions thrown by the 
 [`throw`](../throw) statement.
 
+### Execution
+
 The mandatory `try` block is code to be executed which is anticipated to 
 throw some kind of exception. 
 
@@ -43,11 +45,13 @@ A `finally` block may optionally be given. The code in this block is executed
 whether or not an exception was thrown by the code in the `try` block (and 
 assuming any `catch` block doesn't raise an exception). 
 
+### Advice
+
 Note that [intersection types](FIXME) can and should be used to avoid using 
 multiple `catch` blocks which use the same logic to handle disparate 
 exception types.
 
-## `try` with resources
+### `try` with resources
 
 `try` with resources will be implemented in  <!-- m2 -->
 

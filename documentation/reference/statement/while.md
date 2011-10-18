@@ -22,6 +22,8 @@ The general form of the `while` statement is
 
 ## Description
 
+### Execution
+
 A `while` statement executes a block of code repeatedly until the 
 *while condition* evaluates as `false` (or the block it exited via a 
 `return`, `throw` or `break` directive).

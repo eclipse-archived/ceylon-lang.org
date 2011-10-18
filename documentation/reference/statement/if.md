@@ -27,9 +27,10 @@ There can be zero or more `else if` clauses, and the `else` clause is optional.
 
 ## Description
 
-The `if` statement allows blocks of code to be executed *conditionally*. 
 Ceylon's `if` statement should already be familiar to anyone who has programmed 
 using a C-like language.
+
+### Execution
 
 The 'if condition' is evaluated first, and if it evaluates as `true` then 
 execution proceeds with the corresponding block of code and after that 

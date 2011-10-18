@@ -23,6 +23,8 @@ created at the point the `throw` statement is used:
 
 ## Description
 
+### Execution
+
 The `throw` statement causes the enclosing method, attribute accessor or 
 initializer to return *abnormally*, signifying an exceptional circumstance 
 which prevents normal completion. Insead of returning to the caller, the 
@@ -36,14 +38,13 @@ given a new messageless and causeless
 created automatically. If an exression is given is must be of a type which is 
 assignable to `ceylon.language.Exception`.
 
-It is possible, though not recommended, to use `throw` to implement control 
-logic.
+### Checked exceptions
 
 Ceylon does not support 'checked' exceptions. Any kind of exception may be 
 thrown without it having to be declared by a 
 [`throws` annotation](../../ceylon.language/throws) in the relevant declaration. 
 This includes Ceylon code throwing what in Java would 
-be considered to be checked exceptions (such as `java.lang.Exception`). In 
+be considered to be *checked exceptions* (such as `java.lang.Exception`). In 
 other words the following is perfectly acceptable to the Ceylon compiler:
 
     import java.lang {CheckedException=Exception};
@@ -52,9 +53,10 @@ other words the following is perfectly acceptable to the Ceylon compiler:
         throw CheckedException();
     }
 
-## Grammar
+### Advice
 
-    throw: THROW expression;
+It is possible, though not recommended, to use `throw` to implement control 
+logic.
 
 ## See also
 

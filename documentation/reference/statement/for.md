@@ -25,6 +25,8 @@ The `else` clause is optional.
 
 ## Description
 
+### Execution
+
 A `for` statement works with `Iterable`s. Before the `for` block an iteration 
 variable (assignable to `Iterator<T>`, for some `T`) is declared, and an
 `Iterable`-typed expression is given. The 
