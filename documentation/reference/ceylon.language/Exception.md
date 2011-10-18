@@ -41,5 +41,5 @@ Exception as approriate (often for exception wrapping purposes).
 
 ## See Also
 
-* [API documentation](FIXME)
+* [API documentation](#{site.urls.apidoc}/ceylon/language/${name}) for `Exception`
 
