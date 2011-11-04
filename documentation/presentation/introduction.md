@@ -12,7 +12,7 @@ author: Stéphane Épardaud, Emmanuel Bernard
 - convert to Devoxx template
 - decide whether to use Mac for both pres and demo or stay agnostic
 - add hierarchical structure examples
-- currently at 44 slides, 4-5 less and we should be good assuming a quick demo
+- currently at 45 slides, 5 less and we should be good assuming a quick demo
 
 ## Presentation
 
@@ -247,6 +247,35 @@ Stéphane Épardaud, Emmanuel Bernard
             workWithFigure2D(fig);
         }
     }
+
+### Hierarchical structure
+
+- speaking of named parameters
+
+<!-- lang:ceylon -->
+    Table table = Table {
+        title="Squares";
+        rows=5;
+        border = Border {
+            padding=2;
+            weight=1;
+        };
+        Column {
+            heading="x";
+            width=10;
+            String content(Natural row) {
+                return row.string;
+            }
+        },
+        Column {
+            heading="x**2";
+            width=12;
+            String content(Natural row) {
+                return (row**2).string;
+            }
+        }
+    };
+
 
 ### Interfaces
 
