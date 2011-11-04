@@ -12,7 +12,7 @@ author: Stéphane Épardaud, Emmanuel Bernard
 - convert to Devoxx template
 - decide whether to use Mac for both pres and demo or stay agnostic
 - add hierarchical structure examples
-- currentlya t 44-45 slides, 7 less and we should be good
+- currently at 44 slides, 4-5 less and we should be good assuming a quick demo
 
 ## Presentation
 
