@@ -11,6 +11,8 @@ author: Stéphane Épardaud, Emmanuel Bernard
 
 - convert to Devoxx template
 - decide whether to use Mac for both pres and demo or stay agnostic
+- add hierarchical structure examples
+- currentlya t 44-45 slides, 7 less and we should be good
 
 ## Presentation
 
@@ -490,24 +492,16 @@ Stéphane Épardaud, Emmanuel Bernard
 
 ### Modularity
 
-- Each unit belongs to a package
-  - package.ceylon for declarations
-    - Sharing, license, documentation
-- Each package belongs to a module
-  - module.ceylon for declarations
-    - Name, version, license, documentation
-    - Dependencies
-    - Initialisation and execution methods
+- Unit included in packages included in modules
+- module.ceylon declares
+  - Name, version, license, documentation
+  - Dependencies
+  - Initialisation and execution methods
+- Distribution
+  - repository
+  - dependecy resolution in the tools
 
-### Distribution
-
-- Repository à-la Maven
-  - contains classes, sources and doc
-    - eg `pkg/Name/1.0/pkg.Name-1.0.car`
-  - pkg/Name/1.0/pkg.Name-1.0.src
-- Tools deal with dependencies
-
-### Tools
+### Tool chain
 
 - Compiler: ceylonc
   - Takes Java and Ceylon code
