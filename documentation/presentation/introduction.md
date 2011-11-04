@@ -43,8 +43,8 @@ Stéphane Épardaud, Emmanuel Bernard
 - Hibernate
 - JCP
 - Podcasts
-  - <asylum.jboss.org>
-  - <lescastcodeurs.com>
+  - [JBoss Community Asylum](http://asylum.jboss.org)
+  - [Les Cast Codeurs](http://lescastcodeurs.com)
 - The rest is at <http://emmanuelbernard.com>
 
 - [@emmanuelbernard](htp://twitter.com/emmanuelbernard)
