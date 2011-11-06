@@ -12,11 +12,10 @@ The first milestone will consist of:
 
 * A command-line compiler for Ceylon which implements a *subset* of the 
   language described in the language specification.
-  
 * An Eclipse plugin which uses the same compiler backend and provide a number
   of great development features.
 
 You can follow our progress:
 
-* in our [blog](/blog) (specific tag?)
+* in our [blog](/blog)
 * or check out our [roadmap page](/documentation/roadmap).

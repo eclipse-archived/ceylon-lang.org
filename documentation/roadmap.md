@@ -13,11 +13,17 @@ with.
 
 Our roadmap is fairly well defined though.
 
+- [Milestone 1](#milestone_1)
+- [Milestone 2](#milestone_2)
+- [Milestone 3](#milestone_3)
+
 ## Milestone 1
 
 Expressions, basic procedural code, basic object orientation, basic
 generics including (co|contra)variance, validation of definite
 assignment/initialization and definite return.
+
+And of course pushing our work into the open.
 
 ### Declarations:
 * classes **[done|done]**
