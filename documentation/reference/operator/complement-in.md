@@ -28,7 +28,7 @@ The `~` operator is defined as follows:
 
     lhs.complement(rhs);
 
-See the [language specification](#{site.urls.spec}#slotwiseoperators) for 
+See the [language specification](#{site.urls.spec}#slotwise) for 
 more details.
 
 ### Polymorphism
@@ -45,7 +45,7 @@ TODO
 
 * [unary `~`](../complement)
 * [`Slots`](../../ceylon.language/Slots)
-* [slotwise operators](#{site.urls.spec}#slotwiseoperators) in the 
+* [slotwise operators](#{site.urls.spec}#slotwise) in the 
   language specification
 * [operator precedence](#{site.urls.spec}#operatorprecedence) in the 
   language specification

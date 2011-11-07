@@ -23,7 +23,7 @@ The `^` operator is defined as follows:
 
     lhs.xor(rhs)
 
-See the [language specification](#{site.urls.spec}#slotwiseoperators) for 
+See the [language specification](#{site.urls.spec}#slotwise) for 
 more details.
 
 ### Polymorphism
@@ -42,7 +42,7 @@ For the built-in numeric types ([`Natural`](../../ceylon.language/Natural),
 ## See also
 
 * [`Slots`](../../ceylon.language/Slots)
-* [slotwise operators](#{site.urls.spec}#slotwiseoperators) in the 
+* [slotwise operators](#{site.urls.spec}#slotwise) in the 
   language specification
 * [operator precedence](#{site.urls.spec}#operatorprecedence) in the 
   language specification

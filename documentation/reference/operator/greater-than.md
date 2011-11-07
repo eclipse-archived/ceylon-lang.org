@@ -25,7 +25,7 @@ The `>` operator is defined as follows:
 
     lhs.greaterThan(rhs);
 
-See the [language specification](#{site.urls.spec}#equalityandcomparisonoperators) for more details.
+See the [language specification](#{site.urls.spec}#equalitycomparison) for more details.
 
 ### Polymorphism
 
@@ -36,7 +36,7 @@ The meaning of `>` depends on the
 ## See also
 
 * [`Comparable`](../../ceylon.language/Comparable)
-* [`>` in the language specification](#{site.urls.spec}#equalityandcomparisonoperators)
+* [`>` in the language specification](#{site.urls.spec}#equalitycomparison)
 * [operator precedence](#{site.urls.spec}#operatorprecedence) in the 
   language specification
 * [Operator polymorphism](/documentation/tour/language-module/#operator_polymorphism) 

@@ -24,7 +24,7 @@ The `in` operator is defined as follows:
 
     lhs.contained(rhs);
 
-See the [language specification](#{site.urls.spec}#equalityandcomparisonoperators) for more details.
+See the [language specification](#{site.urls.spec}#equalitycomparison) for more details.
 
 ### Polymorphism
 
@@ -35,7 +35,7 @@ The meaning of `in` depends on the
 ## See also
 
 * [`Category`](../../ceylon.language/Category)
-* [`in` in the language specification](#{site.urls.spec}#equalityandcomparisonoperators)
+* [`in` in the language specification](#{site.urls.spec}#equalitycomparison)
 * [operator precedence](#{site.urls.spec}#operatorprecedence) in the 
   language specification
 * [Operator polymorphism](/documentation/tour/language-module/#operator_polymorphism) 

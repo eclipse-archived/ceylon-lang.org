@@ -38,7 +38,7 @@ interface.
 
 ## See also
 
-* [`[\]` (lookup)](../lookup) operator used for accessesing a single item
+* [`[]` (lookup)](../lookup) operator used for accessesing a single item
 * [`Correspondence`](../../ceylon.language/Correspondence)
 * [sequence operators](#{site.urls.spec}#listmap) in the 
   language specification

@@ -25,7 +25,7 @@ The `&&=` operator is defined as:
 
     if (lhs) lhs:=rhs else false
 
-See the [language specification](#{site.urls.spec}#logicaloperators) for 
+See the [language specification](#{site.urls.spec}#logical) for 
 more details.
 
 ### Polymorphism
@@ -34,7 +34,7 @@ The `&&` operator is not [polymorphic](/documentation/reference/operator/operato
 
 ## See also
 
-* [logical operators](#{site.urls.spec}#logicaloperators) in the 
+* [logical operators](#{site.urls.spec}#logical) in the 
   language specification
 * [operator precedence](#{site.urls.spec}#operatorprecedence) in the 
   language specification

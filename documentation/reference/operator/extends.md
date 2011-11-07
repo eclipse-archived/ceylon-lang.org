@@ -25,7 +25,7 @@ The `extends` operator is defined as follows:
 
     lhs.extendsType(rhs);
 
-See the [language specification](#{site.urls.spec}#equalityandcomparisonoperators) for more details.
+See the [language specification](#{site.urls.spec}#equalitycomparison) for more details.
 
 ### Polymorphism
 
@@ -38,7 +38,7 @@ The meaning of `extends` depends on the
 
 * [`Class`](../../ceylon.language/Class)
 * [`Type`](../../ceylon.language/Type)
-* [`extends` in the language specification](#{site.urls.spec}#equalityandcomparisonoperators)
+* [`extends` in the language specification](#{site.urls.spec}#equalitycomparison)
 * [operator precedence](#{site.urls.spec}#operatorprecedence) in the 
   language specification
 * [Operator polymorphism](/documentation/tour/language-module/#operator_polymorphism) 

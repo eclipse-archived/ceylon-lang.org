@@ -25,7 +25,7 @@ The `===` operator is defined as follows:
 
     lhs.identical(rhs);
 
-See the [language specification](#{site.urls.spec}#equalityandcomparisonoperators) for more details.
+See the [language specification](#{site.urls.spec}#equalitycomparison) for more details.
 
 ### Polymorphism
 
@@ -41,7 +41,7 @@ TODO
 
 * [`==` (equal)](../equal) operator
 * [`IdentifiableObject`](../../ceylon.language/IdentifiableObject)
-* [identical in the language specification](#{site.urls.spec}#equalityandcomparisonoperators)
+* [identical in the language specification](#{site.urls.spec}#equalitycomparison)
 * [operator precedence](#{site.urls.spec}#operatorprecedence) in the 
   language specification
 * [Operator polymorphism](/documentation/tour/language-module/#operator_polymorphism) 
