@@ -29,7 +29,7 @@ Ceylon language itself.
 
 ## API Documentation
 
-The [API documentation](api) covers all the classes in the `ceylon.*` packages, but since Ceylon is
+The [API documentation](#{site.urls.apidoc}) covers all the classes in the `ceylon.*` packages, but since Ceylon is
 a JVM language you can also use any of the API's available to Java.
 
 ## Got questions? We have FAQs
