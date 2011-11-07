@@ -3,6 +3,9 @@
 ## as well as the latest version of the ceylon.language ceylondoc
 ##
 
+# Build site
+awestruct --profile development
+
 # Update the repos
 REPOS="_tmp/repos"
 mkdir -p $REPOS
