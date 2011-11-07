@@ -14,5 +14,5 @@ milestone: Milestone 1
 
 ## See also
 
-* [API documentation](#{site.urls.apidoc}/ceylon/language/OutOfRangeException) for `OutOfRangeException`
+* [API documentation](#{site.urls.apidoc}/ceylon/language/OutOfRangeException.html) for `OutOfRangeException`
 

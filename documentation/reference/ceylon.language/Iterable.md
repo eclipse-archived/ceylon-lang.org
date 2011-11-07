@@ -14,5 +14,5 @@ milestone: Milestone 1
 
 ## See also
 
-* [API documentation](#{site.urls.apidoc}/ceylon/language/Iterable) for `Iterable`
+* [API documentation](#{site.urls.apidoc}/ceylon/language/Iterable.html) for `Iterable`
 

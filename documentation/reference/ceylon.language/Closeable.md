@@ -14,5 +14,5 @@ milestone: Milestone 1
 
 ## See also
 
-* [API documentation](#{site.urls.apidoc}/ceylon/language/Closeable) for `Closeable`
+* [API documentation](#{site.urls.apidoc}/ceylon/language/Closeable.html) for `Closeable`
 

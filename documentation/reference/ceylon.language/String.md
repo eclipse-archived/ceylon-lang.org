@@ -14,5 +14,5 @@ milestone: Milestone 1
 
 ## See also
 
-* [API documentation](#{site.urls.apidoc}/ceylon/language/String) for `String`
+* [API documentation](#{site.urls.apidoc}/ceylon/language/String.html) for `String`
 

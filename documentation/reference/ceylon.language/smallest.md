@@ -14,5 +14,5 @@ milestone: Milestone 1
 
 ## See also
 
-* [API documentation](#{site.urls.apidoc}/ceylon/language/smallest) for `smallest`
+* [API documentation](#{site.urls.apidoc}/ceylon/language/smallest.html) for `smallest`
 

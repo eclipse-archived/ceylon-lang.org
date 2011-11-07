@@ -14,5 +14,5 @@ milestone: Milestone 1
 
 ## See also
 
-* [API documentation](#{site.urls.apidoc}/ceylon/language/zip) for `zip`
+* [API documentation](#{site.urls.apidoc}/ceylon/language/zip.html) for `zip`
 

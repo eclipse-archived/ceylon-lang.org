@@ -14,5 +14,5 @@ milestone: Milestone 1
 
 ## See also
 
-* [API documentation](#{site.urls.apidoc}/ceylon/language/Range) for `Range`
+* [API documentation](#{site.urls.apidoc}/ceylon/language/Range.html) for `Range`
 

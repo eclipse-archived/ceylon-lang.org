@@ -14,5 +14,5 @@ milestone: Milestone 1
 
 ## See also
 
-* [API documentation](#{site.urls.apidoc}/ceylon/language/Void) for `Void`
+* [API documentation](#{site.urls.apidoc}/ceylon/language/Void.html) for `Void`
 

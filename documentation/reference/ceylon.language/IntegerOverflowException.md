@@ -14,5 +14,5 @@ milestone: Milestone 1
 
 ## See also
 
-* [API documentation](#{site.urls.apidoc}/ceylon/language/IntegerOverflowException) for `IntegerOverflowException`
+* [API documentation](#{site.urls.apidoc}/ceylon/language/IntegerOverflowException.html) for `IntegerOverflowException`
 

@@ -14,5 +14,5 @@ milestone: Milestone 1
 
 ## See also
 
-* [API documentation](#{site.urls.apidoc}/ceylon/language/Castable) for `Castable`
+* [API documentation](#{site.urls.apidoc}/ceylon/language/Castable.html) for `Castable`
 

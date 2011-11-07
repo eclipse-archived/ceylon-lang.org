@@ -14,5 +14,5 @@ milestone: Milestone 1
 
 ## See also
 
-* [API documentation](#{site.urls.apidoc}/ceylon/language/identityHash) for `identityHash`
+* [API documentation](#{site.urls.apidoc}/ceylon/language/index.html) for `identityHash`
 

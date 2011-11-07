@@ -14,5 +14,5 @@ milestone: Milestone 1
 
 ## See also
 
-* [API documentation](#{site.urls.apidoc}/ceylon/language/Singleton) for `Singleton`
+* [API documentation](#{site.urls.apidoc}/ceylon/language/Singleton.html) for `Singleton`
 

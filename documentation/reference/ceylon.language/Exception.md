@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `ceylon.language.Exception`
+title: `Exception`
 tab: documentation
 author: Tom Bentley
 ---
@@ -41,5 +41,5 @@ Exception as approriate (often for exception wrapping purposes).
 
 ## See Also
 
-* [API documentation](#{site.urls.apidoc}/ceylon/language/${name}) for `Exception`
+* [API documentation](#{site.urls.apidoc}/ceylon/language/Exception.html) for `Exception`
 
