@@ -18,6 +18,10 @@ You need to:
 * `gem install awestruct` or `sudo gem install awestruct`
 * `git clone git@github.com:ceylon/ceylon-lang.org.git;cd ceylon-lang.org`
 
+The Awestruct version known to work is 0.2.3
+
+   sudo gem install awestruct --version 0.2.3
+
 ## Serve the site locally
 
 * Go in your `~/ceylon-lang.org` directory.  
@@ -26,6 +30,14 @@ You need to:
 
 Any change will be automatically picked up except for `_partials` files, `_base.css`
 and sometimes new blog entries.
+
+### How to also add the spec and ceylondoc pages
+
+Use `./build-site.sh`. This will clone the spec, language and compiler repos and build
+the appropriate artifacts before pushing them to the site.
+
+Note that this process is a bit slow but you only need to do it if 
+the spec or the language have changed or if you have deleted the website.
 
 ### If your changes are not visible...
 
