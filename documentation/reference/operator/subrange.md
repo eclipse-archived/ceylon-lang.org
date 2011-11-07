@@ -34,7 +34,7 @@ The `[x..y]` operator is not [polymorphic](/documentation/reference/operator/ope
 
 ## See also
 
-* [`[x...\]` (upper range)](../upper-range) operator used for obtaining a tail of a sequence
+* [`[x...]` (upper range)](../upper-range) operator used for obtaining a tail of a sequence
 * [sequence operators](#{site.urls.spec}#listmap) in the 
   language specification
 * [operator precedence](#{site.urls.spec}#operatorprecedence) in the 

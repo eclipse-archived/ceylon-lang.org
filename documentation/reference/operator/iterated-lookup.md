@@ -42,8 +42,8 @@ interface.
 
 ## See also
 
-* [`[\]` (lookup)](../lookup) operator used for accessesing a single item
-* [`[\]` (iterated lookup)](../iterated-lookup) operator used for accessesing several items using an iterable
+* [`[]` (lookup)](../lookup) operator used for accessesing a single item
+* [`[]` (iterated lookup)](../iterated-lookup) operator used for accessesing several items using an iterable
 * [`Correspondence`](../../ceylon.language/Correspondence)
 * [sequence operators](#{site.urls.spec}#listmap) in the 
   language specification

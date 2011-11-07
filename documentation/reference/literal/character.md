@@ -31,18 +31,18 @@ you can use unicode escapes within character literals, like this:
 Backslash is used as an escape character. The following characters must be 
 escaped when they're used in a `Character` literal:
 
-* backtick (`\``), escaped as `\\``
-* backslash (`\`), escaped as `\\\\`
+* backtick ( \` ), escaped as \`\
+* backslash (`\`), escaped as `\\`
 * tab, escaped as `\t`
 * formfeed, escaped as `\f`
 * newline, escaped as `\n`
-* return, escaped as `r`
+* return, escaped as `\r`
 * backspace, escaped as `\b`
 
 In addition, the following may be escaped with a backslash:
 
-* single quote (`'`), escaped as `\\'`
-* double quote (`"`), escaped as `\\"`
+* single quote (`'`), escaped as `\'`
+* double quote (`"`), escaped as `\"`
 
 ## See also
 

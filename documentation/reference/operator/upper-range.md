@@ -35,7 +35,7 @@ The `[x...]` operator is not [polymorphic](/documentation/reference/operator/ope
 
 ## See also
 
-* [`[x..y\]` (subrange)](../subrange) operator used for obtaining a subrange of a sequence
+* [`[x..y]` (subrange)](../subrange) operator used for obtaining a subrange of a sequence
 * [sequence operators](#{site.urls.spec}#listmap) in the 
   language specification
 * [operator precedence](#{site.urls.spec}#operatorprecedence) in the 

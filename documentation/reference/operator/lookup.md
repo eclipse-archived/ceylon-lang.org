@@ -50,8 +50,8 @@ for the set case.
 
 ## See also
 
-* [`[\]` (sequenced lookup)](../sequenced-lookup) operator used for accessesing several items using a sequence
-* [`[\]` (iterated lookup)](../iterated-lookup) operator used for accessesing several items using an iterable
+* [`[]` (sequenced lookup)](../sequenced-lookup) operator used for accessesing several items using a sequence
+* [`[]` (iterated lookup)](../iterated-lookup) operator used for accessesing several items using an iterable
 * [`Correspondence`](../../ceylon.language/Correspondence) 
 * [`OpenCorrespondence`](../../ceylon.language/OpenCorrespondence)
 * [sequence operators](#{site.urls.spec}#listmap) in the 
