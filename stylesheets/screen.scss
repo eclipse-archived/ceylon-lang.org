@@ -177,24 +177,26 @@ form.bp {
   position:relative;
   top:2em;
   @include container;
-  #core-page {
-      @include column(16);
-  }
   #sidebar {
-      @include column(8,true);
+      @include column(6);
       
       .sidebar-block {
         h3 {
           color:#000000;
         }
-        padding:1em;
-        margin:1em;
+        padding:.5em;
         margin-top:0em;
+        margin-bottom:1em;
+        margin-right:1em;
+        margin-left:0em;
         background-color:$header_color;
       }
       .expandable {
         overflow:hidden;
       }
+  }
+  #core-page {
+      @include column(18, true);
   }
 }
 
