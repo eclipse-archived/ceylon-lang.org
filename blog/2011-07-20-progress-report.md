@@ -6,8 +6,8 @@ tab: blog
 tags: [progress]
 ---
 Hrm, I notice it's been just over three months since I semi-accidentally announced 
-the existence of the [Ceylon project=>Tutorials|Introduction to Ceylon], and I guess 
-I feel like you folks deserve some kind of progress report! At the time, I very much 
+the existence of the [Ceylon project](http://in.relation.to/Tutorials/IntroductionToCeylon)
+, and I guess I feel like you folks deserve some kind of progress report! At the time, I very much 
 regretted the fact that the project became public knowledge before I was really prepared 
 to socialize it, but in retrospect it was the best thing ever for us. That's where we got 
 Stef and Tako and Sergej and Ben from, along with the other folks who are signing up to get 

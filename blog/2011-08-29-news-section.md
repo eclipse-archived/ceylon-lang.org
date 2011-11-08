@@ -9,6 +9,7 @@ The website home page now has an automatically filled news section.
 
 When you want to advertize a news, add a file `yyyy-mm-some-text.md` to `_data/news` with the following structure
 
+<!-- lang: none -->
     ---
     title: 'My exciting news'
     date: 29 August, 2011
@@ -19,6 +20,7 @@ When you want to advertize a news, add a file `yyyy-mm-some-text.md` to `_data/n
 
 A typical example would be `2011-08-news-section.md`
 
+<!-- lang: none -->
     ---
     title: 'News section is up'
     date: 29 August, 2011

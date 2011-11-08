@@ -14,6 +14,7 @@ I have also added the blog system:
 
 In `blog`, create a file `YYYY-MM-DD-some-title.md` and add the following metadata
 
+<!-- lang: none -->
     ---
     title: We now have a blog system and decent structure
     author: Emmanuel Bernard

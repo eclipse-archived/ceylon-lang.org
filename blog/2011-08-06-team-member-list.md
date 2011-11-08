@@ -12,6 +12,7 @@ Adding your bio and photo is simple. create a `FirstnameLastname.md` file under 
 
 This file should contain your name, photo and level as metadata and your biography blurb in the content.
 
+<!-- lang: none -->
     ---
     name: John Doe
     photo: /images/team/JohnDoe.jpg
