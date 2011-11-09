@@ -4,7 +4,6 @@ layout: default
 author: Emmanuel Bernard
 tab: blog
 ---
-
 #sidebar
   - if page.author_for_bio
     - member = site.team.values.detect{|member| member.name == page.author_for_bio}
@@ -13,9 +12,14 @@ tab: blog
         .expandable
           %h3 Bio
           #{member.content}
-  .sidebar-block  
-    :markdown
-      ### [Feed](blog.atom)
+  - if not page.blog_tag
+    .sidebar-block  
+      - if page.author_for_bio
+        :markdown
+          ### [Feed](/blog/authors/#{sanitize(page.author_for_bio)}/blog.atom)
+      - else
+        :markdown
+          ### [Feed](blog.atom)
   .sidebar-block  
     %h3 Recent posts
     #blog-archive

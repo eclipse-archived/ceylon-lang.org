@@ -79,7 +79,8 @@ module Awestruct
 
         @tags.values.each do |tag|
           output_prefix = File.join( @output_path, sanitize(tag.to_s) )
-          paginator = Awestruct::Extensions::MyPaginator.new( @tagged_items_property, @input_path, { :remove_input=>false, :output_prefix=>output_prefix, :split_title=>'Blog tagged ' + tag.to_s, :collection=>tag.pages }.merge( @pagination_opts ) )
+          options = { :remove_input=>false, :output_prefix=>output_prefix, :split_title=>'Blog tagged ' + tag.to_s, :blog_tag=>tag.to_s, :collection=>tag.pages }.merge( @pagination_opts )
+          paginator = Awestruct::Extensions::MyPaginator.new( @tagged_items_property, @input_path, options )
           primary_page = paginator.execute( site )
           tag.primary_page = primary_page
         end

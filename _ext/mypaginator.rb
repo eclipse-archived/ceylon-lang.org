@@ -55,6 +55,7 @@ module Awestruct
         @collection    = opts[:collection]
         @split_title = opts[:split_title] 
         @author_for_bio = opts[:author_for_bio]
+        @blog_tag            = opts[:blog_tag]
       end
 
       def execute(site)
@@ -91,7 +92,9 @@ module Awestruct
           page.posts.pages              = paginated_pages
           page.posts.window             = 1
           page.split_title              = @split_title
+          page.title              = @split_title
           page.author_for_bio           = @author_for_bio
+          page.blog_tag                      = @blog_tag
 
           if ( prev_page != nil )
             prev_page.send( @prop_name ).next_page = page
