@@ -153,7 +153,8 @@ module Awestruct
         if id_generators.nil?
           normalized_content = ContentIdGenerator.new
           normalized_first_sentence = FirstWordsIdGenerator.new
-          @id_generators = { "h1" => normalized_content,
+          @id_generators = { 
+              "h1" => normalized_content,
               "h2" => normalized_content,
               "h3" => normalized_content,
               "h4" => normalized_content,
@@ -167,19 +168,26 @@ module Awestruct
       
       class Formatter < REXML::Formatters::Default
         def write_element( node, output )
-          output << "<#{node.expanded_name}"
+          elements = ["h1", "h1", "h1", "h1", "h5", "h6", "p"]
+          if elements.include?(node.expanded_name)
+          #if node.expanded_name == "br"
+          #  output << "<br/>"
+          #else
+            output << "<#{node.expanded_name}"
 
-          node.attributes.to_a.sort_by {|attr| attr.name}.each do |attr|
-            output << " "
-            attr.write( output )
-          end unless node.attributes.empty?
-          output << ">"
-          
-          node.children.each { |child|
-            write( child, output )
-          }
-          
-          output << "</#{node.expanded_name}>"
+            node.attributes.to_a.sort_by {|attr| attr.name}.each do |attr|
+              output << " "
+              attr.write( output )
+            end unless node.attributes.empty?
+            output << ">"
+            
+            node.children.each { |child|
+              write( child, output )
+            }
+            output << "</#{node.expanded_name}>"
+          else
+            super( node, output )
+          end
         end
       end
       
