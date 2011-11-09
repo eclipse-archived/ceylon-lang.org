@@ -19,7 +19,7 @@ In `blog`, create a file `YYYY-MM-DD-some-title.md` and add the following metada
     title: We now have a blog system and decent structure
     author: Emmanuel Bernard
     layout: blog
-    tags: [site blog]
+    tags: [site, blog]
     ---
 
 Then write down your blog post in [Markdown](/md-sample.md).
