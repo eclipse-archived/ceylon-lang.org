@@ -1,26 +1,37 @@
 ---
-layout: documentation
+layout: code
 title: Building the website
-tab: documentation
+tab: code
+
 author: Emmanuel Bernard
 ---
-# How to build the ceylon-lang.org website
+# How to build [ceylon-lang.org](/)
 
-Building the website and work the documentation is fairly simple. It is based
-on `Markdown` or `haml` based files and use Git as a rudimentary CMS.
+A bit of Git, a bit a Ruby and you will get your local version of [ceylon-lang.org](/) served.
 
-## infrastructure
+## Infrastructure
 
-You need to:
-
+* get Git
 * get Ruby
 * if on Mac OS, get XCode (needed for native gems)
-* `gem install awestruct` or `sudo gem install awestruct`
-* `git clone git@github.com:ceylon/ceylon-lang.org.git;cd ceylon-lang.org`
+
+Install Git to your system. [GitHub's help page](http://help.github.com/) is a good starting
+point. [Emmanuel's blog](http://in.relation.to/Bloggers/HibernateMovesToGitGitTipsAndTricks)
+on Git tips and tricks is useful too.
+
+Install Awestruct, a Ruby based site generator.
+
+    gem install awestruct 
+    #or
+    sudo gem install awestruct
 
 The Awestruct version known to work is 0.2.3
 
-   sudo gem install awestruct --version 0.2.3
+    sudo gem install awestruct --version 0.2.3
+
+Get the website source from GitHub.
+
+    git clone git@github.com:ceylon/ceylon-lang.org.git
 
 ## Serve the site locally
 
@@ -31,7 +42,7 @@ The Awestruct version known to work is 0.2.3
 Any change will be automatically picked up except for `_partials` files, `_base.css`
 and sometimes new blog entries.
 
-### How to also add the spec and ceylondoc pages
+### How to also include the spec and ceylondoc pages
 
 Use `./build-site.sh`. This will clone the spec, language and compiler repos and build
 the appropriate artifacts before pushing them to the site.
@@ -59,28 +70,3 @@ Use the following alternative:
 * Run `python -m SimpleHTTPServer 4242`
 
 You should be back to millisecond serving :) 
-
-## Markup samples
-
-You can find two sample files for [.md](/md-sample) and 
-[.html.haml](/haml-sample) syntaxes. Look at them especially the .md file as it 
-shows how a page should be written and how to use syntax highlighting.          
-Don't yell at me on color / style, this work has not been done yet.
-
-Menus are in `_layout`. When you create a page, give it the right metadata:
-
-* `title`
-* `author`
-* `tab`: this is the tab that will be highlighted when the page is shown. Use the lower case menu name.
-* `layout`
-
-There are several layouts depending on where you are in the website structure:
-
-* `default`: this is the default layout if outside of any specific structure
-* `blog`: use this layout of a blog entry
-* `community`: use this layout for community pages
-* `documentation`: use this layout of documentation pages
-* `faq`: use this layout for FAQ pages
-* `tour`: use this layout for a tour page
-
-If you add a page that ought to be in one of the structure menu, edit its respective `_layout` file. Make sure to use absolute links in menus eg `/documentation/faq/language-design`.
