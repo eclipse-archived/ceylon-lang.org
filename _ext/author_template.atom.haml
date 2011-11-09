@@ -3,8 +3,8 @@
 !!! XML
 
 %feed{ 'xml:lang'=>'en-US', :xmlns=>'http://www.w3.org/2005/Atom' }
-  %id= "#{site.base_url}/"
-  %title #{page.title}
+  %id= "#{site.base_url}/blog/#{page.sanitized_author}/"
+  %title= escape_once( page.title )
   - if ( defined?( site.author ) )
     %author
       - if ( defined?( site.author.name ) )

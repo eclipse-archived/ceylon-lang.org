@@ -40,12 +40,14 @@ module Awestruct
         atom_pages = atom_pages_per_name[name]
         site.engine.set_urls(atom_pages)
 
-        input_page = File.join( File.dirname(__FILE__), 'template.atom.haml' )
+        input_page = File.join( File.dirname(__FILE__), 'author_template.atom.haml' )
         page = site.engine.load_page( input_page )
         page.date = page.timestamp unless page.timestamp.nil?
         page.output_path = @output_path + "/" + sanitize(name) + "/" + @output_file
+        page.blog_url = @output_path + "/" + sanitize(name)
         page.entries = atom_pages
-        page.title = site.title || site.base_url
+        page.title = "Ceylon blog of #{name}"
+        page.sanitized_author = sanitize(name)
         site.pages << page
       end
       
