@@ -5,6 +5,7 @@ tab: code
 
 author: Emmanuel Bernard
 ---
+
 # How to build [ceylon-lang.org](/)
 
 A bit of Git, a bit a Ruby and you will get your local version of [ceylon-lang.org](/) served.
@@ -74,3 +75,12 @@ Use the following alternative:
 * Run `python -m SimpleHTTPServer 4242`
 
 You should be back to millisecond serving :) 
+
+# License
+
+The content of this repository is released under 
+[Creative Commons Attribution Share-Alike 3.0 Unported (CC BY-SA 3.0)](http://creativecommons.org/licenses/by-sa/3.0/).
+The source code of this website is released under [Apache Software License 2](http://www.apache.org/licenses/LICENSE-2.0.html).
+
+By submitting a "pull request" or otherwise contributing to this repository, you implicitly agree to license your contribution under 
+the respective licenses mentioned above.
