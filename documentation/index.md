@@ -8,34 +8,30 @@ author: Emmanuel Bernard
 # #{page.title}
 
 Welcome to Ceylon's documentation. Ceylon is a work in progress. The documentation
-is always in some flux.
+is always in some flux. By the way, __you__ can improve it, [read more](/code/website).
 
-## Quick Introduction
+## New to Ceylon?
 
-The [quick introduction](introduction) is a one page summary of some of the features 
+The [quick introduction](introduction) page summarizes some of the features
 Ceylon has to offer.
 
-## Tour of Ceylon
-
-If you've seen the [quick introduction](introduction) the 
-[tour](/documentation/tour) will drive you through the 
-main features and syntaxes of Ceylon in a little more depth.
+Still interested? The [tour of Ceylon](/documentation/tour) will drive you through the 
+main features and syntaxes of Ceylon in a little more depth. This is to date the
+best document to see how Ceylon will be concretly used.
 [Start the tour](/documentation/tour).
 
-## Language Specification
+## Reference
 
-The [Language Specification](spec) has the full technical details of the 
-Ceylon language itself.
+Want to dive into the details of Ceylon? The [reference](reference) page documents
+each one in detail. 
 
-## API Documentation
-
-The [API documentation](#{site.urls.apidoc}) covers all the classes in the `ceylon.*` packages, but since Ceylon is
-a JVM language you can also use any of the API's available to Java.
+If you have time in front of you, you can also dive into the [Language Specification](spec):
+this is our bible.
 
 ## Got questions? We have FAQs
 
-We have tried to compile the most common question you might have. Check out our [FAQs](faq).
+We have tried to compile common questions. Check out our [FAQs](faq).
 
-##Roadmap
+## Roadmap
 
-While Ceylon is not released, we do have a [roadmap](roadmap).
+Want to know when to expect what? We do have a [roadmap](roadmap).

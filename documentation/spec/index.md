@@ -1,5 +1,5 @@
 ---
-layout: documentation
+layout: reference
 title: Specification of the Ceylon language
 tab: documentation
 author: Emmanuel Bernard

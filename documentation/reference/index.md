@@ -7,6 +7,10 @@ author: Tom Bentley
 
 # #{page.title}
 
+This page lists Ceylon concepts and points to their description.
+The full [language specification document](/documentation/spec) is also available.
+
+
 ## Structure
 
 * [Modules](structure/module)
@@ -131,6 +135,8 @@ author: Tom Bentley
 * [Single-quoted literals](literal/single-quoted)
 
 ## Language module (`ceylon.language`)
+
+The raw CeylonDoc for [`ceylon.language`](#{site.urls.apidoc}/ceylon/language).
 
 * [`annotations`](ceylon.language/annotations)
 * [`Boolean`](ceylon.language/Boolean)
