@@ -8,6 +8,7 @@ require 'mydisqus'
 require 'gsub'
 require 'deeplink'
 require 'sanitizer'
+require 'main_atomizer'
 
 Awestruct::Extensions::Pipeline.new do
   extension Awestruct::Extensions::DataDir.new
@@ -32,7 +33,7 @@ Awestruct::Extensions::Pipeline.new do
                                                 :title=>'Authors',
                                                 :items_property_suffix=>'authors' )
 
-  extension Awestruct::Extensions::Atomizer.new( :posts, '/blog/blog.atom' )
+  extension Awestruct::Extensions::MainAtomizer.new( :posts, '/blog/blog.atom' )
   extension Awestruct::Extensions::MultiAtomizer.new( :posts, 'author', '/blog/authors' )
 
   extension Awestruct::Extensions::Indexifier.new
