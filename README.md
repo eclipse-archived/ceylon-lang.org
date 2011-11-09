@@ -44,11 +44,15 @@ and sometimes new blog entries.
 
 ### How to also include the spec and ceylondoc pages
 
-Use `./build-site.sh`. This will clone the spec, language and compiler repos and build
-the appropriate artifacts before pushing them to the site.
+Use `./build-site.sh`. This will clone or refresh the spec, language and compiler repos 
+into `_tmp` and build the appropriate artifacts before pushing them to the site.
 
-Note that this process is a bit slow but you only need to do it if 
-the spec or the language have changed or if you have deleted the website.
+If you have already run `./build-site.sh` and don't wish to rebuild the spec and ceylondoc,
+use 
+
+    ./build-site.sh --light
+
+to simply copy them to the website structure. This is much faster.
 
 ### If your changes are not visible...
 

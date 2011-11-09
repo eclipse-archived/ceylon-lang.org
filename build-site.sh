@@ -3,6 +3,21 @@
 ## as well as the latest version of the ceylon.language ceylondoc
 ##
 
+while [ $# -gt 0 ] ; do
+case $1 in
+--help) HELP="true" ; shift 1 ;;
+--light) LIGHT="true" ; shift 1 ;;
+*) shift 1 ;;
+esac
+done
+
+if [ "$HELP" = "true" ]; then
+	echo "Options:"
+	echo " --light to only copy files (spec and docs are assumed to be built)"
+	echo " --help this help message"
+	exit 0;
+fi
+
 # Build site
 awestruct --profile development
 
@@ -22,30 +37,36 @@ if [ ! -d "ceylon-compiler" ]; then
 fi
 
 # Build spec and type checker
-cd ceylon-spec
-git fetch origin
-git checkout origin/master
-ant
-ant publish
-cd ..
+if [ "$LIGHT" != "true" ]; then
+	cd ceylon-spec
+	git fetch origin
+	git checkout origin/master
+	ant
+	ant publish
+	cd ..
+fi
 
 # Copy spec into website
 cp -R ceylon-spec/build/en/ ../../_site/documentation/spec
 
 # Build language module
-cd ceylon.language
-git fetch origin
-git checkout origin/master
-ant
-cd ..
+if [ "$LIGHT" != "true" ]; then
+	cd ceylon.language
+	git fetch origin
+	git checkout origin/master
+	ant
+	cd ..
+fi
 
 # Create ceylondoc for ceylon.language and copy it into the website
-cd ceylon-compiler
-git fetch origin
-git checkout origin/master
-ant build
+if [ "$LIGHT" != "true" ]; then
+	cd ceylon-compiler
+	git fetch origin
+	git checkout origin/master
+	ant build
+	cd ..
+fi
 mkdir -p ../../../_site/documentation/api/current/
-./bin/ceylond -d ../../../_site/documentation/api/current/ -sourcepath ../ceylon.language/languagesrc/current/
-cd ..
+./ceylon-compiler/bin/ceylond -d ../../_site/documentation/api/current/ -sourcepath ceylon.language/languagesrc/current/
 
 cd ../..
