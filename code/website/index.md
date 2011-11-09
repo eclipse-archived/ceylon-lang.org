@@ -17,3 +17,4 @@ It is based on Markdown or haml based files and use Git as a rudimentary CMS.
 [Add a news to the home](add-news)  
 [Add a team member](add-team-member)  
 [Add conference event](add-event)  
+[Detect broken links](detect-broken-links)
