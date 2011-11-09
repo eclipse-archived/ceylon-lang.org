@@ -7,3 +7,5 @@ event_url: http://rivieradev.fr/application/talk?id=138
 location: Sophia-Antipolis
 effective_date: 20111020
 ---
+Stephane will show as a world first Ceylon's compiler and IDE running.
+He will also introduce you to Ceylon main features.
