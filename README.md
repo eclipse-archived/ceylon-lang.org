@@ -13,7 +13,7 @@ A bit of Git, a bit a Ruby and you will get your local version of [ceylon-lang.o
 ## Infrastructure
 
 * get Git
-* get Ruby
+* get Ruby 1.8
 * if on Mac OS, get XCode (needed for native gems)
 
 Install Git to your system. [GitHub's help page](http://help.github.com/) is a good starting
