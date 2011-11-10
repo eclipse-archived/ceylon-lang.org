@@ -1,14 +1,14 @@
 ---
 layout: documentation
-title: Ceylon's documentation
+title: Documentation
 tab: documentation
 author: Emmanuel Bernard
 ---
 
 # #{page.title}
 
-Welcome to Ceylon's documentation. Ceylon is a work in progress. The documentation
-is always in some flux. By the way, __you__ can improve it, [read more](/code/website).
+You will find all you need to know about Ceylon in thse pages. Ceylon is a work in progress. 
+The documentation is always in some flux. By the way, __you__ can improve it, [read more](/code/website).
 
 ## New to Ceylon?
 
