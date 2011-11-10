@@ -53,7 +53,7 @@ for the set case.
 * [`[]` (sequenced lookup)](../sequenced-lookup) operator used for accessesing several items using a sequence
 * [`[]` (iterated lookup)](../iterated-lookup) operator used for accessesing several items using an iterable
 * [`Correspondence`](../../ceylon.language/Correspondence) 
-* [`OpenCorrespondence`](../../ceylon.language/OpenCorrespondence)
+* [`OpenCorrespondence`] _doc coming soon at_ (../../ceylon.language/OpenCorrespondence)
 * [sequence operators](#{site.urls.spec}#listmap) in the 
   language specification
 * [operator precedence](#{site.urls.spec}#operatorprecedence) in the 

@@ -38,7 +38,7 @@ For the built-in numeric types ([`Natural`](../../ceylon.language/Natural),
 [`Integer`](../../ceylon.language/Integer),
 [`Float`](../../ceylon.language/Float),
 [`Whole`](../../ceylon.language/Whole) and
-[`Decimal`](../../ceylon.language/Decimal)) 
+[`Decimal`] _doc coming soon at_ (../../ceylon.language/Decimal)) 
 `*` performs normal mathematical multiplication, subject to the limitations
 of the relevant type.
 

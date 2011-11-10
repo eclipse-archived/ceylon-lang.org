@@ -31,7 +31,7 @@ initializer to return *abnormally*, signifying an exceptional circumstance
 which prevents normal completion. Insead of returning to the caller, the 
 call stack is searched for the nearest [`try`](../try) statement 
 with a matching `catch` clause, and execution resumes at the start of that
-`catch` block (possibly after [resource cleanup](FIXME)).
+`catch` block (possibly after [resource cleanup] _doc coming soon_.
 
 An expression may be supplied with the `throw` statement. If no expression is 
 given a new messageless and causeless 
@@ -43,7 +43,7 @@ assignable to `ceylon.language.Exception`.
 
 Ceylon does not support 'checked' exceptions. Any kind of exception may be 
 thrown without it having to be declared by a 
-[`throws` annotation](../../ceylon.language/throws) in the relevant declaration. 
+[`throws` annotation]  _doc coming soon at_ (../../ceylon.language/throws) in the relevant declaration. 
 This includes Ceylon code throwing what in Java would 
 be considered to be *checked exceptions* (such as `java.lang.Exception`). In 
 other words the following is perfectly acceptable to the Ceylon compiler:

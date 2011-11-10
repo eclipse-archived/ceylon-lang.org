@@ -31,6 +31,6 @@ The `:=` operator is not [polymorphic](/documentation/tour/language-module/#oper
 
 ## See also
 
-* [`variable`](../../ceylon.language/variable) annotation
+* [`variable`] annotation _doc coming soon_ (../../ceylon.language/variable) 
 * [operator precedence](#{site.urls.spec}#operatorprecedence) in the 
   language specification

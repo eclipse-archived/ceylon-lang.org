@@ -30,7 +30,7 @@ more details.
 
 The `&=` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
 
-The `&` in the definition is the [intersect operator](../intersect) which 
+The `&` in the definition is the [intersect operator] _doc coming soon at_ (../intersect) which 
 depends on the [`Slots`](../../ceylon.language/Slots) interface.
 
 ### Meaning of *intersect assign* for built-in types

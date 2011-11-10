@@ -282,7 +282,7 @@ It lets us write an exhaustive switch on the type parameter:
         }
     }
 
-This is one of the workarounds we [mentioned earlier](../bascis/#living_without_overloading) 
+This is one of the workarounds we [mentioned earlier](../classes/#living_without_overloading) 
 for Ceylon's lack of overloading.
 
 Finally, the fourth kind of type constraint, which is much less common, and 

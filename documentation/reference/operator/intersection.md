@@ -17,7 +17,7 @@ The left-associative, binary `&` operator is used to compute the
 
 ## Description
 
-The operator is also commonly used to [intersect types](/documentation/reference/structure/type), 
+The operator is also commonly used to [intersect types] _doc coming soon at_ (/documentation/reference/structure/type), 
 so that the declared entity is assignable to both (or all) of the given types:
 
     Foo&Bar foobar;
@@ -41,7 +41,7 @@ The meaning of `&` depends on the
 
 For the built-in numeric types ([`Natural`](../../ceylon.language/Natural), 
 [`Integer`](../../ceylon.language/Integer) and
-[`Whole`](../../ceylon.language/Whole) 
+[`Whole`] _doc coming soon at_ (../../ceylon.language/Whole) 
 `&` performs a normal bitwise *and*. 
 
 ## See also

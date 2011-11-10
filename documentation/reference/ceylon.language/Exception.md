@@ -27,7 +27,7 @@ diagnosing or reproducing the exception.
 ### Causes
 
 Although exceptions needn't be declared using the 
-[`throws` annotation](../throws) (and aren't checked by the compiler if they 
+[`throws` annotation] _doc coming soon at_ (../throws) (and aren't checked by the compiler if they 
 are) it can be desirable to 'wrap' exceptions of one type within another type 
 of exception. This is frequently the case with libraries which 
 encapsulation of/abstraction over implementation specifics, and therefore 

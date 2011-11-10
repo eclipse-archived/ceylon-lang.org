@@ -39,7 +39,7 @@ In general a Ceylon method compiles directly into a Java method of the same
 name. The method result type and argument types will not, in general, 
 translate directly because of the [erasure rules](../erasure).
 
-See [naming](../naming) for information about Ceylon method names which are 
+See [naming] _doc coming soon at_ (../naming) for information about Ceylon method names which are 
 Java keywords.
 
 ### Catching Ceylon exceptions

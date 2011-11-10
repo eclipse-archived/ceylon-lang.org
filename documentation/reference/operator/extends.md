@@ -36,8 +36,8 @@ The meaning of `extends` depends on the
 
 ## See also
 
-* [`Class`](../../ceylon.language/Class)
-* [`Type`](../../ceylon.language/Type)
+* [`Class`] _doc coming soon at_ (../../ceylon.language/Class)
+* [`Type`] _doc coming soon at_ (../../ceylon.language/Type)
 * [`extends` in the language specification](#{site.urls.spec}#equalitycomparison)
 * [operator precedence](#{site.urls.spec}#operatorprecedence) in the 
   language specification

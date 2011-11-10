@@ -22,8 +22,8 @@ and instantiate classes
 ## Description
 
 For detailed information see the reference documentation on 
-[method invocation](/documentation/reference/expression/method-invocation) and 
-[class invocation](/documentation/reference/expression/class-invocation).
+[method invocation] _doc coming soon at_ (/documentation/reference/expression/method-invocation) and 
+[class invocation] _doc coming soon at_ (/documentation/reference/expression/class-invocation).
 
 ### Definition
 
@@ -36,8 +36,8 @@ The `()` and `{}` operators are not [polymorphic](/documentation/reference/opera
 ## See also
 
 * [null-safe version](../nullsafe-invoke) of invoke.
-* [spread invoke](../spread-invoke) for calling a `Callable[]`
-* [`Callable`](../../ceylon.language/Callable)
+* [spread invoke] _doc coming soon at_ (../spread-invoke) for calling a `Callable[]`
+* [`Callable`] _doc coming soon at_ (../../ceylon.language/Callable)
 * [operator precedence](#{site.urls.spec}#operatorprecedence) in the 
   language specification
 

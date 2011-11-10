@@ -38,7 +38,7 @@ Assigning a difference name to an imported type (to avoid a name conflict):
 
 ### Modules and versions
 
-The `dependencies` attribute of the [package descriptor](FIXME) is used to 
+The `dependencies` attribute of the [package descriptor] _doc coming soon_ is used to 
 determine which version of which module is required for compilation and 
 execution.
 

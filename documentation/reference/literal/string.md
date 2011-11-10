@@ -63,5 +63,5 @@ instead of line spanning literals.
 * [String literals](/documentation/tour/basics/#strings_and_string_interpolation) 
   in the Tour of Ceylon 
 * [String literals in the language specification](#{site.urls.spec}#stringliterals)
-* [String templates](../../expression/string_template)
+* [String templates] _doc coming soon at_ (../../expression/string_template)
 

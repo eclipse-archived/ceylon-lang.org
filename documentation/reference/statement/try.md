@@ -48,7 +48,7 @@ assuming any `catch` block doesn't raise an exception).
 
 ### Advice
 
-Note that [intersection types](FIXME) can and should be used to avoid using 
+Note that [intersection types] _doc coming soon_ can and should be used to avoid using 
 multiple `catch` blocks which use the same logic to handle disparate 
 exception types.
 

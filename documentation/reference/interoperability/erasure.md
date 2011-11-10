@@ -17,8 +17,8 @@ work'. Even so, the rules are sometimes complex.
 
 The Ceylon compiler *reifies* Ceylon types. This means it stores 
 the full type information, including generic type parameters within the 
-compiled code. It does this using Java [annotations](../annotations) 
-(with runtime retention, obviously). This is why it doesn't matter that the 
+compiled code. It does this using Java annotations 
+(with runtime retention). This is why it doesn't matter that the 
 mappings in the table below are not one-to-one: The Ceylon compiler and runtime 
 can always inspect the annotations to determine detailed (Ceylon) type 
 information.
