@@ -168,11 +168,8 @@ module Awestruct
       
       class Formatter < REXML::Formatters::Default
         def write_element( node, output )
-          elements = ["h1", "h1", "h1", "h1", "h5", "h6", "p"]
+          elements = ["h1", "h2", "h3", "h4", "h5", "h6", "p", "script"]
           if elements.include?(node.expanded_name)
-          #if node.expanded_name == "br"
-          #  output << "<br/>"
-          #else
             output << "<#{node.expanded_name}"
 
             node.attributes.to_a.sort_by {|attr| attr.name}.each do |attr|
