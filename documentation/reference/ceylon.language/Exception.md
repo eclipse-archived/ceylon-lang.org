@@ -9,7 +9,7 @@ author: Tom Bentley
 
 ## Usage
 
-See [API doc](FIXME)
+See [API doc](#{site.urls.apidoc}/ceylon/language/Exception.html)
 
 ## Description
 
