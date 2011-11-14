@@ -149,7 +149,7 @@ Here are a couple of examples from the language spec:
             of request | session | application
             satisfies OptionalAnnotation<Scope,Type<Object>> {}
     shared class Todo(String text)
-            satisfies OptionalAnnotation<Todo,Annotated> {
+            satisfies SequencedAnnotation<Todo,Annotated> {
         shared actual String string = text;
     }
 
