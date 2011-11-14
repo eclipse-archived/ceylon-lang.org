@@ -47,34 +47,37 @@ Stéphane Épardaud, Emmanuel Bernard
   - [Les Cast Codeurs](http://lescastcodeurs.com)
 - The rest is at <http://emmanuelbernard.com>
 
-- [@emmanuelbernard](htp://twitter.com/emmanuelbernard)
+- [@emmanuelbernard](http://twitter.com/emmanuelbernard)
 
 ### Origins of Ceylon
 
 - Idea from Gavin King
 - Improve upon frustrations of Java
-- Help by others at JBoss (Max, Emmanuel, Pete etc)
+- Help by others at JBoss 
+  - Max, Emmanuel, Pete etc
 - Goals
   - on the JVM
   - in the spirit of Java
   - practical
- - Slashdotted ( wo a web site :) )
+ - Slashdotted ( with no website :) )
 
 ### Goals
 
 - Easy to learn
 - Less verbose but as readable
+  - Native representation for hierarchical data 
+    - XML, UI, etc
 - Better type safety
-- Native representation for hierarchical data (XML, UI, etc)
+- New SDK (ie new platform)
 - Promote a more functional style
 - Support meta-programming
-- Modular
+- Modular at its core
 
 ### Introduction to Ceylon
 
 ### A boring class: looks familiar?
 
-- Looks familar, right?
+- Looks familiar, right?
 
 <!-- lang:ceylon -->
     class Rectangle() {
@@ -132,21 +135,22 @@ Stéphane Épardaud, Emmanuel Bernard
 ### Attributes
 
 <!-- lang:ceylon -->
-    class Attributes() {
-        Natural n = 1;
-        variable Natural i := 2;
-        i++;
-        Natural doubleI {
-            return i * 2;
-        }
-        assign doubleI {
-            i := doubleI / 2; 
-        }
+    class Cat() {
+        Natural birthRank = 1;
+        variable Natural radius := 2;
+        radius++;
+        Natural waistSize {
+            return radius * 6;
+        }
+        assign waistSize {
+            radius := waistSize / 6;
+        }
     }
 
 - __add the following as arrows on the code?__
     - Immutable by default
-    - unless `variable` asigned with `:=` are used
+    - unless marked`variable` 
+    - assigned with `:=`
 
 ### Attributes (more)
 - Overridable
@@ -161,10 +165,8 @@ Stéphane Épardaud, Emmanuel Bernard
         shared Integer y = y;
     }
 
-    shared class Point3D(Integer x, Integer y, 
-                         Integer z)
-        extends Point(x, y) {
-
+    shared class Point3D(Integer x, Integer y, Integer z)
+           extends Point(x, y) {
         shared Integer z = z;
     }
 
@@ -203,7 +205,7 @@ Stéphane Épardaud, Emmanuel Bernard
   - make other features much more difficult
   - less is more
 
-### Why do you need overloading in Java?
+### You need overloading for...
 
 - To support optional parameters
   - Ceylon has them
@@ -229,7 +231,7 @@ Stéphane Épardaud, Emmanuel Bernard
         };
     }
 
-### type based switch case
+### Type based switch case
 
     void workWithRectangle(Rectangle rect){}
     void workWithCircle(Circle circle){}
@@ -321,7 +323,7 @@ Stéphane Épardaud, Emmanuel Bernard
 
 ### OMG multiple inheritance mess?
 
-- No state (initialisation)
+- No state (initialization)
   - Ordering issues
   - A single superclass
 - Must redefine a method `C.a()`
@@ -387,7 +389,7 @@ Stéphane Épardaud, Emmanuel Bernard
         }
     }
 
-### Some sugar on top of type safety
+### Some sugar on top
 
     void typeSafety(){
         // default value
@@ -405,17 +407,17 @@ Stéphane Épardaud, Emmanuel Bernard
 
     void dealingWithLists(){
         Cube[] list = cubeList();
-        if(nonempty list){
+        if (nonempty list) {
             print(list.first.string);
         }
         // sequence
-        for(Cube cube in list){
+        for (Cube cube in list) {
             print(cube.string);
-        }else{
+        } else{
             print("No cubes!");
         }
         // range
-        for(Integer n in +0..+10){
+        for (Integer n in +0..+10) {
             print(n.string);
         }
     }
@@ -493,7 +495,8 @@ Stéphane Épardaud, Emmanuel Bernard
         Food & Drink specialStuff = Guinness();
         specialStuff.drink();
         specialStuff.eat();
-}
+    }
+
 
 ### Type parameters
 
@@ -509,6 +512,7 @@ Stéphane Épardaud, Emmanuel Bernard
 
 ### A lot more features
 
+- Type parameters
 - Singletons and anonymous classes
 - Introductions
 - Attribute and method references
@@ -521,16 +525,12 @@ Stéphane Épardaud, Emmanuel Bernard
 
 ### Modularity
 
-- Unit included in packages included in modules
-- module.ceylon declares
-  - Name, version, license, documentation
-  - Dependencies
-  - Initialisation and execution methods
-- Distribution
-  - repository
-  - dependecy resolution in the tools
+![Scoping](/images/presentation/scopes.png "Scoping")
 
-### Tool chain
+- Core to the language
+- Reused by the tool chain
+
+### Tool chain (REMOVED)
 
 - Compiler: ceylonc
   - Takes Java and Ceylon code
@@ -545,19 +545,19 @@ Stéphane Épardaud, Emmanuel Bernard
 
 ### Community
 
-- Not public public, not private either
-- A few from Red-Hat
-  - Gavin, Emmanuel…
-- And some new blood: Stef, Tako
-- Also contributors
+- Semi public today
+- A few oldies from Red Hat: Gavin, Emmanuel…
+- Some new blood: Stef, Tako
+- And (very) active contributors
   - Gary, Andrew, Tom, David (Serli), Flavio, Sergej, Ben…
 
 ### Future
 
+- One website
 - Three milestones
 - M1 (almost done)
   - Project will become “public”
-  - Java interoperabilities
+  - Java interoperability
   - All the tools (with the IDE)
 
 ### M2 & M3
@@ -577,5 +577,7 @@ Stéphane Épardaud, Emmanuel Bernard
 ### Q&A
 
 - Questions! Answers?
-- More info
-  - TBD
+- <http://ceylon-lang.org>
+  - coming very soon!
+- <http://in.relation.to/Tutorials/IntroductionToCeylon>
+  - 12 parts tutorial
