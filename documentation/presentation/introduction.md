@@ -51,7 +51,7 @@ Stéphane Épardaud, Emmanuel Bernard
 
 ### Origins of Ceylon
 
-- Idea from Gavin King
+- Seeded by Gavin King
 - Improve upon frustrations of Java
 - Help by others at JBoss 
   - Max, Emmanuel, Pete etc
@@ -68,8 +68,8 @@ Stéphane Épardaud, Emmanuel Bernard
   - Native representation for hierarchical data 
     - XML, UI, etc
 - Better type safety
+  - including more functional
 - New SDK (ie new platform)
-- Promote a more functional style
 - Support meta-programming
 - Modular at its core
 
@@ -84,7 +84,7 @@ Stéphane Épardaud, Emmanuel Bernard
         Integer width = +0;
         Integer height = +0;
         
-        Integer area(){
+        Integer area() {
             return width * height;
         }
     }
@@ -100,7 +100,7 @@ Stéphane Épardaud, Emmanuel Bernard
         shared Natural width = width;
         shared Natural height = height;
         
-        shared Natural area(){
+        shared Natural area() {
             return width * height;
         }
     }
@@ -113,7 +113,7 @@ Stéphane Épardaud, Emmanuel Bernard
     shared class Rectangle(Natural width, 
                            Natural height){
         // it is here!
-        if(width == 0 || height == 0){
+        if (width == 0 || height == 0) {
             throw;
         }
         shared Natural width = width;
@@ -128,11 +128,16 @@ Stéphane Épardaud, Emmanuel Bernard
 
 - Simpler access rules
   - No `protected`, `package`, `private`
-  - `shared` = public, otherwise scope-private
+  - `shared` = public-ish, otherwise scope-private
+
+![shared](/images/presentation/shared.png "shared")
+
 - Constructor is the class body
 - Natural type for positive whole numbers
 
 ### Attributes
+
+- Getter / setter without carpal tunnel syndrome
 
 <!-- lang:ceylon -->
     class Cat() {
@@ -147,15 +152,11 @@ Stéphane Épardaud, Emmanuel Bernard
         }
     }
 
-- __add the following as arrows on the code?__
+- __add the following as arrows on the code or as three slides with bold for the
+area being spoken of__
     - Immutable by default
     - unless marked`variable` 
     - assigned with `:=`
-
-### Attributes (more)
-- Overridable
-- Can be abstract
-- like JavaBeans without the carpal tunnel syndrom
 
 ### Inheritance
 
@@ -172,11 +173,12 @@ Stéphane Épardaud, Emmanuel Bernard
 
 ### Abstractions
 
-- Method, attributes and classes are overridable
+- Method, attributes and classes can be overridden
+  - factory pattern
 - Can't override by default
-  - `default`: overridable, with a default impl
-  - `formal`: overridable, with no default impl
-- `@Override` in Java => `actual`
+  - `default`: can be overridden, has a default impl
+  - `formal`: must be overridden, with no default impl
+- `@Override` in Java => `actual` in Ceylon
   - non optional
 
 ### Abstractions (example)
@@ -202,15 +204,13 @@ Stéphane Épardaud, Emmanuel Bernard
 - No Overloading
   - WTF!?
 - Overloading is evil
-  - make other features much more difficult
-  - less is more
 
 ### You need overloading for...
 
 - To support optional parameters
   - Ceylon has them
   - even named-parameters
-- To work on different types of parameters
+- To work on different (sub)types of parameters
   - not safe if a new type is introduced
   - Ceylon has union types and type cases
 
@@ -236,18 +236,18 @@ Stéphane Épardaud, Emmanuel Bernard
     void workWithRectangle(Rectangle rect){}
     void workWithCircle(Circle circle){}
     void workWithFigure2D(Figure2D fig){}
-
-    void supportsSubTyping(Figure2D fig){
-        switch(fig)
-        case(is Rectangle){
-            workWithRectangle(fig);
-        }
-        case(is Circle){
-            workWithCircle(fig);
-        }
-        else{
-            workWithFigure2D(fig);
-        }
+     
+    void supportsSubTyping(Shape fig) {
+        switch(fig)
+        case(is Rectangle) {
+            workWithRectangle(fig);
+        }
+        case(is Circle) {
+            workWithCircle(fig);
+        }
+        case(is Figure2D) {
+            workWithFigure2D(fig);
+        }
     }
 
 ### Hierarchical structure
@@ -375,7 +375,7 @@ Stéphane Épardaud, Emmanuel Bernard
 
 ### Type safety
 
-    void typeSafety(){
+    void typeSafety() {
         // optional?
         Cube? cubeOrNoCube() { return null; }
         Cube? cube = cubeOrNoCube();
@@ -405,7 +405,7 @@ Stéphane Épardaud, Emmanuel Bernard
 
 ### Iterations
 
-    void dealingWithLists(){
+    void dealingWithLists() {
         Cube[] list = cubeList();
         if (nonempty list) {
             print(list.first.string);
@@ -424,7 +424,7 @@ Stéphane Épardaud, Emmanuel Bernard
 
 ### Operations on lists
 
-    void dealingWithLists(){
+    void dealingWithLists() {
         Natural[] numbers = {1,2,3};
         // slices
         Natural[] subList = numbers[1..2];
@@ -445,7 +445,7 @@ Stéphane Épardaud, Emmanuel Bernard
   - \* on Numeric.times()
 - No symbols as method name
 
-### Typing
+### (some of) Typing
 
 ### Union type
 
@@ -466,11 +466,11 @@ Stéphane Épardaud, Emmanuel Bernard
 
     void unions() {
         Sequence<Apple|Broccoli> plate = {Apple(), Broccoli()};
-        for(Apple|Broccoli food in plate){
+        for (Apple|Broccoli food in plate) {
             print(box.string);
-            if(is Apple box) {
+            if (is Apple box) {
                 box.eat();
-            } else if(is Garbage box) {
+            } else if (is Broccoli box) {
                 box.throwAway();
             }
         }
@@ -528,7 +528,7 @@ Stéphane Épardaud, Emmanuel Bernard
 ![Scoping](/images/presentation/scopes.png "Scoping")
 
 - Core to the language
-- Reused by the tool chain
+- Integrated in the tool chain
 
 ### Tool chain (REMOVED)
 
