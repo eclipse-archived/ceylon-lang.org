@@ -15,14 +15,14 @@ _This pages still misses a few of the documentation: want to help? [See how](/co
 
 ## Structure
 
-* [Modules] - _doc coming soon at_ (structure/module)
-* [Packages] - _doc coming soon at_ (structure/package)
-* [Compilation units] - _doc coming soon at_ (structure/compilation-unit)
+* [Modules](structure/module)
+* [Packages](structure/package)
+* [Compilation units](structure/compilation-unit)
 * [Top-level] - _doc coming soon at_ (structure/top-level) methods and attributes
-* [Types] - _doc coming soon at_ (structure/type)
+* [Types](structure/type)
 * [Initializers] - _doc coming soon at_ (structure/initializers)
-* [Attributes] - _doc coming soon at_ (structure/attribute)
-* [Methods] - _doc coming soon at_ (structure/method)
+* [Attributes](structure/attribute)
+* [Methods](structure/method)
 
 ## Types
 

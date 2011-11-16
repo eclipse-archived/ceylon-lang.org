@@ -11,6 +11,7 @@ author: Emmanuel Bernard
 This page contains the most common questions. We also have specialized FAQs for some subjects:
 
 * [Language design FAQ](language-design)
+* [IDE](ide)
 
 On this page you will find the most common questions.  
 
