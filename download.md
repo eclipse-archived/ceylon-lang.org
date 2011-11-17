@@ -5,8 +5,7 @@ tab: download
 author: Emmanuel Bernard
 ---
 # #{page.title}
-Ceylon is not yet released to the public. We're working as hard as we can to 
-get the first milestone into your hands.
+Ceylon code is released on [GitHub](http://github.com/ceylon). We're working as hard as we can to get the first milestone into your hands. Adventurous? [check out the code](/code).
 
 The first milestone will have:
 

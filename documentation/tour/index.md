@@ -5,27 +5,12 @@ tab: documentation
 author: Emmanuel Bernard
 ---
 
-# Quick Introduction
-
-The [quick introduction](introduction) is a one page summary of some of the features 
-Ceylon has to offer.
-
 # Tour of Ceylon
 
-Let's take a little tour of the main features of the Ceylon language.
+This tour covers the main features of the Ceylon language. We'll start with 
+the [Basics](basics). 
 
-Here's a classic example program.
-
-    void hello() {
-        print("Hello, World!");
-    }
-
-This tour is separated into a number parts and will cover the main features of 
-Ceylon. But let's first start with the [Basics](basics). 
-
-__TODO should we rather start with some examples without detailing concepts?__
-
-Tour legs:
+## Tour legs:
 
 1. [Basics](basics)
 1. [Classes, interfaces and objects](classes)
