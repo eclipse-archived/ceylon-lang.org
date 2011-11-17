@@ -5,8 +5,8 @@ tab: download
 author: Emmanuel Bernard
 ---
 # #{page.title}
-Ceylon is not yet released to the public. We're working as hard as we can to 
-get the first milestone into your hands.
+Ceylon is not yet released to the public. We're working as hard as we can 
+to get the first milestone into your hands.
 
 The first milestone will have:
 
@@ -21,3 +21,7 @@ You can follow our progress on:
 
 * our [blog](/blog), or
 * the [roadmap](/documentation/roadmap).
+
+Now, shhh, we're kinda breaking the rules here: if you *really* want to try
+out Ceylon now, before we even release Milestone 1, you can get a special
+pre-release build of the [Ceylon IDE](../documentation/ide).
