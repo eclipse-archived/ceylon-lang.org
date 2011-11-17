@@ -47,7 +47,8 @@ if [ "$LIGHT" != "true" ]; then
 fi
 
 # Copy spec into website
-cp -R ceylon-spec/build/en/ ../../_site/documentation/spec
+rm -rf ../../_site/documentation/spec
+cp -R ceylon-spec/build/en ../../_site/documentation/spec
 mv ../../_site/documentation/spec/pdf/Ceylon*.pdf ../../_site/documentation/spec/pdf/ceylon-language-specification.pdf
 
 # Build language module
