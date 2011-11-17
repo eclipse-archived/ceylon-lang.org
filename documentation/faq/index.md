@@ -12,7 +12,7 @@ author: Emmanuel Bernard
 We have specialized FAQs for certain important subjects:
 
 * [Language design FAQ](language-design)
-* [IDE](ide)
+* [IDE FAQ](ide)
 
 On this page you'll find answers to a few of the most 
 common questions about the Ceylon project.  
