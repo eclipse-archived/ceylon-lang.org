@@ -7,9 +7,9 @@ author: Emmanuel Bernard
 # #{page.title}
 
 It's easy to build the website, work on the documentation, 
-or blog. This is an Awestruct-based website. Content is defined 
+or blog. This is an [Awestruct](http://awestruct.org/)-based website. Content is defined 
 using [Markdown](http://daringfireball.net/projects/markdown/syntax#code) 
-or haml. Git is used as a rudimentary CMS.
+or [haml](http://haml-lang.com/). Git is used as a rudimentary CMS.
 
 [Building and hacking the website](/README)  
 [Edit a page (syntax and tricks)](edit-page)  
