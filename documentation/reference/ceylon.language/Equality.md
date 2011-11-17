@@ -14,5 +14,5 @@ milestone: Milestone 1
 
 ## See also
 
-* [API documentation](#{site.urls.apidoc}/ceylon/language/Equality.html) for `Equality`
+* [API documentation](#{site.urls.apidoc}/ceylon/language/interface_Equality.html) for `Equality`
 

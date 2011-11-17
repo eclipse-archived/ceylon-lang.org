@@ -14,5 +14,5 @@ milestone: Milestone 1
 
 ## See also
 
-* [API documentation](#{site.urls.apidoc}/ceylon/language/FixedSlots.html) for `FixedSlots`
+* [API documentation](#{site.urls.apidoc}/ceylon/language/interface_FixedSlots.html) for `FixedSlots`
 

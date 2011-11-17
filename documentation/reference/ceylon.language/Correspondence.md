@@ -14,5 +14,5 @@ milestone: Milestone 1
 
 ## See also
 
-* [API documentation](#{site.urls.apidoc}/ceylon/language/Correspondence.html) for `Correspondence`
+* [API documentation](#{site.urls.apidoc}/ceylon/language/interface_Correspondence.html) for `Correspondence`
 

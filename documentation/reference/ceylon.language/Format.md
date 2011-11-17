@@ -14,5 +14,5 @@ milestone: Milestone 1
 
 ## See also
 
-* [API documentation](#{site.urls.apidoc}/ceylon/language/Format.html) for `Format`
+* [API documentation](#{site.urls.apidoc}/ceylon/language/interface_Format.html) for `Format`
 

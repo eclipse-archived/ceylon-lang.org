@@ -14,5 +14,5 @@ milestone: Milestone 1
 
 ## See also
 
-* [API documentation](#{site.urls.apidoc}/ceylon/language/Integral.html) for `Integral`
+* [API documentation](#{site.urls.apidoc}/ceylon/language/interface_Integral.html) for `Integral`
 

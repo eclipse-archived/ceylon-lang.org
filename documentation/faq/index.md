@@ -55,8 +55,8 @@ Today JDK 6. We may make use of the new
 
 ### What license is Ceylon released under?
 
-The compiler is released under the [GPL v2](http://www.gnu.org/licenses/gpl-2.0.html) + classpath exception as we reuse 
-the javac.  
+The compiler is released under the [GPL v2](http://www.gnu.org/licenses/gpl-2.0.html) + classpath exception 
+because it's based on OpenJDK's `javac` compiler.
 Other non tainted parts of Ceylon are released under the 
 [Apache Software License 2.0](http://www.apache.org/licenses/LICENSE-2.0.html).  
 The website is released under [Creative Commons Attribution Share-Alike 3.0 Unported (CC BY-SA 3.0)](http://creativecommons.org/licenses/by-sa/3.0/)

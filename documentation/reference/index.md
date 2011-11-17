@@ -59,7 +59,7 @@ _This page is very incomplete. Want to help? [See how](/code/website)._
 * [Literals](#literals)
 * [Metamodel References] - _doc coming soon at_ (expression/metamodel-references) <!-- m3 -->
 * [Method Invocation] - _doc coming soon at_ (expression/method-invocation)
-* [Operators] - _doc coming soon at_ (#operators)
+* [Operators](#operators)
 * [Self References] - _doc coming soon at_ (expression/self-references)
 * [Sequence Instantiation] - _doc coming soon at_ (expression/sequence-instantiation)
 * [String Templates] - _doc coming soon at_ (expression/string-template)

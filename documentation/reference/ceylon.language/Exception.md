@@ -9,7 +9,7 @@ author: Tom Bentley
 
 ## Usage
 
-See [API doc](#{site.urls.apidoc}/ceylon/language/Exception.html)
+See [API doc](#{site.urls.apidoc}/ceylon/language/class_Exception.html)
 
 ## Description
 
@@ -41,5 +41,5 @@ Exception as approriate (often for exception wrapping purposes).
 
 ## See Also
 
-* [API documentation](#{site.urls.apidoc}/ceylon/language/Exception.html) for `Exception`
+* [API documentation](#{site.urls.apidoc}/ceylon/language/class_Exception.html) for `Exception`
 

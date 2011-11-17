@@ -14,5 +14,5 @@ milestone: Milestone 1
 
 ## See also
 
-* [API documentation](#{site.urls.apidoc}/ceylon/language/NegativeNumberException.html) for `NegativeNumberException`
+* [API documentation](#{site.urls.apidoc}/ceylon/language/class_NegativeNumberException.html) for `NegativeNumberException`
 

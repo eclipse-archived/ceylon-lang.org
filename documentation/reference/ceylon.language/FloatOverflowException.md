@@ -14,5 +14,5 @@ milestone: Milestone 1
 
 ## See also
 
-* [API documentation](#{site.urls.apidoc}/ceylon/language/FloatOverflowException.html) for `FloatOverflowException`
+* [API documentation](#{site.urls.apidoc}/ceylon/language/class_FloatOverflowException.html) for `FloatOverflowException`
 
