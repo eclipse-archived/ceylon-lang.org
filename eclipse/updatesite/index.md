@@ -15,4 +15,6 @@ To install Ceylon tooling into your Eclipse do the following:
 4. Eclipse will load the updatesite and when it finish, select the plugin
 5. Press 'Finish'
 
+![eclipseupdatesite](/images/eclipseupdatesite.png "Update Site")
 
+Eclipse will install the Ceylon Eclipse plugins and it will ask you to restart. After the restart you will be ready to start using Ceylon.
