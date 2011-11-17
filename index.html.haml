@@ -7,14 +7,20 @@ author: Emmanuel Bernard
 #core-page
   :markdown
     # #{page.title}
-    Ceylon is a JVM based programming language.
+    Ceylon is a programming language for writing large programs in a team 
+    environment. The language is elegant, highly readable, extremely typesafe, 
+    and makes it easy to get things done. And it's easy to learn for 
+    programmers who are familiar with mainstream languages used in business 
+    computing. Ceylon has a full-featured Eclipse-based development environment,
+    allowing developers to take best advantage of the powerful static type system.
+    Programs written in Ceylon execute on the JVM.
     
     ## What?
     Ceylon is a general-purpose, imperative, statically-typed, block-structured, 
     object-oriented, higher-order language featuring a syntax similar to 
-    Java and C#.
+    Java and C#, and a type system based on the notion of *principal types*.
     
-    Since 'Hello World' is the traditional way of introducing a language, 
+    Since 'Hello World' is the traditional way to introduce a language, 
     here's how it looks in Ceylon:
     
     <pre class="brush: ceylon">
@@ -23,25 +29,34 @@ author: Emmanuel Bernard
     }
     </pre>
     
-    To see more, take a look at our [quick introduction](/documentation/introduction) 
-    or take a more in depth [tour of Ceylon](/documentation/tour).
+    To learn more, you can start with our [quick introduction](/documentation/introduction) 
+    or take an in-depth [tour of Ceylon](/documentation/tour).
     
     ## Why?
-    Ceylon is deeply influenced by Java and designed by people who are 
-    unapologetic fans of Java. It keeps the best bits from Java but 
-    improves those aspects that experience has shown to to be annoying, 
-    tedious and frustrating.
-  
+    Ceylon is deeply influenced by Java. You see, we're fans of Java, but we know 
+    its limitations inside out. Ceylon keeps the best bits of Java but improves 
+    things that in our experience are annoying, tedious, frustrating, difficult
+    to understand, or bugprone. Furthermore, Ceylon makes it much easier to 
+    write generic code (frameworks or libraries), or to naturally describe 
+    treelike structures (especially user interfaces). Of course, Java isn't 
+    the only language with good ideas, so Ceylon looks for inspiration in other 
+    language families, in everything from Smalltalk to ML.
+     
     ## When?
-    The language exists as a specification that is pretty stable. Our plan
-    is to deliver a usable toolset (compiler, app launcher, documentation generator
-    and Eclipse based IDE).
-    Our first milestone (out of three) should cover 80% of the language feature and is expected 
-    very soon. The next two milestones will complete this work and adjust the language based on
-    the community feedback.
+    The language exists as a reasonably complete and stable specification. 
+    We're currently working hard to deliver a usable toolset (compiler, runtime, 
+    documentation compiler, and Eclipse-based IDE) and basic class libraries. 
+    We've divided the work into three milestones. The first milestone is already 
+    feature-complete and covers perhaps 80% of the language, along with the core 
+    language module (the types mentioned in the language specification). The 
+    remaining milestones cover the rest of the language, the basic class 
+    libraries, and will incorporate any adjustments to the language that we find
+    necessary based on community feedback.
 
-    Currently the development is done by a restricted community of contributors,
-    but once we have reach our first milestone, our work will be fully open sourced.
+    The development team, which includes volunteers from the community and a
+    number of Red Hat employees, is currently working in private. We're counting 
+    down to the first milestone release, when our work will be fully open sourced, 
+    and our git repositories opened to the public.
     
     For more details, see the [roadmap](/documentation/roadmap).
   
