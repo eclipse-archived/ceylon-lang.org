@@ -7,6 +7,9 @@ unique_id: blogpage
 
 ---
 #sidebar
+  .point-dark-top
+    &nbsp;
+
   - if page.author_for_bio
     - member = site.team.values.detect{|member| member.name == page.author_for_bio}
     - if member
@@ -22,6 +25,10 @@ unique_id: blogpage
       - else
         :markdown
           ### [Feed](/blog/blog.atom)
+  .point-dark-bottom
+    &nbsp;
+  .point-light-top 
+    &nbsp;
   .sidebar-block  
     %h3 Recent posts
     #blog-archive
@@ -38,7 +45,8 @@ unique_id: blogpage
     %h3 Authors
     .tag-cloud
       = site.posts_authors_cloud
-
+  .point-light-end 
+    &nbsp;
 #core-page
   - if page.split_title
     %h1

@@ -62,12 +62,16 @@ author: Emmanuel Bernard
     For more details, see the [roadmap](/documentation/roadmap).
   
 #sidebar
-  .point-top 
+  .point-dark-top 
     &nbsp;
   .sidebar-dark
     :markdown  
       ### Latest release: no release
       Ceylon has not yet been released, [check out our roadmap](/documentation/roadmap)
+  .point-dark-bottom 
+    &nbsp;
+  .point-light-top 
+    &nbsp;	
   .sidebar-block
     %h3 News
     - news = site.news.values.sort{|l,r| r.effective_date <=> l.effective_date}
@@ -86,4 +90,5 @@ author: Emmanuel Bernard
         %hr
     :markdown
       To stay up to date, follow our [blog](/blog) ([feed](/blog/blog.atom)).
-      
+  .point-light-end 
+    &nbsp;      
