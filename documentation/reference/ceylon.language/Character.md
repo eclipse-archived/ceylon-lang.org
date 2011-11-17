@@ -14,6 +14,6 @@ milestone: Milestone 1
 
 ## See also
 
-* [API documentation](#{site.urls.apidoc}/ceylon/language/Character.html) for `Character`
+* [API documentation](#{site.urls.apidoc}/ceylon/language/class_Character.html) for `Character`
 * [Character literal](/documentation/reference/literal/character)
 

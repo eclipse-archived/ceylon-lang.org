@@ -14,5 +14,5 @@ milestone: Milestone 1
 
 ## See also
 
-* [API documentation](#{site.urls.apidoc}/ceylon/language/Numeric.html) for `Numeric`
+* [API documentation](#{site.urls.apidoc}/ceylon/language/interface_Numeric.html) for `Numeric`
 

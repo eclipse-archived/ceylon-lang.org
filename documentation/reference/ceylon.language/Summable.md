@@ -14,5 +14,5 @@ milestone: Milestone 1
 
 ## See also
 
-* [API documentation](#{site.urls.apidoc}/ceylon/language/Summable.html) for `Summable`
+* [API documentation](#{site.urls.apidoc}/ceylon/language/interface_Summable.html) for `Summable`
 

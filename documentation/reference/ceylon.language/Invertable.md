@@ -14,5 +14,5 @@ milestone: Milestone 1
 
 ## See also
 
-* [API documentation](#{site.urls.apidoc}/ceylon/language/Invertable.html) for `Invertable`
+* [API documentation](#{site.urls.apidoc}/ceylon/language/interface_Invertable.html) for `Invertable`
 

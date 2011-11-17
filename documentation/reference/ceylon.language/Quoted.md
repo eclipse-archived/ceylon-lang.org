@@ -14,5 +14,5 @@ milestone: Milestone 1
 
 ## See also
 
-* [API documentation](#{site.urls.apidoc}/ceylon/language/Quoted.html) for `Quoted`
+* [API documentation](#{site.urls.apidoc}/ceylon/language/class_Quoted.html) for `Quoted`
 

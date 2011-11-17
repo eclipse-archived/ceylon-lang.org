@@ -14,5 +14,5 @@ milestone: Milestone 1
 
 ## See also
 
-* [API documentation](#{site.urls.apidoc}/ceylon/language/Cloneable.html) for `Cloneable`
+* [API documentation](#{site.urls.apidoc}/ceylon/language/interface_Cloneable.html) for `Cloneable`
 

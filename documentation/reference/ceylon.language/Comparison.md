@@ -14,5 +14,5 @@ milestone: Milestone 1
 
 ## See also
 
-* [API documentation](#{site.urls.apidoc}/ceylon/language/Comparison.html) for `Comparison`
+* [API documentation](#{site.urls.apidoc}/ceylon/language/class_Comparison.html) for `Comparison`
 

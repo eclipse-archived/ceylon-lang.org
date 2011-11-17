@@ -14,5 +14,5 @@ milestone: Milestone 1
 
 ## See also
 
-* [API documentation](#{site.urls.apidoc}/ceylon/language/Empty.html) for `Empty`
+* [API documentation](#{site.urls.apidoc}/ceylon/language/interface_Empty.html) for `Empty`
 

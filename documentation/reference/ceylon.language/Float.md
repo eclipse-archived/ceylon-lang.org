@@ -14,5 +14,5 @@ milestone: Milestone 1
 
 ## See also
 
-* [API documentation](#{site.urls.apidoc}/ceylon/language/Float.html) for `Float`
+* [API documentation](#{site.urls.apidoc}/ceylon/language/class_Float.html) for `Float`
 

@@ -14,5 +14,5 @@ milestone: Milestone 1
 
 ## See also
 
-* [API documentation](#{site.urls.apidoc}/ceylon/language/Ordered.html) for `Ordered`
+* [API documentation](#{site.urls.apidoc}/ceylon/language/interface_Ordered.html) for `Ordered`
 
