@@ -14,10 +14,10 @@ You also need to install `git`.
 
 ## Ceylon projects
 
-The Ceylon project is still up in several independant parts:
+The Ceylon project is actually made up of four smaller projects:
 
 - [Parser, typechecker and specification](#parser_typechecker_and_specification)
-- [Compiler, documentation generator and runner](#compiler_documentation_generator_and_runner)
+- [Compiler, documentation compiler, and launcher](#compiler_documentation_generator_and_runner)
 - [Ceylon language module](#ceylonlanguage_module)
 - [Ceylon Eclipse IDE plugin](#ceylon_eclipse_ide_plugin)
 
@@ -28,52 +28,53 @@ The Ceylon project is still up in several independant parts:
  <tr><th>Issue reporting</th><td><a href="https://github.com/ceylon/ceylon-spec/issues">https://github.com/ceylon/ceylon-spec/issues</a></td></tr>
 </table>
 
-This consists in a library that parses Ceylon source files, and runs a type-checking analysis
-on them, builds a list of warnings and errors, and produces all the model of the analysed source
+This is a library that parses Ceylon source files, and runs type analysis on them, 
+producing a list of warnings and errors, and a the model of the analyzed source
 code. This is the compiler frontend.
 
-The Ceylon specification is also contained in that project.
+The Ceylon language specification is also kept in this project.
 
 #### Building
 
-You can build and publish the typechecker in the local Ceylon repository (`~/.ceylon`) with this:
+You can build and publish the typechecker to the local Ceylon repository (`~/.ceylon`) 
+like this:
 
 <!-- lang: bash -->
     ant publish
 
-You can also build the specification:
+You can also build the language specification:
 
 <!-- lang: bash -->
     ant doc
 
 The generated documentation will be available in `build/en/html/index.html`
 
-Find more info in the project's [README](https://github.com/ceylon/ceylon-spec/blob/master/README.md).
+There's more info in the [README](https://github.com/ceylon/ceylon-spec/blob/master/README.md).
 
-### Compiler, documentation generator and runner
+### Compiler, documentation compiler, and launcher
 
 <table>
  <tr><th>Git repository</th><td><a href="https://github.com/ceylon/ceylon-compiler">https://github.com/ceylon/ceylon-compiler</a></td></tr>
  <tr><th>Issue reporting</th><td><a href="https://github.com/ceylon/ceylon-compiler/issues">https://github.com/ceylon/ceylon-compiler/issues</a></td></tr>
 </table>
 
-This consists in the `ceylonc` compiler command, the `ceylond` API documentation generator, and
-the `ceylon` runner command.
+This is where you'll find the `ceylonc` compiler, the `ceylond` API documentation compiler, 
+and the `ceylon` launcher.
 
-You can find out how to run those commands from the [documentation](/documentation/spec/modulesandtools.html#tools).
+You can find out how to run these commands from the [documentation](/documentation/spec/modulesandtools.html#tools).
 
 #### Building
 
-This project depends on the [Parser and typechecker](#parser_typechecker_and_specification) and 
-[Ceylon language module](#ceylonlanguage_module) projects. You
-should check them out and build them first.
+This project depends on the [Parser and typechecker](#parser_typechecker_and_specification) 
+and [Ceylon language module](#ceylonlanguage_module) projects. Youshould check them out and 
+build them first.
 
-You can build the compiler project with this:
+You can build the compiler project like this:
 
 <!-- lang: bash -->
     ant build
 
-Find more info in the project's [README](https://github.com/ceylon/ceylon-compiler/blob/master/README.md).
+There's more info in the [README](https://github.com/ceylon/ceylon-compiler/blob/master/README.md).
 
 ### `ceylon.language` module
 
@@ -82,18 +83,20 @@ Find more info in the project's [README](https://github.com/ceylon/ceylon-compil
  <tr><th>Issue reporting</th><td><a href="https://github.com/ceylon/ceylon.language/issues">https://github.com/ceylon/ceylon.language/issues</a></td></tr>
 </table>
 
-This consists in the `ceylon.language` module, which contains the core of the Ceylon runtime.
+This projects contains the module `ceylon.language`, the core classes 
+mentioned in the language specification.
 
-See the API [documentation](#{site.urls.apidoc}/) for more information.
+See the [API documentation](#{site.urls.apidoc}/) for more information.
 
 #### Building
 
-You can build and publish the language module in the local Ceylon repository (`~/.ceylon`) with this:
+You can build and publish the language module to the local Ceylon repository 
+(`~/.ceylon`) like this:
 
 <!-- lang: bash -->
     ant publish
 
-Find more info in the project's [README](https://github.com/ceylon/ceylon.language/blob/master/README.md).
+There's more info in the [README](https://github.com/ceylon/ceylon.language/blob/master/README.md).
 
 ### Ceylon Eclipse IDE plugin
 
@@ -102,9 +105,9 @@ Find more info in the project's [README](https://github.com/ceylon/ceylon.langua
  <tr><th>Issue reporting</th><td><a href="https://github.com/ceylon/ceylon-ide-eclipse/issues">https://github.com/ceylon/ceylon-ide-eclipse/issues</a></td></tr>
 </table>
 
-This contains our Eclipse IDE plugin for Ceylon.
+This project contain the Ceylon IDE Eclipse plugin.
 
 #### Building
 
-Building and running instructions are located in the project's 
+Instructions may be found in the
 [README](https://github.com/ceylon/ceylon-ide-eclipse/blob/master/README.md).
