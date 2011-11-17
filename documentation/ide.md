@@ -6,9 +6,42 @@ author: Gavin King
 ---
 # Ceylon IDE
 
-The Ceylon IDE is a plugin for Eclipse, which supports the following features,
-among others:
+The Ceylon IDE is a plugin for Eclipse.
 
+## Features
+
+The plugin provides the following features, among others:
+
+* Incremental compilation
+* Run / Debug
+* Syntax highlighting
+* Outline view and popup outline
+* Popup type hierarchy
+* Error reporting in Problems view
+  and error annotations in editor
+* Reporting of //todo and //fix in Task view
+  and task annotations in editor
+* Intelligent proposals
+* Documentation hover
+* Hyperlink navigation to declarations
+* Auto indentation and `Correct Indentation`
+* New Ceylon unit wizard
+* `Open Ceylon Declaration` dialog
+* `Ceylon Search` dialog
+* `Find References`, `Find Refinements`, and 
+  `Find Subtypes`
+* Configurable keyboard accelerators
+* Basic refactoring: `Rename`, `Inline`,
+  `Extract Value`, `Extract Function`,
+  `Convert To Named Arguments`, and
+   `Clean Imports`
+* Basic Quick Fixes: rename reference,
+  create member declaration, create local 
+  declaration, add import, make shared, 
+  make actual, make default, specify type
+* Code folding
+* Structured compare
+* Mark occurrences
 
 
 ## Running the pre-release IDE
