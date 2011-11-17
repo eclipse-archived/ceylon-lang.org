@@ -3,6 +3,8 @@ title: Team blog
 layout: default
 author: Emmanuel Bernard
 tab: blog
+unique_id: blogpage
+
 ---
 #sidebar
   - if page.author_for_bio
@@ -13,7 +15,7 @@ tab: blog
           %h3 Bio
           #{member.content}
   - if not page.blog_tag
-    .sidebar-block  
+    .sidebar-dark  
       - if page.author_for_bio
         :markdown
           ### [Feed](/blog/authors/#{sanitize(page.author_for_bio)}/blog.atom)
@@ -26,14 +28,13 @@ tab: blog
       - for post in site.posts[0,5] do
         %h4 
           %a{:href=>post.url}= post.title
+          %br
           by #{post.author}
           %br
           #{post.date.strftime( '%d %B %Y' )}
-  .sidebar-block  
     %h3 Tags
     .tag-cloud
       = site.posts_tags_cloud
-  .sidebar-block  
     %h3 Authors
     .tag-cloud
       = site.posts_authors_cloud

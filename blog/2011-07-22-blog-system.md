@@ -2,6 +2,7 @@
 title: We now have a blog system and decent structure
 author: Emmanuel Bernard
 layout: blog
+unique_id: blogpage
 tab: blog
 tags: [ test ]
 ---

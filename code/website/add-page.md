@@ -1,6 +1,7 @@
 ---
 title: Add a new page
 layout: code
+unique_id: codepage
 tab: code
 author: Emmanuel Bernard
 toc: true

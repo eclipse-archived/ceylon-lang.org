@@ -2,6 +2,7 @@
 title: Download Ceylon
 layout: default
 tab: download
+unique_id: downloadpage
 author: Emmanuel Bernard
 ---
 # #{page.title}

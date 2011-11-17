@@ -2,6 +2,7 @@
 layout: reference
 title: `String` literals
 tab: documentation
+unique_id: docspage
 author: Tom Bentley
 ---
 

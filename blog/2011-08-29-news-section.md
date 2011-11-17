@@ -2,6 +2,7 @@
 title: Home page has a news section
 author: Emmanuel Bernard
 layout: blog
+unique_id: blogpage
 tab: blog
 tags: [site]
 ---

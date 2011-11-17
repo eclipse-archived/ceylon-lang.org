@@ -2,6 +2,7 @@
 title: Update on the debugging support in the IDE 
 author: David Festal
 layout: blog
+unique_id: blogpage
 tab: blog
 tags: [ide]
 ---

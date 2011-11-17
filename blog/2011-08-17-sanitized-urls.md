@@ -2,6 +2,7 @@
 title: URLs for blogs are now sanitized
 author: Emmanuel Bernard
 layout: blog
+unique_id: blogpage
 tab: blog
 tags: [site, Do-It-Yourself, Cliché]
 ---

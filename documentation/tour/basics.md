@@ -2,6 +2,7 @@
 layout: tour
 title: Tour of Ceylon&#58; Basics
 tab: documentation
+unique_id: docspage
 author: Emmanuel Bernard
 ---
 

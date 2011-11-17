@@ -3,6 +3,7 @@ title: FAQs for IDE
 layout: faq
 toc: true
 tab: documentation
+unique_id: docspage
 author: Emmanuel Bernard
 ---
 

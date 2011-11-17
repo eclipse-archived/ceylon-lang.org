@@ -2,6 +2,7 @@
 title: Changed syntax highlighting
 author: Tom Bentley
 layout: blog
+unique_id: blogpage
 tab: blog
 tags: [site]
 ---
