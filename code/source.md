@@ -22,7 +22,10 @@ The Ceylon project is still up in several independant parts:
 
 ### Parser, typechecker and specification
 
-Git repository: <https://github.com/ceylon/ceylon-spec>
+<table>
+ <tr><th>Git repository</th><td><a href="https://github.com/ceylon/ceylon-spec">https://github.com/ceylon/ceylon-spec</a></td></tr>
+ <tr><th>Issue reporting</th><td><a href="https://github.com/ceylon/ceylon-spec/issues">https://github.com/ceylon/ceylon-spec/issues</a></td></tr>
+</table>
 
 This consists in a library that parses Ceylon source files, and runs a type-checking analysis
 on them, builds a list of warnings and errors, and produces all the model of the analysed source
@@ -48,7 +51,10 @@ Find more info in the project's [README](https://github.com/ceylon/ceylon-spec/b
 
 ### Compiler, documentation generator and runner
 
-Git repository: <https://github.com/ceylon/ceylon-compiler>
+<table>
+ <tr><th>Git repository</th><td><a href="https://github.com/ceylon/ceylon-compiler">https://github.com/ceylon/ceylon-compiler</a></td></tr>
+ <tr><th>Issue reporting</th><td><a href="https://github.com/ceylon/ceylon-compiler/issues">https://github.com/ceylon/ceylon-compiler/issues</a></td></tr>
+</table>
 
 This consists in the `ceylonc` compiler command, the `ceylond` API documentation generator, and
 the `ceylon` runner command.
@@ -70,7 +76,10 @@ Find more info in the project's [README](https://github.com/ceylon/ceylon-compil
 
 ### `ceylon.language` module
 
-Git repository: <https://github.com/ceylon/ceylon.language>
+<table>
+ <tr><th>Git repository</th><td><a href="https://github.com/ceylon/ceylon.language">https://github.com/ceylon/ceylon.language</a></td></tr>
+ <tr><th>Issue reporting</th><td><a href="https://github.com/ceylon/ceylon.language/issues">https://github.com/ceylon/ceylon.language/issues</a></td></tr>
+</table>
 
 This consists in the `ceylon.language` module, which contains the core of the Ceylon runtime.
 
@@ -87,7 +96,10 @@ Find more info in the project's [README](https://github.com/ceylon/ceylon.langua
 
 ### Ceylon Eclipse IDE plugin
 
-Git repository: <https://github.com/ceylon/ceylon-ide-eclipse>
+<table>
+ <tr><th>Git repository</th><td><a href="https://github.com/ceylon/ceylon-ide-eclipse">https://github.com/ceylon/ceylon-ide-eclipse</a></td></tr>
+ <tr><th>Issue reporting</th><td><a href="https://github.com/ceylon/ceylon-ide-eclipse/issues">https://github.com/ceylon/ceylon-ide-eclipse/issues</a></td></tr>
+</table>
 
 This contains our Eclipse IDE plugin for Ceylon.
 
