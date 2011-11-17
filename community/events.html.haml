@@ -9,8 +9,8 @@ author: Emmanuel Bernard
   # #{page.title}
 
 #upcoming-talks
-  - events = site.events.values.sort{|l,r| l.effective_date <=> r.effective_date}
-  %h1 Upcoming Events
+  - events = site.events.values.sort{|l,r| r.effective_date <=> l.effective_date}
+  %h1 Events
   - for event in events
     .item{:effective_date=>event.effective_date}
       .event_details
