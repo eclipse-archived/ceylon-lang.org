@@ -2,6 +2,7 @@
 title: Ceylon IDE
 layout: documentation
 tab: Ceylon IDE
+unique_id: docspage
 author: Gavin King
 ---
 # #{page.title}
