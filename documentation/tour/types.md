@@ -2,6 +2,7 @@
 layout: tour
 title: Tour of Ceylon&#58; Types
 tab: documentation
+unique_id: docspage
 author: Gavin King
 ---
 

@@ -2,6 +2,7 @@
 layout: reference
 title: `[]` (sequenced lookup) operator
 tab: documentation
+unique_id: docspage
 author: Tom Bentley
 milestone: Milestone 1
 ---

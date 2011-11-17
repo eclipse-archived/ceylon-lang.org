@@ -1,6 +1,7 @@
 ---
 title: Edit a page
 layout: code
+unique_id: codepage
 tab: code
 toc: true
 author: Emmanuel Bernard

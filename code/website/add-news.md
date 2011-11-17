@@ -1,6 +1,7 @@
 ---
 title: Add a news to the home page
 layout: code
+unique_id: codepage
 tab: code
 author: Emmanuel Bernard
 ---

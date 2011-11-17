@@ -2,6 +2,7 @@
 title: Wire the site with spec and ceylondoc 
 author: Emmanuel Bernard
 layout: blog
+unique_id: blogpage
 tab: blog
 tags: [site]
 ---

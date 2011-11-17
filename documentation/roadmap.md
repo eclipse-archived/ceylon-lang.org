@@ -2,9 +2,12 @@
 layout: documentation
 title: Ceylon roadmap
 tab: documentation
+unique_id: docspage
 author: Emmanuel Bernard
 ---
 # #{page.title}
+
+Ceylon code is released and available on [GitHub](http://github.com/ceylon). 
 
 Ceylon has not yet been released. We're still working on bugs and integration
 issues affecting the first milestone. Because quality is important to us, we 
@@ -24,8 +27,6 @@ However, our roadmap is quite well-defined:
 *Expressions, basic procedural code, basic object orientation, basic
 generics including variance, validation of definite
 assignment/initialization and definite return, exceptions.*
-
-And of course pushing our work into the open.
 
 ### Declarations:
 * toplevel classes

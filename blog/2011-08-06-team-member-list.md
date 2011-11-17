@@ -2,6 +2,7 @@
 title: How to add yourself as team member
 author: Emmanuel Bernard
 layout: blog
+unique_id: blogpage
 tab: blog
 tags: [site]
 ---

@@ -1,6 +1,7 @@
 ---
 title: Write a blog entry
 layout: code
+unique_id: codepage
 tab: code
 author: Emmanuel Bernard
 ---

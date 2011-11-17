@@ -2,6 +2,7 @@
 title: Ceylon progress report
 author: Gavin King
 layout: blog
+unique_id: blogpage
 tab: blog
 tags: [progress]
 ---

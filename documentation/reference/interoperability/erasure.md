@@ -2,6 +2,7 @@
 layout: reference
 title: Erasure rules
 tab: documentation
+unique_id: docspage
 author: Tom Bentley
 ---
 

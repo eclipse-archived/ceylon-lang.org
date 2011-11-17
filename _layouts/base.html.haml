@@ -19,7 +19,7 @@
       SyntaxHighlighter.defaults['gutter'] = false;
       SyntaxHighlighter.all();
   %body.bp
-    #container
+    #container{:class => "#{page.unique_id}"}
       ~ content
       
   = page.disqus_comments_count

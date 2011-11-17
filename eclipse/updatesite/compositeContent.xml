@@ -1,0 +1,11 @@
+<?compositeMetadataRepository version='1.0.0'?>
+<repository name="Ceylon" type="org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository" version="1.0.0">
+ <properties size="2">
+   <property name="p2.compressed" value="true"/>
+   <property name="p2.timestamp" value="1316559185000"/>
+ </properties>
+ <children size="2">
+   <child location="http://download.jboss.org/tools/extras/ceylon"/>
+   <child location="http://download.jboss.org/tools/extras/imp"/>
+ </children>
+</repository>

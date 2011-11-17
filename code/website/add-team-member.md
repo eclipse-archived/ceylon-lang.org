@@ -1,6 +1,7 @@
 ---
 title: Add a team member to the list
 layout: code
+unique_id: codepage
 tab: code
 author: Emmanuel Bernard
 ---

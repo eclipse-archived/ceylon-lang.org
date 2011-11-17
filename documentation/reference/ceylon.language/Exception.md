@@ -2,6 +2,7 @@
 layout: reference
 title: `Exception`
 tab: documentation
+unique_id: docspage
 author: Tom Bentley
 ---
 

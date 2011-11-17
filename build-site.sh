@@ -47,7 +47,8 @@ if [ "$LIGHT" != "true" ]; then
 fi
 
 # Copy spec into website
-cp -R ceylon-spec/build/en/ ../../_site/documentation/spec
+rm -rf ../../_site/documentation/spec
+cp -R ceylon-spec/build/en ../../_site/documentation/spec
 mv ../../_site/documentation/spec/pdf/Ceylon*.pdf ../../_site/documentation/spec/pdf/ceylon-language-specification.pdf
 
 # Build language module
@@ -68,6 +69,8 @@ if [ "$LIGHT" != "true" ]; then
 	cd ..
 fi
 mkdir -p ../../../_site/documentation/api/current/
-./ceylon-compiler/bin/ceylond -dest-dir ../../_site/documentation/api/current/ -src ceylon.language/languagesrc/current/
+./ceylon-compiler/bin/ceylond -dest-dir current/ -src ceylon.language/languagesrc/current/
+
+cp -R current/ ../../_site/documentation/api/current/
 
 cd ../..
