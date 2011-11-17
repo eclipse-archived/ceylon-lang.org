@@ -1,5 +1,6 @@
 ---
 name: David Festal
+photo: /images/team/DavidFestal.jpg
 level: 10
 ---
 <!-- level explanation
