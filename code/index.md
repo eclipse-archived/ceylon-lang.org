@@ -22,6 +22,8 @@ Contact us on our [dev mailing list](http://groups.google.com/group/ceylon-dev).
 
 Want to checkout the code and have a peak view? Read how to get [Ceylon's sources](source).
 
+Feeling adventurous and want to help us with the compiler backend? Read [how to work on that project](contribute).
+
 ## Contributing to the website
 
 This website, like the rest of Ceylon, is open source. Help us improve it.
