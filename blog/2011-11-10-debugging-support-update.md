@@ -18,7 +18,7 @@ just pull the last GitHub version and run with a "Eclipse Application" launch co
 
 ### From the update site
 
-- From within Eclipse, install or update the Ceylon plugin through the Ceylon Update Site : `http://xam.dk/ceylon`
+- From within Eclipse, install or update the Ceylon plugin through the Ceylon Update Site : `http://ceylon-lang.org/eclipse/updatesite/`
 - Restart Eclipse
 - You should be able to use basic debugging support 
 
