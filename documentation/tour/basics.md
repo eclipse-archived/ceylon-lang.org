@@ -29,8 +29,8 @@ Or you can run it directly from the command line:
 
 <!-- lang: none -->
 
-    ceylonc -src .
-    ceylon -run hello
+    ceylonc -src . -out . hello.ceylon
+    ceylon -cp unversioned/default_module-unversioned.car hello
 
 Ceylon doesn't have Java-style `static` methods, but you can think of 
 toplevel methods as filling the same role. Ceylon has a very strict 
