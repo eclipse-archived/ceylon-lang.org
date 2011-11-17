@@ -14,7 +14,8 @@ If you have questions, come discuss in our [forum](forum).
 
 ## Mailing list
 
-You can follow and participate to Ceylon's development by joining our [development mailing list](http://groups.google.com/group/ceylon-dev).
+You can follow and participate in the development of Ceylon by joining 
+our [development mailing list](http://groups.google.com/group/ceylon-dev).
 
 ## Events
 
