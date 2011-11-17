@@ -48,7 +48,6 @@ And of course pushing our work into the open.
 * `abstract` classes
 * `formal` members
 * method / attribute refinement (`default`, `actual`)
-* class and interface aliases [TODO: tests]
 
 ### Statements:
 * expression statements
@@ -117,9 +116,10 @@ Notes:
 ## Milestone 2
 
 *Functional programming, mixin inheritance, nested/member 
-classes, `switch/case`.*
+classes, type aliases, `switch/case`.*
 
 ### Declarations:
+* class and interface aliases
 * nested and member classes
 * concrete interface members
 * higher-order methods
