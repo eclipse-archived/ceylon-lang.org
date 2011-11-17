@@ -21,7 +21,7 @@ Are you interested in joining the team and helping improve the Ceylon language,
 the compiler, the class libraries, or the IDE? 
 Contact us on our [dev mailing list](http://groups.google.com/group/ceylon-dev).
 
-Want to checkout the code and have a peak view? Read how to get [Ceylon's sources](source).
+Want to checkout the code and have a peak view? Read how to get [the source](source).
 
 Feeling adventurous and want to help us with the compiler backend? Read [how to work on that project](contribute).
 
