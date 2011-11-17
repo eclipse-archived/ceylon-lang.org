@@ -53,7 +53,7 @@ body.bp {
     font-size:1.3em;
     font-weight:bold;
 	color: #2a4a4c;
-
+    clear: left;
   }
   h3 {
     font-size:1.2em;
@@ -169,7 +169,7 @@ form.bp {
       }
 
       li#selected a {
-	    background: url("../images/nav_indicator.png") no-repeat center 15;
+	    background: url("../images/nav_indicator.png") no-repeat center 15px;
         color: #FFFFFF;
 		height: 30px;
 
@@ -592,20 +592,27 @@ div.milestone {
  font-weight: bold;
 }
 .milestone {
- background: $menu_color;
+ background: #1a3c3d;
  padding: 0.2em 0.4em;
  color: white;
+ -webkit-border-radius: 3px;
+ -moz-border-radius: 3px;
+ border-radius: 3px;
  
  p {
   margin: 0 !important;
  }
  a {
   color: white !important;
+  text-shadow: none;
  }
 }
 
 .milestone.future {
  background: red;
+ a {
+  text-shadow: #A00 1px 1px 0px;
+ }
 }
 
 //NOT USED is it?
