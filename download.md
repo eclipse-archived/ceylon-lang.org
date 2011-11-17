@@ -8,14 +8,16 @@ author: Emmanuel Bernard
 Ceylon is not yet released to the public. We're working as hard as we can to 
 get the first milestone into your hands.
 
-The first milestone will consist of:
+The first milestone will have:
 
-* A command-line compiler for Ceylon which implements a *subset* of the 
-  language described in the language specification.
-* An Eclipse plugin which uses the same compiler backend and provide a number
-  of great development features.
+* a command-line compiler for Ceylon which implements a *subset* of the 
+  language described in the language specification,
+* a full-featured Eclipse plugin built around the compiler's type analyzer,
+  and
+* the first draft of the language module, which includes the basic types
+  mentioned in the language specification.
 
-You can follow our progress:
+You can follow our progress on:
 
-* in our [blog](/blog)
-* or check out our [roadmap page](/documentation/roadmap).
+* our [blog](/blog), or
+* the [roadmap](/documentation/roadmap).

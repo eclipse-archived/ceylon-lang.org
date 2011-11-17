@@ -6,8 +6,10 @@ author: Emmanuel Bernard
 ---
 # #{page.title}
 
-Building the website, working on the documentation and blogging is fairly simple. 
-It is based on Markdown or haml based files and use Git as a rudimentary CMS.
+It's easy to build the website, work on the documentation, 
+or blog. This is an Awestruct-based website. Content is defined 
+using [Markdown](http://daringfireball.net/projects/markdown/syntax#code) 
+or haml. Git is used as a rudimentary CMS.
 
 [Building and hacking the website](/README)  
 [Edit a page (syntax and tricks)](edit-page)  

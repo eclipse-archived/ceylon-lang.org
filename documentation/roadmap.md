@@ -1,27 +1,29 @@
 ---
 layout: documentation
-title: Ceylon's roadmap
+title: Ceylon roadmap
 tab: documentation
 author: Emmanuel Bernard
 ---
 # #{page.title}
 
-Ceylon has not been released into the open yet. We are working toward the 
-first milestone before pushing it into your hands. We don't have a date. 
-We are focusing on software quality and won't release work we are not happy 
-with.
+Ceylon has not yet been released. We're still working on bugs and integration
+issues affecting the first milestone. Because quality is important to us, we 
+won't release this work until we think it's usable. Therefore, we can't give
+you a date, either.
 
-Our roadmap is fairly well defined though.
+However, our roadmap is quite well-defined:
 
-- [Milestone 1](#milestone_1)
-- [Milestone 2](#milestone_2)
-- [Milestone 3](#milestone_3)
+- Ceylon 1.0
+  - [Milestone 1](#milestone_1)
+  - [Milestone 2](#milestone_2)
+  - [Milestone 3](#milestone_3)
+- [Ceylon 1.1](#ceylon_11_or_later)
 
 ## Milestone 1
 
-Expressions, basic procedural code, basic object orientation, basic
-generics including (co|contra)variance, validation of definite
-assignment/initialization and definite return, exceptions.
+*Expressions, basic procedural code, basic object orientation, basic
+generics including variance, validation of definite
+assignment/initialization and definite return, exceptions.*
 
 And of course pushing our work into the open.
 
@@ -104,17 +106,18 @@ And of course pushing our work into the open.
 * `process`
 
 
-Notes
+Notes:
 
-1. <a name="m1-control"></a>without support for `try (x)` or `if (satisfies U V)`
-2. <a name="m1-operators"></a>Excluding slotwise operators, range operators, 
-   and those that depend on `Gettable`/`Callable`. Furthermore, *numeric widening* 
-   with arithmetic operators and user-defined numeric types is not supported.
-3. <a name="m1-invocation"></a>Excluding defaulted arguments and `Callable`
+1. <a name="m1-control">Without support for `try (x)` or `if (satisfies U V)`.</a>
+2. <a name="m1-operators">Excluding slotwise operators, range operators, 
+   and operators that depend on `Gettable`/`Callable`. Furthermore, *numeric widening* 
+   with arithmetic operators and user-defined numeric types is not supported.</a>
+3. <a name="m1-invocation">Excluding defaulted arguments and `Callable`.</a>
 
 ## Milestone 2
-Functional programming, mixin inheritance, nested/member 
-classes, switch/case.
+
+*Functional programming, mixin inheritance, nested/member 
+classes, `switch/case`.*
 
 ### Declarations:
 * nested and member classes
@@ -124,7 +127,7 @@ classes, switch/case.
 * cases (`of` clause)
 
 ### Generics:
-* enumerated bounds ??
+* enumerated bounds
 
 ### Statements:
 * `switch/case`
@@ -140,10 +143,11 @@ classes, switch/case.
 ### Misc:
 * defaulted parameters
 * exhaustive case lists
-* optimization of primitives operators
+* optimization of primitive operators
 
 ## Milestone 3 (Ceylon 1.0)
-Annotations, reified generics, metamodel, interception.
+
+*Annotations, reified generics, metamodel, interception.*
 
 ### Declarations:
 * annotations

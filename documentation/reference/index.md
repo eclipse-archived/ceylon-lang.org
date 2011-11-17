@@ -7,10 +7,10 @@ author: Tom Bentley
 
 # #{page.title}
 
-This page lists Ceylon concepts and points to their description.
-The full [language specification document](/documentation/spec) is also available.
+This page lists concepts and links to their descriptions. The complete 
+[language specification](/documentation/spec) is also available.
 
-_This pages still misses a few of the documentation: want to help? [See how](/code/website)._
+_This page is very incomplete. Want to help? [See how](/code/website)._
 
 
 ## Structure
@@ -31,7 +31,7 @@ _This pages still misses a few of the documentation: want to help? [See how](/co
 * [`extends` (inheritance)] - _doc coming soon at_ (type/inheritance)
 * [`satisfies` (satisfaction)] - _doc coming soon at_ (type/satisfaction)
 * [Generics] - _doc coming soon at_ (type/generics)
-* [Introductions] - _doc coming soon at_ (type/introduction) <!-- m2 -->
+* [Introductions] - _doc coming soon at_ (type/introduction) <!-- m3 -->
 * [Annotations] - _doc coming soon at_ (type/annotation) <!-- m3 -->
 
 ## Statements

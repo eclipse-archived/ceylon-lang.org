@@ -7,31 +7,30 @@ author: Emmanuel Bernard
 
 # #{page.title}
 
-You will find all you need to know about Ceylon in thse pages. Ceylon is a work in progress. 
-The documentation is always in some flux. By the way, __you__ can improve it, [read more](/code/website).
+You'll find all you need to know about Ceylon in these pages. Ceylon itself is 
+a work in progress, so this documentation is still in a state of flux. By the way, 
+_you_ can help improve it, [read more](/code/website).
 
 ## New to Ceylon?
 
-The [quick introduction](introduction) page summarizes some of the features
-Ceylon has to offer.
+The [quick introduction](introduction) summarizes some of what Ceylon is all about.
 
-Still interested? The [tour of Ceylon](/documentation/tour) will drive you through the 
-main features and syntaxes of Ceylon in a little more depth. This is to date the
-best document to see how Ceylon will be concretly used.
-[Start the tour](/documentation/tour).
+Still interested? The [tour of Ceylon](/documentation/tour) will guide you through 
+the main features and syntax of Ceylon in some depth. Currently, this is the best 
+way to learn Ceylon.
 
 ## Reference
 
-Want to dive into the details of Ceylon? The [reference](reference) page documents
-each one in detail. 
+Need to clarify some detail of the language, language module, or tooling? Try the 
+[reference](reference) page.
 
-If you have time in front of you, you can also dive into the [Language Specification](spec):
-this is our bible.
+Or, if you want to be absolutely certain, you can dive into the [language specification](spec)
+- the gospel according to Ceylon.
 
 ## Got questions? We have FAQs
 
-We have tried to compile common questions. Check out our [FAQs](faq).
+We're compiling a list of common questions. Check out the [FAQs](faq).
 
 ## Roadmap
 
-Want to know when to expect what? We do have a [roadmap](roadmap).
+Want to know when to expect what? We can't promise dates, but we do have a [roadmap](roadmap).

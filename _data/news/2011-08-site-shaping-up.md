@@ -1,5 +1,5 @@
 ---
-title: 'Website is shapping up rapidely'
+title: 'Website is rapidly shaping up'
 date: 25 July, 2011
 more_info_url: /blog/2011/07/25/site-shaping/
 effective_date: 20110725
