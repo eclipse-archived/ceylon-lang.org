@@ -53,7 +53,7 @@ author: Stephane Epardaud
 
 These are the various major parts of the Ceylon compiler.
 
-- Runner commands (for now a few python scripts in ceylon-compiler/bin to start the compiler)
+- Runner commands (for now a few batch/shell scripts in ceylon-compiler/bin to start the compiler)
 - Parser (part of the ceylon-spec project, translates ceylon source into a ceylon tree)
 - Type checker (part of the ceylon-spec project, checks a ceylon tree and builds its model)
 - Model (part of the ceylon-spec project, represents meta information about ceylon declarations and types)
