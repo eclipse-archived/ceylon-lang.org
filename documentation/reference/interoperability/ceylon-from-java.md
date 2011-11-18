@@ -46,8 +46,8 @@ Java keywords.
 ### Catching Ceylon exceptions
 
 The root of the exception hierarchy in Ceylon is `ceylon.language.Exception`, 
-which is a `ceylon.language.CeylonException` (a subclass of 
-`java.lang.Exception`) at runtime. This means that pure Ceylon code can only
+which is a `ceylon.language.Exception` (a subclass of 
+`java.lang.RuntimeException`) at runtime. This means that pure Ceylon code can only
 generate unchecked exceptions.
 
 Impure Ceylon (that is, Ceylon code which access Java code) may throw 
