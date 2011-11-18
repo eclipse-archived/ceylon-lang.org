@@ -366,12 +366,31 @@ Is merely an abbreviation of:
 Likewise, `<` is defined in terms of the interface `Comparable`, `*` in terms of
 the interface `Numeric`, and so on.
 
-## Typesafe metaprogramming
+## Typesafe metaprogramming and annotations
 
 Ceylon provides sophisticated support for meta-programming, including a typesafe 
 metamodel and events. Generic code may invoke members reflectively and intercept 
 member invocations. This facility is more powerful, and much more typesafe, than 
 reflection in Java.
+
+Ceylon supports program element annotations, with a streamlined syntax. Indeed,
+annotations are even used for language modifiers like `abstract` and `shared` -
+which are not keywords in Ceylon - and for embedding API documentation for the 
+documentation compiler:
+
+    doc "The user login action"
+    by "Gavin King"
+    throws (DatabaseException
+            -> "if database access fails")
+    see (LogoutAction.logout)
+    scope (session)
+    action { description="Log In"; url="/login"; }
+    shared deprecated
+    void login(Request request, Response response) {
+        ...
+    }
+
+Well, that was a bit of an extreme example!
 
 ## Modularity
 
