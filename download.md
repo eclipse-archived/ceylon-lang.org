@@ -11,7 +11,7 @@ Ceylon is not yet released to the public. We're working as hard as we can
 to get the first milestone into your hands.
 
 However, the code is already available at [GitHub](http://github.com/ceylon).
-Adventurous? [check it out](/code).
+Adventurous? [Check it out](/code).
 
 The first milestone will have:
 
