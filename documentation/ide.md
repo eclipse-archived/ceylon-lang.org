@@ -8,7 +8,8 @@ author: Gavin King
 # #{page.title}
 
 The Ceylon IDE is a plugin for [Eclipse](http://eclipse.org). The IDE project 
-was initiated by David Festal and is supported by [SERLI](http://www.serli.com/).
+was initiated by David Festal from [SERLI](http://www.serli.com/), a french software 
+company contributing to the Ceylon project.
 
 ## Features
 
