@@ -47,12 +47,14 @@ great SDK is a top priority of the project.
 
 ### How can I contribute to Ceylon?
 
-Ceylon is a semi public community at this stage. A small team 
-of contributors (both outside and inside Red Hat)
-are working on the spec, the language module, the compiler, the 
-IDE etc. Contact Gavin on 
-[Google +](https://plus.google.com/105743409453530897815) or 
-email him at gavin at hibernate.org if you want to join the team.
+Are you interested in joining the team and helping improve the Ceylon language, 
+the compiler, the class libraries, or the IDE? 
+Contact us on our [dev mailing list](http://groups.google.com/group/ceylon-dev).
+
+Want to get your hands on the code? Read how to access [the source](source).
+
+Feeling adventurous and want to help us with the compiler backend? Read 
+[how to work on that project](contribute).
 
 ### Found a problem, how can I improve the website?
 
