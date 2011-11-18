@@ -9,17 +9,21 @@ author: Stephane Epardaud
 ## Getting the source
 
 1. Fork https://github.com/ceylon/ceylon-compiler
+1. Clone ceylon.language on your machine
+`$ git clone git@github.com:ceylon/ceylon.language.git`
+1. Install the language module
+`$ cd ceylon.language; ant clean publish`
 1. Clone ceylon-spec on your machine
 `$ git clone git@github.com:ceylon/ceylon-spec.git`
 1. Install the typechecker
-`$ cd ceylon-spec; ant publish`
+`$ cd ceylon-spec; ant clean tree publish`
 1. Clone ceylon-compiler on your machine
 `$ git clone git@github.com:YOUR_GITHUB_USERNAME/ceylon-compiler.git`
 1. Add the upstream remote:
 `$ cd ceylon-compiler; git remote add upstream git@github.com:ceylon/ceylon-compiler.git`
 1. Run the tests to check that everything is working (a few tests may fail)
 `ant test`
-1. Import both projects into Eclipse (see README.Eclipse in ceylon-compiler)
+1. Import all three projects into Eclipse (see README.Eclipse in ceylon-compiler)
 1. In Eclipse, run the unit tests: `com.redhat.ceylon.compiler.test.AllTests`
 
 ## Typical workflow
