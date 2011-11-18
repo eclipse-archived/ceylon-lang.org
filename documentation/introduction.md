@@ -266,6 +266,8 @@ declarations. For example:
     value names = LinkedList { "Tom", "Dick", "Harry" };
 
     function sqrt(Float x) { return x**0.5; }
+    
+    for (item in order.items) { ... }
 
 On the other hand, for declarations which are accessible outside the compilation 
 unit in which they are defined, Ceylon requires an explicit type annotation. We 
@@ -282,23 +284,108 @@ they make the code more readable.
 
 ## Higher-order functions
 
-TODO
+Like most programming languages, Ceylon lets you pass a function to another 
+function. 
 
-## Simplified generics and fully-reified types
+A function which operates on other functions is called a *higher-order function*. 
+For example:
 
-TODO
+    void repeat(Natural times, void do()) {
+        for (i in 1..times) {
+            do();
+        }
+    } 
+
+When invoking a higher-order function, we can wither pass a reference to a named 
+function:
+
+    void hello() {
+        print("Hello!");
+    }
+    
+    repeat(5, hello);
+
+Or we can specify the argument function inline:
+
+    repeat {
+        times = 5;
+        void do() {
+            print("Hello!");
+        }
+    };
+
+## Simplified generics with fully-reified types
+
+Ceylon does not support Java-style wildcard type parameters, raw types, or any 
+other kind of existential type. And the Ceylon compiler never even uses any kind 
+of "non-denotable" type to reason about the type system. And there's no implicit 
+constraints on type arguments. So generics-related error messages are understandable 
+to humans.
+
+Instead of wildcard types, Ceylon features *declaration-site variance*. A type 
+parameter may be marked as covariant (`out`) or contravariant (`in`) by the class 
+or interface that declares the parameter.
+
+    interface Correspondence<in Key, out Item> { ... }
+
+Ceylon has a more expressive system of generic type constraints with a much cleaner, 
+more regular syntax. The syntax for declaring type constraints on a type parameter 
+looks very similar to a class or interface declaration.
+
+    interface Producer<in Input, out Value>
+            given Value(Input input) satisfies Equality { ... }
+
+Ceylon's type system is fully reified. In particular, generic type arguments are 
+reified, eliminating many problems that result from generic type argument erasure 
+in Java.
 
 ## Operator polymorphism
 
-TODO
+Ceylon features a rich set of operators, including most of the operators supported 
+by C and Java. True operator overloading is not supported. However, each operator 
+is defined to act upon a certain class or interface type, allowing application of 
+the operator to any class which extends or satisfies that type. We call this approach 
+*operator polymorphism*.
+
+For example, the Ceylon langauge module defines the interface `Equality`.
+
+    shared interface Equality {
+        shared formal Boolean equals(Equality that);
+        shared formal Integer hash;
+    }
+
+And the `==` operation is defined for values which are assignable to `Equality`.
+The following expression:
+
+    x==y
+
+Is merely an abbreviation of:
+
+    x.equals(y)
+
+Likewise, `<` is defined in terms of the interface `Comparable`, `*` in terms of
+the interface `Numeric`, and so on.
 
 ## Typesafe metaprogramming
 
-TODO
+Ceylon provides sophisticated support for meta-programming, including a typesafe 
+metamodel and events. Generic code may invoke members reflectively and intercept 
+member invocations. This facility is more powerful, and much more typesafe, than 
+reflection in Java.
 
 ## Modularity
 
-TODO
+Ceylon features language-level package and module constructs, along with language-level 
+access control via the `shared` annotation which can be used to express block-local, 
+package-private, module-private, and public visibility for program elements. There's 
+no equivalent to Java's `protected`. Dependencies between modules are specified in
+the module descriptor, which is written in Ceylon.
+
+The Ceylon compiler directly produces `.car` module archives in module repositories.
+You're never exposed to unpackaged `.class` files.
+
+At runtime, modules are loaded according to a peer-to-peer classloader architecture,
+based upon the same module runtime that is used at the very core of JBoss AS 7.
 
 ## Take the Tour
 
