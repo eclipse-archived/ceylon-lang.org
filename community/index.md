@@ -10,7 +10,8 @@ author: Emmanuel Bernard
 Ceylon is first and foremost an open source community project.
 
 ## Forum
-If you have questions, come discuss in our [forum](forum).
+If you have questions or suggestions, you're welcome to discuss them in 
+our [forum](forum).
 
 ## Mailing list
 
@@ -19,4 +20,4 @@ our [development mailing list](http://groups.google.com/group/ceylon-dev).
 
 ## Events
 
-Come hear about Ceylon in a [conference or user group near you](events).
+Come hear about Ceylon at a [conference or user group near you](events).
