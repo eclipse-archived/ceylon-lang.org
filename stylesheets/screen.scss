@@ -276,8 +276,7 @@ form.bp {
 		border-radius: 15px;
 		font-size: 14px;
         padding:1.5em;
-        margin:1.75em;
-        margin-top:0em;
+        margin:0em 1.75em;
 		border-left: 1px solid #c7d8d8;
 		border-right: 1px solid #c7d8d8;
 	    background: url("../images/sidebar_bkg_elephant.png") no-repeat 0px 0px #d4e5e5;
@@ -289,9 +288,10 @@ form.bp {
           color: white;
         }
 		
-		#feed h3 a {
-		   margin-left: 30px;
-		   margin: 0px;
+		#feed {
+		   padding-left: 34px;
+		       background: url("../images/feed_icon.png") no-repeat 0px 0px;
+		height: 26px;
 		}
 		
 		-moz-border-radius: 15px;
@@ -299,8 +299,7 @@ form.bp {
 		font-size: 14px;
 		text-shadow: #656565 1px 1px 0px;
         padding:1.5em;
-        margin:1.75em;
-        margin-top:0em;
+        margin:0em 1.75em;
 	    background-color: #121f1f;
 	  
 	    p {
@@ -319,27 +318,32 @@ form.bp {
 	    
 	  .point-dark-top {
 		background: url("../images/sidebar_dark_top.png") no-repeat bottom center;
+		height: 15px;
 		}
 		
 	  .point-dark-bottom {
 		background: url("../images/sidebar_dark_bottom.png") no-repeat top center;
+		height: 15px;
 		}
 		
       .point-dark-end {
 		background: url("../images/sidebar_dark_end.png") no-repeat top center;
+		height: 40px;
 		}
 		
-
 	  .point-light-top {
 		background: url("../images/sidebar_light_top.png") no-repeat bottom center;
+		height: 15px;
 		}
 		
 	  .point-light-bottom {
 		background: url("../images/sidebar_light_bottom.png") no-repeat top center;
+		height: 15px;
 		}
 		
       .point-light-end {
 		background: url("../images/sidebar_light_end.png") no-repeat top center;
+		height: 40px;
 		}
 		
   }
@@ -439,8 +443,9 @@ form.bp {
 
 .post {
   clear:both;
-  margin-bottom: 1em;
-  border-bottom: 1px solid $post_border_color;
+  margin-bottom: 2em;
+  padding-bottom: 15px;
+  background: url("../images/blogpost_divider.png") no-repeat bottom;
   line-height: 1.5em;
   h1.title {
     //font-size: 125%;
@@ -500,6 +505,7 @@ form.bp {
   }
   a.page-link, .current-page, .previous-link, .next-link {
     border: 1px solid $pagination_border_color;
+    background-color: #fbfafa;
   }
   .current-page {
     font-weight: bold;
@@ -540,10 +546,12 @@ form.bp {
   float:right;
 }
 
-
 //Blog archive
 #blog-archive {
   h4 {
+	    background: url("../images/bullet_elephant.png") no-repeat 0px 0px;
+		min-height: 24px;
+      padding-left: 36px;
   font-size:10px;
   color: #2c2c2c;
 }

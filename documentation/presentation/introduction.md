@@ -434,7 +434,7 @@ area being spoken of__
         Natural[] successors = numbers[].successor;
     }
 
-### Operators
+### Operator "overloading"
 
 - Almost the same as in Java
 
@@ -546,8 +546,8 @@ area being spoken of__
 
 ### Community
 
-- Semi public today
-- A few oldies from Red Hat: Gavin, Emmanuel…
+- Had a semi public status
+- A few oldies from JBoss: Gavin, Emmanuel…
 - Some new blood: Stef, Tako
 - And (very) active contributors
   - Gary, Andrew, Tom, David (Serli), Flavio, Sergej, Ben…

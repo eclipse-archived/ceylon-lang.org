@@ -17,7 +17,7 @@ You also need to install `git`.
 The Ceylon project is actually made up of four smaller projects:
 
 - [Parser, typechecker and specification](#parser_typechecker_and_specification)
-- [Compiler, documentation compiler, and launcher](#compiler_documentation_generator_and_runner)
+- [Compiler, documentation compiler, and launcher](#compiler_documentation_compiler_and_launcher)
 - [Ceylon language module](#ceylonlanguage_module)
 - [Ceylon Eclipse IDE plugin](#ceylon_eclipse_ide_plugin)
 
@@ -62,6 +62,8 @@ This is where you'll find the `ceylonc` compiler, the `ceylond` API documentatio
 and the `ceylon` launcher.
 
 You can find out how to run these commands from the [documentation](/documentation/spec/modulesandtools.html#tools).
+
+Feeling adventurous and want to help us with the compiler backend? Read [how to work on that project](contribute).
 
 #### Building
 
