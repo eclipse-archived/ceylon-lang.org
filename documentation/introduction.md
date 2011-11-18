@@ -52,6 +52,9 @@ Here's how we create and iterate sequences:
         print("Hello, " name "!");
     }
 
+If these code examples look boring to you, well, that's kinda the idea -
+they're boring because you understood them immediately!
+
 ## Declarative syntax for treelike structures
 
 Hierarchical structures are so common in computing that we have dedicated
@@ -83,6 +86,11 @@ structures. This is especially useful for creating user interfaces:
             }
         }
     }
+
+Any framework that combines Java and XML requires special purpose-built 
+tooling to achieve type-checking and authoring assistance. Ceylon frameworks
+that make use of Ceylon's built-in support for expressing treelike structures
+get this, and more, for free.
 
 ## Principal typing, union types, and intersection types
 
@@ -155,8 +163,9 @@ perform any kind of "linearization" of supertypes.
 
 Ceylon doesn't have fields, at least not in the traditional sense.
 Instead, *attributes* are polymorphic, and may be refined by a subclass, 
-just like methods in other object-oriented languages. An attribute might 
-be a simple value:
+just like methods in other object-oriented languages. 
+
+An attribute might be a simple value:
 
     String name = firstName + " " + lastName;
 
@@ -166,7 +175,7 @@ It might be a getter:
         return firstName + " " + lastName;
     }
 
-Or it might be a get/set pair:
+Or it might be a getter/setter pair:
 
     String name {
         return fullName;
@@ -175,6 +184,10 @@ Or it might be a get/set pair:
     assign name {
         fullName := name;
     }
+
+In Ceylon, we don't need to write trivial getters or setters, since the
+state of a class is always completely abstracted from clients of the 
+class.
 
 ## Typesafe null
 
@@ -189,7 +202,7 @@ Which is actually just an abbreviation for:
 
     String|Nothing name = ...
 
-An attribute of type `String` might refer to an actual instance of `String`, 
+An attribute of type `String?` might refer to an actual instance of `String`, 
 or it might refer to the value `null` (the only instance of the class `Nothing`). 
 So Ceylon won't let us do anything useful with a value of type `String?` 
 without first checking that it isn't null using the special `if (exists ...)` 
@@ -204,13 +217,68 @@ construct.
         }
     }
 
-## Algebraic types
+## Enumerated subtypes
 
-TODO
+In object-oriented programming, it's usually considered bad practice to write 
+long `switch` statements that handle all subtypes of a type. It makes the code 
+non-extensible. Adding a new subtype to the system causes the `switch` 
+statements to break. So in object-oriented code, we usually try to refactor 
+constructs like this to use an abstract method of the supertype that is 
+refined as appropriate by subtypes.
+
+However, there is a class of problems where this kind of refactoring isn't 
+appropriate. In most object-oriented languages, these problems are usually 
+solved using the "visitor" pattern. Unfortunately, a visitor class actually 
+winds up more verbose than a `switch`, and no more extensible. There is, on
+the other hand, one major advantage of the visitor pattern: the compiler 
+produces an error if we add a new subtype and forget to handle it in one
+of our visitors.
+
+Ceylon gives us the best of both worlds. We can specify an *enumerated list
+of subtypes* when we define a supertype:
+
+    abstract class Node() of Leaf | Branch {}
+
+And we can write a `switch` statement that handles all the enumerated subtypes:
+
+    Node node = ... ;
+    switch (node)
+    case (is Leaf) { ... }
+    case (is Branch) { .... }
+
+Now, if we add a new subtype of `Node`, we must add the new the subtype to the
+`of` clause of the declaration of `Node`, and the compiler will produce an error
+at every `switch` statement which doesn't handle the new subtype.
 
 ## Type aliases and type inference
 
-TODO
+Fully-explicit type declarations very often make difficult code much easier to
+understand. But there are other occasions where the repetition of a verbose
+generic type can detract from the readability of the code. We've observed that:
+
+1. explicit type annotations are of much less value for local declarations, and
+2. repetition of a parameterized type with the same type arguments is common
+   and extremely noisy in Java.
+
+Ceylon addresses the first problem by allowing type inference for local 
+declarations. For example:
+
+    value names = LinkedList { "Tom", "Dick", "Harry" };
+
+    function sqrt(Float x) { return x**0.5; }
+
+On the other hand, for declarations which are accessible outside the compilation 
+unit in which they are defined, Ceylon requires an explicit type annotation. We 
+think this makes the code more readable, not less, and it makes the compiler more 
+efficient and less vulnerable to stack overflows.
+
+Ceylon addresses the second problem via *type aliases*, which are very similar
+to a `typedef` in C.
+
+    interface Strings = List<String>;
+
+We encourage the use of both these language features where - *and only where* -
+they make the code more readable.
 
 ## Higher-order functions
 
