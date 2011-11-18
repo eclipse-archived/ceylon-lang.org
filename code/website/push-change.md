@@ -38,4 +38,4 @@ minor changes.
 
 ## When will I see my change online?
 
-Within two minutes after a change is pushed to master.
+Within five minutes after a change is pushed to master.
