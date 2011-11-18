@@ -44,7 +44,6 @@ Awestruct::Extensions::Pipeline.new do
   helper Awestruct::Extensions::GoogleAnalytics
   helper Awestruct::Extensions::Sanitizer
 
-  # allow <!-- lang: X--> hinting for code blocks
   transformer Awestruct::Extensions::Gsub.new(
     /\<!--\s*lang:\s*ceylon\s*--\>\s*<pre><code>(.*?)<\/code><\/pre>/, 
     "<pre class=\"brush: ceylon\">\\1</pre>")
@@ -52,17 +51,11 @@ Awestruct::Extensions::Pipeline.new do
     /\<!--\s*lang:\s*java\s*--\>\s*<pre><code>(.*?)<\/code><\/pre>/, 
     "<pre class=\"brush: java\">\\1</pre>")
   transformer Awestruct::Extensions::Gsub.new(
-    /\<!--\s*lang:\s*bash\s*--\>\s*<pre><code>(.*?)<\/code><\/pre>/, 
-    "<pre class=\"brush: bash\">\\1</pre>")
-  transformer Awestruct::Extensions::Gsub.new(
     /\<!--\s*lang:\s*none\s*--\>\s*<pre><code>(.*?)<\/code><\/pre>/, 
     "<pre><code>\\1</code></pre >")
-  # default for code blocks is ceylon
   transformer Awestruct::Extensions::Gsub.new(
     /<pre><code>(.*?)<\/code><\/pre>/, 
     "<pre class=\"brush: ceylon\">\\1</pre>")
-  
-  # Inline milestone tags
   transformer Awestruct::Extensions::Gsub.new(
     /\<!--\s*m1\s*--\>\s*/, 
     "<span class='milestone'><a href='/documentation/roadmap/#milestone_1' title='Support for this feature was introduced in Milestone 1'>Milestone 1</a></span>")
