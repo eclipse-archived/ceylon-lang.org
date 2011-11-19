@@ -21,3 +21,7 @@ our [development mailing list](http://groups.google.com/group/ceylon-dev).
 ## Events
 
 Come hear about Ceylon at a [conference or user group near you](events).
+
+## Google+
+
+Ceylon even has a [Google+ page](http://gplus.to/ceylon).
