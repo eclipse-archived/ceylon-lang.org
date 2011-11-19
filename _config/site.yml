@@ -5,6 +5,6 @@ profiles:
     disqus_developer: true
     dev: true
   production:
-      
+    base_url: http://ceylon-lang.org/
 google_analytics: UA-24748553-1
 disqus: ceylonlang
