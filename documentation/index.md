@@ -28,6 +28,9 @@ Need to clarify some detail of the language, language module, or tooling? Try th
 Or, if you want to be absolutely certain, you can dive into the [language specification](spec)
 - the gospel according to Ceylon.
 
+The API documentation for the Ceylon Language Module `ceylon.language` is
+[also available](api/current/ceylon/language).
+
 ## Got questions? We have FAQs
 
 We're compiling a list of common questions. Check out the [FAQs](faq).
