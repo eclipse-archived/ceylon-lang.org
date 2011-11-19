@@ -74,3 +74,7 @@ Today JDK 6. We may make use of the new
 ### What license is Ceylon released under?
 
 Our code and website is open source. [Read more](/code/licenses).
+
+### What is the elephant's name?
+
+His name is "Trompon".
