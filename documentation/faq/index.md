@@ -54,7 +54,7 @@ Contact us on our [dev mailing list](http://groups.google.com/group/ceylon-dev).
 Want to get your hands on the code? Read how to access [the source](source).
 
 Feeling adventurous and want to help us with the compiler backend? Read 
-[how to work on that project](contribute).
+[how to work on that project](/code).
 
 ### Found a problem, how can I improve the website?
 
