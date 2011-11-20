@@ -33,7 +33,7 @@ Here's a simple class:
 
     shared class Counter(Natural initialValue=0) {
         
-        value count = initialValue;
+        variable value count := initialValue;
         
         shared currentValue {
             return count;
@@ -94,8 +94,13 @@ get this, and more, for free.
 
 ## Principal typing, union types, and intersection types
 
-Ceylon's type system is based on analysis of "best" or *principal* types.
-For every expression, a unique, most specific type may be determined, without 
+Ceylon's conventional-looking syntax hides a powerful type system that is 
+able to express things that other static type systems simply can't. All
+types in Ceylon can, at least in principle, be expressed within the type
+system itself. There's no primitive types, arrays, or anything similar. 
+
+The type system is based on analysis of "best" or *principal* types. For 
+every expression, a unique, most specific type may be determined, without 
 the need to analyze the code around it. And all types used internally by the 
 compiler are *denotable* - that is, they can be expressed within the language 
 itself. What this means in practice is that the compiler always produces 
@@ -310,7 +315,7 @@ For example:
         }
     } 
 
-When invoking a higher-order function, we can wither pass a reference to a named 
+When invoking a higher-order function, we can either pass a reference to a named 
 function:
 
     void hello() {
@@ -356,12 +361,14 @@ in Java.
 ## Operator polymorphism
 
 Ceylon features a rich set of operators, including most of the operators supported 
-by C and Java. True operator overloading is not supported. However, each operator 
-is defined to act upon a certain class or interface type, allowing application of 
-the operator to any class which extends or satisfies that type. We call this approach 
-*operator polymorphism*.
+by C and Java. True operator overloading is not supported. Sorry, you can't define 
+the pope operator `<+|:-)` in Ceylon. And you can't redefine `*` to mean something 
+that has nothing to do with numeric multiplication. However, each operator predefined 
+by the language is defined to act upon a certain class or interface type, allowing 
+application of the operator to any class which extends or satisfies that type. We 
+call this approach *operator polymorphism*.
 
-For example, the Ceylon langauge module defines the interface `Equality`.
+For example, the Ceylon language module defines the interface `Equality`.
 
     shared interface Equality {
         shared formal Boolean equals(Equality that);
