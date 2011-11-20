@@ -189,7 +189,7 @@ In Ceylon, we don't need to write trivial getters or setters, since the
 state of a class is always completely abstracted from clients of the 
 class.
 
-## Typesafe null
+## Typesafe null and safer type narrowing
 
 There's no `NullPointerException` in Ceylon, nor anything similar. Ceylon
 requires us to be explicit when we declare a value that might be null, or
@@ -210,6 +210,20 @@ construct.
 
     void hello(String? name) {
         if (exists name) {
+            print("Hello, " name "!");
+        }
+        else {
+            print("Hello, world!");
+        }
+    }
+
+Similarly, there's no `ClassCastException` in Ceylon. Instead, the 
+`if (is ...)` and `case (is ...)` constructs test and narrow the type of
+a value in a single step. Indeed, the code above is really just a shortcut
+way of writing the following: 
+
+    void hello(String? name) {
+        if (is String name) {
             print("Hello, " name "!");
         }
         else {
@@ -372,6 +386,9 @@ Ceylon provides sophisticated support for meta-programming, including a typesafe
 metamodel and events. Generic code may invoke members reflectively and intercept 
 member invocations. This facility is more powerful, and much more typesafe, than 
 reflection in Java.
+
+    Class<Person,Name> personClass = Person;
+    Person gavin = personClass(Name("Gavin", "King"));
 
 Ceylon supports program element annotations, with a streamlined syntax. Indeed,
 annotations are even used for language modifiers like `abstract` and `shared` -
