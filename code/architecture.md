@@ -54,7 +54,7 @@ less information than the tree. For example, it does not
 contain any information about the procedural code contained
 in a class, method, or attribute.
 
-The type analysis engine consists of several visitor classes
+The *type analysis engine* consists of several visitor classes
 that implement the rules defined in the language specification. 
 They walk the syntax tree validating all the various rules that 
 correct Ceylon code must satisfy, and attaching errors to tree
@@ -91,8 +91,9 @@ does the Ceylon compiler.
 
 ## Launcher and module runtime
 
-The Ceylon module runtime is based on JBoss Modules. The
-Ceylon launcher simply starts `java` and invokes the module
+The Ceylon module runtime is based on 
+[JBoss Modules](http://relation.to/Bloggers/ModularizedJavaWithJBossModules). 
+The Ceylon launcher simply starts `java` and invokes the module
 runtime, which loads module archives as needed.
 
 TODO: Ales, more details here, please.
@@ -105,12 +106,15 @@ There is currently no support for alternate output formats.
 
 ## IDE
 
-The Eclipse plugin is built on top of [IMP](http://eclipse.org/imp/) 
-and the typechecker. It works directly with the syntax tree and 
-model, which means that anything the typechecker knows about 
-the source code, the IDE also knows. This includes types, 
-members of types, errors, etc. And, of course, the IDE does not
-need to contain its own parser.
+The Ceylon IDE is a plugin for eclipse, and may be found in the
+`ceylon-ide-eclipse` repository. It is based on 
+[IMP](http://eclipse.org/imp/).
+
+The Eclipse plugin is also built on top of the typechecker. It 
+works directly with the syntax tree and model, which means that 
+anything the typechecker knows about the source code, the IDE 
+also knows. This includes types, members of types, errors, etc. 
+And, of course, the IDE does not need to contain its own parser.
 
 The IDE maintains a central model which it updates as part of 
 the incremental compilation process. It also has a "forked" 
@@ -129,6 +133,7 @@ incremental compilation.
 
 ## Language module
 
+The language module is found in the `ceylon.language` repository.
 The language module is special, because it contains types that
 are used by the compiler to compile other code. Therefore, the 
 language module itself can't be compiled - there is a 
