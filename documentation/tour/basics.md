@@ -84,6 +84,39 @@ the language definition, for example: `abstract`, `variable`, `shared`, `formal`
 `default`, `actual`, etc. This is quite different to other C-like languages. On 
 the other hand, `void` _is_ a keyword, just like in C or Java.
 
+## Formatting inline documentation
+
+The `doc` annotation may contain [Markdown](http://daringfireball.net/projects/markdown/syntax)
+formatting.
+
+    doc "The classic [Hello World program][helloworld]
+         that prints a message to the console, this 
+         time written in [Ceylon][]. 
+         
+         This simple program demonstrates:
+         
+         1. how to define a toplevel method, and
+         2. how to `print()` a literal `String`.
+         
+         You can compile and run `hello()` from the 
+         command line like this:
+         
+             ceylonc -src . -out . hello.ceylon
+             ceylon -cp unversioned/default_module-unversioned.car hello
+         
+         Or you can use `Run As > Ceylon Application` 
+         in the IDE.
+         
+         [helloworld]: http://en.wikipedia.org/wiki/Hello_world_program
+         [Ceylon]: http://ceylon-lang.org"
+    void hello() {
+        print("Hello, World!");
+    }
+
+Since Markdown is sensitive to the initial column in which text appears, you 
+need to be careful to indent the lines of the multiline string literal 
+correctly, as we've done here.  
+
 ## Strings and string interpolation
 
 Let's make our program to tell us a little more about itself.
