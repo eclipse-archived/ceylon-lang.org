@@ -69,6 +69,10 @@ improvements, or new pages very easily.
 Today JDK 6. We may make use of the new
 `invokedynamic` instruction introduced in Java 7 at some point.
 
+### Can you tell me more about how it works?
+
+You can read up on the [architecture](/code/architecture).
+
 ## Other
 
 ### What license is Ceylon released under?

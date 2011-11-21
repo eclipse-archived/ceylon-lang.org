@@ -31,6 +31,9 @@ Want to get your hands on the code? Read how to access [the source](source).
 Feeling adventurous and want to help us with the compiler backend? Read 
 [how to work on that project](contribute).
 
+You might want to start with an [overview of the architecture](architecture) 
+of the project.
+
 ## Contribute to the website
 
 This website, like the rest of Ceylon, is open source. Help us improve it.
