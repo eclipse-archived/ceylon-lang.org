@@ -19,10 +19,10 @@
     %link{:rel=>"alternate", :type=>"text/html",            :href=>"#{site.base_url}/" }
     - for entry in page.entries
       %entry
-        %id #{site.base_url}#{entry.url}
+        %id #{site.base_url}#{entry.url.sub(/\.html$/,'')}
         %title= escape_once( entry.title )
         %updated= entry.date.xmlschema
-        %link{:rel=>"alternate", :type=>"text/html", :href=>"#{site.base_url}#{entry.url}" }
+        %link{:rel=>"alternate", :type=>"text/html", :href=>"#{site.base_url}#{entry.url.sub(/\.html$/,'')}" }
         - if ( defined?( entry.author ) )
           %author
             - if ( defined?( entry.author.name ) )
