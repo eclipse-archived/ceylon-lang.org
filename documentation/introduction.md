@@ -35,7 +35,7 @@ Here's a simple class:
         
         variable value count := initialValue;
         
-        shared currentValue {
+        shared Natural currentValue {
             return count;
         }
         
