@@ -63,7 +63,7 @@ and the `ceylon` launcher.
 
 You can find out how to run these commands from the [documentation](/documentation/spec/modulesandtools.html#tools).
 
-Feeling adventurous and want to help us with the compiler backend? Read [how to work on that project](contribute).
+Feeling adventurous and want to help us with the compiler backend? Read [how to work on that project](/code/contribute).
 
 #### Building
 
