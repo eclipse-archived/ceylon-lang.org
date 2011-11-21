@@ -108,7 +108,9 @@ There is currently no support for alternate output formats.
 
 The Ceylon IDE is a plugin for eclipse, and may be found in the
 `ceylon-ide-eclipse` repository. It is based on 
-[IMP](http://eclipse.org/imp/).
+[IMP](http://eclipse.org/imp/), which provides us with a lot
+of the infrastructure that is common to programming language
+editors on Eclipse.
 
 The Eclipse plugin is also built on top of the typechecker. It 
 works directly with the syntax tree and model, which means that 
