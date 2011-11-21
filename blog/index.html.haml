@@ -7,26 +7,30 @@ unique_id: blogpage
 
 ---
 #sidebar
-  .point-dark-top
-    &nbsp;
-
+  
+  - if not page.blog_tag
+    .point-dark-top
+      &nbsp;
+    .sidebar-dark  
+      - if page.author_for_bio
+        :markdown
+          ### [#{page.author_for_bio}'s Feed](/blog/authors/#{sanitize(page.author_for_bio)}/blog.atom)
+      - else
+        :markdown
+          ### [Feed](/blog/blog.atom)
+    .point-dark-bottom
+      &nbsp;
   - if page.author_for_bio
+    .point-light-top 
+      &nbsp;
     - member = site.team.values.detect{|member| member.name == page.author_for_bio}
     - if member
       .sidebar-block
         .expandable
           %h3 Bio
           #{member.content}
-  - if not page.blog_tag
-    .sidebar-dark  
-      - if page.author_for_bio
-        :markdown
-          ### [Feed](/blog/authors/#{sanitize(page.author_for_bio)}/blog.atom)
-      - else
-        :markdown
-          ### [Feed](/blog/blog.atom)
-  .point-dark-bottom
-    &nbsp;
+    .point-light-bottom
+      &nbsp;
   .point-light-top 
     &nbsp;
   .sidebar-block  
