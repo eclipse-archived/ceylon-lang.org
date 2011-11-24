@@ -19,7 +19,7 @@ if [ "$HELP" = "true" ]; then
 fi
 
 # Build site
-awestruct --profile development
+awestruct --profile production
 
 # Update the repos
 REPOS="_tmp/repos"
