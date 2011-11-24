@@ -38,7 +38,7 @@ The `()` and `{}` operators are not [polymorphic](/documentation/reference/opera
 
 * [null-safe version](../nullsafe-invoke) of invoke.
 * [spread invoke] _doc coming soon at_ (../spread-invoke) for calling a `Callable[]`
-* [`Callable`] _doc coming soon at_ (../../ceylon.language/Callable)
+* API documentation for [`Callable`] _doc coming soon at_ (../../ceylon.language/Callable)
 * [operator precedence](#{site.urls.spec}#operatorprecedence) in the 
   language specification
 

@@ -49,8 +49,8 @@ See the [language specification](#{site.urls.spec}#arithmetic) for more details.
 ### Polymorphism
 
 The `%=` operator is polymorphic. The definition of the `%=` operator depends 
-on the [`Integral`](../../ceylon.language/Integral) and 
-[`Castable`](../../ceylon.language/Castable) and
+on the [`Integral`](#{site.urls.apidoc}/ceylon/language/interface_Integral.html) and 
+[`Castable`](#{site.urls.apidoc}/ceylon/language/interface_Castable.html) and
 [`Settable`] _doc coming soon at_ (../../ceylon.language/Settable) interfaces 
 
 ### Widening

@@ -50,9 +50,9 @@ See the [language specification](#{site.urls.spec}#arithmetic) for more details.
 The `+=` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism).
 
 The definition of the `+=` operator depends 
-on the [`Summable`](../../ceylon.language/Summable),
-[`Castable`](../../ceylon.language/Castable) and
-[`Settable`](../../ceylon.language/Settable) interfaces 
+on the [`Summable`](#{site.urls.apidoc}/ceylon/language/interface_Summable.html),
+[`Castable`](#{site.urls.apidoc}/ceylon/language/interface_Castable.html) and
+[`Settable`](#{site.urls.apidoc}/ceylon/language/interface_Settable.html) interfaces 
 
 ### Widening
 

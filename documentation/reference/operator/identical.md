@@ -32,7 +32,7 @@ See the [language specification](#{site.urls.spec}#equalitycomparison) for more 
 
 The `===` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
 The meaning of `===` depends on the 
-[`IdentifiableObject`](../../ceylon.language/IdentifiableObject) interface
+[`IdentifiableObject`](#{site.urls.apidoc}/ceylon/language/interface_IdentifiableObject.html) interface
 
 ### Meaning of *identical* for built-in types
 
@@ -41,7 +41,7 @@ TODO
 ## See also
 
 * [`==` (equal)](../equal) operator
-* [`IdentifiableObject`](../../ceylon.language/IdentifiableObject)
+* API documentation for [`IdentifiableObject`](#{site.urls.apidoc}/ceylon/language/interface_IdentifiableObject.html)
 * [identical in the language specification](#{site.urls.spec}#equalitycomparison)
 * [operator precedence](#{site.urls.spec}#operatorprecedence) in the 
   language specification

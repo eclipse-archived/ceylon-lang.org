@@ -32,12 +32,12 @@ See the [language specification](#{site.urls.spec}#equalitycomparison) for more 
 
 The `!=` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
 The meaning of `!=` depends on the 
-[`Equality`](../../ceylon.language/Equality) interface.
+[`Equality`](#{site.urls.apidoc}/ceylon/language/interface_Equality.html) interface.
 
 ## See also
 
 * [`==` (equal)](../equal) operator
-* [`Equality`](../../ceylon.language/Equality)
+* API documentation for [`Equality`](#{site.urls.apidoc}/ceylon/language/interface_Equality.html)
 * [not equal in the language specification](#{site.urls.spec}#equalitycomparison)
 * [operator precedence](#{site.urls.spec}#operatorprecedence) in the 
   language specification

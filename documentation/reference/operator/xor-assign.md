@@ -33,19 +33,19 @@ more details.
 
 The `^=` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
 The `^` in the definition is the [xor operator](../xor) which depends on the 
-[`Slots`](../../ceylon.language/Slots) interface.
+[`Slots`](#{site.urls.apidoc}/ceylon/language/interface_Slots.html) interface.
 
 ### Meaning of *xor assign* for built-in types
 
-For the built-in numeric types ([`Natural`](../../ceylon.language/Natural), 
-[`Integer`](../../ceylon.language/Integer) and
-[`Whole`](../../ceylon.language/Whole) 
+For the built-in numeric types ([`Natural`](#{site.urls.apidoc}/ceylon/language/class_Natural.html), 
+[`Integer`](#{site.urls.apidoc}/ceylon/language/class_Integer.html) and
+[`Whole`](#{site.urls.apidoc}/ceylon/language/class_Whole.html) 
 `^=` performs a normal bitwise *xor and assign*. 
 
 ## See also
 
 * [`^` (xor)](../xor) operator
-* [`Slots`](../../ceylon.language/Slots)
+* API documentation for [`Slots`](#{site.urls.apidoc}/ceylon/language/interface_Slots.html)
 * [slotwise operators](#{site.urls.spec}#slotwise) in the 
   language specification
 * [operator precedence](#{site.urls.spec}#operatorprecedence) in the 

@@ -36,7 +36,7 @@ more details.
 
 The `~` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
 The meaning of `~` depends on the 
-[`Slots`](../../ceylon.language/Slots) interface.
+[`Slots`](#{site.urls.apidoc}/ceylon/language/interface_Slots.html) interface.
 
 ### Meaning of *complement in* for built-in types
 
@@ -45,7 +45,7 @@ TODO
 ## See also
 
 * [unary `~`](../complement)
-* [`Slots`](../../ceylon.language/Slots)
+* API documentation for [`Slots`](#{site.urls.apidoc}/ceylon/language/interface_Slots.html)
 * [slotwise operators](#{site.urls.spec}#slotwise) in the 
   language specification
 * [operator precedence](#{site.urls.spec}#operatorprecedence) in the 

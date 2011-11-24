@@ -30,16 +30,16 @@ See the [language specification](#{site.urls.spec}#arithmetic) for more details.
 
 The `**` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
 The meaning of `**` depends on the 
-[`Numeric`](../../ceylon.language/Numeric) and
-[`Castable`](../../ceylon.language/Castable) interfaces.
+[`Numeric`](#{site.urls.apidoc}/ceylon/language/interface_Numeric.html) and
+[`Castable`](#{site.urls.apidoc}/ceylon/language/interface_Castable.html) interfaces.
 
 ### Meaning of product for built-in types
 
-For the built-in numeric types ([`Natural`](../../ceylon.language/Natural), 
-[`Integer`](../../ceylon.language/Integer),
-[`Float`](../../ceylon.language/Float),
-[`Whole`](../../ceylon.language/Whole) and
-[`Decimal`](../../ceylon.language/Decimal)) `**` 
+For the built-in numeric types ([`Natural`](#{site.urls.apidoc}/ceylon/language/class_Natural.html), 
+[`Integer`](#{site.urls.apidoc}/ceylon/language/class_Integer.html),
+[`Float`](#{site.urls.apidoc}/ceylon/language/class_Float.html),
+[`Whole`](#{site.urls.apidoc}/ceylon/language/class_Whole.html) and
+[`Decimal`](#{site.urls.apidoc}/ceylon/language/class_Decimal.html) `**` 
 `**` performs normal mathematical exponentiation, subject to the limitations
 of the relevant type.
 
@@ -55,8 +55,8 @@ such a widening is not possible.
 
 ## See also
 
-* [`Numeric`](../../ceylon.language/Numeric)
-* [`Castable`](../../ceylon.language/Castable)
+* API documentation for [`Numeric`](#{site.urls.apidoc}/ceylon/language/interface_Numeric.html)
+* API documentation for [`Castable`](#{site.urls.apidoc}/ceylon/language/interface_Castable.html)
 * [arithmetic operators](#{site.urls.spec}#arithmetic) in the 
   language specification
 * [operator precedence](#{site.urls.spec}#operatorprecedence) in the 

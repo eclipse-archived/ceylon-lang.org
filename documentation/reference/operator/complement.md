@@ -31,19 +31,19 @@ more details.
 
 The `~` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
 The meaning of `~` depends on the 
-[`FixedSlots`](../../ceylon.language/FixedSlots) interface 
+[`FixedSlots`](#{site.urls.apidoc}/ceylon/language/interface_FixedSlots.html) interface 
 
 ### Meaning of *complement* for built-in types
 
-For the built-in numeric types ([`Natural`](../../ceylon.language/Natural), 
-[`Integer`](../../ceylon.language/Integer) and
-[`Whole`](../../ceylon.language/Whole) 
+For the built-in numeric types ([`Natural`](#{site.urls.apidoc}/ceylon/language/class_Natural.html), 
+[`Integer`](#{site.urls.apidoc}/ceylon/language/class_Integer.html) and
+[`Whole`](#{site.urls.apidoc}/ceylon/language/class_Whole.html) 
 `~` performs a normal bitwise *complement*. 
 
 ## See also
 
 * [binary `~`](../complement-in)
-* [`FixedSlots`](../../ceylon.language/FixedSlots)
+* API documentation for [`FixedSlots`](#{site.urls.apidoc}/ceylon/language/interface_FixedSlots.html)
 * [slotwise operators](#{site.urls.spec}#slotwise) in the 
   language specification
 * [operator precedence](#{site.urls.spec}#operatorprecedence) in the 

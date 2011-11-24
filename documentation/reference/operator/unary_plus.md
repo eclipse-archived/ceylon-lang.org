@@ -34,17 +34,17 @@ See the [language specification](#{site.urls.spec}#arithmetic) for more details.
 
 The unary `+` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
 The meaning of `+` depends on 
-[`Invertable`](../../ceylon.language/Invertable) interface 
+[`Invertable`](#{site.urls.apidoc}/ceylon/language/interface_Invertable.html) interface 
 
 ### Meaning of unary plus for built-in types
 
-For the built-in type ([`Natural`](../../ceylon.language/Natural) unary plus
+For the built-in type ([`Natural`](#{site.urls.apidoc}/ceylon/language/class_Natural.html) unary plus
 has the effect of converting the `Natural` to an `Integer`.
 
 For the other built in numeric types
-[`Integer`](../../ceylon.language/Integer),
-[`Float`](../../ceylon.language/Float),
-[`Decimal`](../../ceylon.language/Decimal)) `+` 
+[`Integer`](#{site.urls.apidoc}/ceylon/language/class_Integer.html),
+[`Float`](#{site.urls.apidoc}/ceylon/language/class_Float.html),
+[`Decimal`](#{site.urls.apidoc}/ceylon/language/class_Decimal.html) `+` 
 is essentially a no-op: Those types are already able to represent negative 
 numbers.
 
@@ -58,7 +58,7 @@ An example of this is `Natural` which is declared to satisfy
 ## See also
 
 * [`-` (unary minus)](../unary_minus) which does change the sign of its operand
-* [`Invertable`](../../ceylon.language/Invertable)
+* API documentation for [`Invertable`](#{site.urls.apidoc}/ceylon/language/interface_Invertable.html)
 * [arithmetic operators](#{site.urls.spec}#arithmetic) in the 
   language specification
 * [operator precedence](#{site.urls.spec}#operatorprecedence) in the 

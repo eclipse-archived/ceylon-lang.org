@@ -48,8 +48,8 @@ See the [language specification](#{site.urls.spec}#arithmetic) for more details.
 
 The `--` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
 The meaning of `--` depends on the 
-[`Ordinal`](../../ceylon.language/Ordinal) and
-[`Settable`](../../ceylon.language/Settable) interfaces.
+[`Ordinal`](#{site.urls.apidoc}/ceylon/language/interface_Ordinal.html) and
+[`Settable`](#{site.urls.apidoc}/ceylon/language/interface_Settable.html) interfaces.
 
 ## See also
 

@@ -36,7 +36,7 @@ with a matching `catch` clause, and execution resumes at the start of that
 
 An expression may be supplied with the `throw` statement. If no expression is 
 given a new messageless and causeless 
-[`ceylon.language.Exception`](../../ceylon.language/Exception) instance is 
+[`ceylon.language.Exception`](#{site.urls.apidoc}/ceylon/language/interface_Exception.html) instance is 
 created automatically. If an exression is given is must be of a type which is 
 assignable to `ceylon.language.Exception`.
 
@@ -63,6 +63,6 @@ logic.
 ## See also
 
 * [`try` statement](../try)
-* [`ceylon.language.Exception`](../../ceylon.language/Exception)
+* [`ceylon.language.Exception`](#{site.urls.apidoc}/ceylon/language/interface_Exception.html)
 * [`throw` in the language specification](#{site.urls.spec}#trycatchfinally)
 

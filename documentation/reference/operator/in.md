@@ -31,11 +31,11 @@ See the [language specification](#{site.urls.spec}#equalitycomparison) for more 
 
 The `in` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
 The meaning of `in` depends on the 
-[`Category`](../../ceylon.language/Category) interface
+[`Category`](#{site.urls.apidoc}/ceylon/language/interface_Category.html) interface
 
 ## See also
 
-* [`Category`](../../ceylon.language/Category)
+* API documentation for [`Category`](#{site.urls.apidoc}/ceylon/language/interface_Category.html)
 * [`in` in the language specification](#{site.urls.spec}#equalitycomparison)
 * [operator precedence](#{site.urls.spec}#operatorprecedence) in the 
   language specification

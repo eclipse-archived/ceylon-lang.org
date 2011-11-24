@@ -36,18 +36,18 @@ more details.
 
 The `&` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
 The meaning of `&` depends on the 
-[`Slots`](../../ceylon.language/Slots) interface 
+[`Slots`](#{site.urls.apidoc}/ceylon/language/interface_Slots.html) interface 
 
 ### Meaning of *intersection* for built-in types
 
-For the built-in numeric types ([`Natural`](../../ceylon.language/Natural), 
-[`Integer`](../../ceylon.language/Integer) and
-[`Whole`] _doc coming soon at_ (../../ceylon.language/Whole) 
+For the built-in numeric types ([`Natural`](#{site.urls.apidoc}/ceylon/language/class_Natural.html), 
+[`Integer`](#{site.urls.apidoc}/ceylon/language/class_Integer.html) and
+[`Whole`] _doc coming soon at_ (../../ceylon.language/class_Whole.html) 
 `&` performs a normal bitwise *and*. 
 
 ## See also
 
-* [`Slots`](../../ceylon.language/Slots)
+* API documentation for [`Slots`](#{site.urls.apidoc}/ceylon/language/interface_Slots.html)
 * [slotwise operators](#{site.urls.spec}#slotwise) in the 
   language specification
 * [operator precedence](#{site.urls.spec}#operatorprecedence) in the 

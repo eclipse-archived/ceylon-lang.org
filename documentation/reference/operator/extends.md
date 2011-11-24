@@ -32,13 +32,13 @@ See the [language specification](#{site.urls.spec}#equalitycomparison) for more 
 
 The `extends` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
 The meaning of `extends` depends on the 
-[`Class`](../../ceylon.language/Class) class and 
-[`Type`](../../ceylon.language/Type) interface.
+[`Class`](#{site.urls.apidoc}/ceylon/language/metamodel/class_Class.html) class and 
+[`Type`](#{site.urls.apidoc}/ceylon/language/metamodel/class_Type.html) interface.
 
 ## See also
 
-* [`Class`] _doc coming soon at_ (../../ceylon.language/Class)
-* [`Type`] _doc coming soon at_ (../../ceylon.language/Type)
+* API documentation for [`Class`] _doc coming soon at_ (#{site.urls.apidoc}/ceylon/language/metamodel/Class)
+* API documentation for [`Type`](#{site.urls.apidoc}/ceylon/language/metamodel/Type)
 * [`extends` in the language specification](#{site.urls.spec}#equalitycomparison)
 * [operator precedence](#{site.urls.spec}#operatorprecedence) in the 
   language specification

@@ -83,7 +83,7 @@ This isn't a problem in practice; see
 * The [`break` statement](../break)
 * The [`continue` statement](../continue)
 * The [`while` statement](../while)
-* [`Iterable`](../../ceylon.language/Iterable)
+* [`Iterable`](#{site.urls.apidoc}/ceylon/language/interface_Iterable.html)
 * The [`for` statement](/documentation/tour/missing-pieces#control_structures) 
   and [Iterating Sequences](/documentation/tour/sequences#iterating_sequences)
   in the Tour of Ceylon

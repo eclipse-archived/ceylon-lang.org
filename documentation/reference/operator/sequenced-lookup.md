@@ -10,9 +10,9 @@ milestone: Milestone 1
 # #{page.title}
 
 The *sequenced lookup* operator accesses several elements in a 
-[`Correspondence`](../../ceylon.language/Correspondence) 
+[`Correspondence`](#{site.urls.apidoc}/ceylon/language/interface_Correspondence.html) 
 using a 
-[`Sequence`](../../ceylon.language/Sequence).
+[`Sequence`](#{site.urls.apidoc}/ceylon/language/interface_Sequence.html).
 
 ## Usage 
 
@@ -37,14 +37,14 @@ more details.
 
 The `[]` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
 The meaning of `[]` depends on the 
-[`Correspondence`](../../ceylon.language/Correspondence) 
+[`Correspondence`](#{site.urls.apidoc}/ceylon/language/interface_Correspondence.html) 
 interface.
 
 ## See also
 
 * [`[]` (lookup)](../lookup) operator used for accessesing a single item
 * [`[]` (iterated lookup)](../iterated-lookup) operator used for accessesing several items using an iterable
-* [`Correspondence`](../../ceylon.language/Correspondence)
+* API documentation for [`Correspondence`](#{site.urls.apidoc}/ceylon/language/interface_Correspondence.html)
 * [sequence operators](#{site.urls.spec}#listmap) in the 
   language specification
 * [operator precedence](#{site.urls.spec}#operatorprecedence) in the 

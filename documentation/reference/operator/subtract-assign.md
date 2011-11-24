@@ -48,9 +48,9 @@ See the [language specification](#{site.urls.spec}#arithmetic) for more details.
 
 The `-=` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism).
 The definition of the `-=` operator depends 
-on the [`Numeric`](../../ceylon.language/Numeric) and 
-[`Castable`](../../ceylon.language/Castable) and
-[`Settable`](../../ceylon.language/Settable) interfaces 
+on the [`Numeric`](#{site.urls.apidoc}/ceylon/language/interface_Numeric.html) and 
+[`Castable`](#{site.urls.apidoc}/ceylon/language/interface_Castable.html) and
+[`Settable`](#{site.urls.apidoc}/ceylon/language/interface_Settable.html) interfaces 
 
 ### Widening
 

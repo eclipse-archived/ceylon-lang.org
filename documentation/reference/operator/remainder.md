@@ -30,13 +30,13 @@ See the [language specification](#{site.urls.spec}#arithmetic) for more details.
 
 The `%` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
 The meaning of `%` depends on the 
-[`Integral`](../../ceylon.language/Integral) and
-[`Castable`](../../ceylon.language/Castable) interfaces 
+[`Integral`](#{site.urls.apidoc}/ceylon/language/interface_Integral.html) and
+[`Castable`](#{site.urls.apidoc}/ceylon/language/interface_Castable.html) interfaces 
 
 ### Meaning of product for built-in types
 
-For the built-in numeric types ([`Natural`](../../ceylon.language/Natural) and
-[`Integer`](../../ceylon.language/Integer) `/` 
+For the built-in numeric types ([`Natural`](#{site.urls.apidoc}/ceylon/language/class_Natural.html) and
+[`Integer`](#{site.urls.apidoc}/ceylon/language/class_Integer.html) `/` 
 `%` computes normal mathematical remainder.
 
 Since the other built-in numeric types do not satisfy `Integral`, the
@@ -54,8 +54,8 @@ such a widening is not possible.
 
 ## See also
 
-* [`Integral`](../../ceylon.language/Integral)
-* [`Castable`](../../ceylon.language/Castable)
+* API documentation for [`Integral`](#{site.urls.apidoc}/ceylon/language/interface_Integral.html)
+* API documentation for [`Castable`](#{site.urls.apidoc}/ceylon/language/interface_Castable.html)
 * [arithmetic operators](#{site.urls.spec}#arithmetic) in the 
   language specification
 * [operator precedence](#{site.urls.spec}#operatorprecedence) in the 

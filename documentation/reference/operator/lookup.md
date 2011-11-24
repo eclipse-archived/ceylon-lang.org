@@ -44,16 +44,16 @@ more details.
 
 The `[]` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
 The meaning of `[]` depends on the 
-[`Correspondence`](../../ceylon.language/Correspondence) 
+[`Correspondence`](#{site.urls.apidoc}/ceylon/language/interface_Correspondence.html) 
 interface for the get case and 
-[`OpenCorrespondence`](../../ceylon.language/OpenCorrespondence)
+[`OpenCorrespondence`](#{site.urls.apidoc}/ceylon/language/interface_OpenCorrespondence.html)
 for the set case.
 
 ## See also
 
 * [`[]` (sequenced lookup)](../sequenced-lookup) operator used for accessesing several items using a sequence
 * [`[]` (iterated lookup)](../iterated-lookup) operator used for accessesing several items using an iterable
-* [`Correspondence`](../../ceylon.language/Correspondence) 
+* API documentation for [`Correspondence`](#{site.urls.apidoc}/ceylon/language/interface_Correspondence.html) 
 * [`OpenCorrespondence`] _doc coming soon at_ (../../ceylon.language/OpenCorrespondence)
 * [sequence operators](#{site.urls.spec}#listmap) in the 
   language specification

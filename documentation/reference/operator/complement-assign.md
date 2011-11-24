@@ -37,7 +37,7 @@ more details.
 The `~=` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism).
 
 The `~` in the definition is the [complement in](../complement-in) operator 
-which depends on the [`Slots`](../../ceylon.language/Slots) interface.
+which depends on the [`Slots`](#{site.urls.apidoc}/ceylon/language/interface_Slots.html) interface.
 
 ### Meaning of *complement assign* for built-in types
 
@@ -47,7 +47,7 @@ TODO
 
 * [unary `~`](../complement) (complement) operator
 * [binary `~`](../complement-in) (complement in) operator
-* [`Slots`](../../ceylon.language/Slots)
+* [`Slots`](#{site.urls.apidoc}/ceylon/language/interface_Slots.html)
 * [slotwise operators](#{site.urls.spec}#slotwise) in the 
   language specification
 * [operator precedence](#{site.urls.spec}#operatorprecedence) in the 

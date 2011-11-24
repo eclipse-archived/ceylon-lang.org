@@ -32,11 +32,11 @@ See the [language specification](#{site.urls.spec}#equalitycomparison) for more 
 
 The `>` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
 The meaning of `>` depends on the 
-[`Comparable`](../../ceylon.language/Comparable) interface.
+[`Comparable`](#{site.urls.apidoc}/ceylon/language/interface_Comparable.html) interface.
 
 ## See also
 
-* [`Comparable`](../../ceylon.language/Comparable)
+* API documentation for [`Comparable`](#{site.urls.apidoc}/ceylon/language/interface_Comparable.html)
 * [`>` in the language specification](#{site.urls.spec}#equalitycomparison)
 * [operator precedence](#{site.urls.spec}#operatorprecedence) in the 
   language specification
