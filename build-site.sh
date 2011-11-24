@@ -19,7 +19,7 @@ if [ "$HELP" = "true" ]; then
 fi
 
 # Build site
-awestruct --profile development
+awestruct --profile production
 
 # Update the repos
 REPOS="_tmp/repos"
@@ -68,7 +68,7 @@ if [ "$LIGHT" != "true" ]; then
 	ant build
 	cd ..
 fi
-mkdir -p ../../../_site/documentation/api/current/
-./ceylon-compiler/bin/ceylond -dest-dir ../../_site/documentation/api/current/ -src ceylon.language/languagesrc/current/
+mkdir -p ../../../_site/documentation/api/current/ceylon/language
+./ceylon-compiler/bin/ceylond -dest-dir ../../_site/documentation/api/current/ceylon/language -src ceylon.language/languagesrc/current/
 
 cd ../..
