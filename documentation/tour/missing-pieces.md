@@ -47,6 +47,7 @@ The same behavior applies to locals inside a method. Methods can't declare
     interface Counter {
         shared formal Natural inc();
     }
+    
     Counter createCounter() {
         variable Natural count := 0;
         object counter satisfies Counter {
@@ -114,7 +115,7 @@ Then we can abstract the simple attribute using a second attribute defined as a 
         return " ".join(coalesce(firstName,lastName));
     }
      
-    shared assign fullName {
+    assign fullName {
         Iterator<String> tokens = fullName.tokens();
         firstName := tokens.head;
         lastName := tokens.rest.head;
