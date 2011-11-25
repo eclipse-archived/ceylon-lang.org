@@ -61,7 +61,7 @@ There's more info in the [README](https://github.com/ceylon/ceylon-spec/blob/mas
 This is where you'll find the `ceylonc` compiler, the `ceylond` API documentation compiler, 
 and the `ceylon` launcher.
 
-You can find out how to run these commands from the [documentation](/documentation/spec/modulesandtools.html#tools).
+You can find out how to run these commands from the [documentation](#{site.urls.spec}#tools).
 
 Feeling adventurous and want to help us with the compiler backend? Read [how to work on that project](/code/contribute).
 
