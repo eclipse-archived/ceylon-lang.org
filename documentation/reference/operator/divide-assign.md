@@ -19,27 +19,14 @@ the amount given by its right-hand operand.
 
 ## Description
 
-### Side effects
-
-In the process of performing a divide & assign the left-hand argument 
-may be evaluated *more than once*, in contrast to how this operator is defined
-in some other languages. This doesn't usually cause problems, but if evaluating
-the left-hand operand has side-effects it could result in unexpected behaviour,
-as an example consider:
-
-    void m(Float[] seq, Natural index) {
-        seq[index++] /= 2.0;
-    }
-
-The above code doesn't half the `index`<sup>th</sup> element of `seq`, as it 
-may appear, it instead halves the `index`<sup>th</sup> element and 
-assigns the result to the (`index+1`)<sup>th</sup> element.
 
 ### Definition
 
 The `/=` operator is defined as follows
 
     lhs:=lhs.divided(rhs.castTo<N>())
+
+except that `lhs` is evaluated only once.
 
 See the [language specification](#{site.urls.spec}#arithmetic) for more details.
 
