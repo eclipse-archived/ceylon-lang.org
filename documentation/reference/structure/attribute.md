@@ -25,7 +25,7 @@ An attribute holds state outside of a method.
     }
     
     // An attribute setter
-    shared assign name {
+    assign name {
         parts = name.split;
         firstName := parts.head;
         lastName = parts.tail;
