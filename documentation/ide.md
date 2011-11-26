@@ -53,24 +53,16 @@ If you *really* want to try out Ceylon now, before we even release Milestone 1,
 you can get a special pre-release build of the Ceylon IDE (which includes the
 compiler) from our Eclipse plugin update site.
 
-Before you can use the IDE, you need to install the module `ceylon.language`. This is an [identified bug](https://github.com/ceylon/ceylon-ide-eclipse/issues/107). We are working to render this step unnecessary. In the mean time, make sure to install the `ceylon.language` module
-
-<!-- lang: bash -->
-    git clone https://github.com/ceylon/ceylon.language.git
-    cd ceylon.language
-    ant
-
-You should be good to go.
-
 Here's what you need to do to install the IDE:
 
 1.  start with a clean install of [Eclipse 3.7/Indigo](http://www.eclipse.org/downloads/),
 1.  go to `Help > Install New Software ...`,
-1.  enter the URL `http://ceylon-lang.org/eclipse/updatesite/` to the "Work With" field and Hit Enter,
+1.  enter the URL `http://ceylon-lang.org/eclipse/updatesite/` to the "Work With" 
+    field and hit Enter,
     ![eclipseupdatesite](/images/eclipseupdatesite.png "Update Site")
 1.  click `Select All` and then `Finish`,
-1.  Eclipse will install the Ceylon Eclipse plugins and it will ask you to restart. After the restart you will be ready to start using Ceylon.
-
+1.  wait while Eclipse installs the Ceylon plugin, and then restart Eclipse 
+    when prompted,
 1.  open `Eclipse > Preferences` and go to `Java > Compiler > Building > Output folder`. 
     Add the pattern `*.ceylon` to `Filtered resources`,
 1.  in the `Java` perspective, Use `File > New > Java Project`, enter a 
