@@ -123,6 +123,11 @@ in other languages (especially generic type argument inference) simple and
 straightforward in Ceylon. But they're also occasionally useful as a 
 convenience in ordinary code.
 
+We've worked hard to keep the type system quite simple at its core. This 
+makes the language easier to learn, and helps control the number of buggy
+or unintuitive corner cases. And a highly regular type system also makes
+it easier to write generic code.
+
 ## Mixin inheritance
 
 Like Java, Ceylon has classes and interfaces. A class may inherit a single
@@ -324,7 +329,11 @@ function:
     
     repeat(5, hello);
 
-Or we can specify the argument function inline:
+Or we can specify the argument function inline, either like this:
+
+    repeat(5, void print("Hello!"));
+
+Or, using a named argument invocation, like this:
 
     repeat {
         times = 5;
@@ -332,6 +341,12 @@ Or we can specify the argument function inline:
             print("Hello!");
         }
     };
+
+It's even possible to pass a member method or attribute reference to a higher
+order function:
+
+    String[] names = ... ;
+    String[] uppercaseNames = map(names, String.uppercase);
 
 ## Simplified generics with fully-reified types
 
