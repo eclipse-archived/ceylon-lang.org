@@ -31,7 +31,7 @@ module Awestruct
         page.date = page.timestamp unless page.timestamp.nil?
         page.output_path = @output_path
         page.entries = atom_pages
-        page.title = "Team blog"
+        page.title = "Ceylon team blog"
         site.pages << page
       end
     end
