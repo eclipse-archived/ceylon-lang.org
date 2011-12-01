@@ -101,11 +101,11 @@ system itself. There's no primitive types, arrays, or anything similar.
 
 The type system is based on analysis of "best" or *principal* types. For 
 every expression, a unique, most specific type may be determined, without 
-the need to analyze the code around it. And all types used internally by the 
-compiler are *denotable* - that is, they can be expressed within the language 
-itself. What this means in practice is that the compiler always produces 
-errors that humans can understand, even when working with complex generic 
-types.
+the need to analyze the rest of the expression in which it appears. And all 
+types used internally by the compiler are *denotable* - that is, they can be 
+expressed within the language itself. What this means in practice is that 
+the compiler always produces errors that humans can understand, even when 
+working with complex generic types.
 
 An integral part of this system of denotable principal types is first-class
 support for union and intersection types. A *union type* is a type which
