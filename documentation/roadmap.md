@@ -20,6 +20,8 @@ However, our roadmap is quite well-defined:
   - [Milestone 1](#milestone_1)
   - [Milestone 2](#milestone_2)
   - [Milestone 3](#milestone_3)
+  - [Milestone 4](#milestone_4)
+  - [Milestone 5](#milestone_5)
 - [Ceylon 1.1](#ceylon_11_or_later)
 
 ## Milestone 1
@@ -60,7 +62,7 @@ assignment/initialization and definite return, exceptions.*
 
 ### Generics:
 * generic types 
-* generic methods [TODO: extra tests and bugfix]
+* generic methods
 * covariance / contravariance (`in`/`out`) [TODO: extra tests]
 * upper bounds
 * type argument inference [TODO: compiler ignores inferred type arguments]
@@ -97,7 +99,7 @@ assignment/initialization and definite return, exceptions.*
 
 ### Types:
 * `Boolean`
-* `String`
+* `Character` and `String`
 * numeric types
 * sequences
 * `Comparison`
@@ -116,13 +118,30 @@ Notes:
 
 ## Milestone 2
 
-*Functional programming, mixin inheritance, nested/member 
-classes, type aliases, `switch/case`.*
+*Modularity, default parameters, range operators, 
+numeric type optimization, IO.*
+
+### Expressions:
+* numeric widening for custom numeric types
+* range operators for `Ranged`
+
+### Misc:
+* defaulted parameters
+* optimization of primitive operators
+* module runtime
+* module versioning
+
+### Types:
+* `Decimal` and `Whole`
+* `Ranged`
+* `ceylon.io` module
+
+## Milestone 3
+
+*Higher-order and first-class functions, `switch/case`, 
+types with enumerated cases.*
 
 ### Declarations:
-* class and interface aliases
-* nested and member classes
-* concrete interface members
 * higher-order methods
 * methods with specifiers
 * cases (`of` clause)
@@ -132,21 +151,32 @@ classes, type aliases, `switch/case`.*
 
 ### Statements:
 * `switch/case`
+
+### Expressions:
+* method references
+* object/method/getter args in named argument lists
+* anonymous functions in positional argument lists
+
+### Misc:
+* exhaustive case lists
+
+## Milestone 4
+
+*Mixin inheritance, nested/member classes, type aliases.*
+
+### Declarations:
+* class and interface aliases
+* nested and member classes
+* concrete interface members
+
+### Statements:
 * `try` with resources
 
 ### Expressions:
-* Method references
-* object/method/getter args in named argument lists
-* numeric widening
+* outer instance references (`outer`)
 * slotwise operators
-* range operators
 
-### Misc:
-* defaulted parameters
-* exhaustive case lists
-* optimization of primitive operators
-
-## Milestone 3 (Ceylon 1.0)
+## Milestone 5 (Ceylon 1.0)
 
 *Annotations, reified generics, metamodel, interception.*
 
@@ -158,7 +188,6 @@ classes, type aliases, `switch/case`.*
 * reified generics
 
 ### Expressions:
-* outer instance references (`outer`)
 * metamodel references
 
 ### Misc:
@@ -167,7 +196,6 @@ classes, type aliases, `switch/case`.*
 
 ### Types:
 * metamodel
-* collections module?
 
 ## Ceylon 1.1 or later
 
