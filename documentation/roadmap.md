@@ -118,12 +118,11 @@ Notes:
 
 ## Milestone 2
 
-*Modularity, default parameters, range operators, 
-numeric type optimization, IO.*
+*Modularity, default parameters, numeric type optimization, 
+file IO.*
 
 ### Expressions:
 * numeric widening for custom numeric types
-* range operators for `Ranged`
 
 ### Misc:
 * defaulted parameters
@@ -133,7 +132,6 @@ numeric type optimization, IO.*
 
 ### Types:
 * `Decimal` and `Whole`
-* `Ranged`
 * `ceylon.io` module
 
 ## Milestone 3
@@ -156,6 +154,7 @@ types with enumerated cases.*
 * method references
 * object/method/getter args in named argument lists
 * anonymous functions in positional argument lists
+* comprehensions as sequenced arguments
 
 ### Misc:
 * exhaustive case lists
