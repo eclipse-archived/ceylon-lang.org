@@ -18,6 +18,11 @@ our [forum](forum).
 You can follow and participate in the development of Ceylon by joining 
 our [development mailing list](http://groups.google.com/group/ceylon-dev).
 
+## Feedback requests
+
+We're using github's issue tracker to solicit feedback from the community
+on a number of [open language design issues](https://github.com/ceylon/ceylon-spec/issues?labels=request+for+feedback&sort=created&direction=desc&state=open&page=1).
+
 ## Events
 
 Come hear about Ceylon at a [conference or user group near you](events).
