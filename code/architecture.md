@@ -36,8 +36,8 @@ typechecking. It includes:
 * a type analysis engine.
 
 The *lexer and parser* are generated from the ANTLR grammar 
-defined in the file `Ceylon.g`. The parser builds a syntax tree 
-representing the input source code.
+defined in the file `Ceylon.g`. The parser builds a syntax 
+tree representing the input source code.
 
 The *syntax tree* is currently generated from a specification 
 defined in the file `Ceylon.nodes` (but this might change in 
@@ -60,19 +60,36 @@ They walk the syntax tree validating all the various rules that
 correct Ceylon code must satisfy, and attaching errors to tree
 nodes that fail to satisfy the rules. In addition, the type
 analysis visitors build up a model of the types they encounter
-in the tree, and create links from the tree to associated 
-model objects. Thus, typing information is available to the
-compiler when it comes to transform the syntax tree to Java.
+in the tree, and create links from the tree to associated model 
+objects. Thus, typing information is available to the compiler 
+when it comes to transform the syntax tree to Java.
 
 The typechecker has no dependencies to anything JVM-specific,
 so it can be reused with other backends.
 
+### Type analysis
+
+Type analysis takes place in three phases. The type system 
+was designed to never require more than three passes over 
+the syntax tree.
+
+1. `DeclarationVisitor` creates model objects for each named
+   declaration and keeping track of the scope in which it
+   occurs.
+2. `TypeVisitor` analyses `import` statements and explicit 
+   type declarations, and assigns types to the model objects 
+   for explicitly typed declarations.
+3. `ExpressionVisitor` analyses the types of expressions,
+   resolves member references, reports typing errors, and 
+   infers types of declarations without explicit type 
+   declarations.
+
 ## Compiler
 
-Thus, the thing we call the *compiler*, which is found in
-the `ceylon-compiler` repository, is actually just half of
-the compiler. This "compiler" actually calls the typechecker
-when it needs the syntax tree for a compilation unit.
+Thus, the thing we call the *compiler*, which is found in the 
+`ceylon-compiler` repository, is actually just half of the 
+compiler. This "compiler" actually calls the typechecker when 
+it needs the syntax tree for a compilation unit.
 
 The compiler has two main responsibilities:
 
@@ -82,12 +99,12 @@ The compiler has two main responsibilities:
   typechecker to a Java syntax tree that is understood by
   `javac`.
 
-Finally, the compiler hands the Java syntax tree off to
-`javac` to produce bytecode. We're essentially using `javac`
-as the world's most sophisticated bytecode library.
+Finally, the compiler hands the Java syntax tree off to `javac` 
+to produce bytecode. We're essentially using `javac` as the 
+world's most sophisticated bytecode library.
 
-Since `javac` already supports incremental compilation, so
-does the Ceylon compiler.
+Since `javac` already supports incremental compilation, so does 
+the Ceylon compiler.
 
 ## Launcher and module runtime
 
@@ -108,8 +125,8 @@ There is currently no support for alternate output formats.
 
 The Ceylon IDE is a plugin for eclipse, and may be found in the
 `ceylon-ide-eclipse` repository. It is based on 
-[IMP](http://eclipse.org/imp/), which provides us with a lot
-of the infrastructure that is common to programming language
+[IMP](http://eclipse.org/imp/), which provides us with a lot of 
+the infrastructure that is common to programming language
 editors on Eclipse.
 
 The Eclipse plugin is also built on top of the typechecker. It 
