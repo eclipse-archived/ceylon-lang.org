@@ -9,10 +9,10 @@ author: Emmanuel Bernard
 
 Ceylon code is released and available on [GitHub](http://github.com/ceylon). 
 
-Ceylon has not yet been released. We're still working on bugs and integration
-issues affecting the first milestone. Because quality is important to us, we 
-won't release this work until we think it's usable. Therefore, we can't give
-you a date, either.
+Ceylon has not yet been released. We're still working on [bugs and integration
+issues affecting the first milestone](https://github.com/ceylon/ceylon-compiler/issues?sort=created&labels=high+priority&direction=desc&state=open). 
+Because quality is important to us, we won't release this work until we think 
+it's usable. Therefore, we can't give you a date, either.
 
 However, our roadmap is quite well-defined:
 
