@@ -2,8 +2,10 @@
   #footer-core
     #copyright
       :markdown
-        Site generated #{Time.now.strftime( '%d %B %Y at %H:%M' )} - Copyright &copy; Red Hat Inc. 2010-2011 - 
-        Ceylon is a trademark of Red Hat Inc.
+        Copyright &copy; 2010-2011, Red Hat, Inc. or third-party contributors - 
+        Ceylon is a trademark of Red Hat Inc. - [terms of Use](http://www.redhat.com/legal/legal_statement.html) - [Privacy policy](http://www.redhat.com/legal/privacy_statement.html)
       - if site.dev
         :markdown
           Found an issue? [Help improve the site](/code/website).
+      :markdown
+        Site generated #{Time.now.strftime( '%B %d, %Y at %H:%M' )} 
