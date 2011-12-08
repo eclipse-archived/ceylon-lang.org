@@ -69,6 +69,6 @@ if [ "$LIGHT" != "true" ]; then
 	cd ..
 fi
 mkdir -p ../../../_site/documentation/api/current/ceylon/language
-./ceylon-compiler/bin/ceylond -dest-dir ../../_site/documentation/api/current/ceylon/language -src ceylon.language/languagesrc/current/
+./ceylon-compiler/bin/ceylond -out ../../_site/documentation/api/current/ceylon/language -src ceylon.language/src
 
 cd ../..
