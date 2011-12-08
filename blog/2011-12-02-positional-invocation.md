@@ -7,8 +7,6 @@ tab: blog
 tags: [compiler]
 ---
 
-# #{page.title}
-
 My main involvement in the Ceylon project has been in the compiler and within
 that one of the things I've been involved with is *method invocation*. So 
 I thought I'd blog about some of the details of the compiler, to show that 

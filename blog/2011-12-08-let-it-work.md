@@ -7,8 +7,6 @@ tab: blog
 tags: [compiler]
 ---
 
-# #{page.title}
-
 Hi, my name is Stéphane Épardaud and I´ll be your technical writer today :)
 
 I want to talk a bit about some of the challenges we faced in the Ceylon compiler, and the solutions
