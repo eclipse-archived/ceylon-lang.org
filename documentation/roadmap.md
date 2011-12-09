@@ -21,7 +21,7 @@ However, our roadmap is quite well-defined:
   - [Milestone 2](#milestone_2)
   - [Milestone 3](#milestone_3)
   - [Milestone 4](#milestone_4)
-  - [Milestone 5](#milestone_5)
+  - [Milestone 5](#milestone_5_ceylon_10)
 - [Ceylon 1.1](#ceylon_11_or_later)
 
 ## Milestone 1
