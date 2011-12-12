@@ -22,7 +22,6 @@ the [Basics](basics).
 1. [Generics](generics)
 1. [Attributes, variables etc](missing-pieces)
 1. [Modules](modules)
-1. [Modules](modules)
 1. [Functions](functions)
 1. [Named Arguments](named-arguments)
 1. [Language Module](language-module)
