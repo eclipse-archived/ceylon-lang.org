@@ -115,27 +115,28 @@ runtime, which loads module archives as needed.
 
 Launcher simply bootstraps JBoss Modules via (local) module repository.
 For Ceylon Runtime this are the modules needed at "bootstrap":
- * Ceylon Language
- * Ceylon Module Resolver
- * Ceylon Runtime
- * JBoss Modules (as a module info, actual classes are part of system classpath)
+
+* Ceylon Language
+* Ceylon Module Resolver
+* Ceylon Runtime
+* JBoss Modules (as a module info, actual classes are part of system classpath)
 
 This is the part that the user needs locally (unless you use remote bootstrap module loader).
 To ease things, we created a zipped version of bootstrap repository,
-and placed it under <CEYLON_REPOSITORY>/ceylon-runtime-bootstrap/ceylon-runtime-bootstrap.zip
+and placed it under &lt;CEYLON_REPOSITORY&gt;/ceylon-runtime-bootstrap/ceylon-runtime-bootstrap.zip
 In order to use this zipped module repository we need to use custom module loader - DistributionModuleLoader.
 DistributionModuleLoader explodes (if not already present) this zipped repository at initialization,
-and places the exploded repository under <CEYLON_REPOSITORY>/ceylon-runtime-bootstrap/ceylon-runtime-bootstrap-exploded directory.
+and places the exploded repository under &lt;CEYLON_REPOSITORY&gt;/ceylon-runtime-bootstrap/ceylon-runtime-bootstrap-exploded directory.
 You can force an update with -Dforce.bootstrap.update=true system property flag.
 
 Afterwards Ceylon Runtime uses Ceylon Module Resolver (CMR) to get its modules.
-By default we use <CEYLON_REPOSITORY> as local CMR repository, but different repositories can be mounted.
+By default we use &lt;CEYLON_REPOSITORY&gt; as local CMR repository, but different repositories can be mounted.
  
-In order to run your Ceylon app / module, you need to first place it into <CEYLON_REPOSITORY>.
+In order to run your Ceylon app / module, you need to first place it into &lt;CEYLON_REPOSITORY&gt;.
 Then you can use ceylon.sh script to run the app / module.
 
 ceylon.sh expects module name and version as its first parameter.
-e.g. ./ceylon.sh hello/1.0.0 --> [full module name]/[version], where default version is 0.0.0 if left out
+e.g. ./ceylon.sh hello/1.0.0 \[full module name\]/\[version\], where default version is 0.0.0 if left out
 
 ## Documentation compiler.
 
