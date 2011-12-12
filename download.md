@@ -7,8 +7,9 @@ author: Emmanuel Bernard
 ---
 # #{page.title}
 
-Ceylon is not yet released to the public. We're working as hard as we can 
-to get the first milestone into your hands.
+Ceylon is not yet released to the public. We're [working as hard as we can](/code/activity) 
+to get the [first milestone](/documentation/roadmap#milestone_1) into your 
+hands.
 
 However, the code is already available at [GitHub](http://github.com/ceylon).
 Adventurous? [Check it out](/code).
