@@ -108,7 +108,7 @@ archives, and module documentation directories.
 ## Module runtime
 
 Ceylon's module runtime is based on JBoss Modules, a technology that also 
-exists at the very core of JBoss 7. Given a list of module repositories, 
+exists at the very core of JBoss AS 7. Given a list of module repositories, 
 the runtime automatically locates a module archive and its versioned 
 dependencies in the repositories, even downloading module archives from 
 remote repositories if necessary.
