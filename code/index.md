@@ -8,8 +8,9 @@ author: Emmanuel Bernard
 # #{page.title}
 
 The source code for Ceylon is already available, even though there's no 
-official release just yet. We're working as hard as we can to get the first 
-milestone into your hands.
+official release just yet. We're [working as hard as we can](/code/activity) 
+to get the [first milestone](/documentation/roadmap#milestone_1) into 
+your hands.
 
 You can follow our progress on:
 
