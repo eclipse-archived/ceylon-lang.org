@@ -26,9 +26,10 @@ However, our roadmap is quite well-defined:
 
 ## Milestone 1
 
-*Expressions, basic procedural code, basic object orientation, basic
-generics including variance, validation of definite
-assignment/initialization and definite return, exceptions.*
+*Expressions, basic procedural code, basic object orientation, 
+basic generics including variance, validation of definite
+assignment/initialization and definite return, exceptions,
+modularity.*
 
 ### Declarations:
 * toplevel classes
@@ -95,7 +96,8 @@ assignment/initialization and definite return, exceptions.*
 * erasure of `Void`/`Object`/`Nothing`/`Equality`/`IdentifiableObject`
 * optimization of locals in class initializer
 * sequenced (varargs) parameters
-* optimization of primitives with auto(un)boxing [TODO: lots of tests and bugfixing]
+* optimization of primitives with auto(un)boxing
+* defaulted parameters [TODO: bugfixes]
 
 ### Types:
 * `Boolean`
@@ -107,6 +109,11 @@ assignment/initialization and definite return, exceptions.*
 * `Range`
 * `process`
 
+### Modularity:
+* `car` archives
+* local repositories
+* module versioning
+* module runtime
 
 Notes:
 
@@ -118,21 +125,24 @@ Notes:
 
 ## Milestone 2
 
-*Modularity, default parameters, numeric type optimization, 
-file IO.*
+*Numeric type optimization, Java interop, file IO, remote
+repositories.*
 
 ### Expressions:
 * numeric widening for custom numeric types
 
 ### Misc:
-* defaulted parameters
 * optimization of primitive operators
-* module runtime
-* module versioning
+* Java interoperability
 
 ### Types:
 * `Decimal` and `Whole`
 * `ceylon.io` module
+
+### Modularity:
+* remote repositores
+* `modules.ceylon-lang.org`
+* repository replicator
 
 ## Milestone 3
 
