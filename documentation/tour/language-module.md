@@ -41,7 +41,7 @@ Therefore, Ceylon's `Object` has a superclass, named `Void`.
     doc "The abstract supertype of all types. A value of type 
          `Void` may be a definite value of type `Object`, or it 
          may be the `null` value. A method declared `void` is 
-         considered to have the return type `Void`.
+         considered to have the return type `Void`."
     shared abstract class Void() 
             of Object | Nothing {}
 
@@ -53,7 +53,7 @@ when you don't care about the return type, since a method declared `void` is
 considered to have return type `Void`, as we saw in the 
 [part about functions](../functions).
 
-The type `Nothing` directly extends `Void`. 
+The class `Nothing` also directly extends `Void`. 
 
     doc "The type of the `null` value. Any union type of form 
          `Nothing|T` is considered an optional type, whose values
