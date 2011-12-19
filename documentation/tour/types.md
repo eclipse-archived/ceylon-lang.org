@@ -54,7 +54,7 @@ These constructs protect us from inadvertantly writing code that would cause a
 writing code that would cause a `NullPointerException`.
 
 
-## More about union types
+## Union types
 
 When the type of something is declared using a union type `X|Y`, that means 
 only expressions of type `X` and expressions of type `Y` are assignable to it. 
@@ -67,8 +67,8 @@ well-typed:
     print(69);
     print(-1);
 
-But what operations does a type like `String|Natural|Integer` have? What 
-are its supertypes? Well, the answer is pretty intuitive: `T` is a supertype of 
+But what operations does a type like `String|Natural|Integer` have? What are 
+its supertypes? Well, the answer is pretty intuitive: `T` is a supertype of 
 `X|Y` if and only if it is a supertype of both `X` and `Y`. The Ceylon compiler 
 determines this automatically. So the following code is also well-typed:
 
@@ -86,9 +86,9 @@ supertype of `String`.
 
 Of course, it's very common to narrow an expression of union type using a 
 `switch` statement. Usually, the Ceylon compiler forces us to write an `else` 
-clause in a `switch`, to remind us that there might be additional cases 
-which we have not handled. But if we exhaust all cases of a union type, 
-the compiler will let us leave off the `else` clause.
+clause in a `switch`, to remind us that there might be additional cases which 
+we have not handled. But if we exhaust all cases of a union type, the compiler 
+will let us leave off the `else` clause.
 
     void print(String|Natural|Integer val) {
         switch (val)
@@ -96,6 +96,21 @@ the compiler will let us leave off the `else` clause.
         case (is Natural) { print("Natural: " + val); }
         case (is Integer) { print("Integer: " + val); }
     }
+
+
+## Intersection types
+
+On the other hand, an expression is assignable to an *intersection type*, written 
+`X&Y`, if it is assignable to *both* `X` and `Y`. For example, since `Empty` is
+is a subtype of but `Iterable<Bottom>` and of `Sized`, it's also a subtype of the
+intersection `Iterable<Bottom>&Sized`. The supertypes of an intersection type
+include all supertypes of every intersected type.
+
+Therefore, the following code is well-typed:
+
+    Iterable<Bottom>&Sized empty = {};
+    Integer sizeZero = empty.size;
+    Nothing nullIterator = empty.iterator;
 
 
 ## Enumerated subtypes

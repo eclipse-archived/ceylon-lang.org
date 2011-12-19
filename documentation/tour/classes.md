@@ -258,7 +258,7 @@ but here's a quick example of each of the three techniques:
     }
 
 Don't worry if you don't completely understand the third example just yet, 
-we'll come back to it in a [later lesson](../types#more_about_union_types). 
+we'll come back to it in a [later lesson](../types#union_types). 
 
 Let's make use of this idea to "overload" the "constructor" of `Polar`.
 

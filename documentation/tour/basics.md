@@ -203,8 +203,8 @@ Java. This helps avoid the undesirable behavior of `==` in Java where `x==y`
 evaluates to true if `x` and `y` both evaluate to `null`.
 
 Note that the syntax `String?` is just an abbreviation for the 
-[union type](../types/#more_about_union_types) `Nothing|String`. The value
-`null` isn't a primitive value in Ceylon, it's just an instance of the 
+[union type](../types/#union_types) `Nothing|String`. The value `null` isn't 
+a primitive value in Ceylon, it's just a perfectly ordinary instance of the 
 perfectly ordinary class `Nothing`.
 
 It's possible to declare the local name inside the `if (exists ... )` 
