@@ -10,15 +10,15 @@ author: Emmanuel Bernard
 
 This is the third leg of the Tour of Ceylon. In the [previous leg](../classes)
 you learned about classes. In this leg you're going to learn about 
-*inheritance* and *refinement* (known as overloading in some other languages).
+*inheritance* and *refinement* (known as "overriding" in many other languages).
 
 ## Inheritance and refinement
 
-In object-oriented programming, we often replace conditionals 
-(`if`, and especially `switch`) with subtyping. Indeed, according to some 
-folks, this is what makes a program object-oriented. Let's try refactoring the 
-`Polar` class [from the previous leg of the tour](../classes) into two classes, 
-with two different implementations of `description`. Here's the superclass:
+In object-oriented programming, we often replace conditionals (`if`, and 
+especially `switch`) with subtyping. Indeed, according to some folks, this is 
+what makes a program object-oriented. Let's try refactoring the `Polar` class 
+[from the previous leg of the tour](../classes) into two classes, with two 
+different implementations of `description`. Here's the superclass:
 
     doc "A polar coordinate"
     class Polar(Float angle, Float radius) {
@@ -358,89 +358,11 @@ Oh, of course, the following is illegal:
 To fix this code, `name` must be declared `default` in both `User` and `Party` 
 and explicitly refined in `Customer`.
 
-## Anonymous classes
-
-If a class has no parameters, it's often possible to use a shortcut 
-declaration which defines a named instance of the class, without providing 
-any actual name for the class itself. This is usually most useful when we're 
-extending an `abstract` class or implementing an interface.
-
-    doc "The origin"
-    object origin extends Polar(0.0, 0.0) {
-        shared actual String description = "origin";
-    }
-
-An anonymous class may extend an ordinary class and satisfy interfaces.
-
-    shared object consoleWriter satisfies Writer {
-                 
-        formatter = StringFormatter();
-         
-        shared actual void write(String string) {
-            process.write(string);
-        }
-         
-    }
-
-The downside to an `object` declaration is that we can't write code that 
-refers to the concrete type of `defaultHello` or `consoleWriter`, only to the 
-named instances.
-
-You might be tempted to think of object declarations as defining singletons, 
-but that's not quite right:
-
-* A toplevel object declaration does indeed define a singleton.
-* An object declaration nested inside a class defines an object per instance 
-  of the containing class.
-* An object declaration nested inside a method, getter, or setter results in 
-  an new object each time the method, getter, or setter is executed.
-
-Let's see how this can be useful:
-
-    interface Subscription {
-        shared formal void cancel();
-    }
-
-    shared Subscription register(Subscriber s) {
-        subscribers.append(s);
-        object subscription satisfies Subscription {
-            shared actual void cancel() {
-                subscribers.remove(s);
-            }
-        }
-        return subscription;
-    }
-
-Notice how this code example makes clever use of the fact that the nested 
-`object` declaration receives a closure of the locals defined in the containing 
-method declaration!
-
-A different way to think about the difference between `object` and `class` is 
-to think of a `class` as a parametrized `object`. (Of course, there's one 
-big difference: a `class` declaration defines a named type that we can refer 
-to in other parts of the program.) We'll see later that Ceylon also lets us 
-think of a method as a parametrized attribute.
-
-An `object` declaration can refine an attribute declared `formal` or `default`,
-as long as it is a subtype of the declared type of the attribute.
-
-    shared abstract class App() {
-        shared formal OutputStream stream;
-        ...
-    }
-
-    class ConsoleApp() extends App() {
-        shared actual object stream
-                satisfies OutputStream { ... }
-        ...
-    }
-
-However, an `object` may not itself be declared `formal` or `default`.
-
 
 ## There's more...
 
-Next, we're going to learn about [introduction and member classes](../introduction),
-two more advanced features of Ceylon's type system.
+Next, to finish off our discussion of object oriented programming
+in Ceylon, we're going to learn about 
+[anonymous classes and member classes](../anonymous-member-classes).
 
  

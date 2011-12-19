@@ -1,6 +1,6 @@
 ---
 layout: tour
-title: Tour of Ceylon&#58; Introduction and Member Classes
+title: Tour of Ceylon&#58; Introduction
 tab: documentation
 unique_id: docspage
 author: Emmanuel Bernard
@@ -10,7 +10,7 @@ author: Emmanuel Bernard
 
 This is the fourth leg of the Tour of Ceylon. In the [previous leg](../inheritance)
 you learned about inheritance and refinement. In this leg you're going to learn 
-about *introduction* and *member classes*.
+about *introduction*.
 
 ## Introduction
 
@@ -192,96 +192,7 @@ extension methods, safer than implicit type conversions. We think the beauty
 of this model is a major advantage of Ceylon over similar languages.
 
 
-## Member classes and member class refinement
-
-You're probably used to the idea of an "inner" class in Java — a class 
-declaration nested inside another class or method. Since Ceylon is a 
-language with a recursive block structure, the idea of a nested class is 
-more than natural. But in Ceylon, a non-abstract nested class is actually 
-considered a member of the containing type. For example, `BufferedReader` 
-defines the member class `Buffer`:
-
-    class BufferedReader(Reader reader)
-            satisfies Reader {
-        shared default class Buffer()
-                satisfies List<Character> { ... }
-        ...
-        
-    }
-
-The member class `Buffer` is annotated shared, so we can instantiate it like 
-this:
-
-    BufferedReader br = BufferedReader(reader);
-    BufferedReader.Buffer b = br.Buffer();
-
-Note that a nested type name must be qualified by the containing type name 
-when used outside of the containing type.
-
-The member class `Buffer` is also annotated `default`, so we can refine it 
-in a subtype of `BufferedReader`:
-
-    shared class BufferedFileReader(File file)
-            extends BufferedReader(FileReader(file)) {
-        shared actual class Buffer()
-                extends super.Buffer() { ... }
-                
-    }
-
-That's right: Ceylon lets us "override" a member class defined by a supertype!
-
-Note that `BufferedFileReader.Buffer` is a subclass of `BufferedReader.Buffer`.
-
-Now the instantiation `br.Buffer()` above is a polymorphic operation! It might 
-return an instance of `BufferedFileReader.Buffer` or an instance of 
-`BufferedReader.Buffer`, depending upon whether `br` refers to a plain 
-`BufferedReader` or a `BufferedFileReader`. This is more than a cute trick. 
-Polymorphic instantiation lets us eliminate the "factory method pattern" from 
-our code.
-
-It's even possible to define a `formal` member class of an `abstract` class. 
-A `formal` member class can declare `formal` members.
-
-    abstract class BufferedReader(Reader reader)
-            satisfies Reader {
-        shared formal class Buffer() {
-            shared formal Byte read();
-        }
-        
-        ...
-        
-    }
-
-In this case, a concrete subclass of the `abstract` class must refine the 
-`formal` member class.
-
-    shared class BufferedFileReader(File file)
-            extends BufferedReader(FileReader(file)) {
-        shared actual class Buffer()
-                 extends super.Buffer() {
-             shared actual Byte read() {
-                 ...
-             }
-        }
-    }
-
-Notice the difference between an `abstract` class and a `formal` member class. 
-An `abstract` nested class *may not* be instantiated, and *need not* be refined 
-by concrete subclasses of the containing class. A `formal` member class *may* 
-be instantiated, and *must* be refined by every subclass of the containing 
-class.
-
-It's an interesting exercise to compare Ceylon's member class refinement 
-with the functionality of Java dependency injection frameworks. Both 
-mechanisms provide a means of abstracting the instantiation operation of a 
-type. You can think of the subclass that refines a member type as filling 
-the same role as a dependency configuration in a dependency injection 
-framework.
-
-
 ## There's more...
-
-Member classes and member class refinement allows Ceylon to support type families.
 
 Next, we're going to meet [sequences](../sequences), Ceylon's take on the 
 "array" type.
