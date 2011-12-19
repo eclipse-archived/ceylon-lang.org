@@ -10,7 +10,7 @@ author: Gavin King
 
 This is the tenth part of the Tour of Ceylon. In the 
 [previous leg](../modules) we looked at modules. This leg covers
-functions.
+first class and higher-order functions.
 
 
 ## First class and higher order functions
@@ -217,7 +217,8 @@ a parameter.
 
 Here we see the difference between the two ways of specifying a function type:
 
-* `void observe(Event event)` is more readable in parameter lists, where observe is the name of the parameter, but
+* `void observe(Event event)` is more readable in parameter lists, where 
+  observe is the name of the parameter, but
 * `Callable<Void,Event>` is useful as a generic type argument.
 
 Now, any event observer can just pass a reference to one of its own methods to 
@@ -369,9 +370,6 @@ which define specialized control structures.
 
 
 ## Anonymous Functions
-####### Transcluded
-
-
 
 When the [tour covered functions](../functions) we discussed Ceylon's support 
 for defining higher order functions, in particular the two different ways to 
@@ -381,7 +379,8 @@ The following declarations are essentially equivalent:
     X[] filter<X>(X[] sequence, Callable<Boolean,X> by) { ... }
     X[] filter<X>(X[] sequence, Boolean by(X x)) { ... }
 
-We've even seen how we can pass a reference to a method to such a higher-order function:
+We've even seen how we can pass a reference to a method to such a higher-order 
+function:
 
     Boolean stringNonempty(String string) {
         return !string.empty;
@@ -399,22 +398,23 @@ Most languages with higher order functions support anonymous functions
 part of the expression. My favored syntax for this in a C-like language would 
 be the following:
 
-    (String string) { return !string.empty; }
+    function (String string) { return !string.empty; }
 
-This is an ordinary method declaration with the return type and name eliminated. 
-Then we could call `filter()` as follows:
+This is an ordinary method declaration with the name eliminated. Then we could 
+call `filter()` as follows:
 
-    String[] nonemptyStrings = filter( strings, (String string) { return !string.empty; } );
+    String[] nonemptyStrings = filter( strings, function (String string) { return !string.empty; } );
 
-Since it's extremely common for anonymous functions to consist of a 
-single expression, I favor allowing the following abbreviation:
+Since it's extremely common for anonymous functions to consist of a single 
+expression, and since the `function` keyword is a little noisy, I favor 
+allowing the following abbreviation:
 
-    (String string) (!string.empty)
+    (String string) !string.empty
 
-The parenthesized expression is understood to be the return value of the 
-method. Then the invocation of `filter()` is a bit less noisy:
+The expression is understood to be the return value of the method. Then the 
+invocation of `filter()` is a bit less noisy:
 
-    String[] nonemptyStrings = filter(strings, (String string) (!string.empty));
+    String[] nonemptyStrings = filter(strings, (String string) !string.empty);
 
 This works, and we could support this syntax in the Ceylon language.
 
@@ -422,11 +422,11 @@ Let's look at some more examples of how we would use anonymous functions:
 
 * Assertion:
 
-    assert ("x must be positive", () (x>0.0))
+    assert ("x must be positive", () x>0.0)
 
 * Conditionals:
 
-    when (x>100.0, () (100.0), () (x))
+    when (x>100.0, () 100.0, () x)
 
 * Repetition:
 
@@ -434,20 +434,21 @@ Let's look at some more examples of how we would use anonymous functions:
 
 * Tabulation:
 
-    tabulateList(20, (Natural i) (i**3))
+    tabulateList(20, (Integer i) i**3)
 
 * Comprehension:
 
-    from (people, (Person p) (p.name), (Person p) (p.age>18))
+    from (people, (Person p) (p.name), (Person p) p.age>18)
 
 * Quantification:
 
-    forAll (people, (Person p) (p.age>18))
+    forAll (people, (Person p) p.age>18)
 
 * Accumulation (folds):
 
-    accumulate (items, 0.0, (Float sum, Item item) (sum+item.quantity*item.product.price))
+    accumulate (items, 0.0, (Float sum, Item item) sum+item.quantity*item.product.price)
 
+<!--
 The problem is that I don't find these code snippets especially readable. 
 Too much nested punctuation. They certainly fall short of the readability of 
 built-in control structures like `for` and `if`. And the problem gets 
@@ -553,16 +554,14 @@ So this is definitely an issue we need lots of feedback on. Should we support:
 * both?
 
 The answer just isn't crystal clear to us.
+-->
 
-####### Transcluded
 
-####### Transcluded
 ## Curry, uncurrying and function composition
-
-## Uncurrying method references and more
 
 A method reference like `Float.times` is represented in "curried" form in 
 Ceylon. I can write:
+
     Float twoTimes(Float x) = 2.times;
 
 Here, the expression `2.times` is a typical first-class function reference 
@@ -602,7 +601,9 @@ Well, one really simple way would be to fall back to writing:
         return x.times(y);   //or even: x*y
     }
 
-But there's another way. Instead, we're going to use a really cool higher-order function that will be part of the Ceylon language module. It's just two lines of code, so I'm sure you'll immediately understand it:
+But there's another way. Instead, we're going to use a really cool higher-order 
+function that will be part of the Ceylon language module. It's just two lines 
+of code, so I'm sure you'll immediately understand it:
 
     R uncurry<R,T,P...>(R curried(T t)(P... p))(T receiver, P... args) {
         return curried(receiver)(args);
@@ -665,8 +666,8 @@ purpose tools that are packaged as part of the `ceylon.language` module.
 Nevertheless, it's nice to know that machinery like this is expressible 
 within the type system of Ceylon. 
 
-####### Transcluded
 
+## There's more...
 
 Now we're  going to talk about Ceylon's syntax for [named
 argument lists](../named-arguments) and for defining user interfaces and 
