@@ -127,7 +127,7 @@ syntax for declaring a parameter of type `Callable`:
         }
     }
 
-Many pepple find this version also slightly more readable and more regular. 
+Many people find this version also slightly more readable and more regular. 
 This is the preferred syntax for defining higher-order functions.
 
 
