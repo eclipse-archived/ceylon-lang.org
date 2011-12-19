@@ -7,15 +7,20 @@ tab: blog
 tags: [release, progress, M1]
 ---
 
+[M1]: /documentation/roadmap/#milestone_1
+[M2]: /documentation/roadmap/#milestone_2
+
 Today, we're proud to announce the release of Ceylon M1 "Newton". 
-This is the first official release of the Ceylon compiler, language 
-module and runtime, and a 
-[major step down the roadmap](/documentation/roadmap/#milestone_1) 
-toward Ceylon 1.0.
+This is the first official release of the Ceylon command line
+compiler, documentation compiler, language module, and runtime, 
+and a [major step down the roadmap][M1] toward Ceylon 1.0.
 
 You can get it here:
 
-<http://ceylon-lang.org/download> 
+<http://ceylon-lang.org/download>
+
+We plan a compatible M1 release of [Ceylon IDE](/documentation/ide)
+later this week.
 
 ### Language features
 
@@ -52,6 +57,9 @@ Support for the following language features is not yet available:
 * reified generics
 * user-defined annotations and the type safe metamodel
 
+Furthermore, numeric operators are not currently optimized by the
+compiler, so numeric code is expected to perform poorly.
+
 [This page](/documentation/introduction/) provides a quick 
 introduction to the language.
 
@@ -64,12 +72,17 @@ loading architecture, with full support for module versioning.
 
 This release of Ceylon includes support for local module repositories. 
 Support for remote repositories and the shared community repository 
-`modules.ceylon-lang.org` will be available in the next release.
+`modules.ceylon-lang.org` will be available in the [next release][M2].
 
 ### SDK
 
 At this time, the only module available is the language module 
 `ceylon.language`, included in the distribution.
+
+### Java interoperability
+
+There are a number of issues that currently affect interoperability 
+with Java. These issues are a top priority for the [next release][M2].
 
 ### Source code
 
@@ -80,13 +93,22 @@ freely available from GitHub:
 
 ### Community
 
-The Ceylon community site includes documentation, the language 
-specification, and information about getting involved.
+The Ceylon community site includes [documentation](/documentation), 
+the [current draft of the language specification](/documentation/spec/), 
+the [roadmap](/documentation/roadmap) and information about [getting 
+involved](/code).
 
 <http://ceylon-lang.org>
+
+[spec]: http://ceylon-lang.org
     
 ### Acknowledgement
 
 We're deeply indebted to the community volunteers who contributed a 
 substantial part of the current Ceylon codebase, working in their own 
-spare time.
+spare time. The following people have contributed to this release:
+
+*Stephane Epardaud, Tako Schotanus, Gary Benson, Emmanuel Bernard, 
+Andrew Haley, Tom Bentley, Ales Justin, David Festal, Flavio Oliveri, 
+Sergej Koshchejev, Max Rydahl Andersen, Mladen Turk, James Cobb, 
+Ben Keating, Michael Brackx, Ross Tate, Ivo Kasiuk, Gertjan Assies*
