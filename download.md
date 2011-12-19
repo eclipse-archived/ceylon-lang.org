@@ -17,7 +17,7 @@ There is also a a special pre-release build of the
 [Ceylon IDE](/documentation/ide) available from our Eclipse
 update site.
 
-The source code is available at [GitHub](http://github.com/ceylon).
+The source [code](/code) is available at [GitHub](http://github.com/ceylon).
 
 You can follow our progress on:
 
