@@ -360,21 +360,17 @@ or directly, by specifying a block of code to be executed.
 Cool, huh? That's more regularity.
 
 
-## There's more...
-
-As you've probably noticed, all the functions we've defined so far have been 
-declared with a name, using a traditional C-like syntax. We still need to see 
-what Ceylon has instead of anonymous functions (sometimes called "lambda" 
-expressions) for making it easy to take advantage of functions like `repeat()` 
-which define specialized control structures. 
-
-
 ## Anonymous Functions
 
-When the [tour covered functions](../functions) we discussed Ceylon's support 
-for defining higher order functions, in particular the two different ways to 
-represent the type of a parameter which accepts a reference to a function. 
-The following declarations are essentially equivalent:
+As you've probably noticed, all the functions we've defined so far have been 
+declared with a name, using a traditional C-like syntax. Ceylon will also
+feature *anonymous functions* (sometimes called "lambdas"). The syntax for 
+this is not yet finalized. 
+
+We've already discussed Ceylon's support for defining higher order functions, 
+in particular the two different ways to represent the type of a parameter 
+which accepts a reference to a function. The following declarations are 
+essentially equivalent:
 
     X[] filter<X>(X[] sequence, Callable<Boolean,X> by) { ... }
     X[] filter<X>(X[] sequence, Boolean by(X x)) { ... }
@@ -387,16 +383,15 @@ function:
     }
     String[] nonemptyStrings = filter(strings, stringNonempty);
 
-Of course, almost all of the convenience of general-purpose higher order 
-functions like `filter()` is lost if we have to declare a whole method every 
-time we want to use the higher order function. Indeed, much of the appeal of 
-higher order functions is the ability to eliminate verbosity by having more 
-specialized versions of traditional control structures like for.
+Of course, some of the convenience of general-purpose higher order functions 
+like `filter()` is lost if we have to declare a whole method every time we 
+want to use the higher order function. Indeed, much of the appeal of higher 
+order functions is the ability to eliminate verbosity by having more 
+specialized versions of traditional control structures like `for`.
 
-Most languages with higher order functions support anonymous functions 
-(often called lambda expressions), where a function may be defined inline as 
-part of the expression. My favored syntax for this in a C-like language would 
-be the following:
+Most languages with higher order functions support anonymous functions, where 
+a function may be defined inline as part of the expression. My favored syntax 
+for this in a C-like language would be the following:
 
     function (String string) { return !string.empty; }
 
@@ -498,31 +493,31 @@ our other examples:
 
 * Assertion: 
 
-    assert ("x must be positive") that (x>0.0)
+      assert ("x must be positive") that (x>0.0)
 
 * Conditionals: 
 
-    when (x>100.0) then (100.0) otherwise (x)
+      when (x>100.0) then (100.0) otherwise (x)
 
 * Repetition: 
 
-    repeat(n) perform { print("Hello"); }
+      repeat(n) perform { print("Hello"); }
 
 * Tabulation: 
 
-    tabulateList(20) containing (Natural i) (i**3)
+      tabulateList(20) containing (Natural i) (i**3)
 
 * Comprehension: 
 
-    from (people) select (Person p) (p.name) where (Person p) (p.age>18)
+      from (people) select (Person p) (p.name) where (Person p) (p.age>18)
 
 * Quantification: 
 
-    forAll (people) every (Person p) (p.age>18)
+      forAll (people) every (Person p) (p.age>18)
 
 * Accumulation (folds): 
 
-    accumulate (items, 0.0) using (Float sum, Item item) (sum+item.quantity*item.product.price)
+      accumulate (items, 0.0) using (Float sum, Item item) (sum+item.quantity*item.product.price)
 
 Well, I'm not sure about you, but I find all these examples more readable 
 than what we had before. In fact, I like them so much better, that it makes 
@@ -557,7 +552,7 @@ The answer just isn't crystal clear to us.
 -->
 
 
-## Curry, uncurrying and function composition
+## Curry, uncurry and function composition
 
 A method reference like `Float.times` is represented in "curried" form in 
 Ceylon. I can write:
