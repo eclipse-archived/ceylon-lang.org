@@ -15,7 +15,7 @@ toward Ceylon 1.0.
 
 You can get it here:
 
-<http://where?> 
+<http://ceylon-lang.org/download> 
 
 ### Language features
 
