@@ -9,9 +9,7 @@ author: Emmanuel Bernard
 
 The commandline distribution of 
 [Ceylon M1 "Newton"](/blog/2011/12/19/ceylon-m1-newton) is 
-now available for download!
-
-<http://where?>
+now available for [download](/download)!
 
 There is also a a special pre-release build of the 
 [Ceylon IDE](/documentation/ide) available from our Eclipse
