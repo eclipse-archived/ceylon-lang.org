@@ -20,36 +20,15 @@ and a number of related declarations. Let's meet the main characters.
 
 Just like Java, Ceylon has a class named `Object`.
 
+    doc "The abstract supertype of all types representing 
+         definite values."
     shared abstract class Object()
             extends Void() {
-             
-        doc "A developer-friendly string representing the instance."
+        
+        doc "A developer-friendly string representing the 
+             instance."
         shared formal String string;
-         
-        doc "Determine if this object belongs to the given Category
-             or is produced by the iterator of the given Iterable
-             object."
-        shared Boolean element(Category|Iterable<Equality> category) {
-            switch (category)
-            case (is Category) {
-                return category.contains(this);
-            }
-            case (is Iterable<Equality>) {
-                if (is Equality self = this) {
-                    for (x in category) {
-                        if (x==self) {
-                            return true;
-                        }
-                    }
-                    fail {
-                        return false;
-                    }
-                }
-                else {
-                    return false;
-                }
-            }
-        }
+        
     }
 
 In Ceylon, `Object` *isn't* the root of the type system. An expression of 
@@ -57,19 +36,36 @@ type `Object` has a definite, well-defined, non-`null` value.
 As we've seen, the Ceylon type system can also represent some more exotic 
 types, for example `Nothing`, which is the type of `null`.
 
-Therefore, Ceylon's `Object` has a superclass, named `Void`, which we already 
-met in the [first part](../basics) of the tour. 
-All Ceylon types are assignable to `Void`. Expressions of 
-type `Void` aren't useful for very much, since `Void` has no members or 
-operations. You can't even narrow an expression of type `Void` to a different 
-type. The one useful thing you can do with `Void` is use it to represent the 
-signature of a method when you don't care about the return type, since a 
-method declared `void` is considered to have return type `Void`, as we saw in 
-the [part about functions](../functions).
+Therefore, Ceylon's `Object` has a superclass, named `Void`.
 
-As we also saw in the [first part](../basics), the type `Nothing` directly 
-extends `Void`. All types that represent well-defined values extend `Object`, 
-including:
+    doc "The abstract supertype of all types. A value of type 
+         `Void` may be a definite value of type `Object`, or it 
+         may be the `null` value. A method declared `void` is 
+         considered to have the return type `Void`.
+    shared abstract class Void() 
+            of Object | Nothing {}
+
+All Ceylon types are assignable to `Void`. Expressions of type `Void` aren't 
+useful for very much, since `Void` has no members or operations. You can't 
+even narrow an expression of type `Void` to a different type. The one useful 
+thing you can do with `Void` is use it to represent the signature of a method 
+when you don't care about the return type, since a method declared `void` is 
+considered to have return type `Void`, as we saw in the 
+[part about functions](../functions).
+
+The type `Nothing` directly extends `Void`. 
+
+    doc "The type of the `null` value. Any union type of form 
+         `Nothing|T` is considered an optional type, whose values
+         include `null`. Any type of this form may be written as
+         `T?` for convenience."
+    shared abstract class Nothing() 
+            of nothing
+            extends Void() {}
+
+The object `null` is the only instance of this class.
+
+All types that represent well-defined values extend `Object`, including:
 
 * user-written classes,
 * all interfaces, and
@@ -78,7 +74,8 @@ including:
 
 Since an expression of type `Object` always evaluates to a definite, 
 well-defined value, it's possible to obtain the runtime type of an 
-`Object`, or narrow an expression of type `Object` to a more specific type.
+`Object`, or narrow an expression of type `Object` to a more specific 
+type.
 
 
 ## Equality and identity
@@ -111,7 +108,7 @@ variable attributes must extend `IdentifiableObject`.
         }
          
         shared default actual String string {
-            ...
+            return className(this) + "@" + hash.string;
         }
              
     }
@@ -179,10 +176,11 @@ also important in the definition of Ceylon's polymorphic operators:
 
 * `Summable` supports the infix `+` operator,
 * `Invertable` supports the prefix `+` and `-` operators,
+* `Ordinal` supports the unary `++` and `--` operators,
 * `Numeric` supports the other basic arithmetic operators,
 * `Slots` supports bitwise operators,
 * `Comparable` supports the comparison operators,
-* `Correspondence` and `Sequence` support indexing and subrange operators, and
+* `Correspondence` supports the index operator, and
 * `Boolean` is the basis of the logical operators.
 
 Operator polymorphism is a little more flexible than you might imagine. 
@@ -204,9 +202,9 @@ set complement.
 
     Set<Person> children = males|females ~ adults;
 
-These aren't the traditional symbols representing these operations. 
-But if you think carefully about the definition of these operations, you'll 
-probably agree that these symbols are reasonable.
+These aren't the traditional symbols representing these operations. But if you 
+think carefully about the definition of these operations, you'll probably agree 
+that these symbols are reasonable.
 
 We could even define a `Permission` class that implements `Slots`, allowing us 
 to write things like `permissions&(read|execute)`.
@@ -216,7 +214,8 @@ to write things like `permissions&(read|execute)`.
 
 As we've mentioned several times before, Ceylon doesn't have anything like 
 Java's primitive types. The types that represent numeric values are just 
-ordinary classes. Ceylon has fewer built-in numeric types than other C-like languages:
+ordinary classes. Ceylon has fewer built-in numeric types than other C-like 
+languages:
 
 * `Natural` represents the unsigned integers and zero,
 * `Integer` represents signed integers,
@@ -226,8 +225,8 @@ ordinary classes. Ceylon has fewer built-in numeric types than other C-like lang
 
 `Natural`, `Integer` and `Float` have 64-bit precision by default. Eventually, 
 you'll be able to specify that a value has 32-bit precision by annotating it 
-`small`. But note that this annotation is really just a hint that the 
-compiler is free to ignore (and it currently does).
+`small`. But note that this annotation is really just a hint that the compiler 
+is free to ignore (and it currently does).
 
 ## Numeric literals
 
@@ -367,7 +366,6 @@ syntax support for numeric arithmetic and numeric widening conversions.
 
 ## There's more...
 
-Next we're going to come back to the subject of [object 
-initialization](../initialization), and deal with a subtle problem affecting 
-languages like Java and C#.
+Next we're going to come back to the subject of [object initialization](../initialization), 
+and deal with a subtle problem affecting languages like Java and C#.
 
