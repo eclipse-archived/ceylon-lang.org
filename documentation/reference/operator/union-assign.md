@@ -15,7 +15,7 @@ operand.
 
 ## Usage
 
-    variable Natural one = 1;
+    variable Integer one = 1;
     one |= 2; // now 'one' has value 3
 
 ## Description
@@ -35,13 +35,6 @@ more details.
 The `|=` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
 Tge `|` in its definition is the [union operator](../union) which depends on the 
 [`Slots`](#{site.urls.apidoc}/ceylon/language/interface_Slots.html) interface.
-
-### Meaning of *union assign* for built-in types
-
-For the built-in numeric types ([`Natural`](#{site.urls.apidoc}/ceylon/language/class_Natural.html), 
-[`Integer`](#{site.urls.apidoc}/ceylon/language/class_Integer.html) and
-[`Whole`](#{site.urls.apidoc}/ceylon/language/class_Whole.html) 
-`|=` performs a normal bitwise *or and assign*. 
 
 ## See also
 

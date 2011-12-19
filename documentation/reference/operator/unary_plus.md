@@ -38,22 +38,12 @@ The meaning of `+` depends on
 
 ### Meaning of unary plus for built-in types
 
-For the built-in type ([`Natural`](#{site.urls.apidoc}/ceylon/language/class_Natural.html) unary plus
-has the effect of converting the `Natural` to an `Integer`.
-
-For the other built in numeric types
+For the built-in numeric types
 [`Integer`](#{site.urls.apidoc}/ceylon/language/class_Integer.html),
 [`Float`](#{site.urls.apidoc}/ceylon/language/class_Float.html),
-[`Decimal`](#{site.urls.apidoc}/ceylon/language/class_Decimal.html) `+` 
-is essentially a no-op: Those types are already able to represent negative 
-numbers.
-
-### Widening
-
-The result type need not be the same as the operand type. This 
-allows unary plus to effect a type conversion. 
-An example of this is `Natural` which is declared to satisfy 
-`Inverable<Integer>`, so unary plus on a `Natural` results in an `Integer`.
+[`Whole`](#{site.urls.apidoc}/ceylon/language/class_Float.html), and
+[`Decimal`](#{site.urls.apidoc}/ceylon/language/class_Decimal.html), `+` 
+is essentially a no-op.
 
 ## See also
 

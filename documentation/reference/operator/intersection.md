@@ -14,7 +14,7 @@ The left-associative, binary `&` operator is used to compute the
 
 ## Usage 
 
-    Natural one = 1 & 2;
+    Integer one = 1 & 2;
 
 ## Description
 
@@ -37,13 +37,6 @@ more details.
 The `&` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
 The meaning of `&` depends on the 
 [`Slots`](#{site.urls.apidoc}/ceylon/language/interface_Slots.html) interface 
-
-### Meaning of *intersection* for built-in types
-
-For the built-in numeric types ([`Natural`](#{site.urls.apidoc}/ceylon/language/class_Natural.html), 
-[`Integer`](#{site.urls.apidoc}/ceylon/language/class_Integer.html) and
-[`Whole`] _doc coming soon at_ (../../ceylon.language/class_Whole.html) 
-`&` performs a normal bitwise *and*. 
 
 ## See also
 

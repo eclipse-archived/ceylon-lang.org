@@ -17,7 +17,7 @@ using a
 ## Usage 
 
     String[] names = {"foo", "bar", "baz"};
-    Iterable<Natural> keys = {1, 2};
+    Iterable<Integer> keys = {1, 2};
     Iterable<String> firstAndLast = names[keys];
 
 ## Description

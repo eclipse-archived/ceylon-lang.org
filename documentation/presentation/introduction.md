@@ -95,13 +95,13 @@ Stéphane Épardaud, Emmanuel Bernard
 - No surprise
 
 <!-- lang:ceylon -->
-    shared class Rectangle(Natural width, 
-                           Natural height) {
+    shared class Rectangle(Integer width, 
+                           Integer height) {
 
-        shared Natural width = width;
-        shared Natural height = height;
+        shared Integer width = width;
+        shared Integer height = height;
         
-        shared Natural area() {
+        shared Integer area() {
             return width * height;
         }
     }
@@ -111,16 +111,16 @@ Stéphane Épardaud, Emmanuel Bernard
 - In the class body
 
 <!-- lang:ceylon -->
-    shared class Rectangle(Natural width, 
-                           Natural height){
+    shared class Rectangle(Integer width, 
+                           Integer height){
         // it is here!
         if (width == 0 || height == 0) {
             throw;
         }
-        shared Natural width = width;
-        shared Natural height = height;
+        shared Integer width = width;
+        shared Integer height = height;
 
-        shared Natural area(){
+        shared Integer area(){
             return width * height;
         }
     }
@@ -134,7 +134,7 @@ Stéphane Épardaud, Emmanuel Bernard
 ![shared](/images/presentation/shared.png "shared")
 
 - Constructor is the class body
-- Natural type for positive whole numbers
+- Integer type for positive whole numbers
 
 ### Attributes
 
@@ -142,10 +142,10 @@ Stéphane Épardaud, Emmanuel Bernard
 
 <!-- lang:ceylon -->
     class Cat() {
-        Natural birthRank = 1;
-        variable Natural radius := 2;
+        Integer birthRank = 1;
+        variable Integer radius := 2;
         radius++;
-        Natural waistSize {
+        Integer waistSize {
             return radius * 6;
         }
         assign waistSize {
@@ -185,15 +185,15 @@ area being spoken of__
 ### Abstractions (example)
 
     abstract class Shape() {
-        shared formal Natural area();
+        shared formal Integer area();
         // magic: this is toString()
         shared actual default String string {
             return "Abstract area: " area.string " m^2";
         }
     }
 
-    class Square(Natural width) extends Shape() {
-        shared actual Natural area() { 
+    class Square(Integer width) extends Shape() {
+        shared actual Integer area() { 
             return width * width;
         }
         shared actual String string = 
@@ -217,9 +217,9 @@ area being spoken of__
 
 ### Optional and named parameters
 
-    class Rectangle(Natural width = 2,
-                    Natural height = 3) {
-        shared Natural area(){
+    class Rectangle(Integer width = 2,
+                    Integer height = 3) {
+        shared Integer area(){
             return width * height;
         }
     }
@@ -266,14 +266,14 @@ area being spoken of__
         Column {
             heading="x";
             width=10;
-            String content(Natural row) {
+            String content(Integer row) {
                 return row.string;
             }
         },
         Column {
             heading="x**2";
             width=12;
-            String content(Natural row) {
+            String content(Integer row) {
                 return (row**2).string;
             }
         }
@@ -294,7 +294,7 @@ area being spoken of__
         shared actual Float volume = area * depth;
     }
 
-    class Cylinder(Natural radius, Float depth) 
+    class Cylinder(Integer radius, Float depth) 
             satisfies Figure3D {
         shared actual Float area = 3.14 * radius ** 2;
         shared actual Float depth = depth;
@@ -316,7 +316,7 @@ area being spoken of__
         shared actual Float depth = width;
     }
 
-    class Cylinder(Natural radius, Float depth)
+    class Cylinder(Integer radius, Float depth)
             satisfies Figure3D {
         shared actual Float area = 3.14 * radius ** 2;
         shared actual Float depth = depth;
@@ -333,23 +333,23 @@ area being spoken of__
 
 ### Ceylon is extremely regular
 
-    Natural attribute = 1;
-    Natural attribute2 { return 2; }
+    Integer attribute = 1;
+    Integer attribute2 { return 2; }
     void method(){}
     interface Interface{}
 
-    class Class(Natural x){
-        Natural attribute = x;
-        Natural attribute2 { return x; }
+    class Class(Integer x){
+        Integer attribute = x;
+        Integer attribute2 { return x; }
         class InnerClass(){}
         interface InnerInterface{}
         
-        void method(Natural y){
-            Natural attribute = x;
-            Natural attribute2 { return y; }
+        void method(Integer y){
+            Integer attribute = x;
+            Integer attribute2 { return y; }
             class LocalClass(){}
             interface LocalInterface{}
-            void innerMethod(Natural y){}
+            void innerMethod(Integer y){}
         }
     }
 
@@ -357,14 +357,14 @@ area being spoken of__
 
     void types(){
         Integer i = -20;
-        Natural n = 10.times(2); // no primitive types
+        Integer n = 10.times(2); // no primitive types
         Float f = 3.14;
         String[] s = {"foo", "bar"}; // inference
         Number[] r = 1..2;   // intervals
         Boolean b = true;    // enumerated type
         Cube cube = Cube(2); // constructor
         // inference
-        function makeCube(Natural width){ 
+        function makeCube(Integer width){ 
             return Cube(width);
         }
         value cube2 = makeCube(3);
@@ -397,7 +397,7 @@ area being spoken of__
         Cube cube2 = cubeOrNoCube() ? Cube(3);
 
         // nullsafe access
-        Natural? area = maybeCube?.area;
+        Integer? area = maybeCube?.area;
 
         // nullsafe array access
         Cube[]? maybeList = cubeList();
@@ -426,12 +426,12 @@ area being spoken of__
 ### Operations on lists
 
     void dealingWithLists() {
-        Natural[] numbers = {1,2,3};
+        Integer[] numbers = {1,2,3};
         // slices
-        Natural[] subList = numbers[1..2];
-        Natural[] rest = numbers[1...];
+        Integer[] subList = numbers[1..2];
+        Integer[] rest = numbers[1...];
         // map/spread
-        Natural[] successors = numbers[].successor;
+        Integer[] successors = numbers[].successor;
     }
 
 ### Operator "overloading"

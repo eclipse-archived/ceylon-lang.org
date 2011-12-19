@@ -14,7 +14,7 @@ The left-associative, binary `^` operator is used to compute the
 
 ## Usage
 
-    Natural two = 1 ^ 3;
+    Integer two = 1 ^ 3;
 
 ## Description
 
@@ -35,7 +35,7 @@ The meaning of `^` depends on the
 
 ### Meaning of *xor* for built-in types
 
-For the built-in numeric types ([`Natural`](#{site.urls.apidoc}/ceylon/language/class_Natural.html), 
+For the built-in numeric types ([`Integer`](#{site.urls.apidoc}/ceylon/language/class_Integer.html), 
 [`Integer`](#{site.urls.apidoc}/ceylon/language/class_Integer.html) and
 [`Whole`](#{site.urls.apidoc}/ceylon/language/class_Whole.html) 
 `|` performs a normal bitwise *xor*. 

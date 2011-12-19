@@ -30,7 +30,7 @@ enclosed in angle brackets.
     class Array<Element>(Element... elements) 
             satisfies Sequence<Element> { ... }
 
-    shared Entries<Natural,Element> entries<Element>(Element... sequence) { ... }
+    shared Entries<Integer,Element> entries<Element>(Element... sequence) { ... }
 
 As you can see, the convention in Ceylon is to use meaningful names for 
 type parameters (in Java the convention is to use single letter names).
@@ -49,13 +49,13 @@ method invocations or class instantiations. We don't usually need to write:
 
 
     Array<String> strings = Array<String>("Hello", "World"); 
-    Entries<Natural,String> entries = entries<String>(strings);
+    Entries<Integer,String> entries = entries<String>(strings);
 
 Instead, it's very often possible to infer the type arguments from the ordinary 
 arguments.
 
     value strings = Array("Hello", "World"); // type Array<String>
-    value entries = entries(strings); // type Entries<Natural,String>
+    value entries = entries(strings); // type Entries<Integer,String>
 
 The generic type argument inference algorithm is slightly involved, so you
 should refer to the [language specification](#{site.urls.spec}#typeargumentinference) 
@@ -64,7 +64,7 @@ essentially what happens is that Ceylon infers a type by combining the types
 of corresponding arguments using union.
 
     value points = Array(Polar(pi/4, 0.5), Cartesian(-1.0, 2.5)); // type Array<Polar|Cartesian>
-    value entries = entries(points); // type Entries<Natural,Polar|Cartesian>
+    value entries = entries(points); // type Entries<Integer,Polar|Cartesian>
 
 The root cause of very many problems when working with generic types in 
 Java is *type erasure*. Generic type parameters and arguments are discarded 

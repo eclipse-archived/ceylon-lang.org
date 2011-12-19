@@ -13,8 +13,8 @@ The right-associative, binary `?` operator is used to specify a *default* value.
 
 ## Usage 
 
-    Natural? num;
-    Natural value = num ? 0;
+    Integer? num;
+    Integer value = num ? 0;
 
 ## Description
 

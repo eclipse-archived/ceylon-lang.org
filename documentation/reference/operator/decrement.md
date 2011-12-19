@@ -17,12 +17,12 @@ differ in whether the result is assigned before or after the decrement.
 Postfix `--` has the operator after the operand:
 
 
-    variable Natural num := 1;
+    variable Integer num := 1;
     num--;
     
 Prefix `--` puts the operator before the operand:
 
-    variable Natural num := 1;
+    variable Integer num := 1;
     --num;
 
 ## Description

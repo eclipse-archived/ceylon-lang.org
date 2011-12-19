@@ -14,7 +14,7 @@ emptiness.
 
 ## Usage 
 
-    Natural[] nums;
+    Integer[] nums;
     Boolean haveNums = nums nonempty;
 
 ## Description

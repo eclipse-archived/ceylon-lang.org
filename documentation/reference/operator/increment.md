@@ -16,12 +16,12 @@ differ in whether the result is assigned before or after the increment.
 
 Postfix unary `++` operator has the operator after the operand:
 
-    variable Natural num := 1;
+    variable Integer num := 1;
     num++;
     
 Prefix unary `++` operator  puts the operator before the operand:
 
-    variable Natural num := 1;
+    variable Integer num := 1;
     ++num;
 
 ## Description

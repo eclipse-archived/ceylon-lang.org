@@ -13,7 +13,7 @@ The left-associative, binary `+` operator is used to *sum* two operands.
 
 ## Usage 
 
-    Natural three = 1 + 2;
+    Integer three = 1 + 2;
     String concatenated = "foo" + "bar";
 
 ## Description
@@ -35,8 +35,7 @@ The meaning of `+` depends on the
 
 ### Meaning of `+` for built-in types
 
-For the built-in numeric types ([`Natural`](#{site.urls.apidoc}/ceylon/language/class_Natural.html), 
-[`Integer`](#{site.urls.apidoc}/ceylon/language/class_Integer.html),
+For the built-in numeric types ([`Integer`](#{site.urls.apidoc}/ceylon/language/class_Integer.html), 
 [`Float`](#{site.urls.apidoc}/ceylon/language/class_Float.html),
 [`Whole`](#{site.urls.apidoc}/ceylon/language/class_Whole.html) and
 [`Decimal`](#{site.urls.apidoc}/ceylon/language/class_Decimal.html))

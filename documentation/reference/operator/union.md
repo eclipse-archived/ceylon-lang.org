@@ -14,7 +14,7 @@ The left-associative, binary `|` operator is used to compute the
 
 ## Usage 
 
-    Natural two = 1 | 2;
+    Integer two = 1 | 2;
 
 ## Description
 
@@ -37,13 +37,6 @@ more details.
 The `|` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
 The meaning of `|` depends on the 
 [`Slots`](#{site.urls.apidoc}/ceylon/language/interface_Slots.html) interface 
-
-### Meaning of *union* for built-in types
-
-For the built-in numeric types ([`Natural`](#{site.urls.apidoc}/ceylon/language/class_Natural.html), 
-[`Integer`](#{site.urls.apidoc}/ceylon/language/class_Integer.html) and
-[`Whole`](#{site.urls.apidoc}/ceylon/language/class_Whole.html) 
-`|` performs a normal bitwise *or*. 
 
 ## See also
 

@@ -14,7 +14,7 @@ The right-associative, unary `~` operator is used to compute the
 
 ## Usage 
 
-    Natural minusTwo = ~1;
+    Integer minusTwo = ~1;
 
 ## Description
 
@@ -32,13 +32,6 @@ more details.
 The `~` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
 The meaning of `~` depends on the 
 [`FixedSlots`](#{site.urls.apidoc}/ceylon/language/interface_FixedSlots.html) interface 
-
-### Meaning of *complement* for built-in types
-
-For the built-in numeric types ([`Natural`](#{site.urls.apidoc}/ceylon/language/class_Natural.html), 
-[`Integer`](#{site.urls.apidoc}/ceylon/language/class_Integer.html) and
-[`Whole`](#{site.urls.apidoc}/ceylon/language/class_Whole.html) 
-`~` performs a normal bitwise *complement*. 
 
 ## See also
 

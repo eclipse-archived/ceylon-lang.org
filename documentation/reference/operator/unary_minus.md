@@ -31,25 +31,14 @@ The unary `-` operator is [polymorphic](/documentation/reference/operator/operat
 The meaning of `-` depends on 
 [`Invertable`](#{site.urls.apidoc}/ceylon/language/interface_Invertable.html) interface
 
-### Meaning of unary plus for built-in types
+### Meaning of unary minus for built-in types
 
-For the built-in type ([`Natural`](#{site.urls.apidoc}/ceylon/language/class_Natural.html) unary minus
-has the effect of converting the `Natural` to an `Integer`.
-
-For the other built in numeric types
+For the built in numeric types
 [`Integer`](#{site.urls.apidoc}/ceylon/language/class_Integer.html),
 [`Float`](#{site.urls.apidoc}/ceylon/language/class_Float.html),
-[`Decimal`](#{site.urls.apidoc}/ceylon/language/class_Decimal.html) `-` 
-essentially just changes the sign: Those types are already able to represent 
-negative numbers.
-
-### Widening
-
-The result type need not be the same as the operand type. This 
-allows unary minus to effect a type conversion. 
-An example of this is `Natural` which is declared to satisfy 
-`Inverable<Integer>`, so unary minus on a `Natural` results in an `Integer`, as
-expected.
+[`Whole`](#{site.urls.apidoc}/ceylon/language/class_Whole.html), and
+[`Decimal`](#{site.urls.apidoc}/ceylon/language/class_Decimal.html), `-` 
+just changes the sign.
 
 ## See also
 

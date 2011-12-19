@@ -15,7 +15,7 @@ operand.
 
 ## Usage 
 
-    variable Natural one = 1;
+    variable Integer one = 1;
     one &= 2; // still one
 
 ## Definition
@@ -33,13 +33,6 @@ The `&=` operator is [polymorphic](/documentation/reference/operator/operator-po
 
 The `&` in the definition is the [intersect operator] _doc coming soon at_ (../intersect) which 
 depends on the [`Slots`](#{site.urls.apidoc}/ceylon/language/interface_Slots.html) interface.
-
-### Meaning of *intersect assign* for built-in types
-
-For the built-in numeric types ([`Natural`](#{site.urls.apidoc}/ceylon/language/class_Natural.html), 
-[`Integer`](#{site.urls.apidoc}/ceylon/language/class_Integer.html) and
-[`Whole`](#{site.urls.apidoc}/ceylon/language/class_Whole.html) 
-`&=` performs a normal bitwise *and and assign*. 
 
 ## See also
 

@@ -24,18 +24,18 @@ happens to be captured by some `shared` declaration.
 Here, `count` is a local variable of the initializer of `Counter`:
 
     class Counter() {
-        variable Natural count := 0;
+        variable Integer count := 0;
     }
 
 But in the following two examples, `count` is an attribute:
 
     class Counter() {
-        shared variable Natural count := 0;
+        shared variable Integer count := 0;
     }
 
     class Counter() {
-        variable Natural count := 0;
-        shared Natural inc() {
+        variable Integer count := 0;
+        shared Integer inc() {
             return ++count;
         }
     }
@@ -45,13 +45,13 @@ The same behavior applies to locals inside a method. Methods can't declare
 `shared` members, but they can return an `object` that captures a local:
 
     interface Counter {
-        shared formal Natural inc();
+        shared formal Integer inc();
     }
     
     Counter createCounter() {
-        variable Natural count := 0;
+        variable Integer count := 0;
         object counter satisfies Counter {
-            shared actual Natural inc() {
+            shared actual Integer inc() {
                 return ++count;
             }
         }

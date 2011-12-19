@@ -80,15 +80,15 @@ type.
 
 ## Equality and identity
 
-On the other hand, since `Object` is a supertype of types like 
-`Float` which are passed by value at the level of the Java Virtual Machine, 
-you can't use the `===` operator to test the identity of two values of type 
-`Object`. Instead, there is a subclass of `Object`, named `IdentifiableObject`, 
-which represents a type which is always passed by reference. The `===` 
-operator accepts expressions of type `IdentifiableObject`. It's possible for 
-a user-written class to directly extend `Object`, but most of the classes 
-you write will be subclasses of `IdentifiableObject`. All classes with 
-variable attributes must extend `IdentifiableObject`.
+On the other hand, since `Object` is a supertype of types like `Float` which 
+are passed by value at the level of the Java Virtual Machine, you can't use 
+the `===` operator to test the identity of two values of type `Object`. 
+Instead, there is a subclass of `Object`, named `IdentifiableObject`, which 
+represents a type which is always passed by reference. The `===` operator 
+accepts expressions of type `IdentifiableObject`. It's possible for a 
+user-written class to directly extend `Object`, but most of the classes you 
+write will be subclasses of `IdentifiableObject`. All classes with variable 
+attributes must extend `IdentifiableObject`.
 
     shared abstract class IdentifiableObject()
             extends Object()
@@ -128,13 +128,8 @@ defined by `java.lang.Object`.
 Just like in Java, you can refine this default implementation in your own 
 classes. This is the normal way to get a customized behavior for the `==` 
 operator, the only constraint being, that for subtypes of 
-`IdentifiableObject`, `x===y` should imply `x==y` — equality should be 
+`IdentifiableObject`, `x===y` should imply `x==y`— equality should be 
 consistent with identity.
-
-Occasionally that's not what we want. For example, for numeric types, it 
-doesn't matter whether a value is of class `Natural`, `Integer`, or `Whole` when 
-comparing it to `0`. Fortunately, numeric types extend `Object` directly, and 
-are not subject to the additional constraints defined by `IdentifiableObject`.
 
 Thus, Ceylon is able to capture within the type system much of the behavior 
 that Java introduces by fiat special-case rules in the language definition.
@@ -217,30 +212,29 @@ Java's primitive types. The types that represent numeric values are just
 ordinary classes. Ceylon has fewer built-in numeric types than other C-like 
 languages:
 
-* `Natural` represents the unsigned integers and zero,
 * `Integer` represents signed integers,
 * `Float` represents floating point approximations to the real numbers,
 * `Whole` represents arbitrary-precision signed integers, and
 * `Decimal` represents arbitrary-precision and arbitrary-scale decimals.
 
-`Natural`, `Integer` and `Float` have 64-bit precision by default. Eventually, 
-you'll be able to specify that a value has 32-bit precision by annotating it 
+`Integer` and `Float` have 64-bit precision by default. Eventually, you'll 
+be able to specify that a value has 32-bit precision by annotating it 
 `small`. But note that this annotation is really just a hint that the compiler 
 is free to ignore (and it currently does).
 
 ## Numeric literals
 
-There are only two kinds of numeric literals: literals for `Naturals`, and 
+There are only two kinds of numeric literals: literals for `Integers`, and 
 literals for `Floats`:
 
-    Natural one = 1;
+    Integer one = 1;
     Float oneHundredth = 0.01;
     Float oneMillion = 1.0E+6;
 
 The digits of a numeric literal may be grouped using underscores. If the 
 digits are grouped, then groups must contain exactly three digits.
 
-    Natural twoMillionAndOne = 2_000_001;
+    Integer twoMillionAndOne = 2_000_001;
     Float pi = 3.141_592_654;
 
 A very large or small numeric literals may be qualified by one of the 
@@ -251,7 +245,7 @@ standard SI unit prefixes: m, u, n, p, f, k, M, G, T, P.
     Float hydrogenRadius = 25.0p; // p (pico) means E-12
     Float usGovDebt = 14.33T; // T (tera) means E12
     Float brainCellSize = 4.0u; // u (micro) means E-6
-    Natural deathsUnderCommunism = 94M; // M (mega) means E6
+    Integer deathsUnderCommunism = 94M; // M (mega) means E6
 
 ## Numeric widening
 
@@ -261,14 +255,8 @@ automatically widen (or narrow) numeric values. Instead, we need to call
 one of the operations (well, attributes, actually) defined by the interface 
 `Number`.
 
-    Whole zero = 0.whole; // explicitly widen from Natural
+    Whole zero = 0.whole; // explicitly widen from Integer
     Decimal half = 0.5.decimal; // explicitly widen from Float
-
-Usefully, the unary prefix operators `+` and `-` always widen `Natural` 
-to `Integer`:
-
-    Integer negativeOne = -1;
-    Integer three = +3;
 
 You can use all the operators you're used to from other C-style languages 
 with the numeric types. You can also use the `**` operator to raise a 
@@ -288,7 +276,6 @@ so we could write the expression above like this:
 
 The "built-in" widening conversions are the following:
 
-* `Natural` to `Integer`, `Float`, `Whole`, or `Decimal`
 * `Integer` to `Float`, `Whole`, or `Decimal`
 * `Float` to `Decimal`
 * `Whole` to `Decimal`
@@ -318,13 +305,6 @@ should be the union of all types to which the implementing type is castable.
 
 For example, simplifying slightly the definitions in the language module:
 
-    shared class Natural(...)
-            extends Object()
-            satisfies Castable<Natural|Integer|Float|Whole|Decimal> &
-                      Numeric<Natural> &
-                      Invertable<Integer> {
-        ...
-    }
     shared class Integer(...)
             extends Object()
             satisfies Castable<Integer|Float|Whole|Decimal> &
@@ -355,7 +335,7 @@ completely within the type system, in terms of `Numeric` and `Castable`:
     }
 
 Don't worry too much about the performance implications of all this — 
-in practice, the compiler is permitted to optimize the types `Natural`, 
+in practice, the compiler is permitted to optimize the types `Integer`, 
 `Integer`, and `Float` down to the virtual machine's native numeric types.
 
 The value of all this — apart from eliminating special cases in the language 

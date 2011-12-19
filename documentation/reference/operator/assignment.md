@@ -14,7 +14,7 @@ The right-associative, binary `:=` operator is used to assign a value to a
 
 ## Usage 
 
-    variable Natural num := 1;
+    variable Integer num := 1;
     num := 2;
 
 ## Description

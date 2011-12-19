@@ -15,7 +15,7 @@ the left-hand operand with the result.
 
 ## Usage 
 
-    variable Natural num := 10;
+    variable Integer num := 10;
     num %= 2; // half num 
 
 ## Description

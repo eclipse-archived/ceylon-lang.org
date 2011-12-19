@@ -14,7 +14,7 @@ two operands.
 
 ## Usage 
 
-    Natural three = 6 / 2;
+    Integer three = 6 / 2;
 
 ## Description
 
@@ -28,16 +28,15 @@ See the [language specification](#{site.urls.spec}#arithmetic) for more details.
 
 ### Polymorphism
 
-The `*` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
-The meaning of `*` depends on the 
+The `/` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
+The meaning of `/` depends on the 
 [`Numeric`](#{site.urls.apidoc}/ceylon/language/interface_Numeric.html) and
 [`Castable`](#{site.urls.apidoc}/ceylon/language/interface_Castable.html) interfaces.
 
 
-### Meaning of product for built-in types
+### Meaning of quotient for built-in types
 
-For the built-in numeric types ([`Natural`](#{site.urls.apidoc}/ceylon/language/class_Natural.html), 
-[`Integer`](#{site.urls.apidoc}/ceylon/language/class_Integer.html),
+For the built-in numeric types ([`Integer`](#{site.urls.apidoc}/ceylon/language/class_Integer.html), 
 [`Float`](#{site.urls.apidoc}/ceylon/language/class_Float.html),
 [`Whole`](#{site.urls.apidoc}/ceylon/language/class_Whole.html) and
 [`Decimal`](#{site.urls.apidoc}/ceylon/language/class_Decimal.html))

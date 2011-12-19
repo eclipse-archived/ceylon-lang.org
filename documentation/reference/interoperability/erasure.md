@@ -31,7 +31,7 @@ erasure rules depend on how the type is being used. For example a
 Ceylon type may erase to one Java type when used in a method return type 
 and a *different* Java type when used in an `extends` or `satisifes` clause. 
 
-A concrete example of this would `ceylon.language.Natural`, which erases to 
+A concrete example of this would `ceylon.language.Integer`, which erases to 
 `int` in most places, but when used as a generic type parameter, it
 has to erase to `java.lang.Integer` because a primitive type is not 
 permitted as a type parameter in Java.
@@ -73,11 +73,11 @@ Please note: **These erasure rules are subject to change as the compiler develop
       <td><code>ceylon.language.Integer</code></td>
     </tr>
     <tr>
-      <td><code>ceylon.language.Natural</code></td>
+      <td><code>ceylon.language.Integer</code></td>
       <td><code>long</code></td>
     </tr>
     <tr>
-      <td><code>ceylon.language.Natural?</code></td>
+      <td><code>ceylon.language.Integer?</code></td>
       <td><code>long</code></td>
     </tr>
     <tr>

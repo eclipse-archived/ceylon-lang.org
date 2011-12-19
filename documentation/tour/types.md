@@ -61,28 +61,28 @@ only expressions of type `X` and expressions of type `Y` are assignable to it.
 The type `X|Y` is a supertype of both `X` and `Y`. The following code is 
 well-typed:
 
-    void print(String|Natural|Integer val) { ... }
+    void print(String|Integer|Float val) { ... }
      
     print("hello");
     print(69);
-    print(-1);
+    print(-1.0);
 
-But what operations does a type like `String|Natural|Integer` have? What are 
+But what operations does a type like `String|Integer|Float` have? What are 
 its supertypes? Well, the answer is pretty intuitive: `T` is a supertype of 
 `X|Y` if and only if it is a supertype of both `X` and `Y`. The Ceylon compiler 
 determines this automatically. So the following code is also well-typed:
 
-    Natural|Integer i = -1;
-    Number num = i;  // Number is a supertype of both Natural and Integer
-    String|Natural|Integer val = i; // String|Natural|Integer is a supertype of Natural|Integer
-    Object obj = val; // Object is a supertype of String, Natural, and Integer
+    Integer|Float i = -1;
+    Number num = i;  // Number is a supertype of both Integer and Float
+    String|Integer|Integer val = i; // String|Integer|Float is a supertype of Integer|Float
+    Object obj = val; // Object is a supertype of String, Integer, and Float
 
 However, the following code is *not* well-typed, since since `Number` is not a 
 supertype of `String`.
 
-    Natural|Integer i = -1;
+    Integer|Float i = -1;
     Number num = i;
-    String|Natural|Integer val = num; //compile error
+    String|Integer|Float val = num; //compile error
 
 Of course, it's very common to narrow an expression of union type using a 
 `switch` statement. Usually, the Ceylon compiler forces us to write an `else` 
@@ -90,11 +90,11 @@ clause in a `switch`, to remind us that there might be additional cases which
 we have not handled. But if we exhaust all cases of a union type, the compiler 
 will let us leave off the `else` clause.
 
-    void print(String|Natural|Integer val) {
+    void print(String|Integer|Float val) {
         switch (val)
         case (is String) { print(val); }
-        case (is Natural) { print("Natural: " + val); }
         case (is Integer) { print("Integer: " + val); }
+        case (is Float) { print("Float: " + val); }
     }
 
 
@@ -340,7 +340,7 @@ local method) in place of the type declaration.
 
     value polar = Polar(pi, 2.0);
     value operators = { "+", "-", "*", "/" };
-    function add(Natural x, Natural y) { return x+y; }
+    function add(Integer x, Integer y) { return x+y; }
 
 There are some restrictions applying to this feature. You can't use `value` 
 or `function`:
@@ -384,7 +384,7 @@ So the following code is well-typed:
 
 As is the following code:
 
-    value nums = { 12.0, 1, -3 }; //type Sequence<Float|Natural|Integer>
+    value nums = { 12.0, 1, -3 }; //type Sequence<Float|Integer>
     Number[] numbers = nums; //type Empty|Sequence<Number>
 
 What about sequences that contain `null`? Well, do you 

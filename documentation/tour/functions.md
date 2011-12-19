@@ -55,7 +55,7 @@ type parameter `Argument...` represents the parameter types of the function.
 
 So the type of sum in Ceylon is:
 
-    Callable<Natural, Natural, Natural>
+    Callable<Integer, Integer, Integer>
 
 What about `void` functions? Well, remember that way back in 
 [the first part of the tour](../basics) we said 
@@ -80,16 +80,16 @@ method` iterator()` of `Iterable<String>` would be:
 
     Method<Iterator<String>, Iterable<String>>
 
-And the type of the method `compare()` of `Comparable<Natural>` would be:
+And the type of the method `compare()` of `Comparable<Integer>` would be:
 
-    Method<Comparison,Comparable<Natural>,Natural>
+    Method<Comparison,Comparable<Integer>,Integer>
 
 Notice that we've declared a method to be a function that accepts a 
 receiver object and returns a function. As a consequence of this, an 
 alternative method invocation protocol is the following:
 
     Iterable<String>.iterator(strings)();
-    Comparable<Natural>.compare(0)(num);
+    Comparable<Integer>.compare(0)(num);
 
 Don't worry if you can't make sense of that right now. A few details 
 are being glossed over here, that's not quite *exactly* how Method is 
@@ -103,7 +103,7 @@ We now have enough machinery to be able to write higher order functions.
 For example, we could create a `repeat()` function that repeatedly executes a 
 function.
 
-    void repeat(Natural times, Callable<Void,Natural> perform) {
+    void repeat(Integer times, Callable<Void,Integer> perform) {
         for (i in 1..times) {
             perform(i);
         }
@@ -111,7 +111,7 @@ function.
 
 And call it like this:
 
-    void printNum(Natural n) { print(n); }
+    void printNum(Integer n) { print(n); }
     repeat(10, printNum);
 
 Which would print the numbers 1 to 10 to the console.
@@ -121,7 +121,7 @@ functions using named arguments, but the Callable type does not encode the
 names of the function parameters. So Ceylon has an alternative, more elegant, 
 syntax for declaring a parameter of type `Callable`:
 
-    void repeat(Natural times, void perform(Natural n)) {
+    void repeat(Integer times, void perform(Integer n)) {
         for (i in 1..times) {
             perform(i);
         }
@@ -136,14 +136,14 @@ This is the preferred syntax for defining higher-order functions.
 When a name of a function appears without any arguments, like `printNum` does 
 above, it's called a *function reference*. A function reference is the 
 thing that really has the type `Callable`. In this case, `printNum` has the type 
-`Callable<Void,Natural>`.
+`Callable<Void,Integer>`.
 
 Now, remember how we said that `Void` is both the return type of a 
 void method, and also the logical root of the type hierarchy? Well that's 
 useful here, since it means that we can assign a function with a non-`Void` 
 return type to any parameter which expects a void method:
 
-    Boolean attemptPrint(Natural n) {
+    Boolean attemptPrint(Integer n) {
         try {
             print(n);
             return true;
@@ -158,7 +158,7 @@ Another way we can produce a function reference is by partially applying a
 method to a receiver expression. For example, we could write the following:
 
     class Hello(String name) {
-        shared void say(Natural n) {
+        shared void say(Integer n) {
             print("Hello, " name ", for the " n "th time!");
         }
     }
@@ -166,7 +166,7 @@ method to a receiver expression. For example, we could write the following:
     repeat(10, Hello("Gavin").say);
 
 Here the expression `Hello("Gavin").say` has the same type as `print` above. 
-It is a `Callable<Void,Natural>`.
+It is a `Callable<Void,Integer>`.
 
 
 ## More about higher-order functions
@@ -485,7 +485,7 @@ our other examples:
 
 * Tabulation: 
 
-      tabulateList(20) containing (Natural i) (i**3)
+      tabulateList(20) containing (Integer i) (i**3)
 
 * Comprehension: 
 

@@ -133,14 +133,14 @@ usually stand out immediately.
 
 The following classes define a data structure for building tables:
 
-    class Table(String title, Natural rows, Border border, Column... columns) { ... }
-    class Column(String heading, Natural width, String content(Natural row)) { ... }
-    class Border(Natural padding, Natural weight) { ... }
+    class Table(String title, Integer rows, Border border, Column... columns) { ... }
+    class Column(String heading, Integer width, String content(Integer row)) { ... }
+    class Border(Integer padding, Integer weight) { ... }
 
 Of course, we could built a `Table` using positional argument lists:
 
-    String x(Natural row) { return row.string; }
-    String xSquared(Natural row) { return (row**2).string; }
+    String x(Integer row) { return row.string; }
+    String xSquared(Integer row) { return (row**2).string; }
     Table table = Table("Squares", 5, Border(2,1), Column("x",10, x), Column("x**2",12, xSquared));
 
 However, it's far more common to use named arguments to build a complex 
@@ -181,14 +181,14 @@ So we could rewrite the code that builds a `Table` as follows:
         Column {
             heading="x";
             width=10;
-            String content(Natural row) {
+            String content(Integer row) {
                 return row.string;
             }
         },
         Column {
             heading="x**2";
             width=12;
-            String content(Natural row) {
+            String content(Integer row) {
                 return (row**2).string;
             }
         }
@@ -209,14 +209,14 @@ Even better, our example can be abbreviated like this:
         Column {
             heading="x";
             width=10;
-            String content(Natural row) {
+            String content(Integer row) {
                 return row.string;
             }
         },
         Column {
             heading="x**2";
             width=10;
-            String content(Natural row) {
+            String content(Integer row) {
                 return (row**2).string;
             }
         }

@@ -14,7 +14,7 @@ nullness.
 
 ## Usage 
 
-    Natural? num;
+    Integer? num;
     Boolean haveNum = num exists;
 
 ## Description

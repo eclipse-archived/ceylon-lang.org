@@ -31,11 +31,11 @@ Here's what a simple function looks like:
 
 Here's a simple class:
 
-    shared class Counter(Natural initialValue=0) {
+    shared class Counter(Integer initialValue=0) {
         
         variable value count := initialValue;
         
-        shared Natural currentValue {
+        shared Integer currentValue {
             return count;
         }
         
@@ -74,14 +74,14 @@ structures. This is especially useful for creating user interfaces:
         Column {
             heading="x";
             width=10;
-            String content(Natural row) {
+            String content(Integer row) {
                 return row.string;
             }
         },
         Column {
             heading="x**2";
             width=10;
-            String content(Natural row) {
+            String content(Integer row) {
                 return (row**2).string;
             }
         }
@@ -139,7 +139,7 @@ inheritance*.
 
     interface Sized {
         
-        shared formal Natural size;
+        shared formal Integer size;
     
         shared Boolean empty {
             return size==0;
@@ -157,7 +157,7 @@ inheritance*.
     
     object empty satisfies Sized & Printable {
     
-        shared actual Natural size {
+        shared actual Integer size {
             return 0;
         }
         
@@ -314,7 +314,7 @@ function.
 A function which operates on other functions is called a *higher-order function*. 
 For example:
 
-    void repeat(Natural times, void do()) {
+    void repeat(Integer times, void do()) {
         for (i in 1..times) {
             do();
         }

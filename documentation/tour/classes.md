@@ -129,7 +129,7 @@ as part of the declaration of the attribute.
 
     shared Float x = radius * sin(angle);
     shared String greeting = "Hello, " name "!";
-    shared Natural months = years * 12;
+    shared Integer months = years * 12;
 
 On the other hand, it's sometimes useful to separate declaration from specification 
 of a value.
@@ -166,7 +166,7 @@ code? We put it directly in the body of the class!
 The Ceylon compiler forces you to specify a value of any simple attribute or 
 local before making use of the simple attribute or local in an expression.
 
-    Natural count;
+    Integer count;
     shared void inc() {
         count++;   //compile error
     }

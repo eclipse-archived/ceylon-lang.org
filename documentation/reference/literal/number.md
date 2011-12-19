@@ -12,7 +12,6 @@ author: Tom Bentley
 
 A `Number` literal can be written an a variety of ways
 
-
     Number one = 1;
     variable Number oneMillion := 1000000;
     oneMillion := 1_000_000;
@@ -41,13 +40,10 @@ Use of one of the following metric magnitudes as a suffix is supported:
 * `T` (tera), 10<sup>12</sup>
 * `P` (peta), 10<sup>15</sup>
 
-Ceylon does not have direct support for `Integer` literals. If an `Integer` is
-required the [unary plus](../../operator/unary_plus) 
-(or [unary minus](../../operator/unary_minus), if a negative value is required) 
-operator can be used in the  declaration of the `Integer`, like this:
+Ceylon does not have direct support for negative literals. If a negative number 
+is required, the [unary minus](../../operator/unary_minus) operator can be used 
+in the  declaration of the `Integer`, like this:
 
-
-    Integer two = +2;
     Integer minusTwo = -2;
 
 ## See also

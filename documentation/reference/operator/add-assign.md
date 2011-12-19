@@ -14,7 +14,7 @@ by the amount given by its right-hand operand.
 
 ## Usage 
 
-    variable Natural num := 1;
+    variable Integer num := 1;
     num += 1; // increment num by 1
     num += num; // increment num by 2
 

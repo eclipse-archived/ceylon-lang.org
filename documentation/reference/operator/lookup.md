@@ -13,8 +13,8 @@ The *lookup* operator accesses a particular item in a `Correspondence`.
 
 ## Usage 
 
-    Natural[] seq = {1, 2, 3};
-    Natural? first = seq[0]; // The get case
+    Integer[] seq = {1, 2, 3};
+    Integer? first = seq[0]; // The get case
     seq[0] := 5;             // The set case
 
 ## Description

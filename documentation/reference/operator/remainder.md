@@ -33,10 +33,10 @@ The meaning of `%` depends on the
 [`Integral`](#{site.urls.apidoc}/ceylon/language/interface_Integral.html) and
 [`Castable`](#{site.urls.apidoc}/ceylon/language/interface_Castable.html) interfaces 
 
-### Meaning of product for built-in types
+### Meaning of remainder for built-in types
 
-For the built-in numeric types ([`Natural`](#{site.urls.apidoc}/ceylon/language/class_Natural.html) and
-[`Integer`](#{site.urls.apidoc}/ceylon/language/class_Integer.html) `/` 
+For the built-in numeric types ([`Integer`](#{site.urls.apidoc}/ceylon/language/class_Integer.html) and
+[`Whole`](#{site.urls.apidoc}/ceylon/language/class_Whole.html) `/` 
 `%` computes normal mathematical remainder.
 
 Since the other built-in numeric types do not satisfy `Integral`, the

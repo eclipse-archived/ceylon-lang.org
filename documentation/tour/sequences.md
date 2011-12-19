@@ -60,12 +60,12 @@ The code above is exactly equivalent to the following de-sugared code:
 A `Range` is also a subtype of `Sequence`. The following:
 
     Character[] uppercaseLetters = 'A'..'Z';
-    Natural[] countDown = 10..0;
+    Integer[] countDown = 10..0;
 
 Is just sugar for:
 
     Empty|Sequence<Character> uppercaseLetters = Range('A','Z');
-    Empty|Sequence<Natural> countDown = Range(10,0);
+    Empty|Sequence<Integer> countDown = Range(10,0);
 
 In fact, this is just a sneak preview of the fact that almost all operators 
 in Ceylon are just sugar for method calls upon a type. We'll come back to this 
@@ -84,7 +84,7 @@ using a `for` loop:
 Ceylon doesn't need C-style `for` loops. Instead, combine `for` with the 
 range operator `..`.
 
-    variable Natural fac:=1;
+    variable Integer fac:=1;
     for (n in 1..100) {
         fac*=n;
         print("Factorial " n "! = " fac "");
@@ -98,7 +98,7 @@ iterating instances of `Entries`:
         print($i + ": " + op);
     }
 
-The `entries()` function returns an instance of `Entries<Natural,String>` 
+The `entries()` function returns an instance of `Entries<Integer,String>` 
 containing the indexed elements of the sequence. The `->` is syntax sugar 
 for `Entry`.
 
@@ -110,11 +110,11 @@ place to find some than in the language module itself?
 Here's how the language module defines the type `Sequence`:
 
     shared interface Sequence<out Element>
-            satisfies Correspondence<Natural, Element> &
+            satisfies Correspondence<Integer, Element> &
                       Iterable<Element> & Sized {
          
         doc "The index of the last element of the sequence."
-        shared formal Natural lastIndex;
+        shared formal Integer lastIndex;
          
         doc "The first element of the sequence."
         shared actual formal Element first;
@@ -127,7 +127,7 @@ Here's how the language module defines the type `Sequence`:
             return false;
         }
              
-        shared actual default Natural size {
+        shared actual default Integer size {
             return lastIndex+1;
         }
          
@@ -144,7 +144,7 @@ Here's how the language module defines the type `Sequence`:
         }
      
         shared actual default Iterator<Element> iterator() {
-            class SequenceIterator(Natural from)
+            class SequenceIterator(Integer from)
                     satisfies Iterator<Element> {
                 shared actual Element? head {
                     return item(from);
@@ -192,7 +192,7 @@ The most interesting operations are inherited from `Correspondence`,
              
         doc "The number of values or entries
              belonging to the container."
-        shared formal Natural size;
+        shared formal Integer size;
          
         shared actual default Boolean empty {
             return size==0;
@@ -222,10 +222,10 @@ Now let's see the definition of Empty:
     }
      
     shared interface Empty
-               satisfies Correspondence<Natural, Bottom> &
+               satisfies Correspondence<Integer, Bottom> &
                          Iterable<Bottom> & Sized {
          
-        shared actual Natural size {
+        shared actual Integer size {
             return 0;
         }
         shared actual Boolean empty {
@@ -234,7 +234,7 @@ Now let's see the definition of Empty:
         shared actual Iterator<Bottom> iterator() {
             return emptyIterator;
         }
-        shared actual Nothing item(Natural key) {
+        shared actual Nothing item(Integer key) {
             return null;
         }
         shared actual Nothing first {
@@ -250,9 +250,9 @@ The special type `Bottom` represents:
 
 Since the empty set is a subset of all other sets, `Bottom` is assignable to 
 all other types. Why is this useful here? Well, 
-`Correspondence<Natural,Element>` and `Iterable<Element>` are both covariant 
+`Correspondence<Integer,Element>` and `Iterable<Element>` are both covariant 
 in the type parameter `Element`. So `Empty` is assignable to 
-`Correspondence<Natural,T>` and `Iterable<T>` for any type `T`. That's why 
+`Correspondence<Integer,T>` and `Iterable<T>` for any type `T`. That's why 
 `Empty` doesn't need a type parameter. The following code is well-typed:
 
     void printAll(String[] strings) {
