@@ -29,7 +29,3 @@ any day now.
 
 The source [code](/code) is available from [GitHub](http://github.com/ceylon).
 
-You can follow our progress on:
-
-* our [blog](/blog), or
-* the [roadmap](/documentation/roadmap).
