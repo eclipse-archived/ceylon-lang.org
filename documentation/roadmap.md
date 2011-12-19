@@ -73,7 +73,7 @@ modularity.*
 * string templates (interpolation)
 * self references (`this`, `super`) 
 * attribute evaluation/assignment
-* operators <a href="#m1-operators"><sup>2</sup></a> [TODO: some operators are missing]
+* operators <a href="#m1-operators"><sup>2</sup></a>
 * parenthesized expressions
 * positional method invocation<a href="#m1-invocation"><sup>3</sup></a>
 * named-argument method invocation (no object/method/getter args)<a href="#m1-invocation"><sup>3</sup></a>
