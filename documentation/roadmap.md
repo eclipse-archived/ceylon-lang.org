@@ -110,6 +110,7 @@ modularity.*
 * `process`
 
 ### Modularity:
+* module and package descriptors
 * `car` archives
 * local repositories
 * module versioning
