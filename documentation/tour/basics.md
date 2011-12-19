@@ -188,9 +188,9 @@ use the `if (exists ...)` control structure to split the code that deals with
 a non-`null` vs a `null` name.
 
 Unlike Java, locals, parameters, and attributes that may contain `null` values 
-must be explicitly declared as being of optional type (the `?` sugar syntax). 
-There's simply no way to assign `null` to a local that isn't of optional 
-type. The compiler won't let you.
+must be explicitly declared as being of optional type (the `T?` syntax). 
+There's simply no way to assign `null` to a local that isn't of optional type. 
+The compiler won't let you.
 
 Nor will the Ceylon compiler let you do anything dangerous with a value of 
 type `T?` - that is, anything that could cause a `NullPointerException` in 
@@ -201,6 +201,11 @@ In fact, it's not even possible to use the equality operator `==` with an
 expression of optional type. You can't write `if (x==null)` like you can in 
 Java. This helps avoid the undesirable behavior of `==` in Java where `x==y` 
 evaluates to true if `x` and `y` both evaluate to `null`.
+
+Note that the syntax `String?` is just an abbreviation for the 
+[union type](../types/#more_about_union_types) `Nothing|String`. The value
+`null` isn't a primitive value in Ceylon, it's just an instance of the 
+perfectly ordinary class `Nothing`.
 
 It's possible to declare the local name inside the `if (exists ... )` 
 condition (and because Ceylon has [type inference](../types#type_inference), 
@@ -255,7 +260,8 @@ Defaulted parameters must be declared after all required parameters in the
 parameter list of a method.
 
 Ceylon also supports sequenced parameters (varargs), declared using an ellipsis 
-(i.e. `String...`). But we'll [come back](../missing-pieces/#sequenced_parameters) to them after we discuss [sequences](../sequences) and [`for` loops](../missing-pieces#control_structures).
+(i.e. `String...`). But we'll [come back](../missing-pieces/#sequenced_parameters) 
+to them after we discuss [sequences](../sequences) and [`for` loops](../missing-pieces#control_structures).
 
 ## There's more...
 
