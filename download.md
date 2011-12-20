@@ -16,6 +16,11 @@ compiler, language module, and runtime.
 
 [newton]: /blog/2011/12/20/ceylon-m1-newton?utm_source=download&utm_medium=web&utm_content=blog&utm_campaign=1_0_M1release.
 
+We even have the following Linux distribution packages:
+
+<img src="/images/package-debian.png" style="vertical-align: middle; margin-right: 0.5em"/>
+<a href="/download/dist/1_0_Milestone1_deb" onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone1_deb?utm_source=download&utm_medium=web&utm_content=dist&utm_campaign=1_0_M1release']);">Debian/Ubuntu</a>.
+
 Instructions for getting started are contained in the file
 `README.md` in the root directory of the distribution, or
 [right here in GitHub][ceylon-dist readme].
