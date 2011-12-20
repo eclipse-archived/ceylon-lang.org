@@ -16,7 +16,7 @@ compiler, language module, and runtime.
 
 <table>
     <tr>
-        <td/>
+        <td><img src="/images/package-zip.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/></td>
         <td>Zip archive</td>
         <td><a href="/download/dist/1_0_Milestone1" onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone1?utm_source=download&utm_medium=web&utm_content=dist&utm_campaign=1_0_M1release']);">download</a></td>
     </tr>
