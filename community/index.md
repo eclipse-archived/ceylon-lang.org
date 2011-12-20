@@ -29,7 +29,7 @@ Come hear about Ceylon at a [conference or user group near you](events).
 
 ## Google+
 
-Ceylon even has a [Google+ page](http://gplus.to/ceylon).
+Ceylon even has a [Google+ page](http://ceylon-lang.org/+).
 
 ## Desktop wallpaper
 
