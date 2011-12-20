@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: Specification of the Ceylon language
+title: Ceylon Language Specification 
 tab: documentation
 unique_id: docspage
 author: Emmanuel Bernard
