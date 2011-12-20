@@ -49,9 +49,11 @@ The plugin provides the following features, among others:
 
 ## Running the pre-release IDE
 
-If you *really* want to try out Ceylon now, before we even release Milestone 1, 
+If you *really* want to try out Ceylon now, 
 you can get a special pre-release build of the Ceylon IDE (which includes the
 compiler) from our Eclipse plugin update site.
+
+A version of the IDE compatible with Milestone 1 is coming real soon.
 
 Here's what you need to do to install the IDE:
 

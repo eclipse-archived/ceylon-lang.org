@@ -12,13 +12,14 @@ is now available for download! This is the first official
 release of the Ceylon command line compiler, documentation 
 compiler, language module, and runtime.
 
-[newton]: /blog/2011/12/19/ceylon-m1-newton
+[newton]: /blog/2011/12/19/ceylon-m1-newton?utm_source=download&utm_medium=web&utm_content=blog&utm_campaign=1_0_M1release).
 
 <http://where?>
 
 Instructions for getting started are contained in the file
 `README.md` in the root directory of the distribution, or
 [right here in GitHub][ceylon-dist readme].
+To know what's precisely in the release, read our [blog entry][newton].
 
 [ceylon-dist readme]: https://github.com/ceylon/ceylon-dist/blob/master/README.md 
 
