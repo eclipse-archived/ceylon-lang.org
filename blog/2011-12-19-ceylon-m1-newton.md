@@ -9,6 +9,7 @@ tags: [release, progress, M1]
 
 [M1]: /documentation/roadmap/#milestone_1
 [M2]: /documentation/roadmap/#milestone_2
+[spec]: /documentation/spec
 
 Today, we're proud to announce the release of Ceylon M1 "Newton". 
 This is the first official release of the Ceylon command line
@@ -61,18 +62,23 @@ Furthermore, numeric operators are not currently optimized by the
 compiler, so numeric code is expected to perform poorly.
 
 [This page](/documentation/introduction/) provides a quick 
-introduction to the language.
+introduction to the language. [The draft language specification][spec]
+is the complete definition.
 
 ### Modularity and runtime
 
 Ceylon modules may be executed on any standard JVM. The toolset and 
 runtime for Ceylon is based around `.car` module archives and module 
 repositories. The runtime supports a modular, peer-to-peer class 
-loading architecture, with full support for module versioning. 
+loading architecture, with full support for module versioning and 
+multiple repositories. 
 
 This release of Ceylon includes support for local module repositories. 
 Support for remote repositories and the shared community repository 
 `modules.ceylon-lang.org` will be available in the [next release][M2].
+
+Chapter 7 of [the language specification][spec] contains much more
+information about the Ceylon module system and command line tools.
 
 ### SDK
 
@@ -91,6 +97,10 @@ freely available from GitHub:
 
 <https://github.com/ceylon>
 
+### Issues
+
+Bugs and suggestions may be reported in GitHub's issue tracker.
+
 ### Community
 
 The Ceylon community site includes [documentation](/documentation), 
@@ -100,8 +110,6 @@ involved](/code).
 
 <http://ceylon-lang.org>
 
-[spec]: http://ceylon-lang.org
-    
 ### Acknowledgement
 
 We're deeply indebted to the community volunteers who contributed a 
