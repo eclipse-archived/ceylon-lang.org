@@ -14,7 +14,7 @@ compiler, language module, and runtime.
 
 <a href="/download/dist/1_0_Milestone1" onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone1?utm_source=download&utm_medium=web&utm_content=dist&utm_campaign=1_0_M1release']);">Download it here</a>.
 
-[newton]: /blog/2011/12/19/ceylon-m1-newton?utm_source=download&utm_medium=web&utm_content=blog&utm_campaign=1_0_M1release).
+[newton]: /blog/2011/12/20/ceylon-m1-newton?utm_source=download&utm_medium=web&utm_content=blog&utm_campaign=1_0_M1release.
 
 Instructions for getting started are contained in the file
 `README.md` in the root directory of the distribution, or
