@@ -124,4 +124,5 @@ spare time. The following people have contributed to this release:
 *Stephane Epardaud, Tako Schotanus, Gary Benson, Emmanuel Bernard, 
 Andrew Haley, Tom Bentley, Ales Justin, David Festal, Flavio Oliveri, 
 Sergej Koshchejev, Max Rydahl Andersen, Mladen Turk, James Cobb, 
-Ben Keating, Michael Brackx, Ross Tate, Ivo Kasiuk, Gertjan Assies*
+Ben Keating, Michael Brackx, Ross Tate, Ivo Kasiuk, Gertjan Assies,
+Nicolas Leroux, Julien Viet*
