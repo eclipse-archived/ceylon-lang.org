@@ -9,8 +9,8 @@ milestone: Milestone 1
 
 # #{page.title}
 
-The right-associative, unary `+` operator is used to get the clarify the 
-positive value of its operand.
+The right-associative, unary `+` operator is used to clarify the positive value 
+of its operand.
 
 ## Usage 
 
