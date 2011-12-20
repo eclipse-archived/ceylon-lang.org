@@ -7,9 +7,9 @@ tab: blog
 tags: [release, progress, M1]
 ---
 
-[M1]: /documentation/roadmap/#milestone_1
-[M2]: /documentation/roadmap/#milestone_2
-[spec]: /documentation/spec
+[M1]: /documentation/roadmap/#milestone_1?utm_source=blog&utm_medium=web&utm_content=roadmap_m1&utm_campaign=1_0_M1release
+[M2]: /documentation/roadmap/#milestone_2?utm_source=blog&utm_medium=web&utm_content=roadmap_m2&utm_campaign=1_0_M1release
+[spec]: /documentation/spec?utm_source=blog&utm_medium=web&utm_content=spec&utm_campaign=1_0_M1release
 
 Today, we're proud to announce the release of Ceylon M1 "Newton". 
 This is the first official release of the Ceylon command line
@@ -18,9 +18,10 @@ and a [major step down the roadmap][M1] toward Ceylon 1.0.
 
 You can get it here:
 
-<http://ceylon-lang.org/download>
+[http://ceylon-lang.org/download](http://ceylon-lang.org/download?utm_source=blog&utm_medium=web&utm_content=download&utm_campaign=1_0_M1release)
 
-We plan a compatible M1 release of [Ceylon IDE](/documentation/ide)
+We plan a compatible M1 release of 
+[Ceylon IDE](/documentation/ide?utm_source=blog&utm_medium=web&utm_content=ide&utm_campaign=1_0_M1release)
 later this week.
 
 ### Language features
@@ -62,7 +63,8 @@ Support for the following language features is not yet available:
 Furthermore, numeric operators are not currently optimized by the
 compiler, so numeric code is expected to perform poorly.
 
-[This page](/documentation/introduction/) provides a quick 
+[This page](/documentation/introduction/?utm_source=blog&utm_medium=web&utm_content=introduction&utm_campaign=1_0_M1release) 
+provides a quick 
 introduction to the language. [The draft language specification][spec]
 is the complete definition.
 
@@ -104,10 +106,12 @@ Bugs and suggestions may be reported in GitHub's issue tracker.
 
 ### Community
 
-The Ceylon community site includes [documentation](/documentation), 
-the [current draft of the language specification](/documentation/spec/), 
-the [roadmap](/documentation/roadmap) and information about [getting 
-involved](/code).
+The Ceylon community site includes 
+[documentation](/documentation?utm_source=blog&utm_medium=web&utm_content=documentation&utm_campaign=1_0_M1release), 
+the 
+[current draft of the language specification][spec], 
+the [roadmap](/documentation/roadmap?utm_source=blog&utm_medium=web&utm_content=roadmap&utm_campaign=1_0_M1release) 
+and information about [getting involved](/code?utm_source=blog&utm_medium=web&utm_content=code&utm_campaign=1_0_M1release).
 
 <http://ceylon-lang.org>
 
