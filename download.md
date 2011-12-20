@@ -39,7 +39,7 @@ precisely in the release, read our [announcement][newton].
 
 [ceylon-dist readme]: https://github.com/ceylon/ceylon-dist/blob/master/README.md 
 
-There is also a a special pre-release build of the 
+There is also a special pre-release build of the 
 [Ceylon IDE](/documentation/ide) available from our Eclipse
 update site. The M1 release of Ceylon IDE should be available
 any day now.
