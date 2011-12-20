@@ -26,8 +26,9 @@ later this week.
 ### Language features
 
 In terms of the language itself, M1 has essentially all the features 
-of Java except nested classes and reflection. It even incorporates a 
-number of improvements over Java, including:
+of Java except enumerated types, user-defined annotations, and 
+reflection. It even incorporates a number of improvements over Java, 
+including:
 
 * JVM-level primitive types are ordinary classes in Ceylon
 * type inference and type argument inference based on analysis of 
@@ -52,9 +53,9 @@ Support for the following language features is not yet available:
 
 * first-class and higher-order functions
 * comprehensions
-* algebraic types and enumerations
+* algebraic types, enumerated types, and `switch/case`
 * mixin inheritance
-* member classes
+* member class refinement
 * reified generics
 * user-defined annotations and the type safe metamodel
 
