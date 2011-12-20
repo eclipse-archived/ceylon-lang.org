@@ -16,7 +16,7 @@ it's usable. Therefore, we can't give you dates on each milestone.
 However, our roadmap is quite well-defined:
 
 - Ceylon 1.0
-  - [Milestone 1](#milestone_1)
+  - [Milestone 1](#milestone_1) (latest release)
   - [Milestone 2](#milestone_2)
   - [Milestone 3](#milestone_3)
   - [Milestone 4](#milestone_4)
