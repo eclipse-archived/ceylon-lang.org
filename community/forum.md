@@ -7,6 +7,6 @@ author: Emmanuel Bernard
 ---
 # #{page.title}
 
-We plan on opening a user oriented forum when we launch our 
+We plan on opening a user oriented forum soon after 
 [Milestone 1](/documentation/roadmap/). In the meantime,
 check our our [development mailing list](http://groups.google.com/group/ceylon-dev).

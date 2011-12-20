@@ -3,3 +3,8 @@ RewriteEngine on
 IndexIgnore *
 DirectoryIndex index.html
 ErrorDocument 404 /404.html
+
+RewriteCond %{HTTP_HOST} ^ceylon-lang.org$ [OR]
+RewriteCond %{HTTP_HOST} ^www.ceylon-lang.org$
+RewriteRule ^download/dist/1_0_Milestone1$ "https\:\/\/github\.com\/downloads\/ceylon\/ceylon-dist\/ceylon-0\.1\.zip" [R=302,L]
+RewriteRule ^download/dist/1_0_Milestone1_deb$ "https\:\/\/github\.com\/downloads\/ceylon\/ceylon-dist\/ceylon-0\.1_0\.1_all\.deb" [R=302,L]

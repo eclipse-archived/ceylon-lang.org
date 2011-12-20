@@ -17,9 +17,11 @@ You also need to install `git`.
 The Ceylon project is actually made up of four smaller projects:
 
 - [Parser, typechecker and specification](#parser_typechecker_and_specification)
-- [Compiler, documentation compiler, and launcher](#compiler_documentation_compiler_and_launcher)
+- [Compiler and documentation compiler](#compiler_and_documentation_compiler)
 - [Ceylon language module](#ceylonlanguage_module)
 - [Ceylon Eclipse IDE plugin](#ceylon_eclipse_ide_plugin)
+- [Module system](#module_system)
+- [Launcher](#launcher)
 
 ### Parser, typechecker and specification
 
@@ -51,15 +53,15 @@ The generated documentation will be available in `build/en/html/index.html`
 
 There's more info in the [README](https://github.com/ceylon/ceylon-spec/blob/master/README.md).
 
-### Compiler, documentation compiler, and launcher
+### Compiler and documentation compiler
 
 <table>
  <tr><th>Git repository</th><td><a href="https://github.com/ceylon/ceylon-compiler">https://github.com/ceylon/ceylon-compiler</a></td></tr>
  <tr><th>Issue reporting</th><td><a href="https://github.com/ceylon/ceylon-compiler/issues">https://github.com/ceylon/ceylon-compiler/issues</a></td></tr>
 </table>
 
-This is where you'll find the `ceylonc` compiler, the `ceylond` API documentation compiler, 
-and the `ceylon` launcher.
+This is where you'll find the `ceylonc` compiler and the `ceylond` API documentation compiler,
+as well as the Ceylon ant tasks.
 
 You can find out how to run these commands from the [documentation](#{site.urls.spec}#tools).
 
@@ -99,6 +101,46 @@ You can build and publish the language module to the local Ceylon repository
     ant publish
 
 There's more info in the [README](https://github.com/ceylon/ceylon.language/blob/master/README.md).
+
+### Module system
+
+<table>
+ <tr><th>Git repository</th><td><a href="https://github.com/ceylon/ceylon-module-resolver">https://github.com/ceylon/ceylon-module-resolver</a></td></tr>
+ <tr><th>Issue reporting</th><td><a href="https://github.com/ceylon/ceylon-module-resolver/issues">https://github.com/ceylon/ceylon-module-resolver/issues</a></td></tr>
+</table>
+
+This is where you'll find the Ceylon module system, based on JBoss Modules.
+
+#### Building
+
+You can build the module system project like this:
+
+<!-- lang: bash -->
+    mvn install
+
+There's more info in the [README](https://github.com/ceylon/ceylon-module-resolver/blob/master/README.md).
+
+### Launcher
+
+<table>
+ <tr><th>Git repository</th><td><a href="https://github.com/ceylon/ceylon-runtime">https://github.com/ceylon/ceylon-runtime</a></td></tr>
+ <tr><th>Issue reporting</th><td><a href="https://github.com/ceylon/ceylon-runtime/issues">https://github.com/ceylon/ceylon-runtime/issues</a></td></tr>
+</table>
+
+This is where you'll find the Ceylon `ceylon` launcher command, which runs Ceylon modules.
+
+#### Building
+
+This project depends on the [Ceylon language module](#ceylonlanguage_module) project, make sure
+you read the [README](https://github.com/ceylon/ceylon-runtime/blob/master/README.md) information
+to set it up correctly.
+
+You can build the launcher project like this:
+
+<!-- lang: bash -->
+    mvn install
+
+There's more info in the [README](https://github.com/ceylon/ceylon-runtime/blob/master/README.md).
 
 ### Ceylon Eclipse IDE plugin
 
