@@ -241,11 +241,11 @@ A very large or small numeric literals may be qualified by one of the
 standard SI unit prefixes: m, u, n, p, f, k, M, G, T, P.
 
     Float red = 390.0n; // n (nano) means E-9
-    Float galaxyDiameter = 900.0P; // P (peta) means E15
+    Float galaxyDiameter = 900.0P; // P (peta) means E+15
     Float hydrogenRadius = 25.0p; // p (pico) means E-12
-    Float usGovDebt = 14.33T; // T (tera) means E12
+    Float usGovDebt = 14.33T; // T (tera) means E+12
     Float brainCellSize = 4.0u; // u (micro) means E-6
-    Integer deathsUnderCommunism = 94M; // M (mega) means E6
+    Integer deathsUnderCommunism = 94M; // M (mega) means E+6
 
 ## Numeric widening
 
