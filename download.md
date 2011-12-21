@@ -16,22 +16,52 @@ compiler, language module, and runtime.
 
 <table>
     <tr>
-        <td><img src="/images/package-zip.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/></td>
+        <td>
+        <a href="/download/dist/1_0_Milestone1" 
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone1?utm_source=download&utm_medium=web&utm_content=dist&utm_campaign=1_0_M1release']);">
+           <img src="/images/package-zip.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
+        </a>
+        </td>
         <td>Zip archive</td>
         <td>All Operating Systems</td>
-        <td><a href="/download/dist/1_0_Milestone1" onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone1?utm_source=download&utm_medium=web&utm_content=dist&utm_campaign=1_0_M1release']);">download</a></td>
+        <td>
+        <a href="/download/dist/1_0_Milestone1" 
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone1?utm_source=download&utm_medium=web&utm_content=dist&utm_campaign=1_0_M1release']);">
+           download
+        </a>
+        </td>
     </tr>
     <tr>
-        <td><img src="/images/package-fedora.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/></td>
+        <td>
+        <a href="/download/dist/1_0_Milestone1_rpm" 
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone1_rpm?utm_source=download&utm_medium=web&utm_content=dist&utm_campaign=1_0_M1release']);">
+           <img src="/images/package-fedora.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
+        </a>
+        </td>
         <td>RPM</td>
         <td>Fedora/Red Hat</td>
-        <td><a href="/download/dist/1_0_Milestone1_rpm" onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone1_rpm?utm_source=download&utm_medium=web&utm_content=dist&utm_campaign=1_0_M1release']);">download</a></td>
+        <td>
+        <a href="/download/dist/1_0_Milestone1_rpm" 
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone1_rpm?utm_source=download&utm_medium=web&utm_content=dist&utm_campaign=1_0_M1release']);">
+           download
+        </a>
+        </td>
     </tr>
     <tr>
-        <td><img src="/images/package-debian.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/></td>
+        <td>
+        <a href="/download/dist/1_0_Milestone1_deb" 
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone1_deb?utm_source=download&utm_medium=web&utm_content=dist&utm_campaign=1_0_M1release']);">
+           <img src="/images/package-debian.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
+        </a>
+        </td>
         <td>DEB</td>
         <td>Debian/Ubuntu</td>
-        <td><a href="/download/dist/1_0_Milestone1_deb" onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone1_deb?utm_source=download&utm_medium=web&utm_content=dist&utm_campaign=1_0_M1release']);">download</a></td>
+        <td>
+        <a href="/download/dist/1_0_Milestone1_deb" 
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone1_deb?utm_source=download&utm_medium=web&utm_content=dist&utm_campaign=1_0_M1release']);">
+           download
+        </a>
+        </td>
     </tr>
 </table>
 
