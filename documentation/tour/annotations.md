@@ -31,10 +31,8 @@ Here's the definition of a some of our old friends:
         return Description(description.normalize());
     }
     shared Authors by(String... authors) {
-        return Authors( from (authors) select (String name) (name.normalize()) );
+        return Authors { for (name in authors) name.normalize() };
     }
-
-(Note that the third example uses the syntax introduced in XXXX)
 
 Of course, we can define our own annotations. (That's the whole point!)
 
@@ -193,9 +191,9 @@ type `Todo`.
 Of course, it's much more common to work with annotations in generic code, 
 so you're more likely to be writing code like this:
 
-    Entry<Attribute<Bottom,Object?>,String> [] attributeColumnNames(Class<Object> clazz) {
-        return from (clazz.members(Attribute<Bottom,Object?>))
-                select (Attribute<Bottom,Object?> att) (att->columnName(att));
+    Entry<Attribute<Bottom,Object?>,String>[] attributeColumnNames(Class<Object> clazz) {
+        return { for (att in clazz.members(Attribute<Bottom,Object?>))
+                    att->columnName(att) };
     }
      
     String columnName(Attribute<Bottom,Object?> member) {
