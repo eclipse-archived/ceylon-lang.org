@@ -18,6 +18,9 @@ if [ "$HELP" = "true" ]; then
 	exit 0;
 fi
 
+#move to root
+cd ..
+
 # Build site
 awestruct --profile production
 
