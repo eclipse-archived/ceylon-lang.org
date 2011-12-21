@@ -33,7 +33,7 @@ All we need to do is have our `Transactional` class implement the interfaces
              interceptor for the method."
         shared actual void onDefineMethod<Instance,Result,Argument...>(OpenMethod<Instance,Result,Argument...> method) {
             method.intercept {
-                onInvoke(Instance instance, Result proceed(Argument... args), Argument... args) {
+                function onInvoke(Instance instance, Result proceed(Argument... args), Argument... args) {
                     if (currentTransaction.inProcess || !requiresNew) {
                         return proceed(args);
                     }
