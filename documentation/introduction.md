@@ -105,7 +105,8 @@ the need to analyze the rest of the expression in which it appears. And all
 types used internally by the compiler are *denotable* - that is, they can be 
 expressed within the language itself. What this means in practice is that 
 the compiler always produces errors that humans can understand, even when 
-working with complex generic types.
+working with complex generic types. The Ceylon compiler *never* produces 
+error messages with mystifying non-denotable types like Java's `List<capture#3-of ?>`.
 
 An integral part of this system of denotable principal types is first-class
 support for union and intersection types. A *union type* is a type which
@@ -118,10 +119,19 @@ of types:
 
     Printable&Sized&Persistent printableSizedPersistent = ... ;
 
-Union and intersection types help make things that are complex and magical
-in other languages (especially generic type argument inference) simple and
-straightforward in Ceylon. But they're also occasionally useful as a 
-convenience in ordinary code.
+Union and intersection types are occasionally useful as a convenience in 
+ordinary code. More importantly, they help make things that are complex 
+and magical in other languages (especially generic type argument inference) 
+simple and straightforward in Ceylon. For example, consider the following 
+sequences:
+
+    value seq1 = { "hello", "world", 1.0, -1 };
+    value seq2 = join({"hello", "world"}, {1.0, 2.0}, {-1}, {});
+
+The compiler automatically infers the type `Sequence<String|Float|Integer>` 
+for `seq1`, and `Empty|Sequence<String|Float|Integer>` for `seq2`. These
+are the correct principal types of the expressions. We didn't need to 
+explictly specify any types anywhere.
 
 We've worked hard to keep the type system quite simple at its core. This 
 makes the language easier to learn, and helps control the number of buggy
