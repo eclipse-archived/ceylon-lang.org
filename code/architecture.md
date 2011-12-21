@@ -108,37 +108,49 @@ the Ceylon compiler.
 
 ## Launcher and module runtime
 
-The Ceylon module runtime is based on 
-[JBoss Modules](http://relation.to/Bloggers/ModularizedJavaWithJBossModules). 
+The Ceylon module runtime is based on [JBoss Modules][jbm]. 
 The Ceylon launcher simply starts `java` and invokes the module
-runtime, which loads module archives as needed.
+runtime. JBoss Modules bootstraps via a local repository, which 
+must contain the following dependencies:
 
-Launcher simply bootstraps JBoss Modules via (local) module repository.
-For Ceylon Runtime this are the modules needed at "bootstrap":
+* the Ceylon language module,
+* the Ceylon module resolver `jar`,
+* the Ceylon runtime `jar`, and
+* the JBoss Modules `jar`.
 
-* Ceylon Language
-* Ceylon Module Resolver
-* Ceylon Runtime
-* JBoss Modules (as a module info, actual classes are part of system classpath)
+Finally, JBoss Modules is responsible for loading module archives 
+as required according to the metadata contained in the module
+descriptors.
 
-This is the part that the user needs locally (unless you use remote bootstrap module loader).
-To ease things, we created a zipped version of bootstrap repository,
-and placed it under &lt;CEYLON_REPOSITORY&gt;/ceylon-runtime-bootstrap/ceylon-runtime-bootstrap.zip
-In order to use this zipped module repository we need to use custom module loader - DistributionModuleLoader.
-DistributionModuleLoader explodes (if not already present) this zipped repository at initialization,
-and places the exploded repository under &lt;CEYLON_REPOSITORY&gt;/ceylon-runtime-bootstrap/ceylon-runtime-bootstrap-exploded directory.
-You can force an update with -Dforce.bootstrap.update=true system property flag.
+[jbm]: http://relation.to/Bloggers/ModularizedJavaWithJBossModules
 
-Afterwards Ceylon Runtime uses Ceylon Module Resolver (CMR) to get its modules.
-By default we use &lt;CEYLON_REPOSITORY&gt; as local CMR repository, but different repositories can be mounted.
+<!--
+This is the part that the user needs locally (unless you use 
+remote bootstrap module loader). To ease things, we created a 
+zipped version of bootstrap repository, and placed it under 
+`&lt;CEYLON_REPOSITORY&gt;/ceylon-runtime-bootstrap/ceylon-runtime-bootstrap.zip`
+In order to use this zipped module repository we need to use 
+custom module loader - `DistributionModuleLoader`, which 
+explodes (if not already present) this zipped repository at 
+initialization and places the exploded repository under 
+`&lt;CEYLON_REPOSITORY&gt;/ceylon-runtime-bootstrap/ceylon-runtime-bootstrap-exploded directory`.
+You can force an update with `-Dforce.bootstrap.update=true` 
+system property flag.
+
+Afterwards Ceylon Runtime uses Ceylon Module Resolver (CMR) 
+to get its modules. By default we use `<CEYLON_REPOSITORY>`
+as local CMR repository, but different repositories can be 
+mounted.
  
-In order to run your Ceylon app / module, you need to first place it into &lt;CEYLON_REPOSITORY&gt;.
-Then you can use ceylon.sh script to run the app / module.
+In order to run your Ceylon module, you need to first place 
+it into `<CEYLON_REPOSITORY>`. Then you can use 
+`ceylon.sh` script to run the module. `ceylon.sh` expects 
+module name and version as its first parameter, for example,
+`./ceylon.sh hello/1.0.0 \[full module name\]/\[version\]`, 
+where default version is `0.0.0` if missing.
+-->
 
-ceylon.sh expects module name and version as its first parameter.
-e.g. ./ceylon.sh hello/1.0.0 \[full module name\]/\[version\], where default version is 0.0.0 if left out
-
-## Documentation compiler.
+## Documentation compiler
 
 The documentation compiler takes as its input the model produced 
 by the typechecker. It's job is to produce HTML documentation.
