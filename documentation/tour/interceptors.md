@@ -32,54 +32,55 @@ All we need to do is have our `Transactional` class implement the interfaces
              annotated |transactional|. It registers a transaction management
              interceptor for the method."
         shared actual void onDefineMethod<Instance,Result,Argument...>(OpenMethod<Instance,Result,Argument...> method) {
-            method.intercept()
-                    onInvoke(Instance instance, Result proceed(Argument... args), Argument... args) {
-                if (currentTransaction.inProcess || !requiresNew) {
-                    return proceed(args);
-                }
-                else {
-                    currentTransaction.begin();
-                    try {
-                        Result result = proceed(args);
-                        currentTransaction.commit();
-                        return result;
+            method.intercept {
+                onInvoke(Instance instance, Result proceed(Argument... args), Argument... args) {
+                    if (currentTransaction.inProcess || !requiresNew) {
+                        return proceed(args);
                     }
-                    catch (Exception e) {
-                        currentTransaction.rollback();
-                        throw e;
+                    else {
+                        currentTransaction.begin();
+                        try {
+                            Result result = proceed(args);
+                            currentTransaction.commit();
+                            return result;
+                        }
+                        catch (Exception e) {
+                            currentTransaction.rollback();
+                            throw e;
+                        }
                     }
                 }
-            }
+            };
         }
          
         doc "This method is called whenever Ceylon loads a class with an attribute
              annotated |transactional|. It registers a transaction management
              interceptor for the attribute."
         shared actual void onDefineAttribute<Instance,Result>(OpenAttribute<Instance,Result> attribute) {
-            attribute.intercept()
-                    onGet(Instance instance, Result proceed()) {
-                if (currentTransaction.inProcess || !requiresNew) {
-                    return proceed();
-                }
-                else {
-                    currentTransaction.begin();
-                    try {
-                        Result result = proceed();
-                        currentTransaction.commit();
-                        return result;
+            attribute.intercept {
+                function onGet(Instance instance, Result proceed()) {
+                    if (currentTransaction.inProcess || !requiresNew) {
+                        return proceed();
                     }
-                    catch (Exception e) {
-                        currentTransaction.rollback();
-                        throw e;
+                    else {
+                        currentTransaction.begin();
+                        try {
+                            Result result = proceed();
+                            currentTransaction.commit();
+                            return result;
+                        }
+                        catch (Exception e) {
+                            currentTransaction.rollback();
+                            throw e;
+                        }
                     }
                 }
-            }
+            };
         }
          
     }
 
-The `intercept()` method registers the interceptor - a kind of callback method. 
-Again, we're using the syntax discussed XXXXX.
+The `intercept()` method registers the interceptor - a kind of callback method.
 
 
 ## There's more!
