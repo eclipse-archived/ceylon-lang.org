@@ -106,7 +106,6 @@ _This page is very incomplete. Want to help? [See how](/code/website)._
 * [`===` (identical)](operator/identical)
 * [`>`   (greater than)](operator/greater-than)
 * [`>=`  (greater than or equal)](operator/greater-than-or-equal)
-* [`?=`  (default assign)] - _doc coming soon at_ (operator/default-assign)
 * [`?[]` (nullsafe-lookup)](operator/nullsafe-lookup)
 * [`[]`  (lookup)](operator/lookup)
 * [`[]`  (sequenced lookup)](operator/sequenced-lookup)
