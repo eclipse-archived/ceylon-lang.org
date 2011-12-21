@@ -125,12 +125,15 @@ and magical in other languages (especially generic type argument inference)
 simple and straightforward in Ceylon. For example, consider the following 
 sequences:
 
-    value seq1 = { "hello", "world", 1.0, -1 };
-    value seq2 = join({"hello", "world"}, {1.0, 2.0}, {-1}, {});
+    value stuff = { "hello", "world", 1.0, -1 };
+    value joinedStuff = join({"hello", "world"}, {1.0, 2.0}, {});
 
-The compiler automatically infers the type `Sequence<String|Float|Integer>` 
-for `seq1`, and `Empty|Sequence<String|Float|Integer>` for `seq2`. These
-are the correct principal types of the expressions. We didn't need to 
+The compiler automatically infers the types: 
+
+* `Sequence<String|Float|Integer>` for `stuff`, and 
+* `Empty|Sequence<String|Float>` for `joinedStuff`. 
+
+These are the correct principal types of the expressions. We didn't need to 
 explictly specify any types anywhere.
 
 We've worked hard to keep the type system quite simple at its core. This 
