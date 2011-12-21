@@ -415,13 +415,33 @@ This works, and we could support this syntax in the Ceylon language.
 
 Let's look at some more examples of how we would use anonymous functions:
 
-* Assertion: `assert ("x must be positive", () x>0.0)`
-* Conditionals: `when (x>100.0, () 100.0, () x)`
-* Repetition: `repeat(n, () { print("Hello"); })`
-* Tabulation: `tabulateList(20, (Integer i) i**3)`
-* Comprehension: `from (people, (Person p) p.name, (Person p) p.age>18)`
-* Quantification: `forAll (people, (Person p) p.age>18)`
-* Accumulation (folds): `accumulate (items, 0.0, (Float sum, Item item) sum+item.quantity*item.product.price)`
+* Assertion:
+     
+        assert ("x must be positive", () x>0.0)
+    
+* Conditionals:
+     
+        when (x>100.0, () 100.0, () x)
+* Repetition:
+     
+        repeat(n, () { print("Hello"); })
+    
+* Tabulation:
+     
+        tabulateList(20, (Integer i) i**3)
+    
+* Comprehension:
+     
+        from (people, (Person p) p.name, (Person p) p.age>18)
+    
+* Quantification:
+     
+        forAll (people, (Person p) p.age>18)
+    
+* Accumulation (folds):
+     
+        accumulate (items, 0.0, (Float sum, Item item) sum+item.quantity*item.product.price)
+
 
 <!--
 The problem is that I don't find these code snippets especially readable. 
@@ -586,9 +606,7 @@ of code, so I'm sure you'll immediately understand it:
 
 Whoah! What's *that*?
 
-Well, it's obviously time for you to re-read the 
-[tour leg on functions](../functions)! Ok, done that? Cool, 
-now let's try to unwind this:
+Well, let's try to unwind this:
 
 * First, it's a function with two parameter lists, so `uncurry()()` is a 
   function that returns a function.
