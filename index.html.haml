@@ -82,7 +82,7 @@ author: Emmanuel Bernard
   .sidebar-block
     %h3 News
     - news = site.news.values.sort{|l,r| r.effective_date <=> l.effective_date}
-    - for entry in news
+    - for entry in news[0,5]
       .news_entry
         %h4
           - if ( entry.more_info_url )
