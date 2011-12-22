@@ -127,8 +127,8 @@ formatting.
          You can compile and run `hello()` from the 
          command line like this:
          
-             ceylonc -src . -out . hello.ceylon
-             ceylon -cp unversioned/default_module-unversioned.car hello
+             ceylonc source/hello.ceylon
+             ceylon -run hello default
          
          Or you can use `Run As > Ceylon Application` 
          in the IDE.
