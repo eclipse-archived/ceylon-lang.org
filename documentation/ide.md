@@ -28,7 +28,8 @@ The plugin provides the following features, among others:
 * Documentation hover
 * Hyperlink navigation to declarations
 * Auto indentation and `Correct Indentation`
-* New Ceylon unit wizard
+* New Ceylon Unit wizard
+* Export Ceylon Module to Module Repository wizard
 * `Open Ceylon Declaration` dialog
 * `Ceylon Search` dialog
 * `Find References`, `Find Refinements`, and 
@@ -37,11 +38,14 @@ The plugin provides the following features, among others:
 * Basic refactoring: `Rename`, `Inline`,
   `Extract Value`, `Extract Function`,
   `Convert To Named Arguments`, and
-   `Clean Imports`
+  `Clean Imports`
 * Basic Quick Fixes: rename reference,
   create member declaration, create local 
   declaration, add import, make shared, 
-  make actual, make default, specify type
+  make actual, make default, specify type,
+  refine formal members
+* `Clean Imports`
+* `Refine Formal Members`
 * Code folding
 * Structured compare
 * Mark occurrences
