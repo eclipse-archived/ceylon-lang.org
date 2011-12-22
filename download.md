@@ -19,7 +19,7 @@ compiler, language module, and runtime.
         <td>
         <a href="/download/dist/1_0_Milestone1" 
            onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone1?utm_source=download&utm_medium=web&utm_content=dist&utm_campaign=1_0_M1release']);">
-           <img src="/images/package-zip.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
+           <img src="/images/download/package-zip.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
         </a>
         </td>
         <td>Zip archive</td>
@@ -35,7 +35,7 @@ compiler, language module, and runtime.
         <td>
         <a href="/download/dist/1_0_Milestone1_rpm" 
            onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone1_rpm?utm_source=download&utm_medium=web&utm_content=dist&utm_campaign=1_0_M1release']);">
-           <img src="/images/package-fedora.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
+           <img src="/images/download/package-fedora.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
         </a>
         </td>
         <td>RPM</td>
@@ -51,7 +51,7 @@ compiler, language module, and runtime.
         <td>
         <a href="/download/dist/1_0_Milestone1_deb" 
            onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone1_deb?utm_source=download&utm_medium=web&utm_content=dist&utm_campaign=1_0_M1release']);">
-           <img src="/images/package-debian.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
+           <img src="/images/download/package-debian.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
         </a>
         </td>
         <td>DEB</td>
