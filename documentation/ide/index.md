@@ -30,23 +30,23 @@ The plugin provides the following features, among others:
 * [Intelligent proposals](screenshots#intelligent_autocompletion)
 * [Documentation hover](screenshots#hover_help)
 * [Hyperlink navigation](screenshots#hyperlink_navigation) to declarations
-* Auto indentation and `Correct Indentation`
+* Auto indentation and Correct Indentation
 * [New Ceylon Unit wizard](screenshots#new_ceylon_unit_wizard)
 * Export Ceylon Module to Module Repository wizard
-* [`Open Ceylon Declaration` dialog](screenshots#open_ceylon_declaration_dialog)
-* [`Ceylon Search` dialog](screenshots#ceylon_search_dialog)
-* `Find References`, `Find Refinements`, and 
-  `Find Subtypes` [contextual search](screenshots#find_references_search_results)
+* [Open Ceylon Declaration dialog](screenshots#open_ceylon_declaration_dialog)
+* [Ceylon Search dialog](screenshots#ceylon_search_dialog)
+* Find References, Find Refinements, and Find Subtypes 
+  [contextual search](screenshots#find_references_search_results)
 * Configurable keyboard accelerators
 * Basic [refactoring](screenshots#rename_refactoring_preview): 
-  `Rename`, `Inline`, `Extract Value`, `Extract Function`,
-  `Convert To Named Arguments`, and `Clean Imports`
+  Rename, Inline, Extract Value, Extract Function,
+  Convert To Named Arguments, and Clean Imports
 * Basic [Quick Fixes](screenshots#quick_fixes): 
   rename reference, create member declaration, create local 
   declaration, add import, make shared, make actual, make default, 
   specify type, refine formal members
-* `Clean Imports`
-* `Refine Formal Members`
+* Clean Imports
+* Refine Formal Members
 * Code folding
 * Structured compare
 * Mark occurrences
