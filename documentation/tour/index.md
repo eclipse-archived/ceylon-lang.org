@@ -6,10 +6,30 @@ unique_id: docspage
 author: Emmanuel Bernard
 ---
 
+
+
 # Tour of Ceylon
 
-This tour covers the main features of the Ceylon language. We'll start with 
-the [Basics](basics). 
+This tour covers the main features of the Ceylon language. Note 
+that every language feature described here has been implemented
+at this time.
+
+## Before you start
+
+If you're using the [command line distribution](/download) to
+try out Ceylon for the first time, we highly recommend you 
+start by compiling and running the samples included in the
+distribution.
+
+Instructions for getting started are contained in the file
+`README.md` in the root directory of the distribution, or
+[right here in GitHub][ceylon-dist readme].
+
+[ceylon-dist readme]: https://github.com/ceylon/ceylon-dist/blob/master/README.md 
+
+## Begin the tour
+
+We'll start with the [Basics](basics). 
 
 ## Tour legs:
 

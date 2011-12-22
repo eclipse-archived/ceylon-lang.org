@@ -25,8 +25,17 @@ to invoke a toplevel method. Instead, you can just call it like this:
 
     hello();
 
-Or you can run it directly from the command line. Save the above code in the 
-file `./source/hello.ceylon` and then run the following commands:
+Or you can run it directly from the command line. 
+
+Ceylon doesn't have Java-style `static` methods, but you can think of 
+toplevel methods as filling the same role. Ceylon has a very strict 
+block structure - a nested block always has access to declarations in all 
+containing blocks. This isn't the case with Java's `static` methods.
+
+## Running the program from the command line
+
+Let's try it out. Save the above code in the file `./source/hello.ceylon` 
+and then run the following commands:
 
 <!-- lang: none -->
 
@@ -37,10 +46,22 @@ where `ceylon-0.1` is the path to your Ceylon install directory. You should
 see the message `Hello, World!`. You will find the compiled module archive 
 `default.car` in the directory `./modules/default`.
 
-Ceylon doesn't have Java-style `static` methods, but you can think of 
-toplevel methods as filling the same role. Ceylon has a very strict 
-block structure - a nested block always has access to declarations in all 
-containing blocks. This isn't the case with Java's `static` methods.
+*If you're having trouble getting started with the command line tools, the
+[command line distribution](/download) of Ceylon contains a file named
+`README.md` in the root directory that contains instructions on compiling
+and running the simple examples in the `samples/` directory.*
+
+A very useful trick is:
+
+<!-- lang: none -->
+
+    ceylon-0.1/bin/ceylonc -help
+    ceylon-0.1/bin/ceylon -help
+
+## Running the program from the IDE
+
+In a couple of days [Ceylon IDE](../ide) M1 will be available. Check back 
+here once it is released. ;-)
 
 ## Adding inline documentation
 
