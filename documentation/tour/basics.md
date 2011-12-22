@@ -30,9 +30,8 @@ file `./source/hello.ceylon` and then run the following commands:
 
 <!-- lang: none -->
 
-    mkdir modules
-    ceylon-0.1/bin/ceylonc -rep ceylon-0.1/repo default
-    ceylon-0.1/bin/ceylon -rep ceylon-0.1/repo -rep modules -run hello default
+    ceylon-0.1/bin/ceylonc source/hello.ceylon
+    ceylon-0.1/bin/ceylon -run hello default
 
 where `ceylon-0.1` is the path to your Ceylon install directory. You should
 see the message `Hello, World!`. You will find the compiled module archive 
