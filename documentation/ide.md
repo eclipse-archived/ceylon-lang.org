@@ -22,7 +22,7 @@ The plugin provides the following features, among others:
 * Popup type hierarchy
 * Error reporting in Problems view
   and error annotations in editor
-* Reporting of //todo and //fix in Task view
+* Reporting of `//todo` and `//fix` in Tasks view
   and task annotations in editor
 * Intelligent proposals
 * Documentation hover
