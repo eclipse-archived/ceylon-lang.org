@@ -7,7 +7,8 @@ author: Gavin King
 ---
 # #{page.title}
 
-This page includes a few screenshots of the IDE.
+This page includes a few screenshots of the IDE. Check out the
+full [feature list](..).
 
 ### Error highlighting, error annotations, and Problems view
 
