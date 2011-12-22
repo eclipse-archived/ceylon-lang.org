@@ -25,14 +25,18 @@ to invoke a toplevel method. Instead, you can just call it like this:
 
     hello();
 
-Or you can run it directly from the command line:
+Or you can run it directly from the command line. Save the above code in the 
+file `./source/hello.ceylon` and then run the following commands:
 
 <!-- lang: none -->
 
-    ceylonc -src . -repo ceylon-0.1/modules default
-    ceylon -repo ceylon-0.1/modules default
+    mkdir modules
+    ceylon-0.1/bin/ceylonc -rep ceylon-0.1/repo default
+    ceylon-0.1/bin/ceylon -rep ceylon-0.1/repo -rep modules -run hello default
 
-where `ceylon-0.1` is your Ceylon install directory.
+where `ceylon-0.1` is the path to your Ceylon install directory. You should
+see the message `Hello, World!`. You will find the compiled module archive 
+`default.car` in the directory `./modules/default`.
 
 Ceylon doesn't have Java-style `static` methods, but you can think of 
 toplevel methods as filling the same role. Ceylon has a very strict 
