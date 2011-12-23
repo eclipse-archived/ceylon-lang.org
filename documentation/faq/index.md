@@ -43,6 +43,12 @@ language itself. The extremely outdated class libraries that
 form the Java SE SDK are riddled with problems. Developing a 
 great SDK is a top priority of the project.
 
+### How is Ceylon pronounced?
+
+There is much debate around that but the accepted pronounciation in the team
+is [/sɨˈlɒn/](http://en.wikipedia.org/wiki/Wikipedia:IPA_for_English#Key).
+Or in less fancy schmancy phoneticsy `selón`.
+
 ## Contributing
 
 ### How can I contribute to Ceylon?
