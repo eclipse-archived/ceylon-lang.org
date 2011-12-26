@@ -44,8 +44,9 @@ The plugin provides the following features, among others:
   Convert To Named Arguments, and Clean Imports
 * Basic [Quick Fixes](screenshots#quick_fixes): 
   rename reference, create member declaration, create local 
-  declaration, add import, make shared, make actual, make default, 
-  specify type, refine formal members
+  declaration, create toplevel declaration, create toplevel
+  declaration in new unit, add import, make shared, make actual, 
+  make default, specify type, refine formal members
 * Clean Imports
 * Refine Formal Members
 * Code folding
