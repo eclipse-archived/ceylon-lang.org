@@ -32,6 +32,7 @@ The plugin provides the following features, among others:
 * [Hyperlink navigation](screenshots#hyperlink_navigation) to declarations
 * Auto indentation and Correct Indentation
 * [New Ceylon Unit wizard](screenshots#new_ceylon_unit_wizard)
+* [New Ceylon Module](screenshots#new_ceylon_module_wizard) and New Ceylon Package wizards
 * Export Ceylon Module to Module Repository wizard
 * [Open Ceylon Declaration dialog](screenshots#open_ceylon_declaration_dialog)
 * [Ceylon Search dialog](screenshots#ceylon_search_dialog)

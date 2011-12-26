@@ -38,6 +38,10 @@ full [feature list](..).
 
 ![new](/images/screenshots/new-screenshot.png)
 
+### New Ceylon Module wizard
+
+![newmodule](/images/screenshots/newmodule-screenshot.png)
+
 ### Open Ceylon Declaration dialog
 
 ![open](/images/screenshots/open-screenshot.png)
