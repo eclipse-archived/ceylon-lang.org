@@ -31,6 +31,7 @@ The plugin provides the following features, among others:
 * [Documentation hover](screenshots#hover_help)
 * [Hyperlink navigation](screenshots#hyperlink_navigation) to declarations
 * Auto indentation and Correct Indentation
+* [New Ceylon Project wizard](screenshots#new_ceylon_project_wizard)
 * [New Ceylon Unit wizard](screenshots#new_ceylon_unit_wizard)
 * [New Ceylon Module](screenshots#new_ceylon_module_wizard) and New Ceylon Package wizards
 * Export Ceylon Module to Module Repository wizard
