@@ -241,8 +241,8 @@ but here's a quick example of each of the three techniques:
 
     //sequenced parameter
     void printlns(String... lines) {
-        for (string in strings) {
-            println(string);
+        for (line in lines) {
+            println(line);
         }
     }
 
