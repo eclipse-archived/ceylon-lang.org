@@ -157,7 +157,7 @@ The API documentation for [`ceylon.language`](#{site.urls.apidoc}/ceylon/languag
 * ['Calling' Ceylon from Java](interoperability/ceylon-from-java)
 * ['Calling' Java from Ceylon](interoperability/java-from-ceylon)
 * [Erasure](interoperability/erasure)
-* [Ceylon Annotations for Java](interoperability/annotations)
+* [Ceylon Annotations for Java] - _doc coming soon at_ (interoperability/annotations)
 
 ## Other
 
