@@ -37,8 +37,7 @@ containing blocks. This isn't the case with Java's `static` methods.
 Let's try it out. Save the above code in the file `./source/hello.ceylon` 
 and then run the following commands:
 
-<!-- lang: none -->
-
+<!-- lang: bash -->
     ceylon-0.1/bin/ceylonc source/hello.ceylon
     ceylon-0.1/bin/ceylon -run hello default
 
@@ -53,8 +52,7 @@ and running the simple examples in the `samples/` directory.*
 
 A very useful trick is:
 
-<!-- lang: none -->
-
+<!-- lang: bash -->
     ceylon-0.1/bin/ceylonc -help
     ceylon-0.1/bin/ceylon -help
 
