@@ -58,7 +58,7 @@ Some things that made this job especially easy:
   first-class function references. 
 * Neither Ceylon nor JavaScript has overloading. Indeed, the 
   way you do overloading in Ceylon, using 
-  [union types](/documentation/introduction#principal_typing_union_types_and_intersection_types)
+  [union types](/documentation/introduction#principal_typing_union_types_and_intersection_types),
   is a totally natural match for how the problem is solved
   in dynamic languages! 
 
