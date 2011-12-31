@@ -51,6 +51,12 @@ Awestruct::Extensions::Pipeline.new do
     /\<!--\s*lang:\s*java\s*--\>\s*<pre><code>(.*?)<\/code><\/pre>/, 
     "<pre class=\"brush: java\">\\1</pre>")
   transformer Awestruct::Extensions::Gsub.new(
+    /\<!--\s*lang:\s*js\s*--\>\s*<pre><code>(.*?)<\/code><\/pre>/, 
+    "<pre class=\"brush: js\">\\1</pre>")
+  transformer Awestruct::Extensions::Gsub.new(
+    /\<!--\s*lang:\s*javascript\s*--\>\s*<pre><code>(.*?)<\/code><\/pre>/, 
+    "<pre class=\"brush: javascript\">\\1</pre>")
+  transformer Awestruct::Extensions::Gsub.new(
     /\<!--\s*lang:\s*none\s*--\>\s*<pre><code>(.*?)<\/code><\/pre>/, 
     "<pre><code>\\1</code></pre >")
   transformer Awestruct::Extensions::Gsub.new(
