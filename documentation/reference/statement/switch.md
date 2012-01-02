@@ -29,15 +29,16 @@ The general form of the `switch` statement is
     }
     /* code after switch statement */
 
-There can be one or more `case` clauses, and the `else` clause bay be optional
-if the switch is [*exhaustive*](#exhaustivity_and_else).
+There can be one or more *disjoint* `case` clauses. 
+The `else` clause is required if (and only if) the switch is not 
+[*exhaustive*](#exhaustivity_and_else).
 
 ## Description
 
 ### Execution
 
-The `switch` expression is evaluated and then each of the `case`s is considered 
-in turn. The first matching `case` has its block executed, and then execution 
+The `switch` expression is evaluated and then each of the `case`s is considered. 
+The matching `case` has its block executed, and then execution 
 continues with the code after the `switch` statement. 
 If none of the given `case`s match and an `else` clause is given then the 
 `else` block is executed, and then execution 
@@ -46,8 +47,8 @@ continues with the code after the `switch` statement.
 ### Exhaustivity and `else`
 
 If the `case`s cover every possible case of the `switch` expression then the 
-switch is said to be *exhaustive*, and the `else` clause is optional. 
-Otherwise and `else` clause is required.
+switch is said to be *exhaustive*, and the `else` clause is prohibited. 
+Otherwise the `else` clause is required.
 
 ### Polymorphism
 
