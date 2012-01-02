@@ -174,8 +174,8 @@ We have to use the following ugly workaround:
 functions when write a function reference at the Ceylon 
 level.)
 
-Personally, I don't really see why the JavaScript compiler in
-V8 could not in principle internally optimize our original 
+Personally, I don't really see why the JavaScript interpreter
+in V8 could not in principle internally optimize our original 
 code to something more like our "optimized" code. I think it
 would make JavaScript a much more pleasant language to deal
 with if there wasn't such a big difference in performance
