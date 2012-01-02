@@ -109,7 +109,7 @@ to like 100 times slower to instantiate an object that
 defines its methods in lexical scope instead of using its
 prototype on V8. Well, that's not really acceptable in
 production, so I've added a switch that generates code that
-makes us of prototypes. With this switch enables, then for 
+makes use of prototypes. With this switch enables, then for 
 the same Ceylon code, the compiler generates the following:
 
 <!-- lang: js -->
