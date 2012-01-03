@@ -85,9 +85,13 @@ attribute to provide a developer-friendly representation of the object.
 
         shared actual String string { return description; }
         
+        value azimuth {
+            return pi*(angle/pi).fractionalPart;
+        }
+        
         shared actual Boolean equals(Equality that) {
             if (is Polar that) {
-                return angle==that.angle && 
+                return azimuth==that.azimuth && 
                        radius==that.radius; 
             }
             else {
