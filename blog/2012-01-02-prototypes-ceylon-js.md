@@ -171,7 +171,7 @@ We have to use the following ugly workaround:
     1
 
 (Of course, the compiler automatically inserts these wrapper
-functions when write a function reference at the Ceylon 
+functions when you write a function reference at the Ceylon 
 level.)
 
 Personally, I don't really see why the JavaScript interpreter
