@@ -35,6 +35,7 @@ The plugin provides the following features, among others:
   [New Ceylon Project](screenshots#new_ceylon_project_wizard),
   [New Ceylon Module](screenshots#new_ceylon_module_wizard), and 
   New Ceylon Package
+* [Cross-project dependencies and navigation](screenshots#cross_project_dependencies)
 * Export Ceylon Module to Module Repository wizard
 * [Open Ceylon Declaration dialog](screenshots#open_ceylon_declaration_dialog)
 * [Ceylon Search dialog](screenshots#ceylon_search_dialog)
@@ -57,8 +58,9 @@ The plugin provides the following features, among others:
 
 Check out the [screenshots](screenshots)!
 
-## Running the pre-release IDE
+## Running the IDE
 
-If you *really* want to try out Ceylon now, you can [install a special 
-pre-release build of the Ceylon IDE](install) (which includes the 
+If you want to try out Ceylon now, you can [install M1 "Newton" Release of the Ceylon IDE](install) (which includes the 
 compiler) from our Eclipse plugin update site.
+
+We encourage you to start with the [welcome page](screenshots#welcome_page) and the available [cheat sheets](screenshots#cheat_sheats).
