@@ -17,6 +17,7 @@ software company contributing to the Ceylon project.
 
 The plugin provides the following features, among others:
 
+* Ceylon Perspective
 * Incremental compilation
 * [Run / Debug](screenshots#ceylon_launcher_dialog)
 * [Syntax highlighting](screenshots#syntax_highlighting_and_outline_view)
@@ -39,9 +40,10 @@ The plugin provides the following features, among others:
 * Export Ceylon Module to Module Repository wizard
 * [Open Ceylon Declaration dialog](screenshots#open_ceylon_declaration_dialog)
 * [Ceylon Search dialog](screenshots#ceylon_search_dialog)
-* Find References, Find Refinements, and Find Subtypes 
+* Find References, Find Refinements, Find Subtypes, and Find Assignments
   [contextual search](screenshots#find_references_search_results)
 * Configurable keyboard accelerators
+* Configurable syntax highlighting
 * Basic [refactoring](screenshots#rename_refactoring_preview): 
   Rename, Inline, Extract Value, Extract Function,
   Convert To Named Arguments, and Clean Imports
@@ -50,7 +52,6 @@ The plugin provides the following features, among others:
   declaration, create toplevel declaration, create toplevel
   declaration in new unit, add import, make shared, make actual, 
   make default, specify type, refine formal members
-* Clean Imports
 * Refine Formal Members
 * Code folding
 * Structured compare

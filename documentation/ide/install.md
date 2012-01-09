@@ -25,7 +25,5 @@ Here's what you need to do to install the IDE:
 1.  click `Select All` and then `Finish`,
 1.  wait while Eclipse installs the Ceylon plugin, and then restart Eclipse 
     when prompted,
-1.  open `Eclipse > Preferences` and go to `Java > Compiler > Building > Output folder`. 
-    Add the pattern `*.ceylon` to `Filtered resources`,
 1.  Start with the welcome page and [welcome page](../screenshots#welcome_page) and the available [cheat sheets](../screenshots#cheat_sheats). 
 1. have fun!
