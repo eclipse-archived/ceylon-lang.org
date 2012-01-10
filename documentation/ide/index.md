@@ -17,6 +17,7 @@ software company contributing to the Ceylon project.
 
 The plugin provides the following features, among others:
 
+* Ceylon Perspective
 * Incremental compilation
 * [Run / Debug](screenshots#ceylon_launcher_dialog)
 * [Syntax highlighting](screenshots#syntax_highlighting_and_outline_view)
@@ -35,12 +36,14 @@ The plugin provides the following features, among others:
   [New Ceylon Project](screenshots#new_ceylon_project_wizard),
   [New Ceylon Module](screenshots#new_ceylon_module_wizard), and 
   New Ceylon Package
+* [Cross-project dependencies and navigation](screenshots#cross_project_dependencies)
 * Export Ceylon Module to Module Repository wizard
 * [Open Ceylon Declaration dialog](screenshots#open_ceylon_declaration_dialog)
 * [Ceylon Search dialog](screenshots#ceylon_search_dialog)
-* Find References, Find Refinements, and Find Subtypes 
+* Find References, Find Refinements, Find Subtypes, and Find Assignments
   [contextual search](screenshots#find_references_search_results)
 * Configurable keyboard accelerators
+* Configurable syntax highlighting
 * Basic [refactoring](screenshots#rename_refactoring_preview): 
   Rename, Inline, Extract Value, Extract Function,
   Convert To Named Arguments, and Clean Imports
@@ -49,7 +52,6 @@ The plugin provides the following features, among others:
   declaration, create toplevel declaration, create toplevel
   declaration in new unit, add import, make shared, make actual, 
   make default, specify type, refine formal members
-* Clean Imports
 * Refine Formal Members
 * Code folding
 * Structured compare
@@ -57,8 +59,9 @@ The plugin provides the following features, among others:
 
 Check out the [screenshots](screenshots)!
 
-## Running the pre-release IDE
+## Running the IDE
 
-If you *really* want to try out Ceylon now, you can [install a special 
-pre-release build of the Ceylon IDE](install) (which includes the 
+If you want to try out Ceylon now, you can [install M1 "Newton" Release of the Ceylon IDE](install) (which includes the 
 compiler) from our Eclipse plugin update site.
+
+We encourage you to start with the [welcome page](screenshots#welcome_page) and the available [cheat sheets](screenshots#cheat_sheats).

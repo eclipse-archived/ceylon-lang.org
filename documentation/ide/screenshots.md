@@ -10,6 +10,14 @@ author: Gavin King
 This page includes a few screenshots of the IDE. Check out the
 full [feature list](..).
 
+### Welcome page
+
+![welcome](/images/screenshots/welcome.png)
+
+### Cheat sheets
+
+![cheatsheets](/images/screenshots/cheat-sheets.png)
+
 ### Error highlighting, error annotations, and Problems view
 
 ![errors](/images/screenshots/errors-screenshot.png)
@@ -45,6 +53,10 @@ full [feature list](..).
 ### New Ceylon Project wizard
 
 ![newproject](/images/screenshots/newproject-screenshot.png)
+
+### Cross-project dependencies
+
+![crossproject](/images/screenshots/cross-project-dependencies.png)
 
 ### Open Ceylon Declaration dialog
 
