@@ -7,9 +7,9 @@ tab: blog
 tags: [release, progress, M1, ide]
 ---
 
-[ide_install]: /documentation/ide/install?utm_source=blog&utm_medium=web&utm_content=ide_install&utm_campaign=1_0_M1release
-[ide]: /documentation/ide?utm_source=blog&utm_medium=web&utm_content=ide&utm_campaign=1_0_M1release
-[newton]: /blog/2011/12/20/ceylon-m1-newton?utm_source=blog&utm_medium=web&utm_content=blog&utm_campaign=1_0_M1release
+[ide_install]: /documentation/ide/install?utm_source=blog&utm_medium=web&utm_content=ide_install&utm_campaign=IDE_1_0_M1release
+[ide]: /documentation/ide?utm_source=blog&utm_medium=web&utm_content=ide&utm_campaign=IDE_1_0_M1release
+[newton]: /blog/2011/12/20/ceylon-m1-newton?utm_source=blog&utm_medium=web&utm_content=blog&utm_campaign=IDE_1_0_M1release
 
 Today, we're proud to announce the first official release of the [Ceylon IDE](/documentation/ide).
 
@@ -53,7 +53,7 @@ pre-release builds, the following stand out:
 
 ### About Ceylon
 
-[This page](/documentation/introduction/?utm_source=blog&utm_medium=web&utm_content=introduction&utm_campaign=1_0_M1release) 
+[This page](/documentation/introduction/?utm_source=blog&utm_medium=web&utm_content=introduction&utm_campaign=IDE_1_0_M1release) 
 provides a quick introduction to the language. [The draft language specification](/documentation/spec)
 is the complete definition.
 
@@ -71,9 +71,9 @@ Bugs and suggestions may be reported in GitHub's issue tracker.
 ### Community
 
 The Ceylon community site includes 
-[documentation](/documentation?utm_source=blog&utm_medium=web&utm_content=documentation&utm_campaign=1_0_M1release), 
+[documentation](/documentation?utm_source=blog&utm_medium=web&utm_content=documentation&utm_campaign=IDE_1_0_M1release), 
 the [current draft of the language specification](/documentation/spec), 
-the [roadmap](/documentation/roadmap?utm_source=blog&utm_medium=web&utm_content=roadmap&utm_campaign=1_0_M1release) 
-and information about [getting involved](/code?utm_source=blog&utm_medium=web&utm_content=code&utm_campaign=1_0_M1release).
+the [roadmap](/documentation/roadmap?utm_source=blog&utm_medium=web&utm_content=roadmap&utm_campaign=IDE_1_0_M1release) 
+and information about [getting involved](/code?utm_source=blog&utm_medium=web&utm_content=code&utm_campaign=IDE_1_0_M1release).
 
 <http://ceylon-lang.org>
