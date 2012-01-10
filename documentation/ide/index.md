@@ -17,10 +17,10 @@ software company contributing to the Ceylon project.
 
 The plugin provides the following features, among others:
 
-* Ceylon Perspective
-* Incremental compilation
+* Ceylon perspective
+* Incremental compilation and interactive error reporting
 * [Run / Debug](screenshots#ceylon_launcher_dialog)
-* [Syntax highlighting](screenshots#syntax_highlighting_and_outline_view)
+* Customizable [syntax highlighting](screenshots#syntax_highlighting_and_outline_view)
 * [Outline view](screenshots#syntax_highlighting_and_outline_view) 
   and popup outline
 * [Popup type hierarchy](screenshots#popup_type_hierarchy)
@@ -36,14 +36,14 @@ The plugin provides the following features, among others:
   [New Ceylon Project](screenshots#new_ceylon_project_wizard),
   [New Ceylon Module](screenshots#new_ceylon_module_wizard), and 
   New Ceylon Package
-* [Cross-project dependencies and navigation](screenshots#cross_project_dependencies)
+* [Cross-project dependencies and navigation](screenshots#cross_project_dependencies),
+  and support for external module repositories
 * Export Ceylon Module to Module Repository wizard
 * [Open Ceylon Declaration dialog](screenshots#open_ceylon_declaration_dialog)
 * [Ceylon Search dialog](screenshots#ceylon_search_dialog)
 * Find References, Find Refinements, Find Subtypes, and Find Assignments
   [contextual search](screenshots#find_references_search_results)
 * Configurable keyboard accelerators
-* Configurable syntax highlighting
 * Basic [refactoring](screenshots#rename_refactoring_preview): 
   Rename, Inline, Extract Value, Extract Function,
   Convert To Named Arguments, and Clean Imports
@@ -53,9 +53,7 @@ The plugin provides the following features, among others:
   declaration in new unit, add import, make shared, make actual, 
   make default, specify type, refine formal members
 * Refine Formal Members
-* Code folding
-* Structured compare
-* Mark occurrences
+* Code folding, structured compare, mark occurrences, and more...
 
 Check out the [screenshots](screenshots)!
 
