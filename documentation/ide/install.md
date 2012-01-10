@@ -7,7 +7,7 @@ author: Gavin King
 ---
 # #{page.title}
 
-The M1 "Newton" release of the Ceylon IDE is avaiable from our Eclipse 
+The M1 "Newton" release of the Ceylon IDE is available from our Eclipse 
 plugin update site. Note that the version of the Ceylon compiler embedded
 in this M1 release is compatible with the Ceylon M1 "Newton" command-line tools.
 
