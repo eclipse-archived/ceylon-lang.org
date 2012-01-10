@@ -27,7 +27,7 @@ Here's what you need to do to install the IDE:
 5.  Wait while Eclipse installs the Ceylon plugin, and then restart Eclipse 
     when prompted.
 6.  Go to `Help > Welcome to Ceylon` to get started. 
-7.  Have fun!
+    ![welcomepage](/images/screenshots/intro.png "Welcome Page")
 
 [eclipse]: http://www.eclipse.org/downloads/
 [issues]: https://github.com/ceylon/ceylon-ide-eclipse/issues
