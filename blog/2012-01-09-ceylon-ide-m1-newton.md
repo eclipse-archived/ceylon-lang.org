@@ -11,55 +11,50 @@ tags: [release, progress, M1, ide]
 [ide]: /documentation/ide?utm_source=blog&utm_medium=web&utm_content=ide&utm_campaign=1_0_M1release
 [newton]: /blog/2011/12/20/ceylon-m1-newton?utm_source=blog&utm_medium=web&utm_content=blog&utm_campaign=1_0_M1release
 
-Today, we're proud to announce the first official release of the Ceylon M1 "Newton" IDE.
+Today, we're proud to announce the first official release of the [Ceylon IDE](/documentation/ide).
 
-It is fully compatible with the already-released [Ceylon M1 "Newton" distribution][newton] which contains
-the command line compiler, documentation compiler, language module, and runtime.
+![teaser](/images/screenshots/teaser2.png)
 
-However it can also be used as a lightweight standalone Ceylon development tool, even if
-the full Ceylon distribution is not already installed.
+This release is fully compatible with the already-released [Ceylon M1 "Newton" 
+command line distribution][newton] which contains the compiler, documentation 
+compiler, language module, and runtime. On the other hand, Ceylon IDE can be 
+used as a standalone Ceylon development tool, even if the full Ceylon 
+distribution is not already separately installed.
 
-You can get it by [installing it][ide_install] from our Eclipse plugin update site ...
-... and start playing with Ceylon thanks to the cheat sheets available in the Ceylon [Welcome page](/documentation/ide/screenshots#welcome_page).
+You can install Ceylon IDE from our [Eclipse plugin update site][ide_install].
+The [welcome page](/documentation/ide/screenshots#welcome_page) is a gentle 
+way to get started with Ceylon.
 
 
 ### Main features
 
 A full list of features with screenshots can be found [here][ide].
 
-However among the features that have greatly enriched the IDE since its first pre-release versions,
-the following can be considered as the most important :
+Among the features that have greatly enriched the IDE since its first 
+pre-release builds, the following stand out:
 
-
-* New wizards to create Ceylon projects, modules, packages, units : Start working directly on
-  Ceylon-specific Eclipse resources.
-
-* Cross-project dependencies and navigation : Add another Ceylon project on the build path, and all
-  the dependencies are correctly managed.
-  
-* Enhanced Ceylon search facilities : For example, with 'Search Assignments', find all the places where a 
-  variable is assigned a specific value.
-
-* Greatly enhanced user-experience : Easily configure your syntax highlighting rules, and get better auto-completion.
-
-* Many new quick-fixes : For example, when an identifier is unknown, automatically create the missing declaration
-  as a toplevel declaration in a new unit.
-
-* New refactorings such as Extract Function, Convert To Named Arguments, and Clean Imports.
-
-* Ability to refactor even in dirty (unsaved) editors.
-
-* Export Ceylon Module to Module Repository wizard : Export your Ceylon project as a module to the selected
-  repository, in order to run your Ceylon project from the command-line.
-  
+* A Ceylon perspective, welcome page, and cheat sheets.
+* Wizards to create new Ceylon projects, modules, packages, and units.
+* Cross-project dependencies and navigation: add another Ceylon project on 
+  the build path, and dependencies are automatically handled.
+* Full integration with the Ceylon module architecture: resolve dependencies
+  in an external module repository, and easily export your Ceylon project 
+  as a module to a selected repository.
+* Enhancements to refactorings, including the ability to refactor even in 
+  dirty (unsaved) editors.
+* New quick-fixes: for example, when an identifier is unknown, automatically 
+  create a new file containing a stub for the missing declaration.
+* Improved autocompletion: proposals are now sorted to prioritize those
+  which are assignable to the expected type, as well as those which are
+  declared nearby.
+* Customization: easily configure your own colors for syntax highlighting.
 * And, of course, many adjustments and bug fixes to provide a stable release.
 
 
 ### About Ceylon
 
 [This page](/documentation/introduction/?utm_source=blog&utm_medium=web&utm_content=introduction&utm_campaign=1_0_M1release) 
-provides a quick 
-introduction to the language. [The draft language specification][spec]
+provides a quick introduction to the language. [The draft language specification](/documentation/spec)
 is the complete definition.
 
 ### Source code
@@ -77,8 +72,7 @@ Bugs and suggestions may be reported in GitHub's issue tracker.
 
 The Ceylon community site includes 
 [documentation](/documentation?utm_source=blog&utm_medium=web&utm_content=documentation&utm_campaign=1_0_M1release), 
-the 
-[current draft of the language specification][spec], 
+the [current draft of the language specification](/documentation/spec), 
 the [roadmap](/documentation/roadmap?utm_source=blog&utm_medium=web&utm_content=roadmap&utm_campaign=1_0_M1release) 
 and information about [getting involved](/code?utm_source=blog&utm_medium=web&utm_content=code&utm_campaign=1_0_M1release).
 
