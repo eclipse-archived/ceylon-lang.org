@@ -61,7 +61,9 @@ Check out the [screenshots](screenshots)!
 
 ## Running the IDE
 
-If you want to try out Ceylon now, you can [install M1 "Newton" Release of the Ceylon IDE](install) (which includes the 
-compiler) from our Eclipse plugin update site.
+If you want to try out Ceylon now, you can [install the M1 "Newton" 
+Release of the Ceylon IDE](install) (which includes the compiler) 
+from our Eclipse plugin update site.
 
-We encourage you to start with the [welcome page](screenshots#welcome_page) and the available [cheat sheets](screenshots#cheat_sheats).
+You can get started using the [welcome page](screenshots#welcome_page) and 
+[cheat sheets](screenshots#cheat_sheats).
