@@ -73,7 +73,7 @@ precisely in the release, read our [announcement][newton].
 [ceylon-dist readme]: https://github.com/ceylon/ceylon-dist/blob/master/README.md 
 
 
-The M1 "Newton" release of [Ceylon IDE](/documentation/ide) is available from our [update site](/documentation/ide/install).
+The M1 "Newton" release of [Ceylon IDE](/documentation/ide) is available from our [update site](/documentation/ide/install?utm_source=download&utm_medium=web&utm_content=ide-install&utm_campaign=IDE_1_0_M1release).
 
 The source [code](/code) is available from [GitHub](http://github.com/ceylon).
 
