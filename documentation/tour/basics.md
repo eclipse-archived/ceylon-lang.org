@@ -58,8 +58,50 @@ A very useful trick is:
 
 ## Running the program from the IDE
 
-In a couple of days [Ceylon IDE](../ide) M1 will be available. Check back 
-here once it is released. ;-)
+To run the program in [Ceylon IDE](../ide), go to the Ceylon perspective,
+create a new project using `File > New > Ceylon Project`, then create
+a new `.ceylon` file using `File > New > Ceylon Unit`. Put the code for
+`hello()` in this new file, then select the file and run it using 
+`Run > Run As > Ceylon Application`.
+
+Or, if you're unfamiliar with Eclipse, go to `Help > Cheat Sheets`, open
+the `Ceylon` item, and run the `Hello World with Ceylon` cheat sheet
+which takes you step by step through the process.
+
+## String literals
+
+String literals in Ceylon may span multiple lines. Try this:
+
+    void hello() {
+        print("Hello, 
+               World!");
+    }
+
+The output is:
+
+    Hello, 
+    World!
+
+Note that because the second line of the string literal contained whitespace 
+right up until the first character of the first line of the string literal,
+all that whitespace was automatically removed. This helps us format our
+code nicely.
+
+It's often useful to collapse whitespace in a multiline string literal. The
+`String` class has an attribute called `normalized`. We can use it like this:
+
+    void hello() {
+        value message = "Hello, 
+                         World!"
+        print(message.normalized);
+    }
+
+Which results in the output:
+
+    Hello, World!
+
+Multiline strings are especially useful for adding documentation to a 
+program.
 
 ## Adding inline documentation
 
@@ -138,14 +180,15 @@ formatting.
         print("Hello, World!");
     }
 
-Since Markdown is sensitive to the initial column in which text appears, you 
-need to be careful to indent the lines of the multiline string literal 
+Since Markdown is sensitive to the initial column in which text appears, 
+you need to be careful to indent the lines of the multiline string literal 
 correctly, as we've done here.  
 
-## Strings and string interpolation
+## String interpolation and concatenation
 
 Let's make our program to tell us a little more about itself.
 
+<!--
     doc "The Hello World program
          ... version 1.1!"
     void hello() {
@@ -155,34 +198,52 @@ Let's make our program to tell us a little more about itself.
               process.javaVersion 
               "!");
     }
+-->
 
-As you can see from the `doc` annotation we can split a string across multiple lines. That's especially 
-useful when we're writing documentation in a `doc` annotation. We can 
-interpolate expressions inside a string: we call that a string template.
+    void hello2() {
+        print("Hello, you ran me at " 
+               process.milliseconds
+              " ms, with " 
+               process.arguments.size
+              " command line arguments.");
+    }
 
-A string template must begin and end in a string literal. The following is 
-not legal syntax:
+Notice how our message contains interpolated expressions. This is called
+a _string template_. A string template must begin and end in a string 
+literal. The following is not legal syntax:
 
-    print("Hello, this is Ceylon " 
-          process.languageVersion); //compile error!
+    print("Hello, you ran me at " 
+           process.milliseconds); //compile error!
 
 But we can easily fix it:
 
-    print("Hello, this is Ceylon " 
-          process.languageVersion 
+    print("Hello, you ran me at " 
+           process.milliseconds 
           "");
 
-(If you're wondering why the syntax isn't something like `"Hello, this is Ceylon ${process.languageVersion}"`
+(If you're wondering why the syntax isn't something like 
+`"Hello, you ran me at ${process.milliseconds}"`,
 [here's why](/documentation/faq/language-design/#string_interpolation_syntax).)
 
 The `+` operator you're probably used to is an alternative way to concatenate
 strings, and more flexible in many cases:
 
-    print("Hello, this is Ceylon " + 
-          process.languageVersion +
-          " running on Java " + 
-          process.javaVersion + 
-          "!");
+    print("Hello, you ran me at " + 
+           process.milliseconds.string +
+          " ms, with " +
+           process.arguments.size.string +
+          " command line arguments.");
+
+Note that when we use `+` to concatenate strings, we have to explicitly 
+invoke the `string` attribute to convert numeric expressions to strings. The 
+`+` operator does not automatically convert its operands to strings, so the 
+following does not compile:  
+
+    print("Hello, you ran me at " + 
+           process.milliseconds.string +
+          " ms, with " +
+           process.arguments.size.string +
+          " command line arguments.");    //compile error!
 
 ## Dealing with objects that aren't there
 
