@@ -77,8 +77,8 @@ mean, but that leaves me even more confused:
 
 Perhaps what you really want to ask is: 
 
-> Does Ceylon encourage you to write code using immutability and 
-> higher order functions? 
+> Does Ceylon encourage you to write code using immutability,
+> parametric polymorphism, and higher order functions? 
 
 Well then, that's easy: yes, it certainly does.
 
