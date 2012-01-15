@@ -32,7 +32,8 @@ of the most important ones:
 * To allow excellent tool support, including extremely helpful and 
   understandable error messages.
 * To provide excellent support for modularity.
-* to reuse the good of Java.
+* To provide support for disciplined metaprogramming.
+* To reuse the good of Java.
 
 ## Syntax
 
@@ -181,7 +182,7 @@ in Java `abstract` means something completely different for
 classes to what it means for members. That works out OK in
 Java because Java doesn't have member class refinement.
 
-## Constructs
+## Language features
 
 ### Overloading
 
@@ -192,13 +193,13 @@ features though, in truth, the interactions could probably
 be controlled by sufficiently restricting the signature of
 overloaded declarations. And overloading also maps bady to
 the JVM because generic types are erased from signatures.
-But again, there are potential workarounds for this problem.
+But there are potential workarounds for this problem, too.
 
 The are really two main reasons why overloading doesn't make
 much sense in Ceylon:
 
-1. support for union types and sequenced parameters (varargs)
-   make overloading unnecessary, and
+1. support for union types, default arguments, and sequenced 
+   parameters (varargs) make overloading unnecessary, and
 2. method references to overloaded declarations are ambiguous.
 
 Nevertheless, for interoperability, we _are_ going to need 
@@ -207,12 +208,196 @@ classes defined in Java. We haven't totally decided what to
 do here yet, but we will probably introduce an ugly syntax
 for disambiguating overloaded declarations.  
 
+### Implicit type conversions
+
+> Why doesn't Ceylon have any kind of implicit type conversions?
+
+An implicit type conversion is a type conversion that is inserted
+automatically by the compiler when a the type of an expression is 
+not assignable to the thing is being assigned to. For example, the
+Java compiler automatically inserts a call to `Long.toString()` in 
+the following code:
+
+<!-- lang: java -->
+    System.out.println("The time is: " + System.currentTimeMillis());
+
+Some languages go as far as to allow the user to define their own 
+implicit type conversions.
+
+Ceylon doesn't have any kind of implicit type conversion, 
+user-defined or otherwise. Every expression in Ceylon has a unique
+well-defined principal type.
+
+The power of implicit type conversions comes partly from their 
+ability to work around some of the designed-in limitations of the 
+type system. But these limitations have a purpose! In particular, 
+the prohibitions against:
+
+* inheriting the same generic type twice, with different type 
+  arguments (in most languages), and
+* overloading (in Ceylon).
+
+Implicit type conversions are an end-run around these restrictions, 
+reintroducing the ambiguities that these restrictions exist to 
+prevent. Any language with user-defined implicit type conversions 
+is almost guaranteed to be riddled with unintuitive corner cases.
+
+Furthermore, it's extremely difficult to imagine a language with 
+implicit type conversions that preserves the following important 
+properties of the type system:
+
+* transitivity of the assignability relationship,
+* covariance of generic types,
+* the semantics of the identity `==` operator, and
+* the ability to infer generic type arguments of an invocation or 
+  instantiation.
+
+Finally, implicit type conversions work by having the compiler 
+introduce hidden invocations of arbitrary user-written procedural 
+code, code that could potentially have side-effects or make use 
+of temporal state. Thus, the observable behavior of the program 
+can depend upon precisely where and how the compiler introduces 
+these "magic" calls.
+
+All this additional complexity, just to avoid _one method call?_
+
+### Extension methods
+
+> Will Ceylon support extension methods?
+
+Yes, almost certainly.
+
+An extension method or attribute is a method or attribute 
+introduced to a type within a certain lexical scope. For example, 
+we might want to introduce an `uppercaseString` attribute to 
+`Object` by writing a method like this:
+
+    shared String uppercaseString(Object this) {
+        return this.string.uppercased
+    }
+
+Or a `printMe()` method to `String` like this:
+
+    shared void printMe(String this)() {
+        print(this);
+    }
+
+We're still debating whether Ceylon should support plain
+vanilla extension methods, or a more powerful feature called
+_introductions_. You'll find some discussion of this idea in
+[Chapter 3 of the language specification][introductions].
+
+[introductions]: /documentation/spec/html/typesystem.html#adaptedtypes
+
 ### Tuples
 
 > Will Ceylon support tuples?
 
 Great question. We haven't decided yet. It's the #1 feature 
 request from the community. 
+
+### Type classes 
+
+> Will Ceylon have type classes?
+
+Probably. From our point of view, a type class is a type 
+satisfied by the metatype of a type. Indeed, we view type
+classes as a kind of support for reified types. Since Ceylon 
+will definitely support reified types with typesafe metatypes, 
+it's not unreasonable to consider providing the ability to 
+introduce an additional type to the metatype of a type.
+
+You'll find some further discussion of this issue in 
+[Chapter 3 of the language specification][metatypes].
+
+[metatypes]:/documentation/spec/html/typesystem.html#metatypes
+
+### Type constructor parameterization
+
+> Will Ceylon have higher kinds?
+
+Possibly, in some future version, though we prefer to avoid 
+this terminology. You'll see us discuss this issue under the 
+title _type constructor parameterization_ or even 
+_parameterized type parameters_.
+
+To understand what this is all about, we need to take a 
+slightly different perspective on the notion of a generic 
+type to the one that folks coming from C++ usually have. 
+Instead of thinking about a parameterized type as a kind of
+template, we'll think about it as a _type constructor_, 
+meaning a function from types to types. Give it a list of
+argument types, and the type constructor will give you back
+a new type.
+
+So, from this perspective, `Sequence` is a type constructor, 
+`String` is an argument type, and `List<String>`is the 
+resulting type produced by the type constructor.
+
+Type constructor parameterization is the ability to abstract
+the definition of a function or type not only over types 
+(which is what any system of generics allows) but also over 
+type constructors. 
+
+Without type constructor parameterization, we can't form 
+certain kind of higher-order abstractions, the most famous
+of which is `Functor`, which abstracts over "container types"
+which support the ability to `map()` a function to elements. 
+(Another famous one is `Monad`.)
+
+We have not yet decided if Ceylon needs this feature. It is
+mentioned as a proposal in [Chapter 3 of the language 
+specification][type constructor parameterization].
+
+[type constructor parameterization]: /documentation/spec/html/typesystem.html#parameterizedtypeparameters
+
+### Generalized Algebraic Types
+
+> Will Ceylon support GADTs?
+
+Probably, in some future version.
+
+A GADT is a sophisticated kind of algebraic type where the 
+cases of the type depend upon the value of one of its type
+arguments. Consider:
+
+    abstract class Expression<T>()
+            of Sum<T> | FloatLiteral | IntegerLiteral 
+            given T of Float | Integer {}
+    class FloatLiteral() extends Expression<Float>()  {}
+    class IntegerLiteral() extends Expression<Integer>() {}
+
+GADT support means that the compiler is able to reason that
+when it has an expression of type `Expression<Float>` then it
+can't possibly have an `IntegerLiteral`.
+
+You'll find some further discussion of this issue in 
+[Chapter 3 of the language specification][gadts].
+
+[gadts]:/documentation/spec/html/typesystem.html#d0e2399
+
+### Type families
+
+> Will Ceylon support type families?
+
+Yes, probably. The Ceylon type checker already has support
+for this feature. However, we still need to investigate 
+whether this feature is guaranteed to be decidable in all
+cases.
+
+Self types and type families in Ceylon where previously 
+[discussed here][type families]. In a nutshell:
+
+_A self type is a type parameter of an abstract type (like 
+`Comparable`) which represents the type of a concrete 
+instantiation (like `String`) of the abstract type within 
+the definition of the abstract type itself. In a type family, 
+the self type of a type is declared not by the type itself, 
+but by a containing type which groups together a set of 
+related types. This allows the related types to refer to the
+unknown self type of the type._
+
+[type families]: http://in.relation.to/Bloggers/SelfTypesAndTypeFamiliesInCeylon
 
 ### Variables
 
@@ -254,19 +439,49 @@ the downsides of implicit type conversions.
 
 -->
 
-### Union types
+### Union and intersection types
 
-TODO finish this!
+> Why are union types so important in Ceylon?
 
 The use of union types actually nicely resolves some of the problems 
 with Haskell/ML/Scala `Option`/`Maybe` types. The union types are 
 much more transparent, since you never need to instantiate an `Option`.
 
-They also work nicely for type (arg) inference. One of the problems in 
-Java generics is that the compiler often infers types that are 
-"non-denotable", i.e. not representable within the Java language. This 
-results in *really* confusing error messages. That never happens in 
-Ceylon, since union and intersection types are denotable and there are
-no wildcard types.
+They also work nicely for type (arg) inference. One of the problems 
+in Java generics is that the compiler often infers types that are 
+"non-denotable", i.e. not representable within the Java language. 
+This results in *really* confusing error messages. That never happens 
+in Ceylon, since union and intersection types are denotable and there 
+are no wildcard types.
 
 Union types also help make overloading unnecessary.
+
+### Checked exceptions
+
+> Why doesn't Ceylon have checked exceptions?
+
+Most people agree that checked exceptions were a mistake in Java, 
+and new frameworks and libraries almost never use them. We're in
+agreement with the designers of other later languages such as C#,
+which chose not to have checked exceptions.
+
+And if you think about it carefully, the main reason for having 
+exceptions in the first place is to work around the declared 
+static types of our functions.
+
+If we wanted to declare the exception as part of the signature 
+of a function, we could just declare it in the return type like
+this:
+
+    Integer|NegativeException fib(Integer n) { ... }
+
+The reason for using an exception is that we _don't_ want to 
+force the direct caller of `fib()` to account for the exceptional
+case. Rather, the exception is a way to have the function not
+fulfill its promise to return an `Integer`, without breaking the
+soundess of the type system.
+
+(OK, sure, Java doesn't have union types, so you can't write the
+above in Java, which I suppose provides a partial motivation for
+having checked exceptions in _Java_. But we're talking about 
+Ceylon here.)
