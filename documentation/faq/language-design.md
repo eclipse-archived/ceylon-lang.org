@@ -396,7 +396,7 @@ specification][type constructor parameterization].
 
 [type constructor parameterization]: /documentation/spec/html/typesystem.html#parameterizedtypeparameters
 
-### Generalized Algebraic Types
+### Generalized algebraic types
 
 > Will Ceylon support GADTs?
 
