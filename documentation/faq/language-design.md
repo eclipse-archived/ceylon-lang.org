@@ -293,16 +293,16 @@ properties of the type system:
 
 * transitivity of the assignability relationship,
 * covariance of generic types,
-* the semantics of the identity `==` operator, and
+* the semantics of the identity `===` operator, and
 * the ability to infer generic type arguments of an invocation or 
   instantiation.
 
-Finally, implicit type conversions work by having the compiler 
-introduce hidden invocations of arbitrary user-written procedural 
-code, code that could potentially have side-effects or make use 
-of temporal state. Thus, the observable behavior of the program 
-can depend upon precisely where and how the compiler introduces 
-these "magic" calls.
+Finally, user-defined implicit type conversions work by having the 
+compiler introduce hidden invocations of arbitrary user-written 
+procedural code, code that could potentially have side-effects or 
+make use of temporal state. Thus, the observable behavior of the 
+program can depend upon precisely where and how the compiler 
+introduces these "magic" calls.
 
 All this additional complexity, just to avoid _one method call?_
 
@@ -376,7 +376,7 @@ argument types, and the type constructor will give you back
 a new type.
 
 So, from this perspective, `Sequence` is a type constructor, 
-`String` is an argument type, and `List<String>`is the 
+`String` is an argument type, and `Sequence<String>` is the 
 resulting type produced by the type constructor.
 
 Type constructor parameterization is the ability to abstract
@@ -384,11 +384,11 @@ the definition of a function or type not only over types
 (which is what any system of generics allows) but also over 
 type constructors. 
 
-Without type constructor parameterization, we can't form 
-certain kind of higher-order abstractions, the most famous
-of which is `Functor`, which abstracts over "container types"
-which support the ability to `map()` a function to elements. 
-(Another famous one is `Monad`.)
+Without type constructor parameterization, we can't form
+certain higher-order abstractions, the most famous of which 
+is `Functor`, which abstracts over "container types" that 
+support the ability to `map()` a function to elements. 
+(Another famous example is `Monad`.)
 
 We have not yet decided if Ceylon needs this feature. It is
 mentioned as a proposal in [Chapter 3 of the language 
