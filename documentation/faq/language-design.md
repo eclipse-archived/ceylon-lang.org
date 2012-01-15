@@ -249,11 +249,9 @@ much sense in Ceylon:
    parameters (varargs) make overloading unnecessary, and
 2. method references to overloaded declarations are ambiguous.
 
-Nevertheless, for interoperability, we _are_ going to need 
-some way to call overloaded methods and constructors of 
-classes defined in Java. We haven't totally decided what to
-do here yet, but we will probably introduce an ugly syntax
-for disambiguating overloaded declarations.  
+Nevertheless, for interoperability, Ceylon, as of M2, _will_ 
+let you call overloaded methods and constructors of classes 
+defined in Java.
 
 ### Implicit type conversions
 
