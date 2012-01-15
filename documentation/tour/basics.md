@@ -240,9 +240,9 @@ invoke the `string` attribute to convert numeric expressions to strings. The
 following does not compile:  
 
     print("Hello, you ran me at " + 
-           process.milliseconds.string +
+           process.milliseconds +
           " ms, with " +
-           process.arguments.size.string +
+           process.arguments.size +
           " command line arguments.");    //compile error!
 
 ## Dealing with objects that aren't there
