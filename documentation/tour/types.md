@@ -58,7 +58,7 @@ The `if (is ... )` construct actually narrows to an intersection type.
 
 ## Intersection types
 
-A expression is assignable to an *intersection type*, written `X&Y`, if it is 
+An expression is assignable to an *intersection type*, written `X&Y`, if it is 
 assignable to *both* `X` and `Y`. For example, since `Empty` is is a subtype 
 of `Iterable<Bottom>` and of `Sized`, it's also a subtype of the intersection 
 `Iterable<Bottom>&Sized`. The supertypes of an intersection type include all 
