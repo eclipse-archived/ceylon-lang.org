@@ -95,12 +95,19 @@ we can use a special variation of the `for` loop that is designed for
 iterating instances of `Entries`:
 
     for (i -> op in entries(operators)) {
-        print($i + ": " + op);
+        print(i.string + ": " + op);
     }
 
 The `entries()` function returns an instance of `Entries<Integer,String>` 
 containing the indexed elements of the sequence. The `->` is syntax sugar 
 for `Entry`.
+
+It's often useful to be able to iterate two sequences at once. The `zip()`
+function comes in handy here:
+
+    for (name -> place in zip(names,places)) {
+        print(name + " @ " + place);
+    }
 
 ## Sequence and its supertypes
 
