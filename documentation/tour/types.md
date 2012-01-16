@@ -369,7 +369,7 @@ to the left of the `=` specifier, or further down the block of statements.
 
 * The inferred type of a local declared `value` is just the type of the 
   expression assigned to it using `=` or `:=`.
-* The inferred type of a method declared `function` is just the union the 
+* The inferred type of a method declared `function` is just the union of the 
   returned expression types appearing in the method's `return` statements
   (or `Bottom` if the method has no `return` statement).
 
