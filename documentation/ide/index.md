@@ -59,9 +59,16 @@ Check out the [screenshots](screenshots)!
 
 ## Running the IDE
 
-If you want to try out Ceylon now, you can [install the M1 "Newton" 
-Release of the Ceylon IDE](install) (which includes the compiler) 
-from our Eclipse plugin update site.
+You can install Ceylon IDE (which includes the Ceylon compiler) either
+
+* from our [Eclipse plugin update site](install), or 
+* from Eclipse Marketplace by dragging and dropping this button into 
+  a running Eclipse Indigo workspace:
+  <a href='http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=185799' title='Drag and drop into a running Eclipse Indigo workspace to install Ceylon IDE' style="display:block;text-align:center;font-weight:bold;text-decoration:none"> 
+  <img src='http://marketplace.eclipse.org/misc/installbutton.png'/>
+  <br/>Ceylon IDE 
+  </a>
 
 You can get started using the [welcome page](screenshots#welcome_page) and 
-[cheat sheets](screenshots#cheat_sheats).
+[cheat sheets](screenshots#cheat_sheets). After installing, go straight to 
+`Help > Welcome to Ceylon`.
