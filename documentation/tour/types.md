@@ -67,14 +67,15 @@ supertypes of every intersected type.
 Therefore, the following code is well-typed:
 
     Iterable<Bottom>&Sized empty = {};
-    Integer sizeZero = empty.size;
-    Nothing nullIterator = empty.iterator;
+    Integer sizeZero = empty.size;  //call size of Sized
+    Nothing nullIterator = empty.iterator;  //call iterator of Iterable
 
 Consider the following code:
 
-    Iterable<Bottom> enpty = {}
+    Iterable<Bottom> empty = {};
     if (is Sized empty) {
-        ...
+        Integer sizeZero = empty.size;
+        Nothing nullIterator = empty.iterator;
     }
 
 Inside the body of the `if` construct, `empty` has the type `Iterable<Bottom>&Sized`,
