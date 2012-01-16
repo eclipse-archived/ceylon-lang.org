@@ -72,17 +72,16 @@ its supertypes? Well, the answer is pretty intuitive: `T` is a supertype of
 `X|Y` if and only if it is a supertype of both `X` and `Y`. The Ceylon compiler 
 determines this automatically. So the following code is also well-typed:
 
-    Integer|Float i = -1;
-    Number num = i;  // Number is a supertype of both Integer and Float
-    String|Integer|Integer val = i; // String|Integer|Float is a supertype of Integer|Float
+    Integer|Float x = -1;
+    Number num = x;  // Number is a supertype of both Integer and Float
+    String|Integer|Float val = x; // String|Integer|Float is a supertype of Integer|Float
     Object obj = val; // Object is a supertype of String, Integer, and Float
 
 However, the following code is *not* well-typed, since since `Number` is not a 
 supertype of `String`.
 
-    Integer|Float i = -1;
-    Number num = i;
-    String|Integer|Float val = num; //compile error
+    String|Integer|Float x = -1;
+    Number num = x; //compile error: String is not a subtype of Number
 
 Of course, it's very common to narrow an expression of union type using a 
 `switch` statement. Usually, the Ceylon compiler forces us to write an `else` 
