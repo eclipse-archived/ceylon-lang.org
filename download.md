@@ -21,6 +21,7 @@ documentation compiler, language module, and runtime.
     <tr>
         <td>
         <a href="/download/dist/1_0_Milestone1" 
+           title='Download the Zip archive'
            onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone1?utm_source=download&utm_medium=web&utm_content=dist&utm_campaign=1_0_M1release']);">
            <img src="/images/download/package-zip.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
         </a>
@@ -29,6 +30,7 @@ documentation compiler, language module, and runtime.
         <td>All Operating Systems</td>
         <td>
         <a href="/download/dist/1_0_Milestone1" 
+           title='Download the Zip archive'
            style='font-weight:bold;text-decoration:none'
            onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone1?utm_source=download&utm_medium=web&utm_content=dist&utm_campaign=1_0_M1release']);">
            download
@@ -38,6 +40,7 @@ documentation compiler, language module, and runtime.
     <tr>
         <td>
         <a href="/download/dist/1_0_Milestone1_rpm" 
+           title='Download the RPM'
            onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone1_rpm?utm_source=download&utm_medium=web&utm_content=dist&utm_campaign=1_0_M1release']);">
            <img src="/images/download/package-fedora.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
         </a>
@@ -46,6 +49,7 @@ documentation compiler, language module, and runtime.
         <td>Fedora/Red Hat</td>
         <td>
         <a href="/download/dist/1_0_Milestone1_rpm" 
+           title='Download the RPM'
            style='font-weight:bold;text-decoration:none'
            onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone1_rpm?utm_source=download&utm_medium=web&utm_content=dist&utm_campaign=1_0_M1release']);">
            download
@@ -55,6 +59,7 @@ documentation compiler, language module, and runtime.
     <tr>
         <td>
         <a href="/download/dist/1_0_Milestone1_deb" 
+           title='Download the Debian package'
            onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone1_deb?utm_source=download&utm_medium=web&utm_content=dist&utm_campaign=1_0_M1release']);">
            <img src="/images/download/package-debian.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
         </a>
@@ -63,6 +68,7 @@ documentation compiler, language module, and runtime.
         <td>Debian/Ubuntu</td>
         <td>
         <a href="/download/dist/1_0_Milestone1_deb" 
+           title='Download the Debian package'
            style='font-weight:bold;text-decoration:none'
            onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone1_deb?utm_source=download&utm_medium=web&utm_content=dist&utm_campaign=1_0_M1release']);">
            download
