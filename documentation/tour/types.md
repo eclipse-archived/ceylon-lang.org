@@ -53,6 +53,33 @@ These constructs protect us from inadvertantly writing code that would cause a
 `ClassCastException` in Java, just like `if (exists ... )` protects us from 
 writing code that would cause a `NullPointerException`.
 
+The `if (is ... )` construct actually narrows to an intersection type.
+
+
+## Intersection types
+
+A expression is assignable to an *intersection type*, written `X&Y`, if it is 
+assignable to *both* `X` and `Y`. For example, since `Empty` is is a subtype 
+of `Iterable<Bottom>` and of `Sized`, it's also a subtype of the intersection 
+`Iterable<Bottom>&Sized`. The supertypes of an intersection type include all 
+supertypes of every intersected type.
+
+Therefore, the following code is well-typed:
+
+    Iterable<Bottom>&Sized empty = {};
+    Integer sizeZero = empty.size;
+    Nothing nullIterator = empty.iterator;
+
+Consider the following code:
+
+    Iterable<Bottom> enpty = {}
+    if (is Sized empty) {
+        ...
+    }
+
+Inside the body of the `if` construct, `empty` has the type `Iterable<Bottom>&Sized`,
+so we can call operations of both `Iterable` and `Sized`.
+
 
 ## Union types
 
@@ -95,21 +122,6 @@ will let us leave off the `else` clause.
         case (is Integer) { print("Integer: " + val); }
         case (is Float) { print("Float: " + val); }
     }
-
-
-## Intersection types
-
-On the other hand, an expression is assignable to an *intersection type*, written 
-`X&Y`, if it is assignable to *both* `X` and `Y`. For example, since `Empty` is
-is a subtype of `Iterable<Bottom>` and of `Sized`, it's also a subtype of the
-intersection `Iterable<Bottom>&Sized`. The supertypes of an intersection type
-include all supertypes of every intersected type.
-
-Therefore, the following code is well-typed:
-
-    Iterable<Bottom>&Sized empty = {};
-    Integer sizeZero = empty.size;
-    Nothing nullIterator = empty.iterator;
 
 
 ## Enumerated subtypes
