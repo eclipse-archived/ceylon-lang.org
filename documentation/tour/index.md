@@ -11,7 +11,7 @@ author: Emmanuel Bernard
 # Tour of Ceylon
 
 This tour covers the main features of the Ceylon language. Note 
-that every language feature described here has been implemented
+that not every language feature described here has been implemented
 at this time.
 
 ## Before you start
