@@ -336,7 +336,8 @@ think this makes the code more readable, not less, and it makes the compiler mor
 efficient and less vulnerable to stack overflows.
 
 Ceylon addresses the second problem via *type aliases*, which are very similar
-to a `typedef` in C.
+to a `typedef` in C. A type alias can act as an abbreviation for a generic type
+together with its type arguments:
 
     interface Strings = List<String>;
 
