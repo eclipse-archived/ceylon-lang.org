@@ -87,6 +87,28 @@ structures. This is especially useful for creating user interfaces:
         }
     }
 
+But it's much more generally useful, forming a great foundation for 
+expressing everything from build scripts to test suites:
+
+    Suite tests {
+        Test { 
+            name = "sqrt() function";
+            void run() {
+                assert(sqrt(1)==1);
+                assert(sqrt(4)==2);
+                assert(sort(9)==3);
+            }
+        },
+        Test {
+            name = "sqr() function";
+            void run() {
+                assert(sqr(1)==1);
+                assert(sqr(2)==4);
+                assert(sqr(3)==9);
+            }
+        }
+    }
+
 Any framework that combines Java and XML requires special purpose-built 
 tooling to achieve type-checking and authoring assistance. Ceylon frameworks
 that make use of Ceylon's built-in support for expressing treelike structures
