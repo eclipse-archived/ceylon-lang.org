@@ -158,10 +158,12 @@ The compiler automatically infers the types:
 These are the correct principal types of the expressions. We didn't need to 
 explictly specify any types anywhere.
 
-We've worked hard to keep the type system quite simple at its core. This 
-makes the language easier to learn, and helps control the number of buggy
-or unintuitive corner cases. And a highly regular type system also makes
-it easier to write generic code.
+We've worked hard to keep the type system [quite simple at its core](manifesto). 
+This makes the language easier to learn, and helps control the number of 
+buggy or unintuitive corner cases. And a highly regular type system also 
+makes it easier to write generic code.
+
+[manifesto]: /blog/2012/01/18/type-system-manifesto
 
 ## Mixin inheritance
 
