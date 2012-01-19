@@ -487,7 +487,7 @@ the module descriptor, which is written in Ceylon:
              
              <modules.ceylon-lang.org>
              
-             Happy modularizing!"
+             Happy modularizing!";
              
         Import {
             name='ceylon.io';
