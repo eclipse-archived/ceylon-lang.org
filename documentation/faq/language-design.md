@@ -112,6 +112,23 @@ syntax (which are a primary goals for the language).
 > Optional semicolons are in fashion! All the kids at school are
 > doing it!
 
+Which of the following do you prefer:
+
+    shared variable 
+    oneToMany column("PID") 
+    synchronized
+    Person person = somePerson;
+
+where `shared` and `variable` are just ordinary annotations,
+or, alternatively:
+
+    shared variable 
+    @oneToMany @column("PID") 
+    @synchronized
+    Person person = somePerson
+
+where `shared` and `variable` are keywords?
+
 It's a choice between semicolons or the ugly `@annotation` syntax. 
 You need one or the other, or your language can't be parsed. Languages
 which ditch the semicolon *have* to introduce a special punctuation 
