@@ -430,6 +430,62 @@ _introductions_. You'll find some discussion of this idea in
 Great question. We haven't decided yet. It's the #1 feature 
 request from the community.
 
+Note that Ceylon's type system, specifically the notion of
+_sequenced type parameters_, let's us define `Tuple` as an
+ordinary Ceylon class without introducing any new primitive
+constructs into the type system. However, true support for
+tuples would mean introducing a fair amount of syntax sugar
+to make use of this class convenient. The syntax sugar would
+add complexity that we're not sure we want.
+
+### Use site variance
+
+> Will Ceylon ever support wildcard type arguments or any
+> other kind of use site variance?
+
+Ceylon embraces the concept of _declaration site variance_,
+where the variance of a type parameter is specified where a
+type is defined. For example:
+
+    interface Collection<out Element> { ... }
+
+This spares us from having to write, as in Java, things like
+`Collection<? extends String>` everywhere we use the type.
+However, declaration site variance is strictly less powerful
+than use site variance. We can't form a covariant type from 
+an invariant type like in Java.
+
+It would be possible to add support for use site variance to
+Ceylon, probably using a syntax like this:
+
+    Array<Integer> ints = Array(2, 4, 6);
+    Array<out Object> = ints;
+
+Since `Array` is invariant in its type parameter, `Array<Integer>`
+isn't an `Array<Object>`. It can't be, because the signature 
+of the `setItem()` method of `Array<Object>` is:
+
+    void setItem(Integer index, Object item)
+
+i.e. you can put things that aren't `Integer`s in an `Array<Object>`.
+
+But `Array<Integer>` _would_ be an `Array<out Object>`, where 
+the signature of the `setItem()` method would be:
+
+    void setItem(Integer index, Bottom item)
+
+(i.e. contravariant occurrences of the type parameter take the
+value `Bottom` in the covariant instantiation of the invariant
+type.)
+
+We're still trying really hard to _not_ need to add use site 
+variance to Ceylon, I guess mainly because of all our traumatic 
+experiences with this feature in Java. But, in fairness, the
+feature would not be as awful in Ceylon because:
+
+* `Bottom` is a denotable type, and
+* the syntax would not be awful.
+
 ### Type classes 
 
 > Will Ceylon have type classes?
@@ -439,7 +495,21 @@ satisfied by the metatype of a type. Indeed, we view type
 classes as a kind of support for reified types. Since Ceylon 
 will definitely support reified types with typesafe metatypes, 
 it's not unreasonable to consider providing the ability to 
-introduce an additional type to the metatype of a type.
+introduce an additional type to the metatype of a type. Then
+we would support _metatype constraints_ of form 
+`T is Metatype`, for example:
+
+    Num sum<Num>(Num... numbers) 
+            given Num is Number {
+        variable Num total:=Num.zero;
+        for (num in numbers) {
+            total:=Num.sum(total,num);
+        }
+        return total;
+    }
+
+Here, `Number` is a _metatype_ (a type class) implemented by
+the reified type of `Num`, not by `Num` itself.
 
 You'll find some further discussion of this issue in 
 [Chapter 3 of the language specification][metatypes].
