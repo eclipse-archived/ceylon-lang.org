@@ -274,10 +274,14 @@ Java because Java doesn't have member class refinement.
 > type? What's wrong with a Java-like null?
 
 In languages which don't support first-class union types, `null` is
-either a primitive value, like in Java, C#, Smalltalk, Python, Ruby, 
-etc, or a case of an algebraic type, like in ML or Haskell. (Some
-languages, notably Scala, support *both* approaches, though this
-appears to be a design error.)
+either:
+
+* a primitive value, like in Java, C#, Smalltalk, Python, Ruby, 
+  etc, or
+* a case of an algebraic type, like in ML or Haskell. 
+
+(Some languages, notably Scala, have *both* kinds of null, though 
+this appears to be a design error.)
 
 Primitive null values are usually defined to be assignable to the
 language's bottom type if it has one, or, equivalently, to all 
@@ -289,7 +293,7 @@ primitive special types defined by fiat in the language spec,
 viewing such constructs as the root of much evil.)
 
 On the other hand, Using an algebraic type for optional values gives 
-you typesafety, since `Option<T>` is not assignable to `T` but is 
+you typesafety, since `Option<T>` is not assignable to `T`, but is 
 also quite inconvenient. Every time you assign a value of type T to 
 `Option<T>`, you need to instantiate a `Some<T>` to wrap up your T. 
 And if you have a collection which can contain null values, you'll 
