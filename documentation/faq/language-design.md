@@ -182,6 +182,26 @@ it's regular and elegant. But we thought that the word
 `implements` didn't work here, since the upper bound might
 be a class or even another type parameter.
 
+### Prefix form for `is Type`, `exists`, and `nonempty`
+
+> Wouldn't it be much more natural to write `name exists`
+> or `person is Employee` instead of `exists name` and
+> `is Employee person`?
+
+Yes, but it would not work in two situations:
+
+* When declaring a variable inline in a control structure
+  condition, for example:
+      if (exists second = seq[1]) { ... }
+  The following doesn't work because `exists` has a higher
+  precedence than `=`:
+      if (second = seq[1] exists) { ... } //confusing unsupported syntax
+* When combined with the `!` (not) operator:
+      if (!is Employee person) { ... }
+  The following reads ambiguously, because it's not entirely
+  clear that `!` has a lower precedence than `is`:
+      if (!person is Employee) { ... } //confusing unsupported syntax
+
 ## Declaration modifiers
 
 ### No `protected` modifier?
@@ -230,6 +250,75 @@ classes to what it means for members. That works out OK in
 Java because Java doesn't have member class refinement.
 
 ## Language features
+
+### Optional types
+
+> How is Ceylon's `T?` type different to an `Option<T>` or `Maybe t`
+> type? What's wrong with a Java-like null?
+
+In languages which don't support first-class union types, `null` is
+either a primitive value, like in Java, C#, Smalltalk, Python, Ruby, 
+etc, or a case of an algebraic type, like in ML or Haskell. (Some
+languages, notably Scala, support *both* approaches, though this
+appears to be a design error.)
+
+Primitive null values are usually defined to be assignable to the
+language's bottom type if it has one, or, equivalently, to all 
+types if it doesn't. We believe that this has been an enormous
+mistake with many practical consequences. (Some newer languages
+attempt to remedy this by introducing a kind of primitive optional 
+type with null as a primitive value of that. We eschew the use of 
+primitive special types defined by fiat in the language spec, 
+viewing such constructs as the root of much evil.)
+
+On the other hand, Using an algebraic type for optional values gives 
+you typesafety, since `Option<T>` is not assignable to `T` but is 
+also quite inconvenient. Every time you assign a value of type T to 
+`Option<T>`, you need to instantiate a `Some<T>` to wrap up your T. 
+And if you have a collection which can contain null values, you'll 
+get an instance of `Some` for every element of the collection, even 
+if the collection contains very few null values. 
+
+By using a union type, `Nothing|T`, Ceylon spares you the need to 
+wrap your `T`. And there's zero overhead at runtime, because the 
+compiler erases Ceylon's `null` object to a JVM primitive `null`.
+To the best of our knowledge no other existing language uses this
+simple, safe, and convenient model.
+
+### Union and intersection types
+
+> Why are union types so important in Ceylon?
+
+First-class union types first made an appearance when we started
+trying to figure out a sane approach to generic type argument
+inference. One of the big problems in Java's generics system is 
+that the compiler often infers types that are "non-denotable", i.e. 
+not representable within the Java language. This results in *really* 
+confusing error messages. That never happens in Ceylon, since union 
+and intersection types are denotable and there are no wildcard types.
+
+As soon as we embraced the need for union types, they became a
+natural solution for the problem of how to represent optional
+values (things which can be null) within the type system.
+
+Once we started to explore some of the corner cases in our type
+argument inference algorithm, we [discovered that we were also going 
+to need first-class intersection types](intersections).
+
+[intersections]: http://in.relation.to/Bloggers/UnionTypesAndCovarianceOrWhyWeNeedIntersections
+
+Later, we realized that union and intersection types have lots of 
+other advantages. For example, they help make overloading unnecessary. 
+And they make it easy to reason about algebraic/enumerated types.
+And intersections help us to narrow types. For example:
+
+    Foo foo = ... ;
+    if (is Bar foo) {
+        //foo has type Foo&Bar here!
+    }
+
+It turns out that support for first-class unions and intersections
+is perhaps the very coolest feature of Ceylon.
 
 ### Overloading
 
@@ -339,7 +428,7 @@ _introductions_. You'll find some discussion of this idea in
 > Will Ceylon support tuples?
 
 Great question. We haven't decided yet. It's the #1 feature 
-request from the community. 
+request from the community.
 
 ### Type classes 
 
@@ -483,23 +572,6 @@ existing type, using a mechanism akin to extension methods, without
 the downsides of implicit type conversions.
 
 -->
-
-### Union and intersection types
-
-> Why are union types so important in Ceylon?
-
-The use of union types actually nicely resolves some of the problems 
-with Haskell/ML/Scala `Option`/`Maybe` types. The union types are 
-much more transparent, since you never need to instantiate an `Option`.
-
-They also work nicely for type (arg) inference. One of the problems 
-in Java generics is that the compiler often infers types that are 
-"non-denotable", i.e. not representable within the Java language. 
-This results in *really* confusing error messages. That never happens 
-in Ceylon, since union and intersection types are denotable and there 
-are no wildcard types.
-
-Union types also help make overloading unnecessary.
 
 ### Checked exceptions
 
