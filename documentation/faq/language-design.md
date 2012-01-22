@@ -504,8 +504,9 @@ variance to Ceylon, I guess mainly because of all our traumatic
 experiences with this feature in Java. But, in fairness, the
 feature would not be as awful in Ceylon because:
 
-* `Bottom` is a denotable type, and
-* the syntax would not be awful.
+* `Bottom` is a denotable type,
+* the syntax would not be awful, and
+* we would have a simpler system without implicit bounds.
 
 ### Type classes 
 
