@@ -41,7 +41,7 @@ tool in the hands of developers, if it:
 
 * could be defined in terms that reflect how programmers 
   intuitively reason about types, 
-* packaged up in a syntax that is easy to read and understand, 
+* was packaged up in a syntax that is easy to read and understand, 
   and 
 * constrained so as to eliminate performance problems, 
   undecidability, and confusing corner cases. 
@@ -58,7 +58,7 @@ benefit from this power with confusing error messages and
 unintuitive collisions between intersecting language features. 
 
 In pursuit of that goal, we've had to start by taking some 
-things away. When you start using Ceylon, you'll find there's 
+things away. When you start using Ceylon, you'll find there are
 some things you can do in Java that you can't do in Ceylon. Our 
 hope is that, as you get further into the language, you'll find 
 yourself naturally writing better code, making use of more 
