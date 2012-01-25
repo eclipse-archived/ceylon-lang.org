@@ -147,7 +147,7 @@ Thus, the following `switch` is well-typed:
 
 Likewise, remembering that `Boolean?` means `Nothing|Boolean`, we can write:
 
-    void printBoolean(Boolean? b) {
+    void printBoolean(Boolean? bool) {
         switch (bool)
         case (true) { print("true"); }
         case (false) { print("false"); }
