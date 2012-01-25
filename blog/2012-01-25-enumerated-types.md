@@ -103,8 +103,8 @@ Interfaces support multiple inheritance, so in general interface types are not d
 Note that the types named in the `of` clause don't need to be _direct_ subtypes of the enumerated type. The following code _is_ well-typed:
 
     interface ToOne satisfies Association {}
-    class OneToOne() satisfies OneTo {}
-    class OneToMany() satisfies OneTo {}
+    class OneToOne() satisfies ToOne {}
+    class ManyToOne() satisfies ToOne {}
 
 The interface `ToOne` is a subtype of the enumerated type `Association` but not of any of its cases. That's acceptable, because `ToOne` is an abstract type that can't be directly instantiated. Of course, every one of its concrete subtypes must be a subtype of one of the enumerated cases of `Association`.
 
