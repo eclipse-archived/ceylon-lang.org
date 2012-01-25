@@ -51,7 +51,7 @@ This says that the class `Void` has exactly the same instances as the union type
         case (is Object) { print(v); }
     }
 
-The compiler won't let us define third subclass of `Void` that doesn't extend either `Nothing` or `Object`. We call the types mentioned in the `of` clause the _cases_ of an enumerated type.
+The compiler won't let us define a third subclass of `Void` that doesn't extend either `Nothing` or `Object`. We call the types mentioned in the `of` clause the _cases_ of an enumerated type.
 
 Since an `object` declaration is also a type, we can even include the names of objects in the `of` clause. For example, this is how the language module expressed the fact that the only instance of `Nothing` is the null value:
 
@@ -156,4 +156,4 @@ Likewise, remembering that `Boolean?` means `Nothing|Boolean`, we can write:
 
 But what about disjointness of the `case` types? How is that determined? Well, first of all, the compiler is able to reason that the intersection of two types is empty if they inherit from different cases of an enumerated type. So whenever the compiler encounters a type like `Nothing&Boolean`, it automatically simplifies the type to `Bottom`. 
 
-So the disjointness restriction on `case`s of a switch boils down to checking that for each pair of `case`s, the intersection of the `case` types is `Bottom`.
+So the disjointness restriction on `case`s of a `switch` boils down to checking that for each pair of `case`s, the intersection of the `case` types is `Bottom`.
