@@ -8,4 +8,4 @@ location: Anvers, Belgium
 effective_date: 20111118
 ---
 Emmanuel and Stephane will introduce the main features of Ceylon, why you should care 
-and also show botht he compiler and IDe progress via a live demo.
+and also show both the compiler and IDE progress via a live demo.
