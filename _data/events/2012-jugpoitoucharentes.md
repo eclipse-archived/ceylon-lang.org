@@ -7,5 +7,5 @@ event_url: http://www.poitoucharentesjug.org/xwiki/bin/view/Main/soiree+fevrier+
 location: Niort, France
 effective_date: 20120202
 ---
-On the occasion of his coming to Europe, Gavin will visit the Poitou-Charentes JUG, to talk about Ceylon.
-His presentation of the language features and benefits will be completed with a live demonstration of the IDE by David.
+Gavin and David are talking about the Ceylon language and the 
+Ceylon IDE project at [Poitou-Charentes JUG](http://www.poitoucharentesjug.org/).
