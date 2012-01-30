@@ -77,6 +77,11 @@ documentation compiler, language module, and runtime.
     </tr>
 </table>
 
+Mac OS X users running the [Homebrew package manager](http://mxcl.github.com/homebrew/) can install Ceylon:
+
+    brew install ceylon
+
+
 Instructions for getting started are contained in the file
 `README.md` in the root directory of the distribution, or
 [right here in GitHub][ceylon-dist readme]. To know what's 
