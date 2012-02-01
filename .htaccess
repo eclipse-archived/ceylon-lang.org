@@ -1,3 +1,4 @@
+Options +FollowSymlinks
 RewriteEngine on
 
 IndexIgnore *
