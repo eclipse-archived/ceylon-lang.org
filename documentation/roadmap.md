@@ -144,6 +144,9 @@ types with enumerated cases, remote repositories.*
 * Java interoperability
 * exhaustive case lists
 
+### Types:
+* `Collection`, `List`, `Map`, `Set`
+
 ### Modularity:
 * remote repositores
 * `modules.ceylon-lang.org`
