@@ -127,33 +127,10 @@ Notes:
 
 ## Milestone 2
 
-*Numeric type optimization, Java interop, file IO, remote
-repositories.*
-
-### Expressions:
-* numeric widening for custom numeric types
-
-### Misc:
-* optimization of primitive operators
-* Java interoperability
-
-### Types:
-* `Decimal` and `Whole`
-* `ceylon.io` module
-
-### Modularity:
-* remote repositores
-* `modules.ceylon-lang.org`
-* repository replicator
-
-## Milestone 3
-
-*Higher-order and first-class functions, `switch/case`, 
-types with enumerated cases.*
+*Numeric type optimization, Java interop, `switch/case`, 
+types with enumerated cases, remote repositories.*
 
 ### Declarations:
-* higher-order methods
-* methods with specifiers
 * cases (`of` clause)
 
 ### Generics:
@@ -162,14 +139,34 @@ types with enumerated cases.*
 ### Statements:
 * `switch/case`
 
+### Misc:
+* optimization of primitive operators
+* Java interoperability
+* exhaustive case lists
+
+### Modularity:
+* remote repositores
+* `modules.ceylon-lang.org`
+* repository replicator
+
+## Milestone 3
+
+*Higher-order and first-class functions, file IO.*
+
+### Declarations:
+* higher-order methods
+* methods with specifiers
+
 ### Expressions:
 * method references
 * object/method/getter args in named argument lists
 * anonymous functions in positional argument lists
 * comprehensions as sequenced arguments
+* numeric widening for custom numeric types ?
 
-### Misc:
-* exhaustive case lists
+### Modules:
+* `ceylon.io` module
+* `ceylon.math` module
 
 ## Milestone 4
 
@@ -205,7 +202,7 @@ types with enumerated cases.*
 * annotation constraints
 * interception for methods, attributes, and classes
 
-### Types:
+### Modules:
 * metamodel
 
 ## Ceylon 1.1 or later
