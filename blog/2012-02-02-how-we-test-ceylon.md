@@ -124,7 +124,7 @@ test that we can resolve dependency graphs, cache HTTP files and check the MD5 c
 
 > However beautiful the strategy, you should occasionally look at the results — Sir Winston Churchill
 
-We have about tests that make sure that we can invoke the Ceylon compiler, on any number of files, including incrementally. We test
+We have about 20 tests that make sure that we can invoke the Ceylon compiler, on any number of files, including incrementally. We test
 that we can run Ceylon programs. We also test that the runtime behaviour of statements is correct (it's not enough to check that the 
 `for` loop is compiled to a certain Java bytecode, we want to make sure it runs as we think it should).
 
