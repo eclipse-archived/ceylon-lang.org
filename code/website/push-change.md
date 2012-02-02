@@ -38,4 +38,4 @@ minor changes.
 
 ## When will I see my change online?
 
-Within five minutes after a change is pushed to master.
+Within 30 seconds to a minute, you should see the change online after it is pushed to GitHub.
