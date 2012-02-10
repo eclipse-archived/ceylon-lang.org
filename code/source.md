@@ -90,7 +90,7 @@ There's more info in the [README](https://github.com/ceylon/ceylon-compiler/blob
 This projects contains the module `ceylon.language`, the core classes 
 mentioned in the language specification.
 
-See the [API documentation](#{site.urls.apidoc}/) for more information.
+See the [API documentation](#{site.urls.apidoc}/ceylon/language/) for more information.
 
 #### Building
 
