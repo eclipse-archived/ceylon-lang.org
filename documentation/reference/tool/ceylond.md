@@ -18,6 +18,8 @@ Options include:
 * `-out` Specifies the output module repository (which must be publishable).
 * `-src` Specifies a source directory. XXX can be repeated?
 * `-rep` specifies a module repository containing dependencies. XXX can be repeated?
+* `-non-shared` Includes documentation for package-private declarations.
+* `-source-code` Includes source code to the generated documentation.   
 * `-d` Disable the default module repositories and source directory.
 
 ## Description

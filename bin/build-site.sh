@@ -71,7 +71,7 @@ if [ "$LIGHT" != "true" ]; then
 	cd ..
 fi
 mkdir -p ../../_site/documentation/api/current/ceylon
-./ceylon-compiler/build/bin/ceylond -src ceylon.language/src ceylon.language
+./ceylon-compiler/build/bin/ceylond -src -source-code ceylon.language/src ceylon.language
 mv modules/ceylon/language/0.1/module-doc ../../_site/documentation/api/current/ceylon/language
 
 cd ../..
