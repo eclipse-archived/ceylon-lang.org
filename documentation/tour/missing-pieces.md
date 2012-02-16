@@ -11,7 +11,14 @@ author: Gavin King
 This is the eighth part of the Tour of Ceylon. If you found the 
 [previous part](../generics) on generic types a little overwhelming, don't 
 worry; this part is going to cover a some details which should be more 
-familiar.
+familiar including [variables](#variables), 
+[control structures](#control_structures) 
+  ([`if`](#ok_so_here_are_the...), 
+  [`switch`](#the_switchcase_statement_eliminates_cs...),
+  [`for`](#the_for_loop_has_an...),
+  [`while`](#the_while_loop_is_traditional) and 
+  [`try`](#the_trycatchfinally_statement_works_like...))
+and [packages](#packages_and_imports)
 
 
 ## Attributes and locals
@@ -146,7 +153,7 @@ You are required to write:
 
     if (x>100) { bigNumber(); }
 
-OK, so here's the examples. The `if/else` statement is totally traditional:
+OK, so here are the examples. The `if/else` statement is totally traditional:
 
     if (x>100)) {
         bigNumber(x);
