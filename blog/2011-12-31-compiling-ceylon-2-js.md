@@ -39,7 +39,7 @@ and I was ready to start generating code!
 Some things that made this job especially easy:
 
 * Ceylon has well-defined semantics defined in a [written
-  specification](/documentation/spec). This is absolutely
+  specification](/documentation/1.0/spec). This is absolutely
   key for any kind of multi-platform-oriented language.
 * The Ceylon compiler has a [layered architecture](/code/architecture/) 
   with a well-defined API between the parser/typechecker and 
@@ -58,7 +58,7 @@ Some things that made this job especially easy:
   first-class function references. 
 * Neither Ceylon nor JavaScript has overloading. Indeed, the 
   way you do overloading in Ceylon, using 
-  [union types](/documentation/introduction#principal_typing_union_types_and_intersection_types),
+  [union types](/documentation/1.0/introduction#principal_typing_union_types_and_intersection_types),
   is a totally natural match for how the problem is solved
   in dynamic languages! 
 

@@ -13,13 +13,13 @@ I thought I'd blog about some of the details of the compiler, to show that
 working on it isn't that hard.
 
 Syntactically, Ceylon has two different ways of invoking a method (and the 
-[metamodel](/documentation/tour/functions/) will add a third). 
+[metamodel](/documentation/1.0/tour/functions/) will add a third). 
 *Positional invocation*
 will be very familiar to a Java programmer. In Ceylon it's conceptually 
-pretty much the same, including support for ['varargs'](/documentation/tour/missing-pieces/#sequenced_parameters). 
+pretty much the same, including support for ['varargs'](/documentation/1.0/tour/missing-pieces/#sequenced_parameters). 
 In this post I'm going to go into some detail about how support 
 for positional method invocation is implemented in the compiler. I might cover 
-the other syntactic form, [*named argument invocation*](/documentation/tour/named-arguments/), 
+the other syntactic form, [*named argument invocation*](/documentation/1.0/tour/named-arguments/), 
 at a later date.
 
 Before we go much further I just need to define some terminology. A method is
@@ -61,10 +61,10 @@ invocation. But the two certainly aren't equivalent.
 
 Although notionally in Ceylon 'everything is an object', the compiler is 
 allowed (and does) optimise the numerical types 
-([`Natural`](/documentation/api/current/ceylon/language/class_Natural.html), 
-[`Integer`](/documentation/api/current/ceylon/language/class_Integer.html), 
-[`Float`](/documentation/api/current/ceylon/language/class_Float.html), 
-[`Boolean`](/documentation/api/current/ceylon/language/class_Boolean.html)) to the
+([`Natural`](/documentation/1.0/api/current/ceylon/language/class_Natural.html), 
+[`Integer`](/documentation/1.0/api/current/ceylon/language/class_Integer.html), 
+[`Float`](/documentation/1.0/api/current/ceylon/language/class_Float.html), 
+[`Boolean`](/documentation/1.0/api/current/ceylon/language/class_Boolean.html)) to the
 corresponding Java primitive type 
 (`long`, `long`, `double` and `boolean` respectively). This means that when you 
 write a Ceylon statement such as
@@ -87,7 +87,7 @@ need to 'box' the primitive, [just like Java does](http://docs.oracle.com/javase
 
 A good example of this is 
 passing a `Natural` argument to a parameter declared 
-[`Natural?`](/documentation/tour/basics/#dealing_with_objects_that_arent_there). 
+[`Natural?`](/documentation/1.0/tour/basics/#dealing_with_objects_that_arent_there). 
 The Java method declaration must use a boxed type (`Natural` from the runtime) 
 as opposted to the Java primitive (`long`) it would otherwise be erased to 
 in order to cope with the possibility of being passed a `null`. 
@@ -126,10 +126,10 @@ Now consider the Ceylon call site
     varargs<String>("foo", "bar", "baz");
 
 When compiling this invocation we have to create a concrete instance of the 
-[`Iterable<T>`](/documentation/api/current/ceylon/language/interface_Iterable.html) (using the arguments provided) to pass 
+[`Iterable<T>`](/documentation/1.0/api/current/ceylon/language/interface_Iterable.html) (using the arguments provided) to pass 
 to the method.
 This is done using an `ArraySequence` (an implementation of a Ceylon 
-[`Sequence`](/documentation/api/current/ceylon/language/interface_Sequence.html) 
+[`Sequence`](/documentation/1.0/api/current/ceylon/language/interface_Sequence.html) 
 in the runtime), so that the generated Java looks something like this
 
 <!-- lang: java -->

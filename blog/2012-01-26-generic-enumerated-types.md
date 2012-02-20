@@ -43,7 +43,7 @@ As you've probably guessed, this restriction is an inconvenient one. There are s
 
 In the language design FAQ, I already wrote up a mini-explanation of [GADT support][GADT] with an example, so I won't repeat myself here. A future version of Ceylon will likely support GADTs.
 
-[GADT]: http://ceylon-lang.org/documentation/faq/language-design/#generalized_algebraic_types
+[GADT]: /documentation/1.0/faq/language-design/#generalized_algebraic_types
 
 ## Type parameters with enumerated constraints
 

@@ -8,4 +8,4 @@ Today, we're proud to announce the first official release of
 the Ceylon IDE.
 [Get it here][install M1 IDE].
 
-[install M1 IDE]: /documentation/ide/install?utm_source=news&utm_medium=web&utm_content=ide-install&utm_campaign=IDE_1_0_M1release
+[install M1 IDE]: /documentation/1.0/ide/install?utm_source=news&utm_medium=web&utm_content=ide-install&utm_campaign=IDE_1_0_M1release

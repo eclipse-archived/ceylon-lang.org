@@ -12,7 +12,7 @@ Devoxx and revealed the Ceylon community. Let me give you some feedback.
 
 ## IDE
 
-Our [IDE sneak preview](/documentation/ide/?utm_source=blog&utm_medium=web&utm_content=idesneakpreview&utm_campaign=2weeksfeedback) 
+Our [IDE sneak preview](/documentation/1.0/ide/?utm_source=blog&utm_medium=web&utm_content=idesneakpreview&utm_campaign=2weeksfeedback) 
 has been very popular. Not surprising since it let's you play with Ceylon right from your comfy Eclipse seat in five minutes.
 
 Many thanks to our early testers for finding a few bugs including the infamous 

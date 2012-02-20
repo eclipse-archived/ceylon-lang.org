@@ -50,8 +50,8 @@ if [ "$LIGHT" != "true" ]; then
 fi
 
 # Copy spec into website
-cp -R ceylon-spec/build/en/ ../../_site/documentation/spec
-mv ../../_site/documentation/spec/pdf/Ceylon*.pdf ../../_site/documentation/spec/pdf/ceylon-language-specification.pdf
+cp -R ceylon-spec/build/en/ ../../_site/documentation/1.0/spec
+mv ../../_site/documentation/1.0/spec/pdf/Ceylon*.pdf ../../_site/documentation/1.0/spec/pdf/ceylon-language-specification.pdf
 
 # Build language module
 if [ "$LIGHT" != "true" ]; then
@@ -70,8 +70,8 @@ if [ "$LIGHT" != "true" ]; then
 	ant build publish
 	cd ..
 fi
-mkdir -p ../../_site/documentation/api/current/ceylon
+mkdir -p ../../_site/documentation/1.0/api/current/ceylon
 ./ceylon-compiler/build/bin/ceylond -src -source-code ceylon.language/src ceylon.language
-mv modules/ceylon/language/0.1/module-doc ../../_site/documentation/api/current/ceylon/language
+mv modules/ceylon/language/0.1/module-doc ../../_site/documentation/1.0/api/current/ceylon/language
 
 cd ../..

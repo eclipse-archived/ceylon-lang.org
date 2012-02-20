@@ -23,7 +23,7 @@ when serving the awestruct website.
 
 ## How to reference the spec or the ceylondoc
 
-If you want to point the spec to a user in the site, point to [/documentation/spec](/documentation/spec).
+If you want to point the spec to a user in the site, point to [/documentation/1.0/spec](/documentation/1.0spec).
 This page show the spec in HTML, HTML in single page and PDF.
 
 If you want to point to a specific paragraph in the spec, use the variable `site.urls.spec` and
@@ -38,6 +38,6 @@ Likewise, to point to a ceylondoc entry, use the variable `site.urls.apidocs`.
 **\[**Doc for `Comparable`**\](\#{site.urls.apidoc}**_/ceylon/language/Comparable.html_**)**
 
 By using these placeholders, we will be able to move the spec or ceylondoc to other places.
-Note that [/documentation/api](/documentation/api) page is pretty useless as it is but
+Note that [/documentation/1.0/api](/documentation/1.0/api) page is pretty useless as it is but
 should be fixed in ceylondoc.
 

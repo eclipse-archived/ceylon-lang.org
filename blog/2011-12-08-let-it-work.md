@@ -18,7 +18,7 @@ extending Javac rather than create our own compiler from scratch are that:
 - We are guaranteed to generate valid bytecode, because it has to be valid Java code, since it´s checked
 by Javac.
 - We can compile Java and Ceylon code at the same time, without needing to write a Java parser
-and compiler. (Well this is not technically true in [M1](/documentation/roadmap/#milestone_1), 
+and compiler. (Well this is not technically true in [M1](/documentation/1.0/roadmap/#milestone_1), 
 but it will definitely be possible). 
 
 But there are things we can´t do properly in Java, and here I´m going to give you an example where we
@@ -39,7 +39,7 @@ such as the `++` operation. How do we map this:
     Natural n = c.n++;
 
 Into working Java code which looks like this (optimised for `long` because otherwise `++` 
-[is polymorphic](/documentation/reference/operator/increment/)):
+[is polymorphic](/documentation/1.0/reference/operator/increment/)):
 
 <!-- lang: java -->
     class Counter{
@@ -169,10 +169,10 @@ because thanks to you we can implement really crazy stuff.
 
 We´re now using this `let` expression for implementing many operators and features, such as:
 
-- [named parameter invocation](/documentation/reference/operator/invoke/), 
+- [named parameter invocation](/documentation/1.0/reference/operator/invoke/), 
 to keep source-file evaluation order before reordering the parameters for the callee,
-- the [`?.`](/documentation/reference/operator/nullsafe-invoke/), `?` 
-and [`?[]`](/documentation/reference/operator/nullsafe-lookup) null-safe operators, to store the 
+- the [`?.`](/documentation/1.0/reference/operator/nullsafe-invoke/), `?` 
+and [`?[]`](/documentation/1.0/reference/operator/nullsafe-lookup) null-safe operators, to store the 
 temporary variable before we test it for null.
 
 So thanks, OpenJDK authors, thanks to you we´ll have efficient compilation of Ceylon code :)
