@@ -91,8 +91,8 @@ precisely in the release, read our [announcement][newton].
 
 ## Ceylon IDE
 
-[Ceylon IDE](/documentation/ide) is available from our 
-[update site](/documentation/ide/install?utm_source=download&utm_medium=web&utm_content=ide-install&utm_campaign=IDE_1_0_M1release)
+[Ceylon IDE](/documentation/latest/ide) is available from our 
+[update site](/documentation/latest/ide/install?utm_source=download&utm_medium=web&utm_content=ide-install&utm_campaign=IDE_1_0_M1release)
 or from Eclipse Marketplace:
 
 <table>

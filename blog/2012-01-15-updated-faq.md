@@ -8,7 +8,7 @@ tags:
 ---
 
 I just added a bunch of new material to the [language design
-FAQ](/documentation/faq/language-design/). This document is
+FAQ](/documentation/1.0/faq/language-design/). This document is
 necessarily opinionated, since by nature it represents _our_
 reasons for designing _this_ language the way we did, but 
 I've tried to keep it as objective as possible. Of course, 
@@ -18,13 +18,13 @@ design of any language, library, or framework.
 I've added several new sections about the type system, 
 including material on:
 
-* [overloading](/documentation/faq/language-design/#overloading)
-* [implicit type conversions](/documentation/faq/language-design/#implicit_type_conversions)
-* [type constructor parameterization](/documentation/faq/language-design/#type_constructor_parameterization)
-* [generalized algebraic types](/documentation/faq/language-design/#generalized_algebraic_types)
-* [checked exceptions](/documentation/faq/language-design/#checked_exceptions)
-* [extension methods](/documentation/faq/language-design/#extension_methods)
-* [functional programming](/documentation/faq/language-design/#functional_programming)
+* [overloading](/documentation/1.0/faq/language-design/#overloading)
+* [implicit type conversions](/documentation/1.0/faq/language-design/#implicit_type_conversions)
+* [type constructor parameterization](/documentation/1.0/faq/language-design/#type_constructor_parameterization)
+* [generalized algebraic types](/documentation/1.0/faq/language-design/#generalized_algebraic_types)
+* [checked exceptions](/documentation/1.0/faq/language-design/#checked_exceptions)
+* [extension methods](/documentation/1.0/faq/language-design/#extension_methods)
+* [functional programming](/documentation/1.0/faq/language-design/#functional_programming)
 
 Please help me out here: what's missing from this document?
 What questions do you have about Ceylon _aren't_ answered 

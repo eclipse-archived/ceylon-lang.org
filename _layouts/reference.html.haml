@@ -7,34 +7,34 @@ tab: to-be-defined
     &nbsp;
   .sidebar-dark
     :markdown  
-      ### [Quick introduction](/documentation/introduction)
-      ### [Tour of Ceylon](/documentation/tour)
-      ### [Reference](/documentation/reference)
+      ### [Quick introduction](/documentation/1.0/introduction)
+      ### [Tour of Ceylon](/documentation/1.0/tour)
+      ### [Reference](/documentation/1.0/reference)
 
-      * [Language Specification](/documentation/spec)
-      * [Structure](/documentation/reference/#structure)
-      * [Types](/documentation/reference/#types)
-      * [Statements](/documentation/reference/#statements)
-      * [Expressions](/documentation/reference/#expressions)
-      * [Operators](/documentation/reference/#operators)
-      * [Literals](/documentation/reference/#literals)
-      * [Language Module (API)](/documentation/reference/#language_module_ceylonlanguage)
-      * [Tools](/documentation/reference/#tools)
-      * [Interoperability](/documentation/reference/#interoperability)
-      * [Other](/documentation/reference/#other)
+      * [Language Specification](/documentation/1.0/spec)
+      * [Structure](/documentation/1.0/reference/#structure)
+      * [Types](/documentation/1.0/reference/#types)
+      * [Statements](/documentation/1.0/reference/#statements)
+      * [Expressions](/documentation/1.0/reference/#expressions)
+      * [Operators](/documentation/1.0/reference/#operators)
+      * [Literals](/documentation/1.0/reference/#literals)
+      * [Language Module (API)](/documentation/1.0/reference/#language_module_ceylonlanguage)
+      * [Tools](/documentation/1.0/reference/#tools)
+      * [Interoperability](/documentation/1.0/reference/#interoperability)
+      * [Other](/documentation/1.0/reference/#other)
       
-      ### [FAQs](/documentation/faq)
-      ### [Roadmap](/documentation/roadmap)
-      ### [Ceylon IDE](/documentation/ide)
+      ### [FAQs](/documentation/1.0/faq)
+      ### [Roadmap](/documentation/1.0/roadmap)
+      ### [Ceylon IDE](/documentation/1.0/ide)
   .point-dark-end 
     &nbsp;
 #core-page
   - if ["Milestone 1"].index(page.milestone)
     .milestone.check
       :markdown
-        [#{page.milestone}](/documentation/roadmap/##{page.milestone.anchorize({:convert_spaces=>true})} "Support for this feature was introduced in #{page.milestone}")
+        [#{page.milestone}](/documentation/1.0/roadmap/##{page.milestone.anchorize({:convert_spaces=>true})} "Support for this feature was introduced in #{page.milestone}")
   - if ["Milestone 2", "Milestone 3"].index(page.milestone)
     .milestone.future
       :markdown
-        [#{page.milestone}](/documentation/roadmap/##{page.milestone.anchorize({:convert_spaces=>true})} "Support for this feature will be introduced in #{page.milestone}")
+        [#{page.milestone}](/documentation/1.0/roadmap/##{page.milestone.anchorize({:convert_spaces=>true})} "Support for this feature will be introduced in #{page.milestone}")
   ~ content

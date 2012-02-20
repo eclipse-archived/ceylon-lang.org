@@ -61,7 +61,7 @@ There are several layouts depending on where you are in the website structure:
 * `tour`: use this layout for a tour page
 
 If you add a page that ought to be in one of the structure menu, edit its respective `_layout` file. 
-Make sure to use absolute links in menus eg `/documentation/faq/language-design`.
+Make sure to use absolute links in menus eg `/code/website/add-page`.
 
 ### milestone
 

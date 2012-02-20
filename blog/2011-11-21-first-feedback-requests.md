@@ -15,5 +15,5 @@ created the first two feeback requests over the weekend:
 2. [Alternate visibility model](https://github.com/ceylon/ceylon-spec/issues/56)
 
 Please join in the discussions! The decisions we make on these
-issues will be incorporated into the [Milestone 2 release](/documentation/roadmap/#milestone_2).
+issues will be incorporated into the [Milestone 2 release](/documentation/1.0/roadmap/#milestone_2).
 

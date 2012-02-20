@@ -7,7 +7,7 @@ tab: blog
 tags:
 ---
 
-According to the Ceylon [language specification](/documentation/spec),
+According to the Ceylon [language specification](/documentation/1.0/spec),
 I'm allowed to write code like this on Ceylon:
 
     Object obj = HashSet<String&Number>();

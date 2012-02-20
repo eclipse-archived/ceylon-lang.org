@@ -7,7 +7,7 @@ tab: blog
 tags: [site]
 ---
 
-I've been writing quite a lot of [documentation](/documentation/reference) 
+I've been writing quite a lot of [documentation](/documentation/1.0/reference) 
 lately, and my [previous decision](/blog/2011/09/26/site-improvements) to require an HTML
 comment in order to get syntax highlighting of Ceylon code started to look 
 like the wrong choice. 
