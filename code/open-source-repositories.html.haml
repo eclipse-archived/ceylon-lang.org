@@ -1,0 +1,129 @@
+---
+title: Open-Source repositories
+layout: code
+tab: code
+unique_id: codepage
+author: Emmanuel Bernard
+---
+:javascript
+  function byName(a, b){
+    var aName = a.name.toLowerCase();
+    var bName = b.name.toLowerCase(); 
+    return ((aName < bName) ? -1 : ((aName > bName) ? 1 : 0));
+  }
+  
+  function byDate(a, b){
+      var aName = new Date(a.updated_at);
+      var bName = new Date(b.updated_at); 
+      return ((aName < bName) ? 1 : ((aName > bName) ? -1 : 0));
+  }
+  
+  function loadRepos(data, textStatus, jqXHR){
+      var container = jQuery("#gitcontainer");
+      var row = null;
+      var repositories = data.data;
+      repositories.sort(byName);
+    jQuery.each(repositories, function(i, repo){
+      if((i % 3) == 0){
+        if(row != null)
+          row.appendTo(container);
+        row = jQuery("<div class='repos row show-grid'/>");
+      }
+      addRepo(row, repo);
+    });
+      if(row != null)
+          row.appendTo(container);
+      jQuery("#repositories").text(plural(repositories.length, " repository", " repositories"));
+      repositories.sort(byDate);
+      var updated = jQuery("#updated");
+      jQuery.each(repositories.slice(0, 3), function(i, repo){
+        var div = jQuery("<div/>");
+        jQuery("<a/>").attr({href: repo.html_url, title: "View project on GitHub"}).text(repo.name).appendTo(div);
+        div.append(" ");
+        repoInfo(repo).appendTo(div);
+        div.appendTo(updated);
+      });
+  }
+  
+  function date(text){
+    var d = new Date(text);
+    return d.getDate() + "/" + (d.getMonth()+1) +"/"+ d.getFullYear();
+  }
+  
+  function plural(count, text, pluralText){
+    if(count > 1)
+        return pluralText ? count + pluralText : count + text + "s";
+      return count + text;
+  }
+  
+  function repoInfo(repo){
+      var sub = jQuery("<div class='sub'/>");
+      jQuery("<a/>").attr({href: repo.html_url+"/issues", title: "Issue tracker"}).text(plural(repo.open_issues," issue")).appendTo(sub);
+      sub.append(" ⋅ ");
+      jQuery("<a/>").attr({href: repo.html_url+"/watchers", title: "View watchers"}).text(plural(repo.watchers, " watcher")).appendTo(sub);
+      sub.append(" ⋅ ");
+      jQuery("<a/>").attr({href: repo.html_url+"/network", title: "Fork list"}).text(plural(repo.forks, " fork")).appendTo(sub);
+      sub.append(" ⋅ ");
+      jQuery("<a/>").attr({href: repo.html_url+"/commits", title: "Last commit"}).text(date(repo.updated_at)).appendTo(sub);
+      return sub;
+  }
+  
+  function addRepo(container, repo){
+    var span = jQuery("<div class='span4' title='Click to view project on GitHub''/>");
+    var div = jQuery("<div class='repo'/>").appendTo(span);
+    
+    jQuery("<h3/>").text(repo.name).appendTo(div);
+      jQuery("<p/>").text(repo.description).appendTo(div);
+
+      repoInfo(repo).appendTo(div);
+      
+      var fork = jQuery("<a/>").attr({href: repo.html_url+"/fork_select", title: "Fork on GitHub"}).appendTo(div);
+      jQuery("<i class='icon-share-alt'></i>").appendTo(fork);
+      fork.append("Fork");
+      
+      div.click(function(){
+        document.location = repo.html_url;
+      });
+      
+      container.append(span);
+  }
+  
+  function loadMembers (result) {
+      var members = result.data;
+
+      jQuery("#members").text(plural(members.length, " member"));
+  }
+  
+  jQuery(function (){
+      jQuery.getJSON("https://api.github.com/orgs/ceylon/repos?callback=?", loadRepos);
+      jQuery.getJSON("https://api.github.com/orgs/ceylon/members?callback=?", loadMembers);
+  });
+
+:plain
+  <div class="container" id="gitcontainer">
+    <div class='page-header'>
+      <h1>Ceylon Open-Source repositories</h1>
+      <p>
+        Ceylon is open-source software, you can find here all the repositories related to Ceylon.
+        Fork at will :)
+      </p>
+      <p class="links">
+        <a href="http://ceylon-lang.org" title="Go to Ceylon home page"><i class="icon-home"></i>Ceylon documentation</a>.
+      </p>
+    </div>
+    <div class="row show-grid">
+      <div class="span4">
+        <div class="box">
+          <h3>Statistics</h3>
+          <div><a href="https://github.com/ceylon/repositories" title="View all Ceylon repositories on GitHub" id="repositories"></a></div>
+          <div><a href="https://github.com/ceylon" title="View Ceylon members on GitHub" id="members"></a></div>
+        </div>
+      </div>
+      <div class="span8">
+        <div class="box">
+          <h3>Recently updated <a href="https://github.com/ceylon/repositories" title="View all Ceylon repositories on GitHub">View all</a></h3>
+          <div id="updated"></div>
+        </div>
+      </div>
+    </div>
+  </div>
