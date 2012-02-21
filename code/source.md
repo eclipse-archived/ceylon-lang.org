@@ -14,7 +14,7 @@ You also need to install `git`.
 
 ## Ceylon projects
 
-The Ceylon project is actually made up of four smaller projects:
+The Ceylon project is actually made up of several smaller projects:
 
 - [Parser, typechecker and specification](#parser_typechecker_and_specification)
 - [Compiler and documentation compiler](#compiler_and_documentation_compiler)
@@ -22,6 +22,8 @@ The Ceylon project is actually made up of four smaller projects:
 - [Ceylon Eclipse IDE plugin](#ceylon_eclipse_ide_plugin)
 - [Module system](#module_system)
 - [Launcher](#launcher)
+
+You can also view [all our git projects](http://ceylon.github.com) at quick glance.
 
 ### Parser, typechecker and specification
 
