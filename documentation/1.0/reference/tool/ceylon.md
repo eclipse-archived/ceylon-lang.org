@@ -4,6 +4,7 @@ title: `ceylon` - The ceylon launcher
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
+doc_root: ../../..
 ---
 
 # #{page.title}
@@ -29,5 +30,5 @@ are just Java classes, `ceylon` is effectively 'just' a front-end to the
 
 ## See also
 
-* [`ceylon`](#{site.urls.spec}#thevmfrontent) in the language specification
-* [module names and versions](#{site.urls.spec}#modulenamesandversionidentifiers) in the language specification.
+* [`ceylon`](#{page.doc_root}/#{site.urls.spec_relative}#thevmfrontent) in the language specification
+* [module names and versions](#{page.doc_root}/#{site.urls.spec_relative}#modulenamesandversionidentifiers) in the language specification.

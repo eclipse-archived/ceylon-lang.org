@@ -5,6 +5,7 @@ tab: documentation
 unique_id: docspage
 author: Tom Bentley
 milestone: Milestone 1
+doc_root: ../../..
 ---
 
 # #{page.title}
@@ -35,10 +36,10 @@ invocation.
 
 ### Polymorphism
 
-This operator is not [polymorphic](/documentation/reference/operator/operator-polymorphism). 
+This operator is not [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 
 ## See also
 
 * Ordinary [`()` and `{}` (invoke)](../invoke) operator
-* [operator precedence](#{site.urls.spec}#operatorprecedence) in the 
+* [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 
   language specification

@@ -4,6 +4,7 @@ title: `ceylonr` - The ceylon repository replicator
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
+doc_root: ../../..
 ---
 
 # #{page.title}
@@ -29,6 +30,6 @@ repositories, or to publish modules to a remote repository.
 
 ## See also
 
-* [`ceylonr`](#{site.urls.spec}#therepositoryreplicator) in the language specification
-* [module names and versions](#{site.urls.spec}#modulenamesandversionidentifiers) in the language specification.
+* [`ceylonr`](#{page.doc_root}/#{site.urls.spec_relative}#therepositoryreplicator) in the language specification
+* [module names and versions](#{page.doc_root}/#{site.urls.spec_relative}#modulenamesandversionidentifiers) in the language specification.
 

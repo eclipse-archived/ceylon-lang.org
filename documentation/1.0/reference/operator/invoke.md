@@ -5,6 +5,7 @@ tab: documentation
 unique_id: docspage
 author: Tom Bentley
 milestone: Milestone 1
+doc_root: ../../..
 ---
 
 # #{page.title}
@@ -23,8 +24,8 @@ and instantiate classes
 ## Description
 
 For detailed information see the reference documentation on 
-[method invocation] _doc coming soon at_ (/documentation/reference/expression/method-invocation) and 
-[class invocation] _doc coming soon at_ (/documentation/reference/expression/class-invocation).
+[method invocation] _doc coming soon at_ (#{page.doc_root}/reference/expression/method-invocation) and 
+[class invocation] _doc coming soon at_ (#{page.doc_root}/reference/expression/class-invocation).
 
 ### Definition
 
@@ -32,13 +33,13 @@ The `()` and `{}` operators are primitive.
 
 ### Polymorphism
 
-The `()` and `{}` operators are not [polymorphic](/documentation/reference/operator/operator-polymorphism). 
+The `()` and `{}` operators are not [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 
 ## See also
 
 * [null-safe version](../nullsafe-invoke) of invoke.
 * [spread invoke] _doc coming soon at_ (../spread-invoke) for calling a `Callable[]`
 * API documentation for [`Callable`] _doc coming soon at_ (../../ceylon.language/Callable)
-* [operator precedence](#{site.urls.spec}#operatorprecedence) in the 
+* [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 
   language specification
 

@@ -5,6 +5,7 @@ tab: documentation
 unique_id: docspage
 author: Tom Bentley
 milestone: Milestone 1
+doc_root: ../../..
 ---
 
 # #{page.title}
@@ -25,14 +26,14 @@ The meaning of `exists` is defined as follows:
 
     if (nonempty lhs) true else false
 
-See the [`language specification`](#{site.urls.spec}#nullvalues) for more details.
+See the [`language specification`](#{page.doc_root}/#{site.urls.spec_relative}#nullvalues) for more details.
 
 ### Polymorphism
 
-The `nonempty` operator is not [polymorphic](/documentation/reference/operator/operator-polymorphism). 
+The `nonempty` operator is not [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 
 ## See also
 
-* [`nonempty`](#{site.urls.spec}#nullvalues) in the language specification.
-* [operator precedence](#{site.urls.spec}#operatorprecedence) in the 
+* [`nonempty`](#{page.doc_root}/#{site.urls.spec_relative}#nullvalues) in the language specification.
+* [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 
   language specification

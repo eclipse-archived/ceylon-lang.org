@@ -4,12 +4,13 @@ title: Reference
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
+doc_root: ..
 ---
 
 # #{page.title}
 
 This page lists concepts and links to their descriptions. The complete 
-[language specification](/documentation/spec) is also available.
+[language specification](#{page.doc_root}/spec) is also available.
 
 _This page is very incomplete. Want to help? [See how](/code/website)._
 
@@ -139,7 +140,7 @@ _This page is very incomplete. Want to help? [See how](/code/website)._
 
 ## Language module (`ceylon.language`)
 
-The API documentation for [`ceylon.language`](#{site.urls.apidoc}/ceylon/language).
+The API documentation for [`ceylon.language`](#{page.doc_root}/api/ceylon/language).
 
 
 ## Tools

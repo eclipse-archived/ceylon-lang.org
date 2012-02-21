@@ -4,6 +4,7 @@ title: `ceylonp` - The ceylon module tool
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
+doc_root: ../../..
 ---
 
 # #{page.title}
@@ -26,5 +27,5 @@ archive, its description, its licence, and its dependencies to the console.
 
 ## See also
 
-* [`ceylonp`](#{site.urls.spec}#themoduleinfotool) in the language specification
-* [module names and versions](#{site.urls.spec}#modulenamesandversionidentifiers) in the language specification.
+* [`ceylonp`](#{page.doc_root}/#{site.urls.spec_relative}#themoduleinfotool) in the language specification
+* [module names and versions](#{page.doc_root}/#{site.urls.spec_relative}#modulenamesandversionidentifiers) in the language specification.

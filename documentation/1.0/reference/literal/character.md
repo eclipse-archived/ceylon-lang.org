@@ -4,6 +4,7 @@ title: `Character` literals
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
+doc_root: ../../..
 ---
 
 # #{page.title}
@@ -47,5 +48,5 @@ In addition, the following may be escaped with a backslash:
 
 ## See also
 
-* [Character literals in the language specification](#{site.urls.spec}#characterliterals)
+* [Character literals in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#characterliterals)
 

@@ -4,6 +4,7 @@ title: `ceylond` - The ceylon documentation compiler
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
+doc_root: ../../..
 ---
 
 # #{page.title}
@@ -29,5 +30,5 @@ source files.
 
 ## See also
 
-* [`ceylond`](#{site.urls.spec}#thedocumentationcompiler) in the language specification
-* [module names and versions](#{site.urls.spec}#modulenamesandversionidentifiers) in the language specification.
+* [`ceylond`](#{page.doc_root}/#{site.urls.spec_relative}#thedocumentationcompiler) in the language specification
+* [module names and versions](#{page.doc_root}/#{site.urls.spec_relative}#modulenamesandversionidentifiers) in the language specification.

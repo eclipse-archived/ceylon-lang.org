@@ -5,6 +5,7 @@ tab: documentation
 unique_id: docspage
 author: Tom Bentley
 milestone: Milestone 1
+doc_root: ../../..
 ---
 
 # #{page.title}
@@ -26,20 +27,20 @@ The `>=` operator is defined as follows:
 
     lhs.asLargeAs(rhs);
 
-See the [language specification](#{site.urls.spec}#equalitycomparison) for more details.
+See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#equalitycomparison) for more details.
 
 ### Polymorphism
 
-The `>=` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
+The `>=` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `>=` depends on the 
-[`Comparable`](#{site.urls.apidoc}/ceylon/language/interface_Comparable.html) interface.
+[`Comparable`](#{page.doc_root}/api/ceylon/language/interface_Comparable.html) interface.
 
 ## See also
 
-* API documentation for [`Comparable`](#{site.urls.apidoc}/ceylon/language/interface_Comparable.html)
-* [`>=` in the language specification](#{site.urls.spec}#equalitycomparison)
-* [operator precedence](#{site.urls.spec}#operatorprecedence) in the 
+* API documentation for [`Comparable`](#{page.doc_root}/api/ceylon/language/interface_Comparable.html)
+* [`>=` in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#equalitycomparison)
+* [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 
   language specification
-* [Operator polymorphism](/documentation/tour/language-module/#operator_polymorphism) 
+* [Operator polymorphism](#{page.doc_root}/tour/language-module/#operator_polymorphism) 
   in the Tour of Ceylon
 

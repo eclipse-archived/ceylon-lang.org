@@ -5,6 +5,7 @@ tab: documentation
 unique_id: docspage
 author: Tom Bentley
 milestone: Milestone 1
+doc_root: ../../..
 ---
 
 # #{page.title}
@@ -37,28 +38,28 @@ The `[]` operator is defined as follows (for both the get and set cases):
 
 The difference between the get and set cases is in the types of the operands.
 
-See the [language specification](#{site.urls.spec}#listmap) for 
+See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#listmap) for 
 more details.
 
 ### Polymorphism
 
-The `[]` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
+The `[]` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `[]` depends on the 
-[`Correspondence`](#{site.urls.apidoc}/ceylon/language/interface_Correspondence.html) 
+[`Correspondence`](#{page.doc_root}/api/ceylon/language/interface_Correspondence.html) 
 interface for the get case and 
-[`OpenCorrespondence`](#{site.urls.apidoc}/ceylon/language/interface_OpenCorrespondence.html)
+[`OpenCorrespondence`](#{page.doc_root}/api/ceylon/language/interface_OpenCorrespondence.html)
 for the set case.
 
 ## See also
 
 * [`[]` (sequenced lookup)](../sequenced-lookup) operator used for accessesing several items using a sequence
 * [`[]` (iterated lookup)](../iterated-lookup) operator used for accessesing several items using an iterable
-* API documentation for [`Correspondence`](#{site.urls.apidoc}/ceylon/language/interface_Correspondence.html) 
+* API documentation for [`Correspondence`](#{page.doc_root}/api/ceylon/language/interface_Correspondence.html) 
 * [`OpenCorrespondence`] _doc coming soon at_ (../../ceylon.language/OpenCorrespondence)
-* [sequence operators](#{site.urls.spec}#listmap) in the 
+* [sequence operators](#{page.doc_root}/#{site.urls.spec_relative}#listmap) in the 
   language specification
-* [operator precedence](#{site.urls.spec}#operatorprecedence) in the 
+* [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 
   language specification
-* [Operator polymorphism](/documentation/tour/language-module/#operator_polymorphism) 
+* [Operator polymorphism](#{page.doc_root}/tour/language-module/#operator_polymorphism) 
   in the Tour of Ceylon
 

@@ -5,6 +5,7 @@ tab: documentation
 unique_id: docspage
 author: Tom Bentley
 milestone: Milestone 1
+doc_root: ../../..
 ---
 
 # #{page.title}
@@ -29,16 +30,16 @@ The operator is defined as:
 
 except that `lhs` is evaluated only once.
 
-See the [language specification](#{site.urls.spec}#arithmetic) for more details.
+See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#arithmetic) for more details.
 
 ### Polymorphism
 
-The `+=` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism).
+The `+=` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism).
 
 The definition of the `+=` operator depends 
-on the [`Summable`](#{site.urls.apidoc}/ceylon/language/interface_Summable.html),
-[`Castable`](#{site.urls.apidoc}/ceylon/language/interface_Castable.html) and
-[`Settable`](#{site.urls.apidoc}/ceylon/language/interface_Settable.html) interfaces 
+on the [`Summable`](#{page.doc_root}/api/ceylon/language/interface_Summable.html),
+[`Castable`](#{page.doc_root}/api/ceylon/language/interface_Castable.html) and
+[`Settable`](#{page.doc_root}/api/ceylon/language/interface_Settable.html) interfaces 
 
 ### Widening
 
@@ -52,11 +53,11 @@ such a widening is not possible.
 
 ## See also
 
-* [arithmetic operators](#{site.urls.spec}#arithmetic) in the 
+* [arithmetic operators](#{page.doc_root}/#{site.urls.spec_relative}#arithmetic) in the 
   language specification
-* [operator precedence](#{site.urls.spec}#operatorprecedence) in the 
+* [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 
   language specification
-* [Operator polymorphism](/documentation/tour/language-module/#operator_polymorphism) 
+* [Operator polymorphism](#{page.doc_root}/tour/language-module/#operator_polymorphism) 
   and 
-  [Numeric operator semantics](/documentation/tour/language-module/#numeric_operator_semantics) 
+  [Numeric operator semantics](#{page.doc_root}/tour/language-module/#numeric_operator_semantics) 
   in the Tour of Ceylon

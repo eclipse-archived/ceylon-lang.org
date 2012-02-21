@@ -5,6 +5,7 @@ tab: documentation
 unique_id: docspage
 author: Tom Bentley
 milestone: Milestone 1
+doc_root: ../../..
 ---
 
 # #{page.title}
@@ -28,10 +29,10 @@ The `:=` operator is primitive.
 
 ### Polymorphism
 
-The `:=` operator is not [polymorphic](/documentation/tour/language-module/#operator_polymorphism). 
+The `:=` operator is not [polymorphic](#{page.doc_root}/tour/language-module/#operator_polymorphism). 
 
 ## See also
 
 * [`variable`] annotation _doc coming soon_ (../../ceylon.language/variable) 
-* [operator precedence](#{site.urls.spec}#operatorprecedence) in the 
+* [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 
   language specification

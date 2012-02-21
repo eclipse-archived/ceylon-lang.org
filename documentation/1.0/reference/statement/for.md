@@ -5,6 +5,7 @@ tab: documentation
 unique_id: docspage
 author: Tom Bentley
 milestone: Milestone 1
+doc_root: ../../..
 ---
 
 # #{page.title}
@@ -76,16 +77,16 @@ not been found:
 Ceylon not support the C-style `for` statement, with an initialising statement,
 iteration statement and termination condition. 
 This isn't a problem in practice; see 
-[what the Tour has to say](/documentation/tour/sequences#iterating_sequences).
+[what the Tour has to say](#{page.doc_root}/tour/sequences#iterating_sequences).
 
 ## See also
 
 * The [`break` statement](../break)
 * The [`continue` statement](../continue)
 * The [`while` statement](../while)
-* [`Iterable`](#{site.urls.apidoc}/ceylon/language/interface_Iterable.html)
-* The [`for` statement](/documentation/tour/missing-pieces#control_structures) 
-  and [Iterating Sequences](/documentation/tour/sequences#iterating_sequences)
+* [`Iterable`](#{page.doc_root}/api/ceylon/language/interface_Iterable.html)
+* The [`for` statement](#{page.doc_root}/tour/missing-pieces#control_structures) 
+  and [Iterating Sequences](#{page.doc_root}/tour/sequences#iterating_sequences)
   in the Tour of Ceylon
-* The [`for` statement](#{site.urls.spec}#forelse) 
+* The [`for` statement](#{page.doc_root}/#{site.urls.spec_relative}#forelse) 
   in the language specification

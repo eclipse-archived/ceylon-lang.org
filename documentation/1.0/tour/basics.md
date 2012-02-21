@@ -4,6 +4,7 @@ title: Tour of Ceylon&#58; Basics
 tab: documentation
 unique_id: docspage
 author: Emmanuel Bernard
+doc_root: ../..
 ---
 
 # #{page.title}
@@ -58,7 +59,7 @@ A very useful trick is:
 
 ## Running the program from the IDE
 
-To run the program in [Ceylon IDE](../ide), go to the Ceylon perspective,
+To run the program in [Ceylon IDE](#{page.doc_root}/ide), go to the Ceylon perspective,
 create a new project using `File > New > Ceylon Project`, then create
 a new `.ceylon` file using `File > New > Ceylon Unit`. Put the code for
 `hello()` in this new file, then select the file and run it using 
@@ -223,7 +224,7 @@ But we can easily fix it:
 
 (If you're wondering why the syntax isn't something like 
 `"Hello, you ran me at ${process.milliseconds}"`,
-[here's why](/documentation/faq/language-design/#string_interpolation_syntax).)
+[here's why](#{page.doc_root}/faq/language-design/#string_interpolation_syntax).)
 
 The `+` operator you're probably used to is an alternative way to concatenate
 strings, and more flexible in many cases:
