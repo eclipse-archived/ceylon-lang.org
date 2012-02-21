@@ -80,8 +80,8 @@ You should see a table of content similar to the top of this page.
 
 ### Referencing the specification or the ceylondoc
 
-If you want to point the spec to a user in the site, point to [/documentation/latest/spec](/documentation/latest/spec).
-This page show the spec in HTML, HTML in single page and PDF. You can replace `latest` with a specific `major.minor` 
+If you want to point the spec to a user in the site, point to [/documentation/current/spec](/documentation/current/spec).
+This page show the spec in HTML, HTML in single page and PDF. You can replace `current` with a specific `major.minor` 
 version (eg `1.0`).
 
 If you want to point to a specific paragraph in the spec, use the variable `site.urls.spec` and
