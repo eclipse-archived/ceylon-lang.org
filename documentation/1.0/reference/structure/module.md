@@ -5,6 +5,7 @@ tab: documentation
 unique_id: docspage
 author: Tom Bentley
 milestone: Milestone 1
+doc_root: ../../..
 ---
 
 # #{page.title}
@@ -33,9 +34,9 @@ with a different extension, and with a [module descriptor](#usage).
 
 Modules are kept in a *module repository*. The list of module 
 repositories to use is passed to the 
-[`ceylonc`](/documentation/reference/tool/ceylonc), 
-[`ceylon`](/documentation/reference/tool/ceylon),  and 
-[other tools](/documentation/reference/#tools)
+[`ceylonc`](#{page.doc_root}/reference/tool/ceylonc), 
+[`ceylon`](#{page.doc_root}/reference/tool/ceylon),  and 
+[other tools](#{page.doc_root}/reference/#tools)
 
 ### Naming
 

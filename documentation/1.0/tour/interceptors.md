@@ -4,6 +4,7 @@ title: Tour of Ceylon&#58; Interceptors
 tab: documentation
 unique_id: docspage
 author: Gavin King
+doc_root: ../..
 ---
 
 # #{page.title}
@@ -91,7 +92,7 @@ You should now know enough to start writing Ceylon code for yourself,
 and use the SDK classes effectively.
 
 Alternatively, if you want to keep reading you can peruse the 
-[reference documentation](/documentation/reference) 
+[reference documentation](#{page.doc_root}/reference) 
 or (if you're sitting comfortably) read the 
-[specification](#{site.urls.spec}).
+[specification](#{page.doc_root}/#{site.urls.spec_relative}).
 

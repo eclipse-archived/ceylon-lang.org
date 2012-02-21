@@ -4,6 +4,7 @@ title: Tour of Ceylon&#58; Classes, Interfaces and Objects
 tab: documentation
 unique_id: docspage
 author: Emmanuel Bernard
+doc_root: ../..
 ---
 
 # #{page.title}
@@ -63,7 +64,7 @@ internal implementation of a class from other code.
 
 Ceylon doesn't make a distinction between `public`, `protected` and "default" 
 visibility like Java does; 
-[here's why](/documentation/faq/language-design/#no_protected_keyword). Instead,
+[here's why](#{page.doc_root}/faq/language-design/#no_protected_keyword). Instead,
 Ceylon distinguishes between: 
 
 * program elements which are visible only inside the scope in which they are 

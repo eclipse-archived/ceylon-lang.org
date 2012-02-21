@@ -4,6 +4,7 @@ title: `ceylonc` - The ceylon compiler
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
+doc_root: ../../..
 ---
 
 # #{page.title}
@@ -37,5 +38,5 @@ A `.car` file is Ceylon's equivalent of a `.jar` file.
 ## See also
 
 * [`ceylon`](../ceylon) the application launcher
-* [`ceylonc`](#{site.urls.spec}#thecompiler) in the language specification
-* [module names and versions](#{site.urls.spec}#modulenamesandversionidentifiers) in the language specification.
+* [`ceylonc`](#{page.doc_root}/#{site.urls.spec_relative}#thecompiler) in the language specification
+* [module names and versions](#{page.doc_root}/#{site.urls.spec_relative}#modulenamesandversionidentifiers) in the language specification.

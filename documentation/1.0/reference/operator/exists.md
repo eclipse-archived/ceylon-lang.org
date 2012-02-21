@@ -5,6 +5,7 @@ tab: documentation
 unique_id: docspage
 author: Tom Bentley
 milestone: Milestone 1
+doc_root: ../../..
 ---
 
 # #{page.title}
@@ -27,10 +28,10 @@ The meaning of `exists` is defined as follows:
 
 ### Polymorphism
 
-The `exists` operator is not [polymorphic](/documentation/reference/operator/operator-polymorphism). 
+The `exists` operator is not [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 
 ## See also
 
-* [`exists`](#{site.urls.spec}#nullvalues) in the language specification.
-* [operator precedence](#{site.urls.spec}#operatorprecedence) in the 
+* [`exists`](#{page.doc_root}/#{site.urls.spec_relative}#nullvalues) in the language specification.
+* [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 
   language specification

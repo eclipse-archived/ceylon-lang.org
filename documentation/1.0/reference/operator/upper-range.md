@@ -5,6 +5,7 @@ tab: documentation
 unique_id: docspage
 author: Tom Bentley
 milestone: Milestone 1
+doc_root: ../../..
 ---
 
 # #{page.title}
@@ -27,20 +28,20 @@ The `[x...]` operator is defined as follows:
 
     range(lhs,x)
 
-See the [language specification](#{site.urls.spec}#listmap) for 
+See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#listmap) for 
 more details.
 
 ### Polymorphism
 
-The `[x...]` operator is not [polymorphic](/documentation/reference/operator/operator-polymorphism). 
+The `[x...]` operator is not [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 
 ## See also
 
 * [`[x..y]` (subrange)](../subrange) operator used for obtaining a subrange of a sequence
-* [sequence operators](#{site.urls.spec}#listmap) in the 
+* [sequence operators](#{page.doc_root}/#{site.urls.spec_relative}#listmap) in the 
   language specification
-* [operator precedence](#{site.urls.spec}#operatorprecedence) in the 
+* [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 
   language specification
-* [Operator polymorphism](/documentation/tour/language-module/#operator_polymorphism) 
+* [Operator polymorphism](#{page.doc_root}/tour/language-module/#operator_polymorphism) 
   in the Tour of Ceylon
 

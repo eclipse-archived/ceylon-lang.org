@@ -5,6 +5,7 @@ tab: documentation
 unique_id: docspage
 author: Tom Bentley
 milestone: Milestone 2
+doc_root: ../../..
 ---
 
 # #{page.title}
@@ -65,5 +66,5 @@ expression is either
 
 * The [`if` statement] (../if) is an alternative control structure for 
   conditional execution
-* [`switch` in the language specification](#{site.urls.spec}#switchcaseelse)
+* [`switch` in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#switchcaseelse)
 

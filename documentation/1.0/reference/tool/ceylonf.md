@@ -4,6 +4,7 @@ title: `ceylonf` - The ceylon source archive extractor
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
+doc_root: ../../..
 ---
 
 # #{page.title}
@@ -28,5 +29,5 @@ with example projects.
 
 ## See also
 
-* [`ceylonf`](#{site.urls.spec}#thesourcearchiveextractor) in the language specification
-* [module names and versions](#{site.urls.spec}#modulenamesandversionidentifiers) in the language specification.
+* [`ceylonf`](#{page.doc_root}/#{site.urls.spec_relative}#thesourcearchiveextractor) in the language specification
+* [module names and versions](#{page.doc_root}/#{site.urls.spec_relative}#modulenamesandversionidentifiers) in the language specification.

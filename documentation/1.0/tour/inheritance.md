@@ -4,6 +4,7 @@ title: Tour of Ceylon&#58; Inheritance and Refinement
 tab: documentation
 unique_id: docspage
 author: Emmanuel Bernard
+doc_root: ../..
 ---
 
 # #{page.title}
@@ -40,7 +41,7 @@ Notice that Ceylon forces us to declare attributes or methods that can be
 refined (overridden) by annotating them `default`.
 
 Subclasses specify their superclass using the `extends` keyword
-([here's why](/documentation/faq/language-design/#colon_vs_extends_in_class_definition)), 
+([here's why](#{page.doc_root}/faq/language-design/#colon_vs_extends_in_class_definition)), 
 followed by the name of the superclass, followed by a list of arguments to be 
 sent to the superclass initializer parameters. It looks just like an expression 
 that instantiates the superclass:
@@ -58,7 +59,7 @@ that instantiates the superclass:
 
 Ceylon also forces us to declare that an attribute or method refines 
 (overrides) an attribute or method of a superclass by annotating it `actual`
-([not "overrides" like Java](/documentation/faq/language-design/#_override_vs_actual)). 
+([not "overrides" like Java](#{page.doc_root}/faq/language-design/#_override_vs_actual)). 
 All this annotating stuff costs a few extra keystrokes, but it helps the 
 compiler detect errors. We can't inadvertently refine a member or the 
 superclass, or inadvertently fail to refine it.
@@ -262,7 +263,7 @@ Now let's define a concrete implementation of this interface.
     }
 
 The `satisfies` keyword 
-([not `implements` like Java](/documentation/faq/language-design/#_implements_vs_satisfies))
+([not `implements` like Java](#{page.doc_root}/faq/language-design/#_implements_vs_satisfies))
 is used to specify that an interface extends 
 another interface or that a class implements an interface. 
 Unlike an `extends` declaration, a `satisfies` declaration does not specify 

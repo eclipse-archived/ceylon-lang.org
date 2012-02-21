@@ -16,7 +16,7 @@ _you_ can help improve it, [read more](/code/website).
 
 The [quick introduction](introduction) summarizes some of what Ceylon is all about.
 
-Still interested? The [tour of Ceylon](/documentation/tour) will guide you through 
+Still interested? The [tour of Ceylon](tour) will guide you through 
 the main features and syntax of Ceylon in some depth. Currently, this is the best 
 way to learn Ceylon.
 
@@ -29,7 +29,7 @@ Or, if you want to be absolutely certain, you can dive into the [language specif
 - the gospel according to Ceylon.
 
 The API documentation for the Ceylon Language Module `ceylon.language` is
-[also available](api/current/ceylon/language).
+[also available](api/ceylon/language).
 
 ## Got questions? We have FAQs
 

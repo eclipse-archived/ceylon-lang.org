@@ -5,6 +5,7 @@ tab: documentation
 unique_id: docspage
 author: Tom Bentley
 milestone: Milestone 1
+doc_root: ../../..
 ---
 
 # #{page.title}
@@ -43,8 +44,8 @@ attribute (that is, an attribute within a block) represents state associated
 with execution of that block.
 
 If the attribute is annotated `shared` it can be 
-[assigned](/documentation/reference/operator/assignment) more than once.
-Otherwise it must be [specified](/documentation/reference/statement/specification) 
+[assigned](#{page.doc_root}/reference/operator/assignment) more than once.
+Otherwise it must be [specified](#{page.doc_root}/reference/statement/specification) 
 exactly once, moreover the specification must occur before its first use.
 
 ### Attribute Getters (derived attributes)

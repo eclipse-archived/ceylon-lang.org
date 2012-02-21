@@ -4,6 +4,7 @@ title: Single quoted literals
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
+doc_root: ../../..
 ---
 
 # #{page.title}
@@ -41,5 +42,5 @@ TODO
 
 ## See also
 
-* [Single quoted literals in the language specification](#{site.urls.spec}#singlequotedliterals)
+* [Single quoted literals in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#singlequotedliterals)
 

@@ -4,6 +4,7 @@ title: `Number` literals
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
+doc_root: ../../..
 ---
 
 # #{page.title}
@@ -48,7 +49,7 @@ in the  declaration of the `Integer`, like this:
 
 ## See also
 
-* [Numeric literals](/documentation/tour/language-module/#numeric_literals) 
+* [Numeric literals](#{page.doc_root}/tour/language-module/#numeric_literals) 
   in the Tour of Ceylon 
-* [unary plus](../../operator/unary_plus) and [unary minus](../../operator/unary_minus)
+* [unary plus](../../operator/unary_plus) and [unary minus](#{page.doc_root}/reference/operator/unary_minus)
 

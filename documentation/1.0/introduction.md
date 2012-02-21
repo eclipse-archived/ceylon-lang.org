@@ -4,6 +4,7 @@ title: Quick Introduction to Ceylon
 tab: documentation
 unique_id: docspage
 author: Gavin King
+doc_root: ..
 ---
 
 # Quick introduction
@@ -507,5 +508,5 @@ based upon the same module runtime that is used at the very core of JBoss AS 7.
 
 ## Take the Tour
 
-We're done with the introduction. Take the [tour of Ceylon](/documentation/tour/basics) 
+We're done with the introduction. Take the [tour of Ceylon](#{page.doc_root}/tour/basics) 
 for a full in-depth tutorial.

@@ -5,6 +5,7 @@ tab: documentation
 unique_id: docspage
 author: Tom Bentley
 milestone: Milestone 1
+doc_root: ../../..
 ---
 
 # #{page.title}
@@ -23,35 +24,35 @@ The `-` operator is defined as follows:
 
     rhs.negativeValue;
 
-See the [language specification](#{site.urls.spec}#arithmetic) for more details.
+See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#arithmetic) for more details.
 
 ### Polymorphism
 
-The unary `-` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
+The unary `-` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `-` depends on 
-[`Invertable`](#{site.urls.apidoc}/ceylon/language/interface_Invertable.html) interface
+[`Invertable`](#{page.doc_root}/api/ceylon/language/interface_Invertable.html) interface
 
 ### Meaning of unary minus for built-in types
 
 For the built in numeric types
-[`Integer`](#{site.urls.apidoc}/ceylon/language/class_Integer.html),
-[`Float`](#{site.urls.apidoc}/ceylon/language/class_Float.html),
-[`Whole`](#{site.urls.apidoc}/ceylon/language/class_Whole.html), and
-[`Decimal`](#{site.urls.apidoc}/ceylon/language/class_Decimal.html), `-` 
+[`Integer`](#{page.doc_root}/api/ceylon/language/class_Integer.html),
+[`Float`](#{page.doc_root}/api/ceylon/language/class_Float.html),
+[`Whole`](#{page.doc_root}/api/ceylon/language/class_Whole.html), and
+[`Decimal`](#{page.doc_root}/api/ceylon/language/class_Decimal.html), `-` 
 just changes the sign.
 
 ## See also
 
 * [`+` (unary plus)](../unary_plus) which does not change the sign of its 
   operand
-* API documentation for [`Invertable`](#{site.urls.apidoc}/ceylon/language/interface_Invertable.html)
-* [arithmetic operators](#{site.urls.spec}#arithmetic) in the 
+* API documentation for [`Invertable`](#{page.doc_root}/api/ceylon/language/interface_Invertable.html)
+* [arithmetic operators](#{page.doc_root}/#{site.urls.spec_relative}#arithmetic) in the 
   language specification
-* [operator precedence](#{site.urls.spec}#operatorprecedence) in the 
+* [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 
   language specification
-* [Operator polymorphism](/documentation/tour/language-module/#operator_polymorphism) 
+* [Operator polymorphism](#{page.doc_root}/tour/language-module/#operator_polymorphism) 
   and 
-  [Numeric operator semantics](/documentation/tour/language-module/#numeric_operator_semantics) 
+  [Numeric operator semantics](#{page.doc_root}/tour/language-module/#numeric_operator_semantics) 
   in the Tour of Ceylon
 
 

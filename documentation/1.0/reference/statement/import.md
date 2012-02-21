@@ -5,6 +5,7 @@ tab: documentation
 unique_id: docspage
 author: Tom Bentley
 milestone: Milestone 1
+doc_root: ../../..
 ---
 
 # #{page.title}
@@ -55,4 +56,4 @@ type name in the source code is referring to.
 
 ## See also
 
-* [`import` in the language specification](#{site.urls.spec}#imports)
+* [`import` in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#imports)

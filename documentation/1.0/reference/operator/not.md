@@ -5,6 +5,7 @@ tab: documentation
 unique_id: docspage
 author: Tom Bentley
 milestone: Milestone 1
+doc_root: ../../..
 ---
 
 # #{page.title}
@@ -24,17 +25,17 @@ The `!` operator is defined as:
 
     if (rhs) false else true
 
-See the [language specification](#{site.urls.spec}#logical) for 
+See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#logical) for 
 more details.
 
 ### Polymorphism
 
-The `!` operator is not [polymorphic](/documentation/reference/operator/operator-polymorphism). 
+The `!` operator is not [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 
 ## See also
 
-* [logical operators](#{site.urls.spec}#logical) in the 
+* [logical operators](#{page.doc_root}/#{site.urls.spec_relative}#logical) in the 
   language specification
-* [operator precedence](#{site.urls.spec}#operatorprecedence) in the 
+* [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 
   language specification
 

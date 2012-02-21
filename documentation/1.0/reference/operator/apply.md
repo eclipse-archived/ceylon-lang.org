@@ -5,6 +5,7 @@ tab: documentation
 unique_id: docspage
 author: Tom Bentley
 milestone: Milestone 1
+doc_root: ../../..
 ---
 
 # #{page.title}
@@ -41,19 +42,19 @@ The *apply* operator is defined as:
 
     lhs:=lhs.member(x,y,z)
 
-See the [language specification](#{site.urls.spec}#basic) for more details.
+See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#basic) for more details.
 
 ### Polymorphism 
 
-The *follow* and *apply* operators are not [polymorphic](/documentation/reference/operator/operator-polymorphism). 
+The *follow* and *apply* operators are not [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 
 ## See also
 
-* API documentation for [`Attribute`] _doc coming soon at_ (#{site.urls.apidoc}/ceylon/language/metamodel/Attribute)
-* API documentation for [`Method`] _doc coming soon at_ (#{site.urls.apidoc}/ceylon/language/metamodel/Method)
-* [`.=` in the language specification](#{site.urls.spec}#basic)
-* [operator precedence](#{site.urls.spec}#operatorprecedence) in the 
+* API documentation for [`Attribute`] _doc coming soon at_ (#{page.doc_root}/api/ceylon/language/metamodel/Attribute)
+* API documentation for [`Method`] _doc coming soon at_ (#{page.doc_root}/api/ceylon/language/metamodel/Method)
+* [`.=` in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#basic)
+* [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 
   language specification
-* [Operator polymorphism](/documentation/tour/language-module/#operator_polymorphism) 
+* [Operator polymorphism](#{page.doc_root}/tour/language-module/#operator_polymorphism) 
   in the Tour of Ceylon
 

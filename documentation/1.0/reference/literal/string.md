@@ -4,6 +4,7 @@ title: `String` literals
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
+doc_root: ../../..
 ---
 
 # #{page.title}
@@ -61,8 +62,8 @@ instead of line spanning literals.
 
 ## See also
 
-* [String literals](/documentation/tour/basics/#strings_and_string_interpolation) 
+* [String literals](#{page.doc_root}/tour/basics/#strings_and_string_interpolation) 
   in the Tour of Ceylon 
-* [String literals in the language specification](#{site.urls.spec}#stringliterals)
-* [String templates] _doc coming soon at_ (../../expression/string_template)
+* [String literals in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#stringliterals)
+* [String templates] _doc coming soon at_ (#{page.doc_root}/reference/expression/string_template)
 

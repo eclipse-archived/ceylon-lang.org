@@ -5,13 +5,14 @@ toc: true
 tab: documentation
 unique_id: docspage
 author: Emmanuel Bernard
+doc_root: ../..
 ---
 
 # FAQ about language design
 
 #{page.table_of_contents}
 
-You probably want to take the [Tour](/documentation/tour) before 
+You probably want to take the [Tour](#{page.doc_root}/tour) before 
 reading this, or the questions might not make sense.
 
 Designing a language is about trade offs. Some features are 
@@ -442,7 +443,7 @@ vanilla extension methods, or a more powerful feature called
 _introductions_. You'll find some discussion of this idea in
 [Chapter 3 of the language specification][introductions].
 
-[introductions]: /documentation/spec/html/typesystem.html#adaptedtypes
+[introductions]: #{page.doc_root}/#{site.urls.spec_relative}#adaptedtypes
 
 ### Tuples
 
@@ -536,7 +537,7 @@ the reified type of `Num`, not by `Num` itself.
 You'll find some further discussion of this issue in 
 [Chapter 3 of the language specification][metatypes].
 
-[metatypes]:/documentation/spec/html/typesystem.html#metatypes
+[metatypes]:#{page.doc_root}/#{site.urls.spec_relative}#metatypes
 
 ### Type constructor parameterization
 
@@ -575,7 +576,7 @@ We have not yet decided if Ceylon needs this feature. It is
 mentioned as a proposal in [Chapter 3 of the language 
 specification][type constructor parameterization].
 
-[type constructor parameterization]: /documentation/spec/html/typesystem.html#parameterizedtypeparameters
+[type constructor parameterization]: #{page.doc_root}/#{site.urls.spec_relative}#parameterizedtypeparameters
 
 ### Generalized algebraic types
 
@@ -600,7 +601,7 @@ can't possibly have an `IntegerLiteral`.
 You'll find some further discussion of this issue in 
 [Chapter 3 of the language specification][gadts].
 
-[gadts]:/documentation/spec/html/typesystem.html#d0e2399
+[gadts]:#{page.doc_root}/#{site.urls.spec_relative}#d0e2399
 
 ### Type families
 

@@ -4,6 +4,7 @@ title: Tour of Ceylon&#58; Generics
 tab: documentation
 unique_id: docspage
 author: Gavin King
+doc_root: ../..
 ---
 
 # #{page.title}
@@ -58,7 +59,7 @@ arguments.
     value entries = entries(strings); // type Entries<Integer,String>
 
 The generic type argument inference algorithm is slightly involved, so you
-should refer to the [language specification](#{site.urls.spec}#typeargumentinference) 
+should refer to the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#typeargumentinference) 
 for a complete definition. But
 essentially what happens is that Ceylon infers a type by combining the types
 of corresponding arguments using union.

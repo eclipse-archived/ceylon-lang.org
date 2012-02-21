@@ -5,6 +5,7 @@ tab: documentation
 unique_id: docspage
 author: Tom Bentley
 milestone: Milestone 1
+doc_root: ../../..
 ---
 
 # #{page.title}
@@ -60,6 +61,6 @@ exception types.
 ## See also
 
 * [`throw`](../throw)
-* [`Exception`](#{site.urls.apidoc}/ceylon/language/interface_Exception.html)
-* [`try` in the language specification](#{site.urls.spec}#trycatchfinally)
+* [`Exception`](#{page.doc_root}/api/ceylon/language/interface_Exception.html)
+* [`try` in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#trycatchfinally)
 

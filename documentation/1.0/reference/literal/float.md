@@ -4,8 +4,8 @@ title: `Float` literals
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
+doc_root: ../../..
 ---
-
 # #{page.title}
 
 ## Usage 
@@ -64,7 +64,7 @@ Invoking `Float` members directly on `Float` literals is permitted:
 
 ## See also
 
-* [Numeric literals](/documentation/tour/language-module/#numeric_literals) 
+* [Numeric literals](#{page.doc_root}/tour/language-module/#numeric_literals) 
   in the Tour of Ceylon 
-* [Numeric literals in the language specification](#{site.urls.spec}#numericliterals)
+* [Numeric literals in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#numericliterals)
 

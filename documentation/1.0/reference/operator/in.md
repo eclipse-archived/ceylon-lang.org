@@ -5,6 +5,7 @@ tab: documentation
 unique_id: docspage
 author: Tom Bentley
 milestone: Milestone 1
+doc_root: ../../..
 ---
 
 # #{page.title}
@@ -25,20 +26,20 @@ The `in` operator is defined as follows:
 
     lhs.contained(rhs);
 
-See the [language specification](#{site.urls.spec}#equalitycomparison) for more details.
+See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#equalitycomparison) for more details.
 
 ### Polymorphism
 
-The `in` operator is [polymorphic](/documentation/reference/operator/operator-polymorphism). 
+The `in` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `in` depends on the 
-[`Category`](#{site.urls.apidoc}/ceylon/language/interface_Category.html) interface
+[`Category`](#{page.doc_root}/api/ceylon/language/interface_Category.html) interface
 
 ## See also
 
-* API documentation for [`Category`](#{site.urls.apidoc}/ceylon/language/interface_Category.html)
-* [`in` in the language specification](#{site.urls.spec}#equalitycomparison)
-* [operator precedence](#{site.urls.spec}#operatorprecedence) in the 
+* API documentation for [`Category`](#{page.doc_root}/api/ceylon/language/interface_Category.html)
+* [`in` in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#equalitycomparison)
+* [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 
   language specification
-* [Operator polymorphism](/documentation/tour/language-module/#operator_polymorphism) 
+* [Operator polymorphism](#{page.doc_root}/tour/language-module/#operator_polymorphism) 
   in the Tour of Ceylon
 
