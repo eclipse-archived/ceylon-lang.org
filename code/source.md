@@ -65,7 +65,7 @@ There's more info in the [README](https://github.com/ceylon/ceylon-spec/blob/mas
 This is where you'll find the `ceylonc` compiler and the `ceylond` API documentation compiler,
 as well as the Ceylon ant tasks.
 
-You can find out how to run these commands from the [documentation](#{site.urls.spec}#tools).
+You can find out how to run these commands from the [documentation](#{site.urls.spec_current}#tools).
 
 Feeling adventurous and want to help us with the compiler backend? Read [how to work on that project](/code/contribute).
 
@@ -92,7 +92,7 @@ There's more info in the [README](https://github.com/ceylon/ceylon-compiler/blob
 This projects contains the module `ceylon.language`, the core classes 
 mentioned in the language specification.
 
-See the [API documentation](#{site.urls.apidoc}/ceylon/language/) for more information.
+See the [API documentation](#{site.urls.apidoc_current}/ceylon/language/) for more information.
 
 #### Building
 

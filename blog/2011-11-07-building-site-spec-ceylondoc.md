@@ -26,7 +26,7 @@ when serving the awestruct website.
 If you want to point the spec to a user in the site, point to [/documentation/1.0/spec](/documentation/1.0spec).
 This page show the spec in HTML, HTML in single page and PDF.
 
-If you want to point to a specific paragraph in the spec, use the variable `site.urls.spec` and
+If you want to point to a specific paragraph in the spec, use the variable `site.urls.spec.current` and
 the anchor to the paragraph in the spec.
 
 eg This is a **\[**pointer to the spec**\](\#{site.urls.spec}#**_anchor-in-spec_**)**.

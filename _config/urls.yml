@@ -1,3 +1,4 @@
-spec: /documentation/spec/html_single/index.html
-apidoc: /documentation/api/current
+spec_current: /documentation/current/spec/html_single/index.html
+spec_relative: spec/html_single/index.html
+apidoc_current: /documentation/current/api
 repo: http://modules.ceylon-lang.org/modules

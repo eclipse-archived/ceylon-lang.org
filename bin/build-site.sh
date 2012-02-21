@@ -70,8 +70,8 @@ if [ "$LIGHT" != "true" ]; then
 	ant build publish
 	cd ..
 fi
-mkdir -p ../../_site/documentation/1.0/api/current/ceylon
+mkdir -p ../../_site/documentation/1.0/api/ceylon
 ./ceylon-compiler/build/bin/ceylond -src -source-code ceylon.language/src ceylon.language
-mv modules/ceylon/language/0.1/module-doc ../../_site/documentation/1.0/api/current/ceylon/language
+mv modules/ceylon/language/0.1/module-doc ../../_site/documentation/1.0/api/ceylon/language
 
 cd ../..
