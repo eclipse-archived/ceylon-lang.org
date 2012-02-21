@@ -9,7 +9,7 @@ author: Emmanuel Bernard
 
 We publish everything on GitHub under the [Ceylon organization](https://github.com/ceylon).
 
-You need to install the Java Development Kit 6 or above (from Oracle or OpenJDK). 
+You need to install the Java Development Kit 6 (from Oracle or OpenJDK). 
 You also need to install `git`.
 
 ## Ceylon projects
