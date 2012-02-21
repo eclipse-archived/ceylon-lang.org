@@ -286,8 +286,21 @@ form.bp {
 	  
         h3 {
           color: white;
+          margin: 1em 0;
         }
-		
+        
+        h3:first-child {
+          margin-top: 0;
+        }
+
+        h3:last-child {
+          margin-bottom: 0;
+        }
+
+        h4 {
+          margin: 0.5em 1em;
+        }
+
 		#feed {
 		   padding-left: 34px;
 		       background: url("../images/feed_icon.png") no-repeat 0px 0px;
