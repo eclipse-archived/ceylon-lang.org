@@ -39,7 +39,7 @@ We have recently discussed Java interop, killer features that should or should n
 
 The website had a few glitches including an faulty atom feed. This is now fixed. We took the opportunity
 to improve `ceylondoc` (the equivalent of `javadoc`). You can now search for a type, attribute, method name
-etc [right from the page](#{site.urls.apidoc}/ceylon/language). Thanks Stef for the jQuery wizardry.
+etc [right from the page](#{site.urls.apidoc_current}/ceylon/language). Thanks Stef for the jQuery wizardry.
 
 That's all forks, if you are interested, please join the fun and come contribute by 
 [talking](http://ceylon-lang.org/community/?utm_source=blog&utm_medium=web&utm_content=community&utm_campaign=2weeksfeedback)

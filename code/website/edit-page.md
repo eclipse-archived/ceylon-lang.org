@@ -78,26 +78,61 @@ metadata:
 
 You should see a table of content similar to the top of this page.
 
-### Referencing the specification or the ceylondoc
+### Documentation section
 
-If you want to point the spec to a user in the site, point to [/documentation/current/spec](/documentation/current/spec).
-This page show the spec in HTML, HTML in single page and PDF. You can replace `current` with a specific `major.minor` 
-version (eg `1.0`).
+The documentation is all under a version umbrella (ie `/documentation/1.0`). The purpose is to
+be able to keek old documentations and have stable URLs. The latest and stable documentation is 
+available at `/documentation/current` which is a redirect to a specific version. Note that you can 
+point to subsections eg `/documentation/current/ide`. Use the `current` URL for links that are
+generic and from other sections of the website. Be careful that over time the documentation structure
+will evolve from versions to versions: the more specific your link is, the more fragile it is.
 
-If you want to point to a specific paragraph in the spec, use the variable `site.urls.spec` and
-the anchor to the paragraph in the spec.
+If you are describing specific features introduced in specific versions, for example in a blog,
+it is probably better to use the URL containing the explicit version eg `/documentation/1.0/ide`.
 
-eg This is a **\[**pointer to the spec**\](\#{site.urls.spec}#**_anchor-in-spec_**)**.
+Links from within the documentation section must all be relative. To facilitate navigation, you should:
 
-That means the specification anchors should be stable.
+- Add `doc_root: ../..` in the file header where `../..` is the relative URL pointing to root
+  Remember that asides from `index.md` files, all files are generated in a directory which adds
+  on level to point to root. For example `/documentation/1.0/introduction.md` creates 
+  `/documentation/1.0/introduction/index.html` and its relative URL to root is `..`
+- Use it in your file to build the relative URL eg `\#{page.doc_root}/ide`
 
-Likewise, to point to a ceylondoc entry, use the variable `site.urls.apidocs`.   
+#### Referencing the specification or the ceylondoc
 
-**\[**Doc for `Comparable`**\](\#{site.urls.apidoc}**_/ceylon/language/Comparable.html_**)**
+If you want to point to the spec from within the documentation section, use relative links
+
+    [specification](\#{page.doc_root}/spec)
+
+You can point to a specific section of the spec this way
+
+    [logical operators](\#{page.doc_root}/\#{site.urls.spec_relative}#logical)
+
+If you want to point to the current spec, use
+
+    [specification](/documentation/current/spec)
+
+You can point to a specific section of the spec this way
+
+    [tools](\#{site.urls.spec_current}#tools)
+
+_Note to specification writers, specification anchors should be stable._
+
+Likewise, to point to a ceylondoc entry, use the variable `site.urls.apidoc_current`.
+
+<!-- lang: none -->
+    [Doc for `Comparable`]
+    (\#{site.urls.apidoc_current}/ceylon/language/Comparable.html)
+
+Or from within the documentation section,
+
+<!-- lang: none -->
+    [Doc for `Comparable`]
+    (\#{page.doc_root}/api/ceylon/language/Comparable.html)
 
 By using these placeholders, we will be able to move the spec or ceylondoc to other places.
-Note that [/documentation/api](/documentation/api) page is pretty useless as it is but
-should be fixed in ceylondoc.
+
+Never point to `/documentation/_version_/api` as there are no landing page.
 
 ### Linking withing a page
 

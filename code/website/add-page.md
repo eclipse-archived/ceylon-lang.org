@@ -42,6 +42,7 @@ Each page comes with some metadata.
 - `layout` (mandatory): the page layout to use
 - `milestone`: the milestone for the feature (will display a milestone tag)
 - `toc`: table of content
+- `doc_root`: documentation relative URL to root (only useful in the documentation section, see more at [Edit a page](../edit-page/#documentation_section))
 
 Each metadata can be accesssed via `\#{page.metadata}` in your page. For example `\#{page.title}`
 
