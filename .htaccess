@@ -11,6 +11,8 @@ RewriteCond %{HTTP_HOST} ^www.ceylon-lang.org$ [OR]
 RewriteCond %{HTTP_HOST} ^staging.ceylon-lang.org$
 
 # Redirect old /documentation links to /documentation/current
+RewriteRule ^documentation$ /documentation/current$1
+RewriteRule ^documentation/$ /documentation/current$1
 RewriteRule ^documentation/index.html$ /documentation/current$1
 RewriteRule ^documentation/faq(.*)$ /documentation/current/faq$1
 RewriteRule ^documentation/ide(.*)$ /documentation/current/ide$1
