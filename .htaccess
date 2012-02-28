@@ -9,10 +9,30 @@ RewriteCond %{HTTP_HOST} ^ceylon-lang.org$ [OR]
 RewriteCond %{HTTP_HOST} ^ceylon.beanvalidation.org$ [OR]
 RewriteCond %{HTTP_HOST} ^www.ceylon-lang.org$ [OR]
 RewriteCond %{HTTP_HOST} ^staging.ceylon-lang.org$
+
+# Redirect old /documentation links to /documentation/current
+RewriteRule ^documentation/index.html$ /documentation/current$1
+RewriteRule ^documentation/faq(.*)$ /documentation/current/faq$1
+RewriteRule ^documentation/ide(.*)$ /documentation/current/ide$1
+RewriteRule ^documentation/introduction(.*)$ /documentation/current/introduction$1
+RewriteRule ^documentation/presentation(.*)$ /documentation/current/presentation$1
+RewriteRule ^documentation/reference(.*)$ /documentation/current/reference$1
+RewriteRule ^documentation/roadmap(.*)$ /documentation/current/roadmap$1
+RewriteRule ^documentation/spec(.*)$ /documentation/current/spec$1
+RewriteRule ^documentation/tour(.*)$ /documentation/current/tour$1
+
+# Redirect /documentation/current to /documentation/1.0
 RewriteRule ^documentation/current(.*)$ /documentation/1.0$1 [L]
+
+
+# Redirect download links to GitHub
 RewriteRule ^download/dist/1_0_Milestone1$ "https\:\/\/github\.com\/downloads\/ceylon\/ceylon-dist\/ceylon-0\.1\.zip" [R=302,L]
 RewriteRule ^download/dist/1_0_Milestone1_deb$ "https\:\/\/github\.com\/downloads\/ceylon\/ceylon-dist\/ceylon-0\.1_0\.1_all\.deb" [R=302,L]
 RewriteRule ^download/dist/1_0_Milestone1_rpm$ "https\:\/\/github\.com\/downloads\/ceylon\/ceylon-dist\/ceylon-0\.1\.0-0\.noarch\.rpm" [R=302,L]
+
+# Redirect social network links
 RewriteRule ^plus$ "https\:\/\/plus\.google\.com\/u\/0\/102481741611133754149" [R=302,L]
 RewriteRule ^\+$ "https\:\/\/plus\.google\.com\/u\/0\/102481741611133754149" [R=302,L]
+
+# Redirect user forum to Google Groups
 RewriteRule ^community/forum$ "http://groups.google.com/group/ceylon-users" [R=302,L]
