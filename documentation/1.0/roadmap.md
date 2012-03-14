@@ -152,6 +152,7 @@ types with enumerated cases, remote repositories.*
 
 ### Types:
 * `Collection`, `List`, `Map`, `Set`
+* Remove `Equality`, `Slots`, `Natural`
 
 ### Modularity:
 * remote repositores
