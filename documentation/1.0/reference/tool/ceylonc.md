@@ -31,7 +31,7 @@ The ceylon compiler `ceylonc` compiles Ceylon and Java source code.
 
 `ceylonc` outputs a module archive and a source archive for 
 each module named on the command line. The compiler produceds `.car` files 
-directly is does not produce individual `.class` files as `javac` does.
+directly it does not produce individual `.class` files as `javac` does.
 
 A `.car` file is Ceylon's equivalent of a `.jar` file.
 
