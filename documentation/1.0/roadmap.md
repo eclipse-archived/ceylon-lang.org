@@ -127,17 +127,23 @@ Notes:
 
 ## Milestone 2
 
-*Numeric type optimization, Java interop, `switch/case`, 
+*Numeric type optimization, Java interop, `switch/case`,
+higher-order methods, 
 types with enumerated cases, remote repositories.*
 
 ### Declarations:
 * cases (`of` clause)
+* higher-order methods
+* methods with specifiers
 
 ### Generics:
 * enumerated bounds
 
 ### Statements:
 * `switch/case`
+
+### Expressions:
+* method references
 
 ### Misc:
 * optimization of primitive operators
@@ -150,18 +156,14 @@ types with enumerated cases, remote repositories.*
 ### Modularity:
 * remote repositores
 * `modules.ceylon-lang.org`
-* repository replicator
 
 ## Milestone 3
 
-*Higher-order and first-class functions, file IO.*
+*Anonymous functions, file IO.*
 
 ### Declarations:
-* higher-order methods
-* methods with specifiers
 
 ### Expressions:
-* method references
 * object/method/getter args in named argument lists
 * anonymous functions in positional argument lists
 * comprehensions as sequenced arguments
@@ -170,6 +172,9 @@ types with enumerated cases, remote repositories.*
 ### Modules:
 * `ceylon.io` module
 * `ceylon.math` module
+
+### Modularity:
+* repository replicator
 
 ## Milestone 4
 
@@ -185,7 +190,7 @@ types with enumerated cases, remote repositories.*
 
 ### Expressions:
 * outer instance references (`outer`)
-* slotwise operators
+* set operators
 
 ## Milestone 5 (Ceylon 1.0)
 
