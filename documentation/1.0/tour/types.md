@@ -292,8 +292,11 @@ And here's how `Comparable` is defined. First, the typesafe enumeration
     doc "The result of a comparison between two
          Comparable objects."
     shared abstract class Comparison(String name)
-            of larger | smaller | equal
-            extends Case(name) {}
+            of larger | smaller | equal {
+        shared actual String string {
+            return name;
+        }
+    }
     
     shared object equal extends Comparison("equal") {}
     shared object smaller extends Comparison("smaller") {}
@@ -301,27 +304,10 @@ And here's how `Comparable` is defined. First, the typesafe enumeration
 
 Now, the `Comparable` interface itself:
 
-    shared interface Comparable<in Other>
-            satisfies Equality
-            given T satisfies Comparable<Other> {
+    shared interface Comparable<in Other> of Other
+            given Other satisfies Comparable<Other> {
         
         shared formal Comparison compare(Other other);
-        
-        shared Boolean largerThan(Other other) {
-            return compare(other)==larger;
-        }
-        
-        shared Boolean smallerThan(Other other) {
-            return compare(other)==smaller;
-        }
-        
-        shared Boolean asLargeAs(Other other) {
-            return compare(other)!=smaller;
-        }
-        
-        shared Boolean asSmallAs(Other other) {
-            return compare(other)!=larger;
-        }
         
     }
 
