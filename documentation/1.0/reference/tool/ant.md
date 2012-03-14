@@ -15,7 +15,7 @@ Before using any of the Ceylon [Ant](http://ant.apache.org)
 tasks they need to be declared using a `<taskdef>`:
 
 <!-- lang: xml -->
-    <target name="">
+    <target name="ceylon-ant-taskdefs">
       <path id="ant-tasks">
         <pathelement location="${ceylon.ant.lib}"/>
       </path>
