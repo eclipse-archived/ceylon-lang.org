@@ -33,8 +33,7 @@ _This page is very incomplete. Want to help? [See how](/code/website)._
 * [`extends` (inheritance)] - _doc coming soon at_ (type/inheritance)
 * [`satisfies` (satisfaction)] - _doc coming soon at_ (type/satisfaction)
 * [Generics] - _doc coming soon at_ (type/generics)
-* [Introductions] - _doc coming soon at_ (type/introduction) <!-- m3 -->
-* [Annotations] - _doc coming soon at_ (type/annotation) <!-- m3 -->
+* [Annotations] - _doc coming soon at_ (type/annotation) <!-- m5 -->
 
 ## Statements
 
@@ -46,7 +45,7 @@ _This page is very incomplete. Want to help? [See how](/code/website)._
 * [`import` statements](statement/import)
 * [`return` statements](statement/return)
 * [`=` (specification) statement](statement/specification)
-* [`switch` statements](statement/switch) <!-- m2 -->
+* [`switch` statements](statement/switch)
 * [`throw` statements](statement/throw)
 * [`try` statements](statement/try)
 * [`while` statements](statement/while)
@@ -56,10 +55,10 @@ _This page is very incomplete. Want to help? [See how](/code/website)._
 * [What is an expression](expression)
 * [Attribute Evaluation] - _doc coming soon at_ (expression/attribute-evalaution)
 * [Attribute Assignment] - _doc coming soon at_ (expression/attribute-assignment)
-* [Callable References] - _doc coming soon at_ (expression/callable-references) <!-- m2 -->
+* [Callable References] - _doc coming soon at_ (expression/callable-references)
 * [Class Instantiation] - _doc coming soon at_ (expression/class-instantiation)
 * [Literals](#literals)
-* [Metamodel References] - _doc coming soon at_ (expression/metamodel-references) <!-- m3 -->
+* [Metamodel References] - _doc coming soon at_ (expression/metamodel-references) <!-- m5 -->
 * [Method Invocation] - _doc coming soon at_ (expression/method-invocation)
 * [Operators](#operators)
 * [Self References] - _doc coming soon at_ (expression/self-references)
@@ -74,10 +73,10 @@ _This page is very incomplete. Want to help? [See how](/code/website)._
 * [`$`   (format)] - _doc coming soon at_ (operator/format)
 * [`%`   (remainder)](operator/remainder)
 * [`%=`  (remainder assign)](operator/remainder-assign)
-* [`&`   (intersection)](operator/intersection) <!-- m2 -->
+* [`&`   (Set intersection)](operator/intersection) <!-- m4 -->
 * [`&&`  (and)](operator/and)
 * [`&&=` (and assign)](operator/and-assign)
-* [`&=`  (intersect assign)](operator/intersect-assign) <!-- m2 -->
+* [`&=`  (Set intersect assign)](operator/intersect-assign) <!-- m4 -->
 * [`()`  (invoke)](operator/invoke)
 * [`()`  (null-safe invoke)](operator/nullsafe-invoke)
 * [`()`  (spread invoke)] - _doc coming soon at_ (operator/spread-invoke)
@@ -114,20 +113,19 @@ _This page is very incomplete. Want to help? [See how](/code/website)._
 * [`[x..y]` (subrange)](operator/subrange)
 * [`[x...]` (upper range)](operator/upper-range)
 * [`[].` (spread member)] - _doc coming soon at_ (operator/spread)
-* [`^`   (xor)](operator/xor) <!-- m2 -->
-* [`^=`  (xor assign)](operator/xor-assign) <!-- m2 -->
+* [`^`   (Set exclusive union)](operator/xor) <!-- m4 -->
+* [`^=`  (Set exclusive union assign)](operator/xor-assign) <!-- m4 -->
 * [`in`  (in)](operator/in)
 * [`is`  (is)](operator/is)
-* [`|`   (union)](operator/union) <!-- m2 -->
-* [`|=`  (union assign)](operator/union-assign) <!-- m2 -->
+* [`|`   (Set union)](operator/union) <!-- m4 -->
+* [`|=`  (Set union assign)](operator/union-assign) <!-- m4 -->
 * [`||`  (or)](operator/or)
 * [`||=` (or assign)](operator/or-assign)
 * [`{}`  (invoke)](operator/invoke)
 * [`{}`  (null-safe invoke)](operator/nullsafe-invoke)
 * [`{}`  (spread invoke)](operator/spread-invoke)
-* [`~`   (complement)](operator/complement) <!-- m2 -->
-* [`~`   (complement in)](operator/complement-in) <!-- m2 -->
-* [`~=`  (complement assign)](operator/complement-assign) <!-- m2 -->
+* [`~`   (Set complement)](operator/complement) <!-- m4 -->
+* [`~=`  (Set complement assign)](operator/complement-assign) <!-- m4 -->
 
 
 ## Literals
