@@ -35,11 +35,10 @@ terms of the primitive operators, for example.
 ### Simple Example
 
 A simple example might be writing a complex number class which implements
-`Invertable`, `Number`, `Numeric`, `Castable`  and `Equality`. 
+`Invertable`, `Number`, `Numeric` and `Castable`. 
 This would allow you to write expressions using the 
 operators `+` (unary plus), `-` (unary minus), 
-`+` (sum), `-` (difference), `*` (product), `/` (quotient),
-`==` (equality) and `!=` (inequality). For example
+`+` (sum), `-` (difference), `*` (product) and `/` (quotient). For example
 
     void m(Complex z) {
         Complex a = Complex(1, 2); // 1 + 2i
@@ -75,7 +74,7 @@ The single most important thing to remember is that
 **if an identity does not apply for `T` then you cannot use that identity to 
 rewrite expressions involving `T`**.
 
-Philosphically, the operator symbols are just notation and Ceylon simply
+Philosophically, the operator symbols are just notation and Ceylon simply
 defines how those operators work in terms of the various interfaces. It's up 
 to the author of a class to decide what those symbols ought to
 mean for that class, *bearing in mind those symbols have a conventional meaning*.

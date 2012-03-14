@@ -4,7 +4,7 @@ title: `==` (equal) operator
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
-milestone: Milestone 1
+milestone: Milestone 2
 doc_root: ../../..
 ---
 
@@ -15,8 +15,8 @@ are *equal*.
 
 ## Usage 
 
-    Equality<T> x;
-    T y;
+    Object x;
+    Object y;
     Boolean identical = x == y;
 
 ## Description
@@ -33,7 +33,7 @@ See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#equ
 
 The `==` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `==` depends on the 
-[`Equality`](#{page.doc_root}/api/ceylon/language/interface_Equality.html) interface.
+[`Object`](#{page.doc_root}/api/ceylon/language/class_Object.html) class.
 
 ### Meaning of *identical* for built-in types
 
@@ -42,7 +42,7 @@ TODO
 ## See also
 
 * [`===` (identical)](../identical) operator
-* API documentation for [`Equality`](#{page.doc_root}/api/ceylon/language/interface_Equality.html)
+* API documentation for [`Object`](#{page.doc_root}/api/ceylon/language/class_Object.html)
 * [equality in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#equalitycomparison)
 * [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 
   language specification
