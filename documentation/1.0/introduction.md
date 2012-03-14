@@ -406,7 +406,7 @@ more regular syntax. The syntax for declaring type constraints on a type paramet
 looks very similar to a class or interface declaration.
 
     interface Producer<in Input, out Value>
-            given Value(Input input) satisfies Equality { ... }
+            given Value(Input input) satisfies Container { ... }
 
 Ceylon's type system is fully reified. In particular, generic type arguments are 
 reified, eliminating many problems that result from generic type argument erasure 
@@ -422,21 +422,21 @@ by the language is defined to act upon a certain class or interface type, allowi
 application of the operator to any class which extends or satisfies that type. We 
 call this approach *operator polymorphism*.
 
-For example, the Ceylon language module defines the interface `Equality`.
+For example, the Ceylon language module defines the interface `Summable`.
 
-    shared interface Equality {
-        shared formal Boolean equals(Equality that);
-        shared formal Integer hash;
+    shared interface Summable<Other> of Other
+            given Other satisfies Summable<Other> {
+        shared formal Other plus(Other that);
     }
 
-And the `==` operation is defined for values which are assignable to `Equality`.
+And the `+` operation is defined for values which are assignable to `Summable`.
 The following expression:
 
-    x==y
+    x+y
 
 Is merely an abbreviation of:
 
-    x.equals(y)
+    x.plus(y)
 
 Likewise, `<` is defined in terms of the interface `Comparable`, `*` in terms of
 the interface `Numeric`, and so on.
