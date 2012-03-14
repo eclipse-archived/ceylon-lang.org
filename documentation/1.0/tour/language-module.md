@@ -24,7 +24,11 @@ Just like Java, Ceylon has a class named `Object`.
          definite values."
     shared abstract class Object()
             extends Void() {
-        
+
+        shared formal Boolean equals(Object that);
+
+        shared formal Integer hash;
+
         doc "A developer-friendly string representing the 
              instance."
         shared formal String string;
@@ -91,10 +95,9 @@ write will be subclasses of `IdentifiableObject`. All classes with variable
 attributes must extend `IdentifiableObject`.
 
     shared abstract class IdentifiableObject()
-            extends Object()
-            satisfies Equality {
+            extends Object() {
      
-        shared default actual Boolean equals(Equality that) {
+        shared default actual Boolean equals(Object that) {
             if (is IdentifiableObject that) {
                 return this===that;
             }
@@ -113,17 +116,9 @@ attributes must extend `IdentifiableObject`.
              
     }
 
-`IdentifiableObject` defines a default implementation of the interface 
-`Equality`, which is very similar to the `equals()` and `hashCode()` methods 
+`IdentifiableObject` implements the `hash` attribute and `equals()` method of
+`Object`, which are very similar to the `equals()` and `hashCode()` methods 
 defined by `java.lang.Object`.
-
-    shared interface Equality {
-         
-        shared formal Boolean equals(Equality that);
-         
-        shared formal Integer hash;
-         
-    }
 
 Just like in Java, you can refine this default implementation in your own 
 classes. This is the normal way to get a customized behavior for the `==` 
@@ -143,16 +138,15 @@ Instead, almost every operator (every one except the primitive `.`, `()`,
 complex expression involving other operators and ordinary method calls. 
 For example, the `<` operator is defined in terms of the interface 
 `Comparable<Other>`, which we met in the [lesson on types](../types), 
-and which has a method named `smallerThan()`, which is in turn defined in 
-terms of another method named `compare()`.
+and which has a method named `compare()`.
 
     x<y
 
 means, by definition,
 
-    x.smallerThan(y)
+    x.compare(y) === smaller
 
-The equality operator `==` is defined in terms of the interface `Equality`, 
+The equality operator `==` is defined in terms of the class `Object`, 
 which has a method named `equals()`.
 
     x==y
@@ -165,7 +159,7 @@ behavior for our own classes, just by implementing or refining methods
 like `compare()` and `equals()`. Thus, we say that operators are polymorphic 
 in Ceylon.
 
-Apart from `Comparable` and `Equality`, which provide the underlying 
+Apart from `Comparable` and `Object`, which provide the underlying 
 definition of comparison and equality operators, the following interfaces are 
 also important in the definition of Ceylon's polymorphic operators:
 
@@ -173,7 +167,6 @@ also important in the definition of Ceylon's polymorphic operators:
 * `Invertable` supports the prefix `+` and `-` operators,
 * `Ordinal` supports the unary `++` and `--` operators,
 * `Numeric` supports the other basic arithmetic operators,
-* `Slots` supports bitwise operators,
 * `Comparable` supports the comparison operators,
 * `Correspondence` supports the index operator, and
 * `Boolean` is the basis of the logical operators.
@@ -181,7 +174,7 @@ also important in the definition of Ceylon's polymorphic operators:
 Operator polymorphism is a little more flexible than you might imagine. 
 Here's a quick example of this.
 
-## The Slots interface
+## The Slots interface //TODO
 
 The interface Slots is an abstraction of the idea of a set of slots which may 
 each hold `true` or `false`. The bitwise operators `&`, `|`, and `~` are 
@@ -296,7 +289,7 @@ The numeric types also implement the interface `Castable`, which enables the
 widening conversions we just mentioned.
 
     shared interface Castable<in Types> {
-        shared formal CastValue as<CastValue>()
+        shared formal CastValue castTo<CastValue>()
             given CastValue satisfies Types;
     }
 
@@ -305,18 +298,17 @@ should be the union of all types to which the implementing type is castable.
 
 For example, simplifying slightly the definitions in the language module:
 
-    shared class Integer(...)
+    shared abstract class Integer()
             extends Object()
             satisfies Castable<Integer|Float|Whole|Decimal> &
-                      Numeric<Integer> &
-                      Invertable<Integer> {
+                      Integral<Integer> &
+                      Numeric<Integer> {
         ...
     }
-    shared class Float(...)
+    shared abstract class Float()
             extends Object()
             satisfies Castable<Float|Decimal> &
-                      Numeric<Float> &
-                      Invertable<Float> {
+                      Numeric<Float> {
         ...
     }
 
