@@ -191,11 +191,11 @@ words `extends` and `implements` would simply not work for
 an upper bound type constraint. Consider:
 
     class Singleton<Element>(Element element)
-            satisfies Iterable<Element> & Equality
-            given Element satisfies Equality { ... }
+            satisfies Iterable<Element>
+            given Element satisfies Object { ... }
 
 Other language usually have an ugly or irregular syntax for
-the upper bound constraint `satisfies Equality`. In Ceylon,
+the upper bound constraint `satisfies Object`. In Ceylon,
 it's regular and elegant. But we thought that the word 
 `implements` didn't work here, since the upper bound might
 be a class or even another type parameter.
