@@ -250,9 +250,8 @@ of "breaking" when a new subtype of `Node` is added.
 Ceylon doesn't have anything exactly like Java's `enum` declaration. But we 
 can emulate the effect using the `of` clause.
 
-    shared class Suit(String name)
-            of hearts | diamonds | clubs | spades
-            extends Case(name) {}
+    shared abstract class Suit(String name)
+            of hearts | diamonds | clubs | spades {}
     
     shared object hearts extends Suit("hearts") {}
     shared object diamonds extends Suit("diamonds") {}
@@ -260,7 +259,7 @@ can emulate the effect using the `of` clause.
     shared object spades extends Suit("spades") {}
 
 We're allowed to use the names of `object` declarations in the `of` clause 
-if they extend the language module class `Case`.
+if they are enumerated subtypes.
 
 Now we can exhaust all cases of `Suit` in a `switch`:
 
@@ -281,8 +280,7 @@ For a more practical example, let's see the definition of `Boolean` from the
 language module:
 
     shared abstract class Boolean(String name)
-            of true | false
-            extends Case(name) {}
+            of true | false {}
     shared object false extends Boolean("false") {}
     shared object true extends Boolean("true") {}
 
