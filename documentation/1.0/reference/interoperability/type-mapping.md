@@ -62,6 +62,10 @@ Please note: **These mapping rules are subject to change as the compiler develop
       <td><code>java.lang.Object</code></td>
     </tr>
     <tr>
+      <td><code>ceylon.language.IdentifiableObject</code></td>
+      <td><code>java.lang.Object</code></td>
+    </tr>
+    <tr>
       <td><code>ceylon.language.Nothing</code></td>
       <td><code>java.lang.Object</code></td>
     </tr>
@@ -169,6 +173,10 @@ In addition, we map the following Java types to certain Ceylon types:
     <tr>
       <td><code>T[]</code></td>
       <td><code>ceylon.language.Array&lt;T&gt;</code></td>
+    </tr>
+    <tr>
+      <td><code>java.lang.Object</code></td>
+      <td><code>ceylon.language.IdentifiableObject</code></td>
     </tr>
   </tbody>
 </table>
