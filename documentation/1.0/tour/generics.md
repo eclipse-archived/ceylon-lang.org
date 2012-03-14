@@ -221,14 +221,14 @@ Very commonly, when we write a parameterized type, we want to be able to
 invoke methods or evaluate attributes upon instances of the type parameter. 
 For example, if we were writing a parameterized type `Set<Element>`, we would 
 need to be able to compare instances of `Element` using `==` to see if a 
-certain instance of `Element` is contained in the `Set`. Since `==` is only 
-defined for expressions of type `Equality`, we need some way to assert that 
-`Element` is a subtype of `Equality`. This is an example of a *type 
+certain instance of `Element` is contained in the `Set`. Since `==` is 
+defined for expressions of type `Object`, we need some way to assert that 
+`Element` is a subtype of `Object`. This is an example of a *type 
 constraint* — in fact, it's an example of the most common kind of type 
 constraint, an *upper bound*.
 
     shared class Set<out Element>(Element... elements)
-            given Element satisfies Equality {
+            given Element satisfies Object {
         ...
      
         shared Boolean contains(Object obj) {
@@ -242,7 +242,7 @@ constraint, an *upper bound*.
      
     }
 
-A type argument to `Element` must be a subtype of `Equality`.
+A type argument to `Element` must be a subtype of `Object`.
 
     Set<String> set = Set("C", "Java", "Ceylon"); //ok
     Set<String?> set = Set("C", "Java", "Ceylon", null); //compile error
@@ -295,7 +295,7 @@ this is useful. Consider adding a `union()` operation to our `Set` interface.
 We might try the following:
 
     shared class Set<out Element>(Element... elements)
-            given Element satisfies Equality {
+            given Element satisfies Object {
         ...
          
         shared Set<Element> union(Set<Element> set) {   //compile error
@@ -309,7 +309,7 @@ in the type declaration of a method parameter. The following declaration
 would compile:
 
     shared class Set<out Element>(Element... elements)
-            given Element satisfies Equality {
+            given Element satisfies Object {
         ...
          
         shared Set<Object> union(Set<Object> set) {
@@ -322,7 +322,7 @@ But, unfortunately, we get back a `Set<Object>` no matter what kind of
 set we pass in. A lower bound is the solution to our dilemma:
 
     shared class Set<out Element>(Element... elements)
-            given Element satisfies Equality {
+            given Element satisfies Object {
         ...
          
         shared Set<UnionElement> union(Set<UnionElement> set)

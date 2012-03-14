@@ -168,7 +168,7 @@ The most interesting operations are inherited from `Correspondence`,
 `Iterable` and `Sized`:
 
     shared interface Correspondence<in Key, out Item>
-            given Key satisfies Equality {
+            given Key satisfies Object {
          
         doc "Return the value defined for the
              given key."

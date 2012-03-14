@@ -90,7 +90,7 @@ attribute to provide a developer-friendly representation of the object.
             return pi*(angle/pi).fractionalPart;
         }
         
-        shared actual Boolean equals(Equality that) {
+        shared actual Boolean equals(Object that) {
             if (is Polar that) {
                 return azimuth==that.azimuth && 
                        radius==that.radius; 
