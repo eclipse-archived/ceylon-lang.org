@@ -155,7 +155,7 @@ The API documentation for [`ceylon.language`](#{page.doc_root}/api/ceylon/langua
 
 * ['Calling' Ceylon from Java](interoperability/ceylon-from-java)
 * ['Calling' Java from Ceylon](interoperability/java-from-ceylon)
-* [Erasure](interoperability/erasure)
+* [Type mapping](interoperability/type-mapping)
 
 ## Other
 
