@@ -9,15 +9,15 @@ author: Emmanuel Bernard
 
 Ceylon code is released and available on [GitHub](http://github.com/ceylon). 
 
-Milestone 1 of Ceylon [has been released](/download) and we are working on milestone 2 
+Milestone 2 of Ceylon [has been released](/download) and we are working on milestone 3 
 at the moment. Because quality is important to us, we won't release work until we think 
 it's usable. Therefore, we can't give you dates on each milestone.
 
 However, our roadmap is quite well-defined:
 
 - Ceylon 1.0
-  - [Milestone 1](#milestone_1) (latest release)
-  - [Milestone 2](#milestone_2)
+  - [Milestone 1](#milestone_1)
+  - [Milestone 2](#milestone_2) (latest release)
   - [Milestone 3](#milestone_3)
   - [Milestone 4](#milestone_4)
   - [Milestone 5](#milestone_5_ceylon_10)
@@ -126,6 +126,8 @@ Notes:
 3. <a name="m1-invocation">Excluding defaulted arguments and `Callable`.</a>
 
 ## Milestone 2
+
+Milestone 2 has been released.
 
 *Numeric type optimization, Java interop, `switch/case`,
 higher-order methods, 

@@ -7,7 +7,7 @@ author: Emmanuel Bernard
 ---
 # #{page.title}
 
-[Ceylon M1 "Newton"][newton] is now available for download! 
+[Ceylon M2 "Minitel"][minitel] is now available for download! 
 This is the first release of the command line tools and IDE.
 
 ## Command line tools
@@ -15,62 +15,62 @@ This is the first release of the command line tools and IDE.
 This package contains the Ceylon command line compiler, 
 documentation compiler, language module, and runtime.
 
-[newton]: /blog/2011/12/20/ceylon-m1-newton?utm_source=download&utm_medium=web&utm_content=blog&utm_campaign=1_0_M1release
+[minitel]: /blog/2012/03/18/ceylon-m2newton?utm_source=download&utm_medium=web&utm_content=blog&utm_campaign=1_0_M2release
 
 <table>
     <tr>
         <td>
-        <a href="/download/dist/1_0_Milestone1" 
+        <a href="/download/dist/1_0_Milestone2" 
            title='Download the Zip archive'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone1?utm_source=download&utm_medium=web&utm_content=dist&utm_campaign=1_0_M1release']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone2?utm_source=download&utm_medium=web&utm_content=dist&utm_campaign=1_0_M2release']);">
            <img src="/images/download/package-zip.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
         </a>
         </td>
         <td>Zip archive</td>
         <td>All Operating Systems</td>
         <td>
-        <a href="/download/dist/1_0_Milestone1" 
+        <a href="/download/dist/1_0_Milestone2" 
            title='Download the Zip archive'
            style='font-weight:bold;text-decoration:none'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone1?utm_source=download&utm_medium=web&utm_content=dist&utm_campaign=1_0_M1release']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone2?utm_source=download&utm_medium=web&utm_content=dist&utm_campaign=1_0_M2release']);">
            download
         </a>
         </td>
     </tr>
     <tr>
         <td>
-        <a href="/download/dist/1_0_Milestone1_rpm" 
+        <a href="/download/dist/1_0_Milestone2_rpm" 
            title='Download the RPM'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone1_rpm?utm_source=download&utm_medium=web&utm_content=dist&utm_campaign=1_0_M1release']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone2_rpm?utm_source=download&utm_medium=web&utm_content=dist&utm_campaign=1_0_M2release']);">
            <img src="/images/download/package-fedora.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
         </a>
         </td>
         <td>RPM</td>
         <td>Fedora/Red Hat</td>
         <td>
-        <a href="/download/dist/1_0_Milestone1_rpm" 
+        <a href="/download/dist/1_0_Milestone2_rpm" 
            title='Download the RPM'
            style='font-weight:bold;text-decoration:none'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone1_rpm?utm_source=download&utm_medium=web&utm_content=dist&utm_campaign=1_0_M1release']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone2_rpm?utm_source=download&utm_medium=web&utm_content=dist&utm_campaign=1_0_M2release']);">
            download
         </a>
         </td>
     </tr>
     <tr>
         <td>
-        <a href="/download/dist/1_0_Milestone1_deb" 
+        <a href="/download/dist/1_0_Milestone2_deb" 
            title='Download the Debian package'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone1_deb?utm_source=download&utm_medium=web&utm_content=dist&utm_campaign=1_0_M1release']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone2_deb?utm_source=download&utm_medium=web&utm_content=dist&utm_campaign=1_0_M2release']);">
            <img src="/images/download/package-debian.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
         </a>
         </td>
         <td>DEB</td>
         <td>Debian/Ubuntu</td>
         <td>
-        <a href="/download/dist/1_0_Milestone1_deb" 
+        <a href="/download/dist/1_0_Milestone2_deb" 
            title='Download the Debian package'
            style='font-weight:bold;text-decoration:none'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone1_deb?utm_source=download&utm_medium=web&utm_content=dist&utm_campaign=1_0_M1release']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone2_deb?utm_source=download&utm_medium=web&utm_content=dist&utm_campaign=1_0_M2release']);">
            download
         </a>
         </td>
@@ -85,7 +85,7 @@ Mac OS X users running the [Homebrew package manager](http://mxcl.github.com/hom
 Instructions for getting started are contained in the file
 `README.md` in the root directory of the distribution, or
 [right here in GitHub][ceylon-dist readme]. To know what's 
-precisely in the release, read our [announcement][newton].
+precisely in the release, read our [announcement][minitel].
 
 [ceylon-dist readme]: https://github.com/ceylon/ceylon-dist/blob/master/README.md 
 
@@ -94,6 +94,8 @@ precisely in the release, read our [announcement][newton].
 [Ceylon IDE][ide] is available from our 
 [update site][update site]
 or from Eclipse Marketplace:
+
+Warning: The current version of the Ceylon IDE is M1, but an M2 version will arrive very soon.
 
 [ide]: /documentation/current/ide
 [update site]: /documentation/current/ide/install?utm_source=download&utm_medium=web&utm_content=ide-install&utm_campaign=IDE_1_0_M1release

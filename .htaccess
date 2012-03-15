@@ -32,6 +32,10 @@ RewriteRule ^download/dist/1_0_Milestone1$ "https\:\/\/github\.com\/downloads\/c
 RewriteRule ^download/dist/1_0_Milestone1_deb$ "https\:\/\/github\.com\/downloads\/ceylon\/ceylon-dist\/ceylon-0\.1_0\.1_all\.deb" [R=302,L]
 RewriteRule ^download/dist/1_0_Milestone1_rpm$ "https\:\/\/github\.com\/downloads\/ceylon\/ceylon-dist\/ceylon-0\.1\.0-0\.noarch\.rpm" [R=302,L]
 
+RewriteRule ^download/dist/1_0_Milestone2$ "https\:\/\/github\.com\/downloads\/ceylon\/ceylon-dist\/ceylon-0\.2\.zip" [R=302,L]
+RewriteRule ^download/dist/1_0_Milestone2_deb$ "https\:\/\/github\.com\/downloads\/ceylon\/ceylon-dist\/ceylon-0\.2_0\.2_all\.deb" [R=302,L]
+RewriteRule ^download/dist/1_0_Milestone2_rpm$ "https\:\/\/github\.com\/downloads\/ceylon\/ceylon-dist\/ceylon-0\.2\.0-0\.noarch\.rpm" [R=302,L]
+
 # Redirect social network links
 RewriteRule ^plus$ "https\:\/\/plus\.google\.com\/u\/0\/102481741611133754149" [R=302,L]
 RewriteRule ^\+$ "https\:\/\/plus\.google\.com\/u\/0\/102481741611133754149" [R=302,L]
