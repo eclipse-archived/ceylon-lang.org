@@ -17,7 +17,7 @@ doc_root: ../../..
 Options include:
 
 * `-out` Specifies the output module repository (which must be publishable).
-* `-src` Specifies a source directory. Defaults to `sources`.
+* `-src` Specifies a source directory. Defaults to `source`.
 * `-rep` specifies a module repository containing dependencies. Can be repeated.
   Defaults to `modules`.
 * `-non-shared` Includes documentation for package-private declarations.
