@@ -33,8 +33,16 @@ tab: to-be-defined
     .milestone.check
       :markdown
         [#{page.milestone}](/documentation/1.0/roadmap/##{page.milestone.anchorize({:convert_spaces=>true})} "Support for this feature was introduced in #{page.milestone}")
-  - if ["Milestone 2", "Milestone 3"].index(page.milestone)
+  - if ["Milestone 2", "Milestone 3", "Milestone 4"].index(page.milestone)
     .milestone.future
       :markdown
         [#{page.milestone}](/documentation/1.0/roadmap/##{page.milestone.anchorize({:convert_spaces=>true})} "Support for this feature will be introduced in #{page.milestone}")
+  - if ["Milestone 5"].index(page.milestone)
+    .milestone.future
+      :markdown
+        [Ceylon 1.0](/documentation/1.0/roadmap/#milestone_5_ceylon_10 "Support for this feature will be introduced in Ceylon 1.0")
+  - if ["Later"].index(page.milestone)
+    .milestone.future
+      :markdown
+        [Ceylon 1.1 or later](/documentation/1.0/roadmap/#ceylon_11_or_later "Support for this feature will be introduced in Ceylon 1.1 or later")
   ~ content
