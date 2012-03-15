@@ -4,7 +4,7 @@ title: `~` (complement) operator
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
-milestone: Milestone 2
+milestone: Milestone 3
 doc_root: ../../..
 ---
 

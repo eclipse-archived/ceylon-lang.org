@@ -134,7 +134,7 @@ _This page is very incomplete. Want to help? [See how](/code/website)._
 * [Float literals](literal/float)
 * [String literals](literal/string)
 * [Character literals](literal/character)
-* [Single-quoted literals](literal/single-quoted)
+* [Single-quoted literals](literal/single-quoted) <!-- m-later -->
 
 ## Language module (`ceylon.language`)
 
