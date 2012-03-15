@@ -143,13 +143,12 @@ The API documentation for [`ceylon.language`](#{page.doc_root}/api/ceylon/langua
 
 ## Tools
 
-* The Java launcher, [`java`] - _doc coming soon at_ (tool/java)
 * The Ceylon launcher, [`ceylon`](tool/ceylon)
 * The Ceylon compiler, [`ceylonc`](tool/ceylonc)
-* The Ceylon module information tool, [`ceylonp`](tool/ceylonp)
+* The Ceylon module information tool, [`ceylonp`](tool/ceylonp) <!-- m3 -->
 * The Ceylon documentation compiler, [`ceylond`](tool/ceylond)
-* The Ceylon repository replicator, [`ceylonr`](tool/ceylonr)
-* The Ceylon source archive extractor, [`ceylonf`](tool/ceylonf)
+* The Ceylon repository replicator, [`ceylonr`](tool/ceylonr) <!-- m3 -->
+* The Ceylon source archive extractor, [`ceylonf`](tool/ceylonf) <!-- m3 -->
 
 ## Interoperability
 
@@ -159,4 +158,4 @@ The API documentation for [`ceylon.language`](#{page.doc_root}/api/ceylon/langua
 
 ## Other
 
-* [`modules.ceylon-lang.org`] - _doc coming soon at_ (other/modules.ceylon-lang.org)
+* [`modules.ceylon-lang.org`] - _doc coming soon at_ (other/modules.ceylon-lang.org) <!-- m3 -->
