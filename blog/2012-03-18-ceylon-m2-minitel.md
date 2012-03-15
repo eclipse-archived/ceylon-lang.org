@@ -138,8 +138,8 @@ We're deeply indebted to the community volunteers who contributed a
 substantial part of the current Ceylon codebase, working in their own 
 spare time. The following people have contributed to this release:
 
-*Stephane Epardaud, Tako Schotanus, Emmanuel Bernard, 
-Tom Bentley, Ales Justin, David Festal, Flavio Oliveri, 
+*Gavin King, Stéphane Épardaud, Tako Schotanus, Emmanuel Bernard, 
+Tom Bentley, Aleš Justin, David Festal, Flavio Oliveri, 
 Max Rydahl Andersen, Mladen Turk, James Cobb, Tomáš Hradec, 
 Michael Brackx, Ross Tate, Ivo Kasiuk, Enrique Zamudio,
 Julien Ponge*
