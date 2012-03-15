@@ -70,7 +70,6 @@ _This page is very incomplete. Want to help? [See how](/code/website)._
 * [operator polymorphism](operator/operator-polymorphism)
 * [`!`   (not)](operator/not)
 * [`!=`  (not equal)](operator/not-equal)
-* [`$`   (format)] - _doc coming soon at_ (operator/format)
 * [`%`   (remainder)](operator/remainder)
 * [`%=`  (remainder assign)](operator/remainder-assign)
 * [`&`   (Set intersection)](operator/intersection) <!-- m4 -->
