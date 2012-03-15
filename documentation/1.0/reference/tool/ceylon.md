@@ -12,14 +12,14 @@ doc_root: ../../..
 ## Usage 
 
 <!-- lang: none -->
-    ceylon [options] <module-name>
+    ceylon [options] <module-spec>
 
 Options include:
 
 * `-run` Specifies the fully qualified name of a toplevel method or class with no parameters.
-* `-src` Specifies a source directory. XXX can be repeated?
-* `-rep` specifies a module repository containing dependencies. XXX can be repeated?
-* `-d` Disable the default module repositories and source directory.
+* `-src` Specifies a source directory. <!-- m3 -->
+* `-rep` specifies a module repository containing dependencies. Can be repeated. Defaults to `modules`.
+* `-d` Disable the default module repositories and source directory. <!-- m3 -->
 
 ## Description
 

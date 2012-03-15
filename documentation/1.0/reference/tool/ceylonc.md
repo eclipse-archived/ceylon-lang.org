@@ -12,16 +12,17 @@ doc_root: ../../..
 ## Usage 
 
 <!-- lang: none -->
-    ceylonc [options] <module-names>...
+    ceylonc [options] (<module-names> | <source-files>)...
 
 Options include:
 
-* `-src` Specifies a source directory. XXX can be repeated?
+* `-src` Specifies a source directory. Defaults to `sources`.
 * `-out` specifies the output module repository (which must be publishable).
-  If not given, the output is published to the user's repository
-  (`~/.ceylon/repo` or `%HOME%\.ceylon\repo`).
-* `-rep` specifies a module repository containing dependencies. XXX can be repeated?
-* `-d` Disable the default module repositories and source directory.
+  Defaults to `modules`.
+* `-rep` specifies a module repository containing dependencies. Can be repeated.
+  Defaults to `modules`.
+* `-verbose` enables debug output.
+* `-d` Disable the default module repositories and source directory. <!-- m3 -->
 
 ## Description
 
@@ -30,8 +31,8 @@ The ceylon compiler `ceylonc` compiles Ceylon and Java source code.
 ### Output
 
 `ceylonc` outputs a module archive and a source archive for 
-each module named on the command line. The compiler produceds `.car` files 
-directly it does not produce individual `.class` files as `javac` does.
+each module named on the command line. The compiler produces `.car` files 
+directly: it does not produce individual `.class` files as `javac` does.
 
 A `.car` file is Ceylon's equivalent of a `.jar` file.
 

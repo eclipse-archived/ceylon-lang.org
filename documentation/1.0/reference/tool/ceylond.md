@@ -12,20 +12,21 @@ doc_root: ../../..
 ## Usage 
 
 <!-- lang: none -->
-    ceylond [options] <module-names>...
+    ceylond [options] <module-spec>...
 
 Options include:
 
 * `-out` Specifies the output module repository (which must be publishable).
-* `-src` Specifies a source directory. XXX can be repeated?
-* `-rep` specifies a module repository containing dependencies. XXX can be repeated?
+* `-src` Specifies a source directory. Defaults to `sources`.
+* `-rep` specifies a module repository containing dependencies. Can be repeated.
+  Defaults to `modules`.
 * `-non-shared` Includes documentation for package-private declarations.
 * `-source-code` Includes source code to the generated documentation.   
-* `-d` Disable the default module repositories and source directory.
+* `-d` Disable the default module repositories and source directory. <!-- m3 -->
 
 ## Description
 
-The documentation compiler generates XHTML-format documentation from Ceylon 
+The documentation compiler generates HTML 5 documentation from Ceylon 
 source files.
 
 ## See also
