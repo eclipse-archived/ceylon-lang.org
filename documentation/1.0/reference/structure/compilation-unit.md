@@ -11,7 +11,7 @@ milestone: Milestone 1
 
 In Ceylon, a *compilation unit* is a text file with the `.ceylon` filename extension 
 written in the Ceylon language which contains one or more of top-level 
-declarations.
+[declarations](#declarations).
 
 ## Usage 
 
@@ -44,7 +44,7 @@ A compilation unit must contain one or more declarations
 
 * [type declarations](../types) (class, interface or object), 
 * [method declarations](../method) and
-* [attribute declaration](../attribute)
+* [attribute declarations](../attribute)
 
 Ceylon does not have Java's restriction on `public` (`shared`) classes having 
 to be declared in a source file named after the class name.
@@ -53,7 +53,8 @@ to be declared in a source file named after the class name.
 
 Any declaration which is contained directly within a compilation unit (that is,
 without a parent declaration) is considered a *top-level* declaration. Most 
-top level declaration permit nested declarations.
+top level declarations permit nested declarations, the exception to this is 
+that an interface cannot have an `object` member.
 
 ### Source Location
 
@@ -68,4 +69,7 @@ Those declarations will all be in the `com.example.foo` package.
 
 ## See also
 
-* [Package](../package)
+* Compilation units are contained in [packages](../package).
+* Compilation units contain [type declarations](../types),
+  [method declarations](../method) and
+  [attribute declarations](../attribute)

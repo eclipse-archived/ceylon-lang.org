@@ -11,13 +11,16 @@ doc_root: ../../..
 # #{page.title}
 
 In Ceylon, a *module* is a collection of [packages](../package) together with a 
-*module descriptor* that serves as a unit of distribution.
+[module descriptor](#descriptor) that serves as a unit of distribution.
 
 ## Usage 
 
 An example module descriptor:
 
-TODO
+    Module module {
+        name = 'com.example.foo';
+        version = '1.0';
+    }
 
 ## Description
 
@@ -27,24 +30,27 @@ The names of the packages in a module must begin with the name of the module,
 so for example is a module called `com.example.foo` all the the package names
 must begin `com.example.foo.`.
 
+### Descriptor
+
+The module descriptor holds metadata about the module, including its name, 
+version,
+module-level documentation, what packages the module exports and what other 
+modules it depends on 
+
 ### Distribution
 
 Modules are distributed in `.car` files, which are essentially `.jar` files 
-with a different extension, and with a [module descriptor](#usage).
+with a different extension, and with a [module descriptor](#descriptor).
 
 Modules are kept in a *module repository*. The list of module 
-repositories to use is passed to the 
+repositories to use is passed to 
 [`ceylonc`](#{page.doc_root}/reference/tool/ceylonc), 
 [`ceylon`](#{page.doc_root}/reference/tool/ceylon),  and 
 [other tools](#{page.doc_root}/reference/#tools)
 
-### Naming
-
-
-
-
-
-
 ## See also
 
-
+* Modules contain [packages](../package)
+* ceylond documentation of the [Module]
+  (\#{site.urls.apidoc_current}/ceylon/language/descriptor/class_Module.html) 
+  type (the type of the module descriptor)
