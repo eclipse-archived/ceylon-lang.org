@@ -58,6 +58,7 @@ including:
 Support for the following language features is not yet available:
 
 * anonymous functions
+* multiple parameter lists
 * comprehensions
 * mixin inheritance
 * member class refinement
@@ -88,7 +89,7 @@ boxing.
 
 ### Modularity and runtime
 
-Ceylon modules may be executed on any standard JVM. The toolset and 
+Ceylon modules may be executed on any standard Java 6 compatible JVM. The toolset and 
 runtime for Ceylon is based around `.car` module archives and module 
 repositories. The runtime supports a modular, peer-to-peer class 
 loading architecture, with full support for module versioning and 
