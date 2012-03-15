@@ -198,13 +198,31 @@ Furthermore, in order to achieve acceptable performance, the
 language module needs to take advantage of hand-written Java
 code.
 
-Therefore, there are two implementations of the language module:
+Therefore, considering the Javascript backend, there are three
+implementations of the language module:
 
-* an incomplete implementation in Ceylon, and
+* an incomplete implementation in Ceylon,
+* a complete implementation in Javascript, and
 * a complete implementation in Java. 
 
-Keeping the two version in sync is a rather painful process!
+Keeping the three versions in sync is a rather painful process!
 
-The language module also contains several annotations which are
+The language module for the JVM also contains several annotations which are
 used by the Ceylon compiler at compile time to reverse engineer
 the model from precompiled Ceylon code in a module archive.
+
+## Javascript backend
+
+There is another "half-compiler" that uses the typechecker's syntax
+tree to generate Javascript code. This, along with a full implementation
+of the language module done in Javascript, can be used to transform
+Ceylon source code into Javascript code, which can be run in node.js
+or inside a browser. The compiler itself is written in Java, and node.js
+is used for testing. There are two kinds of tests: one is to check the
+correctness of the generated js code, and the other is to check that the
+language module implementation in js works as expected (and it actually
+runs all the tests from the ceylon.language project).
+
+This project is what makes the [Ceylon Web Runner][webide] possible.
+
+[webide]: http://try.ceylon-lang.org/
