@@ -3,6 +3,7 @@ layout: reference
 title: Calling Ceylon from Java
 tab: documentation
 unique_id: docspage
+milestone: Milestone 2
 author: Tom Bentley
 ---
 
