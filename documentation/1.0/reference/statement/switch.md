@@ -34,6 +34,40 @@ There can be one or more *disjoint* `case` clauses.
 The `else` clause is required if (and only if) the switch is not 
 [*exhaustive*](#exhaustivity_and_else).
 
+A specific example switching on an optional `Boolean` expression
+(this is easily generalized to any [enumerated type](../../type/#enumerated_types)):
+
+    void m(Boolean? b) {
+        switch(b)
+        case (true) {
+            print("yes");
+        }
+        case (false) {
+            print("no");
+        }
+        case (null) {
+            print("Who cares");
+        }
+    }
+
+Another example, using the `case(is...)` special form and a union type:
+
+    class Foo(){}
+    class Bar(){}
+    class Baz(){}
+    void m3(Foo|Bar|Baz var) {
+        switch(var)
+        case (is Foo) {
+            print("FOO");
+        }
+        case (is Bar) {
+            print("BAR");
+        }
+        case (is Baz) {
+            print("BAZ");
+        }
+    }
+
 ## Description
 
 ### Execution
@@ -53,14 +87,19 @@ Otherwise the `else` clause is required.
 
 ### Polymorphism
 
-The `switch` expression can be of any type. 
-If `X` or `X?` is a subtype of the `switch` expression type then a `case` 
-expression is either
+If the `switch` expression is of an enumerated type `U` then the 
+`case`s may be
 
-* Assignable to `Matcher<X>` 
-* The expression `null` (if `X?`)
-* the special `case(is ...)` form
-* the special `case(satisfies ...)` form, if X is a subtype of `Type<T>`.
+* **value reference:** of the form `case (x)` where `x` is one of the cases 
+  of `U` (a list of cases `case(x, y, z)` is also permitted).
+* **assignability condition:** of the form `case (is V)` where `V` is a case 
+  of the type `U`.
+
+If the switch expression is of type `Type<U>` for some an enumerated type `U` 
+then the `case` must be:
+
+* **subtype condition:** of the form `case (satisfies V)` where `V` is a case 
+  of the type `U`.
 
 ## See also
 
