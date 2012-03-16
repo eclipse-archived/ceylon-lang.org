@@ -33,24 +33,32 @@ file using the ZIP file format.
 Ceylon API documentation archives contain the API documentation in a `module-doc`
 folder, which holds HTML documentation.
 
+Legacy Java archives contain the compiled code and are packaged in a `.jar`
+file using the ZIP file format in place of the corresponding `.car` archive.
+
 ## Repository structure
 
 Ceylon module repositories are organised using the following structure
-(using a module `com.foo.bar` of version `0.1` as an example):
+(using a module `com.foo.bar` of versions `0.1` and `1.0` as example):
 
 <!-- lang: none -->
     root/
         com/
             foo/
                 bar/
-                    0.1/
-                        com.foo.bar-0.1.car      -- Ceylon module archive
-                        com.foo.bar-0.1.car.sha1 -- Checksum file
-                        com.foo.bar-0.1.src      -- Ceylon source archive
-                        com.foo.bar-0.1.src.sha1 -- Checksum file
+                    1.0/
+                        com.foo.bar-1.0.car      -- Ceylon module archive
+                        com.foo.bar-1.0.car.sha1 -- Checksum file
+                        com.foo.bar-1.0.src      -- Ceylon source archive
+                        com.foo.bar-1.0.src.sha1 -- Checksum file
                         module-doc/              -- API documentation 
                             index.html           -- Index page
                             [...]                -- API documentation files
+        com/
+            foo/
+                bar/
+                    0.1/
+                        com.foo.bar-0.1.jar      -- Java legacy archive
 
 ## Supported repository types
 
@@ -77,3 +85,18 @@ The Ceylon tools use a number of standard repositories:
 
 When looking for a Ceylon module, the tools will use these standard repositories
 in the order they are listed above.
+
+## Legacy repositories
+
+Ceylon supports Maven repository layouts as well, so you can resolve module dependencies
+for legacy Java `jar` archives from legacy Maven repositories.
+
+In order to specify that a given repository is a Maven repository, you just have to prefix
+it with `mvn:`, for example, to use Maven Central:
+
+<!-- lang: none -->
+    ceylonc -rep mvn:http://repo1.maven.org/maven2 com.acme.foo
+
+**Note:** the current support for Maven repositories does not use your local Maven configuration
+and does not resolve Maven dependencies, so you only get the one `jar` you defined as a dependency.
+We plan to support both Maven settings and Maven artifact dependencies in the next Milestone.
