@@ -45,32 +45,21 @@ required.
 </tr>
 
 <tr>
-<td><code>classpath</code></td>
-<td>The classpath to use</td>
-<td>No</td>
-</tr>
-
-<tr>
-<td><code>classpathref</code></td>
-<td>The classpath to use, given as a 
-[reference](http://ant.apache.org/manual/using.html#references) 
-to a path defined elsewhere.</td>
-<td>No</td>
-</tr>
-
-<tr>
-<td><code>executable</code></td>
-<td>The filesystem location of the <code>ceylonc</code> command line tool. 
-If not specified it is searched in the directory indicated by 
-the <code>ceylon.home</code> system property, or if that is not set 
-the <code>CEYLON_HOME</code> environment variable.</td>
-<td>No</td>
-</tr>
-
-<tr>
 <td><code>out</code></td>
 <td>The output module repository (which must be publishable).</td>
 <td>No, default is <i>modules</i></td>
+</tr>
+
+<tr>
+<td><code>user</code></td>
+<td>The user name to use when connecting to the output repository. Only used for HTTP output repositories. <!-- m2 --></td>
+<td>No</td>
+</tr>
+
+<tr>
+<td><code>pass</code></td>
+<td>The password to use when connecting to the output repository. Only used for HTTP output repositories. <!-- m2 --></td>
+<td>No</td>
 </tr>
 
 <tr>
@@ -81,8 +70,31 @@ the <code>CEYLON_HOME</code> environment variable.</td>
 
 <tr>
 <td><code>verbose</code></td>
-<td>Whether the compiler should emit verbose logging information</td>
+<td>Whether the compiler should emit verbose logging information. <!-- m2 --></td>
 <td>No, default is <i>false</i></td>
+</tr>
+
+<tr>
+<td><code>classpath</code></td>
+<td>The classpath to use. Only useful if you depend on local jars or Java classes.</td>
+<td>No</td>
+</tr>
+
+<tr>
+<td><code>classpathref</code></td>
+<td>The classpath to use, given as a 
+[reference](http://ant.apache.org/manual/using.html#references) 
+to a path defined elsewhere. Only useful if you depend on local jars or Java classes.</td>
+<td>No</td>
+</tr>
+
+<tr>
+<td><code>executable</code></td>
+<td>The filesystem location of the <code>ceylonc</code> command line tool. 
+If not specified it is searched in the directory indicated by 
+the <code>ceylon.home</code> system property, or if that is not set 
+the <code>CEYLON_HOME</code> environment variable.</td>
+<td>No</td>
 </tr>
 
 </tbody>
@@ -96,7 +108,7 @@ add `<include>`/`<exclude>` etc as direct subelements. You must use
 [`<files>`](#files) explicitly.
 
 #### `<module>`
-A module to compile.
+A module to compile. Can be specified multiple times.
 
 <table class="ant-parameters">
 <tbody>
@@ -117,10 +129,10 @@ A module to compile.
 
 #### `<files>`
 A [FileSet](http://ant.apache.org/manual/Types/fileset.html) of source files 
-to pass to ceylonc.
+to pass to ceylonc. <!-- m2 -->
 
 #### `<rep>`
-A module repository containing dependencies.
+A module repository containing dependencies. Can be specified multiple times. Defaults to `modules`.
 
 <table class="ant-parameters">
 <tbody>

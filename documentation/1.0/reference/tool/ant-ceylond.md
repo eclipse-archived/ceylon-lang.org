@@ -55,16 +55,19 @@ a nested [`<module>`](#module)(s) is required.
 </tr>
 
 <tr>
-<td><code>executable</code></td>
-<td>The filesystem location of the <code>ceylonc</code> command line tool. 
-If not specified it is searched in the directory indicated by 
-the <code>ceylon.home</code> system property, or if that is not set 
-the <code>CEYLON_HOME</code> environment variable.</td>
-<td>No</td>
+<td id="param-src"><code>src</code></td>
+<td>A source directory.</td>
+<td>No, default is <i>source</i></td>
 </tr>
 
 <tr>
-<td><code>includeNoneShared</code></td>
+<td><code>out</code></td>
+<td>The output module repository (which must be publishable).</td>
+<td>No, default is <i>modules</i></td>
+</tr>
+
+<tr>
+<td><code>includeNonShared</code></td>
 <td>Whether to document non-<code>shared</code> declarations.</td>
 <td>No, default is <i>false</i></td>
 </tr>
@@ -76,15 +79,24 @@ the <code>CEYLON_HOME</code> environment variable.</td>
 </tr>
 
 <tr>
-<td><code>out</code></td>
-<td>The output module repository (which must be publishable).</td>
-<td>No, default is <i>modules</i></td>
+<td><code>user</code></td>
+<td>The user name to use when connecting to the output repository. Only used for HTTP output repositories. <!-- m2 --></td>
+<td>No</td>
 </tr>
 
 <tr>
-<td id="param-src"><code>src</code></td>
-<td>A source directory.</td>
-<td>No, default is <i>source</i></td>
+<td><code>pass</code></td>
+<td>The password to use when connecting to the output repository. Only used for HTTP output repositories. <!-- m2 --></td>
+<td>No</td>
+</tr>
+
+<tr>
+<td><code>executable</code></td>
+<td>The filesystem location of the <code>ceylond</code> command line tool. 
+If not specified it is searched in the directory indicated by 
+the <code>ceylon.home</code> system property, or if that is not set 
+the <code>CEYLON_HOME</code> environment variable.</td>
+<td>No</td>
 </tr>
 
 </tbody>
@@ -92,13 +104,13 @@ the <code>CEYLON_HOME</code> environment variable.</td>
 
 ### Nested parameters
 
-**Note**: Unlike ant's `<javac>` task, `<ceylonc>` does not support an implict
+**Note**: Unlike ant's `<javadoc>` task, `<ceylond>` does not support an implict
 [FileSet](http://ant.apache.org/manual/Types/fileset.html) so you cannot
 add `<include>`/`<exclude>` etc as direct subelements. You must use 
 [`<files>`](#files) explicitly.
 
 #### `<module>`
-A module to compile.
+A module to compile. Can be specified multiple times.
 
 <table class="ant-parameters">
 <tbody>
@@ -125,7 +137,7 @@ the module is assumed to exist in a <a href="#param-src">source directory</a>.</
 </table>
 
 #### `<rep>`
-A module repository containing dependencies.
+A module repository containing dependencies. Can be specified multiple times. Default to `modules`.
 
 <table class="ant-parameters">
 <tbody>
@@ -146,9 +158,9 @@ A module repository containing dependencies.
 
 ### Output
 
-The `<ceylonc>` task outputs a module archive and a source archive for 
-each module named on the command line. The compiler produceds `.car` files 
-directly, it does not produce individual `.class` files as `javac` does.
+The `<ceylond>` task outputs a module documentation folder for 
+each module named on the command line. The documentation generator produceds `module-doc` 
+folders directly, in the output module repository.
 
 ## See also
 

@@ -57,17 +57,8 @@ a nested [`<module>`](#module)(s) is required.
 
 <tr>
 <td id="param-module"><code>module</code></td>
-<td>The module (and, optionally, the version) to execute.</td>
+<td>The module (and, optionally, the version) to execute. Ex: `com.foo`, `com.foo/1.2`.</td>
 <td>Yes</td>
-</tr>
-
-<tr>
-<td><code>executable</code></td>
-<td>The filesystem location of the <code>ceylonc</code> command line tool. 
-If not specified it is searched in the directory indicated by 
-the <code>ceylon.home</code> system property, or if that is not set 
-the <code>CEYLON_HOME</code> environment variable.</td>
-<td>No</td>
 </tr>
 
 <tr>
@@ -79,8 +70,17 @@ of the module descriptor is used.</td>
 
 <tr>
 <td id="param-src"><code>src</code></td>
-<td>A source directory.</td>
+<td>A source directory. <!-- m3 --></td>
 <td>No, default is <i>source</i></td>
+</tr>
+
+<tr>
+<td><code>executable</code></td>
+<td>The filesystem location of the <code>ceylonc</code> command line tool. 
+If not specified it is searched in the directory indicated by 
+the <code>ceylon.home</code> system property, or if that is not set 
+the <code>CEYLON_HOME</code> environment variable.</td>
+<td>No</td>
 </tr>
 
 </tbody>
@@ -88,13 +88,9 @@ of the module descriptor is used.</td>
 
 ### Nested parameters
 
-**Note**: Unlike ant's `<javac>` task, `<ceylonc>` does not support an implict
-[FileSet](http://ant.apache.org/manual/Types/fileset.html) so you cannot
-add `<include>`/`<exclude>` etc as direct subelements. You must use 
-[`<files>`](#files) explicitly.
-
 #### `<rep>`
-A module repository containing the [module](#param-module) and/or dependencies.
+A module repository containing the [module](#param-module) and/or dependencies. Can be specified multiple times.
+Defaults to `modules`.
 
 <table class="ant-parameters">
 <tbody>
@@ -112,12 +108,6 @@ A module repository containing the [module](#param-module) and/or dependencies.
 
 </tbody>
 </table>
-
-### Output
-
-The `<ceylonc>` task outputs a module archive and a source archive for 
-each module named on the command line. The compiler produceds `.car` files 
-directly, it does not produce individual `.class` files as `javac` does.
 
 ## See also
 
