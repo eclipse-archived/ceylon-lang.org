@@ -7,4 +7,5 @@ profiles:
   production:
     base_url: http://ceylon-lang.org/
 google_analytics: UA-24748553-1
+google_analytics_domain: ceylon-lang.org
 disqus: ceylonlang
