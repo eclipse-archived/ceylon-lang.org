@@ -156,6 +156,7 @@ The API documentation for [`ceylon.language`](#{page.doc_root}/api/ceylon/langua
 * ['Calling' Java from Ceylon](interoperability/java-from-ceylon)
 * [Type mapping](interoperability/type-mapping)
 
-## Other
+## Module repositories
 
-* [`modules.ceylon-lang.org`] - _doc coming soon at_ (other/modules.ceylon-lang.org) <!-- m3 -->
+* [Module repositories](repository)
+* [`modules.ceylon-lang.org`] - _doc coming soon at_ (repository/modules.ceylon-lang.org) <!-- m3 -->

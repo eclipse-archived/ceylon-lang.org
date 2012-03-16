@@ -42,7 +42,7 @@ modules it depends on
 Modules are distributed in `.car` files, which are essentially `.jar` files 
 with a different extension, and with a [module descriptor](#descriptor).
 
-Modules are kept in a *module repository*. The list of module 
+Modules are kept in a [module repository](../../repository). The list of module 
 repositories to use is passed to 
 [`ceylonc`](#{page.doc_root}/reference/tool/ceylonc), 
 [`ceylon`](#{page.doc_root}/reference/tool/ceylon),  and 
@@ -51,6 +51,7 @@ repositories to use is passed to
 ## See also
 
 * Modules contain [packages](../package)
+* [Module repositories](../../repository)
 * ceylond documentation of the [Module]
-  (\#{site.urls.apidoc_current}/ceylon/language/descriptor/class_Module.html) 
+  (#{site.urls.apidoc_current}/ceylon/language/descriptor/class_Module.html) 
   type (the type of the module descriptor)
