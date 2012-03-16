@@ -9,6 +9,7 @@ require 'gsub'
 require 'deeplink'
 require 'sanitizer'
 require 'main_atomizer'
+require 'google_analytics'
 
 Awestruct::Extensions::Pipeline.new do
   extension Awestruct::Extensions::DataDir.new
