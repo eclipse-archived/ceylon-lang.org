@@ -32,14 +32,17 @@ In Ceylon, a *type declaration* is one of:
 * An [`object` declaration](../object)
 * An [`interface` declaration](../interface)
 
-#### Top-level and local declarations
-
-A *top level* declaration is contained directly in a
-[compilation units](../compilation unit) and not contained within any other
-declaration. 
+#### Local declarations
 
 A *local* (or *nested*) declaration is a declaration that is 
 contained within another declaration or a statement.
+
+#### Top-level declarations
+
+A *top level* declaration is contained directly in a
+[compilation units](../compilation unit) and not contained within any other
+declaration. In other words a top level declaration is not 
+a [local](#local_declarations) declaration.
 
 ### Union types
 
@@ -58,6 +61,13 @@ intersection of instances of those types using the notation `X&Y`.
 
 TODO 
 
+### `Nothing`
+
+`Nothing` is the type of `null`. If an expression permits `null` then it
+needs `Nothing` as a supertype. This is usually expressed as using a 
+[union type](#union_types) such as `T|Nothing`, which can be abbreviated 
+as `T?`.
+
 ### `Bottom`
 
 `Bottom` in the intersection of *all* types. It is equivalent to the empty set.
@@ -65,12 +75,17 @@ Because `Bottom` is the intersection of all types it is assignable to
 all types. Similarly because it is the intersection of all types it can have 
 no instances.
 
-### `Nothing`
+### `Empty`
 
-`Nothing` is the type of `null`. If an expression permits `null` then its 
-needs `Nothing` as a supertype. This is usually expressed as using a 
-[union type](#union_types) such as `T|Nothing`, which can be abbreviated 
-as `T?`.
+`Empty` is the type of the 
+[expression `{}`](../../expression/sequence-instantiation). 
+
+### `Sequence`
+
+`Sequence` is the type of non-empty 
+[sequences](../../expression/sequence-instantiation). Because we often want 
+to treat empty and non-empty sequences in a common way the 
+[union type](#union_types) `Sequence<T>|Empty` can be abbreviated to `T[]`.
 
 ### Type inference
 
@@ -81,6 +96,9 @@ on *principal types* there is only one type the compiler can infer.
 ## See also
 
 * Top level types are contained in [compilation units](../compilation-unit)
-* [`class` declaration](../../type/class)
-* [`interface` declaration](../../type/interface)
-* [`object` declaration](../../type/object)
+* [`class` declaration](../class)
+* [`interface` declaration](../interface)
+* [`object` declaration](../object)
+* [method declaration](../method)
+* [attribute declaration](../attribute)
+* [type parameters](../type-parameters)

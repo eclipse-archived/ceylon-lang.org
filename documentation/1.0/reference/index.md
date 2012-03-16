@@ -15,25 +15,19 @@ This page lists concepts and links to their descriptions. The complete
 _This page is very incomplete. Want to help? [See how](/code/website)._
 
 
-## Structure
+## Structure and Declarations
 
 * [Modules](structure/module)
 * [Packages](structure/package)
 * [Compilation units](structure/compilation-unit)
-* [Top-level] - _doc coming soon at_ (structure/top-level) methods and attributes
 * [Types](structure/type)
-* [Initializers] - _doc coming soon at_ (structure/initializers)
-* [Attributes](structure/attribute)
+* [Type parameters](structure/type-parameters)
+* [Classes](structure/class)
+* [Interfaces](structure/class)
+* [`object`s](structure/object)
 * [Methods](structure/method)
-
-## Types
-
-* [Classes] - _doc coming soon at_ (type/class)
-* [Interfaces] - _doc coming soon at_ (type/interface)
-* [`extends` (inheritance)] - _doc coming soon at_ (type/inheritance)
-* [`satisfies` (satisfaction)] - _doc coming soon at_ (type/satisfaction)
-* [Generics] - _doc coming soon at_ (type/generics)
-* [Annotations] - _doc coming soon at_ (type/annotation) <!-- m5 -->
+* [Attributes](structure/attribute)
+* [Annotations](structure/annotation) <!-- m5 -->
 
 ## Statements
 
@@ -53,17 +47,19 @@ _This page is very incomplete. Want to help? [See how](/code/website)._
 ## Expressions
 
 * [What is an expression](expression)
-* [Attribute Evaluation] - _doc coming soon at_ (expression/attribute-evalaution)
-* [Attribute Assignment] - _doc coming soon at_ (expression/attribute-assignment)
-* [Callable References] - _doc coming soon at_ (expression/callable-references)
-* [Class Instantiation] - _doc coming soon at_ (expression/class-instantiation)
+* [Attribute Evaluation](expression/attribute-evaluation)
+* [Attribute Assignment](expression/attribute-assignment)
+* [Callable References](expression/method-reference)
+* [Class Instantiation](expression/class-instantiation)
 * [Literals](#literals)
-* [Metamodel References] - _doc coming soon at_ (expression/metamodel-references) <!-- m5 -->
-* [Method Invocation] - _doc coming soon at_ (expression/method-invocation)
-* [Operators](#operators)
-* [Self References] - _doc coming soon at_ (expression/self-references)
-* [Sequence Instantiation] - _doc coming soon at_ (expression/sequence-instantiation)
-* [String Templates] - _doc coming soon at_ (expression/string-template)
+* [Metamodel References](expression/metamodel-reference) <!-- m5 -->
+* [Method Invocation](expression/invocation)
+* [Operator expressions](#operators)
+* [`this`](expression/this)
+* [`outer`](expression/outer) <!-- m3 -->
+* [`super`](expression/super)
+* [Sequence Instantiation](expression/sequence-instantiation)
+* [String Templates](expression/string-template)
 
 ## Operators
 

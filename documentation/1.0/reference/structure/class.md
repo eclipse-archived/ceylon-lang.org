@@ -10,7 +10,7 @@ milestone: Milestone 1
 # #{page.title}
 
 A class is a stateful type that can be 
-[instantiated](../../expression/instantiation).
+[instantiated](../../expression/class-instantiation).
 
 ## Usage 
 
@@ -20,12 +20,13 @@ A trivial class declaration looks like this:
         /* declarations of class members */
     }
 
+
 ## Description
 
 ### Initializer
 
 The class *initializer* executes when instances of the class are created
-(also known as [*class instantiation*](../../expression/instantiation)). 
+(also known as [*class instantiation*](../../expression/class-instantiation)). 
 The parameters to the initializer are specified in parenthesis after the 
 name of the class in the `class` declaration.
 
@@ -59,6 +60,32 @@ declaration looks like this:
 satisfying a type, the 
 [intersection type](../type#intersection_types) `I1&I2`.
 
+### Enumerated classes
+
+The subclasses of a class can be constrained to a list of named classes or 
+toplevel anonymous classes using the `of` clause. 
+If the class `C` is permitted only two direct 
+subclasses `S1` and `S2` its declaration would look like this:
+
+    class C() of S1 | S2 {
+        /* declarations of class members */
+    }
+
+### Type parameters
+
+A class declaration lists [type parameters](../type-parameters) with angle brackets (`<` and `>`) 
+after the class name. 
+
+    class C<Z>() {
+        /* declarations of class members 
+           type parameter Z treated as a type */
+    }
+
+### Generic constraints
+
+A class declaration may have a `given` clause for each declared type parameter 
+to [constraint the permitted type argument](../type-parameters#constraints).
+
 ### Abstract classes
 
 A class declaration may be annotated `abstract`, like this:
@@ -67,7 +94,9 @@ A class declaration may be annotated `abstract`, like this:
         /* declarations of class members */
     }
 
-Abstract classes cannot be [instantiated](../../expression/instantiation).
+Abstract classes cannot be [instantiated](../../expression/class-instantiation).
+
+TODO
 
 ### Shared classes
 
@@ -77,40 +106,13 @@ A class declaration may be annotated `shared`,like this:
         /* declarations of class members */
     }
 
-
+TODO
 
 ### Formal and default classes
 
 Toplevel classes may not be annotated `formal` or `default`.
 
-### Enumerated classes
-
-The subclasses of a class can be constrained to a list of named classes
-using the `of` clause. If the class `C` is permitted only two direct 
-subclasses `S1` and `S2` its declaration would look like this:
-
-    class C() of S1 | S2 {
-        /* declarations of class members */
-    }
-    
-### Type parameters
-
-A 
-
-### Aliases
-
-A class alias is a class declaration that specifies another class, like this:
-
-    class C() = B;
-
-The specified class may be parameterized by types:
-
-    class C() = D<E>;
-
-This is similar to [method specifiers](../method#method_specifiers).
-
-The [`import` statement](../../statement/import) permits aliasing in a 
-similar way.
+TODO
 
 ### Members
 
@@ -120,9 +122,21 @@ The permitted members of classes are [classes](../class),
 [attributes](../attribute)
 and [`object`s](../object).
 
+### Aliases
+
+A *class alias* is a class declaration that specifies another class, like this:
+
+    class C() = B;
+
+The specified class may have type arguments:
+
+    class C() = D<E>;
+
+This is similar to [method specifiers](../method#method_specifiers).
+
+The [`import` statement](../../statement/import) permits aliasing in a 
+similar way.
+
 ## See also
 
-* Top level types are contained in [compilation units](../compilation-unit)
-* [`class` declaration](../../type/class)
-* [`interface` declaration](../../type/interface)
-* [`object` declaration](../../type/object)
+

@@ -1,15 +1,14 @@
 ---
 layout: reference
-title: Instantiation
+title: Metamodel references
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
-milestone: Milestone 1
+milestone: Milestone 5
 doc_root: ../..
 ---
 
 # #{page.title}
-
 
 
 ## Usage 

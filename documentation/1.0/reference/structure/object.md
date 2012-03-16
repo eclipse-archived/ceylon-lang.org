@@ -10,7 +10,7 @@ milestone: Milestone 1
 # #{page.title}
 
 An `object` declaration is an anonymous [class](../class) that is 
-implictly [instantiated](../../expression/instantiation) 
+implictly [instantiated](../../expression/class-instantiation) 
 exactly once at the place it is defined, and nowhere else.
 
 ## Usage 
@@ -22,6 +22,10 @@ A trivial `object` declaration looks like this:
     }
 
 ## Description
+
+### Type parameters and parameters
+
+An `object` declaration does not specify parameters or type parameters.
 
 ### Notation
 
@@ -36,6 +40,12 @@ referred to as an object (in the usual font).
 `object` declarations are not permitted as members of 
 [interfaces](../interface).
 
+### Shared `object`s
+
+Because an `object` declaration is simultaneously defining and instantiating an 
+anonymous class it can have the same annotations as an 
+[attribute](../attribute).
+
 ### Members
 
 The permitted members of `object`s are [classes](../class), 
@@ -46,7 +56,4 @@ and [`object`s](../object).
 
 ## See also
 
-* Top level types are contained in [compilation units](../compilation-unit)
-* [`class` declaration](../../type/class)
-* [`interface` declaration](../../type/interface)
-* [`object` declaration](../../type/object)
+

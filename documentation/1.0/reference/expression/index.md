@@ -11,24 +11,72 @@ doc_root: ../..
 # #{page.title}
 
 Expressions are a kind of [statement](../#statements) which have a type and 
-when executed produce a value.
+produce a value when executed.
 
 ## Usage 
 
-The following statements are all expression statements:
+The following statements each demonstrate an expression statement:
 
-    "hello, world" // literal expression
-    this; // self-reference
-    TODO // metamodel reference
-    TODO // callable reference
+### [Literals](../#literals)
+
+    String greeting = "hello, world";
+    Character a = `a`;
+    Integer one = 1;
+    Float three = 3.0;
+    
+### [String templates](string-template)
+
+    String greeting = "Hello " name "";
+    
+### [`this`](this)
+
+    String attr = this.attr;
+    
+### [`outer`](outer) <!-- m3-->
+
+    outer.m();
+    
+### [`super`](super)
+
+    super.m();
+    
+### [Metamodel reference](metamodel-reference) <!-- m5-->
+
+    Type<String> stringType = String;
+    Class<String> stringClass = String;
+    Method<String, String, Integer> initialMethod = String.initial;
+    Attribute<String, Integer> size = String.size;
+
+### [Class instantiation](class-instantiation)
+
+    Person tom = Person("Tom");
+
+### [Sequence instantiation](sequence-instantiation)
+
+    {1, 2};                     // sequence instantiation
+
+### [Method Invocation](invocation)
+
     process.writeLine("hello"); // method invocation
-    process.writeLine{ // method invocation
+    process.writeLine{          // method invocation
         line="hello";
     };
-    MyClass(); // instantiation
-    process.arguments; // attribute evaluation
-    TODO // attribute assignment
-    1 + 2; // operator expression
+    
+### [Method reference](method-reference)
+
+    process.writeLine;
+
+### [Attribute Evaluation](attribute-evaluation)
+    
+    String greeting = greeter.greeting;
+    
+### [Attribute Assignment](attribute-assignment)
+
+    greeting := "howdy";
+    
+### [Operators](../#operators)
+
+    1 + 2;
 
 ## Description
 
@@ -36,5 +84,3 @@ The Ceylon compiler checks expressions for type safey at compile time.
 
 ## See also
 
-* [Operators](../#operators)
-* [Literals](../#literals)

@@ -10,7 +10,7 @@ doc_root: ../../..
 
 # #{page.title}
 
-An attribute holds state outside of a method.
+An attribute holds state.
 
 ## Usage 
 

@@ -10,7 +10,7 @@ milestone: Milestone 1
 # #{page.title}
 
 An interface is a stateless type that cannot be 
-[instantiated](../../expression/instantiation) directly.
+[instantiated](../../expression/class-instantiation) directly.
 
 ## Usage 
 
@@ -20,12 +20,63 @@ A trivial interface declaration looks like this:
         /* declarations of interface members */
     }
 
+Note that because interfaces are stateless they do not have 
+initializers and so there's no parameter list after 
+the interface name as there is with [class declarations](../class).
 
 ## Description
 
+### Satisfying interfaces
+
+An interface can satisfy zero or more other interfaces using the 
+`satisfies` keyword. If the class `I` is to satisfy interfaces `I1` and `I2` the 
+declaration looks like this:
+
+    interface I satisfies I1 & I2 {
+        /* declarations of interface members */
+    }
+
+`&` is used as the separator between satisfied interfaces because `I` is 
+satisfying a type, the 
+[intersection type](../type#intersection_types) `I1&I2`.
+
+An interface inherits all members (methods, attributes and member types) 
+of every supertype.
+
+### Enumerated subtypes
+
+The subtypes of an interface can be constrained to a list of named 
+interfaces, classes, or toplevel anonymous classes using the `of` clause. 
+
+If the interface `I` is permitted only two direct 
+subtypes `I1` and `C1` its declaration would look like this:
+
+    interface I of I1 | C1 {
+        /* declarations of interface members */
+    }
+
 ### Type parameters
 
-### Constraints
+An interface declaration lists [type parameters](../type-parameters) with angle brackets (`<` and `>`) 
+after the interface name. 
+
+    interface I<Z> {
+        /* declarations of interface members 
+           type parameter Z treated as a type */
+    }
+
+### Generic constraints
+
+An interface declaration may have a `given` clause for each declared type parameter 
+to [constraint the permitted type argument](../type-parameters#constraints).
+
+### Shared interfaces
+
+TODO
+
+### Formal and default interfaces
+
+TODO
 
 ### Members
 
@@ -36,9 +87,21 @@ and [attributes](../attribute).
 
 Note that an interface cannot have an [`object`](../object) member.
 
+### Aliases
+
+An *interface alias* is an interface declaration that specifies another 
+interface, like this:
+
+    interface I = I2;
+
+The specified interface may have type arguments:
+
+    interface I = I2<E>;
+
+This is similar to [method specifiers](../method#method_specifiers).
+
+The [`import` statement](../../statement/import) permits aliasing in a 
+similar way.
+
 ## See also
 
-* Top level types are contained in [compilation units](../compilation-unit)
-* [`class` declaration](../../type/class)
-* [`interface` declaration](../../type/interface)
-* [`object` declaration](../../type/object)

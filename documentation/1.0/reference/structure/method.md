@@ -27,27 +27,47 @@ Alternatively it is possible to declare a method using a
 
 ## Description
 
+### Local methods
+
+[Local](../type#top_level_and_local_declarations) methods have a 
+'receiver', which is the object the method is call on. Within the method
+[*block*](#method_blocks) [this](../../expression/self-reference) refers to 
+the method receiver.
+
+### Top level methods
+
+[Top level](../type#top_level_and_local_declarations) methods 
+(or *functions*) do not have a *reciever*.
+
 ### Return type
 
 A method declaration always specifies the *return type* of the method, or the 
 keyword `void` if the method has no return type.
 
-### Type Parameters
+### Type parameters
 
-Methods, like types, may be declared with type parameters:
+A method declaration lists [type parameters](../type-parameters) with angle brackets (`<` and `>`) 
+after the method name.
 
-    void m<X,Y>(){
+    void m<Z>(){
+        /* method block: statements 
+           type parameter Z treated as a type */
     }
 
-Of course, methods may be members of types which themselves have type 
-parameters:
+Of course, methods may be members of types which themselves have
+[type parameters](../type-parameters):
 
     class C<Z>() {
         void m(Z) {
         }
     }
 
-### Parameters
+### Generic constraints
+
+A method declaration may have a `given` clause for each declared type parameter 
+to [constraint the permitted type argument](../type-parameters#constraints).
+
+### Parameter lists
 
 Methods may have zero or more *parameters* (called *arguments* when the method is 
 [invoked](../../expression/invocation)). Syntactically the method parameters 
@@ -67,7 +87,12 @@ whose type is a type parameter `<Z>` looks like this:
 
 A default value for a parameter may be specified. This allows the method to 
 be [invoked](../../expression/invocation) without passing an argument for 
-that parameter.
+that parameter. Parameters with default values may be called 
+*optional* parameters, simiarly parameters without default values may be called
+*required* parameters.
+
+Syntactically default values are [expressions](../../#expression) separated from the 
+parameter name with the equals specifier.
 
 For example a method `m` declared like this
 
@@ -75,16 +100,41 @@ For example a method `m` declared like this
         /* method body: statements */
     }
 
-can be called without suppliying an argument for the parameter `i`, like this:
+can be [invoked](../../expression/invocation) without supplying an argument 
+for the parameter `i`, like this:
 
     m();
 
-Default values are [expressions](../../#expression) separated from the 
-parameter name with the equals specifier.
+To avoid ambiguity, defaulted parameters are only permitted after all the 
+non-defaulted parameters in the parameter list.
 
-#### Sequenced parameters
+#### Sequenced parameter
 
-TODO
+A method may have a *sequenced parameter* (just one) as the last parameter 
+in the parameter list. This allows the method to be 
+[invoked](../../expression/invocation) with the caller specifying zero or 
+more arguments after the next-to-last argument.
+
+Syntactically sequenced parameters are declared as a type name followed by 
+ellipsis (`...`) followed by the parameter name.
+
+For example a method `m` declared like this
+
+    void m(String s, Integer... i) {
+        /* method body: statements 
+           parameter i treated as an Integer[] */
+    }
+
+can be [invoked](../../expression/invocation) supplying a zero or more 
+expressions for `i`, like this:
+
+    m("hello");
+    m("hello", 1);
+    m("hello", 1, 2);
+    m("hello", 1, 2, 3);
+
+Within the method block a sequenced parameter declared as `T...` has 
+type [`T[]`](../type#Sequence).
 
 #### Multiple parameter lists
 
@@ -96,6 +146,18 @@ Celyon doesn't have 'checked' exceptions, so it is not necessary to declare
 what exceptions a method can [throw](../../statement/throw).
 
 The `throws` annotation may be used to *document* thrown exceptions.
+
+### Abstract methods
+
+TODO
+
+### Shared methods
+
+TODO
+
+### Formal and default methods
+
+TODO
 
 ### Method blocks
 

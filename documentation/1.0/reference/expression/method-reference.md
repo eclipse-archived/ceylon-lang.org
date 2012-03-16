@@ -1,10 +1,10 @@
 ---
 layout: reference
-title: Invocation
+title: Method references
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
-milestone: Milestone 1
+milestone: Milestone 2
 doc_root: ../..
 ---
 
