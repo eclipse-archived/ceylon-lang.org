@@ -22,6 +22,8 @@ Options include:
   Defaults to `modules`.
 * `-non-shared` Includes documentation for package-private declarations.
 * `-source-code` Includes source code to the generated documentation.   
+* `-user` User name for output module repository (only if HTTP). <!-- m2 -->
+* `-pass` Password for output module repository (only if HTTP). <!-- m2 -->
 * `-d` Disable the default module repositories and source directory. <!-- m3 -->
 
 ## Description

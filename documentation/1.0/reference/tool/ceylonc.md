@@ -17,11 +17,13 @@ doc_root: ../../..
 Options include:
 
 * `-src` Specifies a source directory. Defaults to `source`.
-* `-out` specifies the output module repository (which must be publishable).
+* `-out` Specifies the output module repository (which must be publishable).
   Defaults to `modules`.
-* `-rep` specifies a module repository containing dependencies. Can be repeated.
+* `-rep` Specifies a module repository containing dependencies. Can be repeated.
   Defaults to `modules`.
-* `-verbose` enables debug output.
+* `-user` User name for output module repository (only if HTTP). <!-- m2 -->
+* `-pass` Password for output module repository (only if HTTP). <!-- m2 -->
+* `-verbose` Enables debug output.
 * `-d` Disable the default module repositories and source directory. <!-- m3 -->
 
 ## Description
