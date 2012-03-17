@@ -4,7 +4,7 @@ title: `extends` operator
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
-milestone: Milestone 1
+milestone: Later
 doc_root: ../../..
 ---
 
@@ -15,8 +15,8 @@ left-hand operand is *extends* its right-hand operand
 
 ## Usage 
 
-    void m(Type<Void> x,  Class<Void> y) {
-        Boolean extension = x extends y;
+    void m(Type<Void> x) {
+        Boolean extension = x extends Class<Void>;
     }
 
 ## Description

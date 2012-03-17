@@ -16,7 +16,7 @@ the its right-hand operand is not `null`.
 ## Usage 
 
     void m(Integer? num) {
-        Integer int = num?.positiveValue;
+        Integer? int = num?.positiveValue;
     }
 
 ## Description

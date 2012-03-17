@@ -14,30 +14,30 @@ The *lookup* operator accesses a particular item in a `Correspondence`.
 
 ## Usage 
 
-    Integer[] seq = {1, 2, 3};
-    Integer? first = seq[0]; // The get case
-    seq[0] := 5;             // The set case
+    void m(Integer[] seq) {
+        Integer? first = seq[0];
+    }
+
+Note that first is `Integer?` rather than `Integer` because of the 
+possibility that seq doesn't have a value for the given key.
 
 ## Description
 
-The lookup operator is actually two operators, one for getting an item from a 
-`Correspondence` according to its key and the other for setting an 
-item with its key in an `OpenCorrespondence`.
+The lookup operator gets an item from a 
+`Correspondence` according to its key.
 
 ### Implementation Note
 
-<!-- M2 -->
+<!-- M3 -->
 Setting an item in an `OpenCorrespondence` may be implemented in Milestone 2,
 or possibly Milestone 3.
 
 ### Definition
 
-The `[]` operator is defined as follows (for both the get and set cases):
+The `[]` operator is defined as follows:
 
 <!-- no-check -->
     lhs.item(index)
-
-The difference between the get and set cases is in the types of the operands.
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#listmap) for 
 more details.
@@ -47,16 +47,13 @@ more details.
 The `[]` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `[]` depends on the 
 [`Correspondence`](#{page.doc_root}/api/ceylon/language/interface_Correspondence.html) 
-interface for the get case and 
-[`OpenCorrespondence`](#{page.doc_root}/api/ceylon/language/interface_OpenCorrespondence.html)
-for the set case.
+interface.
 
 ## See also
 
-* [`[]` (sequenced lookup)](../sequenced-lookup) operator used for accessesing several items using a sequence
-* [`[]` (iterated lookup)](../iterated-lookup) operator used for accessesing several items using an iterable
+* [`?[]` (nullsafe lookup)](../nullsafe-lookup) operator used for accessesing 
+  a `Correspondence?`
 * API documentation for [`Correspondence`](#{page.doc_root}/api/ceylon/language/interface_Correspondence.html) 
-* [`OpenCorrespondence`] _doc coming soon at_ (../../ceylon.language/OpenCorrespondence)
 * [sequence operators](#{page.doc_root}/#{site.urls.spec_relative}#listmap) in the 
   language specification
 * [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 

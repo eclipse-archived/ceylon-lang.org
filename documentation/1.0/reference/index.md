@@ -74,7 +74,6 @@ _This page is very incomplete. Want to help? [See how](/code/website)._
 * [`&=`  (Set intersect assign)](operator/intersect-assign) <!-- m4 -->
 * [`()`  (invoke)](operator/invoke)
 * [`()`  (null-safe invoke)](operator/nullsafe-invoke)
-* [`()`  (spread invoke)] - _doc coming soon at_ (operator/spread-invoke)
 * [`*`   (product)](operator/product)
 * [`**`  (power)](operator/power)
 * [`*=`  (multiply assign)](operator/multiply-assign)
@@ -86,9 +85,9 @@ _This page is very incomplete. Want to help? [See how](/code/website)._
 * [`-`   (unary minus)](operator/unary_minus)
 * [`--`  (decrement)](operator/decrement)
 * [`-=`  (subtract assign)](operator/subtract-assign)
-* [`->`  (entry)] _doc coming soon at_ (operator/entry)
+* [`->`  (entry)](operator/entry)
 * [`.`   (member)](operator/member)
-* [`..`  (range)] _doc coming soon at_ (operator/range)
+* [`..`  (range)](operator/range)
 * [`.=`  (apply)](operator/apply)
 * [`/`   (quotient)](operator/quotient)
 * [`/=`  (divide assign)](operator/divide-assign)
@@ -103,10 +102,9 @@ _This page is very incomplete. Want to help? [See how](/code/website)._
 * [`>=`  (greater than or equal)](operator/greater-than-or-equal)
 * [`?[]` (nullsafe-lookup)](operator/nullsafe-lookup)
 * [`[]`  (lookup)](operator/lookup)
-* [`[]`  (sequenced lookup)](operator/sequenced-lookup)
-* [`[]`  (iterated lookup)](operator/iterated-lookup)
-* [`[x..y]` (subrange)](operator/subrange)
-* [`[x...]` (upper range)](operator/upper-range)
+* [`[].` (spread)](operator/spread)
+* [`[x..y]` (span)](operator/span)
+* [`[x...]` (upper span)](operator/upper-span)
 * [`[].` (spread member)] - _doc coming soon at_ (operator/spread)
 * [`^`   (Set exclusive union)](operator/exclusive-union) <!-- m4 -->
 * [`^=`  (Set exclusive union assign)](operator/exclusive-union-assign) <!-- m4 -->
@@ -118,7 +116,6 @@ _This page is very incomplete. Want to help? [See how](/code/website)._
 * [`||=` (or assign)](operator/or-assign)
 * [`{}`  (invoke)](operator/invoke)
 * [`{}`  (null-safe invoke)](operator/nullsafe-invoke)
-* [`{}`  (spread invoke)](operator/spread-invoke)
 * [`~`   (Set complement)](operator/complement) <!-- m4 -->
 * [`~=`  (Set complement assign)](operator/complement-assign) <!-- m4 -->
 

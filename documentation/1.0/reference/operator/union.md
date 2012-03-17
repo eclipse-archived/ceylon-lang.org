@@ -17,8 +17,8 @@ The left-associative, binary `|` operator is used to compute the
 
 Union on values:
 
-    void m<Apple, Pear>(Set<Apple> apples, Set<Pear> pears) {
-        Set<Apple|Pear> applesAndPears = apples | pears;
+    void m(Set<Integer> odds, Set<Integer> evens) {
+        Set<Integer> ints = odds | evens;
     }
   
 ## Description

@@ -16,9 +16,9 @@ not `null`, otherwise results in `null`.
 
 ## Usage 
 
-    String[]? names = {"foo", "bar", "baz"};
-    Iterable<Integer> keys = {1, 2};
-    Iterable<String> firstAndLast = names?[keys];
+    void m(String[]? seq) {
+        String? first = seq?[0];
+    }
 
 ## Description
 

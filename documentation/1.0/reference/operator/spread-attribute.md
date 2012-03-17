@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `[x...]` (upper range) operator
+title: `[].` (spread attribute) operator
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
@@ -10,35 +10,34 @@ doc_root: ../../..
 
 # #{page.title}
 
-The *upper range* operator returns the tail sequence of its left-hand operand
-specified by its right-hand operand.
+The *spread attribute* operator maps a sequence of instances through an 
+attribute, resulting in a sequence of the attribute values.
 
 ## Usage 
 
     String[] names = {"foo", "bar", "baz"};
-    String[] secondAndThird = names[1...];
-    String[] third = names[2...];
-    String[] emptySequence = names[3...];
+    Integer[] sizes = names[].size;
 
 ## Description
 
 ### Definition
 
-The `[x...]` operator is defined as follows:
+The `[].` operator is defined by the sequence comprehension:
 
 <!-- no-check -->
-    range(lhs,x)
+    { for (X x in lhs) x.member }
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#listmap) for 
 more details.
 
 ### Polymorphism
 
-The `[x...]` operator is not [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
+The `[x..]` operator is not [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 
 ## See also
 
-* [`[x..y]` (subrange)](../subrange) operator used for obtaining a subrange of a sequence
+* [`[].` (spread invoke)](../spread invoke) operator, the equivalent of the 
+  spread attribute operator but for methods;
 * [sequence operators](#{page.doc_root}/#{site.urls.spec_relative}#listmap) in the 
   language specification
 * [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 

@@ -15,7 +15,7 @@ logical *and* of two operands, assigning the result to the left-hand operand.
 
 ## Usage 
 
-    variable Boolean a = true;
+    variable Boolean a := true;
     Boolean b = false;
     a &&= b; // a becomes false
 

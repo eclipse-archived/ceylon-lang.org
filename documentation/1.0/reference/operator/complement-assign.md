@@ -16,7 +16,8 @@ result to the left-hand operand.
 
 ## Usage 
 
-    void m<Dog>(Set<Dog> dogs, Set<Dog> blackDogs) given T satisfies Object {
+    void m<Dog>(Set<Dog> dogs, Set<Dog> blackDogs) 
+      given Dog satisfies Object {
         variable Set<Dog> nonBlackDogs := dogs;
         nonBlackDogs ~= blackDogs;
     }

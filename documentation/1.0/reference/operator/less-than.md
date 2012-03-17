@@ -15,7 +15,8 @@ operand is *less than* its right-hand operand.
 
 ## Usage 
 
-    void m<T>(Comparable<T> x, Comparable<T> y) {
+    void m<T>(T x, T y) 
+      given T satisfies Comparable<T> {
         Boolean less = x < y;
     }
 

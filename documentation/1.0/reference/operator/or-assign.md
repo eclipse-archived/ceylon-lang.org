@@ -15,7 +15,7 @@ logical *or* of two operands, assigning the result to the left-hand operand.
 
 ## Usage 
 
-    variable Boolean a = false;
+    variable Boolean a := false;
     Boolean b = true;
     a ||= b; // a becomes true
 

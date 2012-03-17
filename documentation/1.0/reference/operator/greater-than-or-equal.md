@@ -15,7 +15,8 @@ operand is *greater than or equal to* its right-hand operand.
 
 ## Usage 
 
-    void m<T>(Comparable<T> x, Comparable<T> y) {
+    void m<T>(T x, T y) 
+      given T satisfies Comparable<T> {
         Boolean greaterOrEqual = x >= y;
     }
 

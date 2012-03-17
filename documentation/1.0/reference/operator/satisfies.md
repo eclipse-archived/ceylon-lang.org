@@ -4,7 +4,7 @@ title: `satisfies` operator
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
-milestone: Milestone 1
+milestone: Later
 doc_root: ../../..
 ---
 
@@ -15,8 +15,8 @@ left-hand  operand is *satisfies* its right-hand operand.
 
 ## Usage 
 
-    void m(Type<Void> x, Type<Void> y) {
-        Boolean satisfaction = x satisfies y;
+    void m(Type<Void> x) {
+        Boolean satisfaction = satisfies String Iterator;
     }
 
 ## Description

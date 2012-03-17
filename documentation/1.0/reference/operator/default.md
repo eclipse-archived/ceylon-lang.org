@@ -15,7 +15,7 @@ The right-associative, binary `?` operator is used to specify a *default* value.
 ## Usage 
 
     void m(Integer? num) {
-        Integer value = num ? 0;
+        Integer numOrDefault = num ? 0;
     }
 
 ## Description

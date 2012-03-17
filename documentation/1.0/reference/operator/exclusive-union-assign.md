@@ -36,7 +36,7 @@ more details.
 ### Polymorphism
 
 The `^=` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
-The `^` in the definition is the [exclusive union operator](../exclusive-union) which depends on the 
+The `^` in the definition is the [exclusive union operator](../exclusive-   union) which depends on the 
 [`Set`](#{page.doc_root}/api/ceylon/language/interface_Set.html) interface.
 
 ## See also

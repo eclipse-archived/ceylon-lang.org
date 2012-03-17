@@ -15,7 +15,7 @@ named by the right-hand operand from left-hand operand.
 
 ## Usage 
 
-    String[] args = process.args;
+    String[] args = process.arguments;
 
 ## Description
 
