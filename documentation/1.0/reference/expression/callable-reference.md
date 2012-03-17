@@ -16,7 +16,7 @@ A callable reference is a reference that can be [invoked](../invocation).
 
 An example [method reference](#method_references)
 
-    Callable<String, String, Integer> methodRef = String.initial;
+    Callable<String, Integer> methodRef = "".initial;
     
 An example [initializer reference](#initializer_references)
 

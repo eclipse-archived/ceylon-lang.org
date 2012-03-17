@@ -19,15 +19,19 @@ A simple example of postional invocation:
 <!-- implicit-id:m: void m(Integer i, String s) {} -->
 
 <!-- cat-id:m -->
+<!-- cat: void wrapper() { -->
     m(2, "bonjour"); 
+<!-- cat: } -->
 
 A simple example of named argument invocation:
 
 <!-- cat-id: m -->
+<!-- cat: void wrapper() { -->
     m{
         s = "ola";
         i = 5;
     };
+<!-- cat: } -->
 
 
 ## Description

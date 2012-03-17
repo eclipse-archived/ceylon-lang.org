@@ -85,8 +85,10 @@ The following statements each demonstrate an expression statement:
     
 ### [Attribute Assignment](attribute-assignment)
 
+<!-- cat: void m() { -->
 <!-- cat: variable String greeting; -->
     greeting := "howdy";
+<!-- cat: } -->
     
 ### [Operators](../#operators)
 
