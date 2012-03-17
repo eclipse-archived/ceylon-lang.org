@@ -135,10 +135,12 @@ can be [invoked](../../expression/invocation) supplying a zero or more
 expressions for `i`, like this:
 
 <!-- cat-id:m -->
+<!-- cat: void x() { -->
     m("hello");
     m("hello", 1);
     m("hello", 1, 2);
     m("hello", 1, 2, 3);
+<!-- cat: } -->
 
 Within the method block a sequenced parameter declared as `T...` has 
 type [`T[]`](../type#Sequence).

@@ -14,28 +14,30 @@ An attribute holds state.
 
 ## Usage 
 
+
 A `variable` attribute declaration:
 
 <!-- id:attr -->
-    variable String firstName := "John";
-    variable String lastName := "Smith";
+    variable String? firstName := "John";
+    variable String? lastName := "Smith";
 
 An attribute getter:
 
 <!-- id:attr2 -->
 <!-- cat-id: attr -->
     shared String name {
-        return firstName + " " + lastName;
+        return (firstName ? "") + " " + (lastName ? "");
     }
     
 An attribute setter:
 
 <!-- cat-id: attr -->
 <!-- cat-id: attr2 -->
+<!-- cat: String[] parseName(String? name) { throw; } -->
     assign name {
-        value parts = name.split().iterator;
-        firstName := parts.next();
-        lastName := parts.next();
+        value parts = parseName(name);
+        firstName := parts[0];
+        lastName := parts[1];
     }
     
 
