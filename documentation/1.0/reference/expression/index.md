@@ -72,7 +72,7 @@ The following statements each demonstrate an expression statement:
     };
 <!-- cat: } -->
     
-### [Method reference](method-reference)
+### [Callable reference](callable-reference)
 
 <!-- cat: void m() { -->
     function f(String line) = process.writeLine;
