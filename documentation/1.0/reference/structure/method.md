@@ -175,7 +175,8 @@ The body of a non-`void` method must (*definitely return*)[TODO].
 ### Method specifiers
 
 An alternative to providing a method block is to specify a callable 
-expression using `=`:
+expression (often a [callable reference](../../expression/callable-reference)) 
+using `=`:
 
 <!-- cat: void anotherMethod(){} -->
     void m() = anotherMethod;

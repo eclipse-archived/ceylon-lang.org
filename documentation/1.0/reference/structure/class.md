@@ -42,7 +42,7 @@ keyword like this:
     }
 
 If a class is declared without using the `extends` keywords it is a subclass of
-[`IdentifiableObject`](TODO).
+[`IdentifiableObject`](#{site.urls.apidoc_current}/ceylon/language/class_IdentifiableObject.html).
 
 Note that the arguments to the superclasses [initializer](#initializer) are 
 specified in parenthesis after the name of the superclass in the `extends` 
@@ -86,10 +86,13 @@ after the class name.
            type parameter Z treated as a type */
     }
 
-### Generic constraints
-
-A class declaration may have a `given` clause for each declared type parameter 
+A class declaration with type parameters may have a `given` clause for each declared type parameter 
 to [constraint the permitted type argument](../type-parameters#constraints).
+
+### Concrete classes
+
+A class that can be [instantiated](../../expression/class-instantiation) is 
+*concrete*. It follows that `abstract` or `formal` classes are not concrete.
 
 ### Abstract classes
 
@@ -101,7 +104,7 @@ A class declaration may be annotated `abstract`, like this:
 
 Abstract classes cannot be [instantiated](../../expression/class-instantiation).
 
-TODO
+Abstract classes may have `formal` members. 
 
 ### Shared classes
 
@@ -111,13 +114,28 @@ A class declaration may be annotated `shared`,like this:
         /* declarations of class members */
     }
 
-TODO
+A top-level `shared` class is visible wherever the package that contains it is 
+visible.
 
-### Formal and default classes
+A member `shared` class is visible wherever the class or interface that 
+contains it is visible.
 
-Toplevel classes may not be annotated `formal` or `default`.
+### Formal classes
 
-TODO
+Toplevel classes may not be annotated `formal`.
+
+Formal classes cannot be [instantiated](../../expression/class-instantiation).
+
+A `formal` class may have `formal` members.
+
+A block local class may not be annotated `formal`.
+
+### Default classes
+
+A class may be annotated `default` is it is contained in a concrete `shared` 
+class or interface.
+
+A block local class may not be annotated `formal`.
 
 ### Members
 

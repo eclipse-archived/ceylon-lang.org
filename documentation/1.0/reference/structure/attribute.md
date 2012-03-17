@@ -14,7 +14,7 @@ An attribute holds state.
 
 ## Usage 
 
-A variable attribute declaration:
+A `variable` attribute declaration:
 
 <!-- id:attr -->
     variable String firstName := "John";
@@ -33,9 +33,9 @@ An attribute setter:
 <!-- cat-id: attr -->
 <!-- cat-id: attr2 -->
     assign name {
-        value parts = name.split;
-        firstName := parts.head;
-        lastName = parts.tail;
+        value parts = name.split().iterator;
+        firstName := parts.next();
+        lastName := parts.next();
     }
     
 

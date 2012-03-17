@@ -21,6 +21,10 @@ An example module descriptor:
         name = 'com.example.foo';
         version = '1.0';
     }
+    
+Conventionally this would be in a source file located in
+`<source-dir>/com/example/foo/module.ceylon` where `<source-dir>` is the
+directory containing ceylon source code.
 
 ## Description
 
@@ -32,8 +36,9 @@ must begin `com.example.foo.`.
 
 ### Descriptor
 
-The module descriptor holds metadata about the module, including its name, 
-version,
+The 
+[module descriptor](#{site.urls.apidoc_current}/ceylon/language/descriptor/class_Module.html) 
+holds metadata about the module, including its name, version,
 module-level documentation, what packages the module exports and what other 
 modules it depends on 
 
@@ -52,6 +57,6 @@ repositories to use is passed to
 
 * Modules contain [packages](../package)
 * [Module repositories](../../repository)
-* ceylond documentation of the [Module]
-  (#{site.urls.apidoc_current}/ceylon/language/descriptor/class_Module.html) 
+* ceylond documentation of the 
+  [Module](#{site.urls.apidoc_current}/ceylon/language/descriptor/class_Module.html) 
   type (the type of the module descriptor)

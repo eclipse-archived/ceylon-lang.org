@@ -40,7 +40,7 @@ contained within another declaration or a statement.
 #### Top-level declarations
 
 A *top level* declaration is contained directly in a
-[compilation units](../compilation unit) and not contained within any other
+[compilation units](../compilation_unit) and not contained within any other
 declaration. In other words a top level declaration is not 
 a [local](#local_declarations) declaration.
 
@@ -59,7 +59,11 @@ intersection of instances of those types using the notation `X&Y`.
 
 ### Enumerated types
 
-TODO 
+Classes can [enumerate](../class#enumerated_classes) 
+a list of their permitted subclasses. 
+
+Interfaces can [enumerate](../interface#enumerated_subtypes) 
+a list of their permitted subtypes. 
 
 ### `Nothing`
 
@@ -70,7 +74,7 @@ as `T?`.
 
 ### `Bottom`
 
-`Bottom` in the intersection of *all* types. It is equivalent to the empty set.
+`Bottom` is the intersection of *all* types. It is equivalent to the empty set.
 Because `Bottom` is the intersection of all types it is assignable to 
 all types. Similarly because it is the intersection of all types it can have 
 no instances.

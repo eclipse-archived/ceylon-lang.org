@@ -43,19 +43,13 @@ role at runtime.
 
 A compilation unit must contain one or more declarations
 
-* [type declarations](../types) (class, interface or object), 
+* [type declarations](../type) ([class](../class), 
+  [interface](../interface) or [`object`](../object)), 
 * [method declarations](../method) and
 * [attribute declarations](../attribute)
 
 Ceylon does not have Java's restriction on `public` (`shared`) classes having 
 to be declared in a source file named after the class name.
-
-### Top level
-
-Any declaration which is contained directly within a compilation unit (that is,
-without a parent declaration) is considered a *top-level* declaration. Most 
-top level declarations permit nested declarations, the exception to this is 
-that an interface cannot have an `object` member.
 
 ### Source Location
 

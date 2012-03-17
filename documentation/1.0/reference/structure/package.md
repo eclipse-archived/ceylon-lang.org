@@ -22,6 +22,10 @@ An simple example [package descriptor](#descriptor):
         name = 'com.example.foo.a';
         shared = true;
     }
+    
+Conventionally this would be in a source file located in
+`<source-dir>/com/example/foo/a/package.ceylon` where `<source-dir>` is the
+directory containing ceylon source code.
 
 ## Description
 
@@ -32,7 +36,9 @@ A package's members are the top-level declarations contained in its
 
 ### Descriptor
 
-The package descriptor holds metadata about the package, including its name, 
+The 
+[package descriptor](\#{site.urls.apidoc_current}/ceylon/language/descriptor/class_Package.html) 
+holds metadata about the package, including its name, 
 package-level documentation and whether the package is visible outside the 
 containing module.
 
@@ -40,6 +46,6 @@ containing module.
 
 * Packages are contained in [modules](../module)
 * Packages contains [compilation units](../compilation-unit)
-* ceylond documentation of the [Package]
-  (\#{site.urls.apidoc_current}/ceylon/language/descriptor/class_Package.html) 
+* ceylond documentation of the 
+  [Package](\#{site.urls.apidoc_current}/ceylon/language/descriptor/class_Package.html) 
   type (the type of the package descriptor)

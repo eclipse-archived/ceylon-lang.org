@@ -67,16 +67,19 @@ after the interface name.
            type parameter Z treated as a type */
     }
 
-### Generic constraints
-
-An interface declaration may have a `given` clause for each declared type parameter 
-to [constraint the permitted type argument](../type-parameters#constraints).
+An interface declaration with type parameters may have a `given` clause for 
+each declared type parameter to 
+[constraint the permitted type argument](../type-parameters#constraints).
 
 ### Shared interfaces
 
 TODO
 
-### Formal and default interfaces
+### Formal interfaces
+
+TODO
+
+### Default interfaces
 
 TODO
 
