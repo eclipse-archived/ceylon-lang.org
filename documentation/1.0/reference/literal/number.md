@@ -13,10 +13,12 @@ doc_root: ../../..
 
 A `Number` literal can be written an a variety of ways
 
+<!-- cat: void m() { -->
     Number one = 1;
     variable Number oneMillion := 1000000;
     oneMillion := 1_000_000;
     oneMillion := 1M;
+<!-- cat: } -->
 
 ## Description
 

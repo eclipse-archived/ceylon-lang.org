@@ -25,16 +25,6 @@ in the `build` directory (repository):
       </ceylon>
     </target>
 
-<!--
-To execute version 1.1 of module `com.example.foo` whose 
-source code is in the `src` directory:
-
-<!- - lang: xml - ->
-    <target name="execute" depends="ceylon-ant-taskdefs">
-      <ceylon src="src" module="com.example.foo/1.1"/>
-    </target>
--->
-
 ## Description
 
 The `<celyon>` ant task supports execution of Ceylon modules, top-level classes 
