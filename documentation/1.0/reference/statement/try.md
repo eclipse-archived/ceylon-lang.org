@@ -16,6 +16,7 @@ to be executed in all circumstances.
 
 ## Usage 
 
+<!-- no-check -->
     try {
         // some code
     } catch (ExceptionType e) {

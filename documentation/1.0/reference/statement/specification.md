@@ -41,12 +41,11 @@ or attribute that member will have the specified value.
 Because specification is a 
 statement and not an operator it cannot be used within expressions:
 
-<!-- cat: void m(Object[] sequence) { -->
+<!-- no-check -->
     Boolean isEmpty;
     if (isEmpty = sequence.size == 0) { // compilation error
         // ...
     }
-<!-- cat: } -->
 
 ## See also
 

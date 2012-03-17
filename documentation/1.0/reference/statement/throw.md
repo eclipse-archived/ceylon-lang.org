@@ -54,7 +54,7 @@ This includes Ceylon code throwing what in Java would
 be considered to be *checked exceptions* (such as `java.lang.Exception`). In 
 other words the following is perfectly acceptable to the Ceylon compiler:
 
-    import java.lang {CheckedException=Exception};
+    import java.lang {CheckedException=Exception}
     
     void m() {
         throw CheckedException();

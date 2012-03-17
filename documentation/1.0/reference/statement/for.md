@@ -61,7 +61,8 @@ The `else` clause is ideally suited to situations where the `for` statement
 is being used to find something in a sequence or list, and the sought item has 
 not been found:
 
-<!-- cat: class Person() {shared Integer age = 0;} void m(Person[] peoples) { -->
+<!-- cat: class Person() {shared Integer age = 0;} -->
+<!-- cat: void m(Person[] people) { -->
     Boolean minors;
     for (p in people) {
         if (p.age<18) {
