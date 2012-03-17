@@ -15,7 +15,7 @@ its operands.
 
 ## Usage 
 
-    void m<T>(Comparable<T> x, Comparable<T> y) {
+    void m<T>(T x, T y) given T satisfies Comparable<T> {
         Comparison cmp = x <=> y;
     }
 
