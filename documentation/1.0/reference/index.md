@@ -49,7 +49,7 @@ _This page is very incomplete. Want to help? [See how](/code/website)._
 * [What is an expression](expression)
 * [Attribute Evaluation](expression/attribute-evaluation)
 * [Attribute Assignment](expression/attribute-assignment)
-* [Callable References](expression/method-reference)
+* [Callable References](expression/callable-reference)
 * [Class Instantiation](expression/class-instantiation)
 * [Literals](#literals)
 * [Metamodel References](expression/metamodel-reference) <!-- m5 -->
