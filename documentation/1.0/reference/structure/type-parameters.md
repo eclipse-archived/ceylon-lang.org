@@ -22,8 +22,8 @@ A simple type-parameterized (or *generic*) class might look like this:
     
 A simple type-parameterised (or *generic*) method might look like this:
 
-    T m<T,X,Y>(X x, Y y) {
-    
+    void m<X,Y>(X x, Y y) {
+
     }
 
 **Note**: By convention type parameters are given meaningful names rather than

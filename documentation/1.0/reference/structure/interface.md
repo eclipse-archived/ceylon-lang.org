@@ -32,6 +32,7 @@ An interface can satisfy zero or more other interfaces using the
 `satisfies` keyword. If the class `I` is to satisfy interfaces `I1` and `I2` the 
 declaration looks like this:
 
+<!-- cat: interface I1{} interface I2{} -->
     interface I satisfies I1 & I2 {
         /* declarations of interface members */
     }
@@ -51,6 +52,7 @@ interfaces, classes, or toplevel anonymous classes using the `of` clause.
 If the interface `I` is permitted only two direct 
 subtypes `I1` and `C1` its declaration would look like this:
 
+<!-- cat: interface I1 satisfies I {} class C1() satisfies I {} -->
     interface I of I1 | C1 {
         /* declarations of interface members */
     }
@@ -92,11 +94,13 @@ Note that an interface cannot have an [`object`](../object) member.
 An *interface alias* is an interface declaration that specifies another 
 interface, like this:
 
+<!-- cat: interface I2{} -->
     interface I = I2;
 
 The specified interface may have type arguments:
 
-    interface I = I2<E>;
+<!-- cat: interface I2<E>{} -->
+    interface I = I2<String>;
 
 This is similar to [method specifiers](../method#method_specifiers).
 

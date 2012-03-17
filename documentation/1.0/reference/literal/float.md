@@ -12,7 +12,7 @@ doc_root: ../../..
 
 A `Float` literal can be written in a variety of ways:
 
-
+<!-- cat: void m() { -->
     variable Float one := 1.0;
     one := 1.0000;
     
@@ -20,13 +20,14 @@ A `Float` literal can be written in a variety of ways:
     oneMillion := 1_000_000.0;
     oneMillion := 1.0M;
     oneMillion := 1.0e6;
-    oneMillion := 1;0E+6;
+    oneMillion := 1.0E+6;
     
     variable Float half := 0.5;
     half := 5.0E-1;
     half := 5.0e-1;
     half := 500m;
     half := 500.0m;
+<!-- cat: } -->
 
 ## Description
 
@@ -59,8 +60,7 @@ Exponential notation is supported using `e` or `E` to separate the mantissa
 
 Invoking `Float` members directly on `Float` literals is permitted:
 
-
-    Integer minusOneHalf = 0.5.negativeValue;
+    Float minusOneHalf = 0.5.negativeValue;
 
 ## See also
 

@@ -16,6 +16,7 @@ current iteration and proceeds with the next iteration.
 
 The general form of the `continue` statement is
 
+<!-- no-check -->
     // ...within a while or for statement
     // and often guarded by some condition
     continue;

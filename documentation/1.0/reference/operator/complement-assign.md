@@ -16,10 +16,9 @@ result to the left-hand operand.
 
 ## Usage 
 
-    Set<T> a;
-    Set<T> b;
-    // Code initializing a and b
-    Set<T> aExceptB = a~b;
+    void m<T>(Set<T> a, Set<T> b) given T satisfies Object {
+        Set<T> aExceptB = a~b;
+    }
 
 ## Description
 
@@ -28,6 +27,7 @@ result to the left-hand operand.
 
 The `~` operator is defined as follows:
 
+<!-- no-check -->
     lhs := lhs~rhs
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#slotwise) for 

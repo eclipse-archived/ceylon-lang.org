@@ -29,6 +29,7 @@ allows lookup up several items in one go, returning a `Sequence` of the items.
 
 The `[]` operator is defined as follows:
 
+<!-- no-check -->
     lhs.items(index)
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#listmap) for 

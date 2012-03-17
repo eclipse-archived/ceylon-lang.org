@@ -15,9 +15,9 @@ left-hand operand is *extends* its right-hand operand
 
 ## Usage 
 
-    Type<Void> x;
-    Class<Void> y;
-    Boolean extension = x extends y;
+    void m(Type<Void> x,  Class<Void> y) {
+        Boolean extension = x extends y;
+    }
 
 ## Description
 
@@ -25,6 +25,7 @@ left-hand operand is *extends* its right-hand operand
 
 The `extends` operator is defined as follows:
 
+<!-- no-check -->
     lhs.extendsType(rhs);
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#equalitycomparison) for more details.

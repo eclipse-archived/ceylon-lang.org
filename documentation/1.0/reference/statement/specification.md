@@ -16,11 +16,13 @@ local, attribute or method argument.
 
 The general form of the specification statement is
 
+<!-- no-check -->
     T t = ... /* some expression of type T */
 
 Where is it permitted, the declaration of the attribute or local may be 
 separate from its specification:
 
+<!-- no-check -->
     T t;
     t = ... /* some expression of type T */
 
@@ -39,11 +41,12 @@ or attribute that member will have the specified value.
 Because specification is a 
 statement and not an operator it cannot be used within expressions:
 
+<!-- cat: void m(Object[] sequence) { -->
     Boolean isEmpty;
     if (isEmpty = sequence.size == 0) { // compilation error
-        ...
+        // ...
     }
-
+<!-- cat: } -->
 
 ## See also
 

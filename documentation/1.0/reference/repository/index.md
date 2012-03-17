@@ -12,9 +12,9 @@ doc_root: ../..
 Ceylon supports modules natively. Ceylon Modules contain the following:
 
 - A [module descriptor](../structure/module), which contains:
-    - A unique name and version
-    - Meta-data such as author, license, documentation
-    - A list of module dependencies
+  - A unique name and version
+  - Meta-data such as author, license, documentation
+  - A list of module dependencies
 - A list of packages
 - Optionally, a source archive
 - Optionally, an API documentation archive

@@ -18,6 +18,7 @@ the left-hand operand.
 
 The *follow* version is used for accessing attributes:
 
+<!-- no-check -->
     X x;
     Attribute<X> y;
     x .= y; 
@@ -25,6 +26,7 @@ The *follow* version is used for accessing attributes:
 
 The *apply* version is used for invoking methods:
 
+<!-- no-check -->
     X x;
     Method <X,X,String, Number> m;
     x .= m("hello", 5); 
@@ -36,10 +38,12 @@ The *apply* version is used for invoking methods:
 
 The *follow* operator is defined as:
 
+<!-- no-check -->
     lhs:=lhs.member
 
 The *apply* operator is defined as:
 
+<!-- no-check -->
     lhs:=lhs.member(x,y,z)
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#basic) for more details.

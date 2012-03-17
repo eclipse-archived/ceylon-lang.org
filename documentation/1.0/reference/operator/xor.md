@@ -23,6 +23,7 @@ The left-associative, binary `^` operator is used to compute the
 
 The `^` operator is defined as follows:
 
+<!-- no-check -->
     lhs.xor(rhs)
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#slotwise) for 

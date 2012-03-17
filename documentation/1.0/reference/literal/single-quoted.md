@@ -15,7 +15,7 @@ doc_root: ../../..
 Single-quoted literals are character sequences enclosed between single 
 quotes (`'`).
 
-
+<!-- no-check -->
     Regex pattern = '[Cc]eylon';
     Date date = '2011-10-04';
 
@@ -30,7 +30,7 @@ regular expressions, date times, durations, RGB colours, URIs etc.
 Since Ceylon source files are preprocessed for unicode escapes prior to parsing
 you can use unicode escapes within single quoted literals, like this:
 
-
+<!-- no-check -->
     Regex quotation = 'I think \u2234 I am|To be or not to be'; // an escaped Unicode therefore symbol
 
 ### Escaping

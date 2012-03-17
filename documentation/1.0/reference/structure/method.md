@@ -23,6 +23,7 @@ looks like this:
 Alternatively it is possible to declare a method using a 
 [*specifier*](#method_specifiers), like this:
 
+<!-- cat: void anotherMethod(){} -->
     void m() = anotherMethod;
 
 ## Description
@@ -58,7 +59,7 @@ Of course, methods may be members of types which themselves have
 [type parameters](../type-parameters):
 
     class C<Z>() {
-        void m(Z) {
+        void m(Z z) {
         }
     }
 
@@ -96,6 +97,7 @@ parameter name with the equals specifier.
 
 For example a method `m` declared like this
 
+<!-- id:m -->
     void m(Integer i = 0) {
         /* method body: statements */
     }
@@ -103,7 +105,10 @@ For example a method `m` declared like this
 can be [invoked](../../expression/invocation) without supplying an argument 
 for the parameter `i`, like this:
 
+<!-- cat-id:m -->
+<!-- cat: void m2() { -->
     m();
+<!-- cat: } -->
 
 To avoid ambiguity, defaulted parameters are only permitted after all the 
 non-defaulted parameters in the parameter list.
@@ -120,6 +125,7 @@ ellipsis (`...`) followed by the parameter name.
 
 For example a method `m` declared like this
 
+<!-- id:m -->
     void m(String s, Integer... i) {
         /* method body: statements 
            parameter i treated as an Integer[] */
@@ -128,6 +134,7 @@ For example a method `m` declared like this
 can be [invoked](../../expression/invocation) supplying a zero or more 
 expressions for `i`, like this:
 
+<!-- cat-id:m -->
     m("hello");
     m("hello", 1);
     m("hello", 1, 2);
@@ -170,6 +177,7 @@ The body of a non-`void` method must (*definitely return*)[TODO].
 An alternative to providing a method block is to specify a callable 
 expression using `=`:
 
+<!-- cat: void anotherMethod(){} -->
     void m() = anotherMethod;
 
 This is similar to [class alises](../class#aliases).

@@ -16,6 +16,7 @@ The `for` statement supports iteration.
 
 The general form of the `for` statement is
 
+<!-- no-check -->
     for ( /* variable declaration and expression */ ) {
         /* for block */
     } else {
@@ -60,6 +61,7 @@ The `else` clause is ideally suited to situations where the `for` statement
 is being used to find something in a sequence or list, and the sought item has 
 not been found:
 
+<!-- cat: class Person() {shared Integer age = 0;} void m(Person[] peoples) { -->
     Boolean minors;
     for (p in people) {
         if (p.age<18) {
@@ -70,7 +72,7 @@ not been found:
     else {
         minors = false;
     }
-
+<!-- cat: } -->
 
 ### Unsupported features
 

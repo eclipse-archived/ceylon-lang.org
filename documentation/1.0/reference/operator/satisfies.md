@@ -15,9 +15,9 @@ left-hand  operand is *satisfies* its right-hand operand.
 
 ## Usage 
 
-    Type<Void> x;
-    Type<Void> y;
-    Boolean satisfaction = x satisfies y;
+    void m(Type<Void> x, Type<Void> y) {
+        Boolean satisfaction = x satisfies y;
+    }
 
 ## Description
 
@@ -25,6 +25,7 @@ left-hand  operand is *satisfies* its right-hand operand.
 
 The `satisfies` operator is defined as follows:
 
+<!-- no-check -->
     lhs.satisfiesType(rhs);
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#equalitycomparison) 

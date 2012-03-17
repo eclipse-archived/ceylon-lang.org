@@ -16,10 +16,14 @@ Method invocation transfers execution to the given method.
 
 A simple example of postional invocation:
 
+<!-- implicit-id:m: void m(Integer i, String s) {} -->
+
+<!-- cat-id:m -->
     m(2, "bonjour"); 
 
 A simple example of named argument invocation:
 
+<!-- cat-id: m -->
     m{
         s = "ola";
         i = 5;
@@ -38,16 +42,20 @@ may be omitted from the argument list.
 
 For example, given a method `m` [declared](../../structure/method) like this
 
+<!-- id: m -->
     void m(Integer i, String s="hello", Boolean... b) {
         /* method block: statements */
     }
     
 then positional invocations look like this:
 
+<!-- cat-id: m -->
+<!-- cat: void x() { -->
     m(1);   // default parameter, empty sequence
     m(2, "bonjour");  // empty sequence
     m(3, "guttentag", true); // singleton sequence
     m(4, "guttentag", true, true);
+<!-- cat: } -->
 
 TODO Argument with ellipsis to a Sequenced Parameter
 
@@ -64,12 +72,15 @@ and in this case the sequence elements are comma separated.
 
 For example given a method `m` [declared](../../structure/method) like this
 
+<!-- id: m -->
     void m(Integer i, String s="hello", Boolean... b) {
         /* method block: statements */
     }
     
 then named argument invocations look like this:
 
+<!-- cat-id: m -->
+<!-- cat: void x() { -->
     m{
         s = "ola";
         i = 5;
@@ -86,6 +97,7 @@ then named argument invocations look like this:
         i = 7;
         true, true, false
     };
+<!-- cat: } -->
 
 TODO Argument with ellipsis to a Sequenced Parameter
 
@@ -96,7 +108,7 @@ A [callable reference](../method-reference) such as
 called:
 
     void m(Callable<String, Boolean> callable) {
-        value f = callable;
+        String f (Boolean b) = callable;
         String s = f(true);
     }
 

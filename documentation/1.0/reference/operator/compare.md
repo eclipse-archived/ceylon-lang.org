@@ -15,9 +15,9 @@ its operands.
 
 ## Usage 
 
-    Comparable<T> x;
-    T y;
-    Comparison cmp = x <=> y;
+    void m<T>(Comparable<T> x, Comparable<T> y) {
+        Comparison cmp = x <=> y;
+    }
 
 ## Description
 
@@ -25,6 +25,7 @@ its operands.
 
 The `<=>` operator is defined as follows:
 
+<!-- no-check -->
     lhs.compare(rhs);
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#equalitycomparison) for more details.

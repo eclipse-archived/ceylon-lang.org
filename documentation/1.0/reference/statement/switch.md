@@ -17,6 +17,7 @@ list of cases.
 
 The general form of the `switch` statement is
 
+<!-- no-check -->
     switch ( /* switch expression */ ) {
         case ( /* case expression */) {
             /* case block */

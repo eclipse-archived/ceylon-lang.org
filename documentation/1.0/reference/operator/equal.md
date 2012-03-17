@@ -15,9 +15,9 @@ are *equal*.
 
 ## Usage 
 
-    Object x;
-    Object y;
-    Boolean identical = x == y;
+    void m(Object x, Object y) {
+        Boolean identical = x == y;
+    }
 
 ## Description
 
@@ -25,6 +25,7 @@ are *equal*.
 
 The `==` operator is defined as follows:
 
+<!-- no-check -->
     lhs.equals(rhs);
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#equalitycomparison) for more details.

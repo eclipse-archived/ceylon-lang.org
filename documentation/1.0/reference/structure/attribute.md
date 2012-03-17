@@ -14,24 +14,29 @@ An attribute holds state.
 
 ## Usage 
 
-    // in Foo.ceylon
-    
-    // A top level attribute declaration
-    variable String firstName := "John";
-    variable String lastName := "Doe";
+A variable attribute declaration:
 
-    // An attribute getter
+<!-- id:attr -->
+    variable String firstName := "John";
+    variable String lastName := "Smith";
+
+An attribute getter:
+
+<!-- id:attr2 -->
+<!-- cat-id: attr -->
     shared String name {
         return firstName + " " + lastName;
     }
     
-    // An attribute setter
+An attribute setter:
+
+<!-- cat-id: attr -->
+<!-- cat-id: attr2 -->
     assign name {
-        parts = name.split;
+        value parts = name.split;
         firstName := parts.head;
         lastName = parts.tail;
     }
-
     
 
 ## Description
@@ -65,6 +70,9 @@ The type of a [block local](TODO) attribute will be inferred by the compiler
 if the keyword `value` is given in place of a type. In the example below the
 `name` attribute's type is inferred to be `Name`:
 
+<!-- TODO Better example -->
+
+<!-- no-check -->
     value name { 
         return Name(firstName, initial, lastName);
     }

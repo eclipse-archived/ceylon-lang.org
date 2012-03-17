@@ -40,6 +40,7 @@ This would allow you to write expressions using the
 operators `+` (unary plus), `-` (unary minus), 
 `+` (sum), `-` (difference), `*` (product) and `/` (quotient). For example
 
+<!-- no-check -->
     void m(Complex z) {
         Complex a = Complex(1, 2); // 1 + 2i
         Complex b = Complex(4, 2); // 4 + 2i

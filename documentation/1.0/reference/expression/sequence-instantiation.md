@@ -20,7 +20,7 @@ Some simple examples using literals to specify the elements:
 
     String[] none = {};
     Integer[] ints = {1, 2, 3};
-    String|Integer[] mixed = {1, 2, "a few"};
+    Sequence<String|Integer>|Empty mixed = {1, 2, "a few"};
 
 
 ## Description

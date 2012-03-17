@@ -37,10 +37,12 @@ value of the operand *before* the decrement.
 
 The prefix `--` is defined as:
 
+<!-- no-check -->
     rhs:=rhs.predecessor
     
 The postfix `--` is defined as:
 
+<!-- no-check -->
     (--lhs).successor
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#arithmetic) for more details.

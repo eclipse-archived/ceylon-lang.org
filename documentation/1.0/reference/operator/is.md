@@ -15,9 +15,10 @@ variable.
 
 ## Usage 
 
-    Object? obj;
-    Boolean isNumber = obj is Number;
-    Boolean isNothing = obj is Nothing;
+    void m(Object? obj) {
+        Boolean isNumber = obj is Number;
+        Boolean isNothing = obj is Nothing;
+    }
 
 ## Description
 

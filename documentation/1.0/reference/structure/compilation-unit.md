@@ -18,6 +18,7 @@ written in the Ceylon language which contains one or more of top-level
 Here's an example compilation unit in the package `com.example.foo` containing 
 three [top-level](#top_level) declarations:
 
+<!-- no-check -->
     import com.example.baz{Baz}
 
     shared interace Foo {

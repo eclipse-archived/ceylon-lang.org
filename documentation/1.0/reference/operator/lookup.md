@@ -34,6 +34,7 @@ or possibly Milestone 3.
 
 The `[]` operator is defined as follows (for both the get and set cases):
 
+<!-- no-check -->
     lhs.item(index)
 
 The difference between the get and set cases is in the types of the operands.

@@ -15,9 +15,9 @@ operand is *less than* its right-hand operand.
 
 ## Usage 
 
-    Comparable<T> x;
-    T y;
-    Boolean less = x < y;
+    void m<T>(Comparable<T> x, Comparable<T> y) {
+        Boolean less = x < y;
+    }
 
 ## Description
 
@@ -25,6 +25,7 @@ operand is *less than* its right-hand operand.
 
 The `<` operator is defined as follows:
 
+<!-- no-check -->
     lhs.smallerThan(rhs);
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#equalitycomparison) for more details.

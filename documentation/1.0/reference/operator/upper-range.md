@@ -26,6 +26,7 @@ specified by its right-hand operand.
 
 The `[x...]` operator is defined as follows:
 
+<!-- no-check -->
     range(lhs,x)
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#listmap) for 

@@ -15,9 +15,9 @@ operand is *greater than* its right-hand operand
 
 ## Usage 
 
-    Comparable<T> x;
-    T y;
-    Boolean more = x > y;
+    void m<T>(Comparable<T> x, Comparable<T> y) {
+        Boolean more = x > y;
+    }
 
 ## Description
 
@@ -25,6 +25,7 @@ operand is *greater than* its right-hand operand
 
 The `>` operator is defined as follows:
 
+<!-- no-check -->
     lhs.greaterThan(rhs);
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#equalitycomparison) for more details.

@@ -18,15 +18,18 @@ Class instantiation creates a new instance of a [class](../../structure/class).
 Like [method invocation](../invocation) class instantiation can use 
 positional argument lists:
 
+<!-- cat: class MyClass(Integer num, String name) {} void m() {-->
     MyClass(1, "");
-    
+<!-- cat: } -->
+
 Or named argument lists:
-    
+
+<!-- cat: class MyClass(Integer num, String name) {} void m() {-->
     MyClass{
         name="";
         num=2;
     };
-
+<!-- cat: } -->
 
 ## Description
 

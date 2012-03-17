@@ -23,6 +23,7 @@ logical *or* of two operands.
 
 The `||` operator is defined as:
 
+<!-- no-check -->
     if (lhs) true else rhs
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#logical) for 

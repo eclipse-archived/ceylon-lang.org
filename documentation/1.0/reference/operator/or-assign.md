@@ -25,6 +25,7 @@ logical *or* of two operands, assigning the result to the left-hand operand.
 
 The `||=` operator is defined as:
 
+<!-- no-check -->
     if (lhs) true else lhs:=rhs
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#logical) for 

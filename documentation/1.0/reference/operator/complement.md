@@ -23,6 +23,7 @@ The right-associative, unary `~` operator is used to compute the
 
 The `~` operator is defined as follows:
 
+<!-- no-check -->
     rhs.complement;
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#slotwise) for 

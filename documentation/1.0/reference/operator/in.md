@@ -15,15 +15,16 @@ operand is *contained in* its right-hand operand
 
 ## Usage 
 
-    Object x;
-    Category y;
-    Boolean contained = x in y;
+    void m(Object x, Category y) {
+        Boolean contained = x in y;
+    }
 
 ## Description
 
 ### Definition
 The `in` operator is defined as follows:
 
+<!-- no-check -->
     lhs.contained(rhs);
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#equalitycomparison) for more details.

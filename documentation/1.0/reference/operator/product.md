@@ -23,6 +23,7 @@ two operands.
 
 The `*` operator is defined as follows:
 
+<!-- no-check -->
     lhs.castTo<N>().times(rhs.castTo<N>());
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#arithmetic) for more details.

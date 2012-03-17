@@ -22,12 +22,14 @@ The left-associative, binary `&` operator is used to compute the
 The operator is also commonly used to [intersect types] _doc coming soon at_ (#{page.doc_root}/reference/structure/type), 
 so that the declared entity is assignable to both (or all) of the given types:
 
+<!-- no-check -->
     Foo&Bar foobar;
 
 ### Definition
 
 The `&` operator is defined as follows:
 
+<!-- no-check -->
     lhs.and(rhs)
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#slotwise) for 

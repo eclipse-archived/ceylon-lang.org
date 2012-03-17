@@ -66,7 +66,7 @@ corresponding `static` setter method.
 
 Toplevel attributes like the following:
 
-    shared variable Boolean bool = true;
+    shared variable Boolean bool := true;
 
 Are accessed and set using the following Java code:
 

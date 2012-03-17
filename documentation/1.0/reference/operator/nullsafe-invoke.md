@@ -16,8 +16,9 @@ primaries.
 
 ## Usage 
 
-    Number? num;
-    Integer int = num?.positiveValue;
+    void m(Integer? num){
+        Integer int = num?.positiveValue;
+    }
 
 ## Description
 
@@ -29,6 +30,7 @@ types of their operands.
 
 The meaning of null-safe `()` invoke is defined as follows:
 
+<!-- no-check -->
     if (exists lhs) lhs(x,y,z) else null
 
 With the named-argument version entirely analogous only using `{}` in the 

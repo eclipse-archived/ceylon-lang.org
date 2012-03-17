@@ -27,7 +27,9 @@ left-hand operand.
 
 The `*=` operator is defined as follows:
 
+<!-- cat: void m<N>(Numeric<N> lhs1, Castable<N> rhs) given N satisfies Numeric<N> { variable Numeric<N> lhs := lhs1; -->
     lhs:=lhs.times(rhs.castTo<N>())
+<!-- cat: ;} -->
 
 except that `lhs` is evaluated only once.
 

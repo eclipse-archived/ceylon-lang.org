@@ -18,11 +18,11 @@ doc_root: ../..
 Here's a simple example:
   
     class Super() {
-        default void m() {
+        shared default void m() {
         }
     }
     class Sub() extends Super() {
-        actual void m() {
+        shared actual void m() {
             super.m();
             // now do something particular to Sub
         }

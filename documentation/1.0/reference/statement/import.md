@@ -19,19 +19,23 @@ The import statement has several variations.
 
 Importing a single class:
 
+<!-- no-check -->
     import com.example.metasyntax {Foo}
     import math { sqr, sqrt, e, pi }
 
 Importing several classes:
 
+<!-- no-check -->
     import com.example.metasyntax {Foo, Bar}
     
 Importing several all classes in a package (a *wildcard* `import`):
 
+<!-- no-check -->
     import com.example.metasyntax {...}
     
 Assigning a difference name to an imported type (to avoid a name conflict):
 
+<!-- no-check -->
     import com.example.metasyntax { ExampleFoo=Foo, Bar}
 
 **Note:** Import statements should not end with a semicolon.

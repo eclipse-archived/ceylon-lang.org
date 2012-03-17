@@ -130,6 +130,7 @@ both mapped to the Ceylon type `celon.language.Integer` which in turn is mapped
 to `long`, if you want to call a method overriden for a specific version of these
 three types, you have to make it explicit:
 
+
 <!-- lang: java -->
     public class JavaType {
         public void foo(short s){}
@@ -139,6 +140,7 @@ three types, you have to make it explicit:
 
 And:
 
+<!-- no-check -->
     import java.lang { JavaShort = Short }
     
     void m(){
@@ -171,6 +173,7 @@ means you can access them just like a Ceylon `List`.
 
 And:
 
+<!-- no-check -->
     JavaType t = JavaType();
     Array<String> array = t.giveMeAnArray();
     String first = array[0];
@@ -189,6 +192,7 @@ non-primitive types:
 
 And:
 
+<!-- no-check -->
     JavaType t = JavaType();
     Array<String> a = array("One", "Two", "Three"); 
     t.takeThisArray(a);
@@ -198,6 +202,7 @@ And:
 Currently their identity is not respected: they are boxed to a Ceylon wrapper when they
 pass from Java to Ceylon code. This means that the following code will fail:
 
+<!-- no-check -->
     JavaType t = JavaType();
     Array<String> array = t.giveMeAnArray();
     // identical will be false because we're getting two different wrapper objects
@@ -209,6 +214,7 @@ The underlying array is always preserved and not copied though, which means that
 if you modify an array, the modification will be visible on every reference to that
 underlying array, including in the Java type that gave it to you: 
 
+<!-- no-check -->
     JavaType t = JavaType();
     Array<String> array1 = t.giveMeAnArray();
     Array<String> array2 = t.giveMeAnArray();
@@ -242,6 +248,7 @@ they were toplevel objects:
 
 And:
 
+<!-- no-check -->
     import com.foo { JavaEnum { one = \iONE, two = \iTWO } }
 
     void enums(){

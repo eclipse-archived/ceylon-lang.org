@@ -15,8 +15,9 @@ emptiness.
 
 ## Usage 
 
-    Integer[] nums;
-    Boolean haveNums = nums nonempty;
+    void m(Integer[] nums) {
+        Boolean haveNums = nums nonempty;
+    }
 
 ## Description
 
@@ -24,6 +25,7 @@ emptiness.
 
 The meaning of `exists` is defined as follows:
 
+<!-- no-check -->
     if (nonempty lhs) true else false
 
 See the [`language specification`](#{page.doc_root}/#{site.urls.spec_relative}#nullvalues) for more details.

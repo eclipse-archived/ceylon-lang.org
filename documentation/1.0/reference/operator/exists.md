@@ -15,8 +15,9 @@ nullness.
 
 ## Usage 
 
-    Integer? num;
-    Boolean haveNum = num exists;
+    void m(Integer? num) {
+        Boolean haveNum = num exists;
+    }
 
 ## Description
 
@@ -24,6 +25,7 @@ nullness.
 
 The meaning of `exists` is defined as follows:
 
+<!-- no-check -->
     if (exists lhs) true else false
 
 ### Polymorphism

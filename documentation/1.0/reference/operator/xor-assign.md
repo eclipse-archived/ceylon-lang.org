@@ -25,6 +25,7 @@ operand.
 
 The `^=` operator is defined as follows:
 
+<!-- no-check -->
     lhs:=lhs^rhs
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#slotwise) for 

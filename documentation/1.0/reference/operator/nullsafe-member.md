@@ -15,8 +15,9 @@ the its right-hand operand is not `null`.
 
 ## Usage 
 
-    Number? num;
-    Integer int = num?.positiveValue;
+    void m(Integer? num) {
+        Integer int = num?.positiveValue;
+    }
 
 ## Description
 
@@ -24,6 +25,7 @@ the its right-hand operand is not `null`.
 
 The meaning of `?.` is defined as follows:
 
+<!-- no-check -->
     if (exists lhs) lhs.member else null	
 
 ### Polymorphism

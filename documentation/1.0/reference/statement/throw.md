@@ -17,12 +17,16 @@ flow of control has ocurred.
 
 A bare `throw` doesn't supply an exception instance:
 
+<!-- cat: void m() { -->
     throw;
+<!-- cat: } -->
 
 Otherwise an exception instance may be specified; commonly a new instance is 
 created at the point the `throw` statement is used:
 
+<!-- cat: void m() { -->
     throw Exception();
+<!-- cat: } -->
 
 ## Description
 

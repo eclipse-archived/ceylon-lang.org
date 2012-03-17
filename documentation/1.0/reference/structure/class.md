@@ -16,6 +16,7 @@ A class is a stateful type that can be
 
 A trivial class declaration looks like this:
 
+<!-- id:c -->
     class C() {
         /* declarations of class members */
     }
@@ -35,6 +36,7 @@ name of the class in the `class` declaration.
 A class `S` is declared as a subclass of another class `C` using the `extends` 
 keyword like this:
 
+<!-- cat-id:c -->
     class S() extends C() {
         /* declarations of class members */
     }
@@ -52,6 +54,7 @@ A class can satisfy zero or more [interfaces](../interface) using the
 `satisfies` keyword. If the class `C` is to satisfy interfaces `I1` and `I2` the 
 declaration looks like this:
 
+<!-- cat: interface I1 {} interface I2 {} -->
     class C() satisfies I1 & I2 {
         /* declarations of class members */
     }
@@ -62,14 +65,16 @@ satisfying a type, the
 
 ### Enumerated classes
 
-The subclasses of a class can be constrained to a list of named classes or 
-toplevel anonymous classes using the `of` clause. 
+The subclasses of an `abstract` class can be constrained to a list of named 
+classes or toplevel anonymous classes using the `of` clause. 
 If the class `C` is permitted only two direct 
 subclasses `S1` and `S2` its declaration would look like this:
 
-    class C() of S1 | S2 {
+    abstract class C() of S1 | S2 {
         /* declarations of class members */
     }
+<!-- cat: class S1() extends C() {} -->
+<!-- cat: class S2() extends C() {} -->
 
 ### Type parameters
 
@@ -126,11 +131,13 @@ and [`object`s](../object).
 
 A *class alias* is a class declaration that specifies another class, like this:
 
+<!-- cat: class B() {} -->
     class C() = B;
 
 The specified class may have type arguments:
 
-    class C() = D<E>;
+<!-- cat: class D<X>() {} -->
+    class C() = D<String>;
 
 This is similar to [method specifiers](../method#method_specifiers).
 
