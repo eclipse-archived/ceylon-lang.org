@@ -26,9 +26,13 @@ language.
 
 Here's what a simple function looks like:
 
+<!-- implicit-id:point: class Point() { shared Float x = 0.0; shared Float y = 0.0; } -->
+<!-- cat-id:point -->
+<!-- cat: void m() { -->
     function distance(Point from, Point to) {
         return ((from.x-to.x)**2 + (from.y-to.y)**2)**0.5;
     }
+<!-- cat: } -->
 
 Here's a simple class:
 
@@ -48,10 +52,12 @@ Here's a simple class:
 
 Here's how we create and iterate sequences:
 
+<!-- cat: void m() { -->
     String[] names = { "Tom", "Dick", "Harry" };
     for (name in names) {
         print("Hello, " name "!");
     }
+<!-- cat: } -->
 
 If these code examples look boring to you, well, that's kinda the idea -
 they're boring because you understood them immediately!
@@ -65,6 +71,7 @@ between XML and our programming language causes all sorts of problems. So
 Ceylon has a special built-in "declarative" syntax for defining hierarchical 
 structures. This is especially useful for creating user interfaces:
 
+<!-- no-check -->
     Table table {
         title="Squares";
         rows=5;
@@ -91,6 +98,7 @@ structures. This is especially useful for creating user interfaces:
 But it's much more generally useful, forming a great foundation for 
 expressing everything from build scripts to test suites:
 
+<!-- no-check -->
     Suite tests {
         Test { 
             name = "sqrt() function";
@@ -135,11 +143,13 @@ An integral part of this system of denotable principal types is first-class
 support for union and intersection types. A *union type* is a type which
 accepts instances of any one of a list of types:
 
+<!-- no-check -->
     Person|Organization personOrOrganization = ... ;
 
 An *intersection type* is a type which accepts instances of all of a list
 of types:
 
+<!-- no-check -->
     Printable&Sized&Persistent printableSizedPersistent = ... ;
 
 Union and intersection types are occasionally useful as a convenience in 
@@ -148,6 +158,7 @@ and magical in other languages (especially generic type argument inference)
 simple and straightforward in Ceylon. For example, consider the following 
 sequences:
 
+<!-- no-check -->
     value stuff = { "hello", "world", 1.0, -1 };
     value joinedStuff = join({"hello", "world"}, {1.0, 2.0}, {});
 
@@ -175,6 +186,7 @@ than `Object`. Unlike Java, interfaces may define concrete members. Thus,
 Ceylon supports a restricted kind of multiple inheritance, called *mixin
 inheritance*. 
 
+<!-- no-check -->
     interface Sized {
         
         shared formal Integer size;
@@ -215,16 +227,21 @@ just like methods in other object-oriented languages.
 
 An attribute might be a simple value:
 
+<!-- cat: String firstName = "John"; -->
+<!-- cat: String lastName = "Doe"; -->
     String name = firstName + " " + lastName;
 
 It might be a getter:
 
+<!-- cat: String firstName = "John"; -->
+<!-- cat: String lastName = "Doe"; -->
     String name {
         return firstName + " " + lastName;
     }
 
 Or it might be a getter/setter pair:
 
+<!-- cat: variable String fullName := "John Doe"; -->
     String name {
         return fullName;
     }
@@ -244,10 +261,12 @@ requires us to be explicit when we declare a value that might be null, or
 a method that might return null. For example, if `name` might be null, 
 we must declare it like this:
 
+<!-- no-check -->
     String? name = ...
 
 Which is actually just an abbreviation for:
 
+<!-- no-check -->
     String|Nothing name = ...
 
 An attribute of type `String?` might refer to an actual instance of `String`, 
@@ -299,10 +318,12 @@ of our visitors.
 Ceylon gives us the best of both worlds. We can specify an *enumerated list
 of subtypes* when we define a supertype:
 
+<!-- no-check -->
     abstract class Node() of Leaf | Branch {}
 
 And we can write a `switch` statement that handles all the enumerated subtypes:
 
+<!-- no-check -->
     Node node = ... ;
     switch (node)
     case (is Leaf) { ... }
@@ -325,6 +346,7 @@ generic type can detract from the readability of the code. We've observed that:
 Ceylon addresses the first problem by allowing type inference for local 
 declarations. For example:
 
+<!-- no-check -->
     value names = LinkedList { "Tom", "Dick", "Harry" };
 
     function sqrt(Float x) { return x**0.5; }
@@ -353,37 +375,48 @@ function.
 A function which operates on other functions is called a *higher-order function*. 
 For example:
 
-    void repeat(Integer times, void do()) {
+<!-- id:repeat -->
+    void repeat(Integer times, void doIt()) {
         for (i in 1..times) {
-            do();
+            doIt();
         }
     } 
 
 When invoking a higher-order function, we can either pass a reference to a named 
 function:
 
+<!-- cat-id:repeat -->
+<!-- cat: void m() { -->
     void hello() {
         print("Hello!");
     }
     
     repeat(5, hello);
+<!-- cat: } -->
 
 Or we can specify the argument function inline, either like this:
 
+<!-- cat-id:repeat -->
+<!-- cat: void m() { -->
     repeat(5, void print("Hello!"));
+<!-- cat: } -->
 
 Or, using a named argument invocation, like this:
 
+<!-- cat-id:repeat -->
+<!-- cat: void m() { -->
     repeat {
         times = 5;
-        void do() {
+        void doIt() {
             print("Hello!");
         }
     };
+<!-- cat: } -->
 
 It's even possible to pass a member method or attribute reference to a higher
 order function:
 
+<!-- no-check -->
     String[] names = ... ;
     String[] uppercaseNames = map(names, String.uppercase);
 
@@ -399,12 +432,14 @@ Instead of wildcard types, Ceylon features *declaration-site variance*. A type
 parameter may be marked as covariant (`out`) or contravariant (`in`) by the class 
 or interface that declares the parameter.
 
+<!-- no-check -->
     interface Correspondence<in Key, out Item> { ... }
 
 Ceylon has a more expressive system of generic type constraints with a much cleaner, 
 more regular syntax. The syntax for declaring type constraints on a type parameter 
 looks very similar to a class or interface declaration.
 
+<!-- no-check -->
     interface Producer<in Input, out Value>
             given Value(Input input) satisfies Container { ... }
 
@@ -424,6 +459,7 @@ call this approach *operator polymorphism*.
 
 For example, the Ceylon language module defines the interface `Summable`.
 
+<!-- no-check -->
     shared interface Summable<Other> of Other
             given Other satisfies Summable<Other> {
         shared formal Other plus(Other that);
@@ -432,10 +468,12 @@ For example, the Ceylon language module defines the interface `Summable`.
 And the `+` operation is defined for values which are assignable to `Summable`.
 The following expression:
 
+<!-- no-check -->
     x+y
 
 Is merely an abbreviation of:
 
+<!-- no-check -->
     x.plus(y)
 
 Likewise, `<` is defined in terms of the interface `Comparable`, `*` in terms of
@@ -448,6 +486,7 @@ metamodel and events. Generic code may invoke members reflectively and intercept
 member invocations. This facility is more powerful, and much more typesafe, than 
 reflection in Java.
 
+<!-- no-check -->
     Class<Person,Name> personClass = Person;
     Person gavin = personClass(Name("Gavin", "King"));
 
@@ -456,6 +495,7 @@ annotations are even used for language modifiers like `abstract` and `shared` -
 which are not keywords in Ceylon - and for embedding API documentation for the 
 documentation compiler:
 
+<!-- no-check -->
     doc "The user login action"
     by "Gavin King"
     throws (DatabaseException
@@ -478,6 +518,7 @@ package-private, module-private, and public visibility for program elements. The
 no equivalent to Java's `protected`. Dependencies between modules are specified in
 the module descriptor, which is written in Ceylon:
 
+<!-- no-check -->
     Module module {
         name='org.jboss.example';
         version='1.0.0';
