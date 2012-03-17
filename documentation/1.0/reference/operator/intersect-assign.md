@@ -16,6 +16,7 @@ operand.
 
 ## Usage 
 
+<!-- no-check -->
     void m(Set<Integer> primes, Set<Integer> evens) {
         variable Set<Integer> two := primes;
         two &= evens;

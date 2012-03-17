@@ -15,6 +15,7 @@ The left-associative, binary `^` operator is used to compute the
 
 ## Usage
 
+<!-- no-check -->
     void m(Set<Integer> odds, Set<Integer> evens) {
         Set<Integer> integers = odds ^ evens;
     }

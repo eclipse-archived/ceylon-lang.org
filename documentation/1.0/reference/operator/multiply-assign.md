@@ -16,9 +16,11 @@ left-hand operand.
 
 ## Usage 
 
+<!-- cat: void m() { -->
     variable Integer num := 1;
     num *= 2; // double num 
     num *= num; // square num
+<!-- cat: } -->
 
 ## Description
 

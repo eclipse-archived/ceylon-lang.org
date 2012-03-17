@@ -15,6 +15,7 @@ left-hand operand is *extends* its right-hand operand
 
 ## Usage 
 
+<!-- no-check -->
     void m(Type<Void> x) {
         Boolean extension = x extends Class<Void>;
     }

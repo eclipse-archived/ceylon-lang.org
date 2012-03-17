@@ -16,11 +16,13 @@ and instantiate classes
 ## Usage
 
 <!-- cat: class MyClass() {} -->
+<!-- cat: void m() { -->
     print("hello, world!");       // positional style
     print{                        // named-arguments style
         line="hello, world";
     };
     MyClass instance = MyClass(); // invoking a class to get an instance
+<!-- cat: } -->
 
 ## Description
 

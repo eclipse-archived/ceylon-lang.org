@@ -17,14 +17,17 @@ method, resulting in a `Callable`.
 
     String[] names = {"foo", "bar", "baz"};
     String[] initials = names[].initial(1);
-    // or
-    Callable<String[], Integer> ref = names[].initial;
 
 ## Description
 
 ### Implementation
 
-Spread method references will be implemented in Milestone 3.
+Spread method references, such as:
+
+<!-- no-check -->
+    Callable<String[], Integer> ref = names[].initial;
+    
+will be implemented in Milestone 3.
 
 ### Definition
 

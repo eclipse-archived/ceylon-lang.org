@@ -15,8 +15,10 @@ the amount given by its right-hand operand.
 
 ## Usage 
 
+<!-- cat: void m() { -->
     variable Float num := 1.0;
     num /= 2.0; // half num 
+<!-- cat: } -->
 
 ## Description
 

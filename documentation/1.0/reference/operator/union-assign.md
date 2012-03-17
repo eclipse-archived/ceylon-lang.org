@@ -16,6 +16,7 @@ operand.
 
 ## Usage
 
+<!-- no-check -->
     void m(Set<Integer> odds, Set<Integer> evens) {
         variable Set<Integer> all := odds;
         all |= evens;

@@ -17,14 +17,17 @@ differ in whether the result is assigned before or after the decrement.
 
 Postfix `--` has the operator after the operand:
 
-
+<!-- cat: void m() { -->
     variable Integer num := 1;
     num--;
+<!-- cat: } -->
     
 Prefix `--` puts the operator before the operand:
 
+<!-- cat: void m() { -->
     variable Integer num := 1;
     --num;
+<!-- cat: } -->
 
 ## Description
 

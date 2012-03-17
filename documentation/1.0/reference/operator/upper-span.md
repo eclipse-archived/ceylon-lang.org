@@ -16,15 +16,15 @@ as specified by its right-hand operand.
 ## Usage 
 
     String[] names = {"foo", "bar", "baz"};
-    String[] secondAndThird = names[1..];
-    String[] third = names[2..];
-    String[] emptySequence = names[3..];
+    String[] secondAndThird = names[1...];
+    String[] third = names[2...];
+    String[] emptySequence = names[3...];
 
 ## Description
 
 ### Definition
 
-The `[x..]` operator is defined as follows:
+The `[x...]` operator is defined as follows:
 
 <!-- no-check -->
     lhs.span(from)
@@ -34,8 +34,8 @@ more details.
 
 ### Polymorphism
 
-The `[x..]` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
-The meaning of `[x..]` depends on the 
+The `[x...]` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
+The meaning of `[x...]` depends on the 
 [`Ranged`](#{page.doc_root}/api/ceylon/language/interface_Ranged.html) 
 interface.
 

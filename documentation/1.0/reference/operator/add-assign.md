@@ -15,9 +15,11 @@ by the amount given by its right-hand operand.
 
 ## Usage 
 
+<!-- cat: void m() { -->
     variable Integer num := 1;
     num += 1; // increment num by 1
     num += num; // increment num by 2
+<!-- cat: } -->
 
 ## Description
 

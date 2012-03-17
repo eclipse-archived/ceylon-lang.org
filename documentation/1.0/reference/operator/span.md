@@ -40,7 +40,7 @@ interface.
 
 ## See also
 
-* [`[x..]` (upper span)](../upper-span) operator used for obtaining a tail of a `Ranged`.
+* [`[x...]` (upper span)](../upper-span) operator used for obtaining a tail of a `Ranged`.
 * API documentation for [`Ranged`](#{page.doc_root}/api/ceylon/language/interface_Ranged.html)
 * [sequence operators](#{page.doc_root}/#{site.urls.spec_relative}#listmap) in the 
   language specification

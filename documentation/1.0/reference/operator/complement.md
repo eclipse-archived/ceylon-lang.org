@@ -15,6 +15,7 @@ The left-associative, binary `~` operator is used to compute the
 
 ## Usage 
 
+<!-- no-check -->
     void m<Dog>(Set<Dog> dogs, Set<Dog> blackDogs) 
       given Dog satisfies Object {
         Set<Dog> nonBlackDogs = dogs ~ blackDogs;

@@ -17,13 +17,17 @@ differ in whether the result is assigned before or after the increment.
 
 Postfix unary `++` operator has the operator after the operand:
 
+<!-- cat: void m() { -->
     variable Integer num := 1;
     num++;
+<!-- cat: } -->
     
 Prefix unary `++` operator  puts the operator before the operand:
 
+<!-- cat: void m() { -->
     variable Integer num := 1;
     ++num;
+<!-- cat: } -->
 
 ## Description
 

@@ -15,8 +15,10 @@ The right-associative, binary `:=` operator is used to assign a value to a
 
 ## Usage 
 
+<!-- cat: void m() { -->
     variable Integer num := 1;
     num := 2;
+<!-- cat: } -->
 
 ## Description
 

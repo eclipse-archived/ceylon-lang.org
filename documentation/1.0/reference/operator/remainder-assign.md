@@ -16,8 +16,10 @@ the left-hand operand with the result.
 
 ## Usage 
 
+<!-- cat: void m() { -->
     variable Integer num := 10;
     num %= 2; // half num 
+<!-- cat: } -->
 
 ## Description
 

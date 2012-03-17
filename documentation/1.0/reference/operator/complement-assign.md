@@ -16,6 +16,7 @@ result to the left-hand operand.
 
 ## Usage 
 
+<!-- no-check -->
     void m<Dog>(Set<Dog> dogs, Set<Dog> blackDogs) 
       given Dog satisfies Object {
         variable Set<Dog> nonBlackDogs := dogs;

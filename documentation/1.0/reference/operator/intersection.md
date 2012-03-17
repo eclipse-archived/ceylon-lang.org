@@ -17,6 +17,7 @@ The left-associative, binary `&` operator is used to compute the
 
 Intersection on values:
 
+<!-- no-check -->
     void m(Set<Integer> primes, Set<Integer> evens) {
         Set<Integer> two = primes & evens;
     }

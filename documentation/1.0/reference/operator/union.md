@@ -17,6 +17,7 @@ The left-associative, binary `|` operator is used to compute the
 
 Union on values:
 
+<!-- no-check -->
     void m(Set<Integer> odds, Set<Integer> evens) {
         Set<Integer> ints = odds | evens;
     }

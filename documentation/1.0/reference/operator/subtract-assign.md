@@ -15,9 +15,11 @@ by the amount given by its right-hand operand.
 
 ## Usage 
 
+<!-- cat: void m() { -->
     variable Integer num := 4;
     num -= 1; // decrement num by 1
     num -= num; // decrement num by 3
+<!-- cat: } -->
 
 ## Description
 

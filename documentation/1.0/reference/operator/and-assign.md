@@ -15,9 +15,11 @@ logical *and* of two operands, assigning the result to the left-hand operand.
 
 ## Usage 
 
+<!-- cat: void m() { -->
     variable Boolean a := true;
     Boolean b = false;
     a &&= b; // a becomes false
+<!-- cat: } -->
 
 ## Description
 
