@@ -65,5 +65,5 @@ such a widening is not possible.
   and 
   [Numeric operator semantics](#{page.doc_root}/tour/language-module/#numeric_operator_semantics) 
   in the Tour of Ceylon
-* [~ (complement in)](../complement-in) the set-wise minus operator
+* [~ (complement)](../complement) the set-wise minus operator
 

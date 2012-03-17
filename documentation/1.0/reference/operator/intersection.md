@@ -15,41 +15,40 @@ The left-associative, binary `&` operator is used to compute the
 
 ## Usage 
 
-    Integer one = 1 & 2;
+Intersection on values:
+
+    void m(Set<Integer> primes, Set<Integer> evens) {
+        Set<Integer> two = primes & evens;
+    }
 
 ## Description
 
-The operator is also commonly used to [intersect types] _doc coming soon at_ (#{page.doc_root}/reference/structure/type), 
-so that the declared entity is assignable to both (or all) of the given types:
-
-<!-- no-check -->
-    Foo&Bar foobar;
+**Note**: The `&` operator is also commonly used to 
+[intersect types](#{page.doc_root}/reference/structure/type#intersection_types). 
+This page is about using the `&` operator on *values*.
 
 ### Definition
 
 The `&` operator is defined as follows:
 
 <!-- no-check -->
-    lhs.and(rhs)
+    lhs.intersection(rhs)
 
-See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#slotwise) for 
+See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#sets) for 
 more details.
 
 ### Polymorphism
 
 The `&` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `&` depends on the 
-[`Slots`](#{page.doc_root}/api/ceylon/language/interface_Slots.html) interface 
+[`Set`](#{page.doc_root}/api/ceylon/language/interface_Set.html) interface 
 
 ## See also
 
-* API documentation for [`Slots`](#{page.doc_root}/api/ceylon/language/interface_Slots.html)
-* [slotwise operators](#{page.doc_root}/#{site.urls.spec_relative}#slotwise) in the 
+* API documentation for [`Set`](#{page.doc_root}/api/ceylon/language/interface_Set.html)
+* [set operators](#{page.doc_root}/#{site.urls.spec_relative}#sets) in the 
   language specification
 * [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 
   language specification
 * [Operator polymorphism](#{page.doc_root}/tour/language-module/#operator_polymorphism) 
-  and 
-  [Slots Interface](#{page.doc_root}/tour/language-module/#the_slots_interface) 
-  in the Tour of Ceylon
 

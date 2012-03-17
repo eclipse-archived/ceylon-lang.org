@@ -16,8 +16,9 @@ result to the left-hand operand.
 
 ## Usage 
 
-    void m<T>(Set<T> a, Set<T> b) given T satisfies Object {
-        Set<T> aExceptB = a~b;
+    void m<Dog>(Set<Dog> dogs, Set<Dog> blackDogs) given T satisfies Object {
+        variable Set<Dog> nonBlackDogs := dogs;
+        nonBlackDogs ~= blackDogs;
     }
 
 ## Description
@@ -30,31 +31,23 @@ The `~` operator is defined as follows:
 <!-- no-check -->
     lhs := lhs~rhs
 
-See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#slotwise) for 
+See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#sets) for 
 more details.
 
 ### Polymorphism
 
 The `~=` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism).
 
-The `~` in the definition is the [complement in](../complement-in) operator 
-which depends on the [`Slots`](#{page.doc_root}/api/ceylon/language/interface_Slots.html) interface.
-
-### Meaning of *complement assign* for built-in types
-
-TODO
+The `~` in the definition is the [complement](../complement) operator 
+which depends on the [`Set`](#{page.doc_root}/api/ceylon/language/interface_Set.html) interface.
 
 ## See also
 
-* [unary `~`](../complement) (complement) operator
-* [binary `~`](../complement-in) (complement in) operator
-* [`Slots`](#{page.doc_root}/api/ceylon/language/interface_Slots.html)
-* [slotwise operators](#{page.doc_root}/#{site.urls.spec_relative}#slotwise) in the 
+* [`~`](../complement) (complement) operator
+* [`Set`](#{page.doc_root}/api/ceylon/language/interface_Set.html)
+* [set operators](#{page.doc_root}/#{site.urls.spec_relative}#sets) in the 
   language specification
 * [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 
   language specification
 * [Operator polymorphism](#{page.doc_root}/tour/language-module/#operator_polymorphism) 
-  and the
-  [Slots Interface](#{page.doc_root}/tour/language-module/#the_slots_interface) 
-  in the Tour of Ceylon
 

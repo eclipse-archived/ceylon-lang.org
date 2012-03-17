@@ -120,7 +120,7 @@ modularity.*
 Notes:
 
 1. <a name="m1-control">Without support for `try (x)` or `if (satisfies U V)`.</a>
-2. <a name="m1-operators">Excluding slotwise operators, and operators that depend 
+2. <a name="m1-operators">Excluding set operators, and operators that depend 
    on `Gettable`/`Callable`. Furthermore, *numeric widening* with arithmetic 
    operators and user-defined numeric types is not supported.</a>
 3. <a name="m1-invocation">Excluding defaulted arguments and `Callable`.</a>

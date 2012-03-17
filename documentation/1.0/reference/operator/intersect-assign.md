@@ -16,8 +16,10 @@ operand.
 
 ## Usage 
 
-    variable Integer one = 1;
-    one &= 2; // still one
+    void m(Set<Integer> primes, Set<Integer> evens) {
+        variable Set<Integer> two := primes;
+        two &= evens;
+    }
 
 ## Definition
 
@@ -26,26 +28,23 @@ And is defined as follows:
 <!-- no-check -->
     lhs:=lhs&rhs
 
-See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#slotwise) for 
+See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#sets) for 
 more details.
 
 ### Polymorphism
 
 The `&=` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 
-The `&` in the definition is the [intersect operator] _doc coming soon at_ (../intersect) which 
-depends on the [`Slots`](#{page.doc_root}/api/ceylon/language/interface_Slots.html) interface.
+The `&` in the definition is the [intersect operator](../intersect) which 
+depends on the [`Set`](#{page.doc_root}/api/ceylon/language/interface_Set.html) interface.
 
 ## See also
 
 * [`&` (intersect)](../intersect) operator
-* API documentation for [`Slots`](#{page.doc_root}/api/ceylon/language/interface_Slots.html)
-* [slotwise operators](#{page.doc_root}/#{site.urls.spec_relative}#slotwise) in the 
+* API documentation for [`Set`](#{page.doc_root}/api/ceylon/language/interface_Set.html)
+* [set operators](#{page.doc_root}/#{site.urls.spec_relative}#sets) in the 
   language specification
 * [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 
   language specification
 * [Operator polymorphism](#{page.doc_root}/tour/language-module/#operator_polymorphism) 
-  and 
-  [Slots Interface](#{page.doc_root}/tour/language-module/#the_slots_interface) 
-  in the Tour of Ceylon
 

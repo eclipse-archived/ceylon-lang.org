@@ -108,8 +108,8 @@ _This page is very incomplete. Want to help? [See how](/code/website)._
 * [`[x..y]` (subrange)](operator/subrange)
 * [`[x...]` (upper range)](operator/upper-range)
 * [`[].` (spread member)] - _doc coming soon at_ (operator/spread)
-* [`^`   (Set exclusive union)](operator/xor) <!-- m4 -->
-* [`^=`  (Set exclusive union assign)](operator/xor-assign) <!-- m4 -->
+* [`^`   (Set exclusive union)](operator/exclusive-union) <!-- m4 -->
+* [`^=`  (Set exclusive union assign)](operator/exclusive-union-assign) <!-- m4 -->
 * [`in`  (in)](operator/in)
 * [`is`  (is)](operator/is)
 * [`|`   (Set union)](operator/union) <!-- m4 -->
