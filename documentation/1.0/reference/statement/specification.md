@@ -16,13 +16,13 @@ local, attribute or method argument.
 
 The general form of the specification statement is
 
-<!-- no-check -->
+<!-- check:none -->
     T t = ... /* some expression of type T */
 
 Where is it permitted, the declaration of the attribute or local may be 
 separate from its specification:
 
-<!-- no-check -->
+<!-- check:none -->
     T t;
     t = ... /* some expression of type T */
 
@@ -41,7 +41,7 @@ or attribute that member will have the specified value.
 Because specification is a 
 statement and not an operator it cannot be used within expressions:
 
-<!-- no-check -->
+<!-- check:none -->
     Boolean isEmpty;
     if (isEmpty = sequence.size == 0) { // compilation error
         // ...

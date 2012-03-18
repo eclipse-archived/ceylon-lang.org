@@ -15,7 +15,7 @@ left-hand operand is *extends* its right-hand operand
 
 ## Usage 
 
-<!-- no-check -->
+<!-- check:none -->
     void m(Type<Void> x) {
         Boolean extension = x extends Class<Void>;
     }
@@ -26,7 +26,7 @@ left-hand operand is *extends* its right-hand operand
 
 The `extends` operator is defined as follows:
 
-<!-- no-check -->
+<!-- check:none -->
     lhs.extendsType(rhs);
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#equalitycomparison) for more details.

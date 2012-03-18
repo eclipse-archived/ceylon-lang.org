@@ -16,7 +16,7 @@ result to the left-hand operand.
 
 ## Usage 
 
-<!-- no-check -->
+<!-- check:none -->
     void m<Dog>(Set<Dog> dogs, Set<Dog> blackDogs) 
       given Dog satisfies Object {
         variable Set<Dog> nonBlackDogs := dogs;
@@ -30,7 +30,7 @@ result to the left-hand operand.
 
 The `~` operator is defined as follows:
 
-<!-- no-check -->
+<!-- check:none -->
     lhs := lhs~rhs
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#sets) for 

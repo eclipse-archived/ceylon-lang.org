@@ -26,7 +26,7 @@ operand is *greater than* its right-hand operand
 
 The `>` operator is defined as follows:
 
-<!-- no-check -->
+<!-- check:none -->
     lhs.greaterThan(rhs);
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#equalitycomparison) for more details.

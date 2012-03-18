@@ -25,7 +25,7 @@ indexed by its right-hand operand.
 
 The `[x..y]` operator is defined as follows:
 
-<!-- no-check -->
+<!-- check:none -->
     lhs.span(from,to)
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#listmap) for 

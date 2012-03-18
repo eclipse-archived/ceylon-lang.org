@@ -23,7 +23,7 @@ integer division.
 
 The `%` operator is defined as follows:
 
-<!-- no-check -->
+<!-- check:none -->
     lhs.castTo<N>().remainder(rhs.castTo<N>());
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#arithmetic) for more details.

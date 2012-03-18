@@ -17,7 +17,7 @@ In Ceylon, a *module* is a collection of [packages](../package) together with a
 
 An example module descriptor:
 
-<!-- no-check -->
+<!-- check:none -->
     Module module {
         name = 'com.example.foo';
         version = '1.0';

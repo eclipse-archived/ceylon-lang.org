@@ -27,7 +27,7 @@ Note that `+` does not change the sign of a negative number:
 
 The `+` operator is defined as follows:
 
-<!-- no-check -->
+<!-- check:none -->
     rhs.positiveValue;
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#arithmetic) for more details.

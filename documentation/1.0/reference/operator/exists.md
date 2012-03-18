@@ -25,7 +25,7 @@ nullness.
 
 The meaning of `exists` is defined as follows:
 
-<!-- no-check -->
+<!-- check:none -->
     if (exists lhs) true else false
 
 ### Polymorphism

@@ -38,17 +38,17 @@ The following statements each demonstrate an expression statement:
     
 ### [`outer`](outer) <!-- m3-->
 
-<!-- no-check -->
+<!-- check:none -->
     outer.m();
     
 ### [`super`](super)
 
-<!-- no-check -->
+<!-- check:none -->
     super.m();
     
 ### [Metamodel reference](metamodel-reference) <!-- m5-->
 
-<!-- no-check -->
+<!-- check:none -->
     Type<String> stringType = String;
     Class<String> stringClass = String;
     Method<String, String, Integer> initialMethod = String.initial;

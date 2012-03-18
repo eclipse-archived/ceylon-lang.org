@@ -37,7 +37,7 @@ the type of the receiver and the type of the parameters in the method's
 parameter list. For example a method `m` on a type `X` took
 `Integer` and `Boolean` parameters and returned a `String` would have type:
 
-<!-- no-check -->
+<!-- check:none -->
     Callable<String, X, Integer, Boolean>
 
 The general pattern for member methods is:
@@ -61,7 +61,7 @@ and the type of the parameters in its initializer's parameter list.
 For example if a class `C` has initializer parameters
 `Integer` and `Boolean` then the initializer reference would have type:
 
-<!-- no-check -->
+<!-- check:none -->
     Callable<C, Integer, Boolean>
 
 The general pattern is:

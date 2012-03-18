@@ -16,7 +16,7 @@ The `break` statement is a control directive that terminates a `for` or
 
 The general form of the `break` statement is
 
-<!-- no-check -->
+<!-- check:none -->
     // ...within a while or for statement
     // and often guarded by some condition
     break;

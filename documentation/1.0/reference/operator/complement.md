@@ -15,7 +15,7 @@ The left-associative, binary `~` operator is used to compute the
 
 ## Usage 
 
-<!-- no-check -->
+<!-- check:none -->
     void m<Dog>(Set<Dog> dogs, Set<Dog> blackDogs) 
       given Dog satisfies Object {
         Set<Dog> nonBlackDogs = dogs ~ blackDogs;
@@ -29,7 +29,7 @@ Another way of describing this operator is 'set minus'.
 
 The `~` operator is defined as follows:
 
-<!-- no-check -->
+<!-- check:none -->
     lhs.complement(rhs);
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#sets) for 

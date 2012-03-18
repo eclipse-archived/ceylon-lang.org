@@ -26,7 +26,7 @@ operand is *greater than or equal to* its right-hand operand.
 
 The `>=` operator is defined as follows:
 
-<!-- no-check -->
+<!-- check:none -->
     lhs.asLargeAs(rhs);
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#equalitycomparison) for more details.

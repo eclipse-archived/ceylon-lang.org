@@ -26,7 +26,7 @@ as specified by its right-hand operand.
 
 The `[x...]` operator is defined as follows:
 
-<!-- no-check -->
+<!-- check:none -->
     lhs.span(from)
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#listmap) for 

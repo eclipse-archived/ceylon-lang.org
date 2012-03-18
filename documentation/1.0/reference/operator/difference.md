@@ -23,7 +23,7 @@ two operands.
 
 The `-` operator is defined as 
 
-<!-- no-check -->
+<!-- check:none -->
     lhs.castTo<N>().minus(rhs.castTo<N>());
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#arithmetic) for more details.

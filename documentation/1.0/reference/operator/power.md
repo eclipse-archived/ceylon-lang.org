@@ -23,7 +23,7 @@ operand *raised to the power* of its right-hand operand.
 
 The `**` operator is defined as follows:
 
-<!-- no-check -->
+<!-- check:none -->
     lhs.castTo<N>().power(rhs.castTo<N>());
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#arithmetic) for more details.

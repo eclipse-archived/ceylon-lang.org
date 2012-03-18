@@ -23,7 +23,7 @@ two operands.
 
 The `/` operator it defined as follows:
 
-<!-- no-check -->
+<!-- check:none -->
     lhs.castTo<N>().divided(rhs.castTo<N>());
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#arithmetic) for more details.

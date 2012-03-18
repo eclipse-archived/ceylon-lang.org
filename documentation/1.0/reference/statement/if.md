@@ -16,7 +16,7 @@ The `if` statement allows a block of code to be executed conditionally.
 
 The general form of the `if` statement is
 
-<!-- no-check -->
+<!-- check:none -->
     if ( /* some condition */ ) {
         /* code executed if some condition is true */
     } else if (/* other condition */ ) {

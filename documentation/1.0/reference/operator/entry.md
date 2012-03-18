@@ -23,7 +23,7 @@ The *entry* operator creates an `Entry` from its key and value.
 
 The `->` operator is defined as follows:
 
-<!-- no-check -->
+<!-- check:none -->
     Entry(lhs, rhs)
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#constructors) for 

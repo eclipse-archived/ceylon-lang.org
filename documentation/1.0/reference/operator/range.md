@@ -23,7 +23,7 @@ The *range* operator creates a `Range` from its endpoints.
 
 The `..` operator is defined as follows:
 
-<!-- no-check -->
+<!-- check:none -->
     Range(lhs, rhs)
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#constructors) for 

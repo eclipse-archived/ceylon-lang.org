@@ -23,7 +23,7 @@ logical *not* of its operand.
 
 The `!` operator is defined as:
 
-<!-- no-check -->
+<!-- check:none -->
     if (rhs) false else true
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#logical) for 

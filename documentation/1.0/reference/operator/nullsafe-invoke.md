@@ -30,7 +30,7 @@ types of their operands.
 
 The meaning of null-safe `()` invoke is defined as follows:
 
-<!-- no-check -->
+<!-- check:none -->
     if (exists lhs) lhs(x,y,z) else null
 
 With the named-argument version entirely analogous only using `{}` in the 

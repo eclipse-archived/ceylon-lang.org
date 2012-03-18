@@ -25,7 +25,7 @@ the its right-hand operand is not `null`.
 
 The meaning of `?.` is defined as follows:
 
-<!-- no-check -->
+<!-- check:none -->
     if (exists lhs) lhs.member else null	
 
 ### Polymorphism

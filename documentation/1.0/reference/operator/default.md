@@ -24,7 +24,7 @@ The right-associative, binary `?` operator is used to specify a *default* value.
 
 The meaning of `?` is defined as follows:
 
-<!-- no-check -->
+<!-- check:none -->
     if (exists lhs) lhs else rhs
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#nullvalues) for more details.

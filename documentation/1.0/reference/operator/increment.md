@@ -40,12 +40,12 @@ value of the operand *before* the increment.
 
 The prefix `++` is defined as:
 
-<!-- no-check -->
+<!-- check:none -->
     rhs:=rhs.successor
     
 The postfix `++` is defined as:
 
-<!-- no-check -->
+<!-- check:none -->
     (++lhs).predecessor
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#arithmetic) for more details.

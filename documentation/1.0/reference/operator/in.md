@@ -24,7 +24,7 @@ operand is *contained in* its right-hand operand
 ### Definition
 The `in` operator is defined as follows:
 
-<!-- no-check -->
+<!-- check:none -->
     lhs.contained(rhs);
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#equalitycomparison) for more details.

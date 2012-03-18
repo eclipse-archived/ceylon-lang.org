@@ -27,7 +27,7 @@ logical *and* of two operands, assigning the result to the left-hand operand.
 
 The `&&=` operator is defined as:
 
-<!-- no-check -->
+<!-- check:none -->
     if (lhs) lhs:=rhs else false
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#logical) for 

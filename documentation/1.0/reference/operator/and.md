@@ -23,7 +23,7 @@ logical *and* of two operands
 
 The `&&` operator is defined as:
 
-<!-- no-check -->
+<!-- check:none -->
     if (lhs) rhs else false
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#logical) for 

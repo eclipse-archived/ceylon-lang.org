@@ -16,7 +16,7 @@ The `for` statement supports iteration.
 
 The general form of the `for` statement is
 
-<!-- no-check -->
+<!-- check:none -->
     for ( /* variable declaration and expression */ ) {
         /* for block */
     } else {

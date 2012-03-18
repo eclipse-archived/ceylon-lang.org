@@ -74,7 +74,7 @@ if the keyword `value` is given in place of a type. In the example below the
 
 <!-- TODO Better example -->
 
-<!-- no-check -->
+<!-- check:none -->
     value name { 
         return Name(firstName, initial, lastName);
     }

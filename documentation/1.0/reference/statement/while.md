@@ -16,7 +16,7 @@ The `while` statement supports iteration.
 
 The general form of the `while` statement is
 
-<!-- no-check -->
+<!-- check:none -->
     while ( /* condition */ ) {
         /* while block */
     }

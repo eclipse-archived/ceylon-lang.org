@@ -25,7 +25,7 @@ emptiness.
 
 The meaning of `exists` is defined as follows:
 
-<!-- no-check -->
+<!-- check:none -->
     if (nonempty lhs) true else false
 
 See the [`language specification`](#{page.doc_root}/#{site.urls.spec_relative}#nullvalues) for more details.

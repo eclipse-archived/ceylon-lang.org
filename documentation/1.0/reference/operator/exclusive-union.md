@@ -15,7 +15,7 @@ The left-associative, binary `^` operator is used to compute the
 
 ## Usage
 
-<!-- no-check -->
+<!-- check:none -->
     void m(Set<Integer> odds, Set<Integer> evens) {
         Set<Integer> integers = odds ^ evens;
     }
@@ -26,7 +26,7 @@ The left-associative, binary `^` operator is used to compute the
 
 The `^` operator is defined as follows:
 
-<!-- no-check -->
+<!-- check:none -->
     lhs.exclusiveUnion(rhs)
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#sets) for 

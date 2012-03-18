@@ -45,7 +45,7 @@ extending an `abstract` class or implementing an interface.
 
 An anonymous class may extend an ordinary class and satisfy interfaces.
 
-<!-- no-check -->
+<!-- check:none:Requires IO -->
     shared object consoleWriter satisfies Writer {
                  
         formatter = StringFormatter();
@@ -71,7 +71,7 @@ but that's not quite right:
 
 Let's see how this can be useful:
 
-<!-- no-check -->
+<!-- check:none:Requires Mutable List -->
     interface Subscription {
         shared formal void cancel();
     }
@@ -99,7 +99,7 @@ think of a method as a parametrized attribute.
 An `object` declaration can refine an attribute declared `formal` or `default`,
 as long as it is a subtype of the declared type of the attribute.
 
-<!-- no-check -->
+<!-- check:none:Requires IO -->
     shared abstract class App() {
         shared formal OutputStream stream;
         ...
@@ -123,7 +123,7 @@ more than natural. But in Ceylon, a non-abstract nested class is actually
 considered a member of the containing type. For example, `BufferedReader` 
 defines the member class `Buffer`:
 
-<!-- no-check -->
+<!-- check:none:Requires IO -->
     class BufferedReader(Reader reader)
             satisfies Reader {
         shared default class Buffer()
@@ -135,7 +135,7 @@ defines the member class `Buffer`:
 The member class `Buffer` is annotated shared, so we can instantiate it like 
 this:
 
-<!-- no-check -->
+<!-- check:none:Requires IO -->
     BufferedReader br = BufferedReader(reader);
     BufferedReader.Buffer b = br.Buffer();
 
@@ -145,7 +145,7 @@ when used outside of the containing type.
 The member class `Buffer` is also annotated `default`, so we can refine it 
 in a subtype of `BufferedReader`:
 
-<!-- no-check -->
+<!-- check:none:Requires IO -->
     shared class BufferedFileReader(File file)
             extends BufferedReader(FileReader(file)) {
         shared actual class Buffer()
@@ -167,7 +167,7 @@ our code.
 It's even possible to define a `formal` member class of an `abstract` class. 
 A `formal` member class can declare `formal` members.
 
-<!-- no-check -->
+<!-- check:none:Requires IO -->
     abstract class BufferedReader(Reader reader)
             satisfies Reader {
         shared formal class Buffer() {
@@ -181,7 +181,7 @@ A `formal` member class can declare `formal` members.
 In this case, a concrete subclass of the `abstract` class must refine the 
 `formal` member class.
 
-<!-- no-check -->
+<!-- check:none:Requires IO -->
     shared class BufferedFileReader(File file)
             extends BufferedReader(FileReader(file)) {
         shared actual class Buffer()

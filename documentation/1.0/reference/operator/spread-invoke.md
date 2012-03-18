@@ -24,7 +24,7 @@ method, resulting in a `Callable`.
 
 Spread method references, such as:
 
-<!-- no-check -->
+<!-- check:none -->
     Callable<String[], Integer> ref = names[].initial;
     
 will be implemented in Milestone 3.

@@ -18,7 +18,7 @@ optional [package descriptor](#descriptor).
 
 An simple example [package descriptor](#descriptor):
 
-<!-- no-check -->
+<!-- check:none -->
     Package package {
         name = 'com.example.foo.a';
         shared = true;

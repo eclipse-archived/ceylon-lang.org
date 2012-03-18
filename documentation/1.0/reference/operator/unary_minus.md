@@ -22,7 +22,7 @@ The right-associative, unary `-` operator is used to invert the sign of its oper
 
 The `-` operator is defined as follows:
 
-<!-- no-check -->
+<!-- check:none -->
     rhs.negativeValue;
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#arithmetic) for more details.

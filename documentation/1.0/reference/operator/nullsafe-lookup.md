@@ -26,7 +26,7 @@ not `null`, otherwise results in `null`.
 
 The `?[]` operator is defined as follows:
 
-<!-- no-check -->
+<!-- check:none -->
     if (exists lhs) lhs[index] else null	
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#listmap) for 

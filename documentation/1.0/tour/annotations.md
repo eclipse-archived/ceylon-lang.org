@@ -40,7 +40,7 @@ Here's the definition of a some of our old friends:
 
 Of course, we can define our own annotations. (That's the whole point!)
 
-<!-- no-check -->
+<!-- check:none:Annotations M5 -->
     shared Scope scope(Scope s) { return s; }
     shared Todo todo(String text) { return Todo(text); }
 
@@ -95,7 +95,7 @@ The return type of an annotation is called the *annotation type*.
 Multiple methods may produce the same annotation type. An annotation type 
 must be a subtype of `ConstrainedAnnotation`:
 
-<!-- no-check -->
+<!-- check:none:Annotations M5 -->
     doc "An annotation. This interface encodes
          constraints upon the annotation in its
          type arguments."
@@ -131,7 +131,7 @@ these two interfaces:
 
 <!-- this comment is working around a bug in rdiscount -->
 
-<!-- no-check -->
+<!-- check:none:Annotations M5 -->
     doc "An annotation that may occur at most once at
          a single program element."
     shared interface OptionalAnnotation<out Value, in ProgramElement>
@@ -156,7 +156,7 @@ at program elements that declare an attribute of type `String`.
 
 Here are a couple of examples from the language spec:
 
-<!-- no-check -->
+<!-- check:none:Annotations M5 -->
     shared interface Scope
             of request | session | application
             satisfies OptionalAnnotation<Scope,Type<Object>> {}
@@ -171,7 +171,7 @@ Here are a couple of examples from the language spec:
 Annotation values may be obtained by calling the toplevel method 
 `annotations()` defined in the language module.
 
-<!-- no-check -->
+<!-- check:none:Annotations M5 -->
     shared Values annotations<Value,Values,ProgramElement>(
                    Type<ConstrainedAnnotation<Value,Values,ProgramElement>> annotationType,
                    ProgramElement programElement)
@@ -180,7 +180,7 @@ Annotation values may be obtained by calling the toplevel method
 
 So to obtain the value of the `doc` annotation of the `Person` class, we write:
 
-<!-- no-check -->
+<!-- check:none:Annotations M5 -->
     String? description = annotations(Description, Person)?.description;
 
 Note that the expression `Person` returns the metamodel object for the 
@@ -189,7 +189,7 @@ class `Person`, an instance of `ConcreteClass<Person>`.
 To determine if the method `stop()` of a class named `Thread` is deprecated, 
 we can write:
 
-<!-- no-check -->
+<!-- check:none:Annotations M5 -->
     Boolean deprecated = annotations(Deprecated, Thread.stop) exists;
 
 Note that the expression `Thread.stop` returns the metamodel object for the 
@@ -197,7 +197,7 @@ method `stop()` of `Thread`, an instance of `Method<Thread,Void>`.
 
 Here are two more examples, to make sure you get the idea:
 
-<!-- no-check -->
+<!-- check:none:Annotations M5 -->
     Scope scope = annotations(Scope, Person) ? request;
     Todo[] todos = annotations(Todo, method);
 
@@ -208,13 +208,13 @@ type `Todo`.
 Of course, it's much more common to work with annotations in generic code, 
 so you're more likely to be writing code like this:
 
-<!-- no-check -->
+<!-- check:none:Annotations M5 -->
     Entry<Attribute<Bottom,Object?>,String>[] attributeColumnNames(Class<Object> clazz) {
         return { for (att in clazz.members(Attribute<Bottom,Object?>))
                     att->columnName(att) };
     }
 
-<!-- no-check -->     
+<!-- check:none:Annotations M5 -->
     String columnName(Attribute<Bottom,Object?> member) {
         return annotations(Column, member)?.name ? member.name;
     }
@@ -229,7 +229,7 @@ developers don't often define their own annotations, but framework developers
 do this all the time. Let's see how we could define an annotation for 
 declarative transaction management in Ceylon.
 
-<!-- no-check -->
+<!-- check:none:Annotations M5 -->
     Transactional transactional(Boolean requiresNew = false) {
         return Transactional(requiresNew);
     }
@@ -239,7 +239,7 @@ will be attached to the metamodel of an annotated method or attribute.
 The meta-annotation specifies that the annotation may be applied to methods 
 and attributes, and may occur at most once on any member.
 
-<!-- no-check -->
+<!-- check:none:Annotations M5 -->
     shared class Transactional(Boolean requiresNew)
             satisfies OptionalAnnotation<Transactional,Member<Bottom,Void>> {
         shared Boolean requiresNew = requiresNew;
@@ -247,7 +247,7 @@ and attributes, and may occur at most once on any member.
 
 Now we can apply our annotation to a method of any class.
 
-<!-- no-check -->
+<!-- check:none:Annotations M5 -->
     shared class OrderManager() {
         shared transactional void createOrder(Order order) { ... }
         ...
@@ -256,13 +256,13 @@ Now we can apply our annotation to a method of any class.
 We could specify an explicit argument to the parameter of transactional using 
 a positional argument list:
 
-<!-- no-check -->
+<!-- check:none:Annotations M5 -->
     shared transactional (true)
     void createOrder(Order order) { ... }
 
 Alternatively, we could use a named argument list:
 
-<!-- no-check -->
+<!-- check:none:Annotations M5 -->
     shared transactional { requiresNew=true; }
     void createOrder(Order order) { ... }
 

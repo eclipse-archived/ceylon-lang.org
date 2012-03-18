@@ -32,7 +32,7 @@ A string template is a whitespace separated alternating sequence of
 The following is invalid syntax because the would-be string template
 does not end with a string literal:
 
-<!-- no-check -->
+<!-- check:none -->
     String greeting = "Hello" name; // ERROR
 
 

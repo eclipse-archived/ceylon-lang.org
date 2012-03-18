@@ -16,13 +16,13 @@ to the caller of the attribute getter, method or function.
 
 The general form of the `return` statement is
 
-<!-- no-check -->
+<!-- check:none -->
     // ...within an attribute getter, method or function
     return resultExpression;
 
 For `void` methods or functions no result expression is given:
 
-<!-- no-check -->
+<!-- check:none -->
     // ...within an void method or function
     return;
 

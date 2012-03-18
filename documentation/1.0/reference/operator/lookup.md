@@ -36,7 +36,7 @@ or possibly Milestone 3.
 
 The `[]` operator is defined as follows:
 
-<!-- no-check -->
+<!-- check:none -->
     lhs.item(index)
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#listmap) for 

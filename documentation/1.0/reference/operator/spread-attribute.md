@@ -24,7 +24,7 @@ attribute, resulting in a sequence of the attribute values.
 
 The `[].` operator is defined by the sequence comprehension:
 
-<!-- no-check -->
+<!-- check:none -->
     { for (X x in lhs) x.member }
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#listmap) for 
