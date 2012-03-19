@@ -30,23 +30,35 @@ to [`if (exists ... )`](../basics#dealing_with_objects_that_arent_there) and
 [`if (nonempty ... )`](../sequences#the_interface_sequence_represents_a...), 
 which we met earlier.
 
-    Object obj = ... ;
-    if (is Printable obj) {
-        obj.print();
+<!-- cat: interface Printable { shared formal void print(); } -->
+    void printIfPrintable(Object obj) {
+        if (is Printable obj) {
+            obj.print();
+        }
     }
 
 The `switch` statement can be used in a similar way:
 
-    Object obj = ... ;
-    switch(obj)
-    case (is Hello) {
-        obj.print();
-    }
-    case (is Person) {
-        print(obj.firstName);
-    }
-    else {
-        print(obj.string);
+<!-- cat: 
+    class Hello() { 
+        shared void print() {
+        }
+    } 
+    class Person(String firstName) { 
+        shared String firstName = firstName; 
+    } 
+-->
+    void switchingPrint(Object obj) {
+        switch(obj)
+        case (is Hello) {
+            obj.print();
+        }
+        case (is Person) {
+            print(obj.firstName);
+        }
+        else {
+            print(obj.string);
+        }
     }
 
 These constructs protect us from inadvertantly writing code that would cause a 
@@ -68,15 +80,17 @@ Therefore, the following code is well-typed:
 
     Iterable<Bottom>&Sized empty = {};
     Integer sizeZero = empty.size;  //call size of Sized
-    Nothing nullIterator = empty.iterator;  //call iterator of Iterable
+    Iterator<Bottom> nullIterator = empty.iterator;  //call iterator of Iterable
 
 Consider the following code:
 
+<!-- cat: void m() { -->
     Iterable<Bottom> empty = {};
     if (is Sized empty) {
         Integer sizeZero = empty.size;
-        Nothing nullIterator = empty.iterator;
+    Iterator<Bottom> nullIterator = empty.iterator;
     }
+<!-- cat: } -->
 
 Inside the body of the `if` construct, `empty` has the type `Iterable<Bottom>&Sized`,
 so we can call operations of both `Iterable` and `Sized`.
@@ -89,6 +103,7 @@ only expressions of type `X` and expressions of type `Y` are assignable to it.
 The type `X|Y` is a supertype of both `X` and `Y`. The following code is 
 well-typed:
 
+<!-- check:none:pedagogical -->
     void print(String|Integer|Float val) { ... }
      
     print("hello");
@@ -108,6 +123,7 @@ determines this automatically. So the following code is also well-typed:
 However, the following code is *not* well-typed, since since `Number` is not a 
 supertype of `String`.
 
+<!-- check:none:demoing compile error -->
     String|Integer|Float x = -1;
     Number num = x; //compile error: String is not a subtype of Number
 
@@ -120,8 +136,8 @@ will let us leave off the `else` clause.
     void print(String|Integer|Float val) {
         switch (val)
         case (is String) { print(val); }
-        case (is Integer) { print("Integer: " + val); }
-        case (is Float) { print("Float: " + val); }
+        case (is Integer) { print("Integer: " + val.string); }
+        case (is Float) { print("Float: " + val.string); }
     }
 
 
@@ -131,10 +147,23 @@ Sometimes it's useful to be able to do the same kind of thing with the
 subtypes of an ordinary type. First, we need to explicitly enumerate the 
 subtypes of the type using the `of` clause:
 
+<!-- implicit-id:Polar:
+    class Polar(Float radius, Float angle) extends Point() {
+        shared Float radius = radius;
+        shared Float angle = angle;
+    }
+    class Cartesian(Float x, Float y) extends Point() {
+        shared Float x = x;
+        shared Float y = y;
+    }
+-->
+
+<!-- id:Point -->
     abstract class Point()
             of Polar | Cartesian {
-        ...
+        // ...
     }
+<!-- cat-id: Polar -->
 
 (This makes `Point` into Ceylon's version of what the functional programming 
 community calls an "algebraic" type.)
@@ -143,15 +172,18 @@ Now the compiler won't let us declare additional subclasses of `Point`, and
 so the union type `Polar|Cartesian` is exactly the same type as `Point`. 
 Therefore, we can write `switch` statements without an `else` clause:
 
-    Point point = ... ;
-    switch (point)
-    case (is Polar) {
-        print("r = " + point.radius);
-        print("theta = " + point.angle);
-    }
-    case (is Cartesian) {
-        print("x = " + point.x);
-        print("y = " + point.y);
+<!-- cat-id: Point -->
+<!-- cat-id: Polar -->
+    void printPoint(Point point) {
+        switch (point)
+        case (is Polar) {
+            print("r = " + point.radius.string);
+            print("theta = " + point.angle.string);
+        }
+        case (is Cartesian) {
+            print("x = " + point.x.string);
+            print("y = " + point.y.string);
+        }
     }
 
 Now, it's usually considered bad practice to write long `switch` statements 
@@ -170,6 +202,7 @@ solved using the "visitor" pattern.
 
 Let's consider the following tree visitor implementation:
 
+<!-- id:tree -->
     abstract class Node() {
         shared formal void accept(Visitor v);
     }
@@ -197,7 +230,8 @@ Let's consider the following tree visitor implementation:
 We can create a method which prints out the tree by implementing the `Visitor` 
 interface:
 
-    void print(Node node) {
+<!-- cat-id:tree -->
+    void printTree(Node node) {
         object printVisitor satisfies Visitor {
             shared actual void visitLeaf(Leaf leaf) {
                 print("Found a leaf: " leaf.element "!");
@@ -219,6 +253,7 @@ update our code to handle the new subtype.
 In Ceylon, we can achieve the same effect, with less verbosity, by 
 enumerating the subtypes of `Node` in its definition, and using a `switch`:
 
+<!-- id:tree2 -->
     abstract class Node() of Leaf | Branch {}
     
     class Leaf(Object val) extends Node() {
@@ -233,7 +268,8 @@ enumerating the subtypes of `Node` in its definition, and using a `switch`:
 Our `print()` method is now much simpler, but still has the desired behavior 
 of "breaking" when a new subtype of `Node` is added.
 
-    void print(Node node) {
+<!-- cat-id:tree2 -->
+    void printTree(Node node) {
         switch (node)
         case (is Leaf) {
             print("Found a leaf: " node.element "!");
@@ -250,6 +286,7 @@ of "breaking" when a new subtype of `Node` is added.
 Ceylon doesn't have anything exactly like Java's `enum` declaration. But we 
 can emulate the effect using the `of` clause.
 
+<!-- id:Suit -->
     shared abstract class Suit(String name)
             of hearts | diamonds | clubs | spades {}
     
@@ -263,7 +300,8 @@ if they are enumerated subtypes.
 
 Now we can exhaust all cases of `Suit` in a `switch`:
 
-    void print(Suit suit) {
+<!-- cat-id:Suit -->
+    void printSuit(Suit suit) {
         switch (suit)
         case (hearts) { print("Heartzes"); }
         case (diamonds) { print("Diamondzes"); }
@@ -316,10 +354,15 @@ It's often useful to provide a shorter or more semantic name to an existing
 class or interface type, especially if the class or interface is a 
 parameterized type. For this, we use a *type alias*, for example:
 
+<!-- cat: 
+    class Person() {
+    }
+-->
     interface People = Set<Person>;
 
 A class alias must declare its formal parameters:
 
+<!-- check:none:ArrayList -->
     shared class People(Person... people) = ArrayList<Person>;
 
 
@@ -334,9 +377,14 @@ or the return type of a local method. Just place the keyword
 `value` (in the case of a local variable) or `function` (in the case of a 
 local method) in place of the type declaration.
 
+<!-- cat-id: Point -->
+<!-- cat-id: Polar -->
+<!-- cat: Float pi = 3.14159; -->
+<!-- cat: void m() { -->
     value polar = Polar(pi, 2.0);
     value operators = { "+", "-", "*", "/" };
     function add(Integer x, Integer y) { return x+y; }
+<!-- cat: } -->
 
 There are some restrictions applying to this feature. You can't use `value` 
 or `function`:
@@ -362,7 +410,11 @@ to the left of the `=` specifier, or further down the block of statements.
 
 What about sequence enumeration expressions like this:
 
+<!-- cat-id: Point -->
+<!-- cat-id: Polar -->
+<!-- cat: void m() { -->
     value sequence  = { Polar(0.0, 0.0), Cartesian(1.0, 2.0) };
+<!-- cat: } -->
 
 What type is inferred for `sequence`? You might answer: "`Sequence<X>`
 where `X` is the common superclass or super-interface of all the element 
@@ -375,21 +427,29 @@ union of all the element expression types. In this case, the type is
 `Sequence<T>` is [covariant](../generics#covariance_and_contravariance) in `T`. 
 So the following code is well-typed:
 
+<!-- cat-id: Point -->
+<!-- cat-id: Polar -->
+<!-- cat: void m() { -->
     value sequence  = { Polar(0.0, 0.0), Cartesian(1.0, 2.0) }; //type Sequence<Polar|Cartesian>
     Point[] points = sequence; //type Empty|Sequence<Point>
+<!-- cat: } -->
 
 As is the following code:
 
+<!-- cat: void m() { -->
     value nums = { 12.0, 1, -3 }; //type Sequence<Float|Integer>
     Number[] numbers = nums; //type Empty|Sequence<Number>
+<!-- cat: } -->
 
 What about sequences that contain `null`? Well, do you 
 [remember](../basics#dealing_with_objects_that_arent_there) 
 the type of `null` was `Nothing`?
 
+<!-- cat: void m() { -->
     value sequence = { null, "Hello", "World" }; //type Sequence<Nothing|String>
     String?[] strings = sequence; //type Empty|Sequence<Nothing|String>
     String? s = sequence[0]; //type Nothing|Nothing|String which is just Nothing|String
+<!-- cat: } -->
 
 It's interesting just how useful union types turn out to be. Even if you only 
 very rarely explicitly write code with any explicit union type declaration 
