@@ -29,14 +29,38 @@ REPOS="_tmp/repos"
 mkdir -p $REPOS
 
 cd $REPOS
-if [ ! -d "ceylon-spec" ]; then
-	git clone git@github.com:ceylon/ceylon-spec.git
+if [ ! -d "ceylon-module-resolver" ]; then
+	git clone git@github.com:ceylon/ceylon-module-resolver.git
 fi
+
 if [ ! -d "ceylon.language" ]; then
 	git clone git@github.com:ceylon/ceylon.language.git
 fi
+
+if [ ! -d "ceylon-spec" ]; then
+	git clone git@github.com:ceylon/ceylon-spec.git
+fi
+
 if [ ! -d "ceylon-compiler" ]; then
 	git clone git@github.com:ceylon/ceylon-compiler.git
+fi
+
+# Build CMR
+if [ "$LIGHT" != "true" ]; then
+	cd ceylon-module-resolver
+	git fetch origin
+	git checkout origin/master
+	ant publish
+	cd ..
+fi
+
+# Build language module
+if [ "$LIGHT" != "true" ]; then
+	cd ceylon.language
+	git fetch origin
+	git checkout origin/master
+	ant publish
+	cd ..
 fi
 
 # Build spec and type checker
@@ -49,20 +73,7 @@ if [ "$LIGHT" != "true" ]; then
 	cd ..
 fi
 
-# Copy spec into website
-cp -R ceylon-spec/build/en/ ../../_site/documentation/1.0/spec
-mv ../../_site/documentation/1.0/spec/pdf/Ceylon*.pdf ../../_site/documentation/1.0/spec/pdf/ceylon-language-specification.pdf
-
-# Build language module
-if [ "$LIGHT" != "true" ]; then
-	cd ceylon.language
-	git fetch origin
-	git checkout origin/master
-	ant
-	cd ..
-fi
-
-# Create ceylondoc for ceylon.language and copy it into the website
+# Build ceylond 
 if [ "$LIGHT" != "true" ]; then
 	cd ceylon-compiler
 	git fetch origin
@@ -70,8 +81,15 @@ if [ "$LIGHT" != "true" ]; then
 	ant build publish
 	cd ..
 fi
+
+# Copy spec into website
+cp -R ceylon-spec/build/en/* ../../_site/documentation/1.0/spec
+# And rename the spec
+mv ../../_site/documentation/1.0/spec/pdf/Ceylon*.pdf ../../_site/documentation/1.0/spec/pdf/ceylon-language-specification.pdf
+
+# Run ceylonc for ceylon.language and copy it into the website
 mkdir -p ../../_site/documentation/1.0/api/ceylon
-./ceylon-compiler/build/bin/ceylond -src -source-code ceylon.language/src ceylon.language
-mv modules/ceylon/language/0.1/module-doc ../../_site/documentation/1.0/api/ceylon/language
+./ceylon-compiler/build/bin/ceylond -source-code -src ceylon.language/src ceylon.language
+mv modules/ceylon/language/0.2/module-doc ../../_site/documentation/1.0/api/ceylon/language
 
 cd ../..
