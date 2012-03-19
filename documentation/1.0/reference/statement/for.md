@@ -63,15 +63,15 @@ not been found:
 
 <!-- cat: class Person() {shared Integer age = 0;} -->
 <!-- cat: void m(Person[] people) { -->
-    Boolean minors;
+    variable Boolean minors;
     for (p in people) {
         if (p.age<18) {
-            minors = true;
+            minors := true;
             break;
         }
     }
     else {
-        minors = false;
+        minors := false;
     }
 <!-- cat: } -->
 
