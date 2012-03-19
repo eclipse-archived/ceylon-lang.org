@@ -107,7 +107,7 @@ Bugs and suggestions may be reported in GitHub's issue tracker.
 ### Community
 
 The Ceylon community site includes 
-[documentation](/documentation1.0/?utm_source=blog&utm_medium=web&utm_content=documentation&utm_campaign=1_0_M1release), 
+[documentation](/documentation/1.0/?utm_source=blog&utm_medium=web&utm_content=documentation&utm_campaign=1_0_M1release), 
 the 
 [current draft of the language specification][spec], 
 the [roadmap](/documentation/1.0/roadmap?utm_source=blog&utm_medium=web&utm_content=roadmap&utm_campaign=1_0_M1release) 
