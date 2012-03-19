@@ -15,6 +15,7 @@ Let's start!
 
 Here's a classic example program.
 
+<!-- id: hello -->
     void hello() {
         print("Hello, World!");
     }
@@ -24,7 +25,10 @@ is just like a C function - it belongs directly to the package that contains
 it, it's not a member of any specific type. You don't need a receiving object 
 to invoke a toplevel method. Instead, you can just call it like this:
 
+<!-- cat-id: hello -->
+<!-- cat: void m() { -->
     hello();
+<!-- cat: } -->
 
 Or you can run it directly from the command line. 
 
@@ -73,6 +77,7 @@ which takes you step by step through the process.
 
 String literals in Ceylon may span multiple lines. Try this:
 
+<!-- id: hello -->
     void hello() {
         print("Hello, 
                World!");
@@ -80,6 +85,7 @@ String literals in Ceylon may span multiple lines. Try this:
 
 The output is:
 
+<!-- lang: none -->
     Hello, 
     World!
 
@@ -91,14 +97,16 @@ code nicely.
 It's often useful to collapse whitespace in a multiline string literal. The
 `String` class has an attribute called `normalized`. We can use it like this:
 
+<!-- id: hello -->
     void hello() {
         value message = "Hello, 
-                         World!"
+                         World!";
         print(message.normalized);
     }
 
 Which results in the output:
 
+<!-- lang: none -->
     Hello, World!
 
 Multiline strings are especially useful for adding documentation to a 
@@ -110,6 +118,7 @@ It's usually a good idea to add some kind of documentation to important
 methods like `hello()`. One way we could do this is by using a C-style 
 comment, either like this:
 
+<!-- id: hello -->
     /* The classic Hello World program */
     void hello() {
         print("Hello, World!");
@@ -117,6 +126,7 @@ comment, either like this:
 
 Or like this:
 
+<!-- id: hello -->
     //The classic Hello World program
     void hello() {
         print("Hello, World!");
@@ -125,6 +135,8 @@ Or like this:
 But it's much better to use the `doc` annotation for comments that describe 
 declarations.
 
+<!-- check:none: Requires IO -->
+<!-- id: hello -->
 	doc "The classic Hello World program"
 	by "Gavin"
 	see (goodbye)
@@ -132,6 +144,10 @@ declarations.
 	void hello() {
 	    print("Hello, World!");
 	}
+<!-- cat: 
+    void goodbye() {
+        // ...
+    } -->
 
 The `doc`, `by`, `see` and `throws` annotations contain documentation that is 
 included in the output of the Ceylon documentation compiler, `ceylond`.
@@ -139,10 +155,12 @@ included in the output of the Ceylon documentation compiler, `ceylond`.
 Notice that when an annotation argument is a literal, it doesn't need to be 
 enclosed in parentheses. We can write simply: 
 
+<!-- check:none -->
     by "Gavin"
 
 instead of:
 
+<!-- check:none -->
     by ("Gavin")
 
 Annotations like `doc`, `by`, `see`, and `throws`, aren't keywords. They're 
@@ -156,6 +174,7 @@ the other hand, `void` _is_ a keyword, just like in C or Java.
 The `doc` annotation may contain [Markdown](http://daringfireball.net/projects/markdown/syntax)
 formatting.
 
+<!-- id: hello -->
     doc "The classic [Hello World program][helloworld]
          that prints a message to the console, this 
          time written in [Ceylon][]. 
@@ -201,6 +220,7 @@ Let's make our program to tell us a little more about itself.
     }
 -->
 
+<!-- id: hello2 -->
     void hello2() {
         print("Hello, you ran me at " 
                process.milliseconds
@@ -213,14 +233,17 @@ Notice how our message contains interpolated expressions. This is called
 a _string template_. A string template must begin and end in a string 
 literal. The following is not legal syntax:
 
+<!-- check:none: Demoing error -->
     print("Hello, you ran me at " 
            process.milliseconds); //compile error!
 
 But we can easily fix it:
 
+<!-- cat: void m() { -->
     print("Hello, you ran me at " 
            process.milliseconds 
           "");
+<!-- cat: } -->
 
 (If you're wondering why the syntax isn't something like 
 `"Hello, you ran me at ${process.milliseconds}"`,
@@ -229,17 +252,20 @@ But we can easily fix it:
 The `+` operator you're probably used to is an alternative way to concatenate
 strings, and more flexible in many cases:
 
+<!-- cat: void m() { -->
     print("Hello, you ran me at " + 
            process.milliseconds.string +
           " ms, with " +
            process.arguments.size.string +
           " command line arguments.");
+<!-- cat: } -->
 
 Note that when we use `+` to concatenate strings, we have to explicitly 
 invoke the `string` attribute to convert numeric expressions to strings. The 
 `+` operator does not automatically convert its operands to strings, so the 
 following does not compile:  
 
+<!-- check:none:Demoing error -->
     print("Hello, you ran me at " + 
            process.milliseconds +
           " ms, with " +
@@ -297,6 +323,7 @@ It's possible to declare the local name inside the `if (exists ... )`
 condition (and because Ceylon has [type inference](../types#type_inference), 
 you don't even have to declare the type):
 
+<!-- cat: void hello() { -->
     String greeting;
     if (exists name = process.arguments.first) {
         greeting = "Hello, " name "!";
@@ -305,6 +332,7 @@ you don't even have to declare the type):
         greeting = "Hello, World!";
     }
     print(greeting);
+<!-- cat: } -->
 
 This is the preferred style most of the time, since we can't actually use 
 `name` for anything useful outside of the `if (exists ... )` construct.
@@ -314,8 +342,12 @@ This is the preferred style most of the time, since we can't actually use
 There are a couple of operators that will make your life easier when dealing 
 with `null` values.
 
-    shared String greeting = "Hello, " + 
+<!-- cat: void hello(String? name) { -->
+    String greeting = "Hello, " + 
                              name ? "World";
+<!-- cat: 
+    print(greeting);
+} -->
 
 The `?` operator returns its first argument if the first argument is not 
 `null`, or its second argument otherwise. It's a more convenient way to 
@@ -324,14 +356,19 @@ handle `null` values in simple cases.
 The related `?.` operator lets us call operations on optional 
 types and provide an alternative value if the type is `null`.
 
-    shared String shoutedGreeting = "HELLO, " + 
+<!-- cat: void hello(String? name) { -->
+    String shoutedGreeting = "HELLO, " + 
                                     name?.uppercased ? "WORLD";
+<!-- cat: 
+    print(shoutedGreeting);
+} -->
 
 ## Defaulted parameters
 
 While we're on the topic of values that aren't there, it's worth mentioning 
 that a method parameter may specify a default value.
 
+<!-- id: hello -->
     void hello(String name="World") {
         print("Hello, " name "!");
     }
@@ -339,8 +376,11 @@ that a method parameter may specify a default value.
 Then we don't need to specify an argument to the parameter when we call 
 the method:
 
+<!-- cat-id: hello -->
+<!-- cat: void m() { -->
     hello(); //Hello, World!
     hello("JBoss"); //Hello, JBoss!
+<!-- cat: } -->
 
 Defaulted parameters must be declared after all required parameters in the 
 parameter list of a method.
