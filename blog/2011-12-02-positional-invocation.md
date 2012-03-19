@@ -61,7 +61,7 @@ invocation. But the two certainly aren't equivalent.
 
 Although notionally in Ceylon 'everything is an object', the compiler is 
 allowed (and does) optimise the numerical types 
-([`Natural`](/documentation/1.0/api/ceylon/language/class_Natural.html), 
+(`Natural`, 
 [`Integer`](/documentation/1.0/api/ceylon/language/class_Integer.html), 
 [`Float`](/documentation/1.0/api/ceylon/language/class_Float.html), 
 [`Boolean`](/documentation/1.0/api/ceylon/language/class_Boolean.html)) to the
@@ -154,4 +154,8 @@ The take-home message is
 that you really don't have to know a great deal about compilers, or even the 
 JVM to be able to contribute something genuinely useful.
 
+## Note
+
+Since this post was originally written the `Natural` type has since been 
+remove from `ceylon.language`.
 
