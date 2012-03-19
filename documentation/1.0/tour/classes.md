@@ -95,8 +95,9 @@ other code, we need to define attributes of the class. It's very common to
 assign parameters of a class directly to a `shared` attribute of the class, 
 so Ceylon lets us reuse the name of a parameter as the name of an attribute.
 
+<!-- id:polar -->
     doc "A polar coordinate"
-    class Polar(Float angle, Float radius) {
+    shared class Polar(Float angle, Float radius) {
         
         shared Float angle = angle;
         shared Float radius = radius;
@@ -116,6 +117,10 @@ so Ceylon lets us reuse the name of a parameter as the name of an attribute.
 Code that uses `Polar` can access the attributes of the class using a very
 convenient syntax.
 
+<!-- check:none:Requires Math -->
+<!-- cat-id:polar -->
+<!-- cat:
+    shared class Cartesian(Float x, Float y) {} -->
     shared Cartesian cartesian(Polar polar) {
         return Cartesian(polar.radius*cos(polar.angle), 
                          polar.radius*sin(polar.angle));
@@ -128,13 +133,18 @@ The attributes `angle` and `radius` are _simple attributes_, the closest thing
 Ceylon has to a Java field. Usually we specify the value of a simple attribute
 as part of the declaration of the attribute.
 
+<!-- check:none:Requires Math -->
     shared Float x = radius * sin(angle);
     shared String greeting = "Hello, " name "!";
     shared Integer months = years * 12;
 
 On the other hand, it's sometimes useful to separate declaration from specification 
 of a value.
-
+<!-- cat:
+    doc "A polar coordinate"
+    class Polar(Float angle, Float radius, String? label) { 
+        // ...
+     -->
     shared String description;
     if (exists label) {
         description = label;
@@ -142,6 +152,7 @@ of a value.
     else {
         description = "(" radius "," angle ")";
     }
+<!-- cat: } -->
 
 But if there's no constructors in Ceylon, where precisely should we put this
 code? We put it directly in the body of the class!
@@ -160,13 +171,14 @@ code? We put it directly in the body of the class!
             description = "(" radius "," angle ")";
         }
         
-        ...
+        // ...
         
     }
 
 The Ceylon compiler forces you to specify a value of any simple attribute or 
 local before making use of the simple attribute or local in an expression.
 
+<!-- check:none:Demoing error -->
     Integer count;
     shared void inc() {
         count++;   //compile error
@@ -191,6 +203,7 @@ Since the cartesian coordinates can be computed from the polar coordinates,
 we don't need to define state-holding simple attributes. Instead, we can
 define the attributes as _getters_.
 
+<!-- check:none:Requires Math -->
     doc "A polar coordinate"
     class Polar(Float angle, Float radius) {
         
@@ -200,7 +213,7 @@ define the attributes as _getters_.
         shared Float x { return radius * cos(angle); }
         shared Float y { return radius * sin(angle); }
         
-        ...
+        // ...
         
     }
 
@@ -211,6 +224,10 @@ Code that uses `Polar` never needs to know if an attribute is a simple
 attribute or a getter. Now that we know about getters, we could rewrite our 
 `description` attribute as a getter, without affecting any code that uses it.
 
+<!-- cat:
+    doc "A polar coordinate"
+    class Polar(Float angle, Float radius, String? label) {
+-->
     shared String description {
         if (exists label) {
             return label;
@@ -219,7 +236,7 @@ attribute or a getter. Now that we know about getters, we could rewrite our
             return "(" radius "," angle ")";
         }
     }
-
+<!-- cat: } -->
 
 ## Living without overloading
 
@@ -235,6 +252,11 @@ non-evil uses of constructor or method overloading using:
 We're not going to get into all the details of these workarounds right now, 
 but here's a quick example of each of the three techniques:
 
+<!-- cat: 
+    class Named() { 
+        shared String first = "John";
+        shared String last = "Doe";
+    } -->
     //defaulted parameter
     void println(String line, String eol = "\n") {
         process.write(line + eol);
@@ -263,6 +285,7 @@ we'll come back to it in a [later lesson](../types#union_types).
 
 Let's make use of this idea to "overload" the "constructor" of `Polar`.
 
+<!-- id: polar -->
     doc "A polar coordinate with an optional label"
     class Polar(Float angle, Float radius, String? label=null) {
         
@@ -278,12 +301,13 @@ Let's make use of this idea to "overload" the "constructor" of `Polar`.
             }
         }
         
-        ...
+        // ...
         
     }
 
 Now we can create `Polar` coordinates with or without labels:
 
+<!-- cat-id: polar -->
     Polar origin = Polar(0, 0, "origin");
     Polar coord = Polar(r, theta);
 
