@@ -83,6 +83,7 @@ variable has definitely been assigned a value before allowing use of the
 local variable in an expression. So, for example, the following code compiles 
 without error:
 
+<!-- cat: void m(String person, String me) { -->
     String greeting;
     if (person==me) {
         greeting = "You're beautiful!";
@@ -91,9 +92,11 @@ without error:
         greeting = "You're ugly!";
     }
     print(greeting);
+<!-- cat: } -->
 
 But the following code results in an error at compile time:
 
+<!-- check:none:demos error -->
     String greeting;
     if (person==me) {
         greeting = "You're beautiful!";
@@ -183,6 +186,12 @@ only called after the instance has been fully initialized.
 
 Consider the following example:
 
+<!-- check:parse:#93 -->
+<!-- cat: 
+    Boolean morning = false;
+    Boolean afternoon = false;
+    Boolean evening = true;
+-->
     class Hello(String? name) {
          
         //initializer section:
@@ -213,10 +222,10 @@ Consider the following example:
         //declaration section:
          
         shared void say() {
-            print(greeting);
+            printMessage(greeting);
         }
          
-        default void print(String message) {
+        shared default void printMessage(String message) {
             print(message);
         }
          
@@ -290,6 +299,7 @@ references between two objects without resort to non-`variable` attributes.
 This is a problem Ceylon has in common with functional languages, which also 
 emphasize immutability. We can't write the following code in Ceylon:
 
+<!-- check:none:#94 -->
     abstract class Child(Parent p) {
         shared formal Parent parent = p;
     }
@@ -301,6 +311,7 @@ emphasize immutability. We can't write the following code in Ceylon:
 Eventually, Ceylon will probably need some specialized machinery for dealing 
 with this problem, but for now, here is a partial solution:
 
+<!-- check:none:#94 -->
     abstract class Child() {
         shared formal Parent parent;
     }
@@ -320,13 +331,18 @@ Ceylon lets us separate the declaration of a method defined using a method
 reference from the actual specification statement that specifies the method 
 reference.
 
-    Float x = ... ;
-    Float op(Float y);
-    switch (symbol)
-    case ("+") { op = x.plus; }
-    case ("-") { op = x.minus; }
-    case ("*") { op = x.times; }
-    case ("/") { op = x.divided; }
+<!-- check:parse:Needs switch on values -->
+<!-- cat: Callable<Float, Float> arithmetic(String symbol, Float x, Float y) { -->
+        Float op(Float y);
+        switch (symbol)
+        case ("+") { op = x.plus; }
+        case ("-") { op = x.minus; }
+        case ("*") { op = x.times; }
+        case ("/") { op = x.divided; }
+<!-- cat:        
+        return op;
+    }
+-->
 
 The rules for definite initialization of locals and attributes also apply to 
 methods defined using a specification statement.
@@ -339,6 +355,7 @@ like the Java compiler, also performs definite return checking, to ensure
 that a method or getter always has an explicitly specified return value. 
 So, this code compiles without error:
 
+<!-- cat: void m(String person, String me) { -->
     String greeting {
         if (person==me) {
             return "You're beautiful!";
@@ -347,9 +364,11 @@ So, this code compiles without error:
             return "You're ugly!";
         }
     }
+<!-- cat: } -->
 
 But the following code results in an error at compile time:
 
+<!-- check:none:Demoing error -->
     String greeting {   //error: greeting does not definitely return
         if (person==me) {
             return "You're beautiful!";
