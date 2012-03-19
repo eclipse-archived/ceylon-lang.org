@@ -397,7 +397,7 @@ or directly, by specifying a block of code to be executed.
 Cool, huh? That's more regularity.
 
 
-## Anonymous Functions
+## Anonymous Functions <!-- m3 -->
 
 As you've probably noticed, all the functions we've defined so far have been 
 declared with a name, using a traditional C-like syntax. Ceylon will also
@@ -602,7 +602,7 @@ The answer just isn't crystal clear to us.
 -->
 
 
-## Curry, uncurry and function composition
+## Curry, uncurry and function composition <!-- m3 -->
 
 A method reference like `Float.times` is represented in "curried" form in 
 Ceylon. I can write:
