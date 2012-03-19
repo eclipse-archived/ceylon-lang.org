@@ -25,7 +25,7 @@ when serving the awestruct website.
 
 _This information is out dated and has changed in later versions of the website, check out [our how to edit a page](/code/website/edit-page/#documentation_section) section._
 
-If you want to point the spec to a user in the site, point to [/documentation/1.0/spec](/documentation/1.0spec).
+If you want to point the spec to a user in the site, point to [/documentation/1.0/spec](/documentation/1.0/spec).
 This page show the spec in HTML, HTML in single page and PDF.
 
 If you want to point to a specific paragraph in the spec, use the variable `site.urls.spec.current` and
