@@ -40,6 +40,10 @@ The Ceylon language specification is also kept in this project.
 
 #### Building
 
+This project depends on the 
+[Module system](#module_system).
+You should check that out and build it first.
+
 You can build and publish the typechecker to the local Ceylon repository (`~/.ceylon`) 
 like this:
 
@@ -71,9 +75,11 @@ Feeling adventurous and want to help us with the compiler backend? Read [how to 
 
 #### Building
 
-This project depends on the [Parser and typechecker](#parser_typechecker_and_specification) 
-and [Ceylon language module](#ceylonlanguage_module) projects. Youshould check them out and 
-build them first.
+This project depends on the 
+[Module system](#module_system)
+[Ceylon language module](#ceylonlanguage_module)
+and [Parser and typechecker](#parser_typechecker_and_specification)  projects. 
+You should check them out and build them first.
 
 You can build the compiler project like this:
 
@@ -133,16 +139,19 @@ This is where you'll find the Ceylon `ceylon` launcher command, which runs Ceylo
 
 #### Building
 
-This project depends on the [Ceylon language module](#ceylonlanguage_module) project, make sure
-you read the [README](https://github.com/ceylon/ceylon-runtime/blob/master/README.md) information
-to set it up correctly.
+This project depends on the [Ceylon language module](#ceylonlanguage_module) 
+and [Module system](#module_system) projects.
+
+Make sure you read the 
+[README](https://github.com/ceylon/ceylon-runtime/blob/master/README) 
+information to set it up correctly.
 
 You can build the launcher project like this:
 
 <!-- lang: bash -->
     mvn install
 
-There's more info in the [README](https://github.com/ceylon/ceylon-runtime/blob/master/README.md).
+There's more info in the [README](https://github.com/ceylon/ceylon-runtime/blob/master/README).
 
 ### Ceylon Eclipse IDE plugin
 
