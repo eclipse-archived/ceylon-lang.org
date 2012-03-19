@@ -18,8 +18,12 @@ that by covering Ceylon's support for calling functions using
 
 Consider the following method:
 
+
+
+<!-- check:none:Requires IO -->
+<!-- id:printf -->
     void printf(OutputStream to, String format, Object... values) { 
-        ... 
+        // ... 
     }
 
 Remember, the last parameter is a [sequenced parameter](../missing-pieces#sequenced_parameters) which accepts 
@@ -30,20 +34,55 @@ using a familiar C-style syntax where arguments are delimited by parentheses
 and separated by commas. Arguments are matched to parameters by their 
 position in the list. Let's see one more example, just in case:
 
+<!-- implicit-id:Store:
+abstract class PaymentMethod() of cash | creditCard | debitCard {}
+object cash extends PaymentMethod() {}
+object creditCard extends PaymentMethod() {}
+object debitCard extends PaymentMethod() {}
+
+abstract class Currency() of usd | gbp | eur {}
+object usd extends Currency() {}
+object gbp extends Currency() {}
+object eur extends Currency() {}
+
+class User(String name) {
+    shared String name = name;
+    shared PaymentMethod paymentMethod = cash;
+}
+
+class Order(Integer total, Integer confirmationNumber) {
+    shared Integer total = total;
+    shared Integer confirmationNumber = confirmationNumber;
+    shared Currency currency = usd;
+}
+    
+class Payment(PaymentMethod method, Currency currency, Integer amount) {}
+-->
+
+<!-- check:none:Requires IO -->
+<!-- cat-id:printf -->
+<!-- cat-id: Store -->
+<!-- cat: void m(User user, Order order) { -->
     printf(process, "Thanks, %s. You have been charged %.2f. 
                      Your confirmation number is %d.",
             user.name, order.total, order.confimationNumber);
+<!-- cat: } -->
 
 This works fine, however Ceylon provides an alternative method 
 invocation protocol that is usually easier to read when there are more than 
 one or two arguments:
 
+<!-- check:none:Requires IO -->
+<!-- cat-id:printf -->
+<!-- cat-id: Store -->
+<!-- cat: void m(User user, Order order) { -->
     printf {
         to = process;
         format = "Thanks, %s. You have been charged %.2f. 
                   Your confirmation number is %d.";
         user.name, order.total, order.confimationNumber
     };
+<!-- cat: } -->
 
 This invocation protocol is called a *named argument list*. We can recognize a 
 named argument list by the use of braces as delimiters instead of parentheses. 
@@ -54,6 +93,7 @@ always appear at the end of the named parameter list. Note that it's also
 acceptable to call this method like this, passing a sequence to the named 
 value parameter:
 
+<!-- check:none:Requires IO -->
     printf {
         to = process;
         format = "Thanks, %s. You have been charged %.2f. 
@@ -75,30 +115,43 @@ abbreviated syntax, though you probably didn't know it.
 
 We're allowed to abbreviate an attribute definition of the following form:
 
+
+<!-- cat-id: Store -->
+<!-- cat: class M(User user, Order order) { -->
     Payment payment = Payment {
         method = user.paymentMethod;
         currency = order.currency;
         amount = order.total;
     };
+<!-- cat: } -->
 
 or a named argument specification of this form:
 
+<!-- cat-id: Store -->
+<!-- cat: void m(User user, Order order) { 
+    Payment payment; -->
     payment = Payment {
         method = user.paymentMethod;
         currency = order.currency;
         amount = order.total;
     };
+<!-- cat: } -->
 
 to the following more declarative (and less redundant) style:
 
+<!-- cat-id: Store -->
+<!-- cat: void m(User user, Order order) { -->
     Payment payment {
         method = user.paymentMethod;
         currency = order.currency;
         amount = order.total;
     }
+<!-- cat: } -->
 
 We're even allowed to write a method of the following form:
 
+<!-- cat-id: Store -->
+<!-- cat: void m(User user) { -->
     Payment createPayment(Order order) {
         return Payment {
             method = user.paymentMethod;
@@ -106,14 +159,18 @@ We're even allowed to write a method of the following form:
             amount = order.total;
         };
     }
+<!-- cat: } -->
 
 using the following abbreviated syntax:
 
+<!-- cat-id: Store -->
+<!-- cat: void m(User user) { -->
     Payment createPayment(Order order) {
         method = user.paymentMethod;
         currency = order.currency;
         amount = order.total;
     }
+<!-- cat: } -->
 
 Perhaps you're worried that this looks like a method that assigns the values 
 of three attributes of the declaring class, rather than a shortcut syntax for 
@@ -133,12 +190,14 @@ usually stand out immediately.
 
 The following classes define a data structure for building tables:
 
+<!-- check:none:pedagogical -->
     class Table(String title, Integer rows, Border border, Column... columns) { ... }
     class Column(String heading, Integer width, String content(Integer row)) { ... }
     class Border(Integer padding, Integer weight) { ... }
 
 Of course, we could built a `Table` using positional argument lists:
 
+<!-- check:none:pedagogical -->
     String x(Integer row) { return row.string; }
     String xSquared(Integer row) { return (row**2).string; }
     Table table = Table("Squares", 5, Border(2,1), Column("x",10, x), Column("x**2",12, xSquared));
@@ -171,6 +230,7 @@ derives from language regularity.
 
 So we could rewrite the code that builds a `Table` as follows:
 
+<!-- check:none:pedagogical -->
     Table table = Table {
         title="Squares";
         rows=5;
@@ -199,6 +259,7 @@ usual syntax for declaring a method.
 
 Even better, our example can be abbreviated like this:
 
+<!-- check:none:pedagogical -->
     Table table {
         title="Squares";
         rows=5;
@@ -241,6 +302,7 @@ defining the syntax tree for the mini-language.)
 Now let's see an example of a named argument list with an inline getter 
 declaration:
 
+<!-- check:none:Needs more Store -->
     shared class Payment(PaymentMethod method, Currency currency, Float amount) { ... }
     Payment payment {
         method = user.paymentMethod;
@@ -257,11 +319,14 @@ declaration:
 Finally, here's an example of a named argument list with an inline `object` 
 declaration:
 
+<!-- check:parse:pedagogical -->
     shared interface Observable {
-        shared void addObserver(Observer<Bottom> observer) { ... }
+        shared void addObserver(Observer<Bottom> observer) { 
+            // ... 
+        }
     }
     shared interface Observer<in Event> {
-        shared formal on(Event event);
+        shared formal void on(Event event);
     }
     observable.addObserver {
         object observer satisfies Observer<UpdateEvent> {
@@ -279,6 +344,7 @@ Of course, as we saw in the leg on [functions](../functions),
 a better way to solve this problem might be 
 to eliminate the `Observer` interface and pass a method directly:
 
+<!-- check:parse:pedagogical -->
     shared interface Observable {
         shared void addObserver<Event>(void on(Event event)) { ... }
     }
@@ -295,6 +361,7 @@ One of the first modules we're going to write for Ceylon will be a library for
 writing HTML templates in Ceylon. A fragment of static HTML would look 
 something like this:
 
+<!-- check:parse:Requires ceylon.html -->
     Html {
         Head head {
             title = "Hello World";
@@ -314,6 +381,7 @@ something like this:
 
 A complete HTML template might look like this:
 
+<!-- check:parse:Requires ceylon.html -->
     import ceylon.html { ... }
      
     doc "A web page that displays a greeting"
