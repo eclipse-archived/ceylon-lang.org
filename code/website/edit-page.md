@@ -41,6 +41,7 @@ right before the block of code. You can use:
 
 - Java: &lt;!-- lang: java --&gt;
 - Bash: &lt;!-- lang: bash --&gt;
+- XML: &lt;!-- lang: xml --&gt;
 - no highlighting: &lt;!-- lang: none --&gt;
 
 In Bash
