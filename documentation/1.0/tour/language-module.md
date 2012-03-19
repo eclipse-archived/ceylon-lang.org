@@ -20,6 +20,7 @@ and a number of related declarations. Let's meet the main characters.
 
 Just like Java, Ceylon has a class named `Object`.
 
+<!-- check:none:decl from ceylon.language -->
     doc "The abstract supertype of all types representing 
          definite values."
     shared abstract class Object()
@@ -42,6 +43,7 @@ types, for example `Nothing`, which is the type of `null`.
 
 Therefore, Ceylon's `Object` has a superclass, named `Void`.
 
+<!-- check:none:decl from ceylon.language -->
     doc "The abstract supertype of all types. A value of type 
          `Void` may be a definite value of type `Object`, or it 
          may be the `null` value. A method declared `void` is 
@@ -59,6 +61,7 @@ considered to have return type `Void`, as we saw in the
 
 The class `Nothing` also directly extends `Void`. 
 
+<!-- check:none:decl from ceylon.language -->
     doc "The type of the `null` value. Any union type of form 
          `Nothing|T` is considered an optional type, whose values
          include `null`. Any type of this form may be written as
@@ -94,6 +97,7 @@ user-written class to directly extend `Object`, but most of the classes you
 write will be subclasses of `IdentifiableObject`. All classes with variable 
 attributes must extend `IdentifiableObject`.
 
+<!-- check:none:decl from ceylon.language -->
     shared abstract class IdentifiableObject()
             extends Object() {
      
@@ -140,18 +144,23 @@ For example, the `<` operator is defined in terms of the interface
 `Comparable<Other>`, which we met in the [lesson on types](../types), 
 and which has a method named `compare()`.
 
+<!-- check:none -->
     x<y
 
 means, by definition,
 
+<!-- check:none -->
     x.compare(y) === smaller
 
 The equality operator `==` is defined in terms of the class `Object`, 
 which has a method named `equals()`.
 
+<!-- check:none -->
     x==y
 
 means, by definition,
+
+<!-- check:none -->
     x.equals(y)
 
 Therefore, it's easy to customize operators like `<` and `==` with specific 
@@ -174,29 +183,16 @@ also important in the definition of Ceylon's polymorphic operators:
 Operator polymorphism is a little more flexible than you might imagine. 
 Here's a quick example of this.
 
-## The Slots interface //TODO
+## The Set interface
 
-The interface Slots is an abstraction of the idea of a set of slots which may 
-each hold `true` or `false`. The bitwise operators `&`, `|`, and `~` are 
-defined in terms of this interface. The most obvious subtype of `Slots` would 
-be a `Byte` class, where the slots are the eight binary digits.
+A `Set` instance contains a collection of distinct objects (that is, duplicates
+are not allowed). `Set` supports the operations that are commonly used with 
+mathematical sets:
 
-But the interface `Set` from the `collections` module also extends `Slots`. 
-The slots of a `Set` are values which may or may not belong to the set. A 
-slot holds `true` if the value it represents belongs to the `Set`. The 
-practical value of this is to allow the use of the operator `|` for set 
-union, the operator `&` for set intersection, and the infix `~` operator for 
-set complement.
-
-    Set<Person> children = males|females ~ adults;
-
-These aren't the traditional symbols representing these operations. But if you 
-think carefully about the definition of these operations, you'll probably agree 
-that these symbols are reasonable.
-
-We could even define a `Permission` class that implements `Slots`, allowing us 
-to write things like `permissions&(read|execute)`.
-
+* `union()` (the `|` operator),
+* `intersection()` (the `&` operator),
+* `exclusiveUnion()`(the `^` operator) and 
+* `complement()` (the `~` operator)
 
 ## Numeric types
 
@@ -207,10 +203,10 @@ languages:
 
 * `Integer` represents signed integers,
 * `Float` represents floating point approximations to the real numbers,
-* `Whole` represents arbitrary-precision signed integers, and
-* `Decimal` represents arbitrary-precision and arbitrary-scale decimals.
 
-`Integer` and `Float` have 64-bit precision by default. Eventually, you'll 
+The number of bits or precision on these types depends on whether
+you're compiling Ceylon code for Java or for JavaScript. When compiling for 
+Java they have 64-bit precision by default. Eventually, you'll 
 be able to specify that a value has 32-bit precision by annotating it 
 `small`. But note that this annotation is really just a hint that the compiler 
 is free to ignore (and it currently does).
@@ -248,14 +244,15 @@ automatically widen (or narrow) numeric values. Instead, we need to call
 one of the operations (well, attributes, actually) defined by the interface 
 `Number`.
 
-    Whole zero = 0.whole; // explicitly widen from Integer
-    Decimal half = 0.5.decimal; // explicitly widen from Float
+    Float zero = 0.float; // explicitly widen from Integer
 
 You can use all the operators you're used to from other C-style languages 
 with the numeric types. You can also use the `**` operator to raise a 
 number to a power:
 
+<!-- cat: void m(Float length, Float width) { -->
     Float diagonal = (length**2.0+width**2.0)**0.5;
+<!-- cat: } -->
 
 Of course, if you want to use the increment `++` operator, decrement `--` 
 operator, or one of the compound assignment operators such as `+=`, you'll 
@@ -265,15 +262,13 @@ Since it's quite noisy to explicitly perform numeric widening in numeric
 expressions, the numeric operators automatically widen their operands, 
 so we could write the expression above like this:
 
+<!-- cat: void m(Float length, Float width) { -->
     Float diagonal = (length**2+width**2)**(1.0/2);
+<!-- cat: } -->
 
-The "built-in" widening conversions are the following:
-
-* `Integer` to `Float`, `Whole`, or `Decimal`
-* `Float` to `Decimal`
-* `Whole` to `Decimal`
-
-But these conversions aren't defined by special-case rules in the 
+Because `ceylon.language` only has two numeric types the only "built-in" 
+widening conversion is from `Integer` to `Float`. But this 
+conversions isn't defined by special-case rules in the 
 language specification.
 
 
@@ -288,6 +283,7 @@ The numeric operators are defined in terms of these methods of `Numeric`.
 The numeric types also implement the interface `Castable`, which enables the 
 widening conversions we just mentioned.
 
+<!-- check:none:decl from ceylon.language -->
     shared interface Castable<in Types> {
         shared formal CastValue castTo<CastValue>()
             given CastValue satisfies Types;
@@ -298,6 +294,7 @@ should be the union of all types to which the implementing type is castable.
 
 For example, simplifying slightly the definitions in the language module:
 
+<!-- check:none:decl from ceylon.language -->
     shared abstract class Integer()
             extends Object()
             satisfies Castable<Integer|Float|Whole|Decimal> &
@@ -305,6 +302,8 @@ For example, simplifying slightly the definitions in the language module:
                       Numeric<Integer> {
         ...
     }
+    
+<!-- check:none:decl from ceylon.language -->
     shared abstract class Float()
             extends Object()
             satisfies Castable<Float|Decimal> &
@@ -319,6 +318,7 @@ infer that the expression `-1 * 0.4` is of type `Float`.
 Therefore, the definition of a numeric operator like `*` can be represented, 
 completely within the type system, in terms of `Numeric` and `Castable`:
 
+<!-- check:none:pedagogical -->
     Result product<Left,Right,Result>(Left x, Right y)
             given Result of Left|Right satisfies Numeric<Result>
             given Left satisfies Castable<Result> & Numeric<Left>
