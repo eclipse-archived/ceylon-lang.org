@@ -37,6 +37,7 @@ A package in Ceylon may be shared or unshared. An unshared package
 (the default) is visible only to the module which contains the package. 
 We can make the package shared by providing a package descriptor:
 
+<!-- check:none:Quoted-->
     Package package {
         name = 'org.hibernate.query';
         shared = true;
@@ -52,6 +53,7 @@ can directly access shared declarations in a `shared` package.
 A module must explicitly specify the other modules on which it depends.
 This is accomplished via a module descriptor:
  
+ <!-- check:none:Quoted-->
     Module module {
         name = 'org.hibernate';
         version = '3.0.0.beta';
@@ -71,6 +73,7 @@ This is accomplished via a module descriptor:
 A module may be *runnable*. A runnable module must specify a `run()` method in 
 the module descriptor:
 
+<!-- check:none:Quoted-->
     Module module {
         name = 'org.hibernate.test';
         version = '3.0.0.beta';
@@ -122,6 +125,7 @@ module at the command line.
 One of the nice advantages of this architecture is that it's possible to run a 
 module "straight off the internet", just by typing, for example:
 
+<!-- lang:none -->
     ceylon org.jboss.ceylon.demo -rep http://jboss.org/ceylon/modules
 
 And all required dependencies get automatically downloaded as needed.
