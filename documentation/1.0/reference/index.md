@@ -105,7 +105,6 @@ _This page is very incomplete. Want to help? [See how](/code/website)._
 * [`[].` (spread)](operator/spread)
 * [`[x..y]` (span)](operator/span)
 * [`[x...]` (upper span)](operator/upper-span)
-* [`[].` (spread member)] - _doc coming soon at_ (operator/spread)
 * [`^`   (Set exclusive union)](operator/exclusive-union) <!-- m4 -->
 * [`^=`  (Set exclusive union assign)](operator/exclusive-union-assign) <!-- m4 -->
 * [`in`  (in)](operator/in)
