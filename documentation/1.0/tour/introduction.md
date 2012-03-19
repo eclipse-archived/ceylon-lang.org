@@ -12,6 +12,13 @@ This is the fourth leg of the Tour of Ceylon. In the [previous leg](../inheritan
 you learned about inheritance and refinement. In this leg you're going to learn 
 about *introduction*.
 
+## Implementation note <!-- m3 -->
+
+*Introduction*, the subject of this leg of the tour is on the 
+roadmap for Ceylon 1.1. So you might want to skip forward to
+the [next leg](../sequences) if you're interested only 
+in Ceylon 1.0 features.
+
 ## Introduction
 
 Sometimes, especially when we're working with code from modules we don't have 
@@ -21,6 +28,7 @@ been defined in another module. For example, suppose we wanted to use a
 packaged module with some other packaged library that defines the following 
 `Position` interface:
 
+<!-- id:Position -->
     shared interface Position {
         shared formal Float vertical;
         shared formal Float horizontal;
@@ -29,12 +37,16 @@ packaged module with some other packaged library that defines the following
 To make this a little more concrete, suppose the library also defined the 
 following useful toplevel method:
 
-    shared void drawLine(Position from, Position to) { .... }
+<!-- cat-id:Position -->
+    shared void drawLine(Position from, Position to) { 
+        // ...
+    }
 
 We would like to be able to pass `Polar` coordinates to `drawLine()`.
 Since `Polar` is defined in a module that is out of our control, we can't 
 simply write:
 
+<!-- check:none:pedagogical -->
     class Polar(Float angle, Float radius) satisfies Position { ... }
 
 Even if `Polar` _is_ our own class, there might be good reasons why we don't
@@ -44,6 +56,7 @@ and `drawLine()` into our general-purpose coordinates module.
 Instead, we can introduce the type `Position` in the code which uses the 
 `Polar` coordinates as `Position`s.
 
+<!-- check:parse:pedagogical -->
     import com.redhat.polar.core { Polar }
     import com.somecompany.positions { Position }
     
@@ -84,11 +97,12 @@ All it does is "fill in" the definitions of the missing operations. Here, the
 Now, to introduce `Position` to `Polar` in a certain compilation unit, all we 
 need to do is `import` the adapter:
 
+<!-- check:parse:pedagogical -->
     import com.redhat.polar.core { Polar, pi }
     import com.somecompany.positions { drawLine }
     import com.redhat.polar.adapters { PolarPosition }
     
-    ...
+    // ...
     
     drawLine(Polar(0.0), Polar(pi/2, 1.0));
 
@@ -138,6 +152,7 @@ From our point of view, an extension method introduces a member to a type,
 without actually introducing a new supertype. Indeed, a Ceylon adapter with 
 no `satisfies` clause is actually a package of extension methods!
 
+<!-- check:none:Ceylon 1.1 -->
     shared interface StringSequenceExtensions
             adapts Sequence<String> {
         
