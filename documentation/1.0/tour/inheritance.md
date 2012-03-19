@@ -21,6 +21,7 @@ what makes a program object-oriented. Let's try refactoring the `Polar` class
 [from the previous leg of the tour](../classes) into two classes, with two 
 different implementations of `description`. Here's the superclass:
 
+<!-- id:polar -->
     doc "A polar coordinate"
     class Polar(Float angle, Float radius) {
  
@@ -46,6 +47,7 @@ followed by the name of the superclass, followed by a list of arguments to be
 sent to the superclass initializer parameters. It looks just like an expression 
 that instantiates the superclass:
 
+<!-- cat-id:polar -->
     doc "A polar coordinate with a label"
     class LabeledPolar(Float angle, Float radius, String label)
             extends Polar(angle, radius) {
@@ -79,10 +81,11 @@ attribute to provide a developer-friendly representation of the object.
 `IdentifiableObject` also defines default implementations of `equals()` and
 `hash`. We should _definitely_ refine those:
 
+<!-- cat: Float pi = 3.1415926535; -->
     doc "A polar coordinate"
-    class Polar(Float angle, Float radius) {
+    class Polar(Float angle, Float radius, String description) {
         
-        ...
+        // ...
 
         shared actual String string { return description; }
         
@@ -115,6 +118,8 @@ and cartesian coordinate systems. Since a cartesian coordinate isn't just a
 special kind of polar coordinate, this is a case for introduction of an abstract 
 superclass:
 
+<!-- cat-id:polar -->
+<!-- cat: class Cartesian(Float x, Float y) {} -->
     doc "A coordinate-system free abstraction 
          of a geometric point"
     abstract class Point() {
@@ -145,6 +150,7 @@ explicitly tell it to!
 One way to define an implementation for an inherited abstract attribute is to 
 simply *assign* a value to it in the subclass.
 
+<!-- check:parse:Requires ceylon.math -->
     doc "A polar coordinate"
     class Polar(Float angle, Float radius) 
             extends Point() {
@@ -159,6 +165,7 @@ simply *assign* a value to it in the subclass.
 alternatively, we can also define an implementation for an inherited abstract 
 attribute by *refining* it.
 
+<!-- check:parse:Requires ceylon.math -->
     doc "A polar coordinate"
     class Polar(Float angle, Float radius) 
             extends Point() {
@@ -188,6 +195,7 @@ inherited members.
 
 Oh, I suppose you would like to see `Cartesian`...
 
+<!-- check:parse:Requires ceylon.math -->
     doc "A cartesian coordinate"
     class Cartesian(Float x, Float y) 
             extends Point() {
@@ -228,6 +236,12 @@ objects.
 Let's take advantage of mixin inheritance to define a reusable `Writer` 
 interface for Ceylon.
 
+<!-- check:none:concrete members of interfaces not yet supported -->
+<!-- id:writer -->
+<!-- cat: 
+    shared interface Formatter { 
+        shared formal String format(String formatString, Object... args);
+    } -->
     shared interface Writer {
      
         shared formal Formatter formatter;
@@ -251,6 +265,8 @@ reference to another object.
 
 Now let's define a concrete implementation of this interface.
 
+<!-- check:none:depends on above:concrete members of interfaces not yet supported -->
+<!-- cat-id: writer -->
     shared class ConsoleWriter()
             satisfies Writer {
          
@@ -285,6 +301,7 @@ two members both (directly or indirectly) refine a common member of a common
 supertype, and the inheriting type itself also refines the member to eliminate 
 any ambiguity. The following results in a compilation error:
 
+<!-- check:none:demos error -->
     interface Party {
         shared formal String legalName;
         shared default String name {
@@ -301,14 +318,15 @@ any ambiguity. The following results in a compilation error:
      
     class Customer(String name, String email)
             satisfies User & Party {
-        legalName = name;
-        userId = email;
+        shared actual String legalName = name;
+        shared actual String userId = email;
         shared actual String name = name;    //error: refines two different members
     }
 
 To fix this code, we'll factor out a `formal` declaration of the attribute 
 `name` to a common supertype. The following is legal:
 
+<!-- check:none:concrete members of interfaces not yet supported -->
     interface Named {
         shared formal String name;
     }
@@ -329,13 +347,14 @@ To fix this code, we'll factor out a `formal` declaration of the attribute
      
     class Customer(String name, String email)
             satisfies User & Party {
-        legalName = name;
-        userId = email;
+        shared actual String legalName = name;
+        shared actual String userId = email;
         shared actual String name = name;
     }
 
 Oh, of course, the following is illegal:
 
+<!-- check:none:demos error -->
     interface Named {
         shared formal String name;
     }
@@ -356,8 +375,8 @@ Oh, of course, the following is illegal:
      
     class Customer(String name, String email)
             satisfies User & Party {    //error: inherits multiple definitions of name
-        legalName = name;
-        userId = email;
+        shared actual String legalName = name;
+        shared actual String userId = email;
     }
 
 To fix this code, `name` must be declared `default` in both `User` and `Party` 
