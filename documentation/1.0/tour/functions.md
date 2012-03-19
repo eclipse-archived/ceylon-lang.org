@@ -45,6 +45,7 @@ representable within the type system as a class or interface declaration.
 In Ceylon, a single type `Callable` abstracts *all* functions. It's 
 declaration is the following:
 
+<!-- check:none -->
     shared interface Callable<out Result, Argument...> {}
 
 The syntax `P...` is called a *sequenced type parameter*. By analogy with a 
@@ -55,6 +56,7 @@ type parameter `Argument...` represents the parameter types of the function.
 
 So the type of sum in Ceylon is:
 
+<!-- check:none -->
     Callable<Integer, Integer, Integer>
 
 What about `void` functions? Well, remember that way back in 
@@ -62,6 +64,7 @@ What about `void` functions? Well, remember that way back in
 that the return type of a void function is `Void`. So the type of a function 
 like `print()` is:
 
+<!-- check:none -->
     Callable<Void,String>
 
 
@@ -72,24 +75,33 @@ declarations are "first class". That is to say, they all have a reified
 metamodel representable within the type system. For example, we could represent 
 the type of a method like this:
 
+<!-- check:none -->
     shared interface Method<out Result, in Instance, Argument...>
         satisfies Callable<Callable<Result,Argument...>, Instance> {}
 
 Where `Instance` is the type that declares the method. So the type of the 
 method` iterator()` of `Iterable<String>` would be:
 
+<!-- check:none -->
     Method<Iterator<String>, Iterable<String>>
 
 And the type of the method `compare()` of `Comparable<Integer>` would be:
 
+<!-- check:none -->
     Method<Comparison,Comparable<Integer>,Integer>
 
 Notice that we've declared a method to be a function that accepts a 
 receiver object and returns a function. As a consequence of this, an 
 alternative method invocation protocol is the following:
 
+<!-- check:none:direct invocation of Callable objects not yet supported -->
+<!-- cat: 
+    void m() {
+    String[] strings = {};
+    Integer num = 0; -->
     Iterable<String>.iterator(strings)();
     Comparable<Integer>.compare(0)(num);
+<!-- cat: } -->
 
 Don't worry if you can't make sense of that right now. A few details 
 are being glossed over here, that's not quite *exactly* how Method is 
@@ -103,13 +115,12 @@ We now have enough machinery to be able to write higher order functions.
 For example, we could create a `repeat()` function that repeatedly executes a 
 function.
 
+<!-- check:none:BROKEN -->
     void repeat(Integer times, Callable<Void,Integer> perform) {
         for (i in 1..times) {
             perform(i);
         }
     }
-
-And call it like this:
 
     void printNum(Integer n) { print(n); }
     repeat(10, printNum);
@@ -121,6 +132,7 @@ functions using named arguments, but the Callable type does not encode the
 names of the function parameters. So Ceylon has an alternative, more elegant, 
 syntax for declaring a parameter of type `Callable`:
 
+<!-- id:repeat -->
     void repeat(Integer times, void perform(Integer n)) {
         for (i in 1..times) {
             perform(i);
@@ -143,6 +155,7 @@ void method, and also the logical root of the type hierarchy? Well that's
 useful here, since it means that we can assign a function with a non-`Void` 
 return type to any parameter which expects a void method:
 
+<!-- id:attemptPrint -->
     Boolean attemptPrint(Integer n) {
         try {
             print(n);
@@ -152,18 +165,33 @@ return type to any parameter which expects a void method:
             return false;
         }
     }
+    
+And call it like this
+
+<!-- cat-id:repeat -->
+<!-- cat-id:attemptPrint -->
+<!-- cat: void m() { -->
     repeat(10, attemptPrint);
+<!-- cat: } -->
+
 
 Another way we can produce a function reference is by partially applying a 
 method to a receiver expression. For example, we could write the following:
 
+<!-- id:Hello -->
     class Hello(String name) {
         shared void say(Integer n) {
             print("Hello, " name ", for the " n "th time!");
         }
     }
-     
+
+And call it like this:
+
+<!-- cat-id:repeat -->
+<!-- cat-id:Hello -->
+<!-- cat: void m() { -->
     repeat(10, Hello("Gavin").say);
+<!-- cat: } -->
 
 Here the expression `Hello("Gavin").say` has the same type as `print` above. 
 It is a `Callable<Void,Integer>`.
@@ -176,6 +204,8 @@ function type. Suppose we have some kind of user interface component which
 can be observed by other objects in the system. We could use something like 
 Java's `Observer`/`Observable` pattern:
 
+<!-- check:parse:Requires OpenList -->
+<!-- cat: shared class Event() { } -->
     shared interface Observer {
         shared formal void observe(Event event);
     }
@@ -200,6 +230,7 @@ observers just register a function object as their event listener? In the
 following code, we define the `addObserver()` method to accept a function as 
 a parameter.
 
+<!-- check:parse:Requires OpenList -->
     shared abstract class Component() {
          
         OpenList<Callable<Void,Event>> observers = OpenList<Callable<Void,Event>>();
@@ -224,11 +255,12 @@ Here we see the difference between the two ways of specifying a function type:
 Now, any event observer can just pass a reference to one of its own methods to 
 `addObserver()`:
 
+<!-- check:parse:Depends on Component, above, which requires OpenList -->
     shared class Listener(Component component) {
      
         void onEvent(Event e) {
-            //respond to the event
-            ...
+            // respond to the event
+            // ...
         }
          
         component.addObserver(onEvent);
@@ -246,14 +278,15 @@ If `onEvent()` were `shared`, we could even wire together the `Component` and
 `Listener` from some other code, to eliminate the dependency of `Listener` 
 on `Component`:
 
+<!-- check:parse:Depends on Component, above, which requires OpenList -->
     shared class Listener() {
      
         shared void onEvent(Event e) {
-            //respond to the event
-            ...
+            // respond to the event
+            // ...
         }
          
-        ...
+        // ...
      
     }
     void listen(Component component, Listener listener) {
@@ -271,12 +304,13 @@ returns a function has multiple parameter lists. Let's consider adding the
 ability to remove observers from a `Component`. We could use a `Subscription` 
 interface:
 
+<!-- check:parse:Depends on OpenList -->
     shared interface Subscription {
         shared void cancel();
     }
     shared abstract class Component() {
          
-        ...
+        // ...
          
         shared Subscription addObserver(void observe(Event event)) {
             observers.append(observe);
@@ -288,16 +322,17 @@ interface:
             return subscription;
         }
          
-        ...
+        // ...
      
     }
 
 But a simpler solution might be to just eliminate the interface and return the 
 `cancel()` method directly:
 
+<!-- check:parse:Depends on OpenList -->
     shared abstract class Component() {
          
-        ...
+        // ...
          
         shared void addObserver(void observe(Event event))() {
             observers.append(observe);
@@ -307,7 +342,7 @@ But a simpler solution might be to just eliminate the interface and return the
             return cancel;
         }
          
-        ...
+        // ...
      
     }
 
@@ -334,6 +369,7 @@ how regular the language is.
 
 We could invoke our method like this:
 
+<!-- check:none -->
     addObserver(onEvent)();
 
 But if we were planning to use the method in this way, there would be no good 
@@ -341,8 +377,9 @@ reason for giving it two parameter lists. It's much more likely that we're
 planning to store or pass the reference to the inner method somewhere before 
 invoking it.
 
+<!-- check:none -->
     void cancel() = addObserver(onEvent);
-    ...
+    // ...
     cancel();
 
 The first line demonstrates how a method can be defined using a `=` 
@@ -372,12 +409,14 @@ in particular the two different ways to represent the type of a parameter
 which accepts a reference to a function. The following declarations are 
 essentially equivalent:
 
+<!-- check:none -->
     X[] filter<X>(X[] sequence, Callable<Boolean,X> by) { ... }
     X[] filter<X>(X[] sequence, Boolean by(X x)) { ... }
 
 We've even seen how we can pass a reference to a method to such a higher-order 
 function:
 
+<!-- check:parse:Requires filter -->
     Boolean stringNonempty(String string) {
         return !string.empty;
     }
@@ -393,22 +432,26 @@ Most languages with higher order functions support anonymous functions, where
 a function may be defined inline as part of the expression. My favored syntax 
 for this in a C-like language would be the following:
 
+<!-- check:none:Requires anonymous functions -->
     function (String string) { return !string.empty; }
 
 This is an ordinary method declaration with the name eliminated. Then we could 
 call `filter()` as follows:
 
+<!-- check:parse:Requires filter -->
     String[] nonemptyStrings = filter( strings, function (String string) { return !string.empty; } );
 
 Since it's extremely common for anonymous functions to consist of a single 
 expression, and since the `function` keyword is a little noisy, I favor 
 allowing the following abbreviation:
 
+<!-- check:none:Requires anonymous functions -->
     (String string) !string.empty
 
 The expression is understood to be the return value of the method. Then the 
 invocation of `filter()` is a bit less noisy:
 
+<!-- check:none:Requires anonymous functions -->
     String[] nonemptyStrings = filter(strings, (String string) !string.empty);
 
 This works, and we could support this syntax in the Ceylon language.
@@ -416,30 +459,37 @@ This works, and we could support this syntax in the Ceylon language.
 Let's look at some more examples of how we would use anonymous functions:
 
 * Assertion:
-     
+
+<!-- check:none:Requires anonymous functions -->
         assert ("x must be positive", () x>0.0)
     
 * Conditionals:
      
+<!-- check:none:Requires anonymous functions -->
         when (x>100.0, () 100.0, () x)
 * Repetition:
      
+<!-- check:none:Requires anonymous functions -->
         repeat(n, () { print("Hello"); })
     
 * Tabulation:
      
+<!-- check:none:Requires anonymous functions -->
         tabulateList(20, (Integer i) i**3)
     
 * Comprehension:
      
+<!-- check:none:Requires anonymous functions -->
         from (people, (Person p) p.name, (Person p) p.age>18)
     
 * Quantification:
      
+<!-- check:none:Requires anonymous functions -->
         forAll (people, (Person p) p.age>18)
     
 * Accumulation (folds):
      
+<!-- check:none:Requires anonymous functions -->
         accumulate (items, 0.0, (Float sum, Item item) sum+item.quantity*item.product.price)
 
 
@@ -557,14 +607,15 @@ The answer just isn't crystal clear to us.
 A method reference like `Float.times` is represented in "curried" form in 
 Ceylon. I can write:
 
-    Float twoTimes(Float x) = 2.times;
+    Float twoTimes(Float x) = 2.0.times;
 
 Here, the expression `2.times` is a typical first-class function reference 
 produced by the partial application of the method `times()` to the 
-receiver expression `2`.
+receiver expression `2.0`.
 
 But I can also write:
 
+<!-- check:parse:Requires multiple parameter lists -->
     Float times(Float x)(Float y) = Float.times;
 
 Actually, the expression `Float.times` is really a metamodel reference to a 
@@ -574,6 +625,7 @@ function reference.
 
 Therefore, an alternative definition of `twoTimes()` is:
 
+<!-- check:parse:???-->
     Float twoTimes(Float x) = Float.times(2);
 
 (We're partially applying `Float.times` by supplying one of its two 
@@ -581,6 +633,7 @@ argument lists.)
 
 Unfortunately, the following isn't correctly typed:
 
+<!-- check:none:Demoing error -->
     Float product(Float x, Float y) = Float.times;  //error: Float.times not a Callable<Float,Float,Float>
 
 The problem is that `Float.times`, when considered as a function reference, 
@@ -600,6 +653,7 @@ But there's another way. Instead, we're going to use a really cool higher-order
 function that will be part of the Ceylon language module. It's just two lines 
 of code, so I'm sure you'll immediately understand it:
 
+<!-- check:none:Not supported yet -->
     R uncurry<R,T,P...>(R curried(T t)(P... p))(T receiver, P... args) {
         return curried(receiver)(args);
     }
@@ -628,10 +682,12 @@ original parameters of the argument function. It's "flattening" the parameter
 lists of `curried()()` into a single list of parameters. So we can write the 
 following:
 
+<!-- check:none:Requires uncurry -->
     Float product(Float x, Float y) = uncurry(Float.times);
 
 Other kinds of operations on functions can be represented in a similar way. Consider:
 
+<!-- check:none:Requires uncurry -->
     R curry<R,T,P...>(R uncurried(T t, P... p))(T receiver)(P... args) {
         return uncurried(receiver,args);
     }
@@ -640,17 +696,20 @@ This function does precisely the opposite of `uncurry()()`, it takes the
 first parameter of an argument function, and separates it out into its own 
 parameter list, allowing the argument function to be partially applied:
 
+<!-- check:none:Requires curry -->
     Float times(Float x)(Float y) = curry(product);
     Float double(Float y) = times(2.0);
 
 Now consider:
 
+<!-- check:none:Required MPL -->
     R compose<R,S,P...>(R f (S s), S g(P... p))(P... args) {
         return f(g(args));
     }
 
 This function composes two functions:
 
+<!-- check:none:Requires compose -->
     Float incrementThenDouble(Float x) = compose(2.0.times,1.0.plus);
 
 Fortunately, you won't need to be writing functions like 
