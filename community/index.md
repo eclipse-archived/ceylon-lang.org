@@ -1,5 +1,5 @@
 ---
-title: Community  
+title: Community
 layout: community
 unique_id: communitypage
 tab: community
@@ -11,7 +11,7 @@ Ceylon is first and foremost an open source community project.
 
 ## Forum
 If you have questions or suggestions, you're welcome to discuss them in 
-our Google group [forum](/community/forum).
+our Google group [forum](http://groups.google.com/group/ceylon-users).
 
 ## Development mailing list
 
