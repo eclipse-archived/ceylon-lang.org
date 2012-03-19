@@ -53,18 +53,21 @@ Oh, and the expression `{}` returns a value of type `Empty`.
 However, unlike Java, all these syntactic constructs are pure abbreviations. 
 The code above is exactly equivalent to the following de-sugared code:
 
-    Empty|Sequence<String> operators = Array("+", "-", "*", "/");
+<!-- check:none:pedagogial -->
+    Empty|Sequence<String> operators = ArraySequence("+", "-", "*", "/");
     Nothing|String plus = operators.item(0);
     Empty|Sequence<String> multiplicative = operators.range(2,3);
 
+Though really `ArraySequence` is a hidden type in the Ceylon runtime library.
+
 A `Range` is also a subtype of `Sequence`. The following:
 
-    Character[] uppercaseLetters = 'A'..'Z';
+    Character[] uppercaseLetters = `A`..`Z`;
     Integer[] countDown = 10..0;
 
 Is just sugar for:
 
-    Empty|Sequence<Character> uppercaseLetters = Range('A','Z');
+    Empty|Sequence<Character> uppercaseLetters = Range(`A`,`Z`);
     Empty|Sequence<Integer> countDown = Range(10,0);
 
 In fact, this is just a sneak preview of the fact that almost all operators 
@@ -77,26 +80,32 @@ later, when we talk about [operator polymorphism](../language-module#operator_po
 The `Sequence` interface extends `Iterable`, so we can iterate a `Sequence` 
 using a `for` loop:
 
+<!-- cat: void m(String[] operators) { -->
     for (op in operators) {
         print(op);
     }
+<!-- cat: } -->
 
 Ceylon doesn't need C-style `for` loops. Instead, combine `for` with the 
 range operator `..`.
 
+<!-- cat: void m() { -->
     variable Integer fac:=1;
     for (n in 1..100) {
         fac*=n;
         print("Factorial " n "! = " fac "");
     }
+<!-- cat: } -->
 
 If, for any reason, we need to use the index of each element of a sequence 
 we can use a special variation of the `for` loop that is designed for 
 iterating instances of `Entries`:
 
+<!-- cat: void m(String operators) { -->
     for (i -> op in entries(operators)) {
         print(i.string + ": " + op);
     }
+<!-- cat: } -->
 
 The `entries()` function returns an instance of `Entries<Integer,String>` 
 containing the indexed elements of the sequence. The `->` is syntax sugar 
@@ -105,9 +114,11 @@ for `Entry`.
 It's often useful to be able to iterate two sequences at once. The `zip()`
 function comes in handy here:
 
+<!-- cat: void m(String[] names, String[] places) { -->
     for (name -> place in zip(names,places)) {
         print(name + " @ " + place);
     }
+<!-- cat: } -->
 
 ## Sequence and its supertypes
 
@@ -116,57 +127,47 @@ place to find some than in the language module itself?
 
 Here's how the language module defines the type `Sequence`:
 
-    shared interface Sequence<out Element>
-            satisfies Correspondence<Integer, Element> &
-                      Iterable<Element> & Sized {
-         
+<!-- check:none:decl from ceylon.language -->
+    shared interface Sequence<out Element> 
+            satisfies List<Element> & Some<Element> &
+                      Cloneable<Sequence<Element>> &
+                      Ranged<Integer, Element[]> {
+        
         doc "The index of the last element of the sequence."
-        shared formal Integer lastIndex;
-         
-        doc "The first element of the sequence."
+        see (size)
+        shared actual formal Integer lastIndex;
+        
+        doc "The first element of the sequence, that is, the
+             element with index `0`."
         shared actual formal Element first;
-         
-        doc "The rest of the sequence, without the first
-             element."
-        shared formal Element[] rest;
-     
-        shared actual Boolean empty {
-            return false;
-        }
-             
-        shared actual default Integer size {
-            return lastIndex+1;
-        }
-         
-        doc "The last element of the sequence."
+        
+        doc "The last element of the sequence, that is, the
+             element with index `sequence.lastIndex`."
         shared default Element last {
-            if (exists x = item(lastIndex)) {
-                return x;
+            if (is Element last = this[lastIndex]) {
+                return last;
             }
             else {
-                //actually never occurs if
-                //the subtype is well-behaved
-                return first;
-            }
+                throw; //never occurs for well-behaved implementations
+            } 
         }
-     
-        shared actual default Iterator<Element> iterator() {
-            class SequenceIterator(Integer from)
-                    satisfies Iterator<Element> {
-                shared actual Element? head {
-                    return item(from);
-                }
-                shared actual Iterator<Element> tail {
-                    return SequenceIterator(from+1);
-                }
-            }
-            return SequenceIterator(0);
-        }
+        
+        doc "The rest of the sequence, without the first 
+             element."
+        shared actual formal Element[] rest;
+            
+        /*shared formal Sequence<Value> append<Value>(Value... elements)
+                given Value abstracts Element;
+        
+        shared formal Sequence<Value> prepend<Value>(Value... elements)
+                given Value abstracts Element;*/
+        
     }
 
 The most interesting operations are inherited from `Correspondence`, 
 `Iterable` and `Sized`:
 
+<!-- check:none:decl from ceylon.language -->
     shared interface Correspondence<in Key, out Item>
             given Key satisfies Object {
          
@@ -175,7 +176,7 @@ The most interesting operations are inherited from `Correspondence`,
         shared formal Item? item(Key key);
              
     }
-    
+
     shared interface Iterable<out Element>
             satisfies Container {
          
@@ -183,13 +184,10 @@ The most interesting operations are inherited from `Correspondence`,
              to the container."
         shared formal Iterator<Element> iterator();
          
+        doc "Determines if the iterable object is empty, that is
+             to say, if `iterable.iterator` is `null`."
         shared actual default Boolean empty {
-            return !(first exists);
-        }
-         
-        doc "The first object."
-        shared default Element? first {
-            return iterator().head;
+            return is Finished iterator.next();
         }
      
     }
@@ -209,6 +207,8 @@ The most interesting operations are inherited from `Correspondence`,
     
     shared interface Container {
              
+        doc "Determine if the container is empty, that is, if
+             it has no elements."
         shared formal Boolean empty;
          
     }
@@ -217,37 +217,57 @@ The most interesting operations are inherited from `Correspondence`,
 
 Now let's see the definition of Empty:
 
+<!-- check:none:decl from ceylon.language -->
     object emptyIterator satisfies Iterator<Bottom> {
-         
-        shared actual Nothing head {
-            return null;
+        shared actual Finished next() {
+            return exhausted;
         }
-        shared actual Iterator<Bottom> tail {
-            return this;
-        }
-         
     }
      
     shared interface Empty
-               satisfies Correspondence<Integer, Bottom> &
-                         Iterable<Bottom> & Sized {
-         
-        shared actual Integer size {
-            return 0;
-        }
-        shared actual Boolean empty {
-            return true;
-        }
-        shared actual Iterator<Bottom> iterator() {
+               satisfies List<Bottom> & None<Bottom> &
+                         Ranged<Integer,Empty> &
+                         Cloneable<Empty> {
+        
+        shared actual Integer size { return 0; }
+        
+        shared actual Iterator<Bottom> iterator {
             return emptyIterator;
         }
+        
         shared actual Nothing item(Integer key) {
             return null;
         }
-        shared actual Nothing first {
-            return null;
+        
+        shared actual Empty segment(Integer from, Integer length) {
+            return this;
         }
-         
+        
+        shared actual Empty span(Integer from, Integer? to) {
+            return this;
+        }
+        
+        shared actual String string {
+            return "{}";
+        }
+        shared actual Nothing lastIndex { return null; }
+        
+        shared actual Empty clone {
+            return this;
+        }
+        
+        shared actual Boolean contains(Object element) {
+            return false;
+        }
+        
+        shared actual Integer count(Object element) {
+            return 0;
+        }
+        
+        shared actual Boolean defines(Integer index) {
+            return false;
+        }
+        
     }
 
 The special type `Bottom` represents:
@@ -263,10 +283,9 @@ in the type parameter `Element`. So `Empty` is assignable to
 `Empty` doesn't need a type parameter. The following code is well-typed:
 
     void printAll(String[] strings) {
-        variable Iterator<String> i := strings.iterator();
-        while (exists s = i.head) {
+        Iterator<String> i = strings.iterator;
+        while (is String s = i.next()) {
             print(s);
-            i := i.tail;
         }
     }
 
@@ -295,6 +314,7 @@ very, very different! First, of course, a sequence type
 `Sequence<String>` is an immutable interface, it's not a mutable concrete 
 type like an array. We can't set the value of an element:
 
+<!-- check:none:Demoing error -->
     String[] operators = .... ;
     operators[0] := "**"; //compile error
 
@@ -303,6 +323,7 @@ Furthermore, the index operation `operators[i]` returns an optional type
 we don't iterate sequences by index like in C or Java. The following code 
 does not compile:
 
+<!-- check:none:Demoing error -->
     for (i in 0..operators.size-1) {
         String op = operators[i]; //compile error
         ...
@@ -314,12 +335,15 @@ Here, `operators[i]` is a `String?`, which is not directly assignable to
 Instead, if we need access to the index, we use the special form of `for` 
 shown above.
 
+<!-- cat: void m(String operators) { -->
     for (i -> op in entries(operators)) {
-        ...
+        // ...
     }
+<!-- cat: } -->
 
 Likewise, we don't usually do an upfront check of an index against the sequence length:
 
+<!-- check:none:demoing error -->
     if (i>operators.size-1) {
         throw IndexOutOfBoundException();
     }
@@ -329,15 +353,20 @@ Likewise, we don't usually do an upfront check of an index against the sequence 
 
 Instead, we do the check *after* accessing the sequence element:
 
+<!-- cat: 
+    class IndexOutOfBoundException() extends Exception(null, null) {} 
+    String m(String[] operators, Integer i) { -->
     if (exists op = operators[i]) {
         return op;
     }
     else {
         throw IndexOutOfBoundException();
     }
+<!-- cat: } -->
 
 We especially don't ever need to write the following:
 
+<!-- check:none:demoing error -->
     if (i>operators.size-1) {
         return "";
     }
@@ -347,7 +376,9 @@ We especially don't ever need to write the following:
 
 This is much cleaner:
 
+<!-- cat: String m(String[] operators, Integer i) { -->
     return operators[i] ? "";
+<!-- cat: } -->
 
 All this may take a little getting used to. But what's nice is that all the 
 exact same idioms also apply to other kinds of `Correspondence`, including 
