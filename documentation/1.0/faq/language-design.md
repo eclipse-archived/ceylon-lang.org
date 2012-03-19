@@ -325,9 +325,7 @@ values (things which can be null) within the type system.
 
 Once we started to explore some of the corner cases in our type
 argument inference algorithm, we [discovered that we were also going 
-to need first-class intersection types](intersections).
-
-[intersections]: http://in.relation.to/Bloggers/UnionTypesAndCovarianceOrWhyWeNeedIntersections
+to need first-class intersection types](http://in.relation.to/Bloggers/UnionTypesAndCovarianceOrWhyWeNeedIntersections).
 
 Later, we realized that union and intersection types have lots of 
 other advantages. For example, they help make overloading unnecessary. 
