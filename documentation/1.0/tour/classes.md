@@ -294,10 +294,10 @@ Let's make use of this idea to "overload" the "constructor" of `Polar`.
         
         shared String description {
             if (exists label) {
-                description = label;
+                return label;
             }
             else {
-                description = "(" radius "," angle ")";
+                return "(" radius "," angle ")";
             }
         }
         
@@ -308,9 +308,10 @@ Let's make use of this idea to "overload" the "constructor" of `Polar`.
 Now we can create `Polar` coordinates with or without labels:
 
 <!-- cat-id: polar -->
-    Polar origin = Polar(0, 0, "origin");
+<!-- cat: void m(Float r, Float theta) { -->
+    Polar origin = Polar(0.0, 0.0, "origin");
     Polar coord = Polar(r, theta);
-
+<!-- cat: } -->
 
 ## There's more...
 
