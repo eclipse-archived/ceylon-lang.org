@@ -40,6 +40,8 @@ But in the following two examples, `count` is an attribute:
         shared variable Integer count := 0;
     }
 
+<!-- break up the two examples so we don't see a duped decl-->
+
     class Counter() {
         variable Integer count := 0;
         shared Integer inc() {
@@ -97,6 +99,7 @@ The `=` specifier is not an operator, and can never appear inside an
 expression. It's just a punctuation character. The following code is not 
 only wrong, but even fails to parse:
 
+<!-- check:none:demoing error -->
     if (x=true) {   //compile error
         ...
     }
@@ -111,6 +114,7 @@ attribute you're trying to set the value of indirectly.
 Suppose our class has the following simple attributes, intended for internal 
 consumption only, so un-`shared`:
 
+<!-- id:attrs -->
     variable String? firstName := null;
     variable String? lastName := null;
 
@@ -118,14 +122,21 @@ consumption only, so un-`shared`:
 
 Then we can abstract the simple attribute using a second attribute defined as a getter/setter pair:
 
+<!-- cat-id:attrs -->
     shared String fullName {
-        return " ".join(coalesce(firstName,lastName));
+        return " ".join(coalesce({firstName,lastName})...);
     }
      
     assign fullName {
-        Iterator<String> tokens = fullName.tokens();
-        firstName := tokens.head;
-        lastName := tokens.rest.head;
+        value tokens = fullName.split().iterator;
+        value first = tokens.next();
+        if (is String first) {
+            firstName := first;
+        }
+        value last = tokens.next();
+        if (is String last) {
+            lastName := last;
+        }
     }
 
 A setter is identified by the keyword `assign` in place of a type declaration. 
@@ -147,74 +158,107 @@ additional commentary should suffice. However, one thing to be aware of is
 that Ceylon doesn't allow you to omit the braces in a control structure. 
 The following doesn't parse:
 
+<!-- check:none:Demoing error -->
     if (x>100) bigNumber();
 
 You are required to write:
 
-    if (x>100) { bigNumber(); }
+<!-- cat: void m(Integer x) { -->
+    if (x>100) { print("big"); }
+<!-- cat: } -->
 
 OK, so here are the examples. The `if/else` statement is totally traditional:
 
-    if (x>100)) {
-        bigNumber(x);
+<!-- cat: void m(Integer x) { -->
+    if (x>100) {
+        print("big");
     }
     else if (x>1000) {
-        reallyBigNumber(x);
+        print("really big");
     }
     else {
-        littleNumber();
+        print("small");
     }
+<!-- cat: } -->
 
 The `switch/case` statement eliminates C's much-criticized "fall through" 
 behavior and irregular syntax:
 
+<!-- cat: void m(Integer x) { -->
     switch (x<=>100)
-    case (smaller) { littleNumber(); }
-    case (equal) { oneHundred(); }
-    case (larger) { bigNumber(); }
+    case (smaller) { print("smaller"); }
+    case (equal) { print("one hundred"); }
+    case (larger) { print("larger"); }
+<!-- cat: } -->
 
 The `for` loop has an optional `else` block, which is executed when the 
 loop completes normally, rather than via a `return` or `break` statement. 
 There is no C-style `for`.
 
-    Boolean minors;
+<!-- cat: class Person() {shared Integer age = 0;} -->
+<!-- cat: void m(Person[] people) { -->
+    variable Boolean minors;
     for (p in people) {
         if (p.age<18) {
-            minors = true;
+            minors := true;
             break;
         }
     }
     else {
-        minors = false;
+        minors := false;
     }
+<!-- cat: } -->
 
 The `while` loop is traditional.
 
-    variable value it = names.iterator();
-    while (exists name = it.head) {
-        print(name);
-        it:=it.tail;
+<!-- cat: void m(String[] names) { -->
+    value it = names.iterator;
+    while (true) {
+        value next = it.next;
+        if (next is Finished) {
+            break;
+        }
+        print(next);
     }
+<!-- cat: } -->
 
 There is no `do/while` statement.
 
 The `try/catch/finally` statement works like Java's:
 
+<!-- implicit-id:tx: 
+    shared interface Message { 
+        shared formal void send(); 
+    } 
+    shared interface Transaction { 
+        shared formal void setRollbackOnly(); 
+    }
+    shared class ConnectionException() extends Exception(null, null) {
+    }
+    shared class MessageException() extends Exception(null, null) {
+    }
+-->
+
+<!-- cat-id:tx -->
+<!-- cat: void m(Message message, Transaction tx) { -->
     try {
         message.send();
     }
     catch (ConnectionException|MessageException e) {
         tx.setRollbackOnly();
     }
+<!-- cat: } -->
 
-And `try` supports a "resource" expression similar to Java 7.
+And `try` (by Milestone 5) will support a "resource" expression similar 
+to Java 7.
 
+<!-- cat-id:tx -->
+<!-- check:parse:Requires try-with-resources -->
     try (Transaction()) {
         try (s = Session()) {
             s.persist(person);
         }
     }
-
 
 ## Sequenced parameters
 
@@ -222,22 +266,26 @@ A sequenced parameter of a method or class is declared using an ellipsis.
 There may be only one sequenced parameter for a method or class, and it must 
 be the last parameter.
 
-    void print(String... strings) { ... }
+    void print(String... strings) { 
+        // ... 
+    }
 
 Inside the method body, the parameter `strings` has type `String[]`.
 
     void print(String... strings) {
         for (string in strings) {
-            process.write(string);
+            process.writeLine(string);
         }
-        process.writeLine();
     }
 
 A slightly more sophisticated example is the `coalesce()` method we saw [above](#then_we_can_abstract_the...). 
 `coalesce()` accepts `X?[]` and eliminates nulls, returning `X[]`, for any 
 type `X`. Its signature is:
 
-    shared Value[] coalesce<Value>(Value?... sequence) { ... }
+<!-- check:none:pedagogical -->
+    shared Value[] coalesce<Value>(Value?... sequence) { 
+        // ... 
+    }
 
 Sequenced parameters turn out to be especially interesting when used in 
 [named argument lists](../named-arguments) for defining user interfaces or structured data.
@@ -259,18 +307,22 @@ file. We can't write `org.jboss.hello.Hello` in Ceylon.
 The syntax of the `import` statement is slightly different to Java. 
 To import a program element, we write:
 
+<!-- check:none:pedagogical -->
     import com.redhat.polar.core { Polar }
 
 To import several program elements from the same package, we write:
 
+<!-- check:none:pedagogical -->
     import com.redhat.polar.core { Polar, pi }
 
 To import all toplevel program elements of a package, we write:
 
+<!-- check:none:pedagogical -->
     import com.redhat.polar.core { ... }
 
 To resolve a name conflict, we can rename an imported declaration:
 
+<!-- check:none:pedagogical -->
     import com.redhat.polar.core { PolarCoord=Polar }
 
 We think renaming is a much cleaner solution than the use of qualified names.
