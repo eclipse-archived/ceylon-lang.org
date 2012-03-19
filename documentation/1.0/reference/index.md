@@ -102,7 +102,8 @@ _This page is very incomplete. Want to help? [See how](/code/website)._
 * [`>=`  (greater than or equal)](operator/greater-than-or-equal)
 * [`?[]` (nullsafe-lookup)](operator/nullsafe-lookup)
 * [`[]`  (lookup)](operator/lookup)
-* [`[].` (spread)](operator/spread)
+* [`[].` (spread attribute)](operator/spread-attribute)
+* [`[].` (spread invoke)](operator/spread-invoke)
 * [`[x..y]` (span)](operator/span)
 * [`[x...]` (upper span)](operator/upper-span)
 * [`^`   (Set exclusive union)](operator/exclusive-union) <!-- m4 -->
