@@ -26,6 +26,7 @@ Just like in Java, only types and methods may declare type parameters. Also
 just like in Java, type parameters are listed before ordinary parameters, 
 enclosed in angle brackets.
 
+<!-- check:none -->
     shared interface Iterator<out Element> { ... }
 
     class Array<Element>(Element... elements) 
@@ -39,22 +40,25 @@ type parameters (in Java the convention is to use single letter names).
 Unlike Java, we always do need to specify type arguments in a type declaration 
 (there are no 'raw types' in Ceylon). The following will not compile:
 
+<!-- check:none:Demoing error -->
     Iterator it = ...;   //error: missing type argument to parameter Element of Iterator
 
 We always have to specify a type argument in a type declaration:
 
+<!-- check:none -->
     Iterator<String> it = ...;
 
 On the other hand, we don't need to explicitly specify type arguments in most 
 method invocations or class instantiations. We don't usually need to write:
 
-
+<!-- check:none -->
     Array<String> strings = Array<String>("Hello", "World"); 
     Entries<Integer,String> entries = entries<String>(strings);
 
 Instead, it's very often possible to infer the type arguments from the ordinary 
 arguments.
 
+<!-- check:none -->
     value strings = Array("Hello", "World"); // type Array<String>
     value entries = entries(strings); // type Entries<Integer,String>
 
@@ -64,6 +68,7 @@ for a complete definition. But
 essentially what happens is that Ceylon infers a type by combining the types
 of corresponding arguments using union.
 
+<!-- check:none -->
     value points = Array(Polar(pi/4, 0.5), Cartesian(-1.0, 2.5)); // type Array<Polar|Cartesian>
     value entries = entries(points); // type Entries<Integer,Polar|Cartesian>
 
@@ -72,6 +77,7 @@ Java is *type erasure*. Generic type parameters and arguments are discarded
 by the compiler, and simply aren't available at runtime. So the following, 
 perfectly sensible, code fragments just wouldn't compile in Java:
 
+<!-- check:none -->
     if (is List<Person> list) { ... }
     if (is Element obj) { ... }
 
@@ -102,6 +108,7 @@ collection of `Persons`. That's a reasonable intuition, but especially in
 non-functional languages, where collections can be mutable, it turns out to be 
 incorrect. Consider the following possible definition of `Collection`:
 
+<!-- check:none -->
     shared interface Collection<Element> {
         shared formal Iterator<Element> iterator();
         shared formal void add(Element x);
@@ -111,6 +118,7 @@ And let's suppose that `Geek` is a subtype of `Person`. Reasonable.
 
 The intuitive expectation is that the following code should work:
 
+<!-- check:none -->
     Collection<Geek> geeks = ... ;
     Collection<Person> people = geeks;    //compiler error
     for (person in people) { ... }
@@ -121,6 +129,7 @@ where the `Collection<Geek>` is assigned to a `Collection<Person>`. Why?
 Well, because if we let the assignment through, the following code would also 
 compile:
 
+<!-- check:none -->
     Collection<Geek> geeks = ... ;
     Collection<Person> people = geeks;    //compiler error
     people.add( Person("Fonzie") );
@@ -140,6 +149,7 @@ to follow Java down the hole.
 Instead, we're going to refactor `Collection` into a pure producer interface 
 and a pure consumer interface:
 
+<!-- check:none -->
     shared interface Producer<out Output> {
         shared formal Iterator<Output> iterator();
     }
@@ -170,6 +180,7 @@ Now, let's see what that buys us:
 
 We can define our `Collection` interface as a mixin of `Producer` with `Consumer`.
 
+<!-- check:none -->
     shared interface Collection<Element>
             satisfies Producer<Element> & Consumer<Element> {}
 
@@ -180,6 +191,7 @@ result, because the annotation would contradict the variance annotation of eithe
 
 Now, the following code finally compiles:
 
+<!-- check:none -->
     Collection<Geek> geeks = ... ;
     Producer<Person> people = geeks;
     for (person in people) { ... }
@@ -188,6 +200,7 @@ Which matches our original intuition.
 
 The following code also compiles:
 
+<!-- check:none -->
     Collection<Person> people = ... ;
     Consumer<Geek> geekConsumer = people;
     geekConsumer.add( Geek("James") );
@@ -227,6 +240,7 @@ defined for expressions of type `Object`, we need some way to assert that
 constraint* — in fact, it's an example of the most common kind of type 
 constraint, an *upper bound*.
 
+<!-- check:none -->
     shared class Set<out Element>(Element... elements)
             given Element satisfies Object {
         ...
@@ -244,6 +258,7 @@ constraint, an *upper bound*.
 
 A type argument to `Element` must be a subtype of `Object`.
 
+<!-- check:none: Demos error -->
     Set<String> set = Set("C", "Java", "Ceylon"); //ok
     Set<String?> set = Set("C", "Java", "Ceylon", null); //compile error
 
@@ -257,6 +272,7 @@ reified generics, we'll be able to add a new kind of type constraint to
 Ceylon. An *initialization parameter specification* lets us actually 
 instantiate the type parameter.
 
+<!-- check:none:Parameter bounds not yet supported -->
     shared class Factory<out Result>()
             given Result(String s) {
      
@@ -273,6 +289,7 @@ A third kind of type constraint is an *enumerated type bound*, which constrains
 the type argument to be one of an enumerated list of types. 
 It lets us write an exhaustive switch on the type parameter:
 
+<!-- check:none:Requires ceylon.math -->
     Value sqrt<Value>(Value x)
             given Value of Float | Decimal {
         switch (Value)
@@ -294,6 +311,7 @@ a *supertype* of some other type. There's only really one situation where
 this is useful. Consider adding a `union()` operation to our `Set` interface. 
 We might try the following:
 
+<!-- check:none -->
     shared class Set<out Element>(Element... elements)
             given Element satisfies Object {
         ...
@@ -308,6 +326,7 @@ This doesn't compile because we can't use the covariant type parameter `T`
 in the type declaration of a method parameter. The following declaration 
 would compile:
 
+<!-- check:none -->
     shared class Set<out Element>(Element... elements)
             given Element satisfies Object {
         ...
@@ -321,6 +340,7 @@ would compile:
 But, unfortunately, we get back a `Set<Object>` no matter what kind of 
 set we pass in. A lower bound is the solution to our dilemma:
 
+<!-- check:none -->
     shared class Set<out Element>(Element... elements)
             given Element satisfies Object {
         ...
@@ -335,6 +355,7 @@ set we pass in. A lower bound is the solution to our dilemma:
 With type inference, the compiler chooses an appropriate type argument to 
 `UnionElement` for the given argument to `union()`:
 
+<!-- check:none -->
     Set<String> strings = Set("abc", "xyz") ;
     Set<String> moreStrings = Set("foo", "bar", "baz");
     Set<String> allTheStrings = strings.union(moreStrings);
