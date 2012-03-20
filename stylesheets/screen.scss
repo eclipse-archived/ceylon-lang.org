@@ -317,7 +317,11 @@ form.bp {
 	  
 	    p {
           color: white;
-		  margin-bottom: 0;
+		  margin-bottom: 1em;
+        }
+
+        p:last-child {
+          margin-bottom: 0;
         }
 		
 		a {
