@@ -15,7 +15,7 @@ This is the first release of the command line tools and IDE.
 This package contains the Ceylon command line compiler, 
 documentation compiler, language module, and runtime.
 
-[minitel]: /blog/2012/03/18/ceylon-m2newton?utm_source=download&utm_medium=web&utm_content=blog&utm_campaign=1_0_M2release
+[minitel]: /blog/2012/03/20/ceylon-m2-minitel?utm_source=download&utm_medium=web&utm_content=blog&utm_campaign=1_0_M2release
 
 <table>
     <tr>
