@@ -1,7 +1,7 @@
 ---
 name: Tom Bentley
 photo: /images/team/TomBentley.jpg
-level: 100
+level: 10
 ---
 <!-- level explanation
 1: founder and fearless leaders
