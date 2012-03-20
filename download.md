@@ -77,8 +77,7 @@ documentation compiler, language module, and runtime.
     </tr>
 </table>
 
-Mac OS X users running the [Homebrew package manager](http://mxcl.github.com/homebrew/) can install Ceylon 
-(*the M2 release might take a few hours to propagate on Homebrew*):
+Mac OS X users running the [Homebrew package manager](http://mxcl.github.com/homebrew/) can install Ceylon:
 
     brew install ceylon
 
