@@ -41,7 +41,12 @@ The
 [module descriptor](#{site.urls.apidoc_current}/ceylon/language/descriptor/class_Module.html) 
 holds metadata about the module, including its name, version,
 module-level documentation, what packages the module exports and what other 
-modules it depends on 
+modules it depends on. It is conventionally declared in a source file called
+`module.ceylon`.
+
+Note that the module descriptor makes use of 
+[single quoted literals](../../literal/single-quoted) even though they are not 
+generally supported in Ceylon 1.0.
 
 ### Distribution
 

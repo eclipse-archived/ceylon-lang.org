@@ -41,7 +41,12 @@ The
 [package descriptor](\#{site.urls.apidoc_current}/ceylon/language/descriptor/class_Package.html) 
 holds metadata about the package, including its name, 
 package-level documentation and whether the package is visible outside the 
-containing module.
+containing module. It is conventionally declared in a source file called
+`package.ceylon`.
+
+Note that the package descriptor makes use of 
+[single quoted literals](../../literal/single-quoted) even though they are not 
+generally supported in Ceylon 1.0.
 
 ## See also
 
