@@ -59,7 +59,7 @@ Check out the [screenshots](screenshots)!
 
 ## Running the IDE
 
-You can install Ceylon IDE (which includes the Ceylon compiler) either
+You can install M1 "Newton" release of the Ceylon IDE (which includes the Ceylon compiler) either
 
 * from our [Eclipse plugin update site](install), or 
 * from Eclipse Marketplace by dragging and dropping this button into 
@@ -68,6 +68,8 @@ You can install Ceylon IDE (which includes the Ceylon compiler) either
   <img src='http://marketplace.eclipse.org/misc/installbutton.png'/>
   <br/>Ceylon IDE 
   </a>
+
+**Note:** The M2 "Minitel" release of the Ceylon IDE will be released soon.
 
 You can get started using the [welcome page](screenshots#welcome_page) and 
 [cheat sheets](screenshots#cheat_sheets). After installing, go straight to 
