@@ -35,12 +35,12 @@ An annotation is a
 [toplevel](../type#top_level_declarations) 
 [method](../method) 
 that returns a subtype of 
-[`ConstrainedAnnotation`](\#{site.urls.apidoc_current}/ceylon/language/metamodel/interface_ConstrainedAnnotation.html).
+[`ConstrainedAnnotation`](#{site.urls.apidoc_current}/ceylon/language/metamodel/interface_ConstrainedAnnotation.html).
 `ConstrainedAnnotation` has enumerated subtypes:
 
-* [`OptionalAnnotation`](\#{site.urls.apidoc_current}/ceylon/language/metamodel/interface_OptionalAnnotation.html) 
+* [`OptionalAnnotation`](#{site.urls.apidoc_current}/ceylon/language/metamodel/interface_OptionalAnnotation.html) 
   for annotations which occur at most once on a given program element.
-* [`SequencedAnnotation`](\#{site.urls.apidoc_current}/ceylon/language/metamodel/interface_SequencedAnnotation.html)
+* [`SequencedAnnotation`](#{site.urls.apidoc_current}/ceylon/language/metamodel/interface_SequencedAnnotation.html)
   which can occur more than once on a given program element.
 
 ### Program elements
@@ -52,18 +52,18 @@ be used to any of the types satisfying
 
 ### Language module annotations
 
-* [`abstract`](\#{site.urls.apidoc_current}/ceylon/language/#method_abstract)
-* [`actual`](\#{site.urls.apidoc_current}/ceylon/language/#method_actual)
-* [`default`](\#{site.urls.apidoc_current}/ceylon/language/#method_default)
-* [`deprecated`](\#{site.urls.apidoc_current}/ceylon/language/#method_deprecated)
-* [`doc`](\#{site.urls.apidoc_current}/ceylon/language/#method_doc)
-* [`by`](\#{site.urls.apidoc_current}/ceylon/language/#method_by)
-* [`formal`](\#{site.urls.apidoc_current}/ceylon/language/#method_format)
-* [`see`](\#{site.urls.apidoc_current}/ceylon/language/#method_see)
-* [`shared`](\#{site.urls.apidoc_current}/ceylon/language/#method_shared)
-* [`throws`](\#{site.urls.apidoc_current}/ceylon/language/#method_throws)
-* [`tagged`](\#{site.urls.apidoc_current}/ceylon/language/#method_tagged)
-* [`variable`](\#{site.urls.apidoc_current}/ceylon/language/#method_variable)
+* [`abstract`](#{site.urls.apidoc_current}/ceylon/language/#abstract)
+* [`actual`](#{site.urls.apidoc_current}/ceylon/language/#actual)
+* [`default`](#{site.urls.apidoc_current}/ceylon/language/#default)
+* [`deprecated`](#{site.urls.apidoc_current}/ceylon/language/#deprecated)
+* [`doc`](#{site.urls.apidoc_current}/ceylon/language/#doc)
+* [`by`](#{site.urls.apidoc_current}/ceylon/language/#by)
+* [`formal`](#{site.urls.apidoc_current}/ceylon/language/#format)
+* [`see`](#{site.urls.apidoc_current}/ceylon/language/#see)
+* [`shared`](#{site.urls.apidoc_current}/ceylon/language/#shared)
+* [`throws`](#{site.urls.apidoc_current}/ceylon/language/#throws)
+* [`tagged`](#{site.urls.apidoc_current}/ceylon/language/#tagged)
+* [`variable`](#{site.urls.apidoc_current}/ceylon/language/#variable)
 
 ## See also
 
