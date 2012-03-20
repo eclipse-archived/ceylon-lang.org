@@ -17,6 +17,7 @@ _This page is very incomplete. Want to help? [See how](/code/website)._
 
 ## Structure and Declarations
 
+* [Keywords](structure/keyword)
 * [Modules](structure/module)
 * [Packages](structure/package)
 * [Compilation units](structure/compilation-unit)
