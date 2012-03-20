@@ -74,12 +74,18 @@ sufficient to identify its semantics.
 
 ## Refining the members of `IdentifiableObject`
 
-Our `Polar` class is an implicit subtype of the class `IdentifiableObject` in 
-the package `ceylon.language`. If you take a look at this class, you'll see 
-that it has a `default` attribute named `string`. It's common to refine this
+Our `Polar` class is an implicit subtype of the class 
+[`IdentifiableObject`](#{site.urls.apidoc_current}/ceylon/language/class_IdentifiableObject.html)
+in the package `ceylon.language`. 
+If you take a look at this class, you'll see 
+that it has a `default` attribute named 
+[`string`](#{site.urls.apidoc_current}/ceylon/language/class_IdentifiableObject.html#string). 
+It's common to refine this
 attribute to provide a developer-friendly representation of the object.
-`IdentifiableObject` also defines default implementations of `equals()` and
-`hash`. We should _definitely_ refine those:
+`IdentifiableObject` also defines default implementations of 
+[`equals()`](#{site.urls.apidoc_current}/ceylon/language/class_IdentifiableObject.html#equals)  and
+[`hash`](#{site.urls.apidoc_current}/ceylon/language/class_IdentifiableObject.html#hash).
+We should _definitely_ refine those:
 
 <!-- cat: Float pi = 3.1415926535; -->
     doc "A polar coordinate"

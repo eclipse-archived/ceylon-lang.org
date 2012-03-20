@@ -42,8 +42,9 @@ types of a function into the type system. Remember that Ceylon doesn't have
 "primitive" types. A strong design principle is that every type should be 
 representable within the type system as a class or interface declaration.
 
-In Ceylon, a single type `Callable` abstracts *all* functions. It's 
-declaration is the following:
+In Ceylon, a single type 
+[`Callable`](#{site.urls.apidoc_current}/ceylon/language/interface_Callable.html) 
+abstracts *all* functions. It's declaration is the following:
 
 <!-- check:none -->
     shared interface Callable<out Result, Argument...> {}
@@ -604,14 +605,16 @@ The answer just isn't crystal clear to us.
 
 ## Curry, uncurry and function composition <!-- m3 -->
 
-A method reference like `Float.times` is represented in "curried" form in 
-Ceylon. I can write:
+A method reference like `Float.times`
+is represented in "curried" form in Ceylon. I can write:
 
     Float twoTimes(Float x) = 2.0.times;
 
 Here, the expression `2.times` is a typical first-class function reference 
-produced by the partial application of the method `times()` to the 
-receiver expression `2.0`.
+produced by the partial application of the method 
+
+[`times()`](#{site.urls.apidoc_current}/ceylon/language/interface_Numeric.html#times) 
+to the receiver expression `2.0`.
 
 But I can also write:
 
@@ -637,8 +640,10 @@ Unfortunately, the following isn't correctly typed:
     Float product(Float x, Float y) = Float.times;  //error: Float.times not a Callable<Float,Float,Float>
 
 The problem is that `Float.times`, when considered as a function reference, 
-is a higher-order function that accepts a `Float` and returns a function that 
-accepts a `Float`, not a first-order function that accepts two `Float`s.
+is a higher-order function that accepts a 
+[`Float`](#{site.urls.apidoc_current}/ceylon/language/class_Float.html) 
+and returns a function that accepts a `Float`, not a first-order function 
+that accepts two `Float`s.
 
 So how can we transform the method reference `Float.times` into an "uncurried" 
 function with a single parameter list?
@@ -714,8 +719,9 @@ This function composes two functions:
 
 Fortunately, you won't need to be writing functions like 
 `curry()()`, `uncurry()()` and `compose()()` yourself. They're general 
-purpose tools that are packaged as part of the `ceylon.language` module. 
-Nevertheless, it's nice to know that machinery like this is expressible 
+purpose tools that are packaged as part of the 
+[`ceylon.language`](#{site.urls.apidoc_current}/ceylon/language/)
+module. Nevertheless, it's nice to know that machinery like this is expressible 
 within the type system of Ceylon. 
 
 

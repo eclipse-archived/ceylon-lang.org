@@ -71,8 +71,13 @@ The `if (is ... )` construct actually narrows to an intersection type.
 ## Intersection types
 
 An expression is assignable to an *intersection type*, written `X&Y`, if it is 
-assignable to *both* `X` and `Y`. For example, since `Empty` is is a subtype 
-of `Iterable<Bottom>` and of `Sized`, it's also a subtype of the intersection 
+assignable to *both* `X` and `Y`. For example, since 
+[`Empty`](#{site.urls.apidoc_current}/ceylon/language/interface_Empty.html)
+is a subtype of 
+[`Iterable<Bottom>`](#{site.urls.apidoc_current}/ceylon/language/interface_Iterable.html) 
+and of 
+[`Sized`](#{site.urls.apidoc_current}/ceylon/language/interface_Sized.html),
+it's also a subtype of the intersection 
 `Iterable<Bottom>&Sized`. The supertypes of an intersection type include all 
 supertypes of every intersected type.
 
@@ -120,8 +125,10 @@ determines this automatically. So the following code is also well-typed:
     String|Integer|Float val = x; // String|Integer|Float is a supertype of Integer|Float
     Object obj = val; // Object is a supertype of String, Integer, and Float
 
-However, the following code is *not* well-typed, since since `Number` is not a 
-supertype of `String`.
+However, the following code is *not* well-typed, since since 
+[`Number`](#{site.urls.apidoc_current}/ceylon/language/interface_Number.html) 
+is not a supertype of 
+[`String`](#{site.urls.apidoc_current}/ceylon/language/class_String.html).
 
 <!-- check:none:demoing compile error -->
     String|Integer|Float x = -1;
@@ -314,16 +321,19 @@ Now we can exhaust all cases of `Suit` in a `switch`:
 Yes, this is a bit more verbose than a Java `enum`, but it's also slightly 
 more flexible.
 
-For a more practical example, let's see the definition of `Boolean` from the 
-language module:
+For a more practical example, let's see the definition of 
+[`Boolean`](#{site.urls.apidoc_current}/ceylon/language/class_Boolean.html) 
+from the language module:
 
     shared abstract class Boolean(String name)
             of true | false {}
     shared object false extends Boolean("false") {}
     shared object true extends Boolean("true") {}
 
-And here's how `Comparable` is defined. First, the typesafe enumeration 
-`Comparison`:
+And here's how 
+[`Comparable`](#{site.urls.apidoc_current}/ceylon/language/interface_Comparable.html) 
+is defined. First, the typesafe enumeration 
+[`Comparison`](#{site.urls.apidoc_current}/ceylon/language/class_Comparison.html):
 
     doc "The result of a comparison between two
          Comparable objects."
@@ -443,7 +453,8 @@ As is the following code:
 
 What about sequences that contain `null`? Well, do you 
 [remember](../basics#dealing_with_objects_that_arent_there) 
-the type of `null` was `Nothing`?
+the type of `null` was 
+[`Nothing`](#{site.urls.apidoc_current}/ceylon/language/class_Nothing.html)?
 
 <!-- cat: void m() { -->
     value sequence = { null, "Hello", "World" }; //type Sequence<Nothing|String>

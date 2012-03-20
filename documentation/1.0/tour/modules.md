@@ -35,7 +35,10 @@ what does 'modularity' mean? There are several layers to this:
 
 A package in Ceylon may be shared or unshared. An unshared package 
 (the default) is visible only to the module which contains the package. 
-We can make the package shared by providing a package descriptor:
+We can make the package shared by providing a package descriptor, which is just a 
+top level 
+[`Package`](#{site.urls.apidoc_current}/ceylon/language/descriptor/class_Package.html) 
+attribute called `package`:
 
 <!-- check:none:Quoted-->
     Package package {
@@ -51,7 +54,9 @@ can directly access shared declarations in a `shared` package.
 ## Module descriptors
 
 A module must explicitly specify the other modules on which it depends.
-This is accomplished via a module descriptor:
+This is accomplished via a module descriptor, which is a top level
+[`Module`](#{site.urls.apidoc_current}/ceylon/language/descriptor/class_Module.html) 
+attribute called `module`:
  
  <!-- check:none:Quoted-->
     Module module {

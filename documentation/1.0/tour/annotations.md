@@ -20,7 +20,8 @@ extremely difficult to write any code without using them. But we have not
 yet really explored what an annotation *is*.
 
 Let's finally rectify that. The answer is simple: an annotation is a toplevel 
-method that returns a subtype of `ConstrainedAnnotation`. 
+method that returns a subtype of 
+[`ConstrainedAnnotation`](#{site.urls.apidoc_current}/ceylon/language/metamodel/interface_ConstrainedAnnotation.html). 
 
 Here's the definition of a some of our old friends:
 
@@ -123,10 +124,13 @@ of given program element may return the annotation type. Notice that
 two direct subtypes. So any annotation type must be a subtype of one of 
 these two interfaces:
 
-* If an annotation type is a subtype of `OptionalAnnotation`, at most one 
-  annotation of a given program element may be of this annotation type, or, 
+* If an annotation type is a subtype of 
+  [`OptionalAnnotation`](#{site.urls.apidoc_current}/ceylon/language/metamodel/interface_OptionalAnnotation.html), 
+  at most one annotation of a given program element may be of this annotation type, or, 
   otherwise
-* if an annotation type is a subtype of `SequencedAnnotation`, more than one
+* if an annotation type is a subtype of 
+  [`SequencedAnnotation`](#{site.urls.apidoc_current}/ceylon/language/metamodel/interface_SequencedAnnotation.html),
+  more than one
   annotation of a given program element may be of this annotation type.
 
 <!-- this comment is working around a bug in rdiscount -->
@@ -169,7 +173,7 @@ Here are a couple of examples from the language spec:
 ## Reading annotation values at runtime
 
 Annotation values may be obtained by calling the toplevel method 
-`annotations()` defined in the language module.
+[`annotations()`](#{site.urls.apidoc_current}/ceylon/language/metamodel/#annotations) defined in the language module.
 
 <!-- check:none:Annotations M5 -->
     shared Values annotations<Value,Values,ProgramElement>(

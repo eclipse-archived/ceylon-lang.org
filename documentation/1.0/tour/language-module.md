@@ -14,11 +14,13 @@ using named arguments. We're now going to learn about the 'language module'.
 
 ## An overview of the language module
 
-The module `ceylon.language` contains classes and interfaces that are 
+The module [`ceylon.language`](#{site.urls.apidoc_current}/ceylon/language/) 
+contains classes and interfaces that are 
 referred to in the language specification, other declarations *they* refer to,
 and a number of related declarations. Let's meet the main characters.
 
-Just like Java, Ceylon has a class named `Object`.
+Just like Java, Ceylon has a class named 
+[`Object`](#{site.urls.apidoc_current}/ceylon/language/class_Object.html).
 
 <!-- check:none:decl from ceylon.language -->
     doc "The abstract supertype of all types representing 
@@ -39,9 +41,12 @@ Just like Java, Ceylon has a class named `Object`.
 In Ceylon, `Object` *isn't* the root of the type system. An expression of 
 type `Object` has a definite, well-defined, non-`null` value. 
 As we've seen, the Ceylon type system can also represent some more exotic 
-types, for example `Nothing`, which is the type of `null`.
+types, for example 
+[`Nothing`](#{site.urls.apidoc_current}/ceylon/language/class_Nothing.html), 
+which is the type of `null`.
 
-Therefore, Ceylon's `Object` has a superclass, named `Void`.
+Therefore, Ceylon's `Object` has a superclass, named 
+[`Void`](#{site.urls.apidoc_current}/ceylon/language/class_Void.html).
 
 <!-- check:none:decl from ceylon.language -->
     doc "The abstract supertype of all types. A value of type 
@@ -76,8 +81,10 @@ All types that represent well-defined values extend `Object`, including:
 
 * user-written classes,
 * all interfaces, and
-* the types that are considered primitive in Java, such as `Integer`, 
-  `Float` and `Character`.
+* the types that are considered primitive in Java, such as 
+  [`Integer`](#{site.urls.apidoc_current}/ceylon/language/class_Integer.html),
+  [`Float`](#{site.urls.apidoc_current}/ceylon/language/class_Float.html) and 
+  [`Character`](#{site.urls.apidoc_current}/ceylon/language/class_Character.html).
 
 Since an expression of type `Object` always evaluates to a definite, 
 well-defined value, it's possible to obtain the runtime type of an 
@@ -90,8 +97,9 @@ type.
 On the other hand, since `Object` is a supertype of types like `Float` which 
 are passed by value at the level of the Java Virtual Machine, you can't use 
 the `===` operator to test the identity of two values of type `Object`. 
-Instead, there is a subclass of `Object`, named `IdentifiableObject`, which 
-represents a type which is always passed by reference. The `===` operator 
+Instead, there is a subclass of `Object`, named 
+[`IdentifiableObject`](#{site.urls.apidoc_current}/ceylon/language/class_IdentifiableObject.html), 
+which represents a type which is always passed by reference. The `===` operator 
 accepts expressions of type `IdentifiableObject`. It's possible for a 
 user-written class to directly extend `Object`, but most of the classes you 
 write will be subclasses of `IdentifiableObject`. All classes with variable 
@@ -141,7 +149,8 @@ Instead, almost every operator (every one except the primitive `.`, `()`,
 `is`, and `:=` operators) is considered a shortcut way of writing some more 
 complex expression involving other operators and ordinary method calls. 
 For example, the `<` operator is defined in terms of the interface 
-`Comparable<Other>`, which we met in the [lesson on types](../types), 
+[`Comparable<Other>`](#{site.urls.apidoc_current}/ceylon/language/interface_Comparable.html), 
+which we met in the [lesson on types](../types), 
 and which has a method named `compare()`.
 
 <!-- check:none -->
@@ -172,27 +181,23 @@ Apart from `Comparable` and `Object`, which provide the underlying
 definition of comparison and equality operators, the following interfaces are 
 also important in the definition of Ceylon's polymorphic operators:
 
-* `Summable` supports the infix `+` operator,
-* `Invertable` supports the prefix `+` and `-` operators,
-* `Ordinal` supports the unary `++` and `--` operators,
-* `Numeric` supports the other basic arithmetic operators,
-* `Comparable` supports the comparison operators,
-* `Correspondence` supports the index operator, and
-* `Boolean` is the basis of the logical operators.
+* [`Summable`](#{site.urls.apidoc_current}/ceylon/language/interface_Summable.html) 
+  supports the infix `+` operator,
+* [`Invertable`](#{site.urls.apidoc_current}/ceylon/language/interface_Invertable.html) 
+  supports the prefix `+` and `-` operators,
+* [`Ordinal`](#{site.urls.apidoc_current}/ceylon/language/interface_Ordinal.html) 
+  supports the unary `++` and `--` operators,
+* [`Numeric`](#{site.urls.apidoc_current}/ceylon/language/interface_Numeric.html) 
+  supports the other basic arithmetic operators,
+* [`Comparable`](#{site.urls.apidoc_current}/ceylon/language/interface_Comparable.html) 
+  supports the comparison operators,
+* [`Correspondence`](#{site.urls.apidoc_current}/ceylon/language/interface_Correspondence.html) 
+  supports the index operator, 
+* [`Boolean`](#{site.urls.apidoc_current}/ceylon/language/class_Boolean.html)
+  is the basis of the logical operators, and
+* [`Set`](#{site.urls.apidoc_current}/ceylon/language/interface_Set.html) 
+  is the basis of the set operators.
 
-Operator polymorphism is a little more flexible than you might imagine. 
-Here's a quick example of this.
-
-## The Set interface
-
-A `Set` instance contains a collection of distinct objects (that is, duplicates
-are not allowed). `Set` supports the operations that are commonly used with 
-mathematical sets:
-
-* `union()` (the `|` operator),
-* `intersection()` (the `&` operator),
-* `exclusiveUnion()`(the `^` operator) and 
-* `complement()` (the `~` operator)
 
 ## Numeric types
 
@@ -201,8 +206,10 @@ Java's primitive types. The types that represent numeric values are just
 ordinary classes. Ceylon has fewer built-in numeric types than other C-like 
 languages:
 
-* `Integer` represents signed integers,
-* `Float` represents floating point approximations to the real numbers,
+* [`Integer`](#{site.urls.apidoc_current}/ceylon/language/class_Integer.html) 
+  represents signed integers,
+* [`Float`](#{site.urls.apidoc_current}/ceylon/language/class_Float.html) 
+  represents floating point approximations to the real numbers,
 
 The number of bits or precision on these types depends on whether
 you're compiling Ceylon code for Java or for JavaScript. When compiling for 
@@ -213,14 +220,15 @@ is free to ignore (and it currently does).
 
 ## Numeric literals
 
-There are only two kinds of numeric literals: literals for `Integers`, and 
-literals for `Floats`:
+In their simplest form the literals for `Integer`s, and 
+literals for `Float`s look as you might expect from other languages:
 
     Integer one = 1;
     Float oneHundredth = 0.01;
     Float oneMillion = 1.0E+6;
 
-The digits of a numeric literal may be grouped using underscores. If the 
+However they can be a bit more sophistocated. The digits of a numeric literal 
+may be grouped using underscores. If the 
 digits are grouped, then groups must contain exactly three digits.
 
     Integer twoMillionAndOne = 2_000_001;
@@ -242,7 +250,7 @@ As mentioned earlier, Ceylon doesn't have implicit type conversions,
 not even built-in conversions for numeric types. Assignment does not 
 automatically widen (or narrow) numeric values. Instead, we need to call 
 one of the operations (well, attributes, actually) defined by the interface 
-`Number`.
+[`Number`](#{site.urls.apidoc_current}/ceylon/language/interface_Number.html).
 
     Float zero = 0.float; // explicitly widen from Integer
 
@@ -280,8 +288,9 @@ expression involving a method call. So the numeric types all implement the
 `divided()` and `power()`, and the `Invertable` interface, refining `negativeValue`
 and `positiveValue`. 
 The numeric operators are defined in terms of these methods of `Numeric`. 
-The numeric types also implement the interface `Castable`, which enables the 
-widening conversions we just mentioned.
+The numeric types also implement the interface 
+[`Castable`](#{site.urls.apidoc_current}/ceylon/language/interface_Castable.html), 
+which enables the widening conversions we just mentioned.
 
 <!-- check:none:decl from ceylon.language -->
     shared interface Castable<in Types> {
@@ -297,7 +306,7 @@ For example, simplifying slightly the definitions in the language module:
 <!-- check:none:decl from ceylon.language -->
     shared abstract class Integer()
             extends Object()
-            satisfies Castable<Integer|Float|Whole|Decimal> &
+            satisfies Castable<Integer|Float> &
                       Integral<Integer> &
                       Numeric<Integer> {
         ...
@@ -306,13 +315,13 @@ For example, simplifying slightly the definitions in the language module:
 <!-- check:none:decl from ceylon.language -->
     shared abstract class Float()
             extends Object()
-            satisfies Castable<Float|Decimal> &
+            satisfies Castable<Float> &
                       Numeric<Float> {
         ...
     }
 
-These declarations tell us that `Integer` can be widened to `Float`, `Whole`, 
-or `Decimal`, but that `Float` can only be widened to `Decimal`. So we can 
+These declarations tell us that `Integer` can be widened to `Float`, but that 
+`Float` cannot be widened to anything. So we can 
 infer that the expression `-1 * 0.4` is of type `Float`.
 
 Therefore, the definition of a numeric operator like `*` can be represented, 

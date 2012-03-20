@@ -20,8 +20,12 @@ languages. The Ceylon language module defines support for *sequence types*.
 A sequence type is usually written `X[]` for some element type `X`. But this 
 is really just an abbreviation for the union type `Empty|Sequence<X>`.
 
-The interface `Sequence` represents a sequence *with at least one element*. The 
-type `Empty` represents an empty sequence with no elements. Some operations 
+The interface 
+[`Sequence`](#{site.urls.apidoc_current}/ceylon/language/interface_Sequence.html) 
+represents a sequence *with at least one element*. The 
+type 
+[`Empty`](#{site.urls.apidoc_current}/ceylon/language/interface_Empty.html) 
+represents an empty sequence with no elements. Some operations 
 of the type `Sequence` aren't defined by `Empty`, so you can't call them if 
 all you have is `X[]`. Therefore, we need the `if (nonempty ... )` construct 
 to gain access to these operations.
@@ -60,7 +64,8 @@ The code above is exactly equivalent to the following de-sugared code:
 
 Though really `ArraySequence` is a hidden type in the Ceylon runtime library.
 
-A `Range` is also a subtype of `Sequence`. The following:
+A [`Range`](#{site.urls.apidoc_current}/ceylon/language/class_Range.html) 
+is also a subtype of `Sequence`. The following:
 
     Character[] uppercaseLetters = `A`..`Z`;
     Integer[] countDown = 10..0;
@@ -77,8 +82,9 @@ later, when we talk about [operator polymorphism](../language-module#operator_po
 
 ## Iterating sequences
 
-The `Sequence` interface extends `Iterable`, so we can iterate a `Sequence` 
-using a `for` loop:
+The `Sequence` interface extends 
+[`Iterable`](#{site.urls.apidoc_current}/ceylon/language/interface_Iterable.html), 
+so we can iterate a `Sequence` using a `for` loop:
 
 <!-- cat: void m(String[] operators) { -->
     for (op in operators) {
@@ -99,7 +105,8 @@ range operator `..`.
 
 If, for any reason, we need to use the index of each element of a sequence 
 we can use a special variation of the `for` loop that is designed for 
-iterating instances of `Entries`:
+iterating instances of 
+[`Entries`](#{site.urls.apidoc_current}/ceylon/language/class_Entry.html):
 
 <!-- cat: void m(String operators) { -->
     for (i -> op in entries(operators)) {
@@ -107,11 +114,14 @@ iterating instances of `Entries`:
     }
 <!-- cat: } -->
 
-The `entries()` function returns an instance of `Entries<Integer,String>` 
+The 
+[`entries()`](#{site.urls.apidoc_current}/ceylon/language/#entries) 
+function returns an instance of `Entries<Integer,String>` 
 containing the indexed elements of the sequence. The `->` is syntax sugar 
 for `Entry`.
 
-It's often useful to be able to iterate two sequences at once. The `zip()`
+It's often useful to be able to iterate two sequences at once. The 
+[`zip()`](#{site.urls.apidoc_current}/ceylon/language/#zip) 
 function comes in handy here:
 
 <!-- cat: void m(String[] names, String[] places) { -->
@@ -164,8 +174,10 @@ Here's how the language module defines the type `Sequence`:
         
     }
 
-The most interesting operations are inherited from `Correspondence`, 
-`Iterable` and `Sized`:
+The most interesting operations are inherited from 
+[`Correspondence`](#{site.urls.apidoc_current}/ceylon/language/interface_Correspondence.html), 
+[`Iterable`](#{site.urls.apidoc_current}/ceylon/language/interface_Iterable.html)  and 
+[`Sized`](#{site.urls.apidoc_current}/ceylon/language/interface_Sized.html):
 
 <!-- check:none:decl from ceylon.language -->
     shared interface Correspondence<in Key, out Item>
@@ -215,7 +227,8 @@ The most interesting operations are inherited from `Correspondence`,
 
 ## Empty sequences and the Bottom type
 
-Now let's see the definition of Empty:
+Now let's see the definition of 
+[`Empty`](#{site.urls.apidoc_current}/ceylon/language/interface_Empty.html):
 
 <!-- check:none:decl from ceylon.language -->
     object emptyIterator satisfies Iterator<Bottom> {
@@ -382,7 +395,8 @@ This is much cleaner:
 
 All this may take a little getting used to. But what's nice is that all the 
 exact same idioms also apply to other kinds of `Correspondence`, including 
-`Entries` and `Maps`.
+`Entries` and 
+[`Maps`](#{site.urls.apidoc_current}/ceylon/language/interface_Map.html) .
 
 
 ## There's more...

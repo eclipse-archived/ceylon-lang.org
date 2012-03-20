@@ -47,8 +47,8 @@ that returns a subtype of
 
 An annotation may constrain the program elements where it is allowed to 
 be used to any of the types satisfying 
-[`Annotated`](\#{site.urls.apidoc_current}/ceylon/language/metamodel) in the 
-[metamodel](\#{site.urls.apidoc_current}/ceylon/language/metamodel).
+[`Annotated`](#{site.urls.apidoc_current}/ceylon/language/metamodel/interface_Annotated.html) in the 
+[metamodel](#{site.urls.apidoc_current}/ceylon/language/metamodel).
 
 ### Language module annotations
 
@@ -58,7 +58,7 @@ be used to any of the types satisfying
 * [`deprecated`](#{site.urls.apidoc_current}/ceylon/language/#deprecated)
 * [`doc`](#{site.urls.apidoc_current}/ceylon/language/#doc)
 * [`by`](#{site.urls.apidoc_current}/ceylon/language/#by)
-* [`formal`](#{site.urls.apidoc_current}/ceylon/language/#format)
+* [`formal`](#{site.urls.apidoc_current}/ceylon/language/#formal)
 * [`see`](#{site.urls.apidoc_current}/ceylon/language/#see)
 * [`shared`](#{site.urls.apidoc_current}/ceylon/language/#shared)
 * [`throws`](#{site.urls.apidoc_current}/ceylon/language/#throws)

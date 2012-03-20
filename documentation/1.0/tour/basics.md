@@ -95,7 +95,9 @@ all that whitespace was automatically removed. This helps us format our
 code nicely.
 
 It's often useful to collapse whitespace in a multiline string literal. The
-`String` class has an attribute called `normalized`. We can use it like this:
+[`String`](#{site.urls.apidoc_current}/ceylon/language/class_String.html)
+class has an attribute called [`normalized`](#{site.urls.apidoc_current}/ceylon/language/class_String.html#normalized). 
+We can use it like this:
 
 <!-- id: hello -->
     void hello() {
@@ -261,7 +263,9 @@ strings, and more flexible in many cases:
 <!-- cat: } -->
 
 Note that when we use `+` to concatenate strings, we have to explicitly 
-invoke the `string` attribute to convert numeric expressions to strings. The 
+invoke the 
+[`string`](#{site.urls.apidoc_current}/ceylon/language/class_Object.html#string) 
+attribute to convert numeric expressions to strings. The 
 `+` operator does not automatically convert its operands to strings, so the 
 following does not compile:  
 
