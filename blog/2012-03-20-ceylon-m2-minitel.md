@@ -7,9 +7,9 @@ tab: blog
 tags: [release, progress, M2]
 ---
 
-[M1]: /documentation/1.0/roadmap/#milestone_1?utm_source=blog&utm_medium=web&utm_content=roadmap_m1&utm_campaign=1_0_M2release
-[M2]: /documentation/1.0/roadmap/#milestone_2?utm_source=blog&utm_medium=web&utm_content=roadmap_m2&utm_campaign=1_0_M2release
-[M3]: /documentation/1.0/roadmap/#milestone_3?utm_source=blog&utm_medium=web&utm_content=roadmap_m3&utm_campaign=1_0_M2release
+[M1]: /documentation/1.0/roadmap/?utm_source=blog&utm_medium=web&utm_content=roadmap_m1&utm_campaign=1_0_M2release#milestone_1
+[M2]: /documentation/1.0/roadmap/?utm_source=blog&utm_medium=web&utm_content=roadmap_m2&utm_campaign=1_0_M2release#milestone_2
+[M3]: /documentation/1.0/roadmap/?utm_source=blog&utm_medium=web&utm_content=roadmap_m3&utm_campaign=1_0_M2release#milestone_3
 [spec]: /documentation/1.0/spec?utm_source=blog&utm_medium=web&utm_content=spec&utm_campaign=1_0_M2release
 
 Today, we're proud to announce the release of Ceylon M2 "Minitel". 
