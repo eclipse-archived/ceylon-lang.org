@@ -39,28 +39,21 @@ documentation compiler, language module, and runtime.
     </tr>
     <tr>
         <td>
-        <!--
         <a href="/download/dist/1_0_Milestone2_rpm" 
            title='Download the RPM'
            onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone2_rpm?utm_source=download&utm_medium=web&utm_content=dist&utm_campaign=1_0_M2release']);">
-           -->
            <img src="/images/download/package-fedora.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
-        <!--
         </a>
-        -->
         </td>
         <td>RPM</td>
         <td>Fedora/Red Hat</td>
         <td>
-        <!--
         <a href="/download/dist/1_0_Milestone2_rpm" 
            title='Download the RPM'
            style='font-weight:bold;text-decoration:none'
            onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone2_rpm?utm_source=download&utm_medium=web&utm_content=dist&utm_campaign=1_0_M2release']);">
            download
         </a>
-        -->
-        <i>Will follow soon</i>
         </td>
     </tr>
     <tr>
