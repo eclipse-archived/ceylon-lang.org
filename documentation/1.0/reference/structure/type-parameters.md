@@ -55,14 +55,14 @@ in the declaration.
 #### Variance
 
 The type names in a type parameter list of a class or interface 
-may optionally be preceeded with the variance annotations 
-`in` (indicating a *contravariant* type parameter) and 
+may optionally be preceeded with the variance modifier
+`in` (indicating a *contravariant* type parameter) or 
 `out` (indicating a *covariant* type parameter). Type parameters without 
-such annotations are *invariant*.
+either modifier are *invariant*.
 
-Method type parameters are not allows the `in` or `out` annotations.
+Method type parameters are not allowed the `in` or `out` modifiers.
 
-Contravariant and covariant type parameters are only permitted is certain 
+Contravariant and covariant type parameters are only permitted in certain 
 places within the type-parameterised declaration. For example a covariant 
 type parameter of a method is not permitted in the method's parameter list 
 and a contravariant type parameter is not permitted as the method's 
