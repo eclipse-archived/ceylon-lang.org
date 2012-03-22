@@ -388,7 +388,9 @@ type system. But these limitations have a purpose! In particular,
 the prohibitions against:
 
 * inheriting the same generic type twice, with different type 
-  arguments (in most languages), and
+  arguments (in most languages), 
+* inheriting two different implementations of the same member
+  (in many languages with mixin inheritance), and
 * overloading (in Ceylon).
 
 Implicit type conversions are an end-run around these restrictions, 
@@ -405,6 +407,14 @@ properties of the type system:
 * the semantics of the identity `===` operator, and
 * the ability to infer generic type arguments of an invocation or 
   instantiation.
+
+Implicit type conversion is designed to look a little bit like
+subtyping to the user of an API, but it's _not_ subtyping,
+it doesn't obey the rules of subtyping, and it screws up the
+simple intuitive relationship between subtyping and
+assignability. (In Ceylon, "`A` is assignable to `B`" is 
+equivalent to "`A` is a subtype of `B`", always, everywhere,
+and transitively!)
 
 Finally, user-defined implicit type conversions work by having the 
 compiler introduce hidden invocations of arbitrary user-written 
