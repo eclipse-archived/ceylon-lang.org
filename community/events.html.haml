@@ -12,7 +12,7 @@ author: Emmanuel Bernard
   - events = site.events.values.sort{|l,r| r.effective_date <=> l.effective_date}
   %h1 Events
   - for event in events
-    .item{:effective_date=>event.effective_date}
+    .item{:id=>event.effective_date}
       .event_details
         .event_date
           &= event.event_date
