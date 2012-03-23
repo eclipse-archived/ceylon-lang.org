@@ -5,12 +5,12 @@ unique_id: communitypage
 tab: community
 author: Emmanuel Bernard
 ---
-:markdown
-  # #{page.title}
-
 #upcoming-talks
-  - events = site.events.values.sort{|l,r| r.effective_date <=> l.effective_date}
-  %h1 Events
+  - events = site.events.values
+  - now = Time.now
+  - events = events.find_all{|item| item.effective_date.to_s >= now.strftime("%Y%m%d")}
+  - events = events.sort{|l,r| l.effective_date <=> r.effective_date}
+  %h1 #{page.title}
   - for event in events
     .item{:id=>event.effective_date}
       .event_details
@@ -28,9 +28,9 @@ author: Emmanuel Bernard
         &= event.title
       .details
         #{event.presentor} will present at #{event.event} in #{event.location}.
-        .links
-          %a{:href=>event.event_url}
-            #{event.event} Site
+        //.links
       .details
         #{event.content}
+        %a{:href=>event.event_url}
+          More about #{event.event}
 
