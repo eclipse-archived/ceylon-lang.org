@@ -162,7 +162,7 @@ this with a compiler annotation to specify the underlying primitive type to use.
 
 ### Java array types
 
-Java arrays are supported and mapped to the Ceylon type `Array&lt;t&gt;` which
+Java arrays are supported and mapped to the Ceylon type `Array<t>` which
 means you can access them just like a Ceylon `List`.
 
 <!-- lang: java -->
