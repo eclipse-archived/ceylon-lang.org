@@ -8,7 +8,8 @@ author: Emmanuel Bernard
 #upcoming-talks
   - events = site.events.values
   - now = Time.now
-  - events = events.find_all{|item| item.effective_date.to_s >= now.strftime("%Y%m%d")}
+  - a_few_days_ago = now - 4 * 24 * 60 * 60
+  - events = events.find_all{|item| item.effective_date.to_s >= a_few_days_ago.strftime("%Y%m%d")}
   - events = events.sort{|l,r| l.effective_date <=> r.effective_date}
   %h1 #{page.title}
   - for event in events
