@@ -91,6 +91,16 @@ a nested [`<module>`](#module)(s) is required.
 </tr>
 
 <tr>
+<td><code>nomtimecheck</code></td>
+<td>Whether to perform a comparison of file modification times to determine 
+whether to document a module. The most recent modification time of the source files
+is compared with the oldest modification time of the output artifacts. 
+This can speed up builds when the source files have not 
+changed but is not able to detect deletion of source files. <!-- m3 --></td>
+<td>No, default is <i>false</i></td>
+</tr>
+
+<tr>
 <td><code>executable</code></td>
 <td>The filesystem location of the <code>ceylond</code> command line tool. 
 If not specified it is searched in the directory indicated by 
