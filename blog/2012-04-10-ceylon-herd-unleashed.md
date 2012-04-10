@@ -72,7 +72,7 @@ And for producers:
 - Transfer module ownership
 
 You´re not dreaming, we did all of this, and a lot more under the hood as well as in the
-UI, to make sure new comers are not overwhelmed or abandonned, to make sure everyone feels
+UI, to make sure newcomers are not overwhelmed or abandoned, to make sure everyone feels
 right at home in [Ceylon Herd][herd], our open-source Ceylon module repository.
 
 You heard that right: today we unveal our official module repository, called Ceylon Herd,
@@ -101,7 +101,7 @@ going to be careful who we let publish in `modules.ceylon-lang.org`.
 So our solution is called _project claims_: when you have registered on Ceylon Herd, you can
 _claim_ a project (essentially a module name), and you explain its license, point to its home
 page, who you are and why we need it in Ceylon Herd. We´re immediately notified and start
-checking up on the project, verify that you´re who you say you are, and that you should indeed
+checking up on the project, verify that you are who you say you are, and that you should indeed
 be allowed to publish on behalf of that project.
 
 This verification is an interactive process, we may ask you questions, via comments on the claim,
@@ -117,7 +117,7 @@ Ceylon Herd user.
 
 If you think this is not good enough, please let us know.
 
-## OK, enough with the prep talk, who do I get started? 
+## OK, enough with the prep talk, how do I get started? 
 
 Ceylon Herd is [available here][herd], we can help you [get started][get-started], 
 and you can even [download its source][source]
