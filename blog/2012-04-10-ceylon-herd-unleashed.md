@@ -6,7 +6,7 @@ unique_id: blogpage
 tab: blog
 tags: [herd]
 ---
-If there´s one think the whole Ceylon team has in common it´s that we´re _pragmatists_. We have a ton of ideas
+If there´s one thing the whole Ceylon team has in common it´s that we´re _pragmatists_. We have a ton of ideas
 of how we can make the programmer´s life better with Ceylon, and we try to do it whenever we can. In fact, we have
 so many ideas that it´s hard to bring them all to fruition. With people such as Gavin and I in the team, being very
 involved in Web Frameworks, I can tell you that among the many things we want to do with Ceylon, the only thing
