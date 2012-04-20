@@ -640,6 +640,49 @@ div.milestone {
  }
 }
 
+// for known issues
+.known-issue {
+
+ > b {
+  margin-left: 0.5em;
+ }
+
+ .title {
+   color: $h3plus_text_color;
+   font-weight: bold;
+   margin-bottom: 1em;
+   margin-top: 2em;
+ }
+
+ a.see {
+  float: right;
+  display: block;
+  font-weight: bold;
+  background: #1a3c3d;
+  padding: 0.2em 0.4em;
+  color: white !important;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  text-shadow: none;
+ }
+ 
+ a.see.closed {
+  background: red;
+  text-shadow: #A00 1px 1px 0px;
+ }
+ 
+ a.see.open {
+  background: green;
+ }
+ 
+ .workaround {
+  margin-top: 0.5em;
+  margin-left: 2em;
+  margin-bottom: 1em; 
+ }
+}
+
 //NOT USED is it?
 // Page layout can be done using mixins applied to your semantic classes and IDs:
 body.two-col {
