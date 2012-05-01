@@ -55,8 +55,8 @@ The compiler won't let us define a third subclass of `Void` that doesn't extend 
 
 Since an `object` declaration is also a type, we can even include the names of objects in the `of` clause. For example, this is how the language module expressed the fact that the only instance of `Nothing` is the null value:
 
-    shared abstract class Nothing() of nothing {}
-    shared object nothing extends Nothing() {}
+    shared abstract class Nothing() of null {}
+    shared object null extends Nothing() {}
 
 More commonly, there will be multiple values, allowing us to recapture the semantics of a Java `enum`, without introducing a special language construct. For example, Ceylon's `Boolean` is an enumerated type with two values:
 
@@ -80,7 +80,8 @@ Therefore, we can `switch` on a `Boolean` value:
 
 Note that the classic example of a Java enumerated type works out significantly more verbose in Ceylon:
 
-    shared abstract class Suit() {}
+    shared abstract class Suit() 
+            of hearts|diamonds|clubs|spades {}
     shared object hearts extends Suit() {} 
     shared object diamonds extends Suit() {} 
     shared object clubs extends Suit() {} 
