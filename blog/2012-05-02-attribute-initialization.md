@@ -11,6 +11,7 @@ I think perhaps the least ergonomic syntactic feature of Ceylon
 has been the syntax for attribute initialization. I never ever 
 managed to get comfortable writing the following:
 
+    //old syntax!
     class Person(String name, Integer age=0) {
         shared String name = name;
         shared variable Integer age:=age;
@@ -18,7 +19,7 @@ managed to get comfortable writing the following:
 
 Now, I hate the verbosity of C++/Java-style constructors, but 
 one thing they definitely have going for them is that they give 
-you a distinct namespace for class members and constructor 
+you distinct namespaces for class members and constructor 
 parameters. Ceylon's more compact syntax doesn't give you that, 
 so we had to come up with the ad hoc rule that parameter names 
 hide attribute names, since we didn't want people to be forced 
@@ -27,6 +28,7 @@ to always name parameters like `initialName`, `initialAge`, etc.
 Worse, this ad hoc rule results in some fairly pathological 
 stuff. Consider:
 
+    //old syntax!
     class Person(String name, Integer age=0) {
         shared String name = name;
         shared variable Integer age:=age;
@@ -88,3 +90,9 @@ classes.
 
 I think it would be hard to come up with a more readable syntax 
 than this!
+
+UPDATE: It's interesting to compare this solution to the 
+[syntax used by Dart][], which is along the same lines. I swear 
+I didn't copy!  
+
+[syntax used by Dart]: http://www.dartlang.org/language-tour/#classes
