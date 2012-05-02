@@ -4,7 +4,7 @@ presentor: Gavin King
 event: LAJUG
 event_date: 18 June 2012
 event_url: http://www.lajug.org/events.html
-event_logo_url: http://www.lajug.org/index.html
+event_logo_url: http://www.lajug.org/images/LAJUG_logo.gif
 location: Los Angeles, CA
 effective_date: 20120618
 ---
