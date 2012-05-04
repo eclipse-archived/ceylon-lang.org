@@ -130,13 +130,14 @@ Notes:
 Milestone 2 has been released.
 
 *Numeric type optimization, Java interop, `switch/case`,
-higher-order methods, 
-types with enumerated cases, remote repositories.*
+higher-order methods, types with enumerated cases, 
+remote repositories.*
 
 ### Declarations:
 * cases (`of` clause)
 * higher-order methods
 * methods with specifiers
+* defaulted parameters
 
 ### Generics:
 * enumerated bounds
@@ -162,38 +163,48 @@ types with enumerated cases, remote repositories.*
 
 ## Milestone 3
 
-*Anonymous functions, file IO.*
+Currently in progress.
+
+*Mixin inheritance, anonymous functions, comprehensions,
+file IO.*
+
+### Integration of JavaScript compiler:
+* compilation to JavaScript is a compiler switch
 
 ### Declarations:
+* new syntax for attribute initialization parameters
+* multiple parameter lists
 
 ### Expressions:
+* concrete interface members
 * object/method/getter args in named argument lists
-* anonymous functions in positional argument lists
-* comprehensions as sequenced arguments
-* numeric widening for custom numeric types ?
+* anonymous functions (`(Type x) result(x)`)
+* comprehensions (`{ for (x in xs) if (select(x)) collect(x) }`)
+* lengthwise range operator (`:`)
+* indirect invocations of `Callable` instances
 
 ### Modules:
 * `ceylon.io` module
 * `ceylon.math` module
 
-### Modularity:
-* repository replicator
-
 ## Milestone 4
 
-*Mixin inheritance, nested/member classes, type aliases.*
+*Nested/member classes, type aliases.*
 
 ### Declarations:
 * class and interface aliases
 * nested and member classes
-* concrete interface members
+* numeric widening for custom numeric types ?
 
 ### Statements:
 * `try` with resources
 
 ### Expressions:
 * outer instance references (`outer`)
-* set operators
+* set operators (`|`, `&`, `^`, `~`)
+
+### Modularity:
+* repository replicator
 
 ## Milestone 5 (Ceylon 1.0)
 
@@ -214,16 +225,16 @@ types with enumerated cases, remote repositories.*
 * interception for methods, attributes, and classes
 
 ### Modules:
-* metamodel
+* language metamodel
 
 ## Ceylon 1.1 or later
 
-* introductions (`adapts` clause)
 * lower bounds
-* initialization parameter specification
+* parameter bounds
 * `if (satisfies ...)`
-* `satisfies` and `extends` operators
-* inline callable arguments
-* control expressions?
+* `satisfies` operator
 * single-quoted literals
-
+* generalized algebraic types
+* introductions (`adapts` clause) ?
+* metatypes (type classes) ?
+* type constructor parameterization ?
