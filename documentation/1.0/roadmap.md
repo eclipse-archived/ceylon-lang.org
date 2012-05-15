@@ -23,7 +23,7 @@ However, our roadmap is quite well-defined:
   - [Milestone 5](#milestone_5_ceylon_10)
 - [Ceylon 1.1](#ceylon_11_or_later)
 
-## Milestone 1
+## Milestone 1 _DONE_
 
 Milestone 1 has been released.
 
@@ -125,7 +125,7 @@ Notes:
    operators and user-defined numeric types is not supported.</a>
 3. <a name="m1-invocation">Excluding defaulted arguments and `Callable`.</a>
 
-## Milestone 2
+## Milestone 2 _DONE_
 
 Milestone 2 has been released.
 
@@ -172,20 +172,21 @@ file IO.*
 * compilation to JavaScript is a compiler switch
 
 ### Declarations:
-* new syntax for attribute initialization parameters
-* multiple parameter lists
+* concrete interface members
+* new syntax for attribute initialization parameters _DONE_
+* multiple parameter lists _DONE_
+* new syntax for package and module descriptors
 
 ### Expressions:
-* concrete interface members
-* object/method/getter args in named argument lists
-* anonymous functions (`(Type x) result(x)`)
+* object/method/getter args in named argument lists _DONE_
+* anonymous functions (`(Type x) result(x)`) _DONE_
 * comprehensions (`{ for (x in xs) if (select(x)) collect(x) }`)
 * lengthwise range operator (`:`)
-* indirect invocations of `Callable` instances
+* indirect invocations of `Callable` instances _DONE_
 
 ### Modules:
 * `ceylon.io` module
-* `ceylon.math` module
+* `ceylon.math` module _DONE_
 
 ## Milestone 4
 
