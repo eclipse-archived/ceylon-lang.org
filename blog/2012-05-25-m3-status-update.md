@@ -35,7 +35,7 @@ The M3 release is now planned for the second week of June.
 
 We're also now turning our thoughts to the Ceylon SDK. By the
 time M3 is ready, or soon after, we'll have preview releases 
-of several SDK modules availably in [Ceylon Herd][], including
+of several SDK modules available in [Ceylon Herd][], including
 `ceylon.math`, `ceylon.net`, and `ceylon.fs`. Of course, the
 SDK will go through a lot of growth and evolution over the
 coming year.
