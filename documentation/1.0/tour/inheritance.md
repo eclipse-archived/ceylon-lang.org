@@ -168,7 +168,7 @@ simply *assign* a value to it in the subclass.
         
     }
 
-alternatively, we can also define an implementation for an inherited abstract 
+Alternatively, we can also define an implementation for an inherited abstract 
 attribute by *refining* it.
 
 <!-- check:parse:Requires ceylon.math -->
