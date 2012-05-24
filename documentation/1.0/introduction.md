@@ -376,9 +376,10 @@ A function which operates on other functions is called a *higher-order function*
 For example:
 
 <!-- id:repeat -->
-    void repeat(Integer times, void doIt()) {
+    void repeat(Integer times, 
+            void iterate(Integer i)) {
         for (i in 1..times) {
-            doIt();
+            iterate(i);
         }
     } 
 
@@ -387,18 +388,18 @@ function:
 
 <!-- cat-id:repeat -->
 <!-- cat: void m() { -->
-    void hello() {
-        print("Hello!");
+    void printSqr(Integer i) {
+        print(i**2);
     }
     
-    repeat(5, hello);
+    repeat(5, printSqr);
 <!-- cat: } -->
 
 Or we can specify the argument function inline, either like this:
 
 <!-- cat-id:repeat -->
 <!-- cat: void m() { -->
-    repeat(5, void print("Hello!"));
+    repeat(5, (Integer i) print(i**2));
 <!-- cat: } -->
 
 Or, using a named argument invocation, like this:
@@ -407,8 +408,8 @@ Or, using a named argument invocation, like this:
 <!-- cat: void m() { -->
     repeat {
         times = 5;
-        void doIt() {
-            print("Hello!");
+        void iterate(Integer i) {
+            print(i**2);
         }
     };
 <!-- cat: } -->
@@ -419,6 +420,32 @@ order function:
 <!-- check:none -->
     String[] names = ... ;
     String[] uppercaseNames = map(names, String.uppercase);
+
+## Comprehensions
+
+Filtering and transforming streams of values is one of the main things computers
+are good at. Therefore, Ceylon provides a special syntax which makes these operations
+especially convenient. Anywhere you could provide a list of expressions (a sequence
+instantiation, or a "vararg"), Ceylon lets you write a comprehension instead. For
+example, the following expression instantiates a sequence of names:
+
+    { for (p in people) p.firstName + " " + p.lastName }
+
+This expression gives us a sequence of adults:
+
+    { for (p in people) if (p.age>=18) p }
+
+This expression produces a `Map` of name to `Person`:
+
+    HashMap { for (p in people) p.firstName + " " + p.lastName -> p }
+
+This expression creates a set of employers:
+
+    HashSet { for (p in people) for (j in p.jobs) j.organization }
+
+Here, we're using a comprehension as a method argument to format and print the names:
+
+    print(", ".join { for (p in people) p.firstName + " " + p.lastName });
 
 ## Simplified generics with fully-reified types
 
