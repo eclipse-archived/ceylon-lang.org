@@ -283,7 +283,8 @@ Now let's see the definition of
         
     }
 
-The special type `Bottom` represents:
+In the definition of `Empty` above you may have noticed the special type `Bottom`,
+which represents:
 
 * the empty set, or equivalently
 * the intersection of all types.
