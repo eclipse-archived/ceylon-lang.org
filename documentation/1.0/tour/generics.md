@@ -248,7 +248,7 @@ constraint, an *upper bound*.
         ...
      
         shared Boolean contains(Object obj) {
-            if (is T obj) {
+            if (is Element obj) {
                 return obj in bucket(obj.hash);
             }
             else {
