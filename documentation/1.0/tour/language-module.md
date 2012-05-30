@@ -227,7 +227,7 @@ literals for `Float`s look as you might expect from other languages:
     Float oneHundredth = 0.01;
     Float oneMillion = 1.0E+6;
 
-However they can be a bit more sophistocated. The digits of a numeric literal 
+However they can be a bit more sophisticated. The digits of a numeric literal 
 may be grouped using underscores. If the 
 digits are grouped, then groups must contain exactly three digits.
 
