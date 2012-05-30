@@ -49,7 +49,7 @@ But in the following two examples, `count` is an attribute:
         }
     }
 
-This might seem a bit strange at first, but it's really just how closure works. 
+This might seem a bit strange at first, but it's really just how closures work. 
 The same behavior applies to locals inside a method. Methods can't declare 
 `shared` members, but they can return an `object` that captures a local:
 
