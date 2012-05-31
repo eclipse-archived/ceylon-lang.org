@@ -13,6 +13,10 @@ author: Stephane Epardaud
 `$ git clone git@github.com:ceylon/ceylon.language.git`
 1. Install the language module
 `$ cd ceylon.language; ant clean publish`
+1. Clone ceylon-module-resolver on your machine
+`$ git clone git@github.com:ceylon/ceylon-module-resolver.git`
+1. Install the module resolver
+`$ cd ceylon-module-resolver; ant publish`
 1. Clone ceylon-spec on your machine
 `$ git clone git@github.com:ceylon/ceylon-spec.git`
 1. Install the typechecker
