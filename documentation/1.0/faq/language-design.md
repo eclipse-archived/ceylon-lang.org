@@ -138,7 +138,7 @@ common modifiers like `public`, `virtual`, etc, since they just
 can't stomach the ugly syntax for their own annotations (they can't 
 bring themselves to make you write `@public` or `@virtual`).
 
-We chose what with think is the lesser of two evils.
+We chose what we think is the lesser of two evils.
 
 ### Parentheses `()` in control structures
 
