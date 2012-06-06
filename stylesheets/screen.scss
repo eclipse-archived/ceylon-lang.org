@@ -29,13 +29,12 @@ body.bp {
   @include blueprint-interaction;
   // Remove the scaffolding when you're ready to start doing visual design.
   // Or leave it in if you're happy with how blueprint looks out-of-the-box
-  
 
-	  font: 14px "Lucida Sans Unicode", "Lucida Grande", sans-serif; 
-	  color: #2c2c2c;
-	  text-shadow: white 1px 1px 0px;
-	  background-color: #f1f1f1;
-	    
+  font: 14px "Lucida Sans Unicode", "Lucida Grande", sans-serif; 
+  color: #2c2c2c;
+  text-shadow: white 1px 1px 0px;
+  background-color: #f1f1f1;
+      
   h1 {
     color: $h1_text_color;
   }
@@ -45,14 +44,13 @@ body.bp {
   }
   
   h1 {
-    
     font-size: 1.6em;
     font-weight:bold;
   }
   h2 {
     font-size:1.3em;
     font-weight:bold;
-	color: #2a4a4c;
+  color: #2a4a4c;
     clear: left;
   }
   h3 {
@@ -80,18 +78,15 @@ body.bp {
 
     p {
       margin-bottom:0px;
-
     }
 
     h4 {
-	    background: url("../images/bullet_elephant.png") no-repeat 0px 0px;
-		min-height: 24px;
+      background: url("../images/bullet_elephant.png") no-repeat 0px 0px;
+      min-height: 24px;
       padding-left: 36px;
-	  font-weight: normal;
+      font-weight: normal;
       margin-bottom:0;
       padding-bottom:0;
-	  
-
     }
 
     hr {
@@ -99,21 +94,21 @@ body.bp {
       margin-bottom :20px;
       background-color: white;
     }
-	
-	.news_date {
-    padding-left: 36px;
-	font-size: 80%;
-	}
-	
-	.news_detail {
-	padding-top: 10px
-	}
-	
+  
+    .news_date {
+      padding-left: 36px;
+      font-size: 80%;
+    }
+  
+    .news_detail {
+      padding-top: 10px
+    }
   }
 }
 
 form.bp {
-  @include blueprint-form; }
+  @include blueprint-form; 
+}
 
 // Various header style
 .header-bar {
@@ -128,14 +123,13 @@ form.bp {
   
   #header-logo {
     background: url("../images/ceylon-logo.png") no-repeat 0px 0px;
-	height: 100px;
-	  width: 325px;
+    height: 100px;
+    width: 325px;
     display:block;
-	  float: left;
+    float: left;
 
     h1 {
-	
-	  text-indent: -9999px;
+      text-indent: -9999px;
       font-weight: normal;
       margin: 0;
       text-shadow: none;
@@ -143,37 +137,32 @@ form.bp {
   }
   
   #header-tagline {
-  width: 10px;
-  float: left;
-  text-indent: -9999px;
-  display:block;
-   }
+    width: 10px;
+    float: left;
+    text-indent: -9999px;
+    display:block;
+  }
   
   #menu {
-  float: right;
-  margin-top: 70px;
-  width: 600px;
+    float: right;
+    margin-top: 70px;
+    width: 600px;
   
-
     #menu-core {
       font-size:110%;
       padding:0 15 0 0;
       margin:0;
       list-style-type: none;
-	  float: right;
-
-		
-
+      float: right;
       li:hover {
         cursor:pointer;
       }
 
       li#selected a {
-	    background: url("../images/nav_indicator.png") no-repeat center 15px;
+        background: url("../images/nav_indicator.png") no-repeat center 15px;
         color: #FFFFFF;
-		height: 30px;
-
-      }  
+        height: 30px;
+      }
 
       li {
         text-align:center;
@@ -181,8 +170,7 @@ form.bp {
         text-align:center;
         display: inline-block;
         padding: 0 12px;
-		height: 2em;
-
+        height: 2em;
       }
 
       a {
@@ -191,13 +179,12 @@ form.bp {
         font-weight: bold;
         text-decoration: none;
         text-align:center;
-		text-shadow: none;
+        text-shadow: none;
       }
 
       li:hover a {
         color: #94aebd;
       }
-      
     }
   }
 }
@@ -205,53 +192,57 @@ form.bp {
 
 // banner related styles
 
-
 .homepage {
-	    background: url("../images/bkg_home.png") repeat-x center 100px;
+  background: url("../images/bkg_home.png") repeat-x center 100px;
 }
 .homepage .banner {
-	    background: url("../images/sectionbanner_home.png") no-repeat center top;
-		height:260px;
+  background: url("../images/sectionbanner_home.png") no-repeat center top;
+  height:260px;
 }
 
 .docspage {
-	    background: url("../images/bkg_section.png") repeat-x center 100px;
+  background: url("../images/bkg_section.png") repeat-x center 100px;
 }
+
 .docspage .banner {
-	    background: url("../images/sectionbanner_learn.png") no-repeat center top;
-		height:90px;
+  background: url("../images/sectionbanner_learn.png") no-repeat center top;
+  height:90px;
 }
 
 .downloadpage {
-	    background: url("../images/bkg_section.png") repeat-x center 100px;
+  background: url("../images/bkg_section.png") repeat-x center 100px;
 }
+
 .downloadpage .banner {
-	    background: url("../images/sectionbanner_download.png") no-repeat center top;
-		height:90px;
+  background: url("../images/sectionbanner_download.png") no-repeat center top;
+  height:90px;
 }
 
 .communitypage {
-	    background: url("../images/bkg_section.png") repeat-x center 100px;
+  background: url("../images/bkg_section.png") repeat-x center 100px;
 }
+
 .communitypage .banner {
-	    background: url("../images/sectionbanner_community.png") no-repeat center top;
-		height:90px;
+  background: url("../images/sectionbanner_community.png") no-repeat center top;
+  height:90px;
 }
 
 .codepage {
-	    background: url("../images/bkg_section.png") repeat-x center 100px;
+  background: url("../images/bkg_section.png") repeat-x center 100px;
 }
+
 .codepage .banner {
-	    background: url("../images/sectionbanner_code.png") no-repeat center top;
-		height:90px;
+  background: url("../images/sectionbanner_code.png") no-repeat center top;
+  height:90px;
 }
 
 .blogpage {
-	    background: url("../images/bkg_section.png") repeat-x center 100px;
+  background: url("../images/bkg_section.png") repeat-x center 100px;
 }
+
 .blogpage .banner {
-	    background: url("../images/sectionbanner_blog.png") no-repeat center top;
-		height:90px;
+  background: url("../images/sectionbanner_blog.png") no-repeat center top;
+  height:90px;
 }
 
 
@@ -261,110 +252,106 @@ form.bp {
   top:2em;
   @include container;
   #core-page {
-      @include column(16);
+    @include column(16);
   }
   
   #sidebar {
-      @include column(8,true);
+    @include column(8,true);
       
-      .sidebar-block {
-        h3 {
-          color: #456B6E;
-        }
-		
-		-moz-border-radius: 15px;
-		border-radius: 15px;
-		font-size: 14px;
-        padding:1.5em;
-        margin:0em 1.75em;
-		border-left: 1px solid #c7d8d8;
-		border-right: 1px solid #c7d8d8;
-	    background: url("../images/sidebar_bkg_elephant.png") no-repeat 0px 0px #d4e5e5;
+    .sidebar-block {
+      h3 {
+        color: #456B6E;
       }
-	  
-	  .sidebar-dark {
-	  
-        h3 {
-          color: white;
-          margin: 1em 0;
-        }
-        
-        h3:first-child {
-          margin-top: 0;
-        }
-
-        h3:last-child {
-          margin-bottom: 0;
-        }
-
-        h4 {
-          margin: 0.5em 1em;
-        }
-
-		#feed {
-		   padding-left: 34px;
-		       background: url("../images/feed_icon.png") no-repeat 0px 0px;
-		height: 26px;
-		}
-		
-		-moz-border-radius: 15px;
-		border-radius: 15px;
-		font-size: 14px;
-		text-shadow: #656565 1px 1px 0px;
-        padding:1.5em;
-        margin:0em 1.75em;
-	    background-color: #121f1f;
-	  
-	    p {
-          color: white;
-		  margin-bottom: 1em;
-        }
-
-        p:last-child {
-          margin-bottom: 0;
-        }
-		
-		a {
-          color: white;
-        }		
-	  }
-	  
-      .expandable {
-        overflow:hidden;
+    
+      -moz-border-radius: 15px;
+      border-radius: 15px;
+      font-size: 14px;
+      padding:1.5em;
+      margin:0em 1.75em;
+      border-left: 1px solid #c7d8d8;
+      border-right: 1px solid #c7d8d8;
+      background: url("../images/sidebar_bkg_elephant.png") no-repeat 0px 0px #d4e5e5;
+    }
+    
+    .sidebar-dark {
+      h3 {
+        color: white;
+        margin: 1em 0;
       }
-	    
-	  .point-dark-top {
-		background: url("../images/sidebar_dark_top.png") no-repeat bottom center;
-		height: 15px;
-		}
-		
-	  .point-dark-bottom {
-		background: url("../images/sidebar_dark_bottom.png") no-repeat top center;
-		height: 15px;
-		}
-		
-      .point-dark-end {
-		background: url("../images/sidebar_dark_end.png") no-repeat top center;
-		height: 40px;
-		}
-		
-	  .point-light-top {
-		background: url("../images/sidebar_light_top.png") no-repeat bottom center;
-		height: 15px;
-		}
-		
-	  .point-light-bottom {
-		background: url("../images/sidebar_light_bottom.png") no-repeat top center;
-		height: 15px;
-		}
-		
-      .point-light-end {
-		background: url("../images/sidebar_light_end.png") no-repeat top center;
-		height: 40px;
-		}
-		
+      
+      h3:first-child {
+        margin-top: 0;
+      }
+
+      h3:last-child {
+        margin-bottom: 0;
+      }
+
+      h4 {
+        margin: 0.5em 1em;
+      }
+
+      #feed {
+        padding-left: 34px;
+        background: url("../images/feed_icon.png") no-repeat 0px 0px;
+        height: 26px;
+      }
+    
+      -moz-border-radius: 15px;
+      border-radius: 15px;
+      font-size: 14px;
+      text-shadow: #656565 1px 1px 0px;
+      padding:1.5em;
+      margin:0em 1.75em;
+      background-color: #121f1f;
+    
+      p {
+        color: white;
+        margin-bottom: 1em;
+      }
+      p:last-child {
+       margin-bottom: 0;
+      }
+    
+      a {
+        color: white;
+      }   
+    }
+    
+    .expandable {
+      overflow:hidden;
+    }
+      
+    .point-dark-top {
+      background: url("../images/sidebar_dark_top.png") no-repeat bottom center;
+      height: 15px;
+    }
+    
+    .point-dark-bottom {
+      background: url("../images/sidebar_dark_bottom.png") no-repeat top center;
+      height: 15px;
+    }
+    
+    .point-dark-end {
+      background: url("../images/sidebar_dark_end.png") no-repeat top center;
+      height: 40px;
+    }
+    
+    .point-light-top {
+      background: url("../images/sidebar_light_top.png") no-repeat bottom center;
+      height: 15px;
+    }
+    
+    .point-light-bottom {
+      background: url("../images/sidebar_light_bottom.png") no-repeat top center;
+      height: 15px;
+    }
+    
+    .point-light-end {
+      background: url("../images/sidebar_light_end.png") no-repeat top center;
+      height: 40px;
+    }
   }
-  
 }
 
 // Footer style
@@ -383,29 +370,27 @@ form.bp {
     #copyright {
       padding:2em 0;
       font-size:.75em;
-	  color: #d5d5d5;
-	  text-shadow: rgba(66, 66, 66, 0.3) 1px 1px 0px;
+      color: #d5d5d5;
+      text-shadow: rgba(66, 66, 66, 0.3) 1px 1px 0px;
       @include column(24, true);
     }  
-	
-		 #copyright p {
-		 margin: 0px;
-}
+  
+    #copyright p {
+      margin: 0px;
+    }
 
-	 #copyright a {
-	  padding-bottom: 100px;
+    #copyright a {
+      padding-bottom: 100px;
       font-size:.75em;
-	  color: #8eb1de;
-	  text-shadow: rgba(66, 66, 66, 0.3) 1px 1px 0px;
-	  }
-	  
-  	 #copyright :hover {
-	 color: #666666;
-
-	 }
-
-    }  
-  }
+      color: #8eb1de;
+      text-shadow: rgba(66, 66, 66, 0.3) 1px 1px 0px;
+    }
+    
+    #copyright :hover {
+      color: #666666;
+   }
+  }  
+}
 
 //Upcoming talks
 
@@ -543,7 +528,7 @@ form.bp {
       display:inline;
       margin-right:1em;
     } 
-	 
+   
     .nav-link {
       display:inline;
     }
@@ -566,16 +551,16 @@ form.bp {
 //Blog archive
 #blog-archive {
   h4 {
-	    background: url("../images/bullet_elephant.png") no-repeat 0px 0px;
-		min-height: 24px;
-      padding-left: 36px;
-  font-size:10px;
-  color: #2c2c2c;
-}
+    background: url("../images/bullet_elephant.png") no-repeat 0px 0px;
+    min-height: 24px;
+    padding-left: 36px;
+    font-size:10px;
+    color: #2c2c2c;
+  }
 
- h4 a {
-  font-size:14px;
-}
+  h4 a {
+    font-size:14px;
+  }
 }
 
 //Team page
@@ -595,12 +580,11 @@ form.bp {
 
 //Code for Markdown
 body.bp {
- 
   pre {
     background-color:#f5f5f5;
-	border: 1px solid #d5d8d3;
-	padding: 30px; 
-	
+    border: 1px solid #d5d8d3;
+    padding: 30px; 
+  
     code {
       font-family:'Courier New', 'Andale Mono', Consolas, 'Bitstream Vera Sans Mono', Courier, monospace;
       font-style:normal;
@@ -612,105 +596,109 @@ body.bp {
 
 // for Milestone indicators
 div.milestone {
- float: right;
- display: block;
- font-weight: bold;
+  float: right;
+  display: block;
+  font-weight: bold;
 }
+
 .milestone {
- background: #1a3c3d;
- padding: 0.2em 0.4em;
- color: white;
- -webkit-border-radius: 3px;
- -moz-border-radius: 3px;
- border-radius: 3px;
+  background: #1a3c3d;
+  padding: 0.2em 0.4em;
+  color: white;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
  
- p {
-  margin: 0 !important;
- }
- a {
-  color: white !important;
-  text-shadow: none;
- }
+  p {
+    margin: 0 !important;
+  }
+  a {
+    color: white !important;
+    text-shadow: none;
+  }
 }
 
 .milestone.future {
- background: red;
- a {
-  text-shadow: #A00 1px 1px 0px;
- }
+  background: red;
+  a {
+    text-shadow: #A00 1px 1px 0px;
+  }
 }
 
 // for known issues
 .known-issue {
 
- > b {
-  margin-left: 0.5em;
- }
+  > b {
+    margin-left: 0.5em;
+  }
 
  .title {
-   color: $h3plus_text_color;
-   font-weight: bold;
-   margin-bottom: 1em;
-   margin-top: 2em;
+    color: $h3plus_text_color;
+    font-weight: bold;
+    margin-bottom: 1em;
+    margin-top: 2em;
  }
 
- a.see {
-  float: right;
-  display: block;
-  font-weight: bold;
-  background: #1a3c3d;
-  padding: 0.2em 0.4em;
-  color: white !important;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  text-shadow: none;
- }
+  a.see {
+    float: right;
+    display: block;
+    font-weight: bold;
+    background: #1a3c3d;
+    padding: 0.2em 0.4em;
+    color: white !important;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    text-shadow: none;
+  }
  
- a.see.closed {
-  background: red;
-  text-shadow: #A00 1px 1px 0px;
- }
+  a.see.closed {
+    background: red;
+    text-shadow: #A00 1px 1px 0px;
+  }
  
- a.see.open {
-  background: green;
- }
+  a.see.open {
+    background: green;
+  }
  
  .workaround {
-  margin-top: 0.5em;
-  margin-left: 2em;
-  margin-bottom: 1em; 
- }
+    margin-top: 0.5em;
+    margin-left: 2em;
+    margin-bottom: 1em; 
+  }
 }
 
 //NOT USED is it?
 // Page layout can be done using mixins applied to your semantic classes and IDs:
 body.two-col {
   #container {
-    @include container; }
+    @include container; 
+  }
   #header, #footer {
-    @include column($blueprint-grid-columns); }
+    @include column($blueprint-grid-columns); 
+  }
   #sidebar {
     // One third of the grid columns, rounding down. With 24 cols, this is 8.
     $sidebar-columns: floor($blueprint-grid-columns / 3);
-    @include column($sidebar-columns); }
+    @include column($sidebar-columns); 
+  }
   #content {
     // Two thirds of the grid columns, rounding up.
     // With 24 cols, this is 16.
     $content-columns: ceil(2 * $blueprint-grid-columns / 3);
     // true means it's the last column in the row
-    @include column($content-columns, true); } }
-
+    @include column($content-columns, true); 
+  } 
+}
 
 .tag-cloud ul {
-	padding-left: 0em;
-	}
-	
+  padding-left: 0em;
+}
+  
 .tag-cloud li {
-	list-style-type: none;
-	}
-		
-	
-	#dsq-content .dsq-toolbar-label {
-	text-shadow: none;
-	}
+  list-style-type: none;
+}
+    
+#dsq-content .dsq-toolbar-label {
+  text-shadow: none;
+}
