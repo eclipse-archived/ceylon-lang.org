@@ -84,3 +84,13 @@ Sample code available on this website is released under [Apache Software License
 
 By submitting a "pull request" or otherwise contributing to this repository, you
 agree to license your contribution under the respective licenses mentioned above.
+
+## Acknowledgements
+
+This website uses:
+
+- Icons from [Komodo Media, Rogie King][Komodo] (CC BY-SA 3.0 with link back to the creator)
+- Icons from [Niknaks][niknaks] (CC BY-SA 3.0)
+
+[Komodo]: http://www.komodomedia.com
+[niknaks]: http://commons.wikimedia.org/wiki/File:Calendar.svg
