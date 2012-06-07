@@ -22,6 +22,8 @@
 // when stylesheets are concatenated together.
 @include blueprint-scaffolding("body.bp");
 
+$space-after-home-lines: 2.5em;
+
 body.bp {
   @include blueprint-typography(true);
   @include blueprint-utilities;
@@ -245,6 +247,8 @@ form.bp {
   height:90px;
 }
 
+//newsbar
+
 
 // primary content style
 #primary-content {
@@ -254,104 +258,284 @@ form.bp {
   #core-page {
     @include column(16);
   }
+
+  #bubble {
+    @include column(8,true);
+  }
+
+  .bubble-block {
+    strong {
+      font-weight:boldest;
+    }
+    h3 {
+      color: #456B6E;
+    }
+    h2 {
+      text-align: center;
+    }
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    font-size: 14px;
+    padding:1.5em;
+    margin:0em 1.75em;
+    border-left: 1px solid #c7d8d8;
+    border-right: 1px solid #c7d8d8;
+    background: url("../images/sidebar_bkg_elephant.png") no-repeat 0px 0px #d4e5e5;
+  }
+
+  .bubble-block-dark {
+    strong {
+      color: #DFA32F;
+    }
+    h2 {
+      color: white;
+      text-align: center;
+    }
+    h3 {
+      color: white;
+      margin: 1em 0;
+    }
+    
+    h3:first-child {
+      margin-top: 0;
+    }
+
+    h3:last-child {
+      margin-bottom: 0;
+    }
+
+    h4 {
+      margin: 0.5em 1em;
+    }
+    
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    font-size: 14px;
+    text-shadow: #656565 1px 1px 0px;
+    padding:1.5em;
+    margin:0em 1.75em;
+    background-color: #121f1f;
+    p {
+      color: white;
+      margin-bottom: 1em;
+    }
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      color: white;
+    }
+  }
+
+  .fixed-vertical-bubble {
+    height: 180px;
+    position:relative;
+  }
+
+  //from http://css3buttongenerator.com/
+  .bubble-button {
+    //font-family: Arial;
+    color: #ffffff;
+    font-size: 13px;
+    padding: 3px;
+    text-decoration: none;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-box-shadow: 0px 1px 3px #666666;
+    -moz-box-shadow: 0px 1px 3px #666666;
+    text-shadow: 1px 1px 3px #666666;
+    border: solid #163333 2px;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#163333), to(#26595F));
+    background: -moz-linear-gradient(top, #163333, #26595F);
+  }
+
+  .bubble-button:hover {
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#26595F), to(#163333));
+    background: -moz-linear-gradient(top, #26595F, #163333)
+  }
+
+  .bubble-bottom {
+    text-align: center;
+  }
+
+  .bubbleline {
+    @include column(24, true);
+  }
+
+  .hometitle {
+    @include column(24, true);
+    margin-top: $space-after-home-lines;
+    //margin-bottom: 5em;
+  }
+  .hometitle-text {
+    text-align:center;
+    h1 {
+      font-size:40px;
+    }
+  }
+
+  .titlebar {
+    margin-top:2em;
+    //font-size:40px;
+  }
+
+  #newsbar {
+    @include column(22, true);
+    margin-bottom: $space-after-home-lines;
+    margin-left: 1.75em;
+    //0.875em;
+    height: 2em;
+    
+    h3 {
+      color: white;
+      margin: 1em 0;
+    }
+    
+    h3:first-child {
+      margin-top: 0;
+    }
+
+    h3:last-child {
+      margin-bottom: 0;
+    }
+
+    h4 {
+      margin: 0.5em 1em;
+    }
+    
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    font-size: 14px;
+    text-shadow: #656565 1px 1px 0px;
+    padding:.5em;
+    //margin:0em 1.75em;
+    background-color: #121f1f;
+
+    p {
+      color: white;
+      margin-bottom: 1em;
+    }
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      color: white;
+    } 
+
+    #newsbar-text {
+      height: 100%;
+      p {
+        vertical-align:middle;
+      }
+      @include column(17, true);
+    }
+
+    #newsbar-services {
+      @include column(5, true);
+      a {
+        text-decoration: none;
+      }
+    }
+  }
   
   #sidebar {
     @include column(8,true);
-      
-    .sidebar-block {
-      h3 {
-        color: #456B6E;
-      }
-    
-      -moz-border-radius: 15px;
-      border-radius: 15px;
-      font-size: 14px;
-      padding:1.5em;
-      margin:0em 1.75em;
-      border-left: 1px solid #c7d8d8;
-      border-right: 1px solid #c7d8d8;
-      background: url("../images/sidebar_bkg_elephant.png") no-repeat 0px 0px #d4e5e5;
-    }
-    
-    .sidebar-dark {
-      h3 {
-        color: white;
-        margin: 1em 0;
-      }
-      
-      h3:first-child {
-        margin-top: 0;
-      }
-
-      h3:last-child {
-        margin-bottom: 0;
-      }
-
-      h4 {
-        margin: 0.5em 1em;
-      }
-
-      #feed {
-        padding-left: 34px;
-        background: url("../images/feed_icon.png") no-repeat 0px 0px;
-        height: 26px;
-      }
-    
-      -moz-border-radius: 15px;
-      border-radius: 15px;
-      font-size: 14px;
-      text-shadow: #656565 1px 1px 0px;
-      padding:1.5em;
-      margin:0em 1.75em;
-      background-color: #121f1f;
-    
-      p {
-        color: white;
-        margin-bottom: 1em;
-      }
-      p:last-child {
-       margin-bottom: 0;
-      }
-    
-      a {
-        color: white;
-      }   
-    }
-    
-    .expandable {
-      overflow:hidden;
-    }
-      
-    .point-dark-top {
-      background: url("../images/sidebar_dark_top.png") no-repeat bottom center;
-      height: 15px;
-    }
-    
-    .point-dark-bottom {
-      background: url("../images/sidebar_dark_bottom.png") no-repeat top center;
-      height: 15px;
-    }
-    
-    .point-dark-end {
-      background: url("../images/sidebar_dark_end.png") no-repeat top center;
-      height: 40px;
-    }
-    
-    .point-light-top {
-      background: url("../images/sidebar_light_top.png") no-repeat bottom center;
-      height: 15px;
-    }
-    
-    .point-light-bottom {
-      background: url("../images/sidebar_light_bottom.png") no-repeat top center;
-      height: 15px;
-    }
-    
-    .point-light-end {
-      background: url("../images/sidebar_light_end.png") no-repeat top center;
-      height: 40px;
+    #feed {
+      padding-left: 34px;
+      background: url("../images/feed_icon.png") no-repeat 0px 0px;
+      height: 26px;
     }
   }
+
+  .sidebar-block {
+    h3 {
+      color: #456B6E;
+    }
+
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    font-size: 14px;
+    padding:1.5em;
+    margin:0em 1.75em;
+    border-left: 1px solid #c7d8d8;
+    border-right: 1px solid #c7d8d8;
+    background: url("../images/sidebar_bkg_elephant.png") no-repeat 0px 0px #d4e5e5;
+  }
+
+  .sidebar-dark {
+    h3 {
+      color: white;
+      margin: 1em 0;
+    }
+    
+    h3:first-child {
+      margin-top: 0;
+    }
+
+    h3:last-child {
+      margin-bottom: 0;
+    }
+
+    h4 {
+      margin: 0.5em 1em;
+    }
+    
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    font-size: 14px;
+    text-shadow: #656565 1px 1px 0px;
+    padding:1.5em;
+    margin:0em 1.75em;
+    background-color: #121f1f;
+
+    p {
+      color: white;
+      margin-bottom: 1em;
+    }
+    p:last-child {
+     margin-bottom: 0;
+    }
+
+    a {
+      color: white;
+    }   
+  }
+}
+
+.expandable {
+  overflow:hidden;
+}
+
+.point-dark-top {
+  background: url("../images/sidebar_dark_top.png") no-repeat bottom center;
+  height: 15px;
+}
+
+.point-dark-bottom {
+  background: url("../images/sidebar_dark_bottom.png") no-repeat top center;
+  height: 15px;
+}
+
+.point-dark-end {
+  background: url("../images/sidebar_dark_end.png") no-repeat top center;
+  height: 40px;
+}
+
+.point-light-top {
+  background: url("../images/sidebar_light_top.png") no-repeat bottom center;
+  height: 15px;
+}
+
+.point-light-bottom {
+  background: url("../images/sidebar_light_bottom.png") no-repeat top center;
+  height: 15px;
+}
+
+.point-light-end {
+  background: url("../images/sidebar_light_end.png") no-repeat top center;
+  height: 40px;
 }
 
 // Footer style
