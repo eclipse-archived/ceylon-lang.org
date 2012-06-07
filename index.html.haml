@@ -5,142 +5,180 @@ tab: home
 unique_id: homepage
 author: Emmanuel Bernard
 ---
-#core-page
-  :markdown
-    # #{page.title}
-    Ceylon is a programming language for writing large programs in a team 
-    environment. The language is elegant, highly readable, extremely typesafe, 
-    and makes it easy to get things done. And it's easy to learn for 
-    programmers who are familiar with mainstream languages used in business 
-    computing. Ceylon has a full-featured Eclipse-based 
-    [development environment][ide], allowing developers to take best advantage 
-    of the powerful static type system. Programs written in Ceylon execute on 
-    any Java or JavaScript virtual machine.
-
-    [intro]: /documentation/current/introduction
-    [tour]: /documentation/current/tour
-    [spec]: /documentation/current/spec
-    [roadmap]: /documentation/current/roadmap
-    [ide]: /documentation/current/ide
-    
-    ## What?
-    Ceylon is a general-purpose, imperative, statically-typed, block-structured, 
-    object-oriented, higher-order language featuring a syntax similar to 
-    Java and C#, and a type system based on the notion of *principal types*.
-    
-    Since 'Hello World' is the traditional way to introduce a language, 
-    here's how it looks in Ceylon:
-    
-    <pre class="brush: ceylon">
-    void hello() {
-        print("Hello, World!");
-    }
-    </pre>
-    
-    To learn more, you can start with our [quick introduction][intro] 
-    or take an in-depth [tour of Ceylon][tour].
-
-    ## Why?
-    Ceylon is deeply influenced by Java. You see, we're fans of Java, but we know 
-    its limitations inside out. Ceylon keeps the best bits of Java but improves 
-    things that in our experience are annoying, tedious, frustrating, difficult
-    to understand, or bugprone. Furthermore, Ceylon makes it much easier to 
-    write generic code (frameworks or libraries), or to naturally describe 
-    treelike structures (especially user interfaces). Of course, Java isn't 
-    the only language with good ideas, so Ceylon looks for inspiration in other 
-    language families, in everything from Smalltalk to ML.
-    
-    The design of Ceylon is guided by [five important concerns](/blog/2012/01/10/goals/)
-    that serve as a kind of mission statement for the project.
-    
-    ## When?
-    Our third milestone release, [Ceylon M3][M3], is already available for 
-    [download][download]. It includes a reasonably complete and stable 
-    [specification][spec] and a complete command line toolset 
-    (compiler, runtime, documentation compiler). A compatible release of
-    [Ceylon IDE][ide] is also [available][install IDE].
-    
-    We've divided our work into [five milestones][roadmap]. The 
-    second milestone covered perhaps 85% of the language, along with the core 
-    language module (the types mentioned in the language specification). The 
-    remaining milestones cover the rest of the language, along with the basic 
-    class libraries, and will incorporate any adjustments to the language that 
-    we find necessary based on community feedback.
-
-    The development team, which includes volunteers from the community and a
-    number of Red Hat employees, is currently developing the second milestone 
-    release. Their work is always visible in the [public GitHub repositories](/code).
-    
-    For more details, see the [roadmap][roadmap].
-  
-    [M3]: /blog/2012/06/25/ceylon-m3-v2000
-    [download]: /download#command_line_tools
-    [install IDE]: /download#ceylon_ide
-
-  <a href="/+" style="cursor:pointer;margin-left:auto;margin-right:auto;display:block;text-align:center;padding:50px">
-  <span style="display:inline-block;font-weight:bold;vertical-align:top;margin-right:5px;margin-top:8px;">Follow Ceylon on</span>
-  <img src="https://ssl.gstatic.com/images/icons/gplus-32.png" alt="" style="border:0;width:32px;height:32px;"/>
-  </a>
-    
-#sidebar
-  .point-dark-top 
-    &nbsp;
-  .sidebar-dark
-    :markdown  
-      ### Latest release: M3
-      Ceylon M3 "V2000" and Ceylon IDE M3 are available - [read about it][M3] and [download it now][download M3].
-
-      [M3]: /blog/2012/06/25/ceylon-m3-v2000
-      [download M3]: /download?utm_source=news&utm_medium=web&utm_content=download&utm_campaign=latestrelease
-      
-  .point-dark-bottom 
-    &nbsp;
-  .point-light-top 
-    &nbsp;	
-  .sidebar-block
-    %h3 News
-    - news = site.news.values.sort{|l,r| r.effective_date <=> l.effective_date}
-    - for entry in news[0,2]
-      .news_entry
-        %h4
-          - if ( entry.more_info_url )
-            %a{:href=>entry.more_info_url}
-              = entry.title
-          - else 
-            = entry.title
-        .news_date
-          #{entry.date}
-        .news_detail
-          #{entry.content}
-        %hr
+#newsbar
+  #newsbar-text
     :markdown
-      To stay up to date, follow our [blog](/blog) ([feed](/blog/blog.atom)).
-
-  - events = site.events.values
-  - now = Time.now
-  - a_few_days_ago = now - 4 * 24 * 60 * 60
-  - next_2_month = now + 2 * 31 * 24 * 60 * 60 #around two month later
-  - events = events.find_all{|item| item.effective_date.to_s >= a_few_days_ago.strftime("%Y%m%d") && item.effective_date.to_s <= next_2_month.strftime("%Y%m%d")}
-  - events = events.sort{|l,r| l.effective_date <=> r.effective_date}
-  - if events.size != 0
-    .point-light-bottom 
-      &nbsp;   
-    .point-light-top 
+      Ceylon M2 "Minitel" is available - [read about it][M2] and [download it now][download M2].
+      [download M2]: /download?utm_source=news&utm_medium=web&utm_content=download&utm_campaign=latestrelease
+      [M2]: /download?utm_source=news&utm_medium=web&utm_content=download&utm_campaign=latestrelease
+  #newsbar-services
+    %p.bar
+      %a{:href=>'/blog/'}
+        %img{:src=>'/images/services/rss_32.png'}
       &nbsp;
-    .sidebar-block
-      %h3 Events
-      - for entry in events[0,2]
-        .news_entry
-          %h4
-            - ref = '/community/events/#' + entry.effective_date.to_s 
-            %a{:href=>ref}
-              = entry.event
-          .news_date
-            &= entry.event_date
-          .news_detail
-            #{entry.presentor} will present at #{entry.event} in #{entry.location}.
-          %hr
+      %a{:href=>'http://twitter.com/ceylonlang'}
+        %img{:src=>'/images/services/twitter_32.png', :alt=>'Twitter'}
+      &nbsp;
+      %a{:href=>'/+'}
+        %img{:src=>'/images/services/google_plus_32.png', :alt=>'Google Plus'}
+      &nbsp;
+      %a{:href=>'/community/events/'}
+        %img{:src=>'/images/services/calendar.png', :alt=>'Events', :height=>'32', :width=>'32'}
+        
+.action-bubbles
+  #bubble
+    .point-light-top 
+      &nbsp;  
+    .bubble-block.fixed-vertical-bubble
       :markdown
-        [More events](/community/events)
-  .point-light-end 
-    &nbsp;      
+        ## Grok Ceylon
+
+        To get a feeling of Ceylon, start with the 15 mins [**intro**](/documentation/current/introduction/)
+        then dive into the 2h [**tour**](/documentation/current/tour/).
+
+        Make sure to follow our [**blog**](/blog/) to stay up to date.
+
+      .bubble-bottom
+        %a.bubble-button{ :href=>'/documentation/current/' }
+          Get Documentation
+    .point-light-bottom
+      &nbsp;
+  #bubble
+    .point-light-top 
+      &nbsp;  
+    .bubble-block.fixed-vertical-bubble
+      :markdown
+        ## Try Ceylon
+
+        The best way to try is to **download our [IDE](/documentation/current/ide/)**. You can also expore 
+        our set of **modules** in [Ceylon Herd](http://modules.ceylon-lang.org/). 
+        You can even try Ceylon code snippets [**online**](http://try.ceylon-lang.org/) from your comfy chair.
+
+      .bubble-bottom
+        %a.bubble-button{ :href=>'http://modules.ceylon-lang.org/' }
+          Herd
+        &nbsp;
+        %a.bubble-button{ :href=>'/download/' }
+          Download
+        &nbsp;
+        %a.bubble-button{ :href=>'http://try.ceylon-lang.org/' }
+          Try online
+      
+    .point-light-bottom
+      &nbsp;
+  #bubble
+    .point-light-top 
+      &nbsp;  
+    .bubble-block.fixed-vertical-bubble
+      :markdown
+        ## Get involved
+
+        We looooove contribution. Everything is [**open source**](/code/licenses/) and done
+        in the open in Git. Compiler, SDK, Herd: find your sweet.
+
+      .bubble-bottom
+        %a.bubble-button{ :href=>'/code/' }
+          Participate
+      
+    .point-light-bottom
+      &nbsp;
+//CEYLON IS block
+.hometitle
+  #bubble.titlebar
+    %hr
+  #bubble.hometitle-text
+    %h1
+      Ceylon is
+  #bubble.titlebar
+    %hr
+.action-bubbles
+  #bubble
+    .point-dark-top 
+      &nbsp;  
+    .bubble-block-dark.fixed-vertical-bubble
+      :markdown
+        ## Powerful
+
+        Ceylon probably has one of the most **powerful type system** letting you
+        express much more things than Java: **Union types**, intercection types, 
+        high order functions. And Ceylon remains **fully interoperable** with Java.
+
+    .point-dark-bottom
+      &nbsp;
+  #bubble
+    .point-dark-top 
+      &nbsp;  
+    .bubble-block-dark.fixed-vertical-bubble
+      :markdown
+        ## Readable
+
+        Code is read much more often than written.  
+        Ceylon focuses on readability
+        via its extremely **regular syntax**, support for **treelike structures**, 
+        explicit keywords and more.
+
+    .point-dark-bottom
+      &nbsp;
+  #bubble
+    .point-dark-top 
+      &nbsp;  
+    .bubble-block-dark.fixed-vertical-bubble
+      :markdown
+        ## Predictable
+
+        Ceylon is **unambiguous**, use a regular syntax,
+        uniform rules, limits polluting choices and enforces **safety** at the 
+        type system and compiler level. The type system prevents any
+        **NullPointerException** and ClassCastException for example.
+      
+    .point-dark-bottom
+      &nbsp;
+//CEYLON HAS block
+.hometitle
+  #bubble.titlebar
+    %hr
+  #bubble.hometitle-text
+    %h1
+      Ceylon has
+  #bubble.titlebar
+    %hr
+.action-bubbles
+  #bubble
+    .point-dark-top 
+      &nbsp;  
+    .bubble-block-dark.fixed-vertical-bubble
+      :markdown
+        ## a Platform
+
+        Ceylon is not only a language but a whole platform bringing a **modern SDK**.
+        Ceylon runs on multiple backends: the **JVM** and **JavaScript** bringing the gap
+        between clients and servers.
+    .point-dark-bottom
+      &nbsp;
+  #bubble
+    .point-dark-top 
+      &nbsp;  
+    .bubble-block-dark.fixed-vertical-bubble
+      :markdown
+        ## Modularity
+
+        Modularity is built at the core of the **language, SDK and tooling**.
+        Ceylon compiles **modules** which are be published a **next-generation
+        repository** called [Ceylon Herd](http://modules.ceylon-lang.org)
+        bringing **social** to the community.
+
+    .point-dark-bottom
+      &nbsp;
+  #bubble
+    .point-dark-top 
+      &nbsp;  
+    .bubble-block-dark.fixed-vertical-bubble
+      :markdown
+        ## Tooling
+
+        Ceylon has been designed with **toolability** in mind. It comes with a 
+        fully-fledged **Eclipse based [IDE](/documentation/current/ide/)**, **compiler**,
+        debugger and documentation tool. Ceylon will come with a **build system**
+        natively understanding modularity.
+    .point-dark-bottom
+      &nbsp;
