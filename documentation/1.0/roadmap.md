@@ -172,40 +172,63 @@ file IO.*
 * compilation to JavaScript is a compiler switch
 
 ### Declarations:
-* concrete interface members
+* concrete interface members _DONE_
 * new syntax for attribute initialization parameters _DONE_
 * multiple parameter lists _DONE_
-* new syntax for package and module descriptors
+* nested interfaces _DONE_
+* self types _DONE_
+* shortcut syntax for formal member refinement _DONE_
+* new syntax for package and module descriptors _SLIPPING?_
 
 ### Expressions:
 * object/method/getter args in named argument lists _DONE_
 * anonymous functions (`(Type x) result(x)`) _DONE_
-* comprehensions (`{ for (x in xs) if (select(x)) collect(x) }`)
-* lengthwise range operator (`:`)
+* comprehensions (`for (x in xs) if (select(x)) collect(x)`) _DONE_
 * indirect invocations of `Callable` instances _DONE_
+* outer instance references (`outer`) _DONE_
+
+### Misc:
+* "lazy" semantics for sequenced parameters _DONE_
 
 ### Modules:
-* `ceylon.io` module
-* `ceylon.math` module _DONE_
+* `ceylon.math` platform module  (arbitary precsision decimals/integers 
+   and common floating point functions) _DONE_
+* `ceylon.file` platform module (access to hierarchical filesystems) _DONE_
+* `ceylon.process` platform module (operating system processes) _POSSIBLY_
 
 ## Milestone 4
 
-*Nested/member classes, type aliases.*
+*Member classes and type families, type aliases.*
 
 ### Declarations:
+* member class refinement / type families
 * class and interface aliases
-* nested and member classes
-* numeric widening for custom numeric types ?
+* union and interface aliases _POSSIBLY_
 
 ### Statements:
 * `try` with resources
 
 ### Expressions:
-* outer instance references (`outer`)
+* named argument-style syntax for instantiating interfaces
 * set operators (`|`, `&`, `^`, `~`)
+* lengthwise range operator (`:`)
+* numeric widening for custom numeric types _POSSIBLY_
 
 ### Modularity:
 * repository replicator
+
+### Modules:
+* `ceylon.net` platform module
+* `ceylon.json` platform module (JSON parser)
+* `ceylon.time` platform module (date/time types)
+* `ceylon.local` platform module (basic support for localization)
+* `ceylon.format` platform module (text formatting for numbers and 
+   dates/times)
+* `ceylon.collection` platform module (collection implementations
+  organized into mutable array-based collections, mutable 
+  hashtable-based collections and immutable linked-list based 
+  collections) 
+   _POSSIBLY_
 
 ## Milestone 5 (Ceylon 1.0)
 
@@ -224,14 +247,23 @@ file IO.*
 ### Misc:
 * annotation constraints
 * interception for methods, attributes, and classes
+* serialization
 
 ### Modules:
 * language metamodel
+* `ceylon.transaction` platform module (support for distributed
+  transaction processing)
+* `ceylon.relational.connect` platform module (access to relational
+  databases)
+* `ceylon.relational.sql` platform module (SQL statement builder)
+* `ceylon.http.client` platform module (HTTP client)
+* `ceylon.http.server` platform module (HTTP server)
 
 ## Ceylon 1.1 or later
 
-* lower bounds
-* parameter bounds
+* interfaces upper bounded by classes
+* lower bound constraints
+* parameter bound constraints
 * `if (satisfies ...)`
 * `satisfies` operator
 * single-quoted literals
