@@ -283,16 +283,14 @@ form.bp {
     background: url("../images/sidebar_bkg_elephant.png") no-repeat 0px 0px #d4e5e5;
   }
 
-  .bubble-block-dark {
+  .bubble-block-transparent {
     strong {
       color: #DFA32F;
     }
     h2 {
-      color: white;
       text-align: center;
     }
     h3 {
-      color: white;
       margin: 1em 0;
     }
     
@@ -308,23 +306,14 @@ form.bp {
       margin: 0.5em 1em;
     }
     
-    -moz-border-radius: 15px;
-    border-radius: 15px;
     font-size: 14px;
-    text-shadow: #656565 1px 1px 0px;
     padding:1.5em;
     margin:0em 1.75em;
-    background-color: #121f1f;
     p {
-      color: white;
       margin-bottom: 1em;
     }
     p:last-child {
       margin-bottom: 0;
-    }
-
-    a {
-      color: white;
     }
   }
 
