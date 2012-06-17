@@ -44,10 +44,10 @@ Let's try it out. Save the above code in the file `./source/hello.ceylon`
 and then run the following commands:
 
 <!-- lang: bash -->
-    ceylon-0.1/bin/ceylonc source/hello.ceylon
-    ceylon-0.1/bin/ceylon -run hello default
+    ceylon-0.3/bin/ceylonc source/hello.ceylon
+    ceylon-0.3/bin/ceylon -run hello default
 
-where `ceylon-0.1` is the path to your Ceylon install directory. You should
+where `ceylon-0.3` is the path to your Ceylon install directory. You should
 see the message `Hello, World!`. You will find the compiled module archive 
 `default.car` in the directory `./modules/default`.
 
@@ -59,8 +59,8 @@ and running the simple examples in the `samples/` directory.*
 A very useful trick is:
 
 <!-- lang: bash -->
-    ceylon-0.1/bin/ceylonc -help
-    ceylon-0.1/bin/ceylon -help
+    ceylon-0.3/bin/ceylonc -help
+    ceylon-0.3/bin/ceylon -help
 
 ## Running the program from the IDE
 
