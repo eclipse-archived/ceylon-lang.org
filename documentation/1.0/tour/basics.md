@@ -9,7 +9,11 @@ doc_root: ../..
 
 # #{page.title}
 
-Let's start!
+Let's get started!
+
+Before we can get into any of the really interesting and powerful features of 
+this language, we need to get comfortable with some of the basic syntax, so
+we'll know what we're looking at later on. 
 
 ## Writing a simple program
 
