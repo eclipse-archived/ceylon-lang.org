@@ -8,9 +8,9 @@ author: Gavin King
 
 # #{page.title}
 
-This is the fifth leg of the Tour of Ceylon. In the 
-[previous leg](../introduction) we covered introduction and member classes. 
-Now we're going to look at *sequences*.
+This is the fifth leg of the Tour of Ceylon. In the [previous leg](../introduction) 
+we covered anonymous classes and member classes. Now we're going to look at 
+*sequences*.
 
 
 ## Sequences

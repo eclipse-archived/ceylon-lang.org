@@ -67,7 +67,7 @@ but that's not quite right:
 * An object declaration nested inside a class defines an object per instance 
   of the containing class.
 * An object declaration nested inside a method, getter, or setter results in 
-  an new object each time the method, getter, or setter is executed.
+  a new object each time the method, getter, or setter is executed.
 
 Let's see how this can be useful:
 
@@ -91,9 +91,9 @@ Notice how this code example makes clever use of the fact that the nested
 method declaration!
 
 A different way to think about the difference between `object` and `class` is 
-to think of a `class` as a parametrized `object`. (Of course, there's one 
-big difference: a `class` declaration defines a named type that we can refer 
-to in other parts of the program.) We'll see later that Ceylon also lets us 
+to think of a `class` as a parametrized `object`. (Of course, there's one big 
+difference: a `class` declaration defines a named type that we can refer to in 
+other parts of the program.) We'll see later that, analogously, Ceylon lets us 
 think of a method as a parametrized attribute.
 
 An `object` declaration can refine an attribute declared `formal` or `default`,
@@ -160,7 +160,7 @@ Note that `BufferedFileReader.Buffer` is a subclass of `BufferedReader.Buffer`.
 Now the instantiation `br.Buffer()` above is a polymorphic operation! It might 
 return an instance of `BufferedFileReader.Buffer` or an instance of 
 `BufferedReader.Buffer`, depending upon whether `br` refers to a plain 
-`BufferedReader` or a `BufferedFileReader`. This is more than a cute trick. 
+`BufferedReader` or to a `BufferedFileReader`. This is more than a cute trick. 
 Polymorphic instantiation lets us eliminate the "factory method pattern" from 
 our code.
 
