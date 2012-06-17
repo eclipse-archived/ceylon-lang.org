@@ -9,17 +9,29 @@ doc_root: ../..
 
 # #{page.title}
 
-This is the second step in our tour of the Ceylon language.
-In the [previous leg](../basics)
-you learned some of the basics of Ceylon programming. In this leg we're 
-going to look in more detail at classes.
+This is the second step in our tour of the Ceylon language. In 
+the [previous leg](../basics) you learned some of the basics of 
+the syntax of Ceylon. In this leg we're going to learn how to
+define types.
 
-## Creating your own classes
+## Identifier naming
 
-Type (interface, class, and type parameter) names are capitalized. 
-Member (method and attribute) and local names are not. The Ceylon 
-compiler is watching you. If you try to write `class hello` or 
-`String Name`, you'll get a compilation error.
+The case of the first character of an identifier is significant.
+Type (interface, class, and type parameter) names must start 
+with an initial capital letter. Member (method and attribute) 
+and local names start with an initial lowercase letter or
+underscore. The Ceylon compiler is watching you. If you try to 
+write `class hello` or `String Name`, you'll get a compilation 
+error.
+
+(There is a way to work around this restriction, which is 
+mainly useful when calling legacy Java code. You can "force"
+the compiler to understand that an identifier is a type name
+by prefixing it with `\I`, or that it is a member or local
+name by prefixing it with `\i`. For example, `\iRED` is 
+considered an initial lowercase identifier.)
+
+## Creating your own class
 
 Our first class is going to represent points in a polar coordinate 
 system. Our class has two parameters, two methods, and an attribute.
@@ -44,7 +56,7 @@ There's two things in particular to notice here:
 1. The parameters used to instantiate a class are specified as part of the 
    class declaration, right after the name of the class. There's no Java-style 
    constructors in Ceylon. This syntax is less verbose and more regular than 
-   Java.
+   Java or C#.
    
 2. We make can use of the parameters of a class anywhere within the body of 
    the class. In Ceylon, we often don't need to define explicit members of the 
@@ -53,7 +65,7 @@ There's two things in particular to notice here:
    and from the expression which specifies the value of `description`.
 
 Notice also that Ceylon doesn't have a `new` keyword to indicate instantiation,
-we just 'call the class': `Polar(angle, radius)`.
+we just "invoke the class", writing `Polar(angle, radius)`.
 
 The `shared` annotation determines the accessibility of the annotated type, 
 attribute, or method. Before we go any further, let's see how we can hide the 
@@ -64,11 +76,11 @@ internal implementation of a class from other code.
 
 Ceylon doesn't make a distinction between `public`, `protected` and "default" 
 visibility like Java does; 
-[here's why](#{page.doc_root}/faq/language-design/#no_protected_keyword). Instead,
-Ceylon distinguishes between: 
+[here's why](#{page.doc_root}/faq/language-design/#no_protected_keyword). 
+Instead, the language distinguishes between: 
 
 * program elements which are visible only inside the scope in which they are 
-  defined, and 
+  defined, and
 * program elements which are visible wherever the thing they belong to (a type, 
   package, or module) is visible.
 
@@ -76,8 +88,8 @@ By default, members of a class are hidden from code outside the body of the
 class. By annotating a member with the `shared` annotation, we declare that 
 the member is visible to any code to which the class itself is visible.
 
-And, of course, a class itself may be hidden from other code. By default, 
-a toplevel class is hidden from code outside the package in which the class is 
+And, of course, a class itself may be hidden from other code. By default, a 
+toplevel class is hidden from code outside the package in which the class is 
 defined. Annotating a top level class with `shared` makes it visible to any 
 code to which the package containing the class is visible.
 
@@ -93,14 +105,14 @@ Got the idea? We are playing russian dolls here.
 If we want to expose the `angle` and `radius` of our `Polar` coordinate to
 other code, we need to define attributes of the class. It's very common to 
 assign parameters of a class directly to a `shared` attribute of the class, 
-so Ceylon lets us reuse the name of a parameter as the name of an attribute.
+so Ceylon provides a streamlined syntax for this.
 
 <!-- id:polar -->
     doc "A polar coordinate"
-    shared class Polar(Float angle, Float radius) {
+    shared class Polar(angle, radius) {
         
-        shared Float angle = angle;
-        shared Float radius = radius;
+        shared Float angle;
+        shared Float radius;
         
         shared Polar rotate(Float rotation) {
             return Polar(angle+rotation, radius);
