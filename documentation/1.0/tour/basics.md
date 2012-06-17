@@ -33,9 +33,10 @@ to invoke a toplevel method. Instead, you can just call it like this:
 Or you can run it directly from the command line. 
 
 Ceylon doesn't have Java-style `static` methods, but you can think of 
-toplevel methods as filling the same role. Ceylon has a very strict 
-block structure - a nested block always has access to declarations in all 
-containing blocks. This isn't the case with Java's `static` methods.
+toplevel methods as filling the same role. The reason for this difference
+is that Ceylon has a very strict block structure - a nested block always has 
+access to declarations in all containing blocks. This isn't the case with 
+Java's `static` methods.
 
 ## Running the program from the command line
 
@@ -63,15 +64,15 @@ A very useful trick is:
 
 ## Running the program from the IDE
 
-To run the program in [Ceylon IDE](#{page.doc_root}/ide), go to the Ceylon perspective,
-create a new project using `File > New > Ceylon Project`, then create
-a new `.ceylon` file using `File > New > Ceylon Unit`. Put the code for
-`hello()` in this new file, then select the file and run it using 
+To run the program in [Ceylon IDE](#{page.doc_root}/ide), go to the Ceylon 
+perspective, create a new project using `File > New > Ceylon Project`, then 
+create a new `.ceylon` file using `File > New > Ceylon Unit`. Put the code 
+of `hello()` in this new file, then select the file and run it using 
 `Run > Run As > Ceylon Application`.
 
 Or, if you're unfamiliar with Eclipse, go to `Help > Cheat Sheets`, open
-the `Ceylon` item, and run the `Hello World with Ceylon` cheat sheet
-which takes you step by step through the process.
+the `Ceylon` item, and run the `Hello World with Ceylon` cheat sheet which 
+takes you step by step through the process.
 
 ## String literals
 
@@ -151,8 +152,8 @@ declarations.
         // ...
     } -->
 
-The `doc`, `by`, `see` and `throws` annotations contain documentation that is 
-included in the output of the Ceylon documentation compiler, `ceylond`.
+The `doc`, `by`, `see`, `throws`, and `tagged` annotations contain documentation 
+that is included in the output of the Ceylon documentation compiler, `ceylond`.
 
 Notice that when an annotation argument is a literal, it doesn't need to be 
 enclosed in parentheses. We can write simply: 
@@ -168,8 +169,8 @@ instead of:
 Annotations like `doc`, `by`, `see`, and `throws`, aren't keywords. They're 
 just ordinary identifiers. The same is true for annotations which are part of 
 the language definition, for example: `abstract`, `variable`, `shared`, `formal`, 
-`default`, `actual`, etc. This is quite different to other C-like languages. On 
-the other hand, `void` _is_ a keyword, just like in C or Java.
+`default`, `actual`, etc. This is quite different to other C-like languages. (On 
+the other hand, `void` _is_ a keyword, just like in C or Java.)
 
 ## Formatting inline documentation
 
@@ -208,7 +209,7 @@ correctly, as we've done here.
 
 ## String interpolation and concatenation
 
-Let's make our program to tell us a little more about itself.
+Let's make our program tell us a little more about itself.
 
 <!--
     doc "The Hello World program
@@ -284,7 +285,7 @@ opportunity to explore how `null` values are treated in Ceylon, which is
 quite different to what you're probably used to in Java or C#.
 
 Let's consider an overly-verbose example to start with (we'll get on to the
-preferred form in a moment):
+more convenient form in a moment):
 
     doc "Print a personalized greeting"
     void hello() {
@@ -300,7 +301,7 @@ preferred form in a moment):
     }
 
 The type `String?` indicates that `name` may contain a `null` value. We then 
-use the `if (exists ...)` control structure to split the code that deals with 
+use the `if (exists ...)` control structure to branch the code that deals with 
 a non-`null` vs a `null` name.
 
 Unlike Java, locals, parameters, and attributes that may contain `null` values 
@@ -321,10 +322,11 @@ evaluates to true if `x` and `y` both evaluate to `null`.
 Note that the syntax `String?` is just an abbreviation for the 
 [union type](../types/#union_types) `Nothing|String`. The value `null` isn't 
 a primitive value in Ceylon, it's just a perfectly ordinary instance of the 
-perfectly ordinary class `Nothing`.
+perfectly ordinary class `Nothing`. (However, the Ceylon compiler does
+some special magic to transform this value to a JVM-level null.)
 
 It's possible to declare the local name inside the `if (exists ... )` 
-condition (and because Ceylon has [type inference](../types#type_inference), 
+condition (and because Ceylon has local [type inference](../types#type_inference), 
 you don't even have to declare the type):
 
 <!-- cat: void hello() { -->
@@ -348,7 +350,7 @@ with `null` values.
 
 <!-- cat: void hello(String? name) { -->
     String greeting = "Hello, " + 
-                             name ? "World";
+            name ? "World";
 <!-- cat: 
     print(greeting);
 } -->
@@ -362,7 +364,7 @@ types and provide an alternative value if the type is `null`.
 
 <!-- cat: void hello(String? name) { -->
     String shoutedGreeting = "HELLO, " + 
-                                    name?.uppercased ? "WORLD";
+            name?.uppercased ? "WORLD";
 <!-- cat: 
     print(shoutedGreeting);
 } -->
