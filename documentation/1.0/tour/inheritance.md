@@ -42,7 +42,7 @@ Notice that Ceylon forces us to declare attributes or methods that can be
 refined (overridden) by annotating them `default`.
 
 Subclasses specify their superclass using the `extends` keyword
-([here's why](#{page.doc_root}/faq/language-design/#colon_vs_extends_in_class_definition)), 
+([here's why](#{page.doc_root}/faq/language-design/#colon_vs_extends_for_inheritance)), 
 followed by the name of the superclass, followed by a list of arguments to be 
 sent to the superclass initializer parameters. It looks just like an expression 
 that instantiates the superclass:
@@ -61,7 +61,7 @@ that instantiates the superclass:
 
 Ceylon also forces us to declare that an attribute or method refines 
 (overrides) an attribute or method of a superclass by annotating it `actual`
-([not "overrides" like Java](#{page.doc_root}/faq/language-design/#_override_vs_actual)). 
+([not "overrides" like Java](#{page.doc_root}/faq/language-design/#_overrides_vs_actual)). 
 All this annotating stuff costs a few extra keystrokes, but it helps the 
 compiler detect errors. We can't inadvertently refine a member or the 
 superclass, or inadvertently fail to refine it.
@@ -70,29 +70,34 @@ Notice that Ceylon goes out of its way to repudiate the idea of "duck" typing
 or structural typing. If it `walks()` like a `Duck`, then it should be a 
 subtype of `Duck` and must explicitly refine the definition of `walk()` 
 in `Duck`. We don't believe that the name of a method or attribute alone is 
-sufficient to identify its semantics.
+sufficient to identify its semantics. And, more importantly, [structural
+typing doesn't work properly with tools](#{page.doc_root}/faq/language-design/#structural_typing).
 
-## Refining the members of `IdentifiableObject`
+## Refining a member of `Object`
 
 Our `Polar` class is an implicit subtype of the class 
-[`IdentifiableObject`](#{site.urls.apidoc_current}/ceylon/language/class_IdentifiableObject.html)
-in the package `ceylon.language`. 
-If you take a look at this class, you'll see 
-that it has a `default` attribute named 
-[`string`](#{site.urls.apidoc_current}/ceylon/language/class_IdentifiableObject.html#string). 
-It's common to refine this
-attribute to provide a developer-friendly representation of the object.
-`IdentifiableObject` also defines default implementations of 
-[`equals()`](#{site.urls.apidoc_current}/ceylon/language/class_IdentifiableObject.html#equals)  and
-[`hash`](#{site.urls.apidoc_current}/ceylon/language/class_IdentifiableObject.html#hash).
+[`Object`](#{site.urls.apidoc_current}/ceylon/language/class_Object.html)
+in the package `ceylon.language`. If you take a look at this class, you'll 
+see that it has a `default` attribute named 
+[`string`](#{site.urls.apidoc_current}/ceylon/language/class_Object.html#string). 
+It's common to refine this attribute to provide a developer-friendly 
+representation of the object.
+
+`Polar` is also a subtype of the interface 
+[`Identifiable`](#{site.urls.apidoc_current}/ceylon/language/interface_Identifiable.html) 
+which defines `default` implementations of 
+[`equals()`](#{site.urls.apidoc_current}/ceylon/language/interface_Identifiable.html#equals) 
+and [`hash`](#{site.urls.apidoc_current}/ceylon/language/interface_Identifiable.html#hash).
 We should _definitely_ refine those:
 
 <!-- cat: Float pi = 3.1415926535; -->
     doc "A polar coordinate"
-    class Polar(Float angle, Float radius, String description) {
+    class Polar(Float angle, Float radius) {
         
         // ...
 
+        shared default String description = "(" radius "," angle ")";
+        
         shared actual String string { return description; }
         
         value azimuth {
@@ -143,7 +148,7 @@ This annotation specifies that a class cannot be instantiated, and can define
 abstract members. Like Java, Ceylon also requires us to annotate "abstract" 
 members that don't specify an implementation. However, in this case, the 
 required annotation is `formal`. The reason for having two different 
-annotations, as we'll see [later](../introduction#its_even_possible_to_define...), 
+annotations, as we'll see [later](../anonymous-member-classes#member_classes_and_member_class_refinement), 
 is that nested classes may be either 
 `abstract` or `formal`, and `abstract` nested classes are slightly different 
 to `formal` member classes. A `formal` member class may be instantiated; 
@@ -172,6 +177,8 @@ Alternatively, we can also define an implementation for an inherited abstract
 attribute by *refining* it.
 
 <!-- check:parse:Requires ceylon.math -->
+    import ceylon.math.float { sin, cos }
+     
     doc "A polar coordinate"
     class Polar(Float angle, Float radius) 
             extends Point() {
@@ -193,21 +200,23 @@ attribute by *refining* it.
     }
 
 Note that there's no way to prevent other code from extending a class in 
-Ceylon (like a `final` class in Java). Since only members explicitly declared as supporting refinement using 
-either `formal` or `default` can be refined, a subtype can never break the
-implementation of a supertype. Unless the supertype was explicitly designed 
-to be extended, a subtype can add members, but never change the behavior of
-inherited members.
+Ceylon (there's no equivalent of a `final` class in Java). Since only members 
+explicitly declared as supporting refinement using either `formal` or `default` 
+can be refined, a subtype can never break the implementation of a supertype. 
+Unless the supertype was explicitly designed to be extended, a subtype can add 
+members, but never change the behavior of inherited members.
 
 Oh, I suppose you would like to see `Cartesian`...
 
 <!-- check:parse:Requires ceylon.math -->
+    import ceylon.math.float { atan } 
+    
     doc "A cartesian coordinate"
     class Cartesian(Float x, Float y) 
             extends Point() {
         
         shared actual Polar polar { 
-            return Polar( (x**2+y**2)**0.5, arctan(y/x) ); 
+            return Polar( (x**2+y**2)**0.5, atan(y/x) ); 
         }
         
         shared actual Cartesian cartesian {
@@ -232,8 +241,9 @@ functionality from more than one supertype. Java's inheritance model doesn't
 support this, since an interface can never define a member with a concrete 
 implementation. Interfaces in Ceylon are a little more flexible:
 
-* An interface may define concrete methods, attribute getters, and attribute setters.
-* It may not define simple attributes or initialization logic.
+* An interface may define concrete methods, attribute getters, and attribute 
+  setters, but
+* it may not define simple attributes or initialization logic.
 
 Notice that prohibiting simple attributes and initialization logic makes 
 interfaces completely stateless. An interface can't hold references to other 

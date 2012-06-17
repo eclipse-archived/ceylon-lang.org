@@ -76,7 +76,7 @@ internal implementation of a class from other code.
 
 Ceylon doesn't make a distinction between `public`, `protected` and "default" 
 visibility like Java does; 
-[here's why](#{page.doc_root}/faq/language-design/#no_protected_keyword). 
+[here's why](#{page.doc_root}/faq/language-design/#no_protected_modifier). 
 Instead, the language distinguishes between: 
 
 * program elements which are visible only inside the scope in which they are 
