@@ -30,19 +30,23 @@ some of the most important ones:
 
 * To have a very regular syntax.
 * To be easy to read and understand, even for beginners, even for
-  non-Ceylon-programmers reading your Ceylo code on your blog or 
+  non-Ceylon-programmers reading your Ceylon code on your blog or 
   on GitHub.
 * To be extremely typesafe, completely avoiding the use of 
   exceptions to handle any kind of typing-related problem, 
   including things like null references and missing list 
   elements.
+* That the reasoning of the compiler can always be reproduced by
+  the programmer according to intuitive rules.
 * To allow excellent tool support, including extremely helpful and 
   understandable error messages.
 * To offer a typesafe hierarchical syntax for treelike structures,
   especially user interfaces, this completely eliminating XML
   from the picture.
-* To provide excellent support for modularity.
-* To provide support for disciplined metaprogramming.
+* To provide excellent, completely integrated support for 
+  modularity.
+* To make it easier to write more generic code, amd provide support
+  for disciplined metaprogramming.
 * To reuse the good of Java, but to be open to good ideas from
   other language families.
 
@@ -314,10 +318,11 @@ simple, safe, and convenient model.
 First-class union types first made an appearance when we started
 trying to figure out a sane approach to generic type argument
 inference. One of the big problems in Java's generics system is 
-that the compiler often infers types that are "non-denotable", i.e. 
-not representable within the Java language. This results in *really* 
-confusing error messages. That never happens in Ceylon, since union 
-and intersection types are denotable and there are no wildcard types.
+that the compiler often infers types that are "non-denotable", 
+i.e. not representable within the Java language. This results in 
+*really* confusing error messages. That never happens in Ceylon, 
+since union and intersection types are denotable and there are no 
+wildcard types.
 
 As soon as we embraced the need for union types, they became a
 natural solution for the problem of how to represent optional
@@ -339,6 +344,32 @@ And intersections help us to narrow types. For example:
 
 It turns out that support for first-class unions and intersections
 is perhaps the very coolest feature of Ceylon.
+
+### Structural typing
+
+> Why doesn't Ceylon have structural typing?
+
+Structural typing is a kind of "duck" typing. It's an interesting
+path to get some of the flexibility of a dynamic language in a
+language with static types. A structural type is a bit like an
+interface in Java (not like an interface in Ceylon!). But in a
+language with structural typing, a class does not have to 
+explicitly declare that it is a subtype of the interface to be 
+considered assignable to the interface type. Instead, the compiler 
+just validates that the class provides operations that match the 
+operations declared by the interface.
+
+The problem with a structural type system is that, just like the 
+dynamic type systems that inspire it, it doesn't work very well 
+with tools. If I select a member of a class, and ask for all
+references, or select a member of an interface, and ask for all 
+implementations, I'll get an _approximate_ list of results. If 
+I ask my IDE to rename a member of a class or interface, it might
+do a smaller or bigger refactoring than you expect; it might even
+break my code!
+
+This isn't the right thing for a language intended for writing 
+large programs.
 
 ### Overloading
 
@@ -409,12 +440,11 @@ properties of the type system:
   instantiation.
 
 Implicit type conversion is designed to look a little bit like
-subtyping to the user of an API, but it's _not_ subtyping,
-it doesn't obey the rules of subtyping, and it screws up the
-simple intuitive relationship between subtyping and
-assignability. (In Ceylon, "`A` is assignable to `B`" is 
-equivalent to "`A` is a subtype of `B`", always, everywhere,
-and transitively!)
+subtyping to the user of an API, but it's _not_ subtyping, it 
+doesn't obey the rules of subtyping, and it screws up the simple 
+intuitive relationship between subtyping and assignability. (In 
+Ceylon, "`A` is assignable to `B`" is equivalent to "`A` is a 
+subtype of `B`", always, everywhere, and transitively!)
 
 Finally, user-defined implicit type conversions work by having the 
 compiler introduce hidden invocations of arbitrary user-written 
@@ -527,8 +557,8 @@ classes as a kind of support for reified types. Since Ceylon
 will definitely support reified types with typesafe metatypes, 
 it's not unreasonable to consider providing the ability to 
 introduce an additional type to the metatype of a type. Then
-we would support _metatype constraints_ of form 
-`T is Metatype`, for example:
+we would support _metatype constraints_ of form `T is Metatype`, 
+for example:
 
     Num sum<Num>(Num... numbers) 
             given Num is Number {
@@ -569,10 +599,11 @@ So, from this perspective, `Sequence` is a type constructor,
 `String` is an argument type, and `Sequence<String>` is the 
 resulting type produced by the type constructor.
 
-Type constructor parameterization is the ability to abstract
-the definition of a function or type not only over types 
-(which is what any system of generics allows) but also over 
-type constructors. 
+"Generics" (parametric polymorphism) is the ability to 
+abstract the definition of a function or type over other
+unknown types. Then type constructor parameterization is the 
+ability to abstract the definition of a function or type not 
+only over types but also over type constructors. 
 
 Without type constructor parameterization, we can't form
 certain higher-order abstractions, the most famous of which 
