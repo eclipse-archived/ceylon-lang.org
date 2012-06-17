@@ -170,10 +170,10 @@ But if there's no constructors in Ceylon, where precisely should we put this
 code? We put it directly in the body of the class!
 
     doc "A polar coordinate with an optional label"
-    class Polar(Float angle, Float radius, String? label) {
+    class Polar(angle, radius, String? label) {
         
-        shared Float angle = angle;
-        shared Float radius = radius;
+        shared Float angle;
+        shared Float radius;
         
         shared String description;
         if (exists label) {
@@ -216,11 +216,13 @@ we don't need to define state-holding simple attributes. Instead, we can
 define the attributes as _getters_.
 
 <!-- check:none:Requires Math -->
+    import ceylon.math.float { sin, cos }
+    
     doc "A polar coordinate"
-    class Polar(Float angle, Float radius) {
+    class Polar(angle, radius) {
         
-        shared Float angle = angle;
-        shared Float radius = radius;
+        shared Float angle;
+        shared Float radius;
         
         shared Float x { return radius * cos(angle); }
         shared Float y { return radius * sin(angle); }
@@ -233,29 +235,32 @@ Notice that the syntax of a getter declaration looks a lot like a method
 declaration with no parameter list.
 
 Code that uses `Polar` never needs to know if an attribute is a simple
-attribute or a getter. Now that we know about getters, we could rewrite our 
-`description` attribute as a getter, without affecting any code that uses it.
+attribute or a getter. Now that we know about getters, we could rewrite 
+our `description` attribute as a getter, without affecting any code that 
+uses it.
 
-<!-- cat:
-    doc "A polar coordinate"
-    class Polar(Float angle, Float radius, String? label) {
--->
-    shared String description {
-        if (exists label) {
-            return label;
-        }
-        else {
-            return "(" radius "," angle ")";
+    doc "A polar coordinate, with an optional label"
+    class Polar(angle, radius, String? label) {
+        
+        shared Float angle;
+        shared Float radius;
+        
+        shared String description {
+            if (exists label) {
+                return label;
+            }
+            else {
+                return "(" radius "," angle ")";
+            }
         }
     }
-<!-- cat: } -->
 
 ## Living without overloading
 
 It's time for some bad news: Ceylon doesn't support method or constructor 
 overloading (the truth is that overloading is the source of various problems 
-in Java, especially when generics come into play). However we can emulate most 
-non-evil uses of constructor or method overloading using:
+in Java, especially when generics come into play). However we can emulate 
+most non-harmful uses of constructor or method overloading using:
 
 * defaulted parameters, 
 * sequenced parameters, i.e. varargs, and
@@ -299,7 +304,7 @@ Let's make use of this idea to "overload" the "constructor" of `Polar`.
 
 <!-- id: polar -->
     doc "A polar coordinate with an optional label"
-    class Polar(Float angle, Float radius, String? label=null) {
+    class Polar(angle, radius, String? label=null) {
         
         shared Float angle=angle;
         shared Float radius=radius;
