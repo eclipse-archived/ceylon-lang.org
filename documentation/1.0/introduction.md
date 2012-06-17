@@ -525,8 +525,8 @@ documentation compiler:
 <!-- check:none -->
     doc "The user login action"
     by "Gavin King"
-    throws (DatabaseException
-            -> "if database access fails")
+    throws (DatabaseException,
+            "if database access fails")
     see (LogoutAction.logout)
     scope (session)
     action { description="Log In"; url="/login"; }
@@ -550,21 +550,21 @@ the module descriptor, which is written in Ceylon:
         name='org.jboss.example';
         version='1.0.0';
         
-        doc="This module is just a silly example.
-             You'll be able to find some proper
-             modules in the community repository:
+        doc="This module is just a silly example. You'll 
+             find some proper modules in the community 
+             repository [Ceylon Herd][Herd].
              
-             <modules.ceylon-lang.org>
+             [Herd]: http://modules.ceylon-lang.org
              
-             Happy modularizing!";
+             Happy Herding!";
              
         Import {
-            name='ceylon.io';
-            version='1.1.0';
+            name='ceylon.math';
+            version='0.3.0';
         },
         Import {
-            name='ceylon.dbc';
-            version='1.0.2';
+            name='ceylon.file';
+            version='0.3.1';
         }
     }
 
