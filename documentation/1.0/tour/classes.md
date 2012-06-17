@@ -1,6 +1,6 @@
 ---
 layout: tour
-title: Tour of Ceylon&#58; Classes, Interfaces and Objects
+title: Tour of Ceylon&#58; Classes
 tab: documentation
 unique_id: docspage
 author: Emmanuel Bernard
@@ -12,7 +12,7 @@ doc_root: ../..
 This is the second step in our tour of the Ceylon language. In 
 the [previous leg](../basics) you learned some of the basics of 
 the syntax of Ceylon. In this leg we're going to learn how to
-define types.
+define classes with methods and attributes.
 
 ## Identifier naming
 

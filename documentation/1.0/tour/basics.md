@@ -397,5 +397,5 @@ to them after we discuss [sequences](../sequences) and [`for` loops](../missing-
 
 ## There's more...
 
-Let's now discuss [classes, interfaces, and objects](../classes).
+Let's now learn about [classes](../classes).
 
