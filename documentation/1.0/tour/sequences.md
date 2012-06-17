@@ -40,7 +40,14 @@ to gain access to these operations.
         }
     }
 
-Note how this is just a continuation of the [pattern established](../basics#dealing_with_objects_that_arent_there) for `null` value handling.
+Note how this is just a continuation of the 
+[pattern established](../basics#dealing_with_objects_that_arent_there) for 
+`null` value handling. In fact, both these constructs are just syntactic
+abbreviations for type narrowing:
+
+- `if (nonempty strings)` is an abbreviation for `if (is Sequence<String> strings)`,
+  just like 
+- `if (exists name)` is an abbreviation for `if (is Object name)`.
 
 
 ## Sequence syntax sugar
@@ -52,17 +59,18 @@ familiar Java-like syntax:
     String? plus = operators[0];
     String[] multiplicative = operators[2..3];
 
-Oh, and the expression `{}` returns a value of type `Empty`.
+Oh, and the expression `{}` evaluates to an instance of `Empty`.
 
 However, unlike Java, all these syntactic constructs are pure abbreviations. 
 The code above is exactly equivalent to the following de-sugared code:
 
 <!-- check:none:pedagogial -->
-    Empty|Sequence<String> operators = ArraySequence("+", "-", "*", "/");
+    Empty|Sequence<String> operators = ArraySequence { "+", "-", "*", "/" };
     Nothing|String plus = operators.item(0);
     Empty|Sequence<String> multiplicative = operators.range(2,3);
 
-Though really `ArraySequence` is a hidden type in the Ceylon runtime library.
+This `ArraySequence` is a non-`shared` class defined in the Ceylon language 
+module.
 
 A [`Range`](#{site.urls.apidoc_current}/ceylon/language/class_Range.html) 
 is also a subtype of `Sequence`. The following:
@@ -105,8 +113,7 @@ range operator `..`.
 
 If, for any reason, we need to use the index of each element of a sequence 
 we can use a special variation of the `for` loop that is designed for 
-iterating instances of 
-[`Entries`](#{site.urls.apidoc_current}/ceylon/language/class_Entry.html):
+iterating [`Entry`s](#{site.urls.apidoc_current}/ceylon/language/class_Entry.html):
 
 <!-- cat: void m(String operators) { -->
     for (i -> op in entries(operators)) {
@@ -116,9 +123,9 @@ iterating instances of
 
 The 
 [`entries()`](#{site.urls.apidoc_current}/ceylon/language/#entries) 
-function returns an instance of `Entries<Integer,String>` 
-containing the indexed elements of the sequence. The `->` is syntax sugar 
-for `Entry`.
+function returns an instance of `Entry<Integer,String>[]` containing the 
+indexed elements of the sequence. The `->` is syntax sugar for the class 
+`Entry`.
 
 It's often useful to be able to iterate two sequences at once. The 
 [`zip()`](#{site.urls.apidoc_current}/ceylon/language/#zip) 
