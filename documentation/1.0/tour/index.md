@@ -34,8 +34,8 @@ We'll start with the [Basics](basics).
 ## Tour legs:
 
 1. [Basics](basics)
-1. [Classes, interfaces and objects](classes)
-1. [Inheritance and refinement](inheritance)
+1. [Classes](classes)
+1. [Inheritance, refinement, and interfaces](inheritance)
 1. [Anonymous and member classes](anonymous-member-classes)
 1. [Sequences](sequences)
 1. [Types](types)

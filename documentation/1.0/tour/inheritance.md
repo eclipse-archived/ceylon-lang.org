@@ -1,6 +1,6 @@
 ---
 layout: tour
-title: Tour of Ceylon&#58; Inheritance and Refinement
+title: Tour of Ceylon&#58; Inheritance, Refinement, and Interfaces
 tab: documentation
 unique_id: docspage
 author: Emmanuel Bernard
