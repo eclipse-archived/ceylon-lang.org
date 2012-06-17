@@ -291,13 +291,14 @@ this appears to be a design error.)
 Primitive null values are usually defined to be assignable to the
 language's bottom type if it has one, or, equivalently, to all 
 types if it doesn't. We believe that this has been an enormous
-mistake with many practical consequences. (Some newer languages
-attempt to remedy this by introducing a kind of primitive optional 
-type with null as a primitive value of that. We eschew the use of 
-primitive special types defined by fiat in the language spec, 
-viewing such constructs as the root of much evil.)
+mistake with many practical consequences. 
 
-On the other hand, Using an algebraic type for optional values gives 
+(Some newer languages attempt to remedy this by introducing a kind 
+of primitive optional type with null as a primitive value of that. 
+We eschew the use of primitive special types defined by fiat in the 
+language spec, viewing such constructs as the root of much evil.)
+
+On the other hand, using an algebraic type for optional values gives 
 you typesafety, since `Option<T>` is not assignable to `T`, but is 
 also quite inconvenient. Every time you assign a value of type T to 
 `Option<T>`, you need to instantiate a `Some<T>` to wrap up your T. 
