@@ -444,4 +444,7 @@ typing problems.
 
 ## There's more...
 
+You can read a bit more about enumerated types in Ceylon in 
+[this blog post](/blog/2012/01/25/enumerated-types).
+
 Next we'll explore Ceylon's [generic type system](../generics) in more depth. 
