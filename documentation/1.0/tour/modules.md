@@ -114,6 +114,7 @@ repository.
 The architecture also includes support for source directories, source 
 archives, and module documentation directories.
 
+### TODO: examples of running the compiler against a local or remote repository!
 
 ## Module runtime
 
@@ -126,6 +127,7 @@ remote repositories if necessary.
 Normally, the Ceylon runtime is invoked by specifying the name of a runnable 
 module at the command line.
 
+### TODO: examples of running the VM against a local or remote repository!
 
 ## Module repository ecosystem
 
