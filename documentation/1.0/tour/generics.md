@@ -9,10 +9,10 @@ doc_root: ../..
 
 # #{page.title}
 
-This is the seventh part of the Tour of Ceylon. The [previous leg](../types) looked at
-Ceylon's type powerful system. In this part we're looking at *generic* types.
-We've seen plenty of parameterized types already, but now 
-let's explore a few more details.
+This is the seventh part of the Tour of Ceylon. The [previous leg](../types) 
+covered intersection types, union types, and enumerated types. In this part 
+we're looking at *generic* types. We've seen plenty of parameterized types 
+already, but now let's explore a few more details.
 
 
 ## Defining generic types
@@ -64,41 +64,17 @@ arguments.
 
 The generic type argument inference algorithm is slightly involved, so you
 should refer to the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#typeargumentinference) 
-for a complete definition. But
-essentially what happens is that Ceylon infers a type by combining the types
-of corresponding arguments using union.
+for a complete definition. But essentially what happens is that Ceylon 
+infers a type by combining the types of corresponding arguments using union.
 
 <!-- check:none -->
     value points = Array(Polar(pi/4, 0.5), Cartesian(-1.0, 2.5)); // type Array<Polar|Cartesian>
     value entries = entries(points); // type Entries<Integer,Polar|Cartesian>
 
-The root cause of very many problems when working with generic types in 
-Java is *type erasure*. Generic type parameters and arguments are discarded 
-by the compiler, and simply aren't available at runtime. So the following, 
-perfectly sensible, code fragments just wouldn't compile in Java:
-
-<!-- check:none -->
-    if (is List<Person> list) { ... }
-    if (is Element obj) { ... }
-
-(Where `Element` is a generic type parameter.)
-
-A major goal of Ceylon's type system is support for *reified generics*. Like 
-Java, the Ceylon compiler performs erasure, discarding type parameters from 
-the schema of the generic type. But unlike Java, type arguments are supposed 
-to be reified (available at runtime). Of course, generic type arguments won't 
-be checked for typesafety by the underlying virtual machine at runtime, but 
-type arguments are at least available at runtime to code that wants to make 
-use of them explicitly. So the code fragments above are supposed to compile 
-and function as expected. You will even be able to use reflection to discover 
-the type arguments of an instance of a generic type.
-
-The bad news is we haven't implemented this yet ;-)
-
 Finally, Ceylon eliminates one of the bits of Java generics that's really 
 hard to get your head around: wildcard types. Wildcard types were Java's 
 solution to the problem of *covariance* in a generic type system. Let's first 
-explore the idea of covariance, and then see how covariance works in Ceylon.
+meet the idea of covariance, and then see how covariance works in Ceylon.
 
 
 ## Covariance and contravariance
@@ -124,7 +100,7 @@ The intuitive expectation is that the following code should work:
     for (person in people) { ... }
 
 This code is, frankly, perfectly reasonable taken at face value. Yet in both 
-Java and Ceylon, this code results in a compiler error at the second line, 
+Java and Ceylon, this code results in a compile-time error at the second line, 
 where the `Collection<Geek>` is assigned to a `Collection<Person>`. Why? 
 Well, because if we let the assignment through, the following code would also 
 compile:
@@ -136,13 +112,13 @@ compile:
 
 We can't let that code by — Fonzie isn't a `Geek`!
 
-Using big words, we say that `Collection` is *nonvariant* in `Element`. Or, 
+Using big words, we say that `Collection` is *invariant* in `Element`. Or, 
 when we're not trying to impress people with opaque terminology, we say that 
 `Collection` both produces — via the `iterator()` method — and consumes — 
 via the `add()` method — the type `Element`.
 
 Here's where Java goes off and dives down a rabbit hole, successfully using 
-wildcards to squeeze a covariant or contravariant type out of a nonvariant 
+wildcards to wrangle a covariant or contravariant type out of an invariant 
 type, but also succeeding in thoroughly confusing everybody. We're not going 
 to follow Java down the hole.
 
@@ -186,8 +162,8 @@ We can define our `Collection` interface as a mixin of `Producer` with `Consumer
 
 Notice that `Collection` remains nonvariant in `Element`. If we tried to add a 
 variance annotation to `Element` in `Collection`, a compile time error would 
-result, because the annotation would contradict the variance annotation of either
-`Producer` or `Consumer`.
+result, because the annotation would contradict the variance annotation of 
+either `Producer` or `Consumer`.
 
 Now, the following code finally compiles:
 
@@ -219,13 +195,9 @@ upper bound type constraints on `Output`, then `Producer<Void>` would not
 be a legal type.)
 
 You're unlikely to spend much time writing your own collection classes, since 
-the Ceylon SDK has a powerful collections framework built in. But you'll still 
-appreciate Ceylon's approach to covariance as a user of the built-in collection 
-types. The collections framework defines two interfaces for each basic kind of 
-collection. For example, there's an interface `List<Element>` which represents 
-a read-only view of a list, and is covariant in `Element`, and 
-`OpenList<Element>`, which represents a mutable list, and is nonvariant in 
-`Element`.
+the Ceylon SDK will soon have a powerful collections framework built in. But 
+you'll still appreciate Ceylon's approach to covariance as a user of the 
+built-in collection types.
 
 
 ## Generic type constraints
@@ -237,10 +209,9 @@ need to be able to compare instances of `Element` using `==` to see if a
 certain instance of `Element` is contained in the `Set`. Since `==` is 
 defined for expressions of type 
 [`Object`](#{site.urls.apidoc_current}/ceylon/language/class_Object.html),
-we need some way to assert that 
-`Element` is a subtype of `Object`. This is an example of a *type 
-constraint* — in fact, it's an example of the most common kind of type 
-constraint, an *upper bound*.
+we need some way to assert that `Element` is a subtype of `Object`. This is 
+an example of a *type constraint* — in fact, it's an example of the most 
+common kind of type constraint, an *upper bound*.
 
 <!-- check:none -->
     shared class Set<out Element>(Element... elements)
@@ -265,16 +236,21 @@ A type argument to `Element` must be a subtype of `Object`.
     Set<String?> set = Set("C", "Java", "Ceylon", null); //compile error
 
 In Ceylon, a generic type parameter is considered a proper type, so a type 
-constraint looks a lot like a class or interface declaration. This is another 
-way in which Ceylon is more regular than some other C-like languages.
+constraint looks a lot like a class or interface declaration. This is 
+another way in which Ceylon is more regular than some other C-like languages.
 
+Future versions of Ceylon, after the 1.0 release, will almost certainly
+introduce support for several additional kinds of generic type constraint.
+You can find out more details in the [language specification](../../spec).
+
+<!--
 An upper bound lets us call methods and attributes of the bound, but it 
 doesn't let us instantiate new instances of `Element`. Once we implement 
 reified generics, we'll be able to add a new kind of type constraint to 
 Ceylon. An *initialization parameter specification* lets us actually 
 instantiate the type parameter.
-
-<!-- check:none:Parameter bounds not yet supported -->
+-->
+<!-- check:none:Parameter bounds not yet supported --><!--
     shared class Factory<out Result>()
             given Result(String s) {
      
@@ -288,11 +264,11 @@ A type argument to `Result` of `Factory` must be a class with a single
 initialization parameter of type 
 [`String`](#{site.urls.apidoc_current}/ceylon/language/class_String.html).
 
-A third kind of type constraint is an *enumerated type bound*, which constrains 
-the type argument to be one of an enumerated list of types. 
+A second kind of type constraint is an *enumerated type bound*, which 
+constrains the type argument to be one of an enumerated list of types. 
 It lets us write an exhaustive switch on the type parameter:
-
-<!-- check:none:Requires ceylon.math -->
+-->
+<!-- check:none:Requires ceylon.math --><!--
     Value sqrt<Value>(Value x)
             given Value of Float | Decimal {
         switch (Value)
@@ -313,8 +289,8 @@ bound is the opposite of an upper bound. It says that a type parameter is
 a *supertype* of some other type. There's only really one situation where 
 this is useful. Consider adding a `union()` operation to our `Set` interface. 
 We might try the following:
-
-<!-- check:none -->
+-->
+<!-- check:none --><!--
     shared class Set<out Element>(Element... elements)
             given Element satisfies Object {
         ...
@@ -328,8 +304,8 @@ We might try the following:
 This doesn't compile because we can't use the covariant type parameter `T` 
 in the type declaration of a method parameter. The following declaration 
 would compile:
-
-<!-- check:none -->
+-->
+<!-- check:none --><!--
     shared class Set<out Element>(Element... elements)
             given Element satisfies Object {
         ...
@@ -342,8 +318,8 @@ would compile:
 
 But, unfortunately, we get back a `Set<Object>` no matter what kind of 
 set we pass in. A lower bound is the solution to our dilemma:
-
-<!-- check:none -->
+-->
+<!-- check:none --><!--
     shared class Set<out Element>(Element... elements)
             given Element satisfies Object {
         ...
@@ -357,8 +333,8 @@ set we pass in. A lower bound is the solution to our dilemma:
 
 With type inference, the compiler chooses an appropriate type argument to 
 `UnionElement` for the given argument to `union()`:
-
-<!-- check:none -->
+-->
+<!-- check:none --><!--
     Set<String> strings = Set("abc", "xyz") ;
     Set<String> moreStrings = Set("foo", "bar", "baz");
     Set<String> allTheStrings = strings.union(moreStrings);
@@ -368,7 +344,37 @@ With type inference, the compiler chooses an appropriate type argument to
     Set<Point> points = Set( Polar(pi,3.5), Cartesian(1.0, -2.0) );
     Set<Object> objects = Set("Gavin", 12, true);
     Set<Object> allTheObjects = points.union(objects);
+-->
 
+## Fully reified generic types
+
+The root cause of very many problems when working with generic types in 
+Java is *type erasure*. Generic type parameters and arguments are discarded 
+by the compiler, and simply aren't available at runtime. So the following, 
+perfectly sensible, code fragments just wouldn't compile in Java:
+
+<!-- check:none -->
+    if (is List<Person> list) { ... }
+    if (is Element obj) { ... }
+
+(Where `Element` is a generic type parameter.)
+
+A major goal of Ceylon's type system is support for *reified generics*. Like 
+Java, the Ceylon compiler performs erasure, discarding type parameters from 
+the schema of the generic type. But unlike Java, type arguments are supposed 
+to be reified (available at runtime). Of course, generic type arguments won't 
+be checked for typesafety by the underlying virtual machine at runtime, but 
+type arguments are at least available at runtime to code that wants to make 
+use of them explicitly. So the code fragments above are supposed to compile 
+and function as expected. You will even be able to use reflection to discover 
+the type arguments of an instance of a generic type.
+
+### implementation note <!-- m3 -->
+
+We have not yet implemented reified generics in the Ceylon compiler, and 
+there exists the possiblity that when we get to it, we'll discover that the
+performance cost of this feature makes it impractical for today's virtual
+machines.
 
 ## There's more...
 
