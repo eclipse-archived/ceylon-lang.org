@@ -9,9 +9,8 @@ doc_root: ../..
 
 # #{page.title}
 
-This is the final part of the Tour of Ceylon. The 
-[previous part](../annotations) disected annotations. 
-This part covers Ceylons support for *interceptors*.
+This is the final part of the Tour of Ceylon. The [previous part](../annotations) 
+disected annotations. This part covers Ceylons support for *interceptors*.
 
 ## Interceptors
 
@@ -89,11 +88,10 @@ The `intercept()` method registers the interceptor - a kind of callback method.
 
 Well actually, this was the last leg, so there isn't any more of the *Tour*.
 However, there's still lots of scope for you to explore Ceylon on your own.
-You should now know enough to start writing Ceylon code for yourself, 
-and use the SDK classes effectively.
+You should now know enough to start writing Ceylon code for yourself, and start 
+getting to know the platform modules.
 
 Alternatively, if you want to keep reading you can peruse the 
-[reference documentation](#{page.doc_root}/reference) 
-or (if you're sitting comfortably) read the 
-[specification](#{page.doc_root}/#{site.urls.spec_relative}).
+[reference documentation](#{page.doc_root}/reference) or (if you're sitting 
+comfortably) read the [specification](#{page.doc_root}/#{site.urls.spec_relative}).
 
