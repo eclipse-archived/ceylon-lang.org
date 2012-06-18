@@ -9,7 +9,8 @@ author: Gavin King
 # #{page.title}
 
 This is the sixth leg in the Tour of Ceylon. The [previous leg](../sequences) 
-looked at sequences. Now we will cover Ceylon's type system in more detail.
+looked at sequences. Now it's time to explore Ceylon's type system in more 
+detail.
 
 
 ## Narrowing the type of an object reference
@@ -87,13 +88,13 @@ Therefore, the following code is well-typed:
     Integer sizeZero = empty.size;  //call size of Sized
     Iterator<Bottom> nullIterator = empty.iterator;  //call iterator of Iterable
 
-Consider the following code:
+Now consider this code, to see the effect of `if (is ...)`:
 
 <!-- cat: void m() { -->
     Iterable<Bottom> empty = {};
     if (is Sized empty) {
         Integer sizeZero = empty.size;
-    Iterator<Bottom> nullIterator = empty.iterator;
+        Iterator<Bottom> nullIterator = empty.iterator;
     }
 <!-- cat: } -->
 
@@ -103,10 +104,9 @@ so we can call operations of both `Iterable` and `Sized`.
 
 ## Union types
 
-When the type of something is declared using a union type `X|Y`, that means 
-only expressions of type `X` and expressions of type `Y` are assignable to it. 
-The type `X|Y` is a supertype of both `X` and `Y`. The following code is 
-well-typed:
+An expression is assignable to a *union type*, written `X|Y`, if it is assigmable
+to *either* `X` or `Y`. The type `X|Y` is always a supertype of both `X` and `Y`. 
+The following code is well-typed:
 
 <!-- check:none:pedagogical -->
     void print(String|Integer|Float val) { ... }
@@ -125,9 +125,9 @@ determines this automatically. So the following code is also well-typed:
     String|Integer|Float val = x; // String|Integer|Float is a supertype of Integer|Float
     Object obj = val; // Object is a supertype of String, Integer, and Float
 
-However, the following code is *not* well-typed, since since 
+However, the following code is *not* well-typed, since 
 [`Number`](#{site.urls.apidoc_current}/ceylon/language/interface_Number.html) 
-is not a supertype of 
+is not a supertype of
 [`String`](#{site.urls.apidoc_current}/ceylon/language/class_String.html).
 
 <!-- check:none:demoing compile error -->
@@ -147,11 +147,12 @@ will let us leave off the `else` clause.
         case (is Float) { print("Float: " + val.string); }
     }
 
+A union type is a kind of *enumerated type*.
 
-## Enumerated subtypes
+## Enumerated types
 
 Sometimes it's useful to be able to do the same kind of thing with the 
-subtypes of an ordinary type. First, we need to explicitly enumerate the 
+subtypes of a class or interface. First, we need to explicitly enumerate the 
 subtypes of the type using the `of` clause:
 
 <!-- implicit-id:Polar:
@@ -173,7 +174,7 @@ subtypes of the type using the `of` clause:
 <!-- cat-id: Polar -->
 
 (This makes `Point` into Ceylon's version of what the functional programming 
-community calls an "algebraic" type.)
+community calls an "algebraic" or "sum" type.)
 
 Now the compiler won't let us declare additional subclasses of `Point`, and 
 so the union type `Polar|Cartesian` is exactly the same type as `Point`. 
@@ -194,13 +195,13 @@ Therefore, we can write `switch` statements without an `else` clause:
     }
 
 Now, it's usually considered bad practice to write long `switch` statements 
-that handle all subtypes of a type. It makes the code non-extensible. 
-Adding a new subclass to `Point` means breaking all the `switch` statements 
-that exhaust its subtypes. In object-oriented code, we usually try to 
-refactor constructs like this to use an abstract method of the superclass 
-that is overridden as appropriate by subclasses.
+that handle all subtypes of a type. It makes the code non-extensible. Adding 
+a new subclass to `Point` means breaking all the `switch` statements that 
+exhaust its subtypes. In object-oriented code, we usually try to refactor 
+constructs like this to use an abstract method of the superclass that is 
+overridden as appropriate by subclasses.
 
-However, there are a class of problems where this kind of refactoring isn't 
+However, there is a class of problems where this kind of refactoring isn't 
 appropriate. In most object-oriented languages, these problems are usually 
 solved using the "visitor" pattern.
 
@@ -254,8 +255,8 @@ interface:
 Notice that the code of `printVisitor` looks just like a `switch` statement. 
 It must explicitly enumerate all subtypes of `Node`. It "breaks" if we add a 
 new subtype of `Node` to the `Visitor` interface. This is correct, and is the 
-desired behavior; "break" means that the compiler lets us know that we have to 
-update our code to handle the new subtype.
+desired behavior; "break" means that the compiler lets us know that we have 
+to update our code to handle the new subtype.
 
 In Ceylon, we can achieve the same effect, with less verbosity, by 
 enumerating the subtypes of `Node` in its definition, and using a `switch`:
@@ -288,7 +289,7 @@ of "breaking" when a new subtype of `Node` is added.
     }
 
 
-## Typesafe enumerations
+## Enumerated instances
 
 Ceylon doesn't have anything exactly like Java's `enum` declaration. But we 
 can emulate the effect using the `of` clause.
@@ -302,8 +303,7 @@ can emulate the effect using the `of` clause.
     shared object clubs extends Suit("clubs") {}
     shared object spades extends Suit("spades") {}
 
-We're allowed to use the names of `object` declarations in the `of` clause 
-if they are enumerated subtypes.
+We're allowed to use the names of `object` declarations in the `of` clause.
 
 Now we can exhaust all cases of `Suit` in a `switch`:
 
@@ -316,46 +316,16 @@ Now we can exhaust all cases of `Suit` in a `switch`:
         case (spades) { print("Spidades"); }
     }
 
-(Note that these cases are ordinary value cases, not `case (is...)` type cases.)
+Note that these cases are value cases, not `case (is...)` type cases. They
+don't narrow the type of `suit`.
 
-Yes, this is a bit more verbose than a Java `enum`, but it's also slightly 
+Yes, this is a bit more verbose than a Java `enum`, but it's also somewhat 
 more flexible.
 
-For a more practical example, let's see the definition of 
+For a more practical example, check out the definition of 
 [`Boolean`](#{site.urls.apidoc_current}/ceylon/language/class_Boolean.html) 
-from the language module:
-
-    shared abstract class Boolean(String name)
-            of true | false {}
-    shared object false extends Boolean("false") {}
-    shared object true extends Boolean("true") {}
-
-And here's how 
-[`Comparable`](#{site.urls.apidoc_current}/ceylon/language/interface_Comparable.html) 
-is defined. First, the typesafe enumeration 
-[`Comparison`](#{site.urls.apidoc_current}/ceylon/language/class_Comparison.html):
-
-    doc "The result of a comparison between two
-         Comparable objects."
-    shared abstract class Comparison(String name)
-            of larger | smaller | equal {
-        shared actual String string {
-            return name;
-        }
-    }
-    
-    shared object equal extends Comparison("equal") {}
-    shared object smaller extends Comparison("smaller") {}
-    shared object larger extends Comparison("larger") {}
-
-Now, the `Comparable` interface itself:
-
-    shared interface Comparable<in Other> of Other
-            given Other satisfies Comparable<Other> {
-        
-        shared formal Comparison compare(Other other);
-        
-    }
+and [`Comparison`](#{site.urls.apidoc_current}/ceylon/language/class_Comparison.html) 
+in the language module.
 
 
 ## Type aliases
@@ -375,6 +345,10 @@ A class alias must declare its formal parameters:
 <!-- check:none:ArrayList -->
     shared class People(Person... people) = ArrayList<Person>;
 
+### implementation note <!-- m3 -->
+
+Please note that type aliases are not yet supported in Ceylon M3. They will
+make their first appearance in the next release.
 
 ## Type inference
 
@@ -434,8 +408,8 @@ common supertype.
 The answer is that the inferred type is `Sequence<X>` where `X` is the 
 union of all the element expression types. In this case, the type is 
 `Sequence<Polar|Cartesian>`. Now, this works out nicely, because 
-`Sequence<T>` is [covariant](../generics#covariance_and_contravariance) in `T`. 
-So the following code is well-typed:
+`Sequence<T>` is [covariant](../generics#covariance_and_contravariance) 
+in `T`. So the following code is well-typed:
 
 <!-- cat-id: Point -->
 <!-- cat-id: Polar -->
@@ -463,9 +437,9 @@ the type of `null` was
 <!-- cat: } -->
 
 It's interesting just how useful union types turn out to be. Even if you only 
-very rarely explicitly write code with any explicit union type declaration 
-(and that's probably a good idea), they are still there, under the covers, 
-helping the compiler solve some hairy, otherwise-ambiguous, typing problems.
+rarely write code with explicit union type declarations, they're still there, 
+under the covers, helping the compiler solve some hairy, otherwise-ambiguous, 
+typing problems.
 
 
 ## There's more...
