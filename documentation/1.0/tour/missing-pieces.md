@@ -49,9 +49,10 @@ But in the following two examples, `count` is an attribute:
         }
     }
 
-This might seem a bit strange at first, but it's really just how closures work. 
-The same behavior applies to locals inside a method. Methods can't declare 
-`shared` members, but they can return an `object` that captures a local:
+This might seem a bit strange at first, but it's really just how the principle 
+of closure works. The same behavior applies to locals inside a method. Methods 
+can't declare `shared` members, but they can return an `object` that captures 
+a local:
 
     interface Counter {
         shared formal Integer inc();
@@ -120,7 +121,8 @@ consumption only, so un-`shared`:
 
 (Remember, Ceylon never automatically initializes attributes to null.)
 
-Then we can abstract the simple attribute using a second attribute defined as a getter/setter pair:
+Then we can abstract the simple attributes using a third attribute defined 
+as a getter/setter pair:
 
 <!-- cat-id:attrs -->
     shared String fullName {
@@ -213,11 +215,7 @@ The `while` loop is traditional.
 
 <!-- cat: void m(String[] names) { -->
     value it = names.iterator;
-    while (true) {
-        value next = it.next;
-        if (next is Finished) {
-            break;
-        }
+    while (is String next = it.next) {
         print(next);
     }
 <!-- cat: } -->
@@ -249,8 +247,7 @@ The `try/catch/finally` statement works like Java's:
     }
 <!-- cat: } -->
 
-And `try` (by Milestone 5) will support a "resource" expression similar 
-to Java 7.
+And `try` will support a "resource" expression similar to Java 7.
 
 <!-- cat-id:tx -->
 <!-- check:parse:Requires try-with-resources -->
@@ -260,17 +257,21 @@ to Java 7.
         }
     }
 
+### implementation note <!-- m3 -->
+
+Resource expressions in `try` are not yet supported in M3.
+
 ## Sequenced parameters
 
 A sequenced parameter of a method or class is declared using an ellipsis. 
-There may be only one sequenced parameter for a method or class, and it must 
-be the last parameter.
+There may be only one sequenced parameter for a method or class, and it 
+must be the last parameter.
 
     void print(String... strings) { 
         // ... 
     }
 
-Inside the method body, the parameter `strings` has type `String[]`.
+Inside the method body, the parameter `strings` has type `Iterable<String>`.
 
     void print(String... strings) {
         for (string in strings) {
@@ -278,17 +279,43 @@ Inside the method body, the parameter `strings` has type `String[]`.
         }
     }
 
-A slightly more sophisticated example is the `coalesce()` method we saw [above](#then_we_can_abstract_the...). 
-`coalesce()` accepts `X?[]` and eliminates nulls, returning `X[]`, for any 
-type `X`. Its signature is:
+A slightly more sophisticated example is the `coalesce()` method we saw 
+[above](#then_we_can_abstract_the...). `coalesce()` accepts a sequence of
+`X?` and eliminates nulls, returning `X[]`, for any type `X`. Its signature 
+is:
 
 <!-- check:none:pedagogical -->
     shared Value[] coalesce<Value>(Value?... sequence) { 
         // ... 
     }
 
+To pass an argument to a sequenced parameter we have three choices. We
+could:
+
+- provide a an explicit list or arguments,
+- pass in iterable object producing the arguments, or
+- specify a comprehension.
+
+The first case is easy:
+
+    print("hello", "world");
+
+For the second case, Ceylon requires us to write an elipse:
+
+    value words = { "hello", "world" };
+    print(words...);
+
+The third, and easily most interesting case allows us to transform,
+filter, and combine iterable streams of values:
+
+    value words = { "Hello", "World" };
+    print(for (w in words) w.lowercased);
+
+We'll come back to comprehensions later.
+
 Sequenced parameters turn out to be especially interesting when used in 
-[named argument lists](../named-arguments) for defining user interfaces or structured data.
+[named argument lists](../named-arguments) for defining user interfaces or 
+structured data.
 
 
 ## Packages and imports
@@ -304,8 +331,8 @@ another package, it must explicitly import that program element. Ceylon,
 unlike Java, does not support the use of qualified names within the source 
 file. We can't write `org.jboss.hello.Hello` in Ceylon.
 
-The syntax of the `import` statement is slightly different to Java. 
-To import a program element, we write:
+The syntax of the `import` statement is slightly different to Java. To import 
+a program element, we write:
 
 <!-- check:none:pedagogical -->
     import com.redhat.polar.core { Polar }
@@ -326,10 +353,13 @@ To resolve a name conflict, we can rename an imported declaration:
     import com.redhat.polar.core { PolarCoord=Polar }
 
 We think renaming is a much cleaner solution than the use of qualified names.
+We can even rename members of type:
 
+<!-- check:none:pedagogical -->
+    import com.redhat.polar.core { Polar { r=radius, theta=angle } }
 
 ## There's more...
 
-Now that we've mopped up a few "missing" topics, we're ready to look at 
+Now that we've mopped up these several "missing" topics, we're ready to look at 
 [modules](../modules).
 
