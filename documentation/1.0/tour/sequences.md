@@ -69,8 +69,8 @@ The code above is exactly equivalent to the following de-sugared code:
     Nothing|String plus = operators.item(0);
     Empty|Sequence<String> multiplicative = operators.range(2,3);
 
-This `ArraySequence` is a non-`shared` class defined in the Ceylon language 
-module.
+(Except that, since the class `ArraySequence` is not declared `shared` by the 
+Ceylon language module, the above code will not actually compile!)
 
 A [`Range`](#{site.urls.apidoc_current}/ceylon/language/class_Range.html) 
 is also a subtype of `Sequence`. The following:
@@ -277,6 +277,8 @@ exact same idioms also apply to other kinds of `Correspondence`, including
 
 ## There's more...
 
-Next we'll talk about [types](../types), specifically union types and
-algebraic data types, type switching, and type inference. 
+Next we'll explore some more details of the type system, starting with
+[union types, intersection types, algebraic data types, type switching, and 
+type inference](../types). Then, after that, we'll be ready to discuss 
+[generic types](../generics). 
 
