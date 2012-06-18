@@ -75,10 +75,11 @@ attribute called `module`:
         }
     }
 
+<!--
 A module may be *runnable*. A runnable module must specify a `run()` method in 
 the module descriptor:
 
-<!-- check:none:Quoted-->
+--><!-- check:none:Quoted--><!--
     Module module {
         name = 'org.hibernate.test';
         version = '3.0.0.beta';
@@ -88,16 +89,17 @@ the module descriptor:
             TestSuite().run();
         }
         Import {
-            name = 'org.hibernate'; version = '3.0.0.beta';
+            name = 'org.hibernate'; 
+            version = '3.0.0.beta';
         }
     }
-
+-->
 
 ## Module archives and module repositories
 
 A module archive packages together compiled `.class` files, package 
 descriptors, and module descriptors into a Java-style `jar` archive with the 
-extension `car`. The Ceylon compiler doesn't usually produce individual 
+extension `.car`. The Ceylon compiler doesn't usually produce individual 
 `.class` files in a directory. Instead, it directly produces module archives.
 
 Module archives live in *module repositories*. A module repository is a 
@@ -135,12 +137,11 @@ module "straight off the internet", just by typing, for example:
 
 And all required dependencies get automatically downloaded as needed.
 
-Red Hat will maintain a central public module repository where the 
-community can contribute reusable modules. Of course, the module repository 
-format will be an open standard, so any organization can maintain its own 
+[Ceylon Herd](http://modules.ceylon-lang.org) is a central community module 
+repository where anyone can contribute reusable modules. Of course, the module 
+repository format is an open standard, so any organization can maintain its own 
 public module repository. 
 
 ## There's more
 
-Next we're going to look at Ceylons support for 
-[first class functions](../functions).
+Next we're going to look at Ceylon's support for [first class functions](../functions).
