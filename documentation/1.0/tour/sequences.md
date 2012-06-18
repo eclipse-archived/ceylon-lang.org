@@ -142,156 +142,25 @@ function comes in handy here:
 It's probably a good time to see some more advanced Ceylon code. What better 
 place to find some than in the language module itself?
 
-Here's how the language module defines the type `Sequence`:
+You can find the API documentation and source code of 
+[`Sequence`](#{site.urls.apidoc_current}/ceylon/language/interface_Sequence.html)
+online, or you can go to `Navigate > Open Ceylon Declaration...` to view the 
+declaration of `Sequence` directly inside Ceylon IDE.
 
-<!-- check:none:decl from ceylon.language -->
-    shared interface Sequence<out Element> 
-            satisfies List<Element> & Some<Element> &
-                      Cloneable<Sequence<Element>> &
-                      Ranged<Integer, Element[]> {
-        
-        doc "The index of the last element of the sequence."
-        see (size)
-        shared actual formal Integer lastIndex;
-        
-        doc "The first element of the sequence, that is, the
-             element with index `0`."
-        shared actual formal Element first;
-        
-        doc "The last element of the sequence, that is, the
-             element with index `sequence.lastIndex`."
-        shared default Element last {
-            if (is Element last = this[lastIndex]) {
-                return last;
-            }
-            else {
-                throw; //never occurs for well-behaved implementations
-            } 
-        }
-        
-        doc "The rest of the sequence, without the first 
-             element."
-        shared actual formal Element[] rest;
-            
-        /*shared formal Sequence<Value> append<Value>(Value... elements)
-                given Value abstracts Element;
-        
-        shared formal Sequence<Value> prepend<Value>(Value... elements)
-                given Value abstracts Element;*/
-        
-    }
-
-The most interesting operations are inherited from 
+The most important operations of `Sequence` are inherited from 
 [`Correspondence`](#{site.urls.apidoc_current}/ceylon/language/interface_Correspondence.html), 
-[`Iterable`](#{site.urls.apidoc_current}/ceylon/language/interface_Iterable.html)  and 
-[`Sized`](#{site.urls.apidoc_current}/ceylon/language/interface_Sized.html):
+and [`Iterable`](#{site.urls.apidoc_current}/ceylon/language/interface_Iterable.html).
 
-<!-- check:none:decl from ceylon.language -->
-    shared interface Correspondence<in Key, out Item>
-            given Key satisfies Object {
-         
-        doc "Return the value defined for the
-             given key."
-        shared formal Item? item(Key key);
-             
-    }
-
-    shared interface Iterable<out Element>
-            satisfies Container {
-         
-        doc "An iterator of values belonging
-             to the container."
-        shared formal Iterator<Element> iterator();
-         
-        doc "Determines if the iterable object is empty, that is
-             to say, if `iterable.iterator` is `null`."
-        shared actual default Boolean empty {
-            return is Finished iterator.next();
-        }
-     
-    }
-    
-    shared interface Sized
-            satisfies Container {
-             
-        doc "The number of values or entries
-             belonging to the container."
-        shared formal Integer size;
-         
-        shared actual default Boolean empty {
-            return size==0;
-        }
-         
-    }
-    
-    shared interface Container {
-             
-        doc "Determine if the container is empty, that is, if
-             it has no elements."
-        shared formal Boolean empty;
-         
-    }
+- `Correspondence` provides the capability to access elements of the sequence
+  by index, and
+- `Iterable` provides the ability to iterate the elements of the sequence. 
 
 ## Empty sequences and the Bottom type
 
-Now let's see the definition of 
-[`Empty`](#{site.urls.apidoc_current}/ceylon/language/interface_Empty.html):
-
-<!-- check:none:decl from ceylon.language -->
-    object emptyIterator satisfies Iterator<Bottom> {
-        shared actual Finished next() {
-            return exhausted;
-        }
-    }
-     
-    shared interface Empty
-               satisfies List<Bottom> & None<Bottom> &
-                         Ranged<Integer,Empty> &
-                         Cloneable<Empty> {
-        
-        shared actual Integer size { return 0; }
-        
-        shared actual Iterator<Bottom> iterator {
-            return emptyIterator;
-        }
-        
-        shared actual Nothing item(Integer key) {
-            return null;
-        }
-        
-        shared actual Empty segment(Integer from, Integer length) {
-            return this;
-        }
-        
-        shared actual Empty span(Integer from, Integer? to) {
-            return this;
-        }
-        
-        shared actual String string {
-            return "{}";
-        }
-        shared actual Nothing lastIndex { return null; }
-        
-        shared actual Empty clone {
-            return this;
-        }
-        
-        shared actual Boolean contains(Object element) {
-            return false;
-        }
-        
-        shared actual Integer count(Object element) {
-            return 0;
-        }
-        
-        shared actual Boolean defines(Integer index) {
-            return false;
-        }
-        
-    }
-
-In the definition of `Empty` above you may have noticed the special type `Bottom`,
-which represents:
+Now check out the definition of 
+[`Empty`](#{site.urls.apidoc_current}/ceylon/language/interface_Empty.html).
+Notice that `Empty` is declared to be a subtype of `List<Bottom>`. This special 
+type `Bottom` represents:
 
 * the empty set, or equivalently
 * the intersection of all types.
@@ -316,10 +185,9 @@ the union type `String[]` is also a subtype of `Iterable<String>`.
 Another cool thing to notice here is the return type of the `first` and 
 `value()` operations of `Empty`. You might have been expecting to see `Bottom?` 
 here, since they override supertype members of type `T?`. But as we saw in 
-the [first part](../basics) of the Tour,
-`Bottom?` is just an abbreviation for `Nothing|Bottom`. And `Bottom` is 
-the empty set, so the union `Bottom|T` of `Bottom` with any other type `T` 
-is just `T` itself.
+the [first part](../basics) of the Tour, `Bottom?` is just an abbreviation for 
+`Nothing|Bottom`. And `Bottom` is the empty set, so the union `Bottom|T` of 
+`Bottom` with any other type `T` is just `T` itself.
 
 The Ceylon compiler is able to do all this reasoning automatically. So when 
 it sees an `Iterable<Bottom>`, it knows that the operation `first` is of type 
@@ -331,18 +199,18 @@ Cool, huh?
 ## Sequence gotchas for Java developers
 
 Superficially, a sequence type looks a lot like a Java array, but really it's 
-very, very different! First, of course, a sequence type 
-`Sequence<String>` is an immutable interface, it's not a mutable concrete 
-type like an array. We can't set the value of an element:
+very, very different! First, of course, a sequence type `Sequence<String>` is 
+an immutable interface, it's not a mutable concrete type like an array. We 
+can't set the value of an element:
 
 <!-- check:none:Demoing error -->
     String[] operators = .... ;
     operators[0] := "**"; //compile error
 
 Furthermore, the index operation `operators[i]` returns an optional type 
-`String?`, which results in quite different code idioms. To begin with, 
-we don't iterate sequences by index like in C or Java. The following code 
-does not compile:
+`String?`, which results in quite different code idioms. To begin with, we 
+don't iterate sequences by index like in C or Java. The following code does 
+not compile:
 
 <!-- check:none:Demoing error -->
     for (i in 0..operators.size-1) {
@@ -362,7 +230,8 @@ shown above.
     }
 <!-- cat: } -->
 
-Likewise, we don't usually do an upfront check of an index against the sequence length:
+Likewise, we don't usually do an upfront check of an index against the 
+sequence length:
 
 <!-- check:none:demoing error -->
     if (i>operators.size-1) {
@@ -403,8 +272,7 @@ This is much cleaner:
 
 All this may take a little getting used to. But what's nice is that all the 
 exact same idioms also apply to other kinds of `Correspondence`, including 
-`Entries` and 
-[`Maps`](#{site.urls.apidoc_current}/ceylon/language/interface_Map.html) .
+[`Map`s](#{site.urls.apidoc_current}/ceylon/language/interface_Map.html) .
 
 
 ## There's more...
