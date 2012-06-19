@@ -365,8 +365,7 @@ handle `null` values in simple cases.
 The `?.` operator lets us call operations on optional types.
 
 <!-- cat: void hello(String? name) { -->
-    String shoutedGreeting = "HELLO, " + 
-            (name?.uppercased else "WORLD");
+    String shoutedGreeting = "HELLO, " + (name?.uppercased else "WORLD");
 <!-- cat: 
     print(shoutedGreeting);
 } -->
