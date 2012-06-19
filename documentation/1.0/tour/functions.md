@@ -16,22 +16,26 @@ first class and higher-order functions.
 ## First class and higher order functions
 
 Ceylon isn't a functional language: it has variable attributes and so methods 
-can have *side effects*. But Ceylon does let you use functions as values, 
-which in some people's eyes makes the language a kind of hybrid. 
-There's actually nothing at all new about having functions-as-values in an 
-object oriented language — for example, Smalltalk, one of the first and 
-still one of the cleanest object oriented languages, was built around this 
-idea. (To some people, true "functional" programming is more about what 
-you can't do — mutate values — than what you can do.) Anyway, Ceylon, like 
-Smalltalk and a number of other object oriented languages, lets you treat a 
-function as an object and pass it around the system.
+can have *side effects*. But one thing Ceylon has in common with functional
+programming languages is that it lets you treat functions as values, which in 
+some people's eyes makes the language a kind of hybrid. In truth, there's 
+nothing remotely new about having functions-as-values in an object oriented 
+language — for example, Smalltalk, one of the first and still one of the 
+cleanest object oriented languages, was built around this idea. Anyway, Ceylon, 
+like Smalltalk and a number of other object oriented languages, lets you treat 
+a function as an object and pass it around the system.
 
 In this installment, we're going to discuss Ceylon's support for first class 
-and higher order functions. "First class" function support means the ability 
-to treat a function as a value. A "higher order" function is a function that 
-accepts other functions as arguments, or returns another function. It's clear 
-that these two ideas go hand-in-hand, so the term 'higher order 
-function support' will be used from now on.
+and higher order functions. A little bit of PL jargon:
+
+- _First class function_ support means the ability to treat a function as a 
+   value, assigning it to variables, and passing it as an argument. 
+- A _higher order function_ is a function that accepts other functions as 
+  arguments, or returns another function.
+  
+It's clear that these two ideas go hand-in-hand, we'll just use the term 
+"higher order function support" from now on.
+
 
 ## Representing the type of a function
 
@@ -55,60 +59,69 @@ a sequenced type parameter accepts zero or more types as arguments. The type
 parameter `Result` represents the return type of the function. The sequenced 
 type parameter `Argument...` represents the parameter types of the function.
 
-So the type of sum in Ceylon is:
+So, take the following function:
+
+    function sum(Integer x, Integer y) { return x+y; }
+
+The type of `sum()` in is:
 
 <!-- check:none -->
     Callable<Integer, Integer, Integer>
 
-What about `void` functions? Well, remember that way back in 
-[the first part of the tour](../basics) we said 
-that the return type of a void function is `Void`. So the type of a function 
-like `print()` is:
+What about `void` functions? Well, remember that way back in [the first part 
+of the tour](../basics) we said that the return type of a `void` function is 
+`Void`. So the type of a function like `print()` is:
 
 <!-- check:none -->
     Callable<Void,String>
 
+We can abbreviate `Callable` types with a little syntax sugar:
 
+- `Integer(Integer,Integer)` means `Callable<Integer,Integer,Integer>`, 
+   and, likewise,
+- `Void(String)` means `Callable<Void,String>`.
+
+<!--
 ## Representing the type of a method
 
 Here we've been discussing first class functions. But in Ceylon all named 
 declarations are "first class". That is to say, they all have a reified 
 metamodel representable within the type system. For example, we could represent 
 the type of a method like this:
-
-<!-- check:none -->
+-->
+<!-- check:none --><!--
     shared interface Method<out Result, in Instance, Argument...>
         satisfies Callable<Callable<Result,Argument...>, Instance> {}
 
 Where `Instance` is the type that declares the method. So the type of the 
 method` iterator()` of `Iterable<String>` would be:
-
-<!-- check:none -->
+-->
+<!-- check:none --><!--
     Method<Iterator<String>, Iterable<String>>
 
 And the type of the method `compare()` of `Comparable<Integer>` would be:
-
-<!-- check:none -->
+-->
+<!-- check:none --><!--
     Method<Comparison,Comparable<Integer>,Integer>
 
 Notice that we've declared a method to be a function that accepts a 
 receiver object and returns a function. As a consequence of this, an 
 alternative method invocation protocol is the following:
-
+-->
 <!-- check:none:direct invocation of Callable objects not yet supported -->
 <!-- cat: 
     void m() {
     String[] strings = {};
-    Integer num = 0; -->
+    Integer num = 0; --><!--
     Iterable<String>.iterator(strings)();
-    Comparable<Integer>.compare(0)(num);
+    Comparable<Integer>.compare(0)(num);-->
 <!-- cat: } -->
-
+<!--
 Don't worry if you can't make sense of that right now. A few details 
 are being glossed over here, that's not quite *exactly* how Method is 
 defined. But we'll come back to this in a future installment. Let's get back 
 to the current topic.
-
+-->
 
 ## Defining higher order functions
 
@@ -117,11 +130,13 @@ For example, we could create a `repeat()` function that repeatedly executes a
 function.
 
 <!-- check:none:BROKEN -->
-    void repeat(Integer times, Callable<Void,Integer> perform) {
+    void repeat(Integer times, Void(Integer) perform) {
         for (i in 1..times) {
             perform(i);
         }
     }
+
+Let's try it:
 
     void printNum(Integer n) { print(n); }
     repeat(10, printNum);
@@ -140,8 +155,8 @@ syntax for declaring a parameter of type `Callable`:
         }
     }
 
-Many people find this version also slightly more readable and more regular. 
-This is the preferred syntax for defining higher-order functions.
+Many people find this version also slightly more readable and more regular, 
+so this is the preferred syntax.
 
 
 ## Function references
@@ -234,14 +249,14 @@ a parameter.
 <!-- check:parse:Requires OpenList -->
     shared abstract class Component() {
          
-        OpenList<Callable<Void,Event>> observers = OpenList<Callable<Void,Event>>();
+        variable Void(Event)[] observers := {};
          
         shared void addObserver(void observe(Event event)) {
-            observers.append(observe);
+            observers:=observers.append(observe);
         }
          
         shared void fire(Event event) {
-            for (void observe(Event event) in observers) {
+            for (observe in observers) {
                 observe(event);
             }
         }
@@ -250,8 +265,8 @@ a parameter.
 Here we see the difference between the two ways of specifying a function type:
 
 * `void observe(Event event)` is more readable in parameter lists, where 
-  observe is the name of the parameter, but
-* `Callable<Void,Event>` is useful as a generic type argument.
+  `observe` is the name of the parameter, but
+* `Void(Event)` is useful in container types like sequences.
 
 Now, any event observer can just pass a reference to one of its own methods to 
 `addObserver()`:
@@ -270,10 +285,10 @@ Now, any event observer can just pass a reference to one of its own methods to
      
     }
 
-When the name of a method appears in an expression without a list of 
-arguments after it, it is a reference to the method, not an invocation of the 
-method. Here, the expression `onEvent` is an expression of type 
-`Callable<Void,Event>` that refers to the method `onEvent()`.
+When the name of a method appears in an expression without a list of arguments 
+after it, it is a reference to the method, not an invocation of the method. 
+Here, the expression `onEvent` is an expression of type `Void(Event)` that 
+refers to the method `onEvent()`.
 
 If `onEvent()` were `shared`, we could even wire together the `Component` and 
 `Listener` from some other code, to eliminate the dependency of `Listener` 
@@ -300,10 +315,9 @@ executed (because we haven't supplied all the parameters yet). Rather, it
 results in a function that packages together the method reference `onEvent` 
 and the method receiver `listener`.
 
-It's also possible to declare a method that returns a function. A method that 
-returns a function has multiple parameter lists. Let's consider adding the 
-ability to remove observers from a `Component`. We could use a `Subscription` 
-interface:
+It's also possible to declare a method that returns a function. Let's 
+consider adding the ability to remove observers from a `Component`. We could 
+use a `Subscription` interface:
 
 <!-- check:parse:Depends on OpenList -->
     shared interface Subscription {
@@ -335,7 +349,7 @@ But a simpler solution might be to just eliminate the interface and return the
          
         // ...
          
-        shared void addObserver(void observe(Event event))() {
+        shared Void() addObserver(void observe(Event event)) {
             observers.append(observe);
             void cancel() {
                 observers.remove(observe);
@@ -347,8 +361,6 @@ But a simpler solution might be to just eliminate the interface and return the
      
     }
 
-Note the second parameter list of `addObserver()`.
-
 Here, we define a method `cancel()` inside the body of the `addObserver()` 
 method, and return a reference to the inner method from the outer method. The 
 inner method `cancel()` can't be called directly from outside the body of the 
@@ -356,17 +368,17 @@ inner method `cancel()` can't be called directly from outside the body of the
 reference to `cancel()` returned by `addObserver()` can be called by any 
 code that obtains the reference.
 
-In case you're wondering, the type of the method `addObserver()` is 
-`Callable<Callable<Void>,Component,Callable<Void,Event>>`.
+In case you're wondering, the type of the function `addObserver()` is 
+`Void()(Void(Event))`.
 
 Notice that `cancel()` is able to use the parameter `observe` of 
 `addObserver()`. We say that the inner method receives a *closure* of the 
 non-`variable` locals and parameters of the outer method — just like a method 
-of a class receives a closure of the class initialization parameters and 
-locals of the class initializer. In general, any inner class, method, or 
-attribute declaration always receives the closure of the members of the class, 
-method, or attribute declaration in which it is enclosed. This is an example of 
-how regular the language is.
+of a class receives a closure of the class initialization parameters and locals 
+of the class initializer. In general, any inner class, method, or attribute 
+declaration always receives the closure of the members of the class, method, or 
+attribute declaration in which it is enclosed. This is an example of how regular 
+the language is.
 
 We could invoke our method like this:
 
