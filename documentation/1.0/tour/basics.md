@@ -362,6 +362,18 @@ The `else` operator returns its first argument if the first argument is not
 `null`, or its second argument otherwise. It's a more convenient way to 
 handle `null` values in simple cases.
 
+There's also an operator for _producing_ a null value:
+
+    String? name = !arg.trimmed.empty then arg;
+
+The `then` operator evaluates its second argument if its first argument 
+evaluates to `true`, or evaluates to `null` otherwise.
+
+You can chain an `else` after a `then` to reproduce the behavior of C's
+ternary `?:` operator:
+
+    String name = !arg.trimmed.empty then arg else "World";
+
 The `?.` operator lets us call operations on optional types.
 
 <!-- cat: void hello(String? name) { -->
