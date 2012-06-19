@@ -210,15 +210,67 @@ And call it like this:
 <!-- cat: } -->
 
 Here the expression `Hello("Gavin").say` has the same type as `print` above. 
-It is a `Callable<Void,Integer>`.
+It is a `Void(Integer)`.
 
+
+## Curried functions
+
+A method or function may be declared in _curried_ form, allowing the method or
+function to be partially applied to its arguments. A curried function has
+multiple lists of parameters:
+
+    Float adder(Float x)(Float y) {
+        return x+y;
+    }
+
+The `adder()` function has type `Float(Float)(Float)`. We can invoke it with
+a single argument to get a reference to a function of type `Float(Float)`:
+
+    Float addOne(Float y) = adder(1.0);
+
+When we subsequently invoke `addOne()`, the actual body of `adder()` is 
+finally executed, producing a `Float`:
+
+    Float three = addOne(2.0);
+
+
+## Anonymous functions
+
+The most famous higher-order functions are a trio of functions for tranforming,
+filtering, and summarizing sequences of values. In Ceylon, these three functions,
+`map()`, `filter()`, and `fold()` are methods of the interface 
+[`Iterable`](#{site.urls.apidoc_current}/ceylon/language/interface_Iterable.html).
+As you've probably noticed, all the functions we've defined so far have been 
+declared with a name, using a traditional C-like syntax. There's nothing wrong
+with passing a named function to `map()` or `filter()`, and indeed that is often
+useful: 
+
+    Float max = measurements.fold(0.0, largest<Float>);
+
+However, quite commonly, it's inconvenient to have to declare a whole named 
+function just to pass it to `map()`, `filter()` or `fold()`. Instead, we can
+declare an *anonymous function* inline, as part of the argument list:
+
+    Float max = {1.0, 2.0}.fold(0.0, 
+            (Float max, Float num) num>max then num else max);
+
+An anonymous function has:
+
+- a parameter list, followed by
+- an expression.
+
+Anonymous functions in positional argument lists can't have multiple statements
+like in some languages (we think that just gets really messy). However, inline 
+functions in [named argument lists](../named-arguments) _can_.
 
 ## More about higher-order functions
 
 Let's see a more practical example, which mixes both ways of representing a 
-function type. Suppose we have some kind of user interface component which 
-can be observed by other objects in the system. We could use something like 
-Java's `Observer`/`Observable` pattern:
+function type. 
+
+Suppose we have some kind of user interface component which can be observed by 
+other objects in the system. We could use something like Java's 
+`Observer`/`Observable` pattern:
 
 <!-- check:parse:Requires OpenList -->
 <!-- cat: shared class Event() { } -->
@@ -227,10 +279,10 @@ Java's `Observer`/`Observable` pattern:
     }
     shared abstract class Component() {
          
-        OpenList<Observer> observers = OpenList<Observer>();
+        variable Observer[] observers = {};
          
         shared void addObserver(Observer o) {
-            observers.append(o);
+            observers:=observers.append(observe);
         }
          
         shared void fire(Event event) {
@@ -328,7 +380,7 @@ use a `Subscription` interface:
         // ...
          
         shared Subscription addObserver(void observe(Event event)) {
-            observers.append(observe);
+           observers:=observers.append(observe);
             object subscription satisfies Subscription {
                 shared actual void cancel() {
                     observers.remove(observe);
@@ -350,7 +402,7 @@ But a simpler solution might be to just eliminate the interface and return the
         // ...
          
         shared Void() addObserver(void observe(Event event)) {
-            observers.append(observe);
+            observers:=observers.append(observe);
             void cancel() {
                 observers.remove(observe);
             }
@@ -396,12 +448,12 @@ invoking it.
     cancel();
 
 The first line demonstrates how a method can be defined using a `=` 
-specification statement, just like a simple attribute definition. The 
-second line of code simply invokes the returned reference to `cancel()`.
+specification statement, just like a simple attribute definition. The second 
+line of code simply invokes the returned reference to `cancel()`.
 
-We've already seen how an attribute can be defined using a block of code. 
-Now we see that a method can be defined using a specifier. So, if you like, 
-you can start thinking of a method as an attribute of type `Callable` — an 
+We've already seen how an attribute can be defined using a block of code. Now 
+we see that a method can be defined using a specifier. So, if you like, you 
+can start thinking of a method as an attribute of type `Callable` — an 
 attribute with parameters. Or if you prefer, you can think of an attribute as 
 member with zero parameter lists, and of a method as a member with one or more 
 parameter lists. Either kind of member can be defined by reference, using `=`, 
@@ -410,212 +462,8 @@ or directly, by specifying a block of code to be executed.
 Cool, huh? That's more regularity.
 
 
-## Anonymous Functions <!-- m3 -->
-
-As you've probably noticed, all the functions we've defined so far have been 
-declared with a name, using a traditional C-like syntax. Ceylon will also
-feature *anonymous functions* (sometimes called "lambdas"). The syntax for 
-this is not yet finalized. 
-
-We've already discussed Ceylon's support for defining higher order functions, 
-in particular the two different ways to represent the type of a parameter 
-which accepts a reference to a function. The following declarations are 
-essentially equivalent:
-
-<!-- check:none -->
-    X[] filter<X>(X[] sequence, Callable<Boolean,X> by) { ... }
-    X[] filter<X>(X[] sequence, Boolean by(X x)) { ... }
-
-We've even seen how we can pass a reference to a method to such a higher-order 
-function:
-
-<!-- check:parse:Requires filter -->
-    Boolean stringNonempty(String string) {
-        return !string.empty;
-    }
-    String[] nonemptyStrings = filter(strings, stringNonempty);
-
-Of course, some of the convenience of general-purpose higher order functions 
-like `filter()` is lost if we have to declare a whole method every time we 
-want to use the higher order function. Indeed, much of the appeal of higher 
-order functions is the ability to eliminate verbosity by having more 
-specialized versions of traditional control structures like `for`.
-
-Most languages with higher order functions support anonymous functions, where 
-a function may be defined inline as part of the expression. My favored syntax 
-for this in a C-like language would be the following:
-
-<!-- check:none:Requires anonymous functions -->
-    function (String string) { return !string.empty; }
-
-This is an ordinary method declaration with the name eliminated. Then we could 
-call `filter()` as follows:
-
-<!-- check:parse:Requires filter -->
-    String[] nonemptyStrings = filter( strings, function (String string) { return !string.empty; } );
-
-Since it's extremely common for anonymous functions to consist of a single 
-expression, and since the `function` keyword is a little noisy, I favor 
-allowing the following abbreviation:
-
-<!-- check:none:Requires anonymous functions -->
-    (String string) !string.empty
-
-The expression is understood to be the return value of the method. Then the 
-invocation of `filter()` is a bit less noisy:
-
-<!-- check:none:Requires anonymous functions -->
-    String[] nonemptyStrings = filter(strings, (String string) !string.empty);
-
-This works, and we could support this syntax in the Ceylon language.
-
-Let's look at some more examples of how we would use anonymous functions:
-
-* Assertion:
-
-<!-- check:none:Requires anonymous functions -->
-        assert ("x must be positive", () x>0.0)
-    
-* Conditionals:
-     
-<!-- check:none:Requires anonymous functions -->
-        when (x>100.0, () 100.0, () x)
-* Repetition:
-     
-<!-- check:none:Requires anonymous functions -->
-        repeat(n, () { print("Hello"); })
-    
-* Tabulation:
-     
-<!-- check:none:Requires anonymous functions -->
-        tabulateList(20, (Integer i) i**3)
-    
-* Comprehension:
-     
-<!-- check:none:Requires anonymous functions -->
-        from (people, (Person p) p.name, (Person p) p.age>18)
-    
-* Quantification:
-     
-<!-- check:none:Requires anonymous functions -->
-        forAll (people, (Person p) p.age>18)
-    
-* Accumulation (folds):
-     
-<!-- check:none:Requires anonymous functions -->
-        accumulate (items, 0.0, (Float sum, Item item) sum+item.quantity*item.product.price)
-
-
 <!--
-The problem is that I don't find these code snippets especially readable. 
-Too much nested punctuation. They certainly fall short of the readability of 
-built-in control structures like `for` and `if`. And the problem gets 
-worse for multi-line anonymous functions. Consider:
-
-    repeat (n, () {
-        String greeting;
-        if (exists name) {
-            greeting = "Hello, " name "!";
-        }
-        else {
-            greeting = "Hello, World!";
-        }
-        print(greeting);
-    });
-
-Definitely much uglier than a for loop!
-
-One language where anonymous functions really work is Smalltalk - to the 
-extent that Smalltalk doesn't need *any* built-in control structures at all. 
-What is unique about Smalltalk is its funny method invocation protocol.
-Method arguments are listed positionally, like in C or Java, but they must be 
-preceded by the parameter name, and aren't delimited by parentheses. Let's 
-transliterate this idea to Ceylon.
-
-    String[] nonemptyStrings = filter(strings) by (String string) (!string.empty);
-
-Note that we have not changed the syntax of the anonymous function here, we've 
-just moved it outside the parentheses. If we were to adopt this syntax, we 
-could make empty parameter lists optional, without introducing any syntactic 
-ambiguity, allowing the following:
-
-    repeat (n)
-    perform {
-        String greeting;
-        if (exists name) {
-            greeting = "Hello, " name "!";
-        }
-        else {
-            greeting = "Hello, World!";
-        }
-        print(greeting);
-    };
-
-This looks much more like a built-in control structure. Now let's see some of 
-our other examples:
-
-* Assertion: 
-
-      assert ("x must be positive") that (x>0.0)
-
-* Conditionals: 
-
-      when (x>100.0) then (100.0) otherwise (x)
-
-* Repetition: 
-
-      repeat(n) perform { print("Hello"); }
-
-* Tabulation: 
-
-      tabulateList(20) containing (Integer i) (i**3)
-
-* Comprehension: 
-
-      from (people) select (Person p) (p.name) where (Person p) (p.age>18)
-
-* Quantification: 
-
-      forAll (people) every (Person p) (p.age>18)
-
-* Accumulation (folds): 
-
-      accumulate (items, 0.0) using (Float sum, Item item) (sum+item.quantity*item.product.price)
-
-Well, I'm not sure about you, but I find all these examples more readable 
-than what we had before. In fact, I like them so much better, that it makes 
-me not want to support the more traditional "lambda expression" style.
-
-On the other hand, this syntax is pretty "exotic", and I'm sure lots of people 
-will find it difficult to read at first.
-
-Now, in theory, there's no reason why we can't support both variations, except 
-that we've worked really hard to create a language with a consistent style, 
-where there is usually one obvious way to write something (obviously the 
-choice between named and positional arguments is a big exception to this, but 
-we have Good Reasons in that case). The trouble is that supporting many 
-"harmless" syntactic variations has the potential to make a language overall 
-harder to read, and results in annoying things like:
-
-* coding standards
-* arguments over coding standards
-* shitty tooling to enforce coding standards
-* arguments over which shitty tooling to use to enforce coding standards
-* empowerment of people who are more interesting in arguing over coding 
-  standards and shitty tools that enforce coding standards over people who 
-  want to get work done
-
-So this is definitely an issue we need lots of feedback on. Should we support:
-
-* traditional anonymous functions?
-* anonymous functions only as Smalltalk-style arguments?
-* both?
-
-The answer just isn't crystal clear to us.
--->
-
-
-## Curry, uncurry and function composition <!-- m3 -->
+## Curry, uncurry and function composition
 
 A method reference like `Float.times`
 is represented in "curried" form in Ceylon. I can write:
@@ -630,7 +478,6 @@ to the receiver expression `2.0`.
 
 But I can also write:
 
-<!-- check:parse:Requires multiple parameter lists -->
     Float times(Float x)(Float y) = Float.times;
 
 Actually, the expression `Float.times` is really a metamodel reference to a 
@@ -640,7 +487,6 @@ function reference.
 
 Therefore, an alternative definition of `twoTimes()` is:
 
-<!-- check:parse:???-->
     Float twoTimes(Float x) = Float.times(2);
 
 (We're partially applying `Float.times` by supplying one of its two 
@@ -648,7 +494,6 @@ argument lists.)
 
 Unfortunately, the following isn't correctly typed:
 
-<!-- check:none:Demoing error -->
     Float product(Float x, Float y) = Float.times;  //error: Float.times not a Callable<Float,Float,Float>
 
 The problem is that `Float.times`, when considered as a function reference, 
@@ -670,7 +515,6 @@ But there's another way. Instead, we're going to use a really cool higher-order
 function that will be part of the Ceylon language module. It's just two lines 
 of code, so I'm sure you'll immediately understand it:
 
-<!-- check:none:Not supported yet -->
     R uncurry<R,T,P...>(R curried(T t)(P... p))(T receiver, P... args) {
         return curried(receiver)(args);
     }
@@ -699,12 +543,10 @@ original parameters of the argument function. It's "flattening" the parameter
 lists of `curried()()` into a single list of parameters. So we can write the 
 following:
 
-<!-- check:none:Requires uncurry -->
     Float product(Float x, Float y) = uncurry(Float.times);
 
 Other kinds of operations on functions can be represented in a similar way. Consider:
 
-<!-- check:none:Requires uncurry -->
     R curry<R,T,P...>(R uncurried(T t, P... p))(T receiver)(P... args) {
         return uncurried(receiver,args);
     }
@@ -713,20 +555,17 @@ This function does precisely the opposite of `uncurry()()`, it takes the
 first parameter of an argument function, and separates it out into its own 
 parameter list, allowing the argument function to be partially applied:
 
-<!-- check:none:Requires curry -->
     Float times(Float x)(Float y) = curry(product);
     Float double(Float y) = times(2.0);
 
 Now consider:
 
-<!-- check:none:Required MPL -->
     R compose<R,S,P...>(R f (S s), S g(P... p))(P... args) {
         return f(g(args));
     }
 
 This function composes two functions:
 
-<!-- check:none:Requires compose -->
     Float incrementThenDouble(Float x) = compose(2.0.times,1.0.plus);
 
 Fortunately, you won't need to be writing functions like 
@@ -735,7 +574,7 @@ purpose tools that are packaged as part of the
 [`ceylon.language`](#{site.urls.apidoc_current}/ceylon/language/)
 module. Nevertheless, it's nice to know that machinery like this is expressible 
 within the type system of Ceylon. 
-
+-->
 
 ## There's more...
 
