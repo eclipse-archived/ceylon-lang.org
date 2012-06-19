@@ -272,7 +272,7 @@ We especially don't ever need to write the following:
 This is much cleaner:
 
 <!-- cat: String m(String[] operators, Integer i) { -->
-    return operators[i] ? "";
+    return operators[i] else "";
 <!-- cat: } -->
 
 All this may take a little getting used to. But what's nice is that all the 

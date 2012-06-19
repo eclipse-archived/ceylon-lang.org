@@ -353,22 +353,20 @@ There are a couple of operators that will make your life easier when dealing
 with `null` values.
 
 <!-- cat: void hello(String? name) { -->
-    String greeting = "Hello, " + 
-            name ? "World";
+    String greeting = "Hello, " + (name else "World");
 <!-- cat: 
     print(greeting);
 } -->
 
-The `?` operator returns its first argument if the first argument is not 
+The `else` operator returns its first argument if the first argument is not 
 `null`, or its second argument otherwise. It's a more convenient way to 
 handle `null` values in simple cases.
 
-The related `?.` operator lets us call operations on optional 
-types and provide an alternative value if the type is `null`.
+The `?.` operator lets us call operations on optional types.
 
 <!-- cat: void hello(String? name) { -->
     String shoutedGreeting = "HELLO, " + 
-            name?.uppercased ? "WORLD";
+            (name?.uppercased else "WORLD");
 <!-- cat: 
     print(shoutedGreeting);
 } -->
