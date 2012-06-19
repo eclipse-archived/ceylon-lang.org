@@ -212,8 +212,13 @@ And call it like this:
 Here the expression `Hello("Gavin").say` has the same type as `print` above. 
 It is a `Void(Integer)`.
 
-Note that a reference to a class is also a function reference! A class is 
-considered a function that produces an instance:
+Function references don't only appear in argument lists. It's even possible
+to define a function by reference:
+
+    void sayHelloToTako(Integer n) = Hello("Tako").say;
+
+A reference to a class is also a function reference! A class is considered a 
+function that produces an instance:
 
     Hello createHello(String name) = Hello;
 
