@@ -36,10 +36,8 @@ The meaning of `-` depends on
 ### Meaning of unary minus for built-in types
 
 For the built in numeric types
-[`Integer`](#{page.doc_root}/api/ceylon/language/class_Integer.html),
-[`Float`](#{page.doc_root}/api/ceylon/language/class_Float.html),
-[`Whole`](#{page.doc_root}/api/ceylon/language/class_Whole.html), and
-[`Decimal`](#{page.doc_root}/api/ceylon/language/class_Decimal.html), `-` 
+[`Integer`](#{page.doc_root}/api/ceylon/language/class_Integer.html) and
+[`Float`](#{page.doc_root}/api/ceylon/language/class_Float.html), `-` 
 just changes the sign.
 
 ## See also

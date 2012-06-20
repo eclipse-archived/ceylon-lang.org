@@ -37,10 +37,8 @@ The meaning of `+` depends on the
 
 ### Meaning of `+` for built-in types
 
-For the built-in numeric types ([`Integer`](#{page.doc_root}/api/ceylon/language/class_Integer.html), 
+For the built-in numeric types ([`Integer`](#{page.doc_root}/api/ceylon/language/class_Integer.html) and
 [`Float`](#{page.doc_root}/api/ceylon/language/class_Float.html),
-[`Whole`](#{page.doc_root}/api/ceylon/language/class_Whole.html) and
-[`Decimal`](#{page.doc_root}/api/ceylon/language/class_Decimal.html))
 `+` performs normal mathematical addition, subject to the limitations
 of the relevant type.
 
