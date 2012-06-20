@@ -186,6 +186,7 @@ file IO.*
 * comprehensions (`for (x in xs) if (select(x)) collect(x)`) _DONE_
 * indirect invocations of `Callable` instances _DONE_
 * outer instance references (`outer`) _DONE_
+* set operators (`|`, `&`, `^`, `~`) _DONE_
 
 ### Misc:
 * "lazy" semantics for sequenced parameters _DONE_
@@ -210,7 +211,6 @@ file IO.*
 
 ### Expressions:
 * named argument-style syntax for instantiating interfaces
-* set operators (`|`, `&`, `^`, `~`)
 * lengthwise range operator (`:`)
 * numeric widening for custom numeric types _POSSIBLY_
 
