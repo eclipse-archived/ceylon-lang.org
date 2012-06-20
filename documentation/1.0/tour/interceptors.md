@@ -12,6 +12,10 @@ doc_root: ../..
 This is the final part of the Tour of Ceylon. The [previous part](../annotations) 
 disected annotations. This part covers Ceylons support for *interceptors*.
 
+### implementation note <!-- m3 -->
+
+Ceylon M3 does not support user-defined annotations or metaprogramming.
+
 ## Interceptors
 
 An interceptor allows frameworks to react to events like method invocations, 
