@@ -22,7 +22,7 @@ Consider the following method:
 
 <!-- check:none:Requires IO -->
 <!-- id:printf -->
-    void printf(OutputStream to, String format, Object... values) { 
+    void printf(Writer to, String format, Object... values) { 
         // ... 
     }
 
@@ -63,9 +63,12 @@ class Payment(PaymentMethod method, Currency currency, Integer amount) {}
 <!-- cat-id:printf -->
 <!-- cat-id: Store -->
 <!-- cat: void m(User user, Order order) { -->
-    printf(process, "Thanks, %s. You have been charged %.2f. 
-                     Your confirmation number is %d.",
-            user.name, order.total, order.confimationNumber);
+    printf(writer, 
+           "Thanks, %s. You have been charged %.2f. 
+            Your confirmation number is %d.",
+           user.name, 
+           order.total, 
+           order.confimationNumber);
 <!-- cat: } -->
 
 This works fine, however Ceylon provides an alternative method 
@@ -77,10 +80,12 @@ one or two arguments:
 <!-- cat-id: Store -->
 <!-- cat: void m(User user, Order order) { -->
     printf {
-        to = process;
+        to = writer;
         format = "Thanks, %s. You have been charged %.2f. 
                   Your confirmation number is %d.";
-        user.name, order.total, order.confimationNumber
+        user.name, 
+        order.total, 
+        order.confimationNumber
     };
 <!-- cat: } -->
 
@@ -90,15 +95,19 @@ Notice that arguments are separated by semicolons, except for arguments to the
 sequenced parameter, which are separated by commas. We explicitly specify the 
 name of each parameter, except for the sequenced parameter, whose arguments 
 always appear at the end of the named parameter list. Note that it's also 
-acceptable to call this method like this, passing a sequence to the named 
-value parameter:
+acceptable to call this method like this, passing a sequence to the parameter
+`values`:
 
 <!-- check:none:Requires IO -->
     printf {
-        to = process;
+        to = writer;
         format = "Thanks, %s. You have been charged %.2f. 
                   Your confirmation number is %d.";
-        values = { user.name, order.total, order.confimationNumber };
+        values = { 
+            user.name, 
+            order.total, 
+            order.confimationNumber 
+        };
     };
 
 We usually format named argument invocations across multiple lines.
@@ -111,7 +120,7 @@ Therefore, Ceylon provides a special abbreviated syntax that simplifies the
 declaration of an attribute getter, named parameter, or method that builds 
 an object by specifying named arguments to the class initializer. 
 You've actually [already encountered](../modules#module_descriptors) this 
-abbreviated syntax, though you probably didn't know it.
+abbreviated syntax, though you probably didn't realize it at the time.
 
 We're allowed to abbreviate an attribute definition of the following form:
 
@@ -191,16 +200,17 @@ usually stand out immediately.
 The following classes define a data structure for building tables:
 
 <!-- check:none:pedagogical -->
-    class Table(String title, Integer rows, Border border, Column... columns) { ... }
-    class Column(String heading, Integer width, String content(Integer row)) { ... }
-    class Border(Integer padding, Integer weight) { ... }
+    class Table(String title, Integer rows, Border border, Column... columns) {}
+    class Column(String heading, Integer width, String content(Integer row)) {}
+    class Border(Integer padding, Integer weight) {}
 
-Of course, we could built a `Table` using positional argument lists:
+Of course, we could build a `Table` using positional argument lists and 
+anonymous functions:
 
 <!-- check:none:pedagogical -->
-    String x(Integer row) { return row.string; }
-    String xSquared(Integer row) { return (row**2).string; }
-    Table table = Table("Squares", 5, Border(2,1), Column("x",10, x), Column("x**2",12, xSquared));
+    Table table = Table("Squares", 5, Border(2,1), 
+            Column("x",10, (Integer row) row.string), 
+            Column("x**2",12, (Integer row) (row**2).string));
 
 However, it's far more common to use named arguments to build a complex 
 graph of objects. In this section we're going to meet some new features of 
@@ -208,17 +218,17 @@ named argument lists, that make it especially convenient to build object
 graphs.
 
 First, note that the syntax we've already seen for specifying a named argument 
-value looks exactly like the syntax for refining a formal attribute. If you 
+value looks exactly like the syntax for refining a `formal` attribute. If you 
 think about it, taking into account that a method parameter may accept 
 references to other methods, the whole problem of specifying values for named 
 parameters starts to look a lot like the problem of refining abstract members. 
 Therefore, Ceylon will let us reuse much of the member declaration syntax 
-inside a named argument list. (But note that this has not yet been 
-implemented in the compiler.)
+inside a named argument list.
 
 It's legal to include the following constructs in a named argument list:
 
-* method declarations — specify the "value" of a parameter that accepts a function,
+* method declarations — specify the argument of a parameter that accepts a 
+  function,
 * `object` (anonymous class) declarations — are most useful for specifying 
   the value of a parameter whose type is an interface or abstract class, and
 * getter declarations — lets us compute the value of an argument inline.
@@ -241,14 +251,14 @@ So we could rewrite the code that builds a `Table` as follows:
         Column {
             heading="x";
             width=10;
-            String content(Integer row) {
+            function content(Integer row) {
                 return row.string;
             }
         },
         Column {
             heading="x**2";
             width=12;
-            String content(Integer row) {
+            function content(Integer row) {
                 return (row**2).string;
             }
         }
@@ -257,7 +267,7 @@ So we could rewrite the code that builds a `Table` as follows:
 Notice that we've specified the value of the parameter named `content` using the 
 usual syntax for declaring a method.
 
-Even better, our example can be abbreviated like this:
+Even better, our example can be further abbreviated like this:
 
 <!-- check:none:pedagogical -->
     Table table {
@@ -270,14 +280,14 @@ Even better, our example can be abbreviated like this:
         Column {
             heading="x";
             width=10;
-            String content(Integer row) {
+            function content(Integer row) {
                 return row.string;
             }
         },
         Column {
             heading="x**2";
             width=10;
-            String content(Integer row) {
+            function content(Integer row) {
                 return (row**2).string;
             }
         }
@@ -286,28 +296,29 @@ Even better, our example can be abbreviated like this:
 Notice how we've transformed our code from a form which emphasized invocation 
 into a form that emphasizes declaration of a hierarchical structure. 
 Semantically, the two forms are equivalent. But in terms of readability, 
-they are *very different*.
+they are quite different.
 
 We could put the above totally declarative code in a file by itself and it 
 would look like some kind of "mini-language" for defining tables. In fact, 
 it's executable Ceylon code that may be validated for syntactic correctness by 
-the Ceylon compiler and then compiled to Java bytecode. Even better, the 
-Ceylon IDE will provide authoring support for our 
-mini-language. In complete contrast to the DSL support in some dynamic 
-languages, any Ceylon DSL is completely typesafe! You can think of the 
-definition of the `Table`, `Column` and `Border` classes as defining 
-the "schema" or "grammar" of the mini-language. (In fact, they are really 
-defining the syntax tree for the mini-language.)
+the Ceylon compiler and then compiled to Java bytecode or JavaScript. Even 
+better, the Ceylon IDE will provide authoring support for our mini-language. 
+In complete contrast to the DSL support in some dynamic languages, any Ceylon 
+DSL is completely typesafe! You can think of the definition of the `Table`, 
+`Column` and `Border` classes as defining the "schema" or "grammar" of the 
+mini-language. (In fact, they are really defining a syntax tree for the 
+mini-language.)
 
 Now let's see an example of a named argument list with an inline getter 
 declaration:
 
 <!-- check:none:Needs more Store -->
-    shared class Payment(PaymentMethod method, Currency currency, Float amount) { ... }
+    shared class Payment(PaymentMethod method, Currency currency, Float amount) {}
+    
     Payment payment {
         method = user.paymentMethod;
         currency = order.currency;
-        Float amount {
+        value amount {
             variable Float total := 0.0;
             for (item in order.items) {
                 total += item.quantity * item.product.unitPrice;
@@ -325,9 +336,11 @@ declaration:
             // ... 
         }
     }
+    
     shared interface Observer<in Event> {
         shared formal void on(Event event);
     }
+    
     observable.addObserver {
         object observer satisfies Observer<UpdateEvent> {
             shared actual void on(UpdateEvent e) {
@@ -336,18 +349,19 @@ declaration:
         }
     };
 
-Note that `Observer<T>` is assignable to `Observer<Bottom>` for any type `T`, 
+(Note that `Observer<T>` is assignable to `Observer<Bottom>` for any type `T`, 
 since `Observer<T>` is contravariant in its type parameter `T`. If this 
-doesn't make sense, please read the section on [generics](../generics) again.
+doesn't make sense, please read the section on [generics](../generics) again.)
 
-Of course, as we saw in the leg on [functions](../functions), 
-a better way to solve this problem might be 
-to eliminate the `Observer` interface and pass a method directly:
+Of course, as we saw in the leg on [functions](../functions), a better way to 
+solve this problem might be to eliminate the `Observer` interface and pass a 
+method directly:
 
 <!-- check:parse:pedagogical -->
     shared interface Observable {
         shared void addObserver<Event>(void on(Event event)) { ... }
     }
+    
     observable.addObserver {
         void on(UpdateEvent e) {
             print("Update:" + e.string);
@@ -357,8 +371,8 @@ to eliminate the `Observer` interface and pass a method directly:
 
 ## Defining user interfaces
 
-One of the first modules we're going to write for Ceylon will be a library for 
-writing HTML templates in Ceylon. A fragment of static HTML would look 
+One of the first modules we're going to create for Ceylon will be a library 
+for writing HTML templates in Ceylon. A fragment of static HTML would look 
 something like this:
 
 <!-- check:parse:Requires ceylon.html -->
@@ -405,6 +419,11 @@ A complete HTML template might look like this:
         }
      
     };
+
+### implementation note <!-- m3 -->
+
+This library does not yet exist! Why not [get involved](/community) in developing 
+the Ceylon platform?
 
 ## There's more...
 
