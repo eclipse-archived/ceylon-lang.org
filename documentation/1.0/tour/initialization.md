@@ -31,10 +31,11 @@ syntax defined for references to a concrete member of a superinterface.
 In addition to `this` and `super`, Ceylon features the keyword `outer`, which 
 refers to the parent instance of the current instance of a nested class.
 
-    class Parent(String name) {
-        shared String name = name;
-        shared class Child(String name) {
-            shared String name = outer.name + "/" + name;
+    class Parent(name) {
+        shared String name;
+        shared class Child(name) {
+            shared String name;
+            shared String qualifiedName = outer.name + "/" + name;
             shared Parent parent { return outer; }
         }
     }
@@ -72,9 +73,11 @@ logic. There's no non-fragile way to define the ordering in which supertype
 initializers are executed in a multiple-inheritance model. This is the basic 
 reason why [interfaces are stateless](../inheritance#interfaces_and_mixin_inheritance) in Ceylon.
 
+<!--
 (Note that these arguments are even stronger in the case of 
-[adapter introduction](../inheritance/#introduction), where linearization or statefulness would be even 
-more fragile.)
+[adapter introduction](../introduction), where linearization or statefulness 
+would be even more fragile.)
+-->
 
 So Ceylon is more restrictive than some other languages here. But we think 
 that this restriction makes a subtype less vulnerable to breakage due to 
@@ -141,7 +144,8 @@ This behavior is bad enough in and of itself. But it would be even less
 acceptable in Ceylon, where most types don't have an acceptable "default" 
 value. For example, consider the type `Person`. What would be an acceptable 
 default value of this type? The value `null` certainly won't do, since it's 
-not even an instance of `Person`. (It's an instance of `Nothing`, [remember!](../basics)) 
+not even an instance of `Person`. (It's an instance of `Nothing`, 
+[remember!](../basics#dealing_with_objects_that_arent_there)) 
 Although evaluation of an uninitialized instance variable could be defined to
 result in an immediate runtime exception, that would just be our 
 old friend `NullPointerException` creeping back in by the back door. 
@@ -248,24 +252,25 @@ following terminology:
 
 Now, according to the language spec:
 
-> A statement or declaration that appears within the initializer of a 
-> class may not:
+> A statement or declaration contained in the initializer of a class may 
+> not evaluate an attribute, invoke a method, or instantiate a member class upon 
+> the instance being initialized, including upon a self reference to the instance 
+> being initialized if the attribute, method, or member class:
 > 
-> * evaluate attributes, invoke methods, or instantiate member classes that are 
->   declared later in the body of the class upon the instance that is being 
->   initialized, including upon a *self reference* to the instance being 
->   initialized.
-> * pass a *self reference* to the instance being initialized as an argument 
->   of an instantiation or method invocation or as the value of an attribute 
->   assignment or specification.
-> * return a *self reference* to the instance being initialized.
-> * evaluate attributes, invoke methods, or instantiate member classes 
->   declared in the declaration section of a superclass of the instance being 
->   initialized, including upon a self reference to the instance being initialized.
-> * invoke or evaluate a formal member of the instance being initialized, 
->   including upon a *self reference* to the instance being initialized.
-> * invoke or evaluate a default member of the instance that is being 
->   initialized, except via the special `super` self reference.
+> * occurs later in the body of the class,
+> * is annotated `formal` or `default`, or
+> * is inherited from an interface or superclass, and is not refined by a 
+>   declaration occurring earlier in the body of the class.
+>
+> Furthermore, a statement or declaration contained in the initializer of a 
+> class may not:
+>
+> * pass a self reference to the instance being initialized as an argument of 
+>   an instantiation, method invocation, or `extends` clause expression or as 
+>   the value of an attribute assignment or specification, 
+> * `return` a self reference to the instance being initialized.
+
+(The spec mentions a couple of other restrictions that we'll gloss over here.)
 
 ## Declaration section
 
@@ -275,26 +280,19 @@ belong has been completely initialized.
 
 According to the language spec:
 
-> [The declaration section] may not contain:
+> The following constructs may not [occur] in the declaration section
+> [unless nested inside member body]:
 > 
-> * a statement or control structure, unless it is nested inside a method, 
->   attribute, nested class, or nested interface declaration,
-> * a declaration with a specifier or initializer, unless it is nested 
->   inside a method, attribute, nested class, or nested interface declaration,
-> * an object declaration with a non-empty initializer section, or
-> * a specification or initialization statement for a member of the 
->   instance being initialized.
-> 
-> However, the declarations in this second section may freely use `this` 
-> and `super`, and may invoke any method, evaluate any attribute, or 
-> instantiate any member class of the class or its superclasses. Furthermore, 
-> the usual restriction that a declaration may only be used by code that 
-> appears later in the block containing the declaration is relaxed. 
+> * a statement or control structure,
+> * a method or attribute declaration with a specifier or initializer,
+> * an `object` declaration with a non-empty initializer section, or
+> * an `object` declaration that directly extends a class other than 
+>   `Object` or `IdentifiableObject`...
 
 Note that the rules governing the declaration section of a class body are 
 essentially the same rules governing the body of an interface. That makes 
-sense, because interfaces don't have initialization logic — what interfaces and 
-declaration sections have in common is statelessness.
+sense, because interfaces don't have initialization logic — what interfaces 
+and declaration sections have in common is _statelessness_.
 
 
 ## Circular references
@@ -305,30 +303,16 @@ This is a problem Ceylon has in common with functional languages, which also
 emphasize immutability. We can't write the following code in Ceylon:
 
 <!-- check:none:#94 -->
-    abstract class Child(Parent p) {
-        shared formal Parent parent = p;
+    class Child(Parent p) {
+        shared Parent parent = p;
     }
      
     class Parent() {
-        shared Child child = Child(this); //compile error (this passed as argument in initializer section)
+        shared Child child = Child(this); //compile error (leaks self reference)
     }
 
 Eventually, Ceylon will probably need some specialized machinery for dealing 
-with this problem, but for now, here is a partial solution:
-
-<!-- check:none:#94 -->
-    abstract class Child() {
-        shared formal Parent parent;
-    }
-     
-    class Parent() {
-        shared object child extends Child() {
-            shared actual parent {
-                return outer;
-            }
-        }
-    }
-
+with this problem.
 
 ## Definite initialization of methods
 
