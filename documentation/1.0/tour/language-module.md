@@ -69,6 +69,19 @@ when you don't care about the return type, nor if it even has one, since a
 method declared `void` is considered to have return type `Void`, as we saw 
 in the [part about functions](../functions).
 
+<!--I guess this information is useful but definitely doesn't belong in this chapter:
+A method declared `void` is considered to have return type `Void`, as we saw in the 
+[part about functions](../functions), and implicitly returns `null`. On the 
+other hand a method declared `Void` can return anything at all, but the caller 
+will have to narrow the return value it to something more specific to do 
+anything with it. In practice there's no point declaring a method `Void` 
+because if it returns something useful to the caller *any* other type is 
+more useful, and if it doesn't return something useful it should be declared 
+`void`. The only other difference between the two is that a `void` method is 
+allowed to use a plain `return` statement, or return implicitly, whereas any 
+other return type requires an explicit `return` with an expression.
+-->
+
 The class `Nothing` also directly extends `Void`. 
 
 <!-- check:none:decl from ceylon.language -->

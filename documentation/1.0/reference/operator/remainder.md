@@ -37,8 +37,7 @@ The meaning of `%` depends on the
 
 ### Meaning of remainder for built-in types
 
-For the built-in numeric types ([`Integer`](#{page.doc_root}/api/ceylon/language/class_Integer.html) and
-[`Whole`](#{page.doc_root}/api/ceylon/language/class_Whole.html) `/` 
+For the built-in numeric type ([`Intege`](#{page.doc_root}/api/ceylon/language/class_Integer.html) 
 `%` computes normal mathematical remainder.
 
 Since the other built-in numeric types do not satisfy `Integral`, the

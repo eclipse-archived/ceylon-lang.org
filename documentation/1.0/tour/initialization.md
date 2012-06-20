@@ -8,20 +8,25 @@ author: Gavin King
 
 # #{page.title}
 
-This is the thirteenth part of the Tour of Ceylon. In the [last part](../language-module) we learned 
-about the language module, [`ceylon.language`](#{site.urls.apidoc_current}/ceylon/language/).
-Now we're going to go into the details of *initialization*.
+This is the thirteenth part of the Tour of Ceylon. In the 
+[last part](../language-module) we learned about the language module, 
+[`ceylon.language`](#{site.urls.apidoc_current}/ceylon/language/). Now we're 
+going to go into the details of *initialization*, and the restrictions that 
+Ceylon places upon your code to ensure that you never experience anything 
+like Java's `NullPointerException`.
+
+But first, we need to learn a little more about references to the current
+object.
 
 ## Self references and outer instance references
 
 Ceylon features the keywords `this` and `super`, which refer to the current 
-instance of a class — the receiving instance of an operation 
-(method invocation, member class instantiation, or attribute 
-evaluation/assignment), within the body of the definition of the operation. 
-The semantics are exactly the same as what you're used to in Java. In 
-particular, a reference to a member of `super` always refers to a member of a 
-superclass. There is currently no syntax defined for references to a concrete 
-member of a superinterface.
+instance of a class — the receiving instance of an operation (method 
+invocation, member class instantiation, or attribute evaluation/assignment), 
+within the body of the definition of the operation. The semantics are exactly 
+the same as what you're used to in Java. In particular, a reference to a member 
+of `super` always refers to a member of a superclass. There is currently no 
+syntax defined for references to a concrete member of a superinterface.
 
 In addition to `this` and `super`, Ceylon features the keyword `outer`, which 
 refers to the parent instance of the current instance of a nested class.

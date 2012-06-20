@@ -87,28 +87,12 @@ Please note: **These mapping rules are subject to change as the compiler develop
       <td><code>ceylon.language.Integer</code></td>
     </tr>
     <tr>
-      <td><code>ceylon.language.Whole</code></td>
-      <td><code>java.math.BigInteger</code><!-- m3 --></td>
-    </tr>
-    <tr>
-      <td><code>ceylon.language.Whole?</code></td>
-      <td><code>java.math.BigInteger</code><!-- m3 --></td>
-    </tr>
-    <tr>
       <td><code>ceylon.language.Float</code></td>
       <td><code>double</code><a href="#note1"><sup>1</sup></a></td>
     </tr>
     <tr>
       <td><code>ceylon.language.Float?</code></td>
       <td><code>ceylon.language.Float</code></td>
-    </tr>
-    <tr>
-      <td><code>ceylon.language.Decimal</code></td>
-      <td><code>java.math.BigDecimal</code><!-- m3 --></td>
-    </tr>
-    <tr>
-      <td><code>ceylon.language.Decimal?</code></td>
-      <td><code>java.math.BigDecimal</code><!-- m3 --></td>
     </tr>
     <tr>
       <td><code>ceylon.language.Character</code></td>
