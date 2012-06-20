@@ -9,15 +9,16 @@ author: Gavin King
 # #{page.title}
 
 This is the twelfth part of the Tour of Ceylon. The 
-[previous leg](../named-arguments) looked at invoking functions
-using named arguments. We're now going to learn about the 'language module'.
+[previous leg](../named-arguments) looked at invoking functions using named 
+arguments. We're now going to learn about Ceylon's _language module_, the
+basic types defined in the module `ceylon.language`.
 
 ## An overview of the language module
 
 The module [`ceylon.language`](#{site.urls.apidoc_current}/ceylon/language/) 
-contains classes and interfaces that are 
-referred to in the language specification, other declarations *they* refer to,
-and a number of related declarations. Let's meet the main characters.
+contains classes and interfaces that are referred to in the language 
+specification, other declarations *they* refer to, and a number of related 
+useful functions and types. Let's meet the main characters.
 
 Just like Java, Ceylon has a class named 
 [`Object`](#{site.urls.apidoc_current}/ceylon/language/class_Object.html).
@@ -25,16 +26,21 @@ Just like Java, Ceylon has a class named
 <!-- check:none:decl from ceylon.language -->
     doc "The abstract supertype of all types representing 
          definite values."
-    shared abstract class Object()
+    see (IdentifiableObject)
+    shared abstract class Object() 
             extends Void() {
-
+        
+        doc "Determine if two values are equal..."
         shared formal Boolean equals(Object that);
-
+        
+        doc "The hash value of the value..."
         shared formal Integer hash;
-
+        
         doc "A developer-friendly string representing the 
-             instance."
-        shared formal String string;
+             instance..."
+        shared default String string {
+            return className(this) + "@" + hash.string;
+        }
         
     }
 
@@ -52,17 +58,16 @@ Therefore, Ceylon's `Object` has a superclass, named
     doc "The abstract supertype of all types. A value of type 
          `Void` may be a definite value of type `Object`, or it 
          may be the `null` value. A method declared `void` is 
-         considered to have the return type `Void`."
+         considered to have the return type `Void`..."
     shared abstract class Void() 
             of Object | Nothing {}
 
 All Ceylon types are assignable to `Void`. Expressions of type `Void` aren't 
-useful for very much, since `Void` has no members or operations. You can't 
-even narrow an expression of type `Void` to a different type. The one useful 
-thing you can do with `Void` is use it to represent the signature of a method 
-when you don't care about the return type, since a method declared `void` is 
-considered to have return type `Void`, as we saw in the 
-[part about functions](../functions).
+useful for very much, since `Void` has no members or operations. The one 
+useful thing you can do with `Void` is represent the signature of a method 
+when you don't care about the return type, nor if it even has one, since a 
+method declared `void` is considered to have return type `Void`, as we saw 
+in the [part about functions](../functions).
 
 The class `Nothing` also directly extends `Void`. 
 
@@ -71,8 +76,9 @@ The class `Nothing` also directly extends `Void`.
          `Nothing|T` is considered an optional type, whose values
          include `null`. Any type of this form may be written as
          `T?` for convenience."
+    see (null)
     shared abstract class Nothing() 
-            of nothing
+            of null
             extends Void() {}
 
 The object `null` is the only instance of this class.
@@ -94,52 +100,61 @@ type.
 
 ## Equality and identity
 
-On the other hand, since `Object` is a supertype of types like `Float` which 
-are passed by value at the level of the Java Virtual Machine, you can't use 
-the `===` operator to test the identity of two values of type `Object`. 
-Instead, there is a subclass of `Object`, named 
-[`IdentifiableObject`](#{site.urls.apidoc_current}/ceylon/language/class_IdentifiableObject.html), 
-which represents a type which is always passed by reference. The `===` operator 
-accepts expressions of type `IdentifiableObject`. It's possible for a 
-user-written class to directly extend `Object`, but most of the classes you 
-write will be subclasses of `IdentifiableObject`. All classes with variable 
-attributes must extend `IdentifiableObject`.
+On the other hand, since `Object` is a supertype of types like `Float` 
+which are passed by value at the level of the Java Virtual Machine, you 
+can't use the `===` operator to test the identity of two values of type 
+`Object`. Instead, `===` is defined to act opon instances of the interface 
+[`Identifiable`](#{site.urls.apidoc_current}/ceylon/language/interface_Identifiable.html)
 
 <!-- check:none:decl from ceylon.language -->
-    shared abstract class IdentifiableObject()
-            extends Object() {
-     
+    doc "The abstract supertype of all types with a well-defined
+         notion of identity. Values of type `Identifiable` may 
+         be compared to determine if they are references to the 
+         same object instance."
+    shared interface Identifiable {
+        
+        doc "Identity equality comparing the identity of the two 
+             values..."
         shared default actual Boolean equals(Object that) {
-            if (is IdentifiableObject that) {
+            if (is Identifiable that) {
                 return this===that;
             }
             else {
                 return false;
             }
         }
-         
+        
+        doc "The system-defined identity hash value of the 
+             instance..."
+        see (identityHash)
         shared default actual Integer hash {
             return identityHash(this);
         }
-         
-        shared default actual String string {
-            return className(this) + "@" + hash.string;
-        }
-             
+        
     }
 
-`IdentifiableObject` implements the `hash` attribute and `equals()` method of
+`Identifiable` implements the `hash` attribute and `equals()` method of
 `Object`, which are very similar to the `equals()` and `hashCode()` methods 
 defined by `java.lang.Object`.
 
 Just like in Java, you can refine this default implementation in your own 
 classes. This is the normal way to get a customized behavior for the `==` 
-operator, the only constraint being, that for subtypes of 
-`IdentifiableObject`, `x===y` should imply `x==y`— equality should be 
-consistent with identity.
+operator, the only constraint being, that for subtypes of `Identifiable`, 
+`x===y` should imply `x==y`— equality should be consistent with identity.
 
-Thus, Ceylon is able to capture within the type system much of the behavior 
-that Java introduces by fiat special-case rules in the language definition.
+By default, a user-written class extends the class 
+[`IdentifiableObject`](#{site.urls.apidoc_current}/ceylon/language/class_IdentifiableObject.html), 
+which extends `Object` and satisfies `Identifiable`. It's possible for a 
+user-written class to directly extend `Object`, but most of the classes 
+you write will be subclasses of `IdentifiableObject`. All classes with 
+`variable` attributes must extend `IdentifiableObject`.
+
+<!-- check:none:decl from ceylon.language -->
+    doc "The default superclass when no superclass is explicitly
+         specified using `extends`."
+    shared abstract class IdentifiableObject() 
+            extends Object() satisfies Identifiable {}
+
 
 ## Operator polymorphism
 
@@ -149,9 +164,8 @@ Instead, almost every operator (every one except the primitive `.`, `()`,
 `is`, and `:=` operators) is considered a shortcut way of writing some more 
 complex expression involving other operators and ordinary method calls. 
 For example, the `<` operator is defined in terms of the interface 
-[`Comparable<Other>`](#{site.urls.apidoc_current}/ceylon/language/interface_Comparable.html), 
-which we met in the [lesson on types](../types), 
-and which has a method named `compare()`.
+[`Comparable`](#{site.urls.apidoc_current}/ceylon/language/interface_Comparable.html), 
+which has a method named `compare()`. The operator expression
 
 <!-- check:none -->
     x<y
@@ -162,7 +176,7 @@ means, by definition,
     x.compare(y) === smaller
 
 The equality operator `==` is defined in terms of the class `Object`, 
-which has a method named `equals()`.
+which has a method named `equals()`. So
 
 <!-- check:none -->
     x==y
@@ -207,9 +221,9 @@ ordinary classes. Ceylon has fewer built-in numeric types than other C-like
 languages:
 
 * [`Integer`](#{site.urls.apidoc_current}/ceylon/language/class_Integer.html) 
-  represents signed integers,
+  represents signed integers, and
 * [`Float`](#{site.urls.apidoc_current}/ceylon/language/class_Float.html) 
-  represents floating point approximations to the real numbers,
+  represents floating point approximations to the real numbers.
 
 The number of bits or precision on these types depends on whether
 you're compiling Ceylon code for Java or for JavaScript. When compiling for 
@@ -243,6 +257,11 @@ standard SI unit prefixes: m, u, n, p, f, k, M, G, T, P.
     Float usGovDebt = 14.33T; // T (tera) means E+12
     Float brainCellSize = 4.0u; // u (micro) means E-6
     Integer deathsUnderCommunism = 94M; // M (mega) means E+6
+
+## `Whole` and `Decimal`
+
+The platform module `ceylon.math` defines the types `Whole` and `Decimal`,
+which represent arbitrary precision integers and arbitrary precision decimals.
 
 ## Numeric widening
 
@@ -285,11 +304,10 @@ language specification.
 Operators in Ceylon are, in principle, just abbreviations for some 
 expression involving a method call. So the numeric types all implement the 
 `Numeric` interface, refining the methods `plus()`, `minus()`, `times()`, 
-`divided()` and `power()`, and the `Invertable` interface, refining `negativeValue`
-and `positiveValue`. 
-The numeric operators are defined in terms of these methods of `Numeric`. 
-The numeric types also implement the interface 
-[`Castable`](#{site.urls.apidoc_current}/ceylon/language/interface_Castable.html), 
+`divided()` and `power()`, and the `Invertable` interface, refining 
+`negativeValue` and `positiveValue`. The numeric operators are defined in 
+terms of these methods of `Numeric`. The numeric types also implement the 
+interface [`Castable`](#{site.urls.apidoc_current}/ceylon/language/interface_Castable.html), 
 which enables the widening conversions we just mentioned.
 
 <!-- check:none:decl from ceylon.language -->
@@ -320,9 +338,9 @@ For example, simplifying slightly the definitions in the language module:
         ...
     }
 
-These declarations tell us that `Integer` can be widened to `Float`, but that 
-`Float` cannot be widened to anything. So we can 
-infer that the expression `-1 * 0.4` is of type `Float`.
+These declarations tell us that `Integer` can be widened to `Float`, but 
+that `Float` cannot be widened to anything. So we can infer that the 
+expression `-1 * 0.4` is of type `Float`.
 
 Therefore, the definition of a numeric operator like `*` can be represented, 
 completely within the type system, in terms of `Numeric` and `Castable`:
@@ -339,11 +357,15 @@ Don't worry too much about the performance implications of all this —
 in practice, the compiler is permitted to optimize the types `Integer`, 
 `Integer`, and `Float` down to the virtual machine's native numeric types.
 
-The value of all this — apart from eliminating special cases in the language 
-definition and type checker — is that a library can define its own 
-specialized numeric types, without losing any of the nice language-level 
+The value of all this — apart from eliminating special cases in the 
+language definition and type checker — is that a library can define its 
+own specialized numeric types, without losing any of the nice language-level 
 syntax support for numeric arithmetic and numeric widening conversions.
 
+### implementation note <!-- m3 -->
+
+Numeric widing for custom numeric types is not supported in Ceylon M3, and
+so implementing `Castable` has no effect.
 
 ## There's more...
 
