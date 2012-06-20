@@ -75,6 +75,10 @@ of the tour](../basics) we said that the return type of a `void` function is
 <!-- check:none -->
     Callable<Void,String>
 
+Note that a `void` function always implicitly returns the value `null`. This
+is different to a function declared to return the type `Void`, which may 
+return any value at all, but must do it explicitly, via a `return` statement.
+
 We can abbreviate `Callable` types with a little syntax sugar:
 
 - `Integer(Integer,Integer)` means `Callable<Integer,Integer,Integer>`, 
