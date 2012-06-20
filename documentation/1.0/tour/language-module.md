@@ -57,12 +57,19 @@ Therefore, Ceylon's `Object` has a superclass, named
             of Object | Nothing {}
 
 All Ceylon types are assignable to `Void`. Expressions of type `Void` aren't 
-useful for very much, since `Void` has no members or operations. You can't 
-even narrow an expression of type `Void` to a different type. The one useful 
-thing you can do with `Void` is use it to represent the signature of a method 
-when you don't care about the return type, since a method declared `void` is 
-considered to have return type `Void`, as we saw in the 
-[part about functions](../functions).
+useful for very much, since `Void` has no members or operations. You can
+narrow an expression of type `Void` to a different type just like any other 
+type though. One important use for `Void` is use it to represent the 
+signature of a method which doesn't return anything meaningful. A method declared `void` is considered to have return type `Void`, as we saw in the 
+[part about functions](../functions), and implicitly returns `null`. On the 
+other hand a method declared `Void` can return anything at all, but the caller 
+will have to narrow the return value it to something more specific to do 
+anything with it. In practice there's no point declaring a method `Void` 
+because if it returns something useful to the caller *any* other type is 
+more useful, and if it doesn't return something useful it should be declared 
+`void`. The only other difference between the two is that a `void` method is 
+allowed to use a plain `return` statement, or return implicitly, whereas any 
+other return type requires an explicit `return` with an expression.
 
 The class `Nothing` also directly extends `Void`. 
 
