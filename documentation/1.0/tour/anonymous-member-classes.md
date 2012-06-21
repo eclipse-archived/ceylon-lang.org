@@ -205,6 +205,11 @@ type. You can think of the subclass that refines a member type as filling
 the same role as a dependency configuration in a dependency injection 
 framework.
 
+### implementation note <!-- m3 -->
+
+Please note that member class refinement is not yet supported in Ceylon M3. It 
+will be available in the next release.
+
 
 ## There's more...
 
