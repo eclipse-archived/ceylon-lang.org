@@ -155,6 +155,13 @@ repository.
 The architecture also includes support for source directories, source 
 archives, and module documentation directories.
 
+### Developing modules in Ceylon IDE
+
+To get started with modules in Ceylon IDE, go to `Help > Cheat Sheets...`, 
+open the `Ceylon` item, and run the `Introduction to Ceylon Modules` cheat sheet, 
+which will guide you step-by-step through the process of creating a module,
+defining its dependencies, and exporting it to a module repository.  
+
 ### Examples: Compiling against a local or remote repository
 
 Let's suppose you are are writing `net.example.foo`. Your project 
@@ -246,9 +253,8 @@ then the command would become
       net.example.foo
 
 (we're breaking the command across multiple lines for clarity here, you would
-need to write the command on a single line).
-You can specify multiple `-rep` options as necessary if you have dependencies 
-coming from multiple repositories.
+need to write the command on a single line). You can specify multiple `-rep` 
+options as necessary if you have dependencies coming from multiple repositories.
 
 When you are ready, you can publish the module somewhere other people can use 
 it. Let's say that you want to publish to `http://ceylon.example.net/repo`. 
