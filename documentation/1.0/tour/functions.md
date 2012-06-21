@@ -122,16 +122,16 @@ alternative method invocation protocol is the following:
 <!-- cat: } -->
 <!--
 Don't worry if you can't make sense of that right now. A few details 
-are being glossed over here, that's not quite *exactly* how Method is 
-defined. But we'll come back to this in a future installment. Let's get back 
-to the current topic.
+are being glossed over here, that's not quite *exactly* how `Method` is 
+defined. But we'll come back to this in a future installment. Let's get 
+back to the current topic.
 -->
 
 ## Defining higher order functions
 
 We now have enough machinery to be able to write higher order functions. 
-For example, we could create a `repeat()` function that repeatedly executes a 
-function.
+For example, we could create a `repeat()` function that repeatedly executes 
+a function.
 
 <!-- check:none:BROKEN -->
     void repeat(Integer times, Void(Integer) perform) {
