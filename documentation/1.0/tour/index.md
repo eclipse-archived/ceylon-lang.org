@@ -44,6 +44,7 @@ We'll start with the [Basics](basics).
 1. [Modules](modules)
 1. [Functions](functions)
 1. [Named Arguments](named-arguments)
+1. [Comprehensions](comprehensions)
 1. [Language Module](language-module)
 1. [Initialization](initialization)
 1. [Annotations](annotations)

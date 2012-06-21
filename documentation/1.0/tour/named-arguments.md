@@ -9,9 +9,9 @@ author: Gavin King
 # #{page.title}
 
 This is the eleventh leg in the Tour of Ceylon. In the 
-[previous leg](../functions) we learnt about functions. This part builds on 
-that by covering Ceylon's support for calling functions using 
-*named arguments*.
+[previous leg](../functions) we learnt about functions. This part builds 
+on that by covering Ceylon's support for calling functions using *named 
+arguments*.
 
 
 ## Named arguments
@@ -26,8 +26,8 @@ Consider the following method:
         // ... 
     }
 
-Remember, the last parameter is a [sequenced parameter](../missing-pieces#sequenced_parameters) which accepts 
-multiple arguments, just like a Java "varargs" parameter.)
+Remember, the last parameter is a [sequenced parameter](../missing-pieces#sequenced_parameters) 
+which accepts multiple arguments, just like a Java "varargs" parameter.)
 
 We've seen lots of examples of invoking a method or instantiating a class 
 using a familiar C-style syntax where arguments are delimited by parentheses 
@@ -432,7 +432,5 @@ interface definition. For example, Ceylon lets us use a named argument list to
 specify the arguments of a program element annotation. But we'll have to come 
 back to the subject of [annotations](../annotations) in a future installment. 
 
-Now we're going to discuss some of the basic types from the 
-[language module](../language-module), in particular numeric types, and introduce 
-the idea of operator polymorphism. 
-
+The [next section](../comprehensions) introduces yet another way to specify an
+argument to a function: _comprehensions_.

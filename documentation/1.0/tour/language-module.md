@@ -8,10 +8,9 @@ author: Gavin King
 
 # #{page.title}
 
-This is the twelfth part of the Tour of Ceylon. The 
-[previous leg](../named-arguments) looked at invoking functions using named 
-arguments. We're now going to learn about Ceylon's _language module_, the
-basic types defined in the module `ceylon.language`.
+This is the thirteenth part of the Tour of Ceylon. The [previous part](../comprehensions)
+introduced comprehensions . We're now going to learn about Ceylon's 
+_language module_, the basic types defined in the module `ceylon.language`.
 
 ## An overview of the language module
 

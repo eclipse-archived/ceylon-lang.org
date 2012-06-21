@@ -8,9 +8,9 @@ author: Emmanuel Bernard
 
 # #{page.title}
 
-This is the fourth leg of the Tour of Ceylon. In the [previous leg](../inheritance)
-you learned about inheritance and refinement. In this leg you're going to learn 
-about *introduction*.
+This is part of the Tour of Ceylon. In the [previous leg](../inheritance)
+you learned about inheritance and refinement. In this leg you're going to 
+learn about *introduction*.
 
 ## Implementation note <!-- m3 -->
 
