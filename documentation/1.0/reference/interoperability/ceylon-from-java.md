@@ -14,34 +14,48 @@ author: Tom Bentley
 Although titled '*Calling* Ceylon from Java', this page covers all access to 
 Ceylon types from Java, not just method calls.
 
-**Important Note: Everything documented here is subject to change after M1.**
+**Important Note: Everything documented here is subject to change until 
+Ceylon 1.0 and has changed in M3.**
 
 ### Declaring Ceylon types
 
-In general a Ceylon type compiles into a Java type of the same name.
+In general, a top level Ceylon types and inner classes compile into a Java 
+type of the same name.
+
+The situation is more complicated for inner interfaces. The compiler always 
+generates a top level interface, using the containing type name(s) separated with a dollar (`$`) and then the interface name, again separated with a dollar. For 
+example this Ceylon:
+
+    class C() {
+        interface I {
+        }
+    }
+    
+results in an interface like this:
+
+<!-- lang: java -->
+    interface C$I {
+    }
+
+This is done in order to support arbitrary nesting of interfaces and classes 
+within other types, which cannot be expressed in Java.
 
 ### Instantiating Ceylon classes
 
-Ceylon types are instantiated like every Java type, except they can only have
-a single constructor. 
+Ceylon types are instantiated like every Java type. They have an overloaded 
+constructor for each defaulted parameter.
 
-#### Calling a Ceylon initialiser with default parameter values
-
-Ceylon initialisers can have default parameter values. If you want to call an initialiser with
-default parameter values, you need to know where to fetch the default values from.
-
-The following Ceylon code:
+For example suppose you have the following Ceylon class:
 
     shared class Foo(Integer n = 5, Integer m = n + 1) {
     }
 
-Can be invoked in Java using the following code:
+Then in Java you can instantiate a `Foo` in three ways:
 
 <!-- lang: java -->
-    long n = Foo.Foo$impl.$init$n();
-    // Note that default parameter values may use previous parameter values 
-    long m = Foo.Foo$impl.$init$m(n); 
-    Foo f = new Foo(n, m);
+    Foo foo1 = new Foo(6, 7);
+    Foo foo2 = new Foo(6); // use the default m
+    Foo foo3 = new Foo();  // use the default n and m
 
 ### Accessing Ceylon attributes
 
@@ -106,28 +120,28 @@ Are called using the following Java code:
 
 #### Calling a Ceylon method with default parameter values
 
-Ceylon methods can have default parameter values. If you want to call a method with
-default parameter values, you need to know where to fetch the default values from.
+Ceylon methods can have default parameter values. There will be an overloaded method for each defaulted parameter. 
 
-The following Ceylon code:
+For example suppose you have the following Ceylon class:
 
     shared class Foo() {
         shared void foo(Integer n = 5, Integer m = n + 1) {}
     }
 
-Can be invoked in Java using the following code:
+Then in Java you can invoke `Foo.foo()` in three ways:
 
 <!-- lang: java -->
     Foo f = new Foo();
-    long n = Foo.Foo$impl.foo$n(f);
-    // Note that default parameter values may use previous parameter values 
-    long m = Foo.Foo$impl.foo$m(f, n); 
-    f.foo(n, m);
+    f.foo(6, 88);
+    f.foo(6); // use the default m
+    f.foo();  // use the default n and m
 
 ### Methods and initialisers with varargs
 
 Method and initialisers can have varargs, which are represented in the resulting Java
-code as a `Iterable<? extends T>` parameter.
+code as a `Iterable<? extends T>` parameter. There will be an overloaded 
+method if you want to use the sequenced parameter's default value (an empty 
+`Iterable` by default)
 
 If you wish to invoke a Ceylon method or initialiser that supports varargs you need to
 use the following idiom:
@@ -135,9 +149,11 @@ use the following idiom:
 <!-- lang: java -->
     // Foo.foo supports varargs of String...
     Foo f = new Foo();
-    // pass no parameter
+    // use the parameter's default sequence
+    f.foo();
+    // pass no arguments
     f.foo(ceylon.language.$empty.getEmpty());
-    // pass two parameters
+    // pass two arguments
     f.foo(new ceylon.language.ArraySequence(ceylon.language.String.instance("a"), 
                                             ceylon.language.String.instance("b")));
 
