@@ -12,7 +12,7 @@ doc_root: ../../..
 ## Usage 
 
 <!-- lang: none -->
-    ceylon [options] <module-spec>
+    ceylon [options] <module-spec> [args...]
 
 Options include:
 
@@ -29,6 +29,9 @@ The Ceylon JVM launcher is used to execute a Ceylon program on the JVM. Because 
 are just Java classes, `ceylon` is effectively 'just' a front-end to the 
 `java` application launcher, however `ceylon` has support for modules where 
 `java` does not.
+
+Any argument passed after the module name and version will be passed directly
+to the Ceylon module being run.
 
 ## See also
 
