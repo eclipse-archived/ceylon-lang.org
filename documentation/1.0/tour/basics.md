@@ -405,7 +405,7 @@ Defaulted parameters must be declared after all required parameters in the
 parameter list of a method.
 
 Ceylon also supports sequenced parameters (varargs), declared using an ellipsis 
-(i.e. `String...`). But we'll [come back](../missing-pieces/#sequenced_parameters) 
+(i.e. `String...`). But we'll [come back](../named-arguments/#sequenced_parameters) 
 to them after we discuss [sequences](../sequences) and [`for` loops](../missing-pieces#control_structures).
 
 ## There's more...

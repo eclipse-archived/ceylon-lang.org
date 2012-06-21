@@ -82,9 +82,6 @@ Consider the following method:
         // ... 
     }
 
-Remember, the last parameter is a [sequenced parameter](../missing-pieces#sequenced_parameters) 
-which accepts multiple arguments, just like a Java "varargs" parameter.)
-
 We've seen lots of examples of invoking a method or instantiating a class 
 using a familiar C-style syntax where arguments are delimited by parentheses 
 and separated by commas. Arguments are matched to parameters by their 

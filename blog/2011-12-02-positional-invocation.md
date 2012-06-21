@@ -16,7 +16,7 @@ Syntactically, Ceylon has two different ways of invoking a method (and the
 [metamodel](/documentation/1.0/tour/functions/) will add a third). 
 *Positional invocation*
 will be very familiar to a Java programmer. In Ceylon it's conceptually 
-pretty much the same, including support for ['varargs'](/documentation/1.0/tour/missing-pieces/#sequenced_parameters). 
+pretty much the same, including support for ['varargs'](/documentation/1.0/tour/named-arguments/#sequenced_parameters). 
 In this post I'm going to go into some detail about how support 
 for positional method invocation is implemented in the compiler. I might cover 
 the other syntactic form, [*named argument invocation*](/documentation/1.0/tour/named-arguments/), 

@@ -75,8 +75,9 @@ Instead, we can introduce the type `Position` in the code which uses the
         
     }
 
-Glossing over the `import` statements (they'll be covered [later](../missing-pieces#packages_and_imports)), what's important
-is the `adapts` clause. This makes `PolarPosition` a special kind of interface called an 
+Glossing over the `import` statements (they'll be covered 
+[later](../modules/#packages_and_imports)), what's important here is the 
+`adapts` clause. This makes `PolarPosition` a special kind of interface called an 
 *adapter*. There are a couple of restrictions applying to the members of an adapter. 
 According to the language spec:
 

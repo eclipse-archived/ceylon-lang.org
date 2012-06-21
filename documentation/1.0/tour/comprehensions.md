@@ -18,7 +18,7 @@ named arguments. We're now ready to learn about _comprehensions_.
 A comprehension is a convenient way to tranform, filter, or combine a
 stream or streams of values before passing the result to a function.
 Comprehensions always appear as arguments to 
-[sequenced parameters](../missing-pieces#sequenced_parameters)
+[sequenced parameters](../named-arguments/#sequenced_parameters)
 and always act upon, and produce, instances of 
 [`Iterable`](#{site.urls.apidoc_current}/ceylon/language/interface_Iterable.html).
 
