@@ -45,14 +45,8 @@ The plugin provides the following features, among others:
   [contextual search](screenshots#find_references_search_results)
 * Configurable keyboard accelerators
 * Basic [refactoring](screenshots#rename_refactoring_preview): 
-  Rename, Inline, Extract Value, Extract Function,
-  Convert To Named Arguments, and Clean Imports
-* Basic [Quick Fixes](screenshots#quick_fixes): 
-  rename reference, create member declaration, create local 
-  declaration, create toplevel declaration, create toplevel
-  declaration in new unit, add import, make shared, make actual, 
-  make default, specify type, refine formal members
-* Refine Formal Members
+  Rename, Inline, Extract Value, Extract Function, and Clean Imports
+* More than 30 [Quick Fixes](screenshots#quick_fixes) and Quick Assists!
 * Code folding, structured compare, mark occurrences, and more...
 
 Check out the [screenshots](screenshots)!
@@ -69,7 +63,7 @@ You can install M1 "Newton" release of the Ceylon IDE (which includes the Ceylon
   <br/>Ceylon IDE 
   </a>
 
-**Note:** The M2 "Minitel" release of the Ceylon IDE will be released soon.
+**Note:** The M3 version of the Ceylon IDE will be released very soon.
 
 You can get started using the [welcome page](screenshots#welcome_page) and 
 [cheat sheets](screenshots#cheat_sheets). After installing, go straight to 
