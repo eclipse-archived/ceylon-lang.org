@@ -14,7 +14,7 @@ disected annotations. This part covers Ceylons support for *interceptors*.
 
 ### implementation note <!-- m3 -->
 
-Ceylon M3 does not support user-defined annotations or metaprogramming.
+Ceylon M3 does not support interceptors or metaprogramming.
 
 ## Interceptors
 
