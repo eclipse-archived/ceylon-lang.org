@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `ceylon` - The ceylon launcher
+title: `ceylon` - The Ceylon JVM launcher
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

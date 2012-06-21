@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `ceylonc` - The ceylon compiler
+title: `ceylonc` - The Ceylon JVM compiler
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
@@ -30,7 +30,8 @@ Options include:
 
 ## Description
 
-The ceylon compiler `ceylonc` compiles Ceylon and Java source code. 
+The Ceylon JVM compiler `ceylonc` compiles Ceylon and Java source code for the
+Java platform.
 
 ### Output
 
