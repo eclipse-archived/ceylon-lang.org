@@ -140,6 +140,7 @@ The API documentation for [`ceylon.language`](#{page.doc_root}/api/ceylon/langua
 * The Ceylon compiler, [`ceylonc`](tool/ceylonc)
 * The Ceylon module information tool, [`ceylonp`](tool/ceylonp) <!-- m3 -->
 * The Ceylon documentation compiler, [`ceylond`](tool/ceylond)
+* The Ceylon JAR importer, [`ceylon-import-jar`](tool/ceylon-import-jar) <!-- m3 -->
 * The Ceylon repository replicator, [`ceylonr`](tool/ceylonr) <!-- m3 -->
 * The Ceylon source archive extractor, [`ceylonf`](tool/ceylonf) <!-- m3 -->
 * The Ceylon [`Ant` tasks](tool/ant)
