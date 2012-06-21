@@ -8,9 +8,9 @@ author: Gavin King
 
 # #{page.title}
 
-This is the tenth part of the Tour of Ceylon. In the 
-[previous leg](../modules) we looked at modules. This leg covers
-first class and higher-order functions.
+This is the tenth part of the Tour of Ceylon. In the [previous leg](../modules) 
+we looked at packages and modules. This leg covers first class and higher-order 
+functions.
 
 
 ## First class and higher order functions

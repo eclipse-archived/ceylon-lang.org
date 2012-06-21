@@ -1,6 +1,6 @@
 ---
 layout: tour
-title: Tour of Ceylon&#58; Modules
+title: Tour of Ceylon&#58; Packages and Modules
 tab: documentation
 unique_id: docspage
 author: Gavin King
@@ -9,11 +9,52 @@ author: Gavin King
 # #{page.title}
 
 This is the ninth part of the Tour of Ceylon. In the 
-[previous part](../missing-pieces) we looked at attributes, variables, 
-control structures and a few other missing pieces. Now we turn to *modules*.
+[previous part](../missing-pieces) we looked at attributes, variables, setters,
+and control structures. Now we turn our attention to a very different subject:
+modularity. We're going to learn about *packages* and *modules*.
+
+## Packages and imports
+
+There's no special `package` statement in Ceylon. The compiler determines the 
+package and module to which a toplevel program element belongs by the 
+location of the source file in which it is declared. A class named `Hello` in 
+the package `org.jboss.hello` must be defined in the file 
+`org/jboss/hello/Hello.ceylon`.
+
+When a source file in one package refers to a toplevel program element in 
+another package, it must explicitly import that program element. Ceylon, 
+unlike Java, does not support the use of qualified names within the source 
+file. We can't write `org.jboss.hello.Hello` in Ceylon.
+
+The syntax of the `import` statement is slightly different to Java. To import 
+a program element, we write:
+
+<!-- check:none:pedagogical -->
+    import com.redhat.polar.core { Polar }
+
+To import several program elements from the same package, we write:
+
+<!-- check:none:pedagogical -->
+    import com.redhat.polar.core { Polar, pi }
+
+To import all toplevel program elements of a package, we write:
+
+<!-- check:none:pedagogical -->
+    import com.redhat.polar.core { ... }
+
+To resolve a name conflict, we can rename an imported declaration:
+
+<!-- check:none:pedagogical -->
+    import com.redhat.polar.core { PolarCoord=Polar }
+
+We think renaming is a much cleaner solution than the use of qualified names.
+We can even rename members of type:
+
+<!-- check:none:pedagogical -->
+    import com.redhat.polar.core { Polar { r=radius, theta=angle } }
 
 
-## Modules in Ceylon
+## Modules
 
 Built-in support for modularity is a major goal of the Ceylon project, but 
 what does 'modularity' mean? There are several layers to this:

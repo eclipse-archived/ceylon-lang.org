@@ -1,6 +1,6 @@
 ---
 layout: tour
-title: Tour of Ceylon&#58; Missing Pieces
+title: Tour of Ceylon&#58; Attributes and Variables, Control Structures
 tab: documentation
 unique_id: docspage
 author: Gavin King
@@ -10,15 +10,14 @@ author: Gavin King
 
 This is the eighth part of the Tour of Ceylon. If you found the 
 [previous part](../generics) on generic types a little overwhelming, don't 
-worry; this part is going to cover a some details which should be more 
-familiar including [variables](#variables), 
-[control structures](#control_structures) 
+worry; this part is going to cover some material which should be much easier 
+going. We're going to discuss [attributes](#attributes_and_locals), 
+[variables](#variables), and [control structures](#control_structures) 
   ([`if`](#ok_so_here_are_the...), 
   [`switch`](#the_switchcase_statement_eliminates_cs...),
   [`for`](#the_for_loop_has_an...),
   [`while`](#the_while_loop_is_traditional) and 
-  [`try`](#the_trycatchfinally_statement_works_like...))
-and [packages](#packages_and_imports)
+  [`try`](#the_trycatchfinally_statement_works_like...)).
 
 
 ## Attributes and locals
@@ -76,9 +75,9 @@ scope.
 
 ## Variables
 
-Ceylon encourages you to use *immutable* attributes as much as possible. 
-An immutable attribute has its value specified when the object is 
-initialized, and is never reassigned.
+Ceylon encourages you to use *immutable* attributes as much as possible. An 
+immutable attribute has its value specified when the object is initialized, 
+and is never reassigned.
 
     class Reference<Value>(Value x) {
         shared Value val = x;
@@ -154,11 +153,11 @@ you're getting or setting.
 
 ## Control structures
 
-Ceylon has five built-in control structures. There's nothing much new here for 
-Java or C# developers, so a few quick examples without much 
-additional commentary should suffice. However, one thing to be aware of is 
-that Ceylon doesn't allow you to omit the braces in a control structure. 
-The following doesn't parse:
+Ceylon has five built-in control structures. There's nothing much new here 
+for Java or C# developers, so a few quick examples without much additional 
+commentary should suffice. However, one thing to be aware of is that Ceylon 
+doesn't allow you to omit the braces in a control structure. The following 
+doesn't even parse:
 
 <!-- check:none:Demoing error -->
     if (x>100) bigNumber();
@@ -261,105 +260,8 @@ And `try` will support a "resource" expression similar to Java 7.
 
 Resource expressions in `try` are not yet supported in M3.
 
-## Sequenced parameters
-
-A sequenced parameter of a method or class is declared using an ellipsis. 
-There may be only one sequenced parameter for a method or class, and it 
-must be the last parameter.
-
-    void print(String... strings) { 
-        // ... 
-    }
-
-Inside the method body, the parameter `strings` has type `Iterable<String>`.
-
-    void print(String... strings) {
-        for (string in strings) {
-            process.writeLine(string);
-        }
-    }
-
-A slightly more sophisticated example is the `coalesce()` method we saw 
-[above](#then_we_can_abstract_the...). `coalesce()` accepts a sequence of
-`X?` and eliminates nulls, returning `X[]`, for any type `X`. Its signature 
-is:
-
-<!-- check:none:pedagogical -->
-    shared Value[] coalesce<Value>(Value?... sequence) { 
-        // ... 
-    }
-
-To pass an argument to a sequenced parameter we have three choices. We
-could:
-
-- provide a an explicit list or arguments,
-- pass in iterable object producing the arguments, or
-- specify a comprehension.
-
-The first case is easy:
-
-    print("hello", "world");
-
-For the second case, Ceylon requires us to write an elipse:
-
-    value words = { "hello", "world" };
-    print(words...);
-
-The third, and easily most interesting case allows us to transform,
-filter, and combine iterable streams of values:
-
-    value words = { "Hello", "World" };
-    print(for (w in words) w.lowercased);
-
-We'll come back to comprehensions later.
-
-Sequenced parameters turn out to be especially interesting when used in 
-[named argument lists](../named-arguments) for defining user interfaces or 
-structured data.
-
-
-## Packages and imports
-
-There's no special `package` statement in Ceylon. The compiler determines the 
-package and module to which a toplevel program element belongs by the 
-location of the source file in which it is declared. A class named `Hello` in 
-the package `org.jboss.hello` must be defined in the file 
-`org/jboss/hello/Hello.ceylon`.
-
-When a source file in one package refers to a toplevel program element in 
-another package, it must explicitly import that program element. Ceylon, 
-unlike Java, does not support the use of qualified names within the source 
-file. We can't write `org.jboss.hello.Hello` in Ceylon.
-
-The syntax of the `import` statement is slightly different to Java. To import 
-a program element, we write:
-
-<!-- check:none:pedagogical -->
-    import com.redhat.polar.core { Polar }
-
-To import several program elements from the same package, we write:
-
-<!-- check:none:pedagogical -->
-    import com.redhat.polar.core { Polar, pi }
-
-To import all toplevel program elements of a package, we write:
-
-<!-- check:none:pedagogical -->
-    import com.redhat.polar.core { ... }
-
-To resolve a name conflict, we can rename an imported declaration:
-
-<!-- check:none:pedagogical -->
-    import com.redhat.polar.core { PolarCoord=Polar }
-
-We think renaming is a much cleaner solution than the use of qualified names.
-We can even rename members of type:
-
-<!-- check:none:pedagogical -->
-    import com.redhat.polar.core { Polar { r=radius, theta=angle } }
-
 ## There's more...
 
-Now that we've mopped up these several "missing" topics, we're ready to look at 
-[modules](../modules).
+Now that we've mopped up these "glossed over" topics, we're ready to look at 
+a really important feature of the language: [modularity](../modules).
 
