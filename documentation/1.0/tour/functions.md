@@ -48,7 +48,7 @@ representable within the type system as a class or interface declaration.
 
 In Ceylon, a single type 
 [`Callable`](#{site.urls.apidoc_current}/ceylon/language/interface_Callable.html) 
-abstracts *all* functions. It's declaration is the following:
+abstracts *all* functions. Its declaration is the following:
 
 <!-- check:none -->
     shared interface Callable<out Result, Argument...> {}
