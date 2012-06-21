@@ -254,6 +254,9 @@ The most famous higher-order functions are a trio of functions for tranforming,
 filtering, and summarizing sequences of values. In Ceylon, these three functions,
 `map()`, `filter()`, and `fold()` are methods of the interface 
 [`Iterable`](#{site.urls.apidoc_current}/ceylon/language/interface_Iterable.html).
+(They even have a fourth, slightly less glamorous friend called `find()`, also a 
+method of `Iterable`.)
+ 
 As you've probably noticed, all the functions we've defined so far have been 
 declared with a name, using a traditional C-like syntax. There's nothing wrong
 with passing a named function to `map()` or `filter()`, and indeed that is often
@@ -262,8 +265,8 @@ useful:
     Float max = measurements.fold(0.0, largest<Float>);
 
 However, quite commonly, it's inconvenient to have to declare a whole named 
-function just to pass it to `map()`, `filter()` or `fold()`. Instead, we can
-declare an *anonymous function* inline, as part of the argument list:
+function just to pass it to `map()`, `filter()`, `fold()` or `find()`. Instead, 
+we can declare an *anonymous function* inline, as part of the argument list:
 
     Float max = {1.0, 2.0}.fold(0.0, 
             (Float max, Float num) num>max then num else max);
