@@ -163,7 +163,7 @@ remote repositories.*
 
 ## Milestone 3 _DONE_
 
-Currently in progress.
+Milestone 3 has been released.
 
 *Mixin inheritance, anonymous functions, comprehensions,
 file IO.*
