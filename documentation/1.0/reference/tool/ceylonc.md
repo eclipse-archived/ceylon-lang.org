@@ -24,7 +24,9 @@ Options include:
 * `-user` User name for output module repository (only if HTTP). <!-- m2 -->
 * `-pass` Password for output module repository (only if HTTP). <!-- m2 -->
 * `-verbose` Enables debug output.
-* `-d` Disable the default module repositories and source directory. <!-- m3 -->
+* `-d` Disable the default module repositories and source directory. <!-- m4 -->
+* `-help` Prints a usage help page
+* `-version` Prints the Ceylon version
 
 ## Description
 

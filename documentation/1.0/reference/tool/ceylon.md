@@ -17,9 +17,11 @@ doc_root: ../../..
 Options include:
 
 * `-run` Specifies the fully qualified name of a toplevel method or class with no parameters.
-* `-src` Specifies a source directory. <!-- m3 -->
+* `-src` Specifies a source directory. <!-- m4 -->
 * `-rep` specifies a module repository containing dependencies. Can be repeated. Defaults to `modules`.
-* `-d` Disable the default module repositories and source directory. <!-- m3 -->
+* `-d` Disable the default module repositories and source directory. <!-- m4 -->
+* `-help` Prints a usage help page
+* `-version` Prints the Ceylon version
 
 ## Description
 
