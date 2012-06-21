@@ -322,10 +322,6 @@ The easiest case though, is where the module and its dependencies are all in one
 <!-- lang: none -->
     ceylon net.example.foo/1.0
 
-And you can even drop the version number if you just want the most recent version:
-
-<!-- lang: none -->
-    ceylon net.example.foo
 
 ## Module repository ecosystem
 
