@@ -148,11 +148,11 @@ This annotation specifies that a class cannot be instantiated, and can define
 abstract members. Like Java, Ceylon also requires us to annotate "abstract" 
 members that don't specify an implementation. However, in this case, the 
 required annotation is `formal`. The reason for having two different 
-annotations, as we'll see [later](../anonymous-member-classes#member_classes_and_member_class_refinement), 
-is that nested classes may be either 
-`abstract` or `formal`, and `abstract` nested classes are slightly different 
-to `formal` member classes. A `formal` member class may be instantiated; 
-an abstract class may not be.
+annotations, as we'll see 
+[later](../anonymous-member-classes#member_classes_and_member_class_refinement), 
+is that nested classes may be either `abstract` or `formal`, and `abstract` 
+nested classes are a bit different to `formal` member classes. A `formal` 
+member class may be instantiated; an abstract class may not be.
 
 Note that an attribute that is never initialized is always a `formal` 
 attribute. Ceylon doesn't initialize attributes to zero or `null` unless you 
