@@ -1,5 +1,5 @@
 ---
-layout: reference
+layout: documentation
 title: Ceylon Language Specification 
 tab: documentation
 unique_id: docspage
