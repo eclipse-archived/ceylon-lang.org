@@ -136,8 +136,10 @@ The API documentation for [`ceylon.language`](#{page.doc_root}/api/ceylon/langua
 
 ## Tools
 
-* The Ceylon launcher, [`ceylon`](tool/ceylon)
-* The Ceylon compiler, [`ceylonc`](tool/ceylonc)
+* The Ceylon JVM launcher, [`ceylon`](tool/ceylon)
+* The Ceylon JavaScript launcher, [`ceylon-js`](tool/ceylon-js) <!-- m3 -->
+* The Ceylon JVM compiler, [`ceylonc`](tool/ceylonc)
+* The Ceylon JavaScript compiler, [`ceylonc-js`](tool/ceylonc-js) <!-- m3 -->
 * The Ceylon documentation compiler, [`ceylond`](tool/ceylond)
 * The Ceylon JAR importer, [`ceylon-import-jar`](tool/ceylon-import-jar) <!-- m3 -->
 * The Ceylon module information tool, [`ceylonp`](tool/ceylonp) <!-- m4 -->
