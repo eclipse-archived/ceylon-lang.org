@@ -17,8 +17,8 @@ However, our roadmap is quite well-defined:
 
 - Ceylon 1.0
   - [Milestone 1](#milestone_1_done)
-  - [Milestone 2](#milestone_2_done) (latest release)
-  - [Milestone 3](#milestone_3)
+  - [Milestone 2](#milestone_2_done)
+  - [Milestone 3](#milestone_3_done) (latest release)
   - [Milestone 4](#milestone_4)
   - [Milestone 5](#milestone_5_ceylon_10)
 - [Ceylon 1.1](#ceylon_11_or_later)
@@ -161,7 +161,7 @@ remote repositories.*
 * remote repositores
 * `modules.ceylon-lang.org`
 
-## Milestone 3
+## Milestone 3 _DONE_
 
 Currently in progress.
 
@@ -172,30 +172,29 @@ file IO.*
 * compilation to JavaScript is a compiler switch
 
 ### Declarations:
-* concrete interface members _DONE_
-* new syntax for attribute initialization parameters _DONE_
-* multiple parameter lists _DONE_
-* nested interfaces _DONE_
-* self types _DONE_
-* shortcut syntax for formal member refinement _DONE_
-* new syntax for package and module descriptors _SLIPPING?_
+* concrete interface members
+* new syntax for attribute initialization parameters
+* multiple parameter lists
+* nested interfaces
+* self types
+* shortcut syntax for formal member refinement
 
 ### Expressions:
-* object/method/getter args in named argument lists _DONE_
-* anonymous functions (`(Type x) result(x)`) _DONE_
-* comprehensions (`for (x in xs) if (select(x)) collect(x)`) _DONE_
-* indirect invocations of `Callable` instances _DONE_
-* outer instance references (`outer`) _DONE_
-* set operators (`|`, `&`, `^`, `~`) _DONE_
+* object/method/getter args in named argument lists
+* anonymous functions (`(Type x) result(x)`)
+* comprehensions (`for (x in xs) if (select(x)) collect(x)`)
+* indirect invocations of `Callable` instances
+* outer instance references (`outer`)
+* set operators (`|`, `&`, `^`, `~`)
 
 ### Misc:
-* "lazy" semantics for sequenced parameters _DONE_
+* "lazy" semantics for sequenced parameters
 
 ### Modules:
 * `ceylon.math` platform module  (arbitary precsision decimals/integers 
-   and common floating point functions) _DONE_
-* `ceylon.file` platform module (access to hierarchical filesystems) _DONE_
-* `ceylon.process` platform module (operating system processes) _POSSIBLY_
+   and common floating point functions)
+* `ceylon.file` platform module (access to hierarchical filesystems)
+* `ceylon.process` platform module (operating system processes)
 
 ## Milestone 4
 
@@ -205,6 +204,7 @@ file IO.*
 * member class refinement / type families
 * class and interface aliases
 * union and interface aliases _POSSIBLY_
+* new syntax for package and module descriptors
 
 ### Statements:
 * `try` with resources
