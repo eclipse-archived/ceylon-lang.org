@@ -39,6 +39,8 @@ The plugin provides the following features, among others:
 * [Cross-project dependencies and navigation](screenshots#cross_project_dependencies),
   and support for external module repositories
 * Export Ceylon Module to Module Repository wizard
+* Integration with Ceylon Herd
+* Support for Java interop
 * [Open Ceylon Declaration dialog](screenshots#open_ceylon_declaration_dialog)
 * [Ceylon Search dialog](screenshots#ceylon_search_dialog)
 * Find References, Find Refinements, Find Subtypes, and Find Assignments
