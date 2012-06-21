@@ -156,4 +156,4 @@ The API documentation for [`ceylon.language`](#{page.doc_root}/api/ceylon/langua
 ## Module repositories
 
 * [Module repositories](repository)
-* [`modules.ceylon-lang.org`] - _doc coming soon at_ (repository/modules.ceylon-lang.org) <!-- m3 -->
+* [`modules.ceylon-lang.org` aka Ceylon Herd](repository/modules.ceylon-lang.org)
