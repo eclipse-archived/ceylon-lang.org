@@ -69,10 +69,10 @@ _This page is very incomplete. Want to help? [See how](/code/website)._
 * [`!=`  (not equal)](operator/not-equal)
 * [`%`   (remainder)](operator/remainder)
 * [`%=`  (remainder assign)](operator/remainder-assign)
-* [`&`   (Set intersection)](operator/intersection) <!-- m4 -->
+* [`&`   (Set intersection)](operator/intersection) <!-- m3 -->
 * [`&&`  (and)](operator/and)
 * [`&&=` (and assign)](operator/and-assign)
-* [`&=`  (Set intersect assign)](operator/intersect-assign) <!-- m4 -->
+* [`&=`  (Set intersect assign)](operator/intersect-assign) <!-- m3 -->
 * [`()`  (invoke)](operator/invoke)
 * [`()`  (null-safe invoke)](operator/nullsafe-invoke)
 * [`*`   (product)](operator/product)
@@ -107,18 +107,18 @@ _This page is very incomplete. Want to help? [See how](/code/website)._
 * [`[].` (spread invoke)](operator/spread-invoke)
 * [`[x..y]` (span)](operator/span)
 * [`[x...]` (upper span)](operator/upper-span)
-* [`^`   (Set exclusive union)](operator/exclusive-union) <!-- m4 -->
-* [`^=`  (Set exclusive union assign)](operator/exclusive-union-assign) <!-- m4 -->
+* [`^`   (Set exclusive union)](operator/exclusive-union) <!-- m3 -->
+* [`^=`  (Set exclusive union assign)](operator/exclusive-union-assign) <!-- m3 -->
 * [`in`  (in)](operator/in)
 * [`is`  (is)](operator/is)
-* [`|`   (Set union)](operator/union) <!-- m4 -->
-* [`|=`  (Set union assign)](operator/union-assign) <!-- m4 -->
+* [`|`   (Set union)](operator/union) <!-- m3 -->
+* [`|=`  (Set union assign)](operator/union-assign) <!-- m3 -->
 * [`||`  (or)](operator/or)
 * [`||=` (or assign)](operator/or-assign)
 * [`{}`  (invoke)](operator/invoke)
 * [`{}`  (null-safe invoke)](operator/nullsafe-invoke)
-* [`~`   (Set complement)](operator/complement) <!-- m4 -->
-* [`~=`  (Set complement assign)](operator/complement-assign) <!-- m4 -->
+* [`~`   (Set complement)](operator/complement) <!-- m3 -->
+* [`~=`  (Set complement assign)](operator/complement-assign) <!-- m3 -->
 
 
 ## Literals
