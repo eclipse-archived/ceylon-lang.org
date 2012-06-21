@@ -260,8 +260,8 @@ digits are grouped, then groups must contain exactly three digits.
     Integer twoMillionAndOne = 2_000_001;
     Float pi = 3.141_592_654;
 
-A very large or small numeric literals may be qualified by one of the 
-standard SI unit prefixes: m, u, n, p, f, k, M, G, T, P.
+A very large or small numeric literals may be qualified by one of the standard 
+SI unit prefixes: `m`, `u`, `n`, `p`, `f`, `k`, `M`, `G`, `T`, `P`.
 
     Float red = 390.0n; // n (nano) means E-9
     Float galaxyDiameter = 900.0P; // P (peta) means E+15
