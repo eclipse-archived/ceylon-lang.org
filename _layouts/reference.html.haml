@@ -20,11 +20,11 @@ tab: to-be-defined
   .point-dark-end 
     &nbsp;
 #core-page
-  - if ["Milestone 1", "Milestone 2"].index(page.milestone)
+  - if ["Milestone 1", "Milestone 2", "Milestone 3"].index(page.milestone)
     .milestone.check
       :markdown
-        [#{page.milestone}](/documentation/1.0/roadmap/##{page.milestone.anchorize({:convert_spaces=>true})} "Support for this feature was introduced in #{page.milestone}")
-  - if ["Milestone 3", "Milestone 4"].index(page.milestone)
+        [#{page.milestone}](/documentation/1.0/roadmap/##{page.milestone.anchorize({:convert_spaces=>true})}_done "Support for this feature was introduced in #{page.milestone}")
+  - if ["Milestone 4"].index(page.milestone)
     .milestone.future
       :markdown
         [#{page.milestone}](/documentation/1.0/roadmap/##{page.milestone.anchorize({:convert_spaces=>true})} "Support for this feature will be introduced in #{page.milestone}")
