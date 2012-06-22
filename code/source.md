@@ -9,7 +9,7 @@ author: Emmanuel Bernard
 
 We publish everything on GitHub under the [Ceylon organization](https://github.com/ceylon).
 
-You need to install the Java Development Kit 6 (from Oracle or OpenJDK). 
+You need to install the Java Development Kit 7 (from Oracle or OpenJDK). 
 You also need to install `git`.
 
 ## Ceylon projects
@@ -18,10 +18,13 @@ The Ceylon project is actually made up of several smaller projects:
 
 - [Parser, typechecker and specification](#parser_typechecker_and_specification)
 - [Compiler and documentation compiler](#compiler_and_documentation_compiler)
+- [JavaScript compiler](#javascript_compiler)
 - [Ceylon language module](#ceylonlanguage_module)
 - [Ceylon Eclipse IDE plugin](#ceylon_eclipse_ide_plugin)
 - [Module system](#module_system)
 - [Launcher](#launcher)
+- [Ceylon Herd](#ceylon_herd)
+- [Ceylon SDK platform modules](#ceylon_sdk_platform_modules)
 
 You can also view [all our git projects](http://ceylon.github.com) at quick glance.
 
@@ -76,9 +79,9 @@ Feeling adventurous and want to help us with the compiler backend? Read [how to 
 #### Building
 
 This project depends on the 
-[Module system](#module_system)
-[Ceylon language module](#ceylonlanguage_module)
-and [Parser and typechecker](#parser_typechecker_and_specification)  projects. 
+[Module system](#module_system),
+[Ceylon language module](#ceylonlanguage_module),
+and [typechecker](#parser_typechecker_and_specification)  projects. 
 You should check them out and build them first.
 
 You can build the compiler project like this:
@@ -88,6 +91,30 @@ You can build the compiler project like this:
 
 There's more info in the [README](https://github.com/ceylon/ceylon-compiler/blob/master/README.md).
 
+### JavaScript compiler
+
+<table>
+ <tr><th>Git repository</th><td><a href="https://github.com/ceylon/ceylon-js">https://github.com/ceylon/ceylon-js</a></td></tr>
+ <tr><th>Issue reporting</th><td><a href="https://github.com/ceylon/ceylon-js/issues">https://github.com/ceylon/ceylon-js/issues</a></td></tr>
+</table>
+
+This project contains the JavaScript compiler.
+
+#### Building
+
+This project depends on the 
+[Module system](#module_system),
+[Ceylon language module](#ceylonlanguage_module),
+and [typechecker](#parser_typechecker_and_specification)  projects. 
+You should check them out and build them first.
+
+You can build the JavaScript compiler project like this:
+
+<!-- lang: bash -->
+    ant compile
+
+There's more info in the [README](https://github.com/ceylon/ceylon-js/blob/master/README.md).
+
 ### `ceylon.language` module
 
 <table>
@@ -95,7 +122,7 @@ There's more info in the [README](https://github.com/ceylon/ceylon-compiler/blob
  <tr><th>Issue reporting</th><td><a href="https://github.com/ceylon/ceylon.language/issues">https://github.com/ceylon/ceylon.language/issues</a></td></tr>
 </table>
 
-This projects contains the module `ceylon.language`, the core classes 
+This project contains the module `ceylon.language`, the core classes 
 mentioned in the language specification.
 
 See the [API documentation](#{site.urls.apidoc_current}/ceylon/language/) for more information.
@@ -166,3 +193,31 @@ This project contain the Ceylon IDE Eclipse plugin.
 
 Instructions may be found in the
 [README](https://github.com/ceylon/ceylon-ide-eclipse/blob/master/README.md).
+
+### Ceylon Herd
+
+<table>
+ <tr><th>Git repository</th><td><a href="https://github.com/ceylon/ceylon-herd">https://github.com/ceylon/ceylon-herd</a></td></tr>
+ <tr><th>Issue reporting</th><td><a href="https://github.com/ceylon/ceylon-herd/issues">https://github.com/ceylon/ceylon-herd/issues</a></td></tr>
+</table>
+
+This project contain the Ceylon Herd application.
+
+### Ceylon SDK platform modules
+
+<table>
+ <tr><th>Git repository</th><td><a href="https://github.com/ceylon/ceylon-sdk">https://github.com/ceylon/ceylon-sdk</a></td></tr>
+ <tr><th>Issue reporting</th><td><a href="https://github.com/ceylon/ceylon-sdk/issues">https://github.com/ceylon-sdk/issues</a></td></tr>
+</table>
+
+This project contains the platform modules belonging to the Ceylon SDK.
+
+#### Building
+
+You can build and publish the platforms modules to the local Ceylon repository 
+(`~/.ceylon`) like this:
+
+<!-- lang: bash -->
+    ant publish
+
+There's more info in the [README](https://github.com/ceylon/ceylon-sdk/blob/master/README.md).
