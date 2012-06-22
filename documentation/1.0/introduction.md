@@ -576,5 +576,5 @@ based upon the same module runtime that is used at the very core of JBoss AS 7.
 
 ## Take the Tour
 
-We're done with the introduction. Take the [tour of Ceylon](#{page.doc_root}/tour/basics) 
+We're done with the introduction. Take the [tour of Ceylon](#{page.doc_root}/tour) 
 for a full in-depth tutorial.
