@@ -10,9 +10,29 @@ author: Emmanuel Bernard
 
 # Tour of Ceylon
 
-This tour covers the main features of the Ceylon language. Note 
-that not every language feature described here has been implemented
-at this time.
+This tour introduces the Ceylon language to developers with
+some experience in object-oriented programming. It assumes
+familiarity with concepts like static typing, inheritance, 
+subtyping, and type parameterization (generics). If you 
+already know a language like Java, C#, or C++, you already
+have all the background you need.
+
+If you're new to object-oriented programming, you'll still
+be able to learn Ceylon. These concepts aren't difficult to
+pick up! But you might find some chapters of the tour pretty
+hard going first time through. If so, take it slowly: 
+experiment with the language using [Ceylon IDE](../ide), and 
+gradually get a feel for how these things work and how they 
+are useful. None of us learned to program from books or 
+tutorials or from other people telling us how to do it. We 
+learned by playing and experimenting!
+
+If you're completely new to static typing, you'll probably
+find Ceylon a bit fussy and complicated at first. There's a
+lot more rules to know about than in a language like Python,
+Ruby, or Smalltalk. But we promise that the benefits are worth 
+it in the end, especially once you learn to use the IDE 
+effectively!
 
 ## Before you start
 
@@ -26,6 +46,12 @@ Instructions for getting started are contained in the file
 [right here in GitHub][ceylon-dist readme].
 
 [ceylon-dist readme]: https://github.com/ceylon/ceylon-dist/blob/master/README.md 
+
+### implementation note <!-- m3 -->
+
+Not every language feature described here has been implemented 
+in M3. Where this is the case, you'll see an "implementation note", 
+explaining when you can expect to be able to use the feature.
 
 ## Begin the tour
 
