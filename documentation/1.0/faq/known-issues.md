@@ -30,7 +30,7 @@ to [report it](/code/issues/).
 <a class="see" href="https://github.com/ceylon/ceylon-spec/issues/343">See issue</a>
 <div class="title">Unsoundness with inheritance of multiple instantiations of covariant type</div>
 <b>Workaround:</b>
-<div class="workaround">None</div>
+<div class="workaround">Refine members of the covariant type on the subtype.</div>
 </div>
 
 <div class="known-issue">
@@ -44,7 +44,14 @@ to [report it](/code/issues/).
 <a class="see" href="https://github.com/ceylon/ceylon-compiler/issues/650">See issue</a>
 <div class="title">Capturing a variable in a comprehension</div>
 <b>Workaround:</b>
-<div class="workaround">None</div>
+<div class="workaround">Define a getter that wraps the variable.</div>
+</div>
+
+<div class="known-issue">
+<a class="see" href="https://github.com/ceylon/ceylon-compiler/issues/602">See issue</a>
+<div class="title">Problem with toplevels `x` and `X` in same package on case-insensitive filesystems</div>
+<b>Workaround:</b>
+<div class="workaround">Don't define toplevel members of the same package whose names differ only by case.</div>
 </div>
 
 ## Documentation generator (<code>ceylond</code>)
