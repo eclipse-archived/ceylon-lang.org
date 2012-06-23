@@ -288,8 +288,8 @@ case where nothing was specified at the command line, which gives us an
 opportunity to explore how `null` values are treated in Ceylon, which is 
 quite different to what you're probably used to in Java or C#.
 
-Let's consider an overly-verbose example to start with (we'll get on to the
-more convenient form in a moment):
+Let's consider an overly-verbose example to start with. (We'll get to a more 
+convenient form in a moment.)
 
     doc "Print a personalized greeting"
     void hello() {
@@ -305,18 +305,25 @@ more convenient form in a moment):
     }
 
 The type `String?` indicates that `name` may contain a `null` value. We then 
-use the `if (exists ...)` control structure to branch the code that deals with 
-a non-`null` vs a `null` name.
+use the `if (exists ...)` control structure to handle the case of a `null` 
+name separately from the case of a non-`null` name.
+
+## Optional types
 
 Unlike Java, locals, parameters, and attributes that may contain `null` values 
 must be explicitly declared as being of optional type (the `T?` syntax). 
 There's simply no way to assign `null` to a local that isn't of optional type. 
-The compiler won't let you.
+The compiler won't let you. This is an error:
+
+    String name = null; //compile error: null is not an instance of String
 
 Nor will the Ceylon compiler let you do anything dangerous with a value of 
 type `T?` - that is, anything that could cause a `NullPointerException` in 
 Java - without first checking that the value is not `null` using 
-`if (exists ... )`.
+`if (exists ... )`. The following is also an error:
+
+    String? name = process.arguments.first;
+    print("Hello " + name + "!"); //compile error: name is not Summable
 
 In fact, it's not even possible to use the equality operator `==` with an 
 expression of optional type. You can't write `if (x==null)` like you can in 
@@ -324,10 +331,10 @@ Java. This helps avoid the undesirable behavior of `==` in Java where `x==y`
 evaluates to true if `x` and `y` both evaluate to `null`.
 
 Note that the syntax `String?` is just an abbreviation for the 
-[union type](../types/#union_types) `Nothing|String`. The value `null` isn't 
-a primitive value in Ceylon, it's just a perfectly ordinary instance of the 
-perfectly ordinary class `Nothing`. (However, the Ceylon compiler does
-some special magic to transform this value to a JVM-level null.)
+[union type](../types/#union_types) `Nothing|String`. And the value `null` 
+isn't a primitive value in Ceylon, it's just a perfectly ordinary instance of 
+the perfectly ordinary class `Nothing`. (However, the Ceylon compiler does
+some special magic to transform this value to a virtual machine-level null.)
 
 It's possible to declare the local name inside the `if (exists ... )` 
 condition (and because Ceylon has local [type inference](../types#type_inference), 
@@ -347,7 +354,7 @@ you don't even have to declare the type):
 This is the preferred style most of the time, since we can't actually use 
 `name` for anything useful outside of the `if (exists ... )` construct.
 
-# Operators for handling null values
+## Operators for handling null values
 
 There are a couple of operators that will make your life easier when dealing 
 with `null` values.
@@ -382,6 +389,13 @@ The `?.` operator lets us call operations on optional types.
     print(shoutedGreeting);
 } -->
 
+So we can finally simplify our example to something reasonable:
+
+    doc "Print a personalized greeting"
+    void hello() {
+        print("Hello, " process.arguments.first else "World" "!");
+    }
+
 ## Defaulted parameters
 
 While we're on the topic of values that aren't there, it's worth mentioning 
@@ -410,8 +424,10 @@ to them after we discuss [sequences](../sequences).
 
 ## Numbers
 
-Ceylon doesn't have any primitive types, so numeric values are usually 
-represented by the classes 
+Unfortunately, not every program is as simple and elegant as "hello world".
+In business or scientific computing, we often encounter programs that do 
+fiendishly complicated stuff with numbers. Ceylon doesn't have any primitive 
+types, so numeric values are usually represented by the classes 
 [`Integer`](#{site.urls.apidoc_current}/ceylon/language/class_Integer.html)
 and [`Float`](#{site.urls.apidoc_current}/ceylon/language/class_Float.html),
 which we'll come back to [later in the tour](../language-module/#numeric_types).
