@@ -231,6 +231,28 @@ also important in the definition of Ceylon's polymorphic operators:
   is the basis of the set operators.
 
 
+## Characters and character strings
+
+We've already met the class `String`, way back in 
+[the first leg of the tour](../basics/#string_literals). Ceylon strings are composed of 
+[`Character`](#{site.urls.apidoc_current}/ceylon/language/class_Character.html)s&mdash;indeed, 
+a `String` is a [`List`](#{site.urls.apidoc_current}/ceylon/language/interface_List.html)
+of `Character`s.
+
+An instance of `Character` represents a 32-bit Unicode character, not a
+Java-style UTF-16 `char`. However, under the covers, Ceylon strings are
+implemented using a Java `char[]` array (in fact, they are implemented
+using a Java string). So some operations on Ceylon strings are much
+slower than you might expect, since they must take four-byte characters
+into account. This includes `size` and `item()`. We think it's much better
+that these operations be slow, like in Ceylon, than that they sometimes
+give the wrong answer, like in Java. And
+[remember](../sequences/#sequence_gotchas_for_java_developers), it's 
+never correct to iterate a list using `size` and `item()` in Ceylon!
+
+To avoid the cost of calling `size()`, try to use the more efficient
+`empty`, and `longerThan()`.
+
 ## Numeric types
 
 As we've mentioned several times before, Ceylon doesn't have anything like 
