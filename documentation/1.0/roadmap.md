@@ -213,6 +213,7 @@ file IO.*
 * named argument-style syntax for instantiating interfaces
 * lengthwise range operator (`:`)
 * numeric widening for custom numeric types _POSSIBLY_
+* laziness for string interpolation
 
 ### Modularity:
 * repository replicator
