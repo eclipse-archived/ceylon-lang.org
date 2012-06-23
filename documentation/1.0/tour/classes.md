@@ -20,16 +20,30 @@ The case of the first character of an identifier is significant.
 Type (interface, class, and type parameter) names must start 
 with an initial capital letter. Member (method and attribute) 
 and local names start with an initial lowercase letter or
-underscore. The Ceylon compiler is watching you. If you try to 
-write `class hello` or `String Name`, you'll get a compilation 
-error.
+underscore. The Ceylon compiler is very fussy about this. You'll 
+get a compilation error if you write:
 
-(There is a way to work around this restriction, which is 
+    class hello() { ... } //compile error
+
+or:
+
+    String Name = .... //compile error
+
+There is a way to work around this restriction, which is 
 mainly useful when calling legacy Java code. You can "force"
 the compiler to understand that an identifier is a type name
 by prefixing it with `\I`, or that it is a member or local
 name by prefixing it with `\i`. For example, `\iRED` is 
-considered an initial lowercase identifier.)
+considered an initial lowercase identifier.
+
+So the following declarations are acceptable, but definitely 
+not recommended, except in the interop scenario: 
+
+    class \Ihello() { ... } //OK, but not recommended
+
+and:
+
+    String \iName = .... //OK, but not recommended
 
 ## Creating your own class
 
