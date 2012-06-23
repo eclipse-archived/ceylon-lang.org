@@ -205,6 +205,49 @@ you'll still appreciate Ceylon's approach to covariance as a user of the
 built-in collection types.
 
 
+## Generics and inheritance
+
+Consider the following classes:
+
+    class LinkedList() 
+            satisfies List<Object> { ... }
+    
+    class LinkedStringList() 
+            extends LinkedList() 
+            satisfies List<String> { ... }
+
+This kind of inheritance is illegal in Java. A class can't inherit the
+same type more than once, with different type arguments. We say that 
+Java supports only _single instantiation inheritance_.
+
+Ceylon is less restrictive here. The above code is perfectly legal if
+(and only if) the interface `List<Element>` is covariant in its type
+parameter `Element`, that is, if it's declared like this:
+
+    interface List<out Element> { ... }
+
+We say that Ceylon supports _principal instantiation inheritance_. 
+Even the following code is legal:
+
+    interface ListOfSomething satisfies List<Something> {}
+    interface ListOfSomethingElse satisfies List<SomethingElse> {}
+    class MyList() satisfies ListOfSomething & ListOfSomethingElse { ... }
+
+Then the following is legal and well-typed:
+
+    List<Something&SomethingElse> list = MyList();
+
+Please pause here, and take the  time to notice how ridiculously 
+awesome this is. We never actually explicitly mentioned that 
+`MyList()` was a `List<Something&SomethingElse>`. The compiler just 
+figured it out for us.
+
+Note that when you inherit the same type more than once, you might
+need to refine some of its members, in order to satisfy all inherited 
+signatures. Don't worry, the compiler will notice and force you to do 
+it.
+
+
 ## Generic type constraints
 
 Very commonly, when we write a parameterized type, we want to be able to 
