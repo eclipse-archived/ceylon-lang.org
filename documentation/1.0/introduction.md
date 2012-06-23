@@ -574,6 +574,9 @@ You're never exposed to unpackaged `.class` files.
 At runtime, modules are loaded according to a peer-to-peer classloader architecture,
 based upon the same module runtime that is used at the very core of JBoss AS 7.
 
+[Ceylon Herd](http://modules.ceylon-lang.org) is a community module repository for
+sharing open source modules.
+
 ## Take the Tour
 
 We're done with the introduction. Take the [tour of Ceylon](#{page.doc_root}/tour) 
