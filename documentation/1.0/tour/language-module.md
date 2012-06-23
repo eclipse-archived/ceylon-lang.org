@@ -251,7 +251,8 @@ give the wrong answer, like in Java. And
 never correct to iterate a list using `size` and `item()` in Ceylon!
 
 To avoid the cost of calling `size()`, try to use the more efficient
-`empty`, and `longerThan()`.
+`empty`, `longerThan()` and `shorterThan()` when the string might be 
+very long.
 
 ## Numeric types
 
