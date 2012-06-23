@@ -25,7 +25,7 @@ experiment with the language using [Ceylon IDE](../ide), and
 gradually get a feel for how these things work and how they 
 are useful. None of us learned to program from books or 
 tutorials or from other people telling us how to do it. We 
-learned by playing and experimenting!
+learned by playing and experimenting.
 
 If you're completely new to static typing, you'll probably
 find Ceylon a bit fussy and complicated at first. There's a
