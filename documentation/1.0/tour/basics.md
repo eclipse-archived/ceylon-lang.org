@@ -408,6 +408,56 @@ Ceylon also supports sequenced parameters (varargs), declared using an
 ellipsis (i.e. `String...`). But we'll [come back](../named-arguments/#sequenced_parameters) 
 to them after we discuss [sequences](../sequences).
 
+## Numbers
+
+Ceylon doesn't have any primitive types, so numeric values are usually 
+represented by the classes 
+[`Integer`](#{site.urls.apidoc_current}/ceylon/language/class_Integer.html)
+and [`Float`](#{site.urls.apidoc_current}/ceylon/language/class_Float.html),
+which we'll come back to [later in the tour](../language-module/#numeric_types).
+
+Even though they're classes, you can use all the usual numeric literals and
+operators with them. For example, the following method efficiently determines 
+if an `Integer` represents a prime number:
+
+    doc "Determine if `n` is a prime number."
+    throws (Exception, "if `n<2`")
+    Boolean prime(Integer n) {
+        if (n<2) {
+            throw;
+        }
+        else if (n<=3) {
+            return true;
+        }
+        else if (n%2==0 || n%3==0) {
+            return false;
+        }
+        else if (n<25) {
+            return true;
+        }
+        else {
+            for (b in 1..((n.float**0.5+1)/6).integer) {
+                if (n%(6*b-1)==0 || n%(6*b+1)==0) {
+                    return false;
+                }
+            }
+            else {
+                return true;
+            }
+        }
+    }
+
+Try it, by running the following method:
+
+    doc "Print a list of all two-digit prime numbers."
+    void findPrimes() {
+        print({ for (i in 2..99) if (prime(i)) i });
+    }
+
+Heh, this was just a little teaser to keep you interested. We'll 
+explain the syntax we're using here a bit 
+[later in the tour](../comprehensions).
+
 ## There's more...
 
 Ceylon is an object-oriented language, so an awful lot of the code we write 
