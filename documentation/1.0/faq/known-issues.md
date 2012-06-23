@@ -48,6 +48,13 @@ to [report it](/code/issues/).
 </div>
 
 <div class="known-issue">
+<a class="see" href="https://github.com/ceylon/ceylon-compiler/issues/651">See issue</a>
+<div class="title">Refinement and intersection types</div>
+<b>Workaround:</b>
+<div class="workaround">None</div>
+</div>
+
+<div class="known-issue">
 <a class="see" href="https://github.com/ceylon/ceylon-compiler/issues/602">See issue</a>
 <div class="title">Problem with toplevels `x` and `X` in same package on case-insensitive filesystems</div>
 <b>Workaround:</b>
