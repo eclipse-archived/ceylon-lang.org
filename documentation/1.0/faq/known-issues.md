@@ -26,11 +26,32 @@ to [report it](/code/issues/).
 <div class="workaround">None</div>
 </div>
 
+<div class="known-issue">
+<a class="see" href="https://github.com/ceylon/ceylon-spec/issues/343">See issue</a>
+<div class="title">Unsoundness with inheritance of multiple instantiations of covariant type</div>
+<b>Workaround:</b>
+<div class="workaround">None</div>
+</div>
+
+<div class="known-issue">
+<a class="see" href="https://github.com/ceylon/ceylon-compiler/issues/649">See issue</a>
+<div class="title">Default values in variable attribute initializer parameters</div>
+<b>Workaround:</b>
+<div class="workaround">None</div>
+</div>
+
+<div class="known-issue">
+<a class="see" href="https://github.com/ceylon/ceylon-compiler/issues/650">See issue</a>
+<div class="title">Capturing a variable in a comprehension</div>
+<b>Workaround:</b>
+<div class="workaround">None</div>
+</div>
+
 ## Documentation generator (<code>ceylond</code>)
 
 No known issue.
 
-## SDK (<code>ceylon.language</code>)
+## SDK (<code>ceylon.language</code> and other platform modules)
 
 No known issue.
 
