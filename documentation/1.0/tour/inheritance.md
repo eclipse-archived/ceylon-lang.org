@@ -244,6 +244,10 @@ Oh, I suppose you would like to see `Cartesian`...
                 
     }
 
+Abstract classes are useful. But since interfaces in Ceylon are more 
+powerful than interfaces in Java, it often makes more sense to use
+an interface instead of an abstract class.
+
 
 ## Interfaces and "mixin" inheritance
 

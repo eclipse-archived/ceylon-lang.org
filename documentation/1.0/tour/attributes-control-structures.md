@@ -220,6 +220,9 @@ The `if/else` statement is totally traditional:
     }
 <!-- cat: } -->
 
+We often use [the operators `then` and `else`](../basics/#you_can_chain_an_else...)
+instead of `if`. 
+
 The `switch/case` statement eliminates C's much-criticized "fall through" 
 behavior and irregular syntax:
 
@@ -256,6 +259,10 @@ There is no C-style `for`. Instead, you can use the range operator to
 produce a sequence of `Integer`s:
 
     for (i in min..max) { ... }
+
+We often use [comprehensions](../comprehensions) or even 
+[higher order functions](../functions/#anonymous_functions) instead of
+`for`.
 
 The `while` loop is traditional.
 
@@ -304,6 +311,8 @@ And `try` will support a "resource" expression similar to Java 7.
             s.persist(person);
         }
     }
+
+There are no Java-style checked exceptions in Ceylon.
 
 ### implementation note <!-- m3 -->
 
