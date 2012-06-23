@@ -308,6 +308,24 @@ The type `String?` indicates that `name` may contain a `null` value. We then
 use the `if (exists ...)` control structure to handle the case of a `null` 
 name separately from the case of a non-`null` name.
 
+It's possible to abbreviate the code we just saw by declaring the local `name` 
+inside the `if (exists ... )` condition:
+
+<!-- cat: void hello() { -->
+    String greeting;
+    if (exists name = process.arguments.first) {
+        greeting = "Hello, " name "!";
+    }
+    else {
+        greeting = "Hello, World!";
+    }
+    print(greeting);
+<!-- cat: } -->
+
+This is the preferred style most of the time, since we can't actually use 
+`name` for anything useful outside of the `if (exists ... )` construct.
+(But this still isn't the most compact way to write this code.)
+
 ## Optional types
 
 Unlike Java, locals, parameters, and attributes that may contain `null` values 
@@ -326,38 +344,35 @@ Java - without first checking that the value is not `null` using
     print("Hello " + name + "!"); //compile error: name is not Summable
 
 In fact, it's not even possible to use the equality operator `==` with an 
-expression of optional type. You can't write `if (x==null)` like you can in 
-Java. This helps avoid the undesirable behavior of `==` in Java where `x==y` 
-evaluates to true if `x` and `y` both evaluate to `null`.
+expression of optional type. We can't write: 
 
-Note that the syntax `String?` is just an abbreviation for the 
-[union type](../types/#union_types) `Nothing|String`. And the value `null` 
-isn't a primitive value in Ceylon, it's just a perfectly ordinary instance of 
-the perfectly ordinary class `Nothing`. (However, the Ceylon compiler does
-some special magic to transform this value to a virtual machine-level null.)
+    String? name = process.arguments.first;
+    if (name==null) { ... } //compile error: name is not Object
+    
+like we can in Java. This helps avoid the undesirable behavior of `==` in 
+Java where `x==y` evaluates to true if `x` and `y` both evaluate to `null`.
 
-It's possible to declare the local name inside the `if (exists ... )` 
-condition (and because Ceylon has local [type inference](../types#type_inference), 
-you don't even have to declare the type):
+In a language with static typing, we're always wanting to know what the type 
+of something is. So what's the type of `null`? That's easy to answer: `null` 
+is a [`Nothing`](#{site.urls.apidoc_current}/ceylon/language/class_Nothing.html).
+And the syntax `String?` is just an abbreviation for the 
+[union type](../types/#union_types) `Nothing|String`. That's why we can't 
+call operations of `String` on a `String?`. It's a different type! The
+`if (exists ...)` construct narrowed the type of `name` inside the `if` block,
+allowing us to treat `name` as a `String` there.
 
-<!-- cat: void hello() { -->
-    String greeting;
-    if (exists name = process.arguments.first) {
-        greeting = "Hello, " name "!";
-    }
-    else {
-        greeting = "Hello, World!";
-    }
-    print(greeting);
-<!-- cat: } -->
+So now we can see that the value `null` isn't a primitive value in Ceylon, 
+it's just a perfectly ordinary instance of the perfectly ordinary class `Nothing`, 
+at least from the point of view of Ceylon's type system. 
 
-This is the preferred style most of the time, since we can't actually use 
-`name` for anything useful outside of the `if (exists ... )` construct.
+(However, if you're concerned about performance, it's well worth mentioning that 
+the Ceylon compiler does some special magic to transform this value to a virtual 
+machine-level null, all under the covers.)
 
 ## Operators for handling null values
 
 There are a couple of operators that will make your life easier when dealing 
-with `null` values.
+with `null` values. The first is `else`:
 
 <!-- cat: void hello(String? name) { -->
     String greeting = "Hello, " + (name else "World");
@@ -367,7 +382,9 @@ with `null` values.
 
 The `else` operator returns its first argument if the first argument is not 
 `null`, or its second argument otherwise. It's a more convenient way to 
-handle `null` values in simple cases.
+handle `null` values in simple cases. You can chain multiple `else`s:
+
+    String name = firstName else userId else "Guest";
 
 There's also an operator for _producing_ a null value:
 
@@ -381,7 +398,7 @@ ternary `?:` operator:
 
     String name = !arg.trimmed.empty then arg else "World";
 
-The `?.` operator lets us call operations on optional types.
+Finally, the `?.` operator lets us call operations on optional types:
 
 <!-- cat: void hello(String? name) { -->
     String shoutedGreeting = "HELLO, " + (name?.uppercased else "WORLD");
@@ -389,12 +406,17 @@ The `?.` operator lets us call operations on optional types.
     print(shoutedGreeting);
 } -->
 
+If `name` is null, `name?.uppercased` evaluates to `null`. Otherwise, the
+`uppercased` attribute of `String` is evaluated. 
+
 So we can finally simplify our example to something reasonable:
 
     doc "Print a personalized greeting"
     void hello() {
         print("Hello, " process.arguments.first else "World" "!");
     }
+
+Yes, after all that, it's a one-liner ;-)
 
 ## Defaulted parameters
 
@@ -440,7 +462,7 @@ if an `Integer` represents a prime number:
     throws (Exception, "if `n<2`")
     Boolean prime(Integer n) {
         if (n<2) {
-            throw;
+            throw Exception("illegal argument " n "<2");
         }
         else if (n<=3) {
             return true;
