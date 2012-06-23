@@ -446,6 +446,13 @@ Ceylon M3!
 
 ## There's more...
 
+The language module isn't by itself a platform for building applications.
+It's a minimal set of basic types that form part of the language definition
+itself. The Ceylon SDK is still under development, but you can already
+start using [ceylon.file](http://modules.ceylon-lang.org/modules/ceylon.file),
+[ceylon.process](http://modules.ceylon-lang.org/modules/ceylon.process), and
+[ceylon.math](http://modules.ceylon-lang.org/modules/ceylon.math). 
+
 Next we're going to come back to the subject of [object initialization](../initialization), 
 and deal with a subtle problem affecting languages like Java and C#.
 
