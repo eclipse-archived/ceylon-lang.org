@@ -32,7 +32,8 @@ find Ceylon a bit fussy and complicated at first. There's a
 lot more rules to know about than in a language like Python,
 Ruby, or Smalltalk. But we promise that the benefits are worth 
 it in the end, especially once you learn to use the IDE 
-effectively!
+effectively. Tooling for dynamic languages simply can't reason
+about your code like Ceylon IDE can! 
 
 ## Before you start
 
