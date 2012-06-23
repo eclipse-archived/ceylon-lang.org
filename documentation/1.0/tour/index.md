@@ -61,12 +61,12 @@ We'll start with the [Basics](basics).
 
 1. [Basics](basics)
 1. [Classes](classes)
+1. [Attributes and variables, control structures](attributes-control-structures)
 1. [Inheritance, refinement, and interfaces](inheritance)
 1. [Anonymous and member classes](anonymous-member-classes)
 1. [Sequences](sequences)
 1. [Types](types)
 1. [Generics](generics)
-1. [Attributes and variables, control structures](missing-pieces)
 1. [Packages and modules](modules)
 1. [Functions](functions)
 1. [Sequenced parameters and named arguments](named-arguments)

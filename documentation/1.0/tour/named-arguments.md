@@ -33,9 +33,9 @@ Inside the method body, the parameter `strings` has type `Iterable<String>`.
     }
 
 A slightly more sophisticated example is the `coalesce()` method we saw 
-[earlier](../missing-pieces#then_we_can_abstract_the...). `coalesce()` 
-accepts a sequence of `X?` and eliminates nulls, returning `X[]`, for any 
-type `X`. Its signature is:
+[earlier](../attributes-control-structures#then_we_can_abstract_the...). 
+`coalesce()` accepts a sequence of `X?` and eliminates nulls, returning 
+`X[]`, for any type `X`. Its signature is:
 
 <!-- check:none:pedagogical -->
     shared Value[] coalesce<Value>(Value?... sequence) { 

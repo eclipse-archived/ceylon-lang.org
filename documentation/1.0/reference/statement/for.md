@@ -88,7 +88,7 @@ This isn't a problem in practice; see
 * The [`continue` statement](../continue)
 * The [`while` statement](../while)
 * [`Iterable`](#{page.doc_root}/api/ceylon/language/interface_Iterable.html)
-* The [`for` statement](#{page.doc_root}/tour/missing-pieces#control_structures) 
+* The [`for` statement](#{page.doc_root}/tour/attributes-control-structures#control_structures) 
   and [Iterating Sequences](#{page.doc_root}/tour/sequences#iterating_sequences)
   in the Tour of Ceylon
 * The [`for` statement](#{page.doc_root}/#{site.urls.spec_relative}#forelse) 

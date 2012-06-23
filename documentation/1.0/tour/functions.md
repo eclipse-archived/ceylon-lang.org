@@ -33,7 +33,7 @@ and higher order functions. A little bit of PL jargon:
 - A _higher order function_ is a function that accepts other functions as 
   arguments, or returns another function.
   
-It's clear that these two ideas go hand-in-hand, we'll just use the term 
+It's clear that these two ideas go hand-in-hand, so we'll just use the term 
 "higher order function support" from now on.
 
 

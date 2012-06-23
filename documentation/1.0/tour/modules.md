@@ -8,10 +8,11 @@ author: Gavin King
 
 # #{page.title}
 
-This is the ninth part of the Tour of Ceylon. In the 
-[previous part](../missing-pieces) we looked at attributes, variables, setters,
-and control structures. Now we turn our attention to a very different subject:
-modularity. We're going to learn about *packages* and *modules*.
+This is the ninth part of the Tour of Ceylon. If you found the 
+[previous part](../generics) on generic types a little overwhelming, don't 
+worry; this part is going to cover some material which should be much easier 
+going. We're turning our attention to a very different subject: modularity. 
+We're going to learn about *packages* and *modules*.
 
 ## Packages and imports
 
@@ -340,4 +341,4 @@ public module repository.
 
 ## There's more
 
-Next we're going to look at Ceylon's support for [first class functions](../functions).
+Next we're going to look at Ceylon's support for [higher order functions](../functions).

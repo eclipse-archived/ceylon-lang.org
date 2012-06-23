@@ -8,9 +8,9 @@ author: Gavin King
 
 # #{page.title}
 
-This is the fifth leg of the Tour of Ceylon. In the [previous leg](../anonymous-member-classes) 
-we covered anonymous classes and member classes. Now we're going to look at 
-*sequences*.
+This is the sixth leg of the Tour of Ceylon. In the 
+[previous leg](../anonymous-member-classes) we covered anonymous classes and 
+member classes. Now we're going to look at *sequences*.
 
 
 ## Sequences
@@ -283,7 +283,7 @@ exact same idioms also apply to other kinds of `Correspondence`, including
 ## There's more...
 
 Next we'll explore some more details of the type system, starting with
-[union types, intersection types, algebraic data types, type switching, and 
-type inference](../types). Then, after that, we'll be ready to discuss 
+[union types, intersection types, algebraic data types, type switching, 
+and type inference](../types). Then, after that, we'll be ready to discuss 
 [generic types](../generics). 
 

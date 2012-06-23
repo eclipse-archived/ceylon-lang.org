@@ -10,7 +10,12 @@ author: Gavin King
 
 This is the thirteenth part of the Tour of Ceylon. The [previous part](../comprehensions)
 introduced comprehensions . We're now going to learn about Ceylon's 
-_language module_, the basic types defined in the module `ceylon.language`.
+_language module_ and some of the basic types it defines.
+
+The language module is special, because it is referred to by the language
+specification, and some language-level constructs are defined in terms of
+the types it declares. Therefore, you can think of it as forming part of 
+the language definition. 
 
 ## An overview of the language module
 

@@ -48,7 +48,7 @@ In Ceylon there is no `do`/`while` statement.
 * The [`break` statement](../break/)
 * The [`continue` statement](../continue)
 * The [`for` statement](../for)
-* The [`while` statement](#{page.doc_root}/tour/missing-pieces#control_structures) 
+* The [`while` statement](#{page.doc_root}/tour/attributes-control-structures#control_structures) 
   in the Tour of Ceylon
 * The [`while` statement](#{page.doc_root}/#{site.urls.spec_relative}#while) 
   in the language specification

@@ -15,7 +15,7 @@ Before we can get into any of the really interesting and powerful features of
 this language, we need to get comfortable with some of the basic syntax, so
 we'll know what we're looking at later on. 
 
-## Writing a simple program
+## A _really_ simple program
 
 Here's a classic example program.
 
@@ -404,11 +404,13 @@ the method:
 Defaulted parameters must be declared after all required parameters in the 
 parameter list of a method.
 
-Ceylon also supports sequenced parameters (varargs), declared using an ellipsis 
-(i.e. `String...`). But we'll [come back](../named-arguments/#sequenced_parameters) 
-to them after we discuss [sequences](../sequences) and [`for` loops](../missing-pieces#control_structures).
+Ceylon also supports sequenced parameters (varargs), declared using an 
+ellipsis (i.e. `String...`). But we'll [come back](../named-arguments/#sequenced_parameters) 
+to them after we discuss [sequences](../sequences).
 
 ## There's more...
 
-Let's now learn about [classes](../classes).
+Ceylon is an object-oriented language, so an awful lot of the code we write 
+in Ceylon is contained in a _class_. Let's learn about [classes](../classes)
+right now.
 

@@ -346,5 +346,8 @@ Now we can create `Polar` coordinates with or without labels:
 
 ## There's more...
 
-We'll now explore [inheritance and refinement (overriding)](../inheritance).
+It's time to take a slightly closer look at some of the stuff that
+we'll find inside the body of a class: [attributes, locals, and
+control structures](../attributes-control-structures).
 
+(We'll wait until a later chapter to learn more about [methods](../functions).)

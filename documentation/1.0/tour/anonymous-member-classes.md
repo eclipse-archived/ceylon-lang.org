@@ -8,9 +8,10 @@ author: Emmanuel Bernard
 
 # #{page.title}
 
-This is the fourth leg of the Tour of Ceylon. In the [previous leg](../inheritance)
-you learned about inheritance and refinement. In this leg you're going to learn 
-about *anonymous classes* and *member classes*.
+This is the fifth stop in our Tour of Ceylon. In the 
+[previous leg](../inheritance) we learned about inheritance and refinement.
+It's time to round out our introduction to object-oriented programming in 
+Ceylon by learning about *anonymous classes* and *member classes*.
 
 ## Anonymous classes
 
@@ -213,7 +214,8 @@ will be available in the next release.
 
 ## There's more...
 
-Member classes and member class refinement allows Ceylon to support type families.
+Member classes and member class refinement allows Ceylon to support _type families_.
+We're not going to discuss type families in this tour.
 
 Next, we're going to meet [sequences](../sequences), Ceylon's take on the 
 "array" type.

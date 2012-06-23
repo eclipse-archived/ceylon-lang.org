@@ -8,9 +8,14 @@ author: Gavin King
 
 # #{page.title}
 
-This is the sixth leg in the Tour of Ceylon. The [previous leg](../sequences) 
-looked at sequences. Now it's time to explore Ceylon's type system in more 
-detail.
+This is the seventh step in the Tour of Ceylon. The 
+[previous installment](../sequences) introduced sequences. Now it's time to 
+explore Ceylon's type system in more detail. 
+
+In this chapter, we're going to discuss the closely related topics of _union 
+and intersection types_, _enumerated types_, narrowing types, and finally 
+_local type inference_. In this area, Ceylon's type system works quite 
+differently from other langauges with static typing.
 
 
 ## Narrowing the type of an object reference
