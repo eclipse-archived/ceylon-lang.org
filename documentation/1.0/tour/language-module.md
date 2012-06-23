@@ -384,6 +384,41 @@ syntax support for numeric arithmetic and numeric widening conversions.
 Numeric widing for custom numeric types is not supported in Ceylon M3, and
 so implementing `Castable` has no effect.
 
+## Collections
+
+The language module includes several interfaces that represent container
+types: 
+[`Collection`](#{site.urls.apidoc_current}/ceylon/language/interface_Castable.html),
+[`List`](#{site.urls.apidoc_current}/ceylon/language/interface_Castable.html),
+[`Map`](#{site.urls.apidoc_current}/ceylon/language/interface_Castable.html), and
+[`Set`](#{site.urls.apidoc_current}/ceylon/language/interface_Castable.html).
+
+You might be disappointed to discover that there are no general-purpose 
+implementations of these interfaces in the language module itself. In fact,
+they're only declared here so that `String` and `Sequence` can be subtypes
+of `List`.
+
+You might be even more disappointed when you look at these interfaces and
+discover that they're missing half the useful operations you're used to 
+seeing on a collection: they have no operations at all for building or
+mutating the collection. Actually, there's a couple of good reasons for this:
+
+- It's usually best for an API to return an obviously read-only collection
+  to clients, instead of leaving the client scratching his head wondering
+  whether mutating this collection results in mutation of the internal data 
+  structures held by the API, and whether this is safe.
+- Making these interfaces read-only means they can be declared 
+  [covariant](../generics/#covariance_and_contravariance) in their type 
+  parameters.  
+
+The module `ceylon.collection` contains general-purpose implementations of
+these interfaces, along with APIs for building and mutating collectons.
+
+### implementation note <!-- m3 -->
+
+The module `ceylon.collection` does not yet exist, as of the release of 
+Ceylon M3!
+
 ## There's more...
 
 Next we're going to come back to the subject of [object initialization](../initialization), 
