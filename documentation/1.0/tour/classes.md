@@ -210,6 +210,7 @@ local before making use of the simple attribute or local in an expression.
         count++;   //compile error
     }
 
+We'll learn more about this [later in the tour](../initialization).
 
 ## Abstracting state using attributes
 
@@ -312,7 +313,7 @@ but here's a quick example of each of the three techniques:
     }
 
 Don't worry if you don't completely understand the third example just yet, 
-we'll come back to it in a [later lesson](../types#union_types). 
+we'll come back to it [later in the tour](../types#union_types). 
 
 Let's make use of this idea to "overload" the "constructor" of `Polar`.
 
@@ -346,8 +347,8 @@ Now we can create `Polar` coordinates with or without labels:
 
 ## There's more...
 
-It's time to take a slightly closer look at some of the stuff that
-we'll find inside the body of a class: [attributes, locals, and
-control structures](../attributes-control-structures).
+In the [next chapter](../attributes-control-structures), we'll continue our 
+investigation of attributes, and especially _variable_ attributes. We'll also
+meet Ceylon's [control structures](../attributes-control-structures/#control_structures).
 
 (We'll wait until a later chapter to learn more about [methods](../functions).)

@@ -9,11 +9,12 @@ author: Gavin King
 # #{page.title}
 
 This is the third part of the Tour of Ceylon. In the [previous leg](../classes)
-we learned about classes. What really makes a class special is that is can hold 
-state&mdash;references to other objects. So it's time to learn more about
- [attributes](#attributes_and_locals) and [variables](#variables). 
+we learned about classes and [met the concept of an attribute](../classes/#abstracting_state_using_attributes). 
+What really makes a class special is that is can hold state&mdash;references 
+to other objects. So it's time to learn more about [attributes](#attributes_and_locals) 
+and [variables](#variables). 
  
-Next, we're going to skim over some material about the 
+Then we're going to skim over some material about 
 [control structures](#control_structures) 
   ([`if`](#ok_so_here_are_the...), 
   [`switch`](#the_switchcase_statement_eliminates_cs...),
@@ -53,7 +54,7 @@ But in the following two examples, `count` is an attribute:
 This might seem a bit strange at first, but it's really just how the principle 
 of closure works. The same behavior applies to locals inside a method. Methods 
 can't declare `shared` members, but they can return an `object` that captures 
-a local:
+a local variable:
 
     interface Counter {
         shared formal Integer inc();
@@ -69,10 +70,26 @@ a local:
         return counter;
     }
 
-Even though we'll continue to use the words "local" and "attribute", keep in 
-mind that there's no really strong distinction between the terms. Any named 
-value might be captured by some other declaration in the same containing 
-scope.
+Or, as we'll see [later](../functions), a method can return a nested function 
+that captures the local variable:
+
+    Integer() counter() {
+        variable Integer count := 0;
+        Integer inc() {
+            return ++count;
+        }
+        return inc;
+    }
+
+(Don't worry too much about the syntax here&mdash;for now all we're interested
+in is that `counter()` returns a reference to a function `inc()` that captures 
+the variable `count`.)
+
+So even though we'll continue to use the words "local" and "attribute" throughout
+this tutorial, keep in mind that there's no really strong distinction between the 
+terms. Any named value might be captured by some other declaration in the same 
+containing scope. A local is just an attribute that happens to not be captured
+by anything.
 
 
 ## Variables
@@ -102,10 +119,18 @@ expression. It's just a punctuation character. The following code is not
 only wrong, but even fails to parse:
 
 <!-- check:none:demoing error -->
+    Boolean x = ... ;
     if (x=true) {   //compile error
         ...
     }
 
+On the other hand, `:=` is an operator, and the following code is well-typed,
+though perhaps not correct!
+
+    variable Boolean x := ... ;
+    if (x:=true) {   //ok
+        ...
+    }
 
 ## Setters
 
@@ -132,18 +157,18 @@ as a getter/setter pair:
      
     assign fullName {
         value tokens = fullName.split().iterator;
-        value first = tokens.next();
-        if (is String first) {
+        if (is String first = tokens.next()) {
             firstName := first;
         }
-        value last = tokens.next();
-        if (is String last) {
+        if (is String last = tokens.next()) {
             lastName := last;
         }
     }
 
 A setter is identified by the keyword `assign` in place of a type declaration. 
 (The type of the matching getter determines the type of the attribute.)
+Within the body of the setter, the attribute name evaluates to the value
+being set.
 
 Yes, this is a lot like a Java get/set method pair, though the syntax is 
 significantly streamlined. But since Ceylon attributes are polymorphic, and 
@@ -152,6 +177,13 @@ without affecting clients that call the attribute, you don't need to write
 getters and setters unless you're doing something special with the value 
 you're getting or setting.
 
+Don't ever write code like this in Ceylon:
+
+    variable String _name;
+    shared String name { return _name; }
+    assign name { _name:=name; }
+
+It's not necessary, and there's never any benefit to it. 
 
 ## Control structures
 
@@ -170,7 +202,11 @@ You are required to write:
     if (x>100) { print("big"); }
 <!-- cat: } -->
 
-OK, so here are the examples. The `if/else` statement is totally traditional:
+OK, so here are the examples. 
+
+### Conditionals
+
+The `if/else` statement is totally traditional:
 
 <!-- cat: void m(Integer x) { -->
     if (x>100) {
@@ -194,9 +230,13 @@ behavior and irregular syntax:
     case (larger) { print("larger"); }
 <!-- cat: } -->
 
+The type of the `switch`ed expression _must_ be an enumerated type. You
+can't `switch` on a `String` or `Integer`. (Use `if` instead.)
+
+### Loops
+
 The `for` loop has an optional `else` block, which is executed when the 
 loop completes normally, rather than via a `return` or `break` statement. 
-There is no C-style `for`.
 
 <!-- cat: class Person() {shared Integer age = 0;} -->
 <!-- cat: void m(Person[] people) { -->
@@ -212,6 +252,11 @@ There is no C-style `for`.
     }
 <!-- cat: } -->
 
+There is no C-style `for`. Instead, you can use the range operator to
+produce a sequence of `Integer`s:
+
+    for (i in min..max) { ... }
+
 The `while` loop is traditional.
 
 <!-- cat: void m(String[] names) { -->
@@ -222,6 +267,8 @@ The `while` loop is traditional.
 <!-- cat: } -->
 
 There is no `do/while` statement.
+
+### Exception handling
 
 The `try/catch/finally` statement works like Java's:
 
