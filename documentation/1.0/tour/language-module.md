@@ -396,7 +396,7 @@ types:
 You might be disappointed to discover that there are no general-purpose 
 implementations of these interfaces in the language module itself. In fact,
 they're only declared here so that `String`, `Sequence`, and 
-[`Array`](#{site.urls.apidoc_current}/ceylon/language/interface_Array.html) 
+[`Array`](#{site.urls.apidoc_current}/ceylon/language/class_Array.html) 
 can be subtypes of `List`.
 
 You might be even more disappointed when you look at these interfaces and
