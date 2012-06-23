@@ -105,6 +105,7 @@ All types that represent well-defined values extend `Object`, including:
 * user-written classes,
 * all interfaces, and
 * the types that are considered primitive in Java, such as 
+  [`Boolean`](#{site.urls.apidoc_current}/ceylon/language/class_Boolean.html),
   [`Integer`](#{site.urls.apidoc_current}/ceylon/language/class_Integer.html),
   [`Float`](#{site.urls.apidoc_current}/ceylon/language/class_Float.html) and 
   [`Character`](#{site.urls.apidoc_current}/ceylon/language/class_Character.html).
