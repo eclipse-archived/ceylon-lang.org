@@ -208,13 +208,12 @@ file IO.*
 * fix "object builder" syntax
 
 ### Statements:
-* `try` with resources
+* `try` with resources _POSSIBLY_
 
 ### Expressions:
 * named argument-style syntax for instantiating interfaces
 * lengthwise range operator (`:`)
-* numeric widening for custom numeric types _POSSIBLY_
-* laziness for string interpolation
+* laziness for string interpolation _POSSIBLY_
 
 ### Modularity:
 * repository replicator
@@ -245,6 +244,7 @@ file IO.*
 
 ### Expressions:
 * metamodel references
+* numeric widening for custom numeric types
 
 ### Misc:
 * annotation constraints
