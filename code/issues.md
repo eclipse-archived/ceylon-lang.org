@@ -27,3 +27,4 @@ If your issue doesn't fall into one of these categories, it
 might be better to send email to the 
 [development mailing list](https://groups.google.com/forum/?fromgroups#!forum/ceylon-dev).
 
+We also maintain a list of [major known issues in the current release](/documentation/current/faq/known-issues). 
