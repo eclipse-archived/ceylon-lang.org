@@ -203,7 +203,7 @@ file IO.*
 ### Declarations:
 * member class refinement / type families
 * class and interface aliases
-* union and interface aliases _POSSIBLY_
+* union and intersection aliases _POSSIBLY_
 * new syntax for package and module descriptors
 * fix "object builder" syntax
 
