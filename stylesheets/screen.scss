@@ -398,7 +398,6 @@ form.bp {
   }
 
   #newsbar {
-    @include column(22, true);
     width: 900px;
     margin-bottom: $space-after-home-lines;
     margin-left: 1.75em;
