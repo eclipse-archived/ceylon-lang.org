@@ -12,8 +12,9 @@ This is the latest release of the language, command line tools and IDE.
 
 ## Command line tools
 
-This package contains the Ceylon command line compiler, 
-documentation compiler, language module, and runtime.
+This package contains the Ceylon command line compiler for Java and
+JavaScript virtual machines, the documentation compiler, the language 
+module, and the module runtime.
 
 [V2000]: /blog/2012/06/25/ceylon-m3-v2000?utm_source=download&utm_medium=web&utm_content=blog&utm_campaign=1_0_M3release
 
