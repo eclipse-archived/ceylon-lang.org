@@ -414,15 +414,10 @@ form.bp {
     } 
 
     #newsbar-text {
-      height: 100%;
-      p {
-        vertical-align:middle;
-      }
-      @include column(17, true);
     }
 
     #newsbar-services {
-      @include column(5, true);
+      text-align: right;
       a {
         text-decoration: none;
       }
