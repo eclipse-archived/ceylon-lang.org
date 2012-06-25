@@ -55,6 +55,18 @@ language itself. The extremely outdated class libraries that
 form the Java SE SDK are riddled with problems. Developing a 
 great SDK is a top priority of the project.
 
+### But there's already so many languages out there!
+
+Well, sure, but how many of them actually meet the bare list 
+of technical requirements we have here: cross-platform execution, 
+modularity, great tooling? The requirement for tooling alone
+rules out _all dynamically typed languages_. And the requirement
+for execution on JavaScript VMs rules out essentially all the 
+rest. In fact, I can't really name another existing language 
+that, as of today, even arguably has the same set of technical 
+capabilities as Ceylon. And that's without even getting started 
+on any of [our other goals and principles](/blog/2012/01/10/goals).
+
 ### How is Ceylon different?
 
 Every language has its strengths and weaknesses. Ceylon is
