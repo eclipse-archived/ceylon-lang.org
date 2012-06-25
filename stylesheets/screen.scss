@@ -35,7 +35,7 @@ body.bp {
   font: 14px "Lucida Sans Unicode", "Lucida Grande", sans-serif; 
   color: #2c2c2c;
   text-shadow: white 1px 1px 0px;
-  background-color: #f1f1f1;
+  background-color: white;
       
   h1 {
     color: $h1_text_color;
@@ -259,8 +259,19 @@ form.bp {
     @include column(16);
   }
 
+  #ishas {
+    background: #E6E7E8;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    margin-top: 1em;
+    .hometitle-text {
+      padding-top: 1em;
+    }
+  }
+
   #bubble {
-    @include column(8,true);
+    display: inline-block;
+    width: 310px;
   }
 
   .bubble-block {
@@ -873,3 +884,4 @@ body.two-col {
 #dsq-content .dsq-toolbar-label {
   text-shadow: none;
 }
+
