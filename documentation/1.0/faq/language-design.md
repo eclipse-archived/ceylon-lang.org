@@ -519,7 +519,7 @@ an invariant type like in Java.
 It would be possible to add support for use site variance to
 Ceylon, probably using a syntax like this:
 
-    Array<Integer> ints = Array(2, 4, 6);
+    Array<Integer> ints = array(2, 4, 6);
     Array<out Object> = ints;
 
 Since `Array` is invariant in its type parameter, `Array<Integer>`
@@ -528,15 +528,15 @@ of the `setItem()` method of `Array<Object>` is:
 
     void setItem(Integer index, Object item)
 
-i.e. you can put things that aren't `Integer`s in an `Array<Object>`.
+So you can put things that aren't `Integer`s in an `Array<Object>`.
 
 But `Array<Integer>` _would_ be an `Array<out Object>`, where 
 the signature of the `setItem()` method would be:
 
     void setItem(Integer index, Bottom item)
 
-(i.e. contravariant occurrences of the type parameter take the
-value `Bottom` in the covariant instantiation of the invariant
+(i.e. contravariant occurrences of the type parameter would take 
+the value `Bottom` in the covariant instantiation of the invariant
 type.)
 
 We're still trying really hard to _not_ need to add use site 
