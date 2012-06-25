@@ -8,7 +8,7 @@ author: Emmanuel Bernard
 # #{page.title}
 
 [Ceylon M3 "V2000"][V2000] is now available for download! 
-This is the first release of the command line tools and IDE.
+This is the latest release of the language, command line tools and IDE.
 
 ## Command line tools
 
