@@ -7,7 +7,7 @@ author: Emmanuel Bernard
 ---
 # #{page.title}
 
-[Ceylon M2 "Minitel"][minitel] is now available for download! 
+[Ceylon M3 "V2000"][V2000] is now available for download! 
 This is the first release of the command line tools and IDE.
 
 ## Command line tools
@@ -15,7 +15,7 @@ This is the first release of the command line tools and IDE.
 This package contains the Ceylon command line compiler, 
 documentation compiler, language module, and runtime.
 
-[minitel]: /blog/2012/03/20/ceylon-m2-minitel?utm_source=download&utm_medium=web&utm_content=blog&utm_campaign=1_0_M2release
+[V2000]: /blog/2012/06/25/ceylon-m3-v2000?utm_source=download&utm_medium=web&utm_content=blog&utm_campaign=1_0_M3release
 
 <table>
     <tr>
