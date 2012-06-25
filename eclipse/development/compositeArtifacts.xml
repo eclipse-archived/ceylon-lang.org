@@ -6,11 +6,17 @@
 <property name='p2.timestamp' value='1320783117000'/>
 </properties>
 <children size="2">
-   <!-- David site:  -->
+   <!-- David site:  
    <child location="http://dl.dropbox.com/u/49014420/updatesite/sites/ceylon/"/>
+-->
+   <!-- Max's site 
+   <child location="https://dl.dropbox.com/u/558690/ceylon/M3-dev/"/>  
+  -->
 
-   <!-- Max's site -->
-   <!-- <child location="https://dl.dropbox.com/u/558690/ceylon/M3-dev/"/>  -->
+   <!-- release site - just so they are the same for now -->
+   <child location="http://ceylon-lang.org/eclipse/updatesite/"/>
+
    <child location="http://download.jboss.org/tools/extras/imp/"/>
+
  </children>
 </repository>
