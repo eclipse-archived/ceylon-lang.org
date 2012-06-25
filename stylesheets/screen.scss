@@ -264,12 +264,13 @@ form.bp {
     -moz-border-radius: 15px;
     border-radius: 15px;
     margin: 1em 1.5em 0 1.5em;
+    padding: 25px;
     .hometitle-text {
       padding-top: 1em;
     }
     .bubble {
       display: inline-block;
-      width: 300px;
+      width: 280px;
     }
     .bubble-block-transparent {
       padding: 0;
@@ -303,11 +304,14 @@ form.bp {
   }
 
   .bubble-block-transparent {
+    color: #3e4747;
     strong {
-      color: #DFA32F;
+      font-weight: bold;
     }
     h2 {
-      text-align: center;
+      text-align: left;
+      font-size: 16px;
+      color: #3e4747;
     }
     h3 {
       margin: 1em 0;
@@ -381,9 +385,10 @@ form.bp {
     //margin-bottom: 5em;
   }
   .hometitle-text {
-    text-align:center;
+    text-align: left;
+    margin-left: 1.6em;
     h1 {
-      font-size:20px;
+      font-size: 20px;
     }
   }
 
