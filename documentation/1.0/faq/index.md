@@ -25,13 +25,17 @@ programs in teams.
 
 ### Where can I run Ceylon?
 
-You can run Ceylon anywhere a Java Virtual Machine is available.
+You can run Ceylon anywhere a Java 7 Virtual Machine is available.
 The Ceylon compiler uses the bytecode generator in Open JDK to 
 produce Java bytecode.
 
-We're also working on a second compiler backend which produces
-JavaScript instead of Java class files, so that you can use
-Ceylon in a web browser or on `node.js`.
+You can also run Ceylon programs on a JavaScript virtual machine, 
+for example, in a web browser or on Node.js. 
+
+Note that not all Ceylon modules are available for both platforms.
+A module might be cross-platform, it might by JVM-only, or it 
+might be JavaScript-only. Of course, `ceylon.language` is 
+completely cross-platform.
 
 ### Why a new language?
 
@@ -94,7 +98,11 @@ date, but we're planning for a 1.0 release later this year.
 
 There's some debate about that but the accepted pronounciation 
 in the team is [/sɨˈlɒn/](http://en.wikipedia.org/wiki/Wikipedia:IPA_for_English#Key).
-Or in less fancy schmancy phoneticsy, `selón`.
+Or in less fancy schmancy phoneticsy, `selón`. 
+
+(On the other hand, lot's of folks seem to pronounce it `say-lon` 
+with the emphasis on the first syllable so if you say it like that 
+we'll probably know what you're talking about.) 
 
 ## Contributing
 
@@ -114,15 +122,13 @@ backend? Read about [how to work on that project](/code).
 ### Found a problem, how can I improve the website?
 
 The website is fully open already and you can contribute 
-typos, improvements, or new pages very easily. 
-[Want more info?](/code/website).
+typos, improvements, or new pages [very easily](/code/website). 
 
 ## Technical
 
 ### What version of Java is required to run Ceylon?
 
-Today JDK 6. We may make use of the new `invokedynamic` 
-instruction introduced in Java 7 at some point.
+Both Ceylon and Ceylon IDE require Java 7.
 
 ### Can you tell me more about how it works?
 
@@ -132,10 +138,9 @@ You can read up on the [architecture](/code/architecture).
 
 ### What license is Ceylon released under?
 
-All the code, the language specification, and even our 
-website is open source. It's extremely important to us that 
-the entire platform be open and unencumbered. 
-[Read more](/code/licenses).
+All the code, the language specification, and even our website 
+is [open source](/code/licenses). It's extremely important to 
+us that the entire platform be open and unencumbered.
 
 ### What is the elephant's name?
 
