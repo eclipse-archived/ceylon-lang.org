@@ -1,5 +1,5 @@
 ---
-title: Installing the Ceylon IDE
+title: Installing Ceylon IDE
 layout: documentation
 tab: documentation
 unique_id: docspage
@@ -7,12 +7,10 @@ author: Gavin King
 ---
 # #{page.title}
 
-The M1 "Newton" release of the Ceylon IDE is available from our Eclipse 
-plugin update site. Note that the version of the Ceylon compiler embedded
-in this M1 release is compatible with the Ceylon M1 "Newton" command-line 
+The M3 release of the Ceylon IDE is available from our Eclipse plugin 
+update site. Note that the version of the Ceylon compiler embedded in 
+this release is compatible with the Ceylon M3 "V2000" command line 
 tools.
-
-**Note:** The M2 "Minitel" release of the Ceylon IDE will be released soon.
 
 Please [report any issue in our issue tracker][issues].
 
@@ -20,7 +18,9 @@ Please [report any issue in our issue tracker][issues].
 
 Here's what you need to do to install the IDE:
 
-1.  Start with a clean install of [Eclipse 3.7 Indigo][eclipse].
+1.  Start with a clean install of [Eclipse 3.7 Indigo][eclipse]
+    or of [Eclipse 4.2 Juno](http://eclipse.org/juno). Mac OS
+    users _must_ install Juno.
 2.  Go to `Help > Install New Software ...`.
 3.  Enter the URL <http://ceylon-lang.org/eclipse/updatesite/>
     in the `Work With` field and hit Enter.
