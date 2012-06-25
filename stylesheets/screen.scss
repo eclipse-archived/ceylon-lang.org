@@ -327,21 +327,21 @@ form.bp {
     //font-family: Arial;
     color: #ffffff;
     font-size: 13px;
-    padding: 3px;
+    padding: 5px 7px;
     text-decoration: none;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     -webkit-box-shadow: 0px 1px 3px #666666;
     -moz-box-shadow: 0px 1px 3px #666666;
-    text-shadow: 1px 1px 3px #666666;
-    border: solid #163333 2px;
-    background: -webkit-gradient(linear, 0 0, 0 100%, from(#163333), to(#26595F));
-    background: -moz-linear-gradient(top, #163333, #26595F);
+    text-shadow: 1px 1px 3px #255A5F;
+    border: solid #368D73 1px;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#82CDBA), to(#368D73));
+    background: -moz-linear-gradient(top, #82CDBA, #368D73);
   }
 
   .bubble-button:hover {
-    background: -webkit-gradient(linear, 0 0, 0 100%, from(#26595F), to(#163333));
-    background: -moz-linear-gradient(top, #26595F, #163333)
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#368D73), to(#82CDBA));
+    background: -moz-linear-gradient(top, #368D73, #82CDBA);
   }
 
   .bubble-bottom {
