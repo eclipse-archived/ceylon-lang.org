@@ -293,6 +293,62 @@ of "breaking" when a new subtype of `Node` is added.
         }
     }
 
+## Enumerated interfaces
+
+Ordinarily, Ceylon won't let us use interface types as `case`s of a `switch`.
+If `File`, `Directory`, and `Link` are interfaces, we ordinarily can't write:
+
+    File|Directory|Link resource = ... ;
+    switch (resource) 
+    case (is File) { ... }
+    case (is Directory) { ... } //compile error: cases are not disjoint
+    case (is Link) { ... }  //compile error: cases are not disjoint
+
+The problem is that the cases are not _disjoint_. We could have a class that
+satisfies both `File` and `Directory`, and then we wouldn't know which branch
+to execute! 
+
+(In all our previous examples, our `case`s referred to types which were 
+provably disjoint, because they were classes, which support only single
+inheritance.)
+
+There's a workaround, however. When an interface has enumerated subtypes, the
+compiler enforces those subtypes to be disjoint. So if we define the following
+enumerated interface:
+
+    interface Resource of File|Directory|Link { ... }
+
+Then the following declaration is an error:
+
+    class DirectoryFile() 
+            satisfies File&Directory {} //compile error: File and Directory are disjoint types
+
+Now this is accepted by the compiler:
+
+    Resource resource = ... ;
+    switch (resource) 
+    case (is File) { ... }
+    case (is Directory) { ... }
+    case (is Link) { ... }
+
+The compiler is pretty clever when it comes to reasoning about disjointness
+and exhaustion. For example, this is acceptable:
+
+    Resource resource = ... ;
+    switch (resource) 
+    case (is File|Directory) { ... }
+    case (is Link) { ... }
+
+As is this, assuming the above declaration of `Resource`:
+
+    File|Directory resource = ... ;
+    switch (resource) 
+    case (is File) { ... }
+    case (is Directory) { ... }
+
+If you're interested in knowing more about how this works, 
+[read this](/blog/2012/01/25/enumerated-types/#how_the_compiler_reasons_about_enumerated_types).
+
 
 ## Enumerated instances
 
