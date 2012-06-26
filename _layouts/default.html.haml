@@ -31,8 +31,23 @@ tab: to-be-defined
         - idname = page.tab == "blog" ? "selected" : "notselected"
         %li{ :id=>"#{idname}" }
           %a{ :href=>'/blog' } Blog
-.banner
-  &nbsp;
+#banner
+  #elephant
+    &nbsp;
+  #text
+    &nbsp;
+  #code
+    :markdown
+      <!-- lang: none -->
+          Html html = Html {
+             head = Head {
+                 title = "Ceylon: home page";
+             };
+             body = Body {
+                 H2 ( "Welcome to Ceylon, " name() "!" ),
+                 P ( "Now get started :)" )
+             };
+          };
 #primary-content
   ~ content
 .footer-bar
