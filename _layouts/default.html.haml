@@ -37,16 +37,18 @@ tab: to-be-defined
   #text
     &nbsp;
   #code
-    :markdown
-      <!-- lang: none -->
-          Html html = Html {
-             head = Head {
-                 title = "Ceylon: home page";
-             };
-             body = Body {
-                 H2 ( "Welcome to Ceylon, " name() "!" ),
-                 P ( "Now get started :)" )
-             };
+    <!-- lang: none -->
+    %pre
+      %code
+        :erb
+          <span class="code_type">Html</span> html = <span class="code_type">Html</span> {
+          &nbsp;&nbsp;&nbsp;&nbsp;head = <span class="code_type">Head</span> {
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title = <span class="code_string">"Ceylon: home page"</span>;
+          &nbsp;&nbsp;&nbsp;&nbsp;};
+          &nbsp;&nbsp;&nbsp;&nbsp;body = <span class="code_type">Body</span> {
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_type">H2</span> ( <span class="code_string">"Welcome to Ceylon, "</span> name() <span class="code_string">"!"</span> ),
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_type">P</span> ( <span class="code_string">"Now get started :)"</span> )
+          &nbsp;&nbsp;&nbsp;&nbsp;};
           };
 #primary-content
   ~ content

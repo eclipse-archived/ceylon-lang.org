@@ -195,68 +195,73 @@ form.bp {
 // banner related styles
 
 #banner #code {
- display: none;
+  display: none;
 }
 
 .homepage #banner {
- position: relative;
- width: 900px;
- margin: 0 auto;
- height: 270px;
+  position: relative;
+  width: 900px;
+  margin: 0 auto;
+  height: 270px;
  
- #elephant {
-  position: absolute;
-  left: -20px;
-  height: 260px;
-  width: 370px;
-  background: url("../images/ceylon_homebanner_elephant.png") no-repeat center top;
- }
+  #elephant {
+    position: absolute;
+    left: -20px;
+    height: 260px;
+    width: 370px;
+    background: url("../images/ceylon_homebanner_elephant.png") no-repeat center top;
+  }
  
- #text {
-  position: absolute;
-  top: 20px;
-  width: 600px;
-  right: 0;
-  background: url("../images/ceylon_homebanner_text.png") no-repeat center top;
- }
+  #text {
+    position: absolute;
+    top: 20px;
+    width: 600px;
+    right: 0;
+    background: url("../images/ceylon_homebanner_text.png") no-repeat center top;
+  }
  
- #code {
-  display: block;
-  position: absolute;
-  width: 475px;
-  height: 170px;
-  background: rgba(12, 31, 31, 0.9);
-  top: 80px;
-  right: 0;
-  border-radius: 15px;
-  padding: 1.8em 2em 0 2em;
-  color: white;
-  text-shadow: none;
-  font-size: 17px;
-  font-weight: bold;
-
-  pre {
-   background: none;
-   margin: 0;
-   border: none;
-   padding: 0;
-   code {
+  #code {
+    display: block;
+    position: absolute;
+    width: 475px;
+    height: 170px;
+    background: rgba(12, 31, 31, 0.9);
+    top: 80px;
+    right: 0;
+    border-radius: 15px;
+    padding: 1.8em 2em 0 2em;
+    color: white;
+    text-shadow: none;
+    font-size: 17px;
     font-weight: bold;
-   }
-  }
 
-  .syntaxhighlighter {
-   margin: 0 !important;
-  }
+    pre {
+      background: none;
+      margin: 0;
+      border: none;
+      padding: 0;
+      code {
+        font-weight: bold;
+        .code_type {
+          color: #D98BD6;
+        }
+        .code_string {
+          color:#88AEFF;
+        }
+      }
+    }
+
+    .syntaxhighlighter {
+      margin: 0 !important;
+    }
   
-  .syntaxhighlighter,
-  .line.alt1,
-  .line.alt2 {
-   background: none !important;
+    .syntaxhighlighter,
+    .line.alt1,
+    .line.alt2 {
+      background: none !important;
+    }
   }
- }
 }
-
 
 .homepage {
   background: url("../images/bkg_home.png") repeat-x center 100px;
