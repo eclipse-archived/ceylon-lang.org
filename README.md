@@ -90,7 +90,5 @@ agree to license your contribution under the respective licenses mentioned above
 This website uses:
 
 - Icons from [Komodo Media, Rogie King][Komodo] (CC BY-SA 3.0 with link back to the creator)
-- Icons from [Niknaks][niknaks] (CC BY-SA 3.0)
 
 [Komodo]: http://www.komodomedia.com
-[niknaks]: http://commons.wikimedia.org/wiki/File:Calendar.svg
