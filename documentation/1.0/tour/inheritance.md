@@ -27,10 +27,10 @@ good balance between power and harmlessness.
 ## Inheritance and refinement
 
 In object-oriented programming, we often replace conditionals (`if`, and 
-especially `switch`) with subtyping. Indeed, according to some folks, this is 
-what makes a program object-oriented. Let's try refactoring the `Polar` class 
-[from the previous leg of the tour](../classes) into two classes, with two 
-different implementations of `description`. Here's the superclass:
+especially `switch`) with subtyping. Indeed, according to some folks, this 
+is what makes a program object-oriented. Let's try refactoring the `Polar` 
+class [from the previous leg of the tour](../classes) into two classes, 
+with two different implementations of `description`. Here's the superclass:
 
 <!-- id:polar -->
     doc "A polar coordinate"
@@ -49,14 +49,14 @@ different implementations of `description`. Here's the superclass:
     
     }
 
-Notice that Ceylon forces us to declare attributes or methods that can be 
-refined (overridden) by annotating them `default`.
+Notice that Ceylon forces us to declare attributes or methods that can 
+be refined (overridden) by annotating them `default`.
 
 Subclasses specify their superclass using the `extends` keyword
 ([here's why](#{page.doc_root}/faq/language-design/#colon_vs_extends_for_inheritance)), 
-followed by the name of the superclass, followed by a list of arguments to be 
-sent to the superclass initializer parameters. It looks just like an expression 
-that instantiates the superclass:
+followed by the name of the superclass, followed by a list of arguments 
+to be sent to the superclass initializer parameters. It looks just like 
+an expression that instantiates the superclass:
 
 <!-- cat-id:polar -->
     doc "A polar coordinate with a label"
@@ -77,9 +77,9 @@ All this annotating stuff costs a few extra keystrokes, but it helps the
 compiler detect errors. We can't inadvertently refine a member or the 
 superclass, or inadvertently fail to refine it.
 
-Notice that Ceylon goes out of its way to repudiate the idea of "duck" typing 
-or structural typing. If it `walks()` like a `Duck`, then it should be a 
-subtype of `Duck` and must explicitly refine the definition of `walk()` 
+Notice that Ceylon goes out of its way to repudiate the idea of "duck" 
+typing or structural typing. If it `walks()` like a `Duck`, then it should 
+be a subtype of `Duck` and must explicitly refine the definition of `walk()` 
 in `Duck`. We don't believe that the name of a method or attribute alone is 
 sufficient to identify its semantics. And, more importantly, [structural
 typing doesn't work properly with tools](#{page.doc_root}/faq/language-design/#structural_typing).
@@ -129,16 +129,16 @@ We should _definitely_ refine those:
         
     }
 
-Don't worry if the syntax `if (is Polar that)` throws you. We'll come back to
-this construct this later in the tour.
+Don't worry if the syntax `if (is Polar that)` throws you. We'll come back 
+to this construct this later in the tour.
 
 
 ## Abstract classes
 
-Now let's consider a much more interesting problem: abstracting over the polar
-and cartesian coordinate systems. Since a cartesian coordinate isn't just a 
-special kind of polar coordinate, this is a case for introduction of an abstract 
-superclass:
+Now let's consider a much more interesting problem: abstracting over the 
+polar and cartesian coordinate systems. Since a cartesian coordinate isn't 
+just a special kind of polar coordinate, this is a case for introduction of 
+an abstract superclass:
 
 <!-- cat-id:polar -->
 <!-- cat: class Cartesian(Float x, Float y) {} -->
@@ -166,11 +166,11 @@ nested classes are a bit different to `formal` member classes. A `formal`
 member class may be instantiated; an abstract class may not be.
 
 Note that an attribute that is never initialized is always a `formal` 
-attribute. Ceylon doesn't initialize attributes to zero or `null` unless you 
-explicitly tell it to!
+attribute. Ceylon doesn't initialize attributes to zero or `null` unless 
+you explicitly tell it to!
 
-One way to define an implementation for an inherited abstract attribute is to 
-simply *assign* a value to it in the subclass.
+One way to define an implementation for an inherited abstract attribute is 
+to simply assign a value to it in the subclass.
 
 <!-- check:parse:Requires ceylon.math -->
     doc "A polar coordinate"
@@ -210,14 +210,19 @@ attribute by *refining* it.
            
     }
 
-Note that there's no way to prevent other code from extending a class in 
-Ceylon (there's no equivalent of a `final` class in Java). Since only members 
-explicitly declared as supporting refinement using either `formal` or `default` 
-can be refined, a subtype can never break the implementation of a supertype. 
-Unless the supertype was explicitly designed to be extended, a subtype can add 
-members, but never change the behavior of inherited members.
+Notice that Ceylon, like Java, allows _covariant refinement_ of member types.
+We were able to refine the return type of `rotate()` and `dilate()`, narrowing 
+to `Polar` from the more general type declared by `Point`. But Ceylon doesn't 
+currently support _contravariant refinement_ of parameter types. You can't 
+refine a method and widen a parameter type. (Someday we would love to fix this.)
 
-Oh, I suppose you would like to see `Cartesian`...
+Of course, you can't refine a member and _widen_ the return type, or change
+to some arbitrary different type, since in that case the subclass would no
+longer be a subtype of the supertype. If you're going to refine the return
+type, you have to refine to a subtype.
+
+`Cartesian` also covariantly refines `rotate()` and `dilate()`, but to a 
+different return type:
 
 <!-- check:parse:Requires ceylon.math -->
     import ceylon.math.float { atan } 
@@ -244,9 +249,16 @@ Oh, I suppose you would like to see `Cartesian`...
                 
     }
 
+There's no way to prevent other code from extending a class (there's 
+no equivalent of a `final` class in Java). Since only members explicitly 
+declared as supporting refinement using either `formal` or `default` can be 
+refined, a subtype can never break the implementation of a supertype. Unless 
+the supertype was explicitly designed to be extended, a subtype can add 
+members, but never change the behavior of inherited members.
+
 Abstract classes are useful. But since interfaces in Ceylon are more 
-powerful than interfaces in Java, it often makes more sense to use
-an interface instead of an abstract class.
+powerful than interfaces in Java, it often makes more sense to use an 
+interface instead of an abstract class.
 
 
 ## Interfaces and "mixin" inheritance
