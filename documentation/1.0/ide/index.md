@@ -7,8 +7,11 @@ author: Gavin King
 ---
 # #{page.title}
 
-The Ceylon IDE is a plugin for [Eclipse](http://eclipse.org). The IDE project 
-was initiated by David Festal from [SERLI](http://www.serli.com/), a french 
+[eclipse]: http://www.eclipse.org/downloads/
+[juno]: http://eclipse.org/juno
+
+The Ceylon IDE is a plugin for [Eclipse][eclipse]. The IDE project was 
+initiated by David Festal from [SERLI](http://www.serli.com/), a french 
 software company contributing to the Ceylon project.
 
 ![teaser](/images/screenshots/teaser.png)
@@ -54,6 +57,16 @@ The plugin provides the following features, among others:
 Check out the [screenshots](screenshots)!
 
 ## Running the IDE
+
+You need a clean install of [Eclipse 3.7 Indigo][eclipse] or of 
+[Eclipse 4.2 Juno][juno] running on Java 7. 
+
+- Mac OS users _must_ install Juno and make Java 7 the default 
+  virtual machine using the `Java Preferences` application located 
+  in `/Applications/Utilities`. It is not easy to convince Eclipse
+  Indigo to run under Java 7 on Mac OS.
+
+_You cannot run Ceylon IDE on Java 6._
 
 You can install Ceylon IDE (which includes the Ceylon compiler) either:
 
