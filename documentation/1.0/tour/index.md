@@ -58,6 +58,7 @@ explaining when you can expect to be able to use the feature.
 
 We'll start with the [Basics](basics). 
 
+<!--
 ## Tour legs:
 
 1. [Basics](basics)
@@ -76,3 +77,4 @@ We'll start with the [Basics](basics).
 1. [Initialization](initialization)
 1. [Annotations](annotations)
 1. [Interceptors](interceptors)
+-->
