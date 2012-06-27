@@ -41,6 +41,13 @@ to [report it](/code/issues/).
 </div>
 
 <div class="known-issue">
+<a class="see" href="https://github.com/ceylon/ceylon-compiler/issues/655">See issue</a>
+<div class="title">Passing a method ref and then calling a method on the result</div>
+<b>Workaround:</b>
+<div class="workaround">None</div>
+</div>
+
+<div class="known-issue">
 <a class="see" href="https://github.com/ceylon/ceylon-compiler/issues/650">See issue</a>
 <div class="title">Capturing a variable in a comprehension</div>
 <b>Workaround:</b>
