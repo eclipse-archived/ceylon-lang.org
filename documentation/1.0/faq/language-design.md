@@ -226,6 +226,40 @@ Yes, but it would not work in two situations:
 
 ## Declaration modifiers
 
+### Why don't you have better defaults for `shared`, etc?
+
+Of course, we could have chosen to make shared visibility the
+default, providing a `private` annotation to restrict access.
+But that would have been very harmful to modularity, a key
+goal of the language.
+
+The "best" default is the _most restrictive_ option. Othewise,
+the developer of an module might accidently make something
+something shared that they don't intend to make shared, and
+be forced to either continue to support the 
+unintentionally-shared operation for the rest of the life of 
+the module, or break clients. There's would be nothing the 
+compiler could do to warn you when you _accidently_ left off
+a `private` annotation. If you accidentally leave off a
+`shared` annotation, the compiler will let you know about 
+that.
+
+By the same token, defaulting to shared visibility would mean
+that clients can't trust the APIs they use. You would never 
+be quite sure that the API you're using _really_ meant to 
+publish some operation, or whether the developer just forgot 
+to add a `private` annotation.
+
+Precisely the same arguments apply to refinement and the
+`default` annotation, mutability and the `variable` annotation.
+Like Java, we could have made `default` the default ;-) and we 
+could have made `variable` the default, providing a Java-like
+`final` annotation to specify the more restrictive option. But
+then I'm never sure if you _really_ meant for some operation
+of your API to be refinable or settable by a client, and if you 
+_really_ designed your class to tolerate that&mdash;or if you
+just forgot to add `final`.
+
 ### No `protected` modifier?
 
 > Why is there no `protected` visibility modifier in Ceylon?
