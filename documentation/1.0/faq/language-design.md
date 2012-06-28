@@ -226,7 +226,9 @@ Yes, but it would not work in two situations:
 
 ## Declaration modifiers
 
-### Why don't you have better defaults for `shared`, etc?
+### Verbosity of modifier annotations
+
+> Why don't you have better defaults for `shared`, etc?
 
 Of course, we could have chosen to make shared visibility the
 default, providing a `private` annotation to restrict access.
@@ -251,14 +253,15 @@ publish some operation, or whether the developer just forgot
 to add a `private` annotation.
 
 Precisely the same arguments apply to refinement and the
-`default` annotation, mutability and the `variable` annotation.
-Like Java, we could have made `default` the default ;-) and we 
-could have made `variable` the default, providing a Java-like
-`final` annotation to specify the more restrictive option. But
-then I'm never sure if you _really_ meant for some operation
-of your API to be refinable or settable by a client, and if you 
-_really_ designed your class to tolerate that&mdash;or if you
-just forgot to add `final`.
+`default` annotation, ant to mutability and the `variable` 
+annotation. Following Java, we could have made 
+`default` the default ;-) and we could have made `variable` 
+the default, providing a Java-like `final` annotation to 
+specify the more restrictive option. But then I'm never sure 
+if you _really_ meant for some operation of your API to be 
+refinable or settable by a client, and if you _really_ 
+designed your class to tolerate that&mdash;or if you just 
+forgot to add `final`.
 
 ### No `protected` modifier?
 
