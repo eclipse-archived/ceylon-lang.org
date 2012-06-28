@@ -236,15 +236,15 @@ But that would have been very harmful to modularity, a key
 goal of the language.
 
 The "best" default is the _most restrictive_ option. Othewise,
-the developer of an module might accidently make something
+the developer of a module might accidently make something
 something shared that they don't intend to make shared, and
 be forced to either continue to support the 
 unintentionally-shared operation for the rest of the life of 
-the module, or break clients. There's would be nothing the 
+the module, or break clients. There would be nothing the 
 compiler could do to warn you when you _accidently_ left off
-a `private` annotation. If you accidentally leave off a
-`shared` annotation, the compiler will let you know about 
-that.
+a `private` annotation. On the other hand, if you accidentally 
+leave off a `shared` annotation, the compiler will let you know 
+about that.
 
 By the same token, defaulting to shared visibility would mean
 that clients can't trust the APIs they use. You would never 
@@ -253,7 +253,7 @@ publish some operation, or whether the developer just forgot
 to add a `private` annotation.
 
 Precisely the same arguments apply to refinement and the
-`default` annotation, ant to mutability and the `variable` 
+`default` annotation, and to mutability and the `variable` 
 annotation. Following Java, we could have made 
 `default` the default ;-) and we could have made `variable` 
 the default, providing a Java-like `final` annotation to 
