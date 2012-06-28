@@ -314,7 +314,6 @@ need to specify a repository that contains it using another `-rep`:
       -rep http://ceylon.example.net/repo
       -rep http://repo.example.com
       net.example.foo/1.0
-      net.example.foo.Foo
       my options
 
 The easiest case though, is where the module and its dependencies are all in one 
@@ -330,7 +329,7 @@ One of the nice advantages of this architecture is that it's possible to run a
 module "straight off the internet", just by typing, for example:
 
 <!-- lang:none -->
-    ceylon org.jboss.ceylon.demo -rep http://jboss.org/ceylon/modules
+    ceylon -rep http://jboss.org/ceylon/modules org.jboss.ceylon.demo/1.0
 
 And all required dependencies get automatically downloaded as needed.
 
