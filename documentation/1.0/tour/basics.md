@@ -209,7 +209,26 @@ formatting.
 
 Since Markdown is sensitive to the initial column in which text appears, 
 you need to be careful to indent the lines of the multiline string literal 
-correctly, as we've done here.  
+correctly, as we've done here.
+
+## Escape sequences
+
+Inside a string literal, you can use the escape sequences `\n`, `\t`, `\\`,
+`\"` and friends that you're used to from other C-like languages.
+
+    print("\"Hello!\", said the program.");
+
+You can also use 16-bit and 32-bit hexadecimal escape sequences to embed
+Unicode characters in your text.
+
+    doc "The mathematical constant \{0001D452}, 
+         the base of the natural logarithm."
+    Float e=calculateE();
+    
+    doc "The mathematical constant \{03C0}, the 
+         ratio of the circumference of a circle 
+         to its diameter."
+    Float pi=calculatePi();
 
 ## String interpolation and concatenation
 
