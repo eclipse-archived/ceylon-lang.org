@@ -218,7 +218,7 @@ Inside a string literal, you can use the escape sequences `\n`, `\t`, `\\`,
 
     print("\"Hello!\", said the program.");
 
-You can also use 16-bit and 32-bit hexadecimal escape sequences to embed
+You can also use 2-byte and 4-byte hexadecimal escape sequences to embed
 Unicode characters in your text.
 
     doc "The mathematical constant \{0001D452}, 
@@ -229,6 +229,9 @@ Unicode characters in your text.
          ratio of the circumference of a circle 
          to its diameter."
     Float pi=calculatePi();
+
+Ceylon strings are composed of UTF-32 characters, as we'll see 
+[later in the tour](../language-module/#characters_and_character_strings).
 
 ## String interpolation and concatenation
 
