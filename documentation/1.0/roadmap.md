@@ -212,7 +212,7 @@ file IO.*
 
 ### Expressions:
 * named argument-style syntax for instantiating interfaces
-* lengthwise range operator (`:`)
+* lengthwise range operator (`start:length` and `ranged[start:length]`)
 * laziness for string interpolation _POSSIBLY_
 
 ### Modularity:
