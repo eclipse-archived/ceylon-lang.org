@@ -309,6 +309,27 @@ SI unit prefixes: `m`, `u`, `n`, `p`, `f`, `k`, `M`, `G`, `T`, `P`.
 
 The platform module `ceylon.math` defines the types `Whole` and `Decimal`,
 which represent arbitrary precision integers and arbitrary precision decimals.
+Both classes are subtypes of `Numeric`, so you can use all the usual numeric
+operators with them:
+
+    Decimal num = ... ;
+    Decimal denom = ... ;
+    Decimal ratio = num/denom;
+
+## Abstracting over numeric types
+
+Since all numeric types are subtypes of `Numeric`, it's possible to write
+generic code that treats numeric values polymorphically.
+
+    Value ratio<Value>(Value num, Value denom) 
+            given Value satisfies Numeric<Value> {
+        return num/denom;
+    }
+
+You can pass `Float`s, `Integer`s, `Whole`s, `Decimal`s or any other numeric
+type to `ratio()`. But since polymorphic numeric functions can't be optimized
+to use VM-level primitive types, this function is likely to be much slower
+than a function that accepts two `Float`s or two `Integer`s.
 
 ## Numeric widening
 
