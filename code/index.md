@@ -8,7 +8,7 @@ author: Emmanuel Bernard
 # #{page.title}
 
 We're [working as hard as we can](/code/activity) to get the 
-[third milestone](/documentation/1.0/roadmap#milestone_3) into 
+[fourth milestone](/documentation/1.0/roadmap#milestone_4) into 
 your hands. You can help by trying out the latest code and 
 contributing bug reports or code!
 
