@@ -47,7 +47,6 @@ The plugin provides the following features, among others:
   navigation, and refactoring
 * Export Ceylon Module to Module Repository wizard
 * Integration with Ceylon Herd
-* Support for Java interop
 * [Open Ceylon Declaration dialog](screenshots#open_ceylon_declaration_dialog)
 * [Ceylon Search dialog](screenshots#ceylon_search_dialog)
 * Find References, Find Refinements, Find Subtypes, and Find Assignments
