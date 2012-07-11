@@ -51,10 +51,10 @@ The plugin provides the following features, among others:
 * [Ceylon Search dialog](screenshots#ceylon_search_dialog)
 * Find References, Find Refinements, Find Subtypes, and Find Assignments
   [contextual search](screenshots#find_references_search_results)
-* Configurable keyboard accelerators
 * Basic [refactoring](screenshots#rename_refactoring_preview): 
   Rename, Inline, Extract Value, Extract Function, and Clean Imports
 * More than 30 [Quick Fixes](screenshots#quick_fixes) and Quick Assists!
+* Configurable keyboard accelerators
 * Code folding, structured compare, mark occurrences, and more...
 
 Check out the [screenshots](screenshots)!
