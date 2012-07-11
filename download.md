@@ -7,7 +7,7 @@ author: Emmanuel Bernard
 ---
 # #{page.title}
 
-[Ceylon M3.1 "V2000"][V2000] is now available for download! 
+[Ceylon M3.1 "V2000"][M3.1] is now available for download! 
 This is the latest release of the language, command line tools and IDE.
 
 ## Command line tools
@@ -16,7 +16,7 @@ This package contains the Ceylon command line compiler for Java and
 JavaScript virtual machines, the documentation compiler, the language 
 module, and the module runtime.
 
-[V2000]: /blog/2012/07/09/ceylon-m3.1-v2000?utm_source=download&utm_medium=web&utm_content=blog&utm_campaign=1_0_M3_1release
+[M3.1]: /blog/2012/07/11/ceylon-m3_1?utm_source=download&utm_medium=web&utm_content=blog&utm_campaign=1_0_M3_1release
 
 <table>
     <tr>
