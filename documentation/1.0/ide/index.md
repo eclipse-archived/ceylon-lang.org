@@ -22,6 +22,7 @@ The plugin provides the following features, among others:
 
 * Ceylon perspective
 * Incremental compilation and interactive error reporting
+* Inter-compilation with Java
 * [Run / Debug](screenshots#ceylon_launcher_dialog)
 * Customizable [syntax highlighting](screenshots#syntax_highlighting_and_outline_view)
 * [Outline view](screenshots#syntax_highlighting_and_outline_view) 
@@ -33,14 +34,17 @@ The plugin provides the following features, among others:
   and task annotations in editor
 * [Intelligent proposals](screenshots#intelligent_autocompletion)
 * [Documentation hover](screenshots#hover_help)
-* [Hyperlink navigation](screenshots#hyperlink_navigation) to declarations
+* [Hyperlink navigation](screenshots#hyperlink_navigation) to 
+  declarations in Ceylon and Java
 * Auto indentation and Correct Indentation
 * New wizards: [New Ceylon Unit](screenshots#new_ceylon_unit_wizard),
   [New Ceylon Project](screenshots#new_ceylon_project_wizard),
   [New Ceylon Module](screenshots#new_ceylon_module_wizard), and 
   New Ceylon Package
-* [Cross-project dependencies and navigation](screenshots#cross_project_dependencies),
+* [Cross-project dependencies](screenshots#cross_project_dependencies),
   and support for external module repositories
+* Multi-project incremental build and cross-project search, 
+  navigation, and refactoring
 * Export Ceylon Module to Module Repository wizard
 * Integration with Ceylon Herd
 * Support for Java interop
