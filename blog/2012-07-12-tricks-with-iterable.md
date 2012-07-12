@@ -173,5 +173,5 @@ intersection types, union types, and principal instantiation
 inheritance of generic types lets us express something within
 the type system that might seem almost magical. The real
 magic is in the declaration of the language module type 
-[`ContainerWithFirst`](http://ceylon-lang.org/documentation/1.0/api/ceylon/language/ContainerWithFirst.ceylon.html).
+[`ContainerWithFirstElement`](http://ceylon-lang.org/documentation/1.0/api/ceylon/language/interface_ContainerWithFirstElement.html).
 
