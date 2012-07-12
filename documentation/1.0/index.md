@@ -29,8 +29,10 @@ Try the [reference](reference) page.
 Or, if you want to be absolutely certain, you can dive into the 
 [language specification](spec)&mdash;the gospel according to Ceylon.
 
-The API documentation for the Ceylon Language Module `ceylon.language` is
-[also available](api/ceylon/language).
+The [API documentation](api/ceylon/language) for the Ceylon Language Module 
+`ceylon.language` is also available here. You can find the API documentation 
+for other modules, including platform modules in 
+[Herd](http://modules.ceylon-lang.org/).
 
 ## Got questions? We have FAQs
 
