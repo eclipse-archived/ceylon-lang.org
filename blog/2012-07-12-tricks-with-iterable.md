@@ -86,7 +86,7 @@ Finally, `fold()`:
             //"H e l l o  W o r l d"
 
     value list = "Hello World".fold({}, 
-            (List<Character> seq, Character c) 
+            (Character[] seq, Character c) 
                 c.letter then append(seq,c) 
                          else seq); 
             //{ H, e, l, l, o, W, o, r, l, d }
