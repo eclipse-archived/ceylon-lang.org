@@ -59,14 +59,13 @@ comprehensions:
 
     value allLowercase = every(for (c in "Hello Word") c.lowercase)); //false
     value someUppercase = any(for (c in "Hello Word") c.uppercase)); //true
-    value someUppercase =
 
 ## More operations of `Iterable`
 
 However, there are some really useful methods of `Iterable`. 
 First, `find()` and `findLast()`:
 
-    value char = "Hello Word".find(Character c) c>`l`); //`o`
+    value char = "Hello Word".find((Character c) c>`l`); //`o`
 
 Next, `sorted()`:
 
@@ -91,7 +90,8 @@ There's also two very useful attributes declared by `Iterable`.
 `coalesced` produces an iterable object containing the non-null
 elements:
 
-    value letters = { "Hello World".map((Character c) c.letter then c.uppercased).coalesced... };
+    value letters = { "Hello World".map((Character c) c.letter 
+            then c.uppercased).coalesced... };
             //{ H, E, L, L, O, W, O, R, L, D }
 
 The `indexed` attribute produces an iterable object containing
