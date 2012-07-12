@@ -67,6 +67,11 @@ First, `find()` and `findLast()`:
 
     value char = "Hello Word".find((Character c) c>`l`); //`o`
 
+We _can_ write this using a comprehension, but to be honest in 
+this case it's slightly less ergonomic:
+
+    value char = first(for (c in "Hello World") if (c>`l`) c);
+
 Next, `sorted()`:
 
     value sorted = "Hello World".sorted(byIncreasing((Character c) c.uppercased)); 
