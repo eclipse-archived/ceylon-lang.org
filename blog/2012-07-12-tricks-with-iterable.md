@@ -130,7 +130,7 @@ out:
     Set<String> strings = ... ;
     Set<Integer> ints = ... ;
     value stringsAndInts = strings|ints; //type Set<String|Integer>
-    value stringsAndInts = strings&ints; //type Set<Bottom>
+    value stringsAndInts = strings&ints; //type Set<Bottom>, since Integer&String is an empty type
 
 That is, the type of the union of a `Set<X>` with a `Set<Y>` is
 `Set<X|Y>` and the type of the intersection of a `Set<X>` with 
