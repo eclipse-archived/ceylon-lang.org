@@ -116,7 +116,7 @@ of these operations. For example:
 Notice how the use of the intersection type `Element&Object` 
 eliminates the need for a type parameter with a lower bound
 type constraint, which would be required to write down the
-signature of this operations in most other languages. Indeed,
+signature of this operation in most other languages. Indeed,
 we use the same trick for the operations `union()` and
 `intersection()` of `Set`, 
 [as you can see here](http://ceylon-lang.org/documentation/1.0/api/ceylon/language/Set.ceylon.html#64,67).
@@ -124,7 +124,8 @@ we use the same trick for the operations `union()` and
 ## Set union and intersection
 
 We let you write the union of two `Set`s as `s|t` in Ceylon,
-and the intersection of two `Set`s as `s&`. Now check this out:
+and the intersection of two `Set`s as `s&t`. Now check this 
+out:
 
     Set<String> strings = ... ;
     Set<Integer> ints = ... ;
@@ -170,13 +171,14 @@ returns:
   we don't know is empty or nonempty.
 
 It's important to point out that this is _not_ some special
-feature built in as a special case in the type system. Indeed,
-until a couple of weeks ago I didn't even realize that this
-was possible. It's rather a demonstration of how expressive
-our type system is: in this case, the combination of 
-intersection types, union types, and principal instantiation
-inheritance of generic types lets us express something within
-the type system that might seem almost magical. The real
-magic is in the declaration of the language module type 
+feature built in as a special case in the type system. Nor
+is it in any way related to overloading. Indeed, until a 
+couple of weeks ago I didn't even realize that this was 
+possible. It's rather a demonstration of how expressive our 
+type system is: in this case, the combination of intersection 
+types, union types, and principal instantiation inheritance 
+of generic types lets us express something within the type 
+system that might seem almost magical. The real magic is in 
+the declaration of the language module type 
 [`ContainerWithFirstElement`](http://ceylon-lang.org/documentation/1.0/api/ceylon/language/ContainerWithFirstElement.ceylon.html).
 
