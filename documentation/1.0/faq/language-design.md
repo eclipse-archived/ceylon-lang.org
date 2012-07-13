@@ -526,15 +526,36 @@ _introductions_. You'll find some discussion of this idea in
 > Will Ceylon support tuples?
 
 Great question. We haven't decided yet. It's the #1 feature 
-request from the community.
+request from the community. Some people would really like to
+be able to write the following:
 
-Note that Ceylon's type system, specifically the notion of
-_sequenced type parameters_, let's us define `Tuple` as an
-ordinary Ceylon class without introducing any new primitive
+    (Float, Float) polar(Float x, Float y) {
+        return (sqrt(sqr(x)+sqr(y)), atan(y/x));
+    }
+    
+    Float r, Float theta = polar(x, y);
+    print(r);
+    print(theta);
+
+Ceylon's type system&mdash;specifically the notion of
+_sequenced type parameters_&mdash;lets us define `Tuple` as 
+an ordinary Ceylon class without introducing any new primitive
 constructs into the type system. However, true support for
 tuples would mean introducing a fair amount of syntax sugar
 to make use of this class convenient. The syntax sugar would
 add complexity that we're not sure we want.
+
+And, in fact, it's not at all hard to write a function that 
+returns multiple values in Ceylon:
+
+    class Polar(Float x, Float y) {
+        shared Float r = sqrt(sqr(x)+sqr(y));
+        shared Float theta = atan(y/x);
+    }
+    
+    value p = Polar(x, y);
+    print(p.r);
+    print(p.theta);
 
 ### Use site variance
 
