@@ -102,7 +102,10 @@ a lot like a `join` in SQL.
 ## There's more...
 
 Next we're going to discuss some of the basic types from the 
-[language module](../language-module), in particular numeric types, and introduce 
-the idea of operator polymorphism. 
+[language module](../language-module), in particular numeric types, and 
+introduce the idea of operator polymorphism.
+
+You can read more about working with iterable objects in Ceylon in
+[this blog post](/blog/2012/07/12/tricks-with-iterable).
 
 
