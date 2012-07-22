@@ -12,7 +12,9 @@ update site. Note that the version of the Ceylon compiler embedded in
 this release is compatible with the Ceylon M3 "V2000" command line 
 tools.
 
-Please [report any issue in our issue tracker][issues].
+Please [report any issue in our issue tracker][issues]. _Note that if
+Ceylon IDE doesn't work at all, the problem is probably that Eclipse
+is not executing on a Java 7 VM._
 
 ## Installing from the update site
 
