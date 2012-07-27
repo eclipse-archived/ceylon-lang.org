@@ -182,7 +182,7 @@ in the type parameter `Element`. So `Empty` is assignable to
 Since both `Empty` and `Sequence<String>` are subtypes of `Iterable<String>`, 
 the union type `String[]` is also a subtype of `Iterable<String>`.
 
-Since there are no actual instances of `Bottom`, yf you ever see an attribute 
+Since there are no actual instances of `Bottom`, if you ever see an attribute 
 or method of type `Bottom`, you know for certain that it can't possibly ever 
 return a value. There is only one possible way that such an operation can
 terminate: by throwing an exception.
