@@ -58,7 +58,7 @@ An anonymous class may extend an ordinary class and satisfy interfaces.
     }
 
 The downside to an `object` declaration is that we can't write code that 
-refers to the concrete type of `defaultHello` or `consoleWriter`, only to the 
+refers to the concrete type of `origin` or `consoleWriter`, only to the 
 named instances.
 
 You might be tempted to think of object declarations as defining singletons, 
