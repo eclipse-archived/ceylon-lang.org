@@ -46,7 +46,7 @@ a bit like the `for` loop we met earlier. It takes each element of
 the `Iterable` stream in turn. But it does it _lazily_, when the 
 receiving function actually iterates its argument!
 
-This means that ifthe receiving function never actually needs to 
+This means that if the receiving function never actually needs to 
 iterate the entire stream, the comprehension will never be fully 
 evaluated. This is extremely useful for functions like `every()` and
 `any()`:
