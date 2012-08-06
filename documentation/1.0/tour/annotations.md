@@ -206,7 +206,7 @@ method `stop()` of `Thread`, an instance of `Method<Thread,Void>`.
 Here are two more examples, to make sure you get the idea:
 
 <!-- check:none:Annotations M5 -->
-    Scope scope = annotations(Scope, Person) ? request;
+    Scope scope = annotations(Scope, Person) else request;
     Todo[] todos = annotations(Todo, method);
 
 Everything's set up so that `annotations()` returns `Scope?` for the 
@@ -224,7 +224,7 @@ so you're more likely to be writing code like this:
 
 <!-- check:none:Annotations M5 -->
     String columnName(Attribute<Bottom,Object?> member) {
-        return annotations(Column, member)?.name ? member.name;
+        return annotations(Column, member)?.name else member.name;
     }
 
 As you can see, Ceylon annotations are framework-developer-heaven.
