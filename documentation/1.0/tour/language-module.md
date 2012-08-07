@@ -363,7 +363,7 @@ so we could write the expression above like this:
 
 Because `ceylon.language` only has two numeric types the only "built-in" 
 widening conversion is from `Integer` to `Float`. But this 
-conversions isn't defined by special-case rules in the 
+conversion isn't defined by special-case rules in the 
 language specification.
 
 
@@ -432,7 +432,7 @@ syntax support for numeric arithmetic and numeric widening conversions.
 
 ### implementation note <!-- m3 -->
 
-Numeric widing for custom numeric types is not supported in Ceylon M3, and
+Numeric widening for custom numeric types is not supported in Ceylon M3, and
 so implementing `Castable` has no effect.
 
 ## Collections
