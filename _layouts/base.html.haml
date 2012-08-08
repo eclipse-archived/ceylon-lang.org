@@ -23,6 +23,12 @@
     :javascript
       SyntaxHighlighter.defaults['gutter'] = false;
       SyntaxHighlighter.defaults['toolbar'] = false;
+      // register a listener for when the highlighter is done with replacing elements
+      var hl = SyntaxHighlighter.highlight;
+      SyntaxHighlighter.highlight = function(params, element){
+        hl(params, element);
+        postSyntaxHighlighting();
+      };
       SyntaxHighlighter.all();
     = google_analytics_async
   %body.bp
