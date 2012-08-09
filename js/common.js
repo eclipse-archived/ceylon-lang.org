@@ -57,6 +57,7 @@ function postSyntaxHighlighting(){
 			if($editorIFrame){
 				updateEditor(src);
 			} else {
+				document.domain = "ceylon-lang.org";
 				$editorIFrame = jQuery("<iframe class='code-editor' src='http://try.ceylon-lang.org/embed.jsp?src='>");
 				$editorIFrame.load(function(){
 					updateEditor(src);
