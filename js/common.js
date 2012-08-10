@@ -38,8 +38,7 @@ function collectSource($hl){
 var $editorIFrame;
 
 function updateEditor(src){
-	var editor = $editorIFrame.get(0).contentWindow.editor;
-	editor.setValue(src);
+	$editorIFrame.get(0).contentWindow.setEditCode(src);
 }
 
 function postSyntaxHighlighting(){
