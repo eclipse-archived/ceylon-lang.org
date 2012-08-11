@@ -19,6 +19,33 @@ $(function() {
 // IDE windows
 
 function collectSource($hl){
+	var src = collectSourceFromComment($hl);
+	if (!src) {
+		src = collectSourceFromHighlighter($hl);
+	}
+	if (src == "") src = undefined;
+	return src;
+}
+
+function collectSourceFromComment($hl){
+	// Let's look for Comment blocks that appear before $hl
+	var prev = $hl[0].previousSibling;
+	while (prev && (prev.nodeType == 3 || prev.nodeType == 8)){
+		if (prev.nodeType == 8){
+			// A Comment block
+			var txt = $.trim(prev.textContent);
+			if (txt.indexOf("try:") == 0) {
+				var src = $.trim(txt.substr(4));
+				return src;
+			}
+		} else {
+			// A Text element, which we ignore
+		}
+	}
+	return;
+}
+
+function collectSourceFromHighlighter($hl){
 	var txt = "";
 	jQuery(".line", $hl).each(function (index, line){
 		var first = true;
@@ -50,32 +77,34 @@ function postSyntaxHighlighting(){
 			return;
 		$elem.addClass("with-editor");
 		var $button = jQuery("<span class='bubble-button' title='Try this code in an online Ceylon editor'>Try</span>");
-		$button.click(function(){
-			// collect the source
-			var src = collectSource($elem);
-			if($editorIFrame){
-				updateEditor(src);
-			} else {
-				// We must set the document.domain to be the same as the one set on http://try.ceylon-lang.org/embed.jsp
-				// otherwise we can't touch their iframe and get the editor because we would have different subdomains
-				// See https://developer.mozilla.org/en-US/docs/Same_origin_policy_for_JavaScript
-				// We don't do it for localhost, though if localhost uses try.ceylon-lang.org it will not work and you
-				// need to start your browser with security checks disabled to test this on localhost
-				// Chrome would be "chromium-browser --disable-web-security" for example
-				if(document.domain != "localhost")
-					document.domain = "ceylon-lang.org";
-				$editorIFrame = jQuery("<iframe class='code-editor' src='http://try.ceylon-lang.org/embed.jsp?src='>");
-				$editorIFrame.load(function(){
+		var src = collectSource($elem);
+		if (src){
+			$button.click(function(){
+				// collect the source
+				if($editorIFrame){
 					updateEditor(src);
+				} else {
+					// We must set the document.domain to be the same as the one set on http://try.ceylon-lang.org/embed.jsp
+					// otherwise we can't touch their iframe and get the editor because we would have different subdomains
+					// See https://developer.mozilla.org/en-US/docs/Same_origin_policy_for_JavaScript
+					// We don't do it for localhost, though if localhost uses try.ceylon-lang.org it will not work and you
+					// need to start your browser with security checks disabled to test this on localhost
+					// Chrome would be "chromium-browser --disable-web-security" for example
+					if(document.domain != "localhost")
+						document.domain = "ceylon-lang.org";
+					$editorIFrame = jQuery("<iframe class='code-editor' src='http://try.ceylon-lang.org/embed.jsp?src='>");
+					$editorIFrame.load(function(){
+						updateEditor(src);
+					});
+				}
+				$editorIFrame.dialog({
+					width: 800,
+					height: 500,
+					closeText: "Close",
+					modal: true
 				});
-			}
-			$editorIFrame.dialog({
-				width: 800,
-				height: 500,
-				closeText: "Close",
-				modal: true
 			});
-		});
-		$elem.append($button);
+			$elem.append($button);
+		}
 	});
 }
