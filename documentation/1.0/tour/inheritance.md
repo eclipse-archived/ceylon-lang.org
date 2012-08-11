@@ -374,7 +374,7 @@ Now let's define a concrete implementation of this interface.
 -->
 <!-- check:none:depends on above:concrete members of interfaces not yet supported -->
 <!-- cat-id: writer -->
-    shared class ConsoleWriter() satisfies Writer {
+    class ConsoleWriter() satisfies Writer {
          
         formatter = StringFormatter();
          
@@ -433,7 +433,7 @@ To fix this code, we'll factor out a `formal` declaration of the attribute
 `name` to a common supertype. The following is legal:
 
 <!-- try-post:
-    value c = Costumer("Pietje Pluk", "piet.pluk@petteflet.example.org");
+    value c = Customer("Pietje Pluk", "piet.pluk@petteflet.example.org");
     print(c.name);
 -->
 <!-- check:none:concrete members of interfaces not yet supported -->
