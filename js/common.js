@@ -28,22 +28,18 @@ function collectSource($hl){
 }
 
 function collectSourceFromComment($hl){
-	// Let's look for Comment blocks that appear before $hl
-	var prev = $hl[0].previousSibling;
-	while (prev && (prev.nodeType == 3 || prev.nodeType == 8)){
-		if (prev.nodeType == 8){
-			// A Comment block
-			var txt = $.trim(prev.textContent);
-			if (txt.indexOf("try:") == 0) {
-				var src = $.trim(txt.substr(4));
-				return src;
+	var src = extractComment("try:");
+	if (!src) {
+		var srcpre = extractComment("try-pre:"); 
+		var srcpost = extractComment("try-post:");
+		if (srcpre || srcpost) {
+			src = collectSourceFromHighlighter($hl);
+			if (src) {
+				src = (srcpre || "") + src + (srcpost || "");
 			}
-		} else {
-			// A Text element, which we ignore
 		}
-		prev = prev.previousSibling;
 	}
-	return;
+	return src;
 }
 
 function collectSourceFromHighlighter($hl){
@@ -61,6 +57,25 @@ function collectSourceFromHighlighter($hl){
 		txt += "\n";
 	});
 	return txt;
+}
+
+function extractComment($hl, prefix){
+	// Let's look for Comment blocks that appear before $hl
+	var prev = $hl[0].previousSibling;
+	while (prev && (prev.nodeType == 3 || prev.nodeType == 8)){
+		if (prev.nodeType == 8){
+			// A Comment block
+			var txt = $.trim(prev.textContent);
+			if (txt.indexOf(prefix) == 0) {
+				// If it had the right prefix we return the contents of the comment
+				return txt.substr(prefix.length);
+			}
+		} else {
+			// A Text element, which we ignore
+		}
+		prev = prev.previousSibling;
+	}
+	return;
 }
 
 var $editorIFrame;
