@@ -257,10 +257,10 @@ Inside a string literal, you can use the escape sequences `\n`, `\t`, `\\`,
 You can also use 2-byte and 4-byte hexadecimal escape sequences to embed
 Unicode characters in your text.
 
-<!-- try-post:
-    
+<!-- try-pre:
     Float calculateE() { return 2.72; }
     Float calculatePi() { return 3.14; }
+
 -->
     doc "The mathematical constant \{0001D452}, 
          the base of the natural logarithm."
