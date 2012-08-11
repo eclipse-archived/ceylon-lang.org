@@ -85,8 +85,32 @@ function undentSource(src) {
 		if (p >= 0) {
 			src = src.substr(p + 1);
 		}
+		
+		// We make sure there are no tabs to mess things up
+		src = src.replace(/\t/g, "    ");
+		
+		// Now we find the shortest common sequence of spaces starting all lines
+		var indent = getCommonIndent(src);
+		
+		// And finally we strip the common indent from all lines
+		if (indent) {
+			var re = new RegExp("^" + indent, "gm");
+			src = src.replace(re, "");
+		}
 	}
 	return src;
+}
+
+function getCommonIndent(src) {
+	var indent = undefined
+	var lines = src.split("\n");
+	for (idx in lines) {
+		var spc = lines[idx].match("^ *");
+		if (!indent || spc.length < indent.length) {
+			indent = spc;
+		}
+	}
+	return indent;
 }
 
 var $editorIFrame;
