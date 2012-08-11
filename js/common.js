@@ -28,10 +28,10 @@ function collectSource($hl){
 }
 
 function collectSourceFromComment($hl){
-	var src = extractComment("try:");
+	var src = undentSource(extractComment($hl, "try:"));
 	if (!src) {
-		var srcpre = extractComment("try-pre:"); 
-		var srcpost = extractComment("try-post:");
+		var srcpre = undentSource(extractComment($hl, "try-pre:")); 
+		var srcpost = undentSource(extractComment($hl, "try-post:"));
 		if (srcpre || srcpost) {
 			src = collectSourceFromHighlighter($hl);
 			if (src) {
@@ -76,6 +76,17 @@ function extractComment($hl, prefix){
 		prev = prev.previousSibling;
 	}
 	return;
+}
+
+function undentSource(src) {
+	if (src) {
+		// First we strip from the left until the first newline
+		var p = src.indexOf("\n");
+		if (p >= 0) {
+			src = src.substr(p + 1);
+		}
+	}
+	return src;
 }
 
 var $editorIFrame;
