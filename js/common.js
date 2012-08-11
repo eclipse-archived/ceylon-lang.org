@@ -35,7 +35,7 @@ function collectSourceFromComment($hl){
 		if (srcpre || srcpost) {
 			src = collectSourceFromHighlighter($hl);
 			if (src != undefined) {
-				src = (srcpre ? srcpre + "\n" : "") + src + (srcpost || "");
+				src = (srcpre || "") + src + (srcpost || "");
 			}
 		}
 	}
