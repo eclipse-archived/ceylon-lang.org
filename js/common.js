@@ -41,7 +41,7 @@ function collectSourceFromComment($hl){
 		} else {
 			// A Text element, which we ignore
 		}
-		prev = $hl[0].previousSibling;
+		prev = prev.previousSibling;
 	}
 	return;
 }
