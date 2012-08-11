@@ -65,7 +65,7 @@ function extractComment($hl, prefix){
 	while (prev && (prev.nodeType == 3 || prev.nodeType == 8)){
 		if (prev.nodeType == 8){
 			// A Comment block
-			var txt = $.trim(prev.textContent);
+			var txt = trimLeft(prev.textContent);
 			if (txt.indexOf(prefix) == 0) {
 				// If it had the right prefix we return the contents of the comment
 				return txt.substr(prefix.length);
@@ -76,6 +76,10 @@ function extractComment($hl, prefix){
 		prev = prev.previousSibling;
 	}
 	return;
+}
+
+function trimLeft(txt) {
+	return txt.replace(/^\s+/, "");
 }
 
 function undentSource(src) {
