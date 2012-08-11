@@ -23,10 +23,16 @@ and local names start with an initial lowercase letter or
 underscore. The Ceylon compiler is very fussy about this. You'll 
 get a compilation error if you write:
 
+<!-- try:
+    class hello() { } //compile error
+-->
     class hello() { ... } //compile error
 
 or:
 
+<!-- try:
+    String Name = "joe"; //compile error
+-->
     String Name = .... //compile error
 
 There is a way to work around this restriction, which is 
@@ -39,10 +45,16 @@ considered an initial lowercase identifier.
 So the following declarations are acceptable, but definitely 
 not recommended, except in the interop scenario: 
 
+<!-- try:
+    class \Ihello() { ... } //OK, but not recommended
+-->
     class \Ihello() { ... } //OK, but not recommended
 
 and:
 
+<!-- try:
+    String \iName = "joe"; //OK, but not recommended
+-->
     String \iName = .... //OK, but not recommended
 
 ## Creating your own class
@@ -50,6 +62,9 @@ and:
 Our first class is going to represent points in a polar coordinate 
 system. Our class has two parameters, two methods, and an attribute.
 
+<!-- try-post:
+    print(Polar(0.37, 10.0).description);
+-->
     doc "A polar coordinate"
     class Polar(Float angle, Float radius) {
         
@@ -121,6 +136,9 @@ other code, we need to define attributes of the class. It's very common to
 assign parameters of a class directly to a `shared` attribute of the class, 
 so Ceylon provides a streamlined syntax for this.
 
+<!-- try-post:
+    print(Polar(0.37, 10.0).description);
+-->
 <!-- id:polar -->
     doc "A polar coordinate"
     shared class Polar(angle, radius) {
@@ -143,6 +161,7 @@ so Ceylon provides a streamlined syntax for this.
 Code that uses `Polar` can access the attributes of the class using a very
 convenient syntax.
 
+<!-- try: -->
 <!-- check:none:Requires Math -->
 <!-- cat-id:polar -->
 <!-- cat:
@@ -159,6 +178,7 @@ The attributes `angle` and `radius` are _simple attributes_, the closest thing
 Ceylon has to a Java field. Usually we specify the value of a simple attribute
 as part of the declaration of the attribute.
 
+<!-- try: -->
 <!-- check:none:Requires Math -->
     shared Float x = radius * sin(angle);
     shared String greeting = "Hello, " name "!";
@@ -166,6 +186,14 @@ as part of the declaration of the attribute.
 
 On the other hand, it's sometimes useful to separate declaration from specification 
 of a value.
+<!-- try-pre:
+    doc "A polar coordinate"
+    class Polar(Float angle, Float radius, String? label) { 
+-->
+<!-- try-post:
+    }
+    print(Polar(0.37, 10.0).description);
+-->
 <!-- cat:
     doc "A polar coordinate"
     class Polar(Float angle, Float radius, String? label) { 
@@ -183,6 +211,9 @@ of a value.
 But if there's no constructors in Ceylon, where precisely should we put this
 code? We put it directly in the body of the class!
 
+<!-- try-post:
+    print(Polar(0.37, 10.0).description);
+-->
     doc "A polar coordinate with an optional label"
     class Polar(angle, radius, String? label) {
         
@@ -230,6 +261,7 @@ Since the cartesian coordinates can be computed from the polar coordinates,
 we don't need to define state-holding simple attributes. Instead, we can
 define the attributes as _getters_.
 
+<!-- try: -->
 <!-- check:none:Requires Math -->
     import ceylon.math.float { sin, cos }
     
@@ -254,6 +286,9 @@ attribute or a getter. Now that we know about getters, we could rewrite
 our `description` attribute as a getter, without affecting any code that 
 uses it.
 
+<!-- try-post:
+    print(Polar(0.37, 10.0).description);
+-->
     doc "A polar coordinate, with an optional label"
     class Polar(angle, radius, String? label) {
         
@@ -284,6 +319,16 @@ most non-harmful uses of constructor or method overloading using:
 We're not going to get into all the details of these workarounds right now, 
 but here's a quick example of each of the three techniques:
 
+<!-- try-pre:
+    class Named() { 
+        shared String first = "John";
+        shared String last = "Doe";
+    }
+-->
+<!-- try-post:
+    printName("joe");
+    printName(Named());
+-->
 <!-- cat: 
     class Named() { 
         shared String first = "John";
@@ -339,6 +384,33 @@ Let's make use of this idea to "overload" the "constructor" of `Polar`.
 
 Now we can create `Polar` coordinates with or without labels:
 
+<!-- try-pre:
+    doc "A polar coordinate with an optional label"
+    class Polar(angle, radius, String? label=null) {
+        
+        shared Float angle=angle;
+        shared Float radius=radius;
+        
+        shared String description {
+            if (exists label) {
+                return label;
+            }
+            else {
+                return "(" radius "," angle ")";
+            }
+        }
+        
+        // ...
+        
+    }
+
+    Float r = 0.32;
+    Float theta = 10.0;
+-->
+<!-- try-post:
+    print(origin.description);
+    print(coord.description);
+-->
 <!-- cat-id: polar -->
 <!-- cat: void m(Float r, Float theta) { -->
     Polar origin = Polar(0.0, 0.0, "origin");
