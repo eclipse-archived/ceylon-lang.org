@@ -478,7 +478,7 @@ There's also an operator for _producing_ a null value:
     String arg = "hello";
 -->
 <!-- try-post:
-    print(name);
+    print(name else "No name");
 -->
     String? name = !arg.trimmed.empty then arg;
 
@@ -492,7 +492,7 @@ ternary `?:` operator:
     String arg = "hello";
 -->
 <!-- try-post:
-    print(name else "No name");
+    print(name);
 -->
     String name = !arg.trimmed.empty then arg else "World";
 
