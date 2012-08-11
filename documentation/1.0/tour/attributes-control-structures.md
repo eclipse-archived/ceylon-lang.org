@@ -208,7 +208,7 @@ print(t.fullName);
 -->
 <!-- cat-id:attrs -->
     shared String fullName {
-        return " ".join(coalesce({firstName,lastName})...);
+        return " ".join(coalesce(firstName,lastName)...);
     }
      
     assign fullName {
@@ -241,7 +241,7 @@ class Test() {
 <!-- try-post:
 }
 -->
-    variable String _name;
+    variable String _name := "";
     shared String name { return _name; }
     assign name { _name:=name; }
 
@@ -281,11 +281,11 @@ The `if/else` statement is totally traditional:
     Integer x = 2000;
 -->
 <!-- cat: void m(Integer x) { -->
-    if (x>100) {
-        print("big");
-    }
-    else if (x>1000) {
+    if (x>1000) {
         print("really big");
+    }
+    else if (x>100) {
+        print("big");
     }
     else {
         print("small");
