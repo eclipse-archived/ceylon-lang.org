@@ -65,7 +65,7 @@ function extractComment($hl, prefix){
 	while (prev && (prev.nodeType == 3 || prev.nodeType == 8)){
 		if (prev.nodeType == 8){
 			// A Comment block
-			var txt = trimLeft(prev.textContent);
+			var txt = trimComment(prev.textContent);
 			if (txt.indexOf(prefix) == 0) {
 				// If it had the right prefix we return the contents of the comment
 				return txt.substr(prefix.length);
@@ -78,8 +78,12 @@ function extractComment($hl, prefix){
 	return;
 }
 
-function trimLeft(txt) {
-	return txt.replace(/^\s+/, "");
+function trimComment(txt) {
+	// We remove all whitespace from the start of the string
+	txt = txt.replace(/^\s+/, "");
+	// But we onyl remove spaces and tabs from the end
+	txt = txt.replace(/[ \t]+$/, "");
+	return txt;
 }
 
 function undentSource(src) {
