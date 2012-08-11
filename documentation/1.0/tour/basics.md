@@ -20,6 +20,9 @@ we'll know what we're looking at later on.
 Here's a classic example program.
 
 <!-- id: hello -->
+<!-- try-post:
+    hello();
+-->
     void hello() {
         print("Hello, World!");
     }
@@ -29,6 +32,12 @@ is just like a C function - it belongs directly to the package that contains
 it, it's not a member of any specific type. You don't need a receiving object 
 to invoke a toplevel method. Instead, you can just call it like this:
 
+<!-- try:
+    void hello() {
+        print("Hello, World!");
+    }
+    hello();
+-->
 <!-- cat-id: hello -->
 <!-- cat: void m() { -->
     hello();
