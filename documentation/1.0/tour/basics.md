@@ -290,6 +290,9 @@ Let's make our program tell us a little more about itself.
     }
 -->
 
+<!-- try-post:
+    hello2();
+-->
 <!-- id: hello2 -->
     void hello2() {
         print("Hello, you ran me at " 
@@ -444,6 +447,9 @@ machine-level null, all under the covers.)
 There are a couple of operators that will make your life easier when dealing 
 with `null` values. The first is `else`:
 
+<!-- try-pre:
+    String? name = null;
+-->
 <!-- try-post:
     print(greeting);
 -->
@@ -459,7 +465,7 @@ handle `null` values in simple cases. You can chain multiple `else`s:
 
 <!-- try-pre:
     String? firstName = null;
-    String userId = "joe";
+    String? userId = "joe";
 -->
 <!-- try-post:
     print(name);
@@ -470,6 +476,9 @@ There's also an operator for _producing_ a null value:
 
 <!-- try-pre:
     String arg = "hello";
+-->
+<!-- try-post:
+    print(name);
 -->
     String? name = !arg.trimmed.empty then arg;
 
