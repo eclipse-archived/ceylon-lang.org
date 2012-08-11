@@ -20,7 +20,7 @@ $(function() {
 
 function collectSource($hl){
 	var src = collectSourceFromComment($hl);
-	if (!src) {
+	if (src == undefined) {
 		src = collectSourceFromHighlighter($hl);
 	}
 	if (src == "") src = undefined;
@@ -29,13 +29,13 @@ function collectSource($hl){
 
 function collectSourceFromComment($hl){
 	var src = undentSource(extractComment($hl, "try:"));
-	if (!src) {
+	if (src == undefined) {
 		var srcpre = undentSource(extractComment($hl, "try-pre:")); 
 		var srcpost = undentSource(extractComment($hl, "try-post:"));
 		if (srcpre || srcpost) {
 			src = collectSourceFromHighlighter($hl);
-			if (src) {
-				src = (srcpre || "") + src + (srcpost || "");
+			if (src != undefined) {
+				src = (srcpre ? srcpre + "\n" : "") + src + (srcpost || "");
 			}
 		}
 	}
@@ -93,7 +93,7 @@ function undentSource(src) {
 		var indent = getCommonIndent(src);
 		
 		// And finally we strip the common indent from all lines
-		if (indent) {
+		if (indent != undefined) {
 			var re = new RegExp("^" + indent, "gm");
 			src = src.replace(re, "");
 		}
@@ -106,7 +106,7 @@ function getCommonIndent(src) {
 	var lines = src.split("\n");
 	for (idx in lines) {
 		var spc = lines[idx].match("^ *");
-		if (!indent || spc.length < indent.length) {
+		if ((indent == undefined) || spc.length < indent.length) {
 			indent = spc;
 		}
 	}
