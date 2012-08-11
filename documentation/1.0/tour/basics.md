@@ -91,7 +91,11 @@ takes you step by step through the process.
 
 String literals in Ceylon may span multiple lines. Try this:
 
-<!-- try-post:
+<!-- try:
+    void hello() {
+        print("Hello, 
+               World!");
+    }
     hello();
 -->
 <!-- id: hello -->
