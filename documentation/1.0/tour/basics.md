@@ -260,7 +260,7 @@ Unicode characters in your text.
 <!-- try-pre:
     Float calculateE() { return 2.72; }
     Float calculatePi() { return 3.14; }
-
+    
 -->
     doc "The mathematical constant \{0001D452}, 
          the base of the natural logarithm."
@@ -492,7 +492,7 @@ ternary `?:` operator:
     String arg = "hello";
 -->
 <!-- try-post:
-    print(name);
+    print(name else "No name");
 -->
     String name = !arg.trimmed.empty then arg else "World";
 
