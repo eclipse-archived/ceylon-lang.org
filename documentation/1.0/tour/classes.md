@@ -46,7 +46,7 @@ So the following declarations are acceptable, but definitely
 not recommended, except in the interop scenario: 
 
 <!-- try:
-    class \Ihello() { ... } //OK, but not recommended
+    class \Ihello() { } //OK, but not recommended
 -->
     class \Ihello() { ... } //OK, but not recommended
 
@@ -141,7 +141,7 @@ so Ceylon provides a streamlined syntax for this.
 -->
 <!-- id:polar -->
     doc "A polar coordinate"
-    shared class Polar(angle, radius) {
+    class Polar(angle, radius) {
         
         shared Float angle;
         shared Float radius;
@@ -192,7 +192,7 @@ of a value.
 -->
 <!-- try-post:
     }
-    print(Polar(0.37, 10.0).description);
+    print(Polar(0.37, 10.0, "point").description);
 -->
 <!-- cat:
     doc "A polar coordinate"
@@ -212,7 +212,7 @@ But if there's no constructors in Ceylon, where precisely should we put this
 code? We put it directly in the body of the class!
 
 <!-- try-post:
-    print(Polar(0.37, 10.0).description);
+    print(Polar(0.37, 10.0, null).description);
 -->
     doc "A polar coordinate with an optional label"
     class Polar(angle, radius, String? label) {
@@ -237,7 +237,7 @@ local before making use of the simple attribute or local in an expression.
 
 <!-- check:none:Demoing error -->
     Integer count;
-    shared void inc() {
+    void inc() {
         count++;   //compile error
     }
 
@@ -287,7 +287,7 @@ our `description` attribute as a getter, without affecting any code that
 uses it.
 
 <!-- try-post:
-    print(Polar(0.37, 10.0).description);
+    print(Polar(0.37, 10.0, null).description);
 -->
     doc "A polar coordinate, with an optional label"
     class Polar(angle, radius, String? label) {
@@ -362,12 +362,13 @@ we'll come back to it [later in the tour](../types#union_types).
 
 Let's make use of this idea to "overload" the "constructor" of `Polar`.
 
+<!-- try: -->
 <!-- id: polar -->
     doc "A polar coordinate with an optional label"
     class Polar(angle, radius, String? label=null) {
         
-        shared Float angle=angle;
-        shared Float radius=radius;
+        shared Float angle;
+        shared Float radius;
         
         shared String description {
             if (exists label) {
@@ -388,8 +389,8 @@ Now we can create `Polar` coordinates with or without labels:
     doc "A polar coordinate with an optional label"
     class Polar(angle, radius, String? label=null) {
         
-        shared Float angle=angle;
-        shared Float radius=radius;
+        shared Float angle;
+        shared Float radius;
         
         shared String description {
             if (exists label) {
