@@ -475,9 +475,9 @@ Now this is accepted by the compiler:
 
     Resource resource = SymLink();
     switch (resource) 
-    case (is File) { }
-    case (is Directory) { }
-    case (is Link) { }
+    case (is File) { print("File"); }
+    case (is Directory) { print("Directory"); }
+    case (is Link) { print("Link"); }
 -->
     Resource resource = ... ;
     switch (resource) 
@@ -497,8 +497,8 @@ and exhaustion. For example, this is acceptable:
 
     Resource resource = SymLink();
     switch (resource) 
-    case (is File|Directory) { }
-    case (is Link) { }
+    case (is File|Directory) { print("File or Directory"); }
+    case (is Link) { print("Link"); }
 -->
     Resource resource = ... ;
     switch (resource) 
@@ -516,8 +516,8 @@ As is this, assuming the above declaration of `Resource`:
 
     File|Link resource = SymLink();
     switch (resource) 
-    case (is File) { }
-    case (is Link) { }
+    case (is File) { print("File"); }
+    case (is Link) { print("Link"); }
 -->
     File|Link resource = ... ;
     switch (resource) 
