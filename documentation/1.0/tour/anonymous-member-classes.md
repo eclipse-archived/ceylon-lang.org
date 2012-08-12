@@ -123,7 +123,7 @@ as long as it is a subtype of the declared type of the attribute.
 <!-- try:
     interface OutputStream { }
 
-    shared abstract class App() {
+    abstract class App() {
         shared formal OutputStream stream;
     }
 

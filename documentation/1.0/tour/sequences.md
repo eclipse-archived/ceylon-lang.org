@@ -271,12 +271,12 @@ shown above.
 
 <!-- try:
     String[] operators = { "+", "-", "*", "/" };
-    for (i -> op in entries(operators)) {
+    for (i -> op in entries(operators...)) {
         print("" i.string ": " op "");
     }
 -->
 <!-- cat: void m(String operators) { -->
-    for (i -> op in entries(operators)) {
+    for (i -> op in entries(operators...)) {
         // ...
     }
 <!-- cat: } -->
@@ -320,6 +320,7 @@ We especially don't ever need to write the following:
 
 This is much cleaner:
 
+<!-- try: -->
 <!-- cat: String m(String[] operators, Integer i) { -->
     return operators[i] else "";
 <!-- cat: } -->
