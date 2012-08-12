@@ -36,18 +36,44 @@ to [`if (exists ... )`](../basics#dealing_with_objects_that_arent_there) and
 [`if (nonempty ... )`](../sequences#the_interface_sequence_represents_a...), 
 which we met earlier.
 
+<!-- try-pre:
+    interface Printable {
+      shared formal void printObject();
+    }
+    class PrintableString(String string) satisfies Printable{
+      shared actual void printObject() { print(string); }
+    }
+-->
+<!-- try-post:
+    printIfPrintable("foo");
+    printIfPrintable(PrintableString("bar"));
+-->
 <!-- cat: interface Printable { shared formal void print(); } -->
     void printIfPrintable(Object obj) {
         if (is Printable obj) {
-            obj.print();
+            obj.printObject();
         }
     }
 
 The `switch` statement can be used in a similar way:
 
+<!-- try-pre:
+    class Hello(String txt) {
+        shared void printMsg() { print("Hello, " txt ""); }
+    }
+    class Person(firstName, lastName) {
+        shared String firstName;
+        shared String lastName;
+    }
+-->
+<!-- try-post:
+switchingPrint(Hello("World"));
+switchingPrint(Person("Pietje", "Pluk"));
+switchingPrint("foo");
+-->
 <!-- cat: 
     class Hello() { 
-        shared void print() {
+        shared void printMsg() {
         }
     } 
     class Person(String firstName) { 
@@ -57,7 +83,7 @@ The `switch` statement can be used in a similar way:
     void switchingPrint(Object obj) {
         switch(obj)
         case (is Hello) {
-            obj.print();
+            obj.printMsg();
         }
         case (is Person) {
             print(obj.firstName);
@@ -113,12 +139,24 @@ An expression is assignable to a *union type*, written `X|Y`, if it is assigmabl
 to *either* `X` or `Y`. The type `X|Y` is always a supertype of both `X` and `Y`. 
 The following code is well-typed:
 
+<!-- try:
+    void printType( String | Integer | Float val) {
+        switch(val)
+        case(is String) { print("String: " val ""); }
+        case(is Integer) { print("Integer: " val ""); }
+        case(is Float) { print("Float: " val ""); }
+    }
+
+    printType("hello");
+    printType(69);
+    printType(-1.0);
+-->
 <!-- check:none:pedagogical -->
-    void print(String|Integer|Float val) { ... }
+    void printType(String|Integer|Float val) { ... }
      
-    print("hello");
-    print(69);
-    print(-1.0);
+    printType("hello");
+    printType(69);
+    printType(-1.0);
 
 But what operations does a type like `String|Integer|Float` have? What are 
 its supertypes? Well, the answer is pretty intuitive: `T` is a supertype of 
@@ -145,11 +183,16 @@ clause in a `switch`, to remind us that there might be additional cases which
 we have not handled. But if we exhaust all cases of a union type, the compiler 
 will let us leave off the `else` clause.
 
-    void print(String|Integer|Float val) {
+<!-- try-post:
+    printType("hello");
+    printType(69);
+    printType(-1.0);
+-->
+    void printType(String|Integer|Float val) {
         switch (val)
-        case (is String) { print(val); }
-        case (is Integer) { print("Integer: " + val.string); }
-        case (is Float) { print("Float: " + val.string); }
+        case (is String) { print("String: " val ""); }
+        case (is Integer) { print("Integer: " val ""); }
+        case (is Float) { print("Float: " val ""); }
     }
 
 A union type is a kind of *enumerated type*.
@@ -171,6 +214,16 @@ subtypes of the type using the `of` clause:
     }
 -->
 
+<!-- try-post:
+    class Polar(radius, angle) extends Point() {
+        shared Float radius;
+        shared Float angle;
+    }
+    class Cartesian(x, y) extends Point() {
+        shared Float x;
+        shared Float y;
+    }
+-->
 <!-- id:Point -->
     abstract class Point()
             of Polar | Cartesian {
@@ -185,6 +238,21 @@ Now the compiler won't let us declare additional subclasses of `Point`, and
 so the union type `Polar|Cartesian` is exactly the same type as `Point`. 
 Therefore, we can write `switch` statements without an `else` clause:
 
+<!-- try-pre:
+    abstract class Point() of Polar | Cartesian { }
+    class Polar(radius, angle) extends Point() {
+        shared Float radius;
+        shared Float angle;
+    }
+    class Cartesian(x, y) extends Point() {
+        shared Float x;
+        shared Float y;
+    }
+-->
+<!-- try-post:
+    printPoint(Polar(10.0, 0.31));
+    printPoint(Cartesian(4.0, 5.0));
+-->
 <!-- cat-id: Point -->
 <!-- cat-id: Polar -->
     void printPoint(Point point) {
@@ -243,6 +311,36 @@ Let's consider the following tree visitor implementation:
 We can create a method which prints out the tree by implementing the `Visitor` 
 interface:
 
+<!-- try-pre:
+    abstract class Node() {
+        shared formal void accept(Visitor v);
+    }
+    
+    class Leaf(Object val) extends Node() {
+        shared Object element = val;
+        shared actual void accept(Visitor v) {
+            v.visitLeaf(this);
+        }
+    }
+    
+    class Branch(Node left, Node right) extends Node() {
+        shared Node leftChild = left;
+        shared Node rightChild = right;
+        shared actual void accept(Visitor v) {
+            v.visitBranch(this);
+        }
+    }
+    
+    interface Visitor {
+        shared formal void visitLeaf(Leaf l);
+        shared formal void visitBranch(Branch b);
+    }
+
+-->
+<!-- try-post:
+
+    printTree(Branch(Branch(Leaf("aap"), Leaf("noot")), Leaf("mies")));
+-->
 <!-- cat-id:tree -->
     void printTree(Node node) {
         object printVisitor satisfies Visitor {
@@ -269,18 +367,35 @@ enumerating the subtypes of `Node` in its definition, and using a `switch`:
 <!-- id:tree2 -->
     abstract class Node() of Leaf | Branch {}
     
-    class Leaf(Object val) extends Node() {
-        shared Object element = val;
+    class Leaf(element) extends Node() {
+        shared Object element;
     }
     
-    class Branch(Node left, Node right) extends Node() {
-        shared Node leftChild = left;
-        shared Node rightChild = right;
+    class Branch(leftChild, rightChild) extends Node() {
+        shared Node leftChild;
+        shared Node rightChild;
     }
 
 Our `print()` method is now much simpler, but still has the desired behavior 
 of "breaking" when a new subtype of `Node` is added.
 
+<!-- try-pre:
+    abstract class Node() of Leaf | Branch {}
+    
+    class Leaf(element) extends Node() {
+        shared Object element;
+    }
+    
+    class Branch(leftChild, rightChild) extends Node() {
+        shared Node leftChild;
+        shared Node rightChild;
+    }
+
+-->
+<!-- try-post:
+
+    printTree(Branch(Branch(Leaf("aap"), Leaf("noot")), Leaf("mies")));
+-->
 <!-- cat-id:tree2 -->
     void printTree(Node node) {
         switch (node)
@@ -288,8 +403,8 @@ of "breaking" when a new subtype of `Node` is added.
             print("Found a leaf: " node.element "!");
         }
         case (is Branch) {
-            print(node.leftChild);
-            print(node.rightChild);
+            printTree(node.leftChild);
+            printTree(node.rightChild);
         }
     }
 
@@ -298,6 +413,18 @@ of "breaking" when a new subtype of `Node` is added.
 Ordinarily, Ceylon won't let us use interface types as `case`s of a `switch`.
 If `File`, `Directory`, and `Link` are interfaces, we ordinarily can't write:
 
+<!-- try:
+    interface File {}
+    interface Directory {}
+    interface Link {}
+    class SymLink() satisfies Link {}
+
+    File|Directory|Link resource = SymLink();
+    switch (resource) 
+    case (is File) { }
+    case (is Directory) { } //compile error: cases are not disjoint
+    case (is Link) { }  //compile error: cases are not disjoint
+-->
     File|Directory|Link resource = ... ;
     switch (resource) 
     case (is File) { ... }
@@ -316,15 +443,42 @@ There's a workaround, however. When an interface has enumerated subtypes, the
 compiler enforces those subtypes to be disjoint. So if we define the following
 enumerated interface:
 
+<!-- try:
+    interface Resource of File|Directory|Link { }
+
+    interface File satisfies Resource {}
+    interface Directory satisfies Resource {}
+    interface Link satisfies Resource {}
+-->
     interface Resource of File|Directory|Link { ... }
 
 Then the following declaration is an error:
 
+<!-- try-pre:
+    interface Resource of File|Directory|Link { }
+    interface File satisfies Resource {}
+    interface Directory satisfies Resource {}
+    interface Link satisfies Resource {}
+
+-->
     class DirectoryFile() 
             satisfies File&Directory {} //compile error: File and Directory are disjoint types
 
 Now this is accepted by the compiler:
 
+<!-- try:
+    interface Resource of File|Directory|Link { }
+    interface File satisfies Resource {}
+    interface Directory satisfies Resource {}
+    interface Link satisfies Resource {}
+    class SymLink() satisfies Link {}
+
+    Resource resource = SymLink();
+    switch (resource) 
+    case (is File) { }
+    case (is Directory) { }
+    case (is Link) { }
+-->
     Resource resource = ... ;
     switch (resource) 
     case (is File) { ... }
@@ -334,6 +488,18 @@ Now this is accepted by the compiler:
 The compiler is pretty clever when it comes to reasoning about disjointness
 and exhaustion. For example, this is acceptable:
 
+<!-- try:
+    interface Resource of File|Directory|Link { }
+    interface File satisfies Resource {}
+    interface Directory satisfies Resource {}
+    interface Link satisfies Resource {}
+    class SymLink() satisfies Link {}
+
+    Resource resource = SymLink();
+    switch (resource) 
+    case (is File|Directory) { }
+    case (is Link) { }
+-->
     Resource resource = ... ;
     switch (resource) 
     case (is File|Directory) { ... }
@@ -341,10 +507,22 @@ and exhaustion. For example, this is acceptable:
 
 As is this, assuming the above declaration of `Resource`:
 
-    File|Directory resource = ... ;
+<!-- try:
+    interface Resource of File|Directory|Link { }
+    interface File satisfies Resource {}
+    interface Directory satisfies Resource {}
+    interface Link satisfies Resource {}
+    class SymLink() satisfies Link {}
+
+    File|Link resource = SymLink();
+    switch (resource) 
+    case (is File) { }
+    case (is Link) { }
+-->
+    File|Link resource = ... ;
     switch (resource) 
     case (is File) { ... }
-    case (is Directory) { ... }
+    case (is Link) { ... }
 
 If you're interested in knowing more about how this works, 
 [read this](/blog/2012/01/25/enumerated-types/#how_the_compiler_reasons_about_enumerated_types).
@@ -356,18 +534,32 @@ Ceylon doesn't have anything exactly like Java's `enum` declaration. But we
 can emulate the effect using the `of` clause.
 
 <!-- id:Suit -->
-    shared abstract class Suit(String name)
+    abstract class Suit(String name)
             of hearts | diamonds | clubs | spades {}
     
-    shared object hearts extends Suit("hearts") {}
-    shared object diamonds extends Suit("diamonds") {}
-    shared object clubs extends Suit("clubs") {}
-    shared object spades extends Suit("spades") {}
+    object hearts extends Suit("hearts") {}
+    object diamonds extends Suit("diamonds") {}
+    object clubs extends Suit("clubs") {}
+    object spades extends Suit("spades") {}
 
 We're allowed to use the names of `object` declarations in the `of` clause.
 
 Now we can exhaust all cases of `Suit` in a `switch`:
 
+<!-- try-pre:
+    abstract class Suit(String name)
+            of hearts | diamonds | clubs | spades {}
+    
+    object hearts extends Suit("hearts") {}
+    object diamonds extends Suit("diamonds") {}
+    object clubs extends Suit("clubs") {}
+    object spades extends Suit("spades") {}
+
+-->
+<!-- try-post:
+
+    printSuit(hearts);
+-->
 <!-- cat-id:Suit -->
     void printSuit(Suit suit) {
         switch (suit)
@@ -395,6 +587,7 @@ It's often useful to provide a shorter or more semantic name to an existing
 class or interface type, especially if the class or interface is a 
 parameterized type. For this, we use a *type alias*, for example:
 
+<!-- try: -->
 <!-- cat: 
     class Person() {
     }
@@ -403,6 +596,7 @@ parameterized type. For this, we use a *type alias*, for example:
 
 A class alias must declare its formal parameters:
 
+<!-- try: -->
 <!-- check:none:ArrayList -->
     shared class People(Person... people) = ArrayList<Person>;
 
@@ -422,6 +616,11 @@ or the return type of a local method. Just place the keyword
 `value` (in the case of a local variable) or `function` (in the case of a 
 local method) in place of the type declaration.
 
+<!-- try-pre:
+    Float pi = 3.14159;
+    class Polar(Float angle, Float radius) {}
+
+-->
 <!-- cat-id: Point -->
 <!-- cat-id: Polar -->
 <!-- cat: Float pi = 3.14159; -->
@@ -455,6 +654,18 @@ to the left of the `=` specifier, or further down the block of statements.
 
 What about sequence enumeration expressions like this:
 
+<!-- try-pre:
+    abstract class Point() of Polar | Cartesian { }
+    class Polar(radius, angle) extends Point() {
+        shared Float radius;
+        shared Float angle;
+    }
+    class Cartesian(x, y) extends Point() {
+        shared Float x;
+        shared Float y;
+    }
+
+-->
 <!-- cat-id: Point -->
 <!-- cat-id: Polar -->
 <!-- cat: void m() { -->
@@ -472,6 +683,18 @@ union of all the element expression types. In this case, the type is
 `Sequence<T>` is [covariant](../generics#covariance_and_contravariance) 
 in `T`. So the following code is well-typed:
 
+<!-- try-pre:
+    abstract class Point() of Polar | Cartesian { }
+    class Polar(radius, angle) extends Point() {
+        shared Float radius;
+        shared Float angle;
+    }
+    class Cartesian(x, y) extends Point() {
+        shared Float x;
+        shared Float y;
+    }
+
+-->
 <!-- cat-id: Point -->
 <!-- cat-id: Polar -->
 <!-- cat: void m() { -->
@@ -481,6 +704,9 @@ in `T`. So the following code is well-typed:
 
 As is the following code:
 
+<!-- try-post:
+    print(numbers);
+-->
 <!-- cat: void m() { -->
     value nums = { 12.0, 1, -3 }; //type Sequence<Float|Integer>
     Number[] numbers = nums; //type Empty|Sequence<Number>
@@ -491,6 +717,9 @@ What about sequences that contain `null`? Well, do you
 the type of `null` was 
 [`Nothing`](#{site.urls.apidoc_current}/ceylon/language/class_Nothing.html)?
 
+<!-- try-post:
+    print(s else "null");
+-->
 <!-- cat: void m() { -->
     value sequence = { null, "Hello", "World" }; //type Sequence<Nothing|String>
     String?[] strings = sequence; //type Empty|Sequence<Nothing|String>
