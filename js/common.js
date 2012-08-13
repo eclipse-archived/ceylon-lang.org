@@ -113,9 +113,12 @@ function getCommonIndent(src) {
 	var indent = undefined
 	var lines = src.split("\n");
 	for (idx in lines) {
-		var spc = lines[idx].match("^ *");
-		if ((indent == undefined) || spc.length < indent.length) {
-			indent = spc;
+		var line = lines[idx];
+		if ($.trim(line).length > 0) { // Ignore empty lines
+			var spc = line.match("^ *");
+			if ((indent == undefined) || spc.length < indent.length) {
+				indent = spc;
+			}
 		}
 	}
 	return indent;
