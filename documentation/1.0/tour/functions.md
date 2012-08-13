@@ -479,7 +479,7 @@ Now, any event observer can just pass a reference to one of its own methods to
 
 -->
 <!-- check:parse:Depends on Component, above, which requires OpenList -->
-    shared class Listener(Component component) {
+    class Listener(Component component) {
      
         void onEvent(Event e) {
             // respond to the event
