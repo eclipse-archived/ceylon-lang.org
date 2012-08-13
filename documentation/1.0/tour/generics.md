@@ -55,7 +55,7 @@ Unlike Java, we always do need to specify type arguments in a type declaration
 We always have to specify a type argument in a type declaration:
 
 <!-- try:
-    Iterable<String> it = {};   //error: missing type argument to parameter Element of Iterable
+    Iterable<String> it = {};
 -->
 <!-- check:none -->
     Iterable<String> it = ...;
@@ -79,12 +79,12 @@ should refer to the [language specification](#{page.doc_root}/#{site.urls.spec_r
 for a complete definition. But essentially what happens is that Ceylon 
 infers a type by combining the types of corresponding arguments using union.
 
-<!--try-pre:
+<!--try:
     class Polar(Float angle, Float radius) { }
-    class Cartesian(Float x, Float y);
+    class Cartesian(Float x, Float y) { }
 
     value points = array(Polar(0.7854, 0.5), Cartesian(-1.0, 2.5)); // type Array<Polar|Cartesian>
-    value entries = entries(points...); // type Iterable<Entry<Integer,Polar|Cartesian>>
+    value things = entries(points...); // type Iterable<Entry<Integer,Polar|Cartesian>>
 -->
 <!-- check:none -->
     value points = Array(Polar(pi/4, 0.5), Cartesian(-1.0, 2.5)); // type Array<Polar|Cartesian>
@@ -275,7 +275,7 @@ Even the following code is legal:
 
 Then the following is legal and well-typed:
 
-<!-- try:
+<!-- try-pre:
     interface Something {}
     interface SomethingElse {}
     interface List<out Element> { }
