@@ -198,7 +198,7 @@ To determine if the method `stop()` of a class named `Thread` is deprecated,
 we can write:
 
 <!-- check:none:Annotations M5 -->
-    Boolean deprecated = annotations(Deprecated, Thread.stop) exists;
+    Boolean deprecated = exists annotations(Deprecated, Thread.stop);
 
 Note that the expression `Thread.stop` returns the metamodel object for the 
 method `stop()` of `Thread`, an instance of `Method<Thread,Void>`.
