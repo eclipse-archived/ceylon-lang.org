@@ -30,27 +30,32 @@ file. We can't write `org.jboss.hello.Hello` in Ceylon.
 The syntax of the `import` statement is slightly different to Java. To import 
 a program element, we write:
 
+<!-- try: -->
 <!-- check:none:pedagogical -->
     import com.redhat.polar.core { Polar }
 
 To import several program elements from the same package, we write:
 
+<!-- try: -->
 <!-- check:none:pedagogical -->
     import com.redhat.polar.core { Polar, pi }
 
 To import all toplevel program elements of a package, we write:
 
+<!-- try: -->
 <!-- check:none:pedagogical -->
     import com.redhat.polar.core { ... }
 
 To resolve a name conflict, we can rename an imported declaration:
 
+<!-- try: -->
 <!-- check:none:pedagogical -->
     import com.redhat.polar.core { PolarCoord=Polar }
 
 We think renaming is a much cleaner solution than the use of qualified names.
 We can even rename members of type:
 
+<!-- try: -->
 <!-- check:none:pedagogical -->
     import com.redhat.polar.core { Polar { r=radius, theta=angle } }
 
@@ -82,6 +87,7 @@ top level
 [`Package`](#{site.urls.apidoc_current}/ceylon/language/descriptor/class_Package.html) 
 attribute called `package`:
 
+<!-- try: -->
 <!-- check:none:Quoted-->
     Package package {
         name = 'org.hibernate.query';
@@ -100,7 +106,8 @@ This is accomplished via a module descriptor, which is a top level
 [`Module`](#{site.urls.apidoc_current}/ceylon/language/descriptor/class_Module.html) 
 attribute called `module`:
  
- <!-- check:none:Quoted-->
+<!-- try: -->
+<!-- check:none:Quoted-->
     Module module {
         name = 'org.hibernate';
         version = '3.0.0.beta';
