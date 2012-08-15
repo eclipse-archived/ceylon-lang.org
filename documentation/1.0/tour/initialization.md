@@ -91,6 +91,11 @@ variable has definitely been assigned a value before allowing use of the
 local variable in an expression. So, for example, the following code compiles 
 without error:
 
+<!-- try-pre:
+    value person = "Someone";
+    value me = "Me";
+
+-->
 <!-- cat: void m(String person, String me) { -->
     String greeting;
     if (person==me) {
@@ -104,6 +109,11 @@ without error:
 
 But the following code results in an error at compile time:
 
+<!-- try-pre:
+    value person = "Someone";
+    value me = "Me";
+
+-->
 <!-- check:none:demos error -->
     String greeting;
     if (person==me) {
@@ -195,6 +205,16 @@ only called after the instance has been fully initialized.
 
 Consider the following example:
 
+<!-- try-pre: 
+    Boolean morning = false;
+    Boolean afternoon = false;
+    Boolean evening = true;
+
+-->
+<!-- try-post:
+
+    Hello("Joe").say();
+-->
 <!-- check:parse:#93 -->
 <!-- cat: 
     Boolean morning = false;
@@ -344,6 +364,11 @@ like the Java compiler, also performs definite return checking, to ensure
 that a method or getter always has an explicitly specified return value. 
 So, this code compiles without error:
 
+<!-- try-pre:
+    value person = "Someone";
+    value me = "Me";
+
+-->
 <!-- cat: void m(String person, String me) { -->
     String greeting {
         if (person==me) {
@@ -357,6 +382,11 @@ So, this code compiles without error:
 
 But the following code results in an error at compile time:
 
+<!-- try-pre:
+    value person = "Someone";
+    value me = "Me";
+
+-->
 <!-- check:none:Demoing error -->
     String greeting {   //error: greeting does not definitely return
         if (person==me) {
