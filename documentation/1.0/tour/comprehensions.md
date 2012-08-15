@@ -26,19 +26,31 @@ The syntax for instantiating a sequence, [that we met earlier](../sequences#sequ
 is considered to have a sequenced parameter, so we can use a comprehension
 to build a sequence:
 
+<!-- try-pre:
+    class Person(name) { shared String name; }
+    value people = { Person("Gavin"), Person("Stephane"), Person("Tom"), Person("Tako") };
+
+-->
+<!-- try-post:
+
+    print(names);
+-->
     value names = { for (p in people) p.name }; 
 
 But comprehensions aren't just useful for building sequences! Suppose 
 we had a class `HashMap`, with the following signature:
 
+<!-- try: -->
     class HashMap<Key,Item>(Key->Item... entries) { ... }
 
 Then we could construct a `HashMap` like this:
 
+<!-- try: -->
     value peopleByName = HashMap(for (p in people) p.name->p);
 
 Or, equivalently (using a named argument invocation), like this:
 
+<!-- try: -->
     value peopleByName = HashMap { for (p in people) p.name->p };
 
 As you've already guessed, the `for` clause of a comprehension works
@@ -51,6 +63,12 @@ iterate the entire stream, the comprehension will never be fully
 evaluated. This is extremely useful for functions like `every()` and
 `any()`:
 
+<!-- try:
+    class Person(name, age) { shared String name; shared Integer age; }
+    value people = { Person("Wim", 43), Person("Zus", 20), Person("Jet", 37) };
+
+    print(every(for (p in people) p.age>=18));
+-->
     if (every(for (p in people) p.age>=18)) { ... }
 
 The function `every()` (in `ceylon.language`) accepts a stream of
@@ -69,6 +87,12 @@ iterates!
 
 For example, this comprehension 
 
+<!-- try:
+    class Person(name) { shared String name; }
+    value people = { Person("Gavin"), Person("Stephane"), Person("Tom"), Person("Tako") };
+
+    value ps = { for (p in people) p.name->p };
+-->
     for (p in people) p.name->p
 
 results in an `Iterable<String->Person>`. For each element of `people`,
@@ -80,10 +104,28 @@ The `if` clause of a comprehension allows us to skip certain elements
 of the stream. This comprehension produces a stream of numbers which
 are divisible by `3`.
 
+<!-- try:
+    print({for (i in 0..100) if (i%3==0) i});
+-->
     for (i in 0..100) if (i%3==0) i
 
 It's especially useful to filter using `if (exists ...)`.
 
+<!-- try:
+    class Person(name) {
+        shared String name;
+        shared variable Person? spouse := null;
+        shared actual String string = name;
+    }
+    value wim = Person("Wim");
+    value zus = Person("Zus");
+    value jet = Person("Jet");
+    wim.spouse := jet;
+    jet.spouse := wim;
+    value people = { wim, zus, jet };
+
+    print({for (p in people) if (exists s=p.spouse) p->s});
+-->
     for (p in people) if (exists s=p.spouse) p->s
 
 ## Products and joins
@@ -92,11 +134,24 @@ A comprehension may have more than one `for` clause. The allows us
 to combine two streams to obtain a stream of values of their cartesian 
 product:
 
+<!-- try:
+    class Node(Integer x, Integer y) { shared actual String string = "(" x "," y ")"; }
+
+    print({for (i in 0..5) for (j in 0..5) Node(i,j)});
+-->
     for (i in 0..100) for (j in 0..10) Node(i,j)
 
 Even more usefully, it lets us obtain a stream of associated values,
 a lot like a `join` in SQL.
 
+<!-- try:
+    class Employee(name) { shared String name; }
+    class Organisation(name, employees) { shared String name; shared Employee[] employees; }
+    value orgs = { Organisation("RedHat", { Employee("Joe"), Employee("Jack") }),
+                   Organisation("Fedora", { Employee("Lisa") }) };
+
+    print({for (o in orgs) for (e in o.employees) o.name->e.name});
+-->
     for (o in orgs) for (e in o.employees) e.name
 
 ## There's more...
