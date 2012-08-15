@@ -27,6 +27,7 @@ useful functions and types. Let's meet the main characters.
 Just like Java, Ceylon has a class named 
 [`Object`](#{site.urls.apidoc_current}/ceylon/language/class_Object.html).
 
+<!-- try: -->
 <!-- check:none:decl from ceylon.language -->
     doc "The abstract supertype of all types representing 
          definite values."
@@ -58,6 +59,7 @@ which is the type of `null`.
 Therefore, Ceylon's `Object` has a superclass, named 
 [`Void`](#{site.urls.apidoc_current}/ceylon/language/class_Void.html).
 
+<!-- try: -->
 <!-- check:none:decl from ceylon.language -->
     doc "The abstract supertype of all types. A value of type 
          `Void` may be a definite value of type `Object`, or it 
@@ -88,6 +90,7 @@ other return type requires an explicit `return` with an expression.
 
 The class `Nothing` also directly extends `Void`. 
 
+<!-- try: -->
 <!-- check:none:decl from ceylon.language -->
     doc "The type of the `null` value. Any union type of form 
          `Nothing|T` is considered an optional type, whose values
@@ -124,6 +127,7 @@ can't use the `===` operator to test the identity of two values of type
 `Object`. Instead, `===` is defined to act opon instances of the interface 
 [`Identifiable`](#{site.urls.apidoc_current}/ceylon/language/interface_Identifiable.html)
 
+<!-- try: -->
 <!-- check:none:decl from ceylon.language -->
     doc "The abstract supertype of all types with a well-defined
          notion of identity. Values of type `Identifiable` may 
@@ -167,6 +171,7 @@ user-written class to directly extend `Object`, but most of the classes
 you write will be subclasses of `IdentifiableObject`. All classes with 
 `variable` attributes must extend `IdentifiableObject`.
 
+<!-- try: -->
 <!-- check:none:decl from ceylon.language -->
     doc "The default superclass when no superclass is explicitly
          specified using `extends`."
@@ -185,22 +190,26 @@ For example, the `<` operator is defined in terms of the interface
 [`Comparable`](#{site.urls.apidoc_current}/ceylon/language/interface_Comparable.html), 
 which has a method named `compare()`. The operator expression
 
+<!-- try: -->
 <!-- check:none -->
     x<y
 
 means, by definition,
 
+<!-- try: -->
 <!-- check:none -->
     x.compare(y) === smaller
 
 The equality operator `==` is defined in terms of the class `Object`, 
 which has a method named `equals()`. So
 
+<!-- try: -->
 <!-- check:none -->
     x==y
 
 means, by definition,
 
+<!-- try: -->
 <!-- check:none -->
     x.equals(y)
 
@@ -241,6 +250,11 @@ of `Character`s.
 
 A character literal is written between backticks. (Not single quotes!)
 
+<!-- try:
+    Character[] latinLetters = join(`a`..`z`, `A`..`Z`);
+    Character newline = `\n`;
+    Character pi = `\{0001D452}`;
+-->
     Character[] latinLetters = join(`a`..`z`, `A`..`Z`);
     Character newline = `\n`;
     Character pi = `\{0001D452}`;
@@ -312,6 +326,7 @@ which represent arbitrary precision integers and arbitrary precision decimals.
 Both classes are subtypes of `Numeric`, so you can use all the usual numeric
 operators with them:
 
+<!-- try: -->
     Decimal num = ... ;
     Decimal denom = ... ;
     Decimal ratio = num/denom;
@@ -345,6 +360,10 @@ You can use all the operators you're used to from other C-style languages
 with the numeric types. You can also use the `**` operator to raise a 
 number to a power:
 
+<!-- try-pre:
+    Float length = 2.0;
+    Float width = 1.5;
+-->
 <!-- cat: void m(Float length, Float width) { -->
     Float diagonal = (length**2.0+width**2.0)**0.5;
 <!-- cat: } -->
@@ -357,6 +376,10 @@ Since it's quite noisy to explicitly perform numeric widening in numeric
 expressions, the numeric operators automatically widen their operands, 
 so we could write the expression above like this:
 
+<!-- try-pre:
+    Float length = 2.0;
+    Float width = 1.5;
+-->
 <!-- cat: void m(Float length, Float width) { -->
     Float diagonal = (length**2+width**2)**(1.0/2);
 <!-- cat: } -->
@@ -378,6 +401,7 @@ terms of these methods of `Numeric`. The numeric types also implement the
 interface [`Castable`](#{site.urls.apidoc_current}/ceylon/language/interface_Castable.html), 
 which enables the widening conversions we just mentioned.
 
+<!-- try: -->
 <!-- check:none:decl from ceylon.language -->
     shared interface Castable<in Types> {
         shared formal CastValue castTo<CastValue>()
@@ -389,6 +413,7 @@ should be the union of all types to which the implementing type is castable.
 
 For example, simplifying slightly the definitions in the language module:
 
+<!-- try: -->
 <!-- check:none:decl from ceylon.language -->
     shared abstract class Integer()
             extends Object()
@@ -398,6 +423,7 @@ For example, simplifying slightly the definitions in the language module:
         ...
     }
     
+<!-- try: -->
 <!-- check:none:decl from ceylon.language -->
     shared abstract class Float()
             extends Object()
