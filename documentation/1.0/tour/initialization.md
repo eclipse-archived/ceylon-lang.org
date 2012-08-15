@@ -369,6 +369,10 @@ So, this code compiles without error:
     value me = "Me";
 
 -->
+<!-- try-post:
+
+    print(greeting);
+-->
 <!-- cat: void m(String person, String me) { -->
     String greeting {
         if (person==me) {
@@ -386,6 +390,10 @@ But the following code results in an error at compile time:
     value person = "Someone";
     value me = "Me";
 
+-->
+<!-- try-post:
+
+    print(greeting);
 -->
 <!-- check:none:Demoing error -->
     String greeting {   //error: greeting does not definitely return
