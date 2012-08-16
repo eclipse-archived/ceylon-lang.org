@@ -1012,3 +1012,12 @@ body.two-col {
 iframe.code-editor {
  width: 100% !important;
 }
+
+p.screenshot {
+ text-align: center;
+ 
+ img {
+  box-shadow: 0 0 1em black;
+  margin: 1em;
+ }
+}
