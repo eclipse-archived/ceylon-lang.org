@@ -27,7 +27,7 @@ operand is *less than* its right-hand operand.
 The `<` operator is defined as follows:
 
 <!-- check:none -->
-    lhs.smallerThan(rhs);
+    lhs.compare(rhs)==smaller;
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#equalitycomparison) for more details.
 
