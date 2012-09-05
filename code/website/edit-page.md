@@ -56,7 +56,7 @@ In Bash
 In Java 
 
 <!-- lang: java -->
-    <!-- lang: bash -->
+    <!-- lang: java -->
         public final class Address {
         	public String getStreet() { return street;}
         	public void setStreet(String street) { this.street = street;}

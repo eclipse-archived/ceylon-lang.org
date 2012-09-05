@@ -38,6 +38,17 @@ extending an `abstract` class or implementing an interface.
     }
 -->
 
+<!-- try-pre:
+    doc "A polar coordinate"
+    class Polar(Float angle, Float radius) {
+        doc "The default description"
+        shared default String description = "(" radius "," angle ")";
+        shared actual String string { return description; }
+    }
+-->
+<!-- try-post:
+    print(origin);
+-->
 <!-- cat-id:polar -->
     doc "The origin"
     object origin extends Polar(0.0, 0.0) {
@@ -46,6 +57,7 @@ extending an `abstract` class or implementing an interface.
 
 An anonymous class may extend an ordinary class and satisfy interfaces.
 
+<!-- try: -->
 <!-- check:none:Requires IO -->
     shared object consoleWriter satisfies Writer {
                  
@@ -58,7 +70,7 @@ An anonymous class may extend an ordinary class and satisfy interfaces.
     }
 
 The downside to an `object` declaration is that we can't write code that 
-refers to the concrete type of `defaultHello` or `consoleWriter`, only to the 
+refers to the concrete type of `origin` or `consoleWriter`, only to the 
 named instances.
 
 You might be tempted to think of object declarations as defining singletons, 
@@ -72,12 +84,20 @@ but that's not quite right:
 
 Let's see how this can be useful:
 
+<!-- try-pre:
+    interface Subscriber {}
+    object subscribers {
+        shared void append(Subscriber s) {}
+        shared void remove(Subscriber s) {}
+    }
+
+-->
 <!-- check:none:Requires Mutable List -->
     interface Subscription {
         shared formal void cancel();
     }
 
-    shared Subscription register(Subscriber s) {
+    Subscription register(Subscriber s) {
         subscribers.append(s);
         object subscription satisfies Subscription {
             shared actual void cancel() {
@@ -100,6 +120,18 @@ think of a method as a parametrized attribute.
 An `object` declaration can refine an attribute declared `formal` or `default`,
 as long as it is a subtype of the declared type of the attribute.
 
+<!-- try:
+    interface OutputStream { }
+
+    abstract class App() {
+        shared formal OutputStream stream;
+    }
+
+    class ConsoleApp() extends App() {
+        shared actual object stream
+                satisfies OutputStream { }
+    }
+-->
 <!-- check:none:Requires IO -->
     shared abstract class App() {
         shared formal OutputStream stream;
@@ -124,6 +156,14 @@ more than natural. But in Ceylon, a non-abstract nested class is actually
 considered a member of the containing type. For example, `BufferedReader` 
 defines the member class `Buffer`:
 
+<!-- try:
+    interface Reader {}
+    class BufferedReader(Reader reader) satisfies Reader {
+        shared default class Buffer() satisfies Container {
+            shared actual Boolean empty = true;
+        }
+    }
+-->
 <!-- check:none:Requires IO -->
     class BufferedReader(Reader reader)
             satisfies Reader {
@@ -136,8 +176,17 @@ defines the member class `Buffer`:
 The member class `Buffer` is annotated shared, so we can instantiate it like 
 this:
 
+<!-- try-pre:
+    interface Reader {}
+    class ExampleReader() satisfies Reader {}
+    class BufferedReader(Reader reader) satisfies Reader {
+        shared default class Buffer() satisfies Container {
+            shared actual Boolean empty = true;
+        }
+    }
+-->
 <!-- check:none:Requires IO -->
-    BufferedReader br = BufferedReader(reader);
+    BufferedReader br = BufferedReader(ExampleReader());
     BufferedReader.Buffer b = br.Buffer();
 
 Note that a nested type name must be qualified by the containing type name 
@@ -146,8 +195,24 @@ when used outside of the containing type.
 The member class `Buffer` is also annotated `default`, so we can refine it 
 in a subtype of `BufferedReader`:
 
+<!-- try:
+    interface Reader {}
+    interface File {}
+    class FileReader(File file) satisfies Reader {}
+    class BufferedReader(Reader reader) satisfies Reader {
+        shared default class Buffer() satisfies Container {
+            shared actual Boolean empty = true;
+        }
+    }
+
+    class BufferedFileReader(File file)
+            extends BufferedReader(FileReader(file)) {
+        shared actual class Buffer()
+                extends super.Buffer() { }
+    }
+-->
 <!-- check:none:Requires IO -->
-    shared class BufferedFileReader(File file)
+    class BufferedFileReader(File file)
             extends BufferedReader(FileReader(file)) {
         shared actual class Buffer()
                 extends super.Buffer() { ... }
@@ -168,6 +233,16 @@ our code.
 It's even possible to define a `formal` member class of an `abstract` class. 
 A `formal` member class can declare `formal` members.
 
+<!-- try:
+    interface Reader {}
+    interface Byte {}
+    abstract class BufferedReader(Reader reader)
+            satisfies Reader {
+        shared formal class Buffer() {
+            shared formal Byte read();
+        }
+    }
+-->
 <!-- check:none:Requires IO -->
     abstract class BufferedReader(Reader reader)
             satisfies Reader {
@@ -182,6 +257,7 @@ A `formal` member class can declare `formal` members.
 In this case, a concrete subclass of the `abstract` class must refine the 
 `formal` member class.
 
+<!-- try: -->
 <!-- check:none:Requires IO -->
     shared class BufferedFileReader(File file)
             extends BufferedReader(FileReader(file)) {

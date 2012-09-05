@@ -30,6 +30,10 @@ of the type `Sequence` aren't defined by `Empty`, so you can't call them if
 all you have is `X[]`. Therefore, we need the `if (nonempty ... )` construct 
 to gain access to these operations.
 
+<!-- try-post:
+    printBounds({"aap", "noot", "mies"});
+    printBounds({});
+-->
     void printBounds(String[] strings) {
         if (nonempty strings) {
             //strings is a Sequence<String>
@@ -55,6 +59,9 @@ abbreviations for type narrowing:
 There's lots more syntactic sugar for sequences. We can use a bunch of 
 familiar Java-like syntax:
 
+<!-- try-post:
+    print(multiplicative);
+-->
     String[] operators = { "+", "-", "*", "/" };
     String? plus = operators[0];
     String[] multiplicative = operators[2..3];
@@ -64,6 +71,7 @@ Oh, and the expression `{}` evaluates to an instance of `Empty`.
 However, unlike Java, all these syntactic constructs are pure abbreviations. 
 The code above is exactly equivalent to the following de-sugared code:
 
+<!-- try: -->
 <!-- check:none:pedagogial -->
     Empty|Sequence<String> operators = ArraySequence { "+", "-", "*", "/" };
     Nothing|String plus = operators.item(0);
@@ -75,11 +83,23 @@ Ceylon language module, the above code will not actually compile!)
 A [`Range`](#{site.urls.apidoc_current}/ceylon/language/class_Range.html) 
 is also a subtype of `Sequence`. The following:
 
+<!-- try:
+    Character[] uppercaseLetters = `A`..`Z`;
+    Integer[] countDown =  10..0 ;
+    print(uppercaseLetters);
+    print(countDown);
+-->
     Character[] uppercaseLetters = `A`..`Z`;
     Integer[] countDown = 10..0;
 
 Is just sugar for:
 
+<!-- try:
+    Empty|Sequence<Character> uppercaseLetters = Range(`A`,`Z`);
+    Empty|Sequence<Integer> countDown = Range(10,0);
+    print(uppercaseLetters);
+    print(countDown);
+-->
     Empty|Sequence<Character> uppercaseLetters = Range(`A`,`Z`);
     Empty|Sequence<Integer> countDown = Range(10,0);
 
@@ -94,6 +114,9 @@ The `Sequence` interface extends
 [`Iterable`](#{site.urls.apidoc_current}/ceylon/language/interface_Iterable.html), 
 so we can iterate a `Sequence` using a `for` loop:
 
+<!-- try-pre:
+    String[] operators = { "+", "-", "*", "/" };
+-->
 <!-- cat: void m(String[] operators) { -->
     for (op in operators) {
         print(op);
@@ -115,9 +138,12 @@ If, for any reason, we need to use the index of each element of a sequence
 we can use a special variation of the `for` loop that is designed for 
 iterating [`Entry`s](#{site.urls.apidoc_current}/ceylon/language/class_Entry.html):
 
+<!-- try-pre:
+    String[] operators = { "+", "-", "*", "/" };
+-->
 <!-- cat: void m(String operators) { -->
-    for (i -> op in entries(operators)) {
-        print(i.string + ": " + op);
+    for (i -> op in entries(operators...)) {
+        print("" i.string ": " op "");
     }
 <!-- cat: } -->
 
@@ -131,6 +157,10 @@ It's often useful to be able to iterate two sequences at once. The
 [`zip()`](#{site.urls.apidoc_current}/ceylon/language/#zip) 
 function comes in handy here:
 
+<!-- try-pre:
+    String[] names = { "mies", "wim", "jet" };
+    String[] places = { "hoogezand", "sappemeer", "kalkwijk" };
+-->
 <!-- cat: void m(String[] names, String[] places) { -->
     for (name -> place in zip(names,places)) {
         print(name + " @ " + place);
@@ -172,6 +202,9 @@ in the type parameter `Element`. So `Empty` is assignable to
 `Correspondence<Integer,T>` and `Iterable<T>` for any type `T`. That's why 
 `Empty` doesn't need a type parameter. The following code is well-typed:
 
+<!-- try-post:
+    printAll({"aap", "noot", "mies"});
+-->
     void printAll(String[] strings) {
         Iterator<String> i = strings.iterator;
         while (is String s = i.next()) {
@@ -182,7 +215,7 @@ in the type parameter `Element`. So `Empty` is assignable to
 Since both `Empty` and `Sequence<String>` are subtypes of `Iterable<String>`, 
 the union type `String[]` is also a subtype of `Iterable<String>`.
 
-Since there are no actual instances of `Bottom`, yf you ever see an attribute 
+Since there are no actual instances of `Bottom`, if you ever see an attribute 
 or method of type `Bottom`, you know for certain that it can't possibly ever 
 return a value. There is only one possible way that such an operation can
 terminate: by throwing an exception.
@@ -208,6 +241,10 @@ very, very different! First, of course, a sequence type `Sequence<String>` is
 an immutable interface, it's not a mutable concrete type like an array. We 
 can't set the value of an element:
 
+<!-- try:
+    String[] operators = { "+", "-", "*", "/" };
+    operators[0] := "**"; //compile error
+-->
 <!-- check:none:Demoing error -->
     String[] operators = .... ;
     operators[0] := "**"; //compile error
@@ -217,10 +254,13 @@ Furthermore, the index operation `operators[i]` returns an optional type
 don't iterate sequences by index like in C or Java. The following code does 
 not compile:
 
+<!-- try-pre:
+    String[] operators = { "+", "-", "*", "/" };
+-->
 <!-- check:none:Demoing error -->
     for (i in 0..operators.size-1) {
         String op = operators[i]; //compile error
-        ...
+        // ...
     }
 
 Here, `operators[i]` is a `String?`, which is not directly assignable to 
@@ -229,8 +269,14 @@ Here, `operators[i]` is a `String?`, which is not directly assignable to
 Instead, if we need access to the index, we use the special form of `for` 
 shown above.
 
+<!-- try:
+    String[] operators = { "+", "-", "*", "/" };
+    for (i -> op in entries(operators...)) {
+        print("" i.string ": " op "");
+    }
+-->
 <!-- cat: void m(String operators) { -->
-    for (i -> op in entries(operators)) {
+    for (i -> op in entries(operators...)) {
         // ...
     }
 <!-- cat: } -->
@@ -238,6 +284,7 @@ shown above.
 Likewise, we don't usually do an upfront check of an index against the 
 sequence length:
 
+<!-- try: -->
 <!-- check:none:demoing error -->
     if (i>operators.size-1) {
         throw IndexOutOfBoundException();
@@ -248,6 +295,7 @@ sequence length:
 
 Instead, we do the check *after* accessing the sequence element:
 
+<!-- try: -->
 <!-- cat: 
     class IndexOutOfBoundException() extends Exception(null, null) {} 
     String m(String[] operators, Integer i) { -->
@@ -261,6 +309,7 @@ Instead, we do the check *after* accessing the sequence element:
 
 We especially don't ever need to write the following:
 
+<!-- try: -->
 <!-- check:none:demoing error -->
     if (i>operators.size-1) {
         return "";
@@ -271,6 +320,7 @@ We especially don't ever need to write the following:
 
 This is much cleaner:
 
+<!-- try: -->
 <!-- cat: String m(String[] operators, Integer i) { -->
     return operators[i] else "";
 <!-- cat: } -->

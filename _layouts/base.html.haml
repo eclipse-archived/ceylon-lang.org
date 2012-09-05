@@ -5,14 +5,15 @@
       #{escape_once(site.title)}: #{escape_once(page.title)}
     %link{ :rel=>'shortcut icon', :type=>'image/vnd.microsoft.icon', :href=>'/images/favicon.ico' }/
     %link{ :rel=>'publisher', :href=>'https://plus.google.com/102481741611133754149' }/
-    %link{ :rel=>'stylesheet', :type=>'text/css', :href=>'/stylesheets/screen.css', :media=>'screen, projection' }/
-    %link{ :rel=>'stylesheet', :type=>'text/css', :href=>'/stylesheets/print.css', :media=>'print' }/
     %link{ :href=>"/stylesheets/sh/shCore.css", :rel=>"stylesheet", :type=>"text/css" }/
     %link{ :href=>"/stylesheets/sh/shThemeDefault.css", :rel=>"stylesheet", :type=>"text/css" }/
+    %link{ :rel=>'stylesheet', :type=>'text/css', :href=>'/stylesheets/screen.css', :media=>'screen, projection' }/
+    %link{ :rel=>'stylesheet', :type=>'text/css', :href=>'/stylesheets/print.css', :media=>'print' }/
     /[if lt IE 8]
       %link{ :rel=>'stylesheet', :type=>'text/css', :href=>'/stylesheets/ie.css', :media=>'screen, projection' }/
     %link{ :href=>'/blog/blog.atom', :rel=>'alternate', :type=>'application/atom+xml'}/
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-ui-1.8.22.custom.min.js"></script>
     <script type="text/javascript" src="/js/common.js"></script>
     <script type="text/javascript" src="/js/sh/shCore.js"></script>
     <script type="text/javascript" src="/js/sh/shBrushJava.js"></script>
@@ -22,6 +23,12 @@
     :javascript
       SyntaxHighlighter.defaults['gutter'] = false;
       SyntaxHighlighter.defaults['toolbar'] = false;
+      // register a listener for when the highlighter is done with replacing elements
+      var hl = SyntaxHighlighter.highlight;
+      SyntaxHighlighter.highlight = function(params, element){
+        hl(params, element);
+        postSyntaxHighlighting();
+      };
       SyntaxHighlighter.all();
     = google_analytics_async
   %body.bp

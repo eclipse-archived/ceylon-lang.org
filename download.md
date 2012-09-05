@@ -80,6 +80,7 @@ module, and the module runtime.
 
 Mac OS X users running the [Homebrew package manager](http://mxcl.github.com/homebrew/) can install Ceylon:
 
+<!-- lang: bash -->
     brew install ceylon
 
 

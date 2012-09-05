@@ -128,7 +128,7 @@ get this, and more, for free.
 Ceylon's conventional-looking syntax hides a powerful type system that is 
 able to express things that other static type systems simply can't. All
 types in Ceylon can, at least in principle, be expressed within the type
-system itself. There's no primitive types, arrays, or anything similar. 
+system itself. There are no primitive types, arrays, or anything similar. 
 
 The type system is based on analysis of "best" or *principal* types. For 
 every expression, a unique, most specific type may be determined, without 

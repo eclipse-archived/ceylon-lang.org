@@ -51,7 +51,7 @@ In Ceylon, a single type
 abstracts *all* functions. Its declaration is the following:
 
 <!-- check:none -->
-    shared interface Callable<out Result, Argument...> {}
+    interface Callable<out Result, Argument...> {}
 
 The syntax `P...` is called a *sequenced type parameter*. By analogy with a 
 sequenced parameter, which accepts zero or more values as arguments, 
@@ -61,10 +61,15 @@ type parameter `Argument...` represents the parameter types of the function.
 
 So, take the following function:
 
+<!-- try-post:
+
+    print(sum(4, 2));
+-->
     function sum(Integer x, Integer y) { return x+y; }
 
 The type of `sum()` in is:
 
+<!-- try: -->
 <!-- check:none -->
     Callable<Integer, Integer, Integer>
 
@@ -72,6 +77,7 @@ What about `void` functions? Well, remember that way back in [the first part
 of the tour](../basics) we said that the return type of a `void` function is 
 `Void`. So the type of a function like `print()` is:
 
+<!-- try: -->
 <!-- check:none -->
     Callable<Void,String>
 
@@ -133,6 +139,7 @@ We now have enough machinery to be able to write higher order functions.
 For example, we could create a `repeat()` function that repeatedly executes 
 a function.
 
+<!-- try: -->
 <!-- check:none:BROKEN -->
     void repeat(Integer times, Void(Integer) perform) {
         for (i in 1..times) {
@@ -142,6 +149,13 @@ a function.
 
 Let's try it:
 
+<!-- try-pre:
+    void repeat(Integer times, Void(Integer) perform) {
+        for (i in 1..times) {
+            perform(i);
+        }
+    }
+-->
     void printNum(Integer n) { print(n); }
     repeat(10, printNum);
 
@@ -152,10 +166,15 @@ functions using named arguments, but the Callable type does not encode the
 names of the function parameters. So Ceylon has an alternative, more elegant, 
 syntax for declaring a parameter of type `Callable`:
 
+<!-- try-post:
+
+    void printNum(Integer n) { print(n); }
+    repeat(10, printNum);
+-->
 <!-- id:repeat -->
     void repeat(Integer times, void perform(Integer n)) {
         for (i in 1..times) {
-            perform(i);
+            perform{n=i;};
         }
     }
 
@@ -175,6 +194,7 @@ void method, and also the logical root of the type hierarchy? Well that's
 useful here, since it means that we can assign a function with a non-`Void` 
 return type to any parameter which expects a void method:
 
+<!-- try: -->
 <!-- id:attemptPrint -->
     Boolean attemptPrint(Integer n) {
         try {
@@ -188,6 +208,23 @@ return type to any parameter which expects a void method:
     
 And call it like this
 
+<!-- try-pre:
+    void repeat(Integer times, void perform(Integer n)) {
+        for (i in 1..times) {
+            perform{n=i;};
+        }
+    }
+    Boolean attemptPrint(Integer n) {
+        try {
+            print(n);
+            return true;
+        }
+        catch (Exception e) {
+            return false;
+        }
+    }
+
+-->
 <!-- cat-id:repeat -->
 <!-- cat-id:attemptPrint -->
 <!-- cat: void m() { -->
@@ -198,6 +235,7 @@ And call it like this
 Another way we can produce a function reference is by partially applying a 
 method to a receiver expression. For example, we could write the following:
 
+<!-- try: -->
 <!-- id:Hello -->
     class Hello(String name) {
         shared void say(Integer n) {
@@ -207,6 +245,19 @@ method to a receiver expression. For example, we could write the following:
 
 And call it like this:
 
+<!-- try-pre:
+    void repeat(Integer times, void perform(Integer n)) {
+        for (i in 1..times) {
+            perform{n=i;};
+        }
+    }
+
+    class Hello(String name) {
+        shared void say(Integer n) {
+            print("Hello, " name ", for the " n "th time!");
+        }
+    }
+-->
 <!-- cat-id:repeat -->
 <!-- cat-id:Hello -->
 <!-- cat: void m() { -->
@@ -219,11 +270,40 @@ It is a `Void(Integer)`.
 Function references don't only appear in argument lists. It's even possible
 to define a function by reference:
 
+<!-- try-pre:
+    void repeat(Integer times, void perform(Integer n)) {
+        for (i in 1..times) {
+            perform{n=i;};
+        }
+    }
+
+    class Hello(String name) {
+        shared void say(Integer n) {
+            print("Hello, " name ", for the " n "th time!");
+        }
+    }
+
+-->
+<!-- try-post:
+    repeat(10, sayHelloToTako);
+-->
     void sayHelloToTako(Integer n) = Hello("Tako").say;
 
 A reference to a class is also a function reference! A class is considered a 
 function that produces an instance:
 
+<!-- try-pre:
+    class Hello(String name) {
+        shared void say(Integer n) {
+            print("Hello, " name ", for the " n "th time!");
+        }
+    }
+
+-->
+<!-- try-post:
+
+    createHello("Stephane").say(1);
+-->
     Hello createHello(String name) = Hello;
 
 
@@ -233,6 +313,10 @@ A method or function may be declared in _curried_ form, allowing the method or
 function to be partially applied to its arguments. A curried function has
 multiple lists of parameters:
 
+<!-- try-post:
+
+    print(adder(4.0)(2.0));
+-->
     Float adder(Float x)(Float y) {
         return x+y;
     }
@@ -240,11 +324,32 @@ multiple lists of parameters:
 The `adder()` function has type `Float(Float)(Float)`. We can invoke it with
 a single argument to get a reference to a function of type `Float(Float)`:
 
+<!-- try-pre:
+    Float adder(Float x)(Float y) {
+        return x+y;
+    }
+
+-->
+<!-- try-post:
+
+    print(addOne(4.0));
+-->
     Float addOne(Float y) = adder(1.0);
 
 When we subsequently invoke `addOne()`, the actual body of `adder()` is 
 finally executed, producing a `Float`:
 
+<!-- try-pre:
+    Float adder(Float x)(Float y) {
+        return x+y;
+    }
+    Float addOne(Float y) = adder(1.0);
+
+-->
+<!-- try-post:
+
+    print(three);
+-->
     Float three = addOne(2.0);
 
 
@@ -262,12 +367,24 @@ declared with a name, using a traditional C-like syntax. There's nothing wrong
 with passing a named function to `map()` or `filter()`, and indeed that is often
 useful: 
 
+<!-- try-pre:
+    value measurements = { 3.4, 8.7, 1.7, 13.1, 7.7, 1.2 };
+
+-->
+<!-- try-post:
+
+    print(max);
+-->
     Float max = measurements.fold(0.0, largest<Float>);
 
 However, quite commonly, it's inconvenient to have to declare a whole named 
 function just to pass it to `map()`, `filter()`, `fold()` or `find()`. Instead, 
 we can declare an *anonymous function* inline, as part of the argument list:
 
+<!-- try-post:
+
+    print(max);
+-->
     Float max = {1.0, 2.0}.fold(0.0, 
             (Float max, Float num) num>max then num else max);
 
@@ -289,14 +406,17 @@ Suppose we have some kind of user interface component which can be observed by
 other objects in the system. We could use something like Java's 
 `Observer`/`Observable` pattern:
 
+<!-- try-pre:
+    interface Event { }
+-->
 <!-- check:parse:Requires OpenList -->
-<!-- cat: shared class Event() { } -->
-    shared interface Observer {
+<!-- cat: class Event() { } -->
+    interface Observer {
         shared formal void observe(Event event);
     }
-    shared abstract class Component() {
+    abstract class Component() {
          
-        variable Observer[] observers = {};
+        variable Observer[] observers := {};
          
         shared void addObserver(Observer o) {
             observers:=observers.append(observe);
@@ -315,8 +435,11 @@ observers just register a function object as their event listener? In the
 following code, we define the `addObserver()` method to accept a function as 
 a parameter.
 
+<!-- try-pre:
+    interface Event { }
+-->
 <!-- check:parse:Requires OpenList -->
-    shared abstract class Component() {
+    abstract class Component() {
          
         variable Void(Event)[] observers := {};
          
@@ -340,8 +463,23 @@ Here we see the difference between the two ways of specifying a function type:
 Now, any event observer can just pass a reference to one of its own methods to 
 `addObserver()`:
 
+<!-- try-pre:
+    interface Event { }
+    abstract class Component() {
+        variable Void(Event)[] observers := {};
+        shared void addObserver(void observe(Event event)) {
+            //observers:=observers.append(observe);
+        }
+        shared void fire(Event event) {
+            for (observe in observers) {
+                observe(event);
+            }
+        }
+    }
+
+-->
 <!-- check:parse:Depends on Component, above, which requires OpenList -->
-    shared class Listener(Component component) {
+    class Listener(Component component) {
      
         void onEvent(Event e) {
             // respond to the event
@@ -350,7 +488,7 @@ Now, any event observer can just pass a reference to one of its own methods to
          
         component.addObserver(onEvent);
          
-        ...
+        // ...
      
     }
 
@@ -363,8 +501,23 @@ If `onEvent()` were `shared`, we could even wire together the `Component` and
 `Listener` from some other code, to eliminate the dependency of `Listener` 
 on `Component`:
 
+<!-- try-pre:
+    interface Event { }
+    abstract class Component() {
+        variable Void(Event)[] observers := {};
+        shared void addObserver(void observe(Event event)) {
+            //observers:=observers.append(observe);
+        }
+        shared void fire(Event event) {
+            for (observe in observers) {
+                observe(event);
+            }
+        }
+    }
+
+-->
 <!-- check:parse:Depends on Component, above, which requires OpenList -->
-    shared class Listener() {
+    class Listener() {
      
         shared void onEvent(Event e) {
             // respond to the event
@@ -388,6 +541,25 @@ It's also possible to declare a method that returns a function. Let's
 consider adding the ability to remove observers from a `Component`. We could 
 use a `Subscription` interface:
 
+<!-- try:
+    interface Event { }
+    interface Subscription {
+         shared formal void cancel();
+    }
+    abstract class Component () {
+
+        shared Subscription addObserver( void observe( Event event)) {
+            //observers:=observers.append(observe);
+            object subscription  satisfies Subscription {
+                shared actual void cancel() {
+                    //observers.remove(observe);
+                }
+            }
+            return subscription;
+         }
+
+    }
+-->
 <!-- check:parse:Depends on OpenList -->
     shared interface Subscription {
         shared void cancel();
@@ -413,6 +585,18 @@ use a `Subscription` interface:
 But a simpler solution might be to just eliminate the interface and return the 
 `cancel()` method directly:
 
+<!-- try:
+    interface Event { }
+    abstract class Component () {
+        shared Void () addObserver( void observe( Event event)) {
+            //observers:=observers.append(observe);
+            void cancel() {
+                //observers.remove(observe);
+            }
+            return cancel;
+        }
+    }
+-->
 <!-- check:parse:Depends on OpenList -->
     shared abstract class Component() {
          
@@ -451,6 +635,7 @@ the language is.
 
 We could invoke our method like this:
 
+<!-- try: -->
 <!-- check:none -->
     addObserver(onEvent)();
 
@@ -459,6 +644,7 @@ reason for giving it two parameter lists. It's much more likely that we're
 planning to store or pass the reference to the inner method somewhere before 
 invoking it.
 
+<!-- try: -->
 <!-- check:none -->
     void cancel() = addObserver(onEvent);
     // ...

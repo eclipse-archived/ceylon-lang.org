@@ -20,6 +20,9 @@ we'll know what we're looking at later on.
 Here's a classic example program.
 
 <!-- id: hello -->
+<!-- try-post:
+    hello();
+-->
     void hello() {
         print("Hello, World!");
     }
@@ -29,6 +32,12 @@ is just like a C function - it belongs directly to the package that contains
 it, it's not a member of any specific type. You don't need a receiving object 
 to invoke a toplevel method. Instead, you can just call it like this:
 
+<!-- try:
+    void hello() {
+        print("Hello, World!");
+    }
+    hello();
+-->
 <!-- cat-id: hello -->
 <!-- cat: void m() { -->
     hello();
@@ -82,6 +91,13 @@ takes you step by step through the process.
 
 String literals in Ceylon may span multiple lines. Try this:
 
+<!-- try:
+    void hello() {
+        print("Hello, 
+               World!");
+    }
+    hello();
+-->
 <!-- id: hello -->
     void hello() {
         print("Hello, 
@@ -104,6 +120,9 @@ It's often useful to collapse whitespace in a multiline string literal. The
 class has an attribute called [`normalized`](#{site.urls.apidoc_current}/ceylon/language/class_String.html#normalized). 
 We can use it like this:
 
+<!-- try-post:
+    hello();
+-->
 <!-- id: hello -->
     void hello() {
         value message = "Hello, 
@@ -125,6 +144,9 @@ It's usually a good idea to add some kind of documentation to important
 methods like `hello()`. One way we could do this is by using a C-style 
 comment, either like this:
 
+<!-- try-post:
+    hello();
+-->
 <!-- id: hello -->
     /* The classic Hello World program */
     void hello() {
@@ -133,6 +155,9 @@ comment, either like this:
 
 Or like this:
 
+<!-- try-post:
+    hello();
+-->
 <!-- id: hello -->
     //The classic Hello World program
     void hello() {
@@ -142,6 +167,12 @@ Or like this:
 But it's much better to use the `doc` annotation for comments that describe 
 declarations.
 
+<!-- try-post:
+    void goodbye() {
+    }
+    class IOException() extends Exception() {}
+    hello();
+-->
 <!-- check:none: Requires IO -->
 <!-- id: hello -->
 	doc "The classic Hello World program"
@@ -162,11 +193,13 @@ that is included in the output of the Ceylon documentation compiler, `ceylond`.
 Notice that when an annotation argument is a literal, it doesn't need to be 
 enclosed in parentheses. We can write simply: 
 
+<!-- try: -->
 <!-- check:none -->
     by "Gavin"
 
 instead of:
 
+<!-- try: -->
 <!-- check:none -->
     by ("Gavin")
 
@@ -181,6 +214,9 @@ the other hand, `void` _is_ a keyword, just like in C or Java.)
 The `doc` annotation may contain [Markdown](http://daringfireball.net/projects/markdown/syntax)
 formatting.
 
+<!-- try-post:
+    hello();
+-->
 <!-- id: hello -->
     doc "The classic [Hello World program][helloworld]
          that prints a message to the console, this 
@@ -221,6 +257,11 @@ Inside a string literal, you can use the escape sequences `\n`, `\t`, `\\`,
 You can also use 2-byte and 4-byte hexadecimal escape sequences to embed
 Unicode characters in your text.
 
+<!-- try-pre:
+    Float calculateE() { return 2.72; }
+    Float calculatePi() { return 3.14; }
+    
+-->
     doc "The mathematical constant \{0001D452}, 
          the base of the natural logarithm."
     Float e=calculateE();
@@ -249,6 +290,9 @@ Let's make our program tell us a little more about itself.
     }
 -->
 
+<!-- try-post:
+    hello2();
+-->
 <!-- id: hello2 -->
     void hello2() {
         print("Hello, you ran me at " 
@@ -313,6 +357,9 @@ quite different to what you're probably used to in Java or C#.
 Let's consider an overly-verbose example to start with. (We'll get to a more 
 convenient form in a moment.)
 
+<!-- try-post:
+    hello();
+-->
     doc "Print a personalized greeting"
     void hello() {
         String? name = process.arguments.first;
@@ -368,6 +415,10 @@ Java - without first checking that the value is not `null` using
 In fact, it's not even possible to use the equality operator `==` with an 
 expression of optional type. We can't write: 
 
+<!-- try:
+    String? name = process.arguments.first;
+    if (name==null) { } //compile error: name is not Object
+-->
     String? name = process.arguments.first;
     if (name==null) { ... } //compile error: name is not Object
     
@@ -396,6 +447,12 @@ machine-level null, all under the covers.)
 There are a couple of operators that will make your life easier when dealing 
 with `null` values. The first is `else`:
 
+<!-- try-pre:
+    String? name = null;
+-->
+<!-- try-post:
+    print(greeting);
+-->
 <!-- cat: void hello(String? name) { -->
     String greeting = "Hello, " + (name else "World");
 <!-- cat: 
@@ -406,10 +463,23 @@ The `else` operator returns its first argument if the first argument is not
 `null`, or its second argument otherwise. It's a more convenient way to 
 handle `null` values in simple cases. You can chain multiple `else`s:
 
+<!-- try-pre:
+    String? firstName = null;
+    String? userId = "joe";
+-->
+<!-- try-post:
+    print(name);
+-->
     String name = firstName else userId else "Guest";
 
 There's also an operator for _producing_ a null value:
 
+<!-- try-pre:
+    String arg = "hello";
+-->
+<!-- try-post:
+    print(name else "No name");
+-->
     String? name = !arg.trimmed.empty then arg;
 
 The `then` operator evaluates its second argument if its first argument 
@@ -418,10 +488,22 @@ evaluates to `true`, or evaluates to `null` otherwise.
 You can chain an `else` after a `then` to reproduce the behavior of C's
 ternary `?:` operator:
 
+<!-- try-pre:
+    String arg = "hello";
+-->
+<!-- try-post:
+    print(name);
+-->
     String name = !arg.trimmed.empty then arg else "World";
 
 Finally, the `?.` operator lets us call operations on optional types:
 
+<!-- try-pre:
+    String? name = null;
+-->
+<!-- try-post:
+    print(shoutedGreeting);
+-->
 <!-- cat: void hello(String? name) { -->
     String shoutedGreeting = "HELLO, " + (name?.uppercased else "WORLD");
 <!-- cat: 
@@ -433,6 +515,9 @@ If `name` is null, `name?.uppercased` evaluates to `null`. Otherwise, the
 
 So we can finally simplify our example to something reasonable:
 
+<!-- try-post:
+    hello();
+-->
     doc "Print a personalized greeting"
     void hello() {
         print("Hello, " process.arguments.first else "World" "!");
@@ -445,6 +530,10 @@ Yes, after all that, it's a one-liner ;-)
 While we're on the topic of values that aren't there, it's worth mentioning 
 that a method parameter may specify a default value.
 
+<!-- try-post:
+    hello(); //Hello, World!
+    hello("JBoss"); //Hello, JBoss!
+-->
 <!-- id: hello -->
     void hello(String name="World") {
         print("Hello, " name "!");
@@ -453,6 +542,13 @@ that a method parameter may specify a default value.
 Then we don't need to specify an argument to the parameter when we call 
 the method:
 
+<!-- try:
+    void hello(String name="World") {
+        print("Hello, " name "!");
+    }
+    hello(); //Hello, World!
+    hello("JBoss"); //Hello, JBoss!
+-->
 <!-- cat-id: hello -->
 <!-- cat: void m() { -->
     hello(); //Hello, World!
@@ -480,6 +576,9 @@ Even though they're classes, you can use all the usual numeric literals and
 operators with them. For example, the following method efficiently determines 
 if an `Integer` represents a prime number:
 
+<!-- try-post:
+    print(prime(17));
+-->
     doc "Determine if `n` is a prime number."
     throws (Exception, "if `n<2`")
     Boolean prime(Integer n) {
@@ -509,6 +608,37 @@ if an `Integer` represents a prime number:
 
 Try it, by running the following method:
 
+<!-- try-pre:
+    doc "Determine if `n` is a prime number."
+    throws (Exception, "if `n<2`")
+    Boolean prime(Integer n) {
+        if (n<2) {
+            throw Exception("illegal argument " n "<2");
+        }
+        else if (n<=3) {
+            return true;
+        }
+        else if (n%2==0 || n%3==0) {
+            return false;
+        }
+        else if (n<25) {
+            return true;
+        }
+        else {
+            for (b in 1..((n.float**0.5+1)/6).integer) {
+                if (n%(6*b-1)==0 || n%(6*b+1)==0) {
+                    return false;
+                }
+            }
+            else {
+                return true;
+            }
+        }
+    }
+-->
+<!-- try-post:
+    findPrimes();
+-->
     doc "Print a list of all two-digit prime numbers."
     void findPrimes() {
         print({ for (i in 2..99) if (prime(i)) i });

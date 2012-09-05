@@ -31,6 +31,7 @@ Just like in Java, only types and methods may declare type parameters. Also
 just like in Java, type parameters are listed before ordinary parameters, 
 enclosed in angle brackets.
 
+<!-- try: -->
 <!-- check:none -->
     shared interface Iterator<out Element> { ... }
 
@@ -45,33 +46,46 @@ type parameters (in Java the convention is to use single letter names).
 Unlike Java, we always do need to specify type arguments in a type declaration 
 (there are no 'raw types' in Ceylon). The following will not compile:
 
+<!-- try:
+    Iterable it = {};   //error: missing type argument to parameter Element of Iterable
+-->
 <!-- check:none:Demoing error -->
-    Iterator it = ...;   //error: missing type argument to parameter Element of Iterator
+    Iterable it = ...;   //error: missing type argument to parameter Element of Iterable
 
 We always have to specify a type argument in a type declaration:
 
+<!-- try:
+    Iterable<String> it = {};
+-->
 <!-- check:none -->
-    Iterator<String> it = ...;
+    Iterable<String> it = ...;
 
 On the other hand, we don't need to explicitly specify type arguments in most 
 method invocations or class instantiations. We don't usually need to write:
 
 <!-- check:none -->
-    Array<String> strings = Array<String>("Hello", "World"); 
-    Entries<Integer,String> entries = entries<String>(strings);
+    Array<String> strings = array<String>("Hello", "World"); 
+    Iterable<Entry<Integer,String>> things = entries<String>(strings...);
 
 Instead, it's very often possible to infer the type arguments from the ordinary 
 arguments.
 
 <!-- check:none -->
-    value strings = Array("Hello", "World"); // type Array<String>
-    value entries = entries(strings); // type Entries<Integer,String>
+    value strings = array("Hello", "World"); // type Array<String>
+    value things = entries(strings...); // type Iterable<Entry<Integer,String>>
 
 The generic type argument inference algorithm is slightly involved, so you
 should refer to the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#typeargumentinference) 
 for a complete definition. But essentially what happens is that Ceylon 
 infers a type by combining the types of corresponding arguments using union.
 
+<!--try:
+    class Polar(Float angle, Float radius) { }
+    class Cartesian(Float x, Float y) { }
+
+    value points = array(Polar(0.7854, 0.5), Cartesian(-1.0, 2.5)); // type Array<Polar|Cartesian>
+    value things = entries(points...); // type Iterable<Entry<Integer,Polar|Cartesian>>
+-->
 <!-- check:none -->
     value points = Array(Polar(pi/4, 0.5), Cartesian(-1.0, 2.5)); // type Array<Polar|Cartesian>
     value entries = entries(points); // type Entries<Integer,Polar|Cartesian>
@@ -90,7 +104,7 @@ non-functional languages, where collections can be mutable, it turns out to be
 incorrect. Consider the following possible definition of `Collection`:
 
 <!-- check:none -->
-    shared interface Collection<Element> {
+    interface Collection<Element> {
         shared formal Iterator<Element> iterator();
         shared formal void add(Element x);
     }
@@ -99,6 +113,7 @@ And let's suppose that `Geek` is a subtype of `Person`. Reasonable.
 
 The intuitive expectation is that the following code should work:
 
+<!-- try: -->
 <!-- check:none -->
     Collection<Geek> geeks = ... ;
     Collection<Person> people = geeks;    //compiler error
@@ -110,6 +125,7 @@ where the `Collection<Geek>` is assigned to a `Collection<Person>`. Why?
 Well, because if we let the assignment through, the following code would also 
 compile:
 
+<!-- try: -->
 <!-- check:none -->
     Collection<Geek> geeks = ... ;
     Collection<Person> people = geeks;    //compiler error
@@ -131,10 +147,10 @@ Instead, we're going to refactor `Collection` into a pure producer interface
 and a pure consumer interface:
 
 <!-- check:none -->
-    shared interface Producer<out Output> {
+    interface Producer<out Output> {
         shared formal Iterator<Output> iterator();
     }
-    shared interface Consumer<in Input> {
+    interface Consumer<in Input> {
         shared formal void add(Input x);
     }
 
@@ -161,8 +177,17 @@ Now, let's see what that buys us:
 
 We can define our `Collection` interface as a mixin of `Producer` with `Consumer`.
 
+<!-- try-pre:
+    interface Producer<out Output> {
+        shared formal Iterator<Output> iterator();
+    }
+    interface Consumer<in Input> {
+        shared formal void add(Input x);
+    }
+
+-->
 <!-- check:none -->
-    shared interface Collection<Element>
+    interface Collection<Element>
             satisfies Producer<Element> & Consumer<Element> {}
 
 Notice that `Collection` remains nonvariant in `Element`. If we tried to add a 
@@ -172,6 +197,7 @@ either `Producer` or `Consumer`.
 
 Now, the following code finally compiles:
 
+<!-- try: -->
 <!-- check:none -->
     Collection<Geek> geeks = ... ;
     Producer<Person> people = geeks;
@@ -181,6 +207,7 @@ Which matches our original intuition.
 
 The following code also compiles:
 
+<!-- try: -->
 <!-- check:none -->
     Collection<Person> people = ... ;
     Consumer<Geek> geekConsumer = people;
@@ -209,6 +236,7 @@ built-in collection types.
 
 Consider the following classes:
 
+<!-- try: -->
     class LinkedList() 
             satisfies List<Object> { ... }
     
@@ -224,17 +252,38 @@ Ceylon is less restrictive here. The above code is perfectly legal if
 (and only if) the interface `List<Element>` is covariant in its type
 parameter `Element`, that is, if it's declared like this:
 
+<!-- try:
+    interface List<out Element> { }
+
+    class LinkedList() 
+            satisfies List<Object> { }
+    
+    class LinkedStringList() 
+            extends LinkedList() 
+            satisfies List<String> { }
+
+-->
     interface List<out Element> { ... }
 
 We say that Ceylon supports _principal instantiation inheritance_. 
 Even the following code is legal:
 
+<!-- try: -->
     interface ListOfSomething satisfies List<Something> {}
     interface ListOfSomethingElse satisfies List<SomethingElse> {}
     class MyList() satisfies ListOfSomething & ListOfSomethingElse { ... }
 
 Then the following is legal and well-typed:
 
+<!-- try-pre:
+    interface Something {}
+    interface SomethingElse {}
+    interface List<out Element> { }
+    interface ListOfSomething satisfies List<Something> {}
+    interface ListOfSomethingElse satisfies List<SomethingElse> {}
+    class MyList() satisfies ListOfSomething & ListOfSomethingElse {}
+
+-->
     List<Something&SomethingElse> list = MyList();
 
 Please pause here, and take the  time to notice how ridiculously 
@@ -261,6 +310,7 @@ we need some way to assert that `Element` is a subtype of `Object`. This is
 an example of a *type constraint* — in fact, it's an example of the most 
 common kind of type constraint, an *upper bound*.
 
+<!-- try: -->
 <!-- check:none -->
     shared class Set<out Element>(Element... elements)
             given Element satisfies Object {
@@ -279,9 +329,14 @@ common kind of type constraint, an *upper bound*.
 
 A type argument to `Element` must be a subtype of `Object`.
 
+<!-- try-pre:
+    class Set<out Element>(Element... elements)
+            given Element satisfies Object { }
+
+-->
 <!-- check:none: Demos error -->
-    Set<String> set = Set("C", "Java", "Ceylon"); //ok
-    Set<String?> set = Set("C", "Java", "Ceylon", null); //compile error
+    Set<String> set1 = Set("C", "Java", "Ceylon"); //ok
+    Set<String?> set2 = Set("C", "Java", "Ceylon", null); //compile error
 
 In Ceylon, a generic type parameter is considered a proper type, so a type 
 constraint looks a lot like a class or interface declaration. This is 
@@ -298,6 +353,7 @@ reified generics, we'll be able to add a new kind of type constraint to
 Ceylon. An *initialization parameter specification* lets us actually 
 instantiate the type parameter.
 -->
+
 <!-- check:none:Parameter bounds not yet supported --><!--
     shared class Factory<out Result>()
             given Result(String s) {
@@ -401,6 +457,7 @@ Java is *type erasure*. Generic type parameters and arguments are discarded
 by the compiler, and simply aren't available at runtime. So the following, 
 perfectly sensible, code fragments just wouldn't compile in Java:
 
+<!-- try: -->
 <!-- check:none -->
     if (is List<Person> list) { ... }
     if (is Element obj) { ... }

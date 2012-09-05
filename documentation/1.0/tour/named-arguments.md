@@ -26,6 +26,10 @@ must be the last parameter.
 
 Inside the method body, the parameter `strings` has type `Iterable<String>`.
 
+<!-- try-post:
+
+    printAll("aap", "noot", "mies");
+-->
     void printAll(String... strings) {
         for (string in strings) {
             process.writeLine(string);
@@ -37,6 +41,7 @@ A slightly more sophisticated example is the `coalesce()` method we saw
 `coalesce()` accepts a sequence of `X?` and eliminates nulls, returning 
 `X[]`, for any type `X`. Its signature is:
 
+<!-- try: -->
 <!-- check:none:pedagogical -->
     shared Value[] coalesce<Value>(Value?... sequence) { 
         // ... 
@@ -51,16 +56,19 @@ could:
 
 The first case is easy:
 
+<!-- try: -->
     print("hello", "world");
 
 For the second case, Ceylon requires us to write an elipse:
 
+<!-- try: -->
     value words = { "hello", "world" };
     print(words...);
 
 The third, and easily most interesting case allows us to transform,
 filter, and combine iterable streams of values:
 
+<!-- try: -->
     value words = { "Hello", "World" };
     print(for (w in words) w.lowercased);
 
@@ -76,6 +84,7 @@ Consider the following method:
 
 
 
+<!-- try: -->
 <!-- check:none:Requires IO -->
 <!-- id:printf -->
     void printf(Writer to, String format, Object... values) { 
@@ -112,6 +121,7 @@ class Order(Integer total, Integer confirmationNumber) {
 class Payment(PaymentMethod method, Currency currency, Integer amount) {}
 -->
 
+<!-- try: -->
 <!-- check:none:Requires IO -->
 <!-- cat-id:printf -->
 <!-- cat-id: Store -->
@@ -128,6 +138,7 @@ This works fine, however Ceylon provides an alternative method
 invocation protocol that is usually easier to read when there are more than 
 one or two arguments:
 
+<!-- try: -->
 <!-- check:none:Requires IO -->
 <!-- cat-id:printf -->
 <!-- cat-id: Store -->
@@ -151,6 +162,7 @@ always appear at the end of the named parameter list. Note that it's also
 acceptable to call this method like this, passing a sequence to the parameter
 `values`:
 
+<!-- try: -->
 <!-- check:none:Requires IO -->
     printf {
         to = writer;
@@ -178,6 +190,7 @@ abbreviated syntax, though you probably didn't realize it at the time.
 We're allowed to abbreviate an attribute definition of the following form:
 
 
+<!-- try: -->
 <!-- cat-id: Store -->
 <!-- cat: class M(User user, Order order) { -->
     Payment payment = Payment {
@@ -189,6 +202,7 @@ We're allowed to abbreviate an attribute definition of the following form:
 
 or a named argument specification of this form:
 
+<!-- try: -->
 <!-- cat-id: Store -->
 <!-- cat: void m(User user, Order order) { 
     Payment payment; -->
@@ -201,6 +215,7 @@ or a named argument specification of this form:
 
 to the following more declarative (and less redundant) style:
 
+<!-- try: -->
 <!-- cat-id: Store -->
 <!-- cat: void m(User user, Order order) { -->
     Payment payment {
@@ -212,6 +227,7 @@ to the following more declarative (and less redundant) style:
 
 We're even allowed to write a method of the following form:
 
+<!-- try: -->
 <!-- cat-id: Store -->
 <!-- cat: void m(User user) { -->
     Payment createPayment(Order order) {
@@ -225,6 +241,7 @@ We're even allowed to write a method of the following form:
 
 using the following abbreviated syntax:
 
+<!-- try: -->
 <!-- cat-id: Store -->
 <!-- cat: void m(User user) { -->
     Payment createPayment(Order order) {
@@ -252,6 +269,7 @@ usually stand out immediately.
 
 The following classes define a data structure for building tables:
 
+<!-- try: -->
 <!-- check:none:pedagogical -->
     class Table(String title, Integer rows, Border border, Column... columns) {}
     class Column(String heading, Integer width, String content(Integer row)) {}
@@ -260,6 +278,12 @@ The following classes define a data structure for building tables:
 Of course, we could build a `Table` using positional argument lists and 
 anonymous functions:
 
+<!-- try-pre:
+    class Table(String title, Integer rows, Border border, Column... columns) {}
+    class Column(String heading, Integer width, String content(Integer row)) {}
+    class Border(Integer padding, Integer weight) {}
+
+-->
 <!-- check:none:pedagogical -->
     Table table = Table("Squares", 5, Border(2,1), 
             Column("x",10, (Integer row) row.string), 
@@ -293,6 +317,12 @@ derives from language regularity.
 
 So we could rewrite the code that builds a `Table` as follows:
 
+<!-- try-pre:
+    class Table(String title, Integer rows, Border border, Column... columns) {}
+    class Column(String heading, Integer width, String content(Integer row)) {}
+    class Border(Integer padding, Integer weight) {}
+
+-->
 <!-- check:none:pedagogical -->
     Table table = Table {
         title="Squares";
@@ -322,6 +352,12 @@ usual syntax for declaring a method.
 
 Even better, our example can be further abbreviated like this:
 
+<!-- try-pre:
+    class Table(String title, Integer rows, Border border, Column... columns) {}
+    class Column(String heading, Integer width, String content(Integer row)) {}
+    class Border(Integer padding, Integer weight) {}
+
+-->
 <!-- check:none:pedagogical -->
     Table table {
         title="Squares";
@@ -365,6 +401,7 @@ mini-language.)
 Now let's see an example of a named argument list with an inline getter 
 declaration:
 
+<!-- try: -->
 <!-- check:none:Needs more Store -->
     shared class Payment(PaymentMethod method, Currency currency, Float amount) {}
     
@@ -383,6 +420,7 @@ declaration:
 Finally, here's an example of a named argument list with an inline `object` 
 declaration:
 
+<!-- try: -->
 <!-- check:parse:pedagogical -->
     shared interface Observable {
         shared void addObserver(Observer<Bottom> observer) { 
@@ -410,6 +448,7 @@ Of course, as we saw in the leg on [functions](../functions), a better way to
 solve this problem might be to eliminate the `Observer` interface and pass a 
 method directly:
 
+<!-- try: -->
 <!-- check:parse:pedagogical -->
     shared interface Observable {
         shared void addObserver<Event>(void on(Event event)) { ... }
@@ -428,6 +467,7 @@ One of the first modules we're going to create for Ceylon will be a library
 for writing HTML templates in Ceylon. A fragment of static HTML would look 
 something like this:
 
+<!-- try: -->
 <!-- check:parse:Requires ceylon.html -->
     Html {
         Head head {
@@ -448,6 +488,7 @@ something like this:
 
 A complete HTML template might look like this:
 
+<!-- try: -->
 <!-- check:parse:Requires ceylon.html -->
     import ceylon.html { ... }
      

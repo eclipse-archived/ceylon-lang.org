@@ -973,3 +973,51 @@ body.two-col {
   text-shadow: none;
 }
 
+/* Inline code editor */
+
+.syntaxhighlighter.with-editor .lines {
+ margin-right: 40px !important;
+}
+
+.syntaxhighlighter .bubble-button {
+ display: block;
+ position: absolute;
+ right: 0;
+ top: 0;
+ width: 25px;
+ cursor: pointer;
+ text-align: center;
+ padding: 2px 4px !important;
+}
+
+.ui-dialog {
+ padding: 1em;
+ background: white;
+ border: 1px solid black;
+ text-shadow: none;
+}
+
+.ui-widget-overlay {
+ opacity: 0.8;
+ top: 0px;
+ position: absolute;
+ background-color: gray;
+}
+
+.ui-dialog-titlebar {
+ height: 2em;
+ text-align: right;
+}
+
+iframe.code-editor {
+ width: 100% !important;
+}
+
+p.screenshot {
+ text-align: center;
+ 
+ img {
+  box-shadow: 0 0 1em black;
+  margin: 1em;
+ }
+}

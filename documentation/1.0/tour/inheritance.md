@@ -32,6 +32,9 @@ is what makes a program object-oriented. Let's try refactoring the `Polar`
 class [from the previous leg of the tour](../classes) into two classes, 
 with two different implementations of `description`. Here's the superclass:
 
+<!-- try-post:
+    print(Polar(0.31, 13.0).description);
+-->
 <!-- id:polar -->
     doc "A polar coordinate"
     class Polar(Float angle, Float radius) {
@@ -58,6 +61,27 @@ followed by the name of the superclass, followed by a list of arguments
 to be sent to the superclass initializer parameters. It looks just like 
 an expression that instantiates the superclass:
 
+<!-- try-pre:
+    doc "A polar coordinate"
+    class Polar(Float angle, Float radius) {
+ 
+        shared Polar rotate(Float rotation) {
+            return Polar(angle+rotation, radius);
+        }
+     
+        shared Polar dilate(Float dilation) {
+            return Polar(angle, radius*dilation);
+        }
+        
+        doc "The default description"
+        shared default String description = "(" radius "," angle ")";
+    
+    }
+
+-->
+<!-- try-post:
+    print(LabeledPolar(0.31, 13.0, "point").description);
+-->
 <!-- cat-id:polar -->
     doc "A polar coordinate with a label"
     class LabeledPolar(Float angle, Float radius, String label)
@@ -101,6 +125,12 @@ which defines `default` implementations of
 and [`hash`](#{site.urls.apidoc_current}/ceylon/language/interface_Identifiable.html#hash).
 We should _definitely_ refine those:
 
+<!-- try-pre:
+    Float pi = 3.1415926535;
+-->
+<!-- try-post:
+    print(Polar(0.31, 13.0));
+-->
 <!-- cat: Float pi = 3.1415926535; -->
     doc "A polar coordinate"
     class Polar(Float angle, Float radius) {
@@ -140,6 +170,7 @@ polar and cartesian coordinate systems. Since a cartesian coordinate isn't
 just a special kind of polar coordinate, this is a case for introduction of 
 an abstract superclass:
 
+<!-- try: -->
 <!-- cat-id:polar -->
 <!-- cat: class Cartesian(Float x, Float y) {} -->
     doc "A coordinate-system free abstraction 
@@ -172,6 +203,7 @@ you explicitly tell it to!
 One way to define an implementation for an inherited abstract attribute is 
 to simply assign a value to it in the subclass.
 
+<!-- try: -->
 <!-- check:parse:Requires ceylon.math -->
     doc "A polar coordinate"
     class Polar(Float angle, Float radius) 
@@ -187,6 +219,7 @@ to simply assign a value to it in the subclass.
 Alternatively, we can also define an implementation for an inherited abstract 
 attribute by *refining* it.
 
+<!-- try: -->
 <!-- check:parse:Requires ceylon.math -->
     import ceylon.math.float { sin, cos }
      
@@ -224,6 +257,7 @@ type, you have to refine to a subtype.
 `Cartesian` also covariantly refines `rotate()` and `dilate()`, but to a 
 different return type:
 
+<!-- try: -->
 <!-- check:parse:Requires ceylon.math -->
     import ceylon.math.float { atan } 
     
@@ -279,13 +313,18 @@ objects.
 Let's take advantage of mixin inheritance to define a reusable `Writer` 
 interface for Ceylon.
 
+<!-- try-pre:
+    interface Formatter { 
+        shared formal String format(String format, Object... args);
+    }
+-->
 <!-- check:none:concrete members of interfaces not yet supported -->
 <!-- id:writer -->
 <!-- cat: 
-    shared interface Formatter { 
-        shared formal String format(String formatString, Object... args);
+    interface Formatter { 
+        shared formal String format(String format, Object... args);
     } -->
-    shared interface Writer {
+    interface Writer {
      
         shared formal Formatter formatter;
          
@@ -296,8 +335,8 @@ interface for Ceylon.
             write("\n");
         }
          
-        shared void writeFormattedLine(String formatString, Object... args) {
-            writeLine( formatter.format(formatString, args) );
+        shared void writeFormattedLine(String format, Object... args) {
+            writeLine( formatter.format(format, args) );
         }
          
     }
@@ -308,10 +347,34 @@ reference to another object.
 
 Now let's define a concrete implementation of this interface.
 
+<!-- try-pre:
+    interface Formatter { 
+        shared formal String format(String format, Object... args);
+    }
+    interface Writer {
+        shared formal Formatter formatter;
+        shared formal void write(String string);
+        shared void writeLine(String string) {
+            write(string);
+            write("\n");
+        }
+        shared void writeFormattedLine(String format, Object... args) {
+            writeLine( formatter.format(format, args) );
+        }
+    }
+    class StringFormatter() satisfies Formatter {
+        shared actual String format(String format, Object... args) {
+            return format; // Fake implementation
+        }
+    }
+-->
+<!-- try-post:
+    value w = ConsoleWriter();
+    w.write("Hello, world!");
+-->
 <!-- check:none:depends on above:concrete members of interfaces not yet supported -->
 <!-- cat-id: writer -->
-    shared class ConsoleWriter()
-            satisfies Writer {
+    class ConsoleWriter() satisfies Writer {
          
         formatter = StringFormatter();
          
@@ -359,16 +422,20 @@ any ambiguity. The following results in a compilation error:
         }
     }
      
-    class Customer(String name, String email)
+    class Customer(String customerName, String email)
             satisfies User & Party {
-        shared actual String legalName = name;
+        shared actual String legalName = customerName;
         shared actual String userId = email;
-        shared actual String name = name;    //error: refines two different members
+        shared actual String name = customerName;    //error: refines two different members
     }
 
 To fix this code, we'll factor out a `formal` declaration of the attribute 
 `name` to a common supertype. The following is legal:
 
+<!-- try-post:
+    value c = Customer("Pietje Pluk", "piet.pluk@petteflet.example.org");
+    print(c.name);
+-->
 <!-- check:none:concrete members of interfaces not yet supported -->
     interface Named {
         shared formal String name;
@@ -388,11 +455,11 @@ To fix this code, we'll factor out a `formal` declaration of the attribute
         }
     }
      
-    class Customer(String name, String email)
+    class Customer(String customerName, String email)
             satisfies User & Party {
-        shared actual String legalName = name;
+        shared actual String legalName = customerName;
         shared actual String userId = email;
-        shared actual String name = name;
+        shared actual String name = customerName;
     }
 
 Oh, of course, the following is illegal:
@@ -416,9 +483,9 @@ Oh, of course, the following is illegal:
         }
     }
      
-    class Customer(String name, String email)
+    class Customer(String customerName, String email)
             satisfies User & Party {    //error: inherits multiple definitions of name
-        shared actual String legalName = name;
+        shared actual String legalName = customerName;
         shared actual String userId = email;
     }
 
