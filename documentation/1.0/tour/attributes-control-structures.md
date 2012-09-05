@@ -152,7 +152,7 @@ as a getter/setter pair:
 
 <!-- cat-id:attrs -->
     shared String fullName {
-        return " ".join(coalesce({firstName,lastName})...);
+        return " ".join(coalesce(firstName,lastName)...);
     }
      
     assign fullName {
