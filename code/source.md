@@ -80,6 +80,7 @@ Feeling adventurous and want to help us with the compiler backend? Read [how to 
 #### Building
 
 This project depends on the 
+[Common code library](#common_code),
 [Module system](#module_system),
 [Ceylon language module](#ceylonlanguage_module),
 and [typechecker](#parser_typechecker_and_specification)  projects. 
@@ -104,6 +105,7 @@ This project contains the JavaScript compiler.
 #### Building
 
 This project depends on the 
+[Common code library](#common_code),
 [Module system](#module_system),
 [Ceylon language module](#ceylonlanguage_module),
 and [typechecker](#parser_typechecker_and_specification)  projects. 
@@ -149,6 +151,9 @@ This is where you'll find the Ceylon module system, based on JBoss Modules.
 
 #### Building
 
+This project depends on the [Common code library](#common_code) project.
+You should check it out and build it first.
+
 You can build the module system project like this:
 
 <!-- lang: bash -->
@@ -167,8 +172,11 @@ This is where you'll find the Ceylon `ceylon` launcher command, which runs Ceylo
 
 #### Building
 
-This project depends on the [Ceylon language module](#ceylonlanguage_module) 
-and [Module system](#module_system) projects.
+This project depends on the 
+[Common code library](#common_code),
+[Module system](#module_system),
+and [Ceylon language module](#ceylonlanguage_module) projects.
+You should check them out and build them first.
 
 Make sure you read the 
 [README](https://github.com/ceylon/ceylon-runtime/blob/master/README) 
