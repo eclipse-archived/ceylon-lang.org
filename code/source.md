@@ -52,7 +52,7 @@ You can build and publish the typechecker to the local Ceylon repository (`~/.ce
 like this:
 
 <!-- lang: bash -->
-    ant publish
+    ant clean publish
 
 You can also build the language specification:
 
@@ -89,7 +89,7 @@ You should check them out and build them first.
 You can build the compiler project like this:
 
 <!-- lang: bash -->
-    ant build
+    ant clean publish
 
 There's more info in the [README](https://github.com/ceylon/ceylon-compiler/blob/master/README.md).
 
@@ -114,7 +114,7 @@ You should check them out and build them first.
 You can build the JavaScript compiler project like this:
 
 <!-- lang: bash -->
-    ant compile
+    ant clean publish
 
 There's more info in the [README](https://github.com/ceylon/ceylon-js/blob/master/README.md).
 
@@ -136,7 +136,7 @@ You can build and publish the language module to the local Ceylon repository
 (`~/.ceylon`) like this:
 
 <!-- lang: bash -->
-    ant publish
+    ant clean publish
 
 There's more info in the [README](https://github.com/ceylon/ceylon.language/blob/master/README.md).
 
@@ -157,7 +157,7 @@ You should check it out and build it first.
 You can build the module system project like this:
 
 <!-- lang: bash -->
-    mvn install
+    ant clean publish
 
 There's more info in the [README](https://github.com/ceylon/ceylon-module-resolver/blob/master/README.md).
 
@@ -185,7 +185,7 @@ information to set it up correctly.
 You can build the launcher project like this:
 
 <!-- lang: bash -->
-    mvn install
+    ant clean publish
 
 There's more info in the [README](https://github.com/ceylon/ceylon-runtime/blob/master/README).
 
