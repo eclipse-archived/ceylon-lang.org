@@ -23,6 +23,7 @@ The Ceylon project is actually made up of several smaller projects:
 - [Ceylon Eclipse IDE plugin](#ceylon_eclipse_ide_plugin)
 - [Module system](#module_system)
 - [Launcher](#launcher)
+- [Common code library](#common_code)
 - [Ceylon Herd](#ceylon_herd)
 - [Ceylon SDK platform modules](#ceylon_sdk_platform_modules)
 
@@ -179,6 +180,28 @@ You can build the launcher project like this:
     mvn install
 
 There's more info in the [README](https://github.com/ceylon/ceylon-runtime/blob/master/README).
+
+### Common code library
+
+<table>
+ <tr><th>Git repository</th><td><a href="https://github.com/ceylon/ceylon-common">https://github.com/ceylon/ceylon-common</a></td></tr>
+ <tr><th>Issue reporting</th><td><a href="https://github.com/ceylon/ceylon-common/issues">https://github.com/ceylon/ceylon-common/issues</a></td></tr>
+</table>
+
+This is where you'll find code that is commonly used by the other projects. It handles configuration files, repsoitories, authentication, proxies and more things.
+
+#### Building
+
+Make sure you read the
+[README](https://github.com/ceylon/ceylon-common/blob/master/README)
+information to set it up correctly.
+
+You can build the common code library like this:
+
+<!-- lang: bash -->
+    ant clean publish
+
+There's more info in the [README](https://github.com/ceylon/ceylon-common/blob/master/README).
 
 ### Ceylon Eclipse IDE plugin
 
