@@ -42,7 +42,7 @@ full [feature list](..).
 
 ![hierarchy](/images/screenshots/hierarchy-screenshot.png)
 
-### New Ceylon Unit wizard
+### New Ceylon Source File wizard
 
 ![new](/images/screenshots/new-screenshot.png)
 

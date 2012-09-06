@@ -79,7 +79,7 @@ A very useful trick is:
 
 To run the program in [Ceylon IDE](#{page.doc_root}/ide), go to the Ceylon 
 perspective, create a new project using `File > New > Ceylon Project`, then 
-create a new `.ceylon` file using `File > New > Ceylon Unit`. Put the code 
+create a new `.ceylon` file using `File > New > Ceylon Source File`. Put the code 
 of `hello()` in this new file, then select the file and run it using 
 `Run > Run As > Ceylon Application`.
 
