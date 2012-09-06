@@ -23,7 +23,7 @@ The Ceylon project is actually made up of several smaller projects:
 - [Ceylon Eclipse IDE plugin](#ceylon_eclipse_ide_plugin)
 - [Module system](#module_system)
 - [Launcher](#launcher)
-- [Common code library](#common_code)
+- [Common code library](#common_code_library)
 - [Ceylon Herd](#ceylon_herd)
 - [Ceylon SDK platform modules](#ceylon_sdk_platform_modules)
 
@@ -80,7 +80,7 @@ Feeling adventurous and want to help us with the compiler backend? Read [how to 
 #### Building
 
 This project depends on the 
-[Common code library](#common_code),
+[Common code library](#common_code_library),
 [Module system](#module_system),
 [Ceylon language module](#ceylonlanguage_module),
 and [typechecker](#parser_typechecker_and_specification)  projects. 
@@ -105,7 +105,7 @@ This project contains the JavaScript compiler.
 #### Building
 
 This project depends on the 
-[Common code library](#common_code),
+[Common code library](#common_code_library),
 [Module system](#module_system),
 [Ceylon language module](#ceylonlanguage_module),
 and [typechecker](#parser_typechecker_and_specification)  projects. 
@@ -151,7 +151,7 @@ This is where you'll find the Ceylon module system, based on JBoss Modules.
 
 #### Building
 
-This project depends on the [Common code library](#common_code) project.
+This project depends on the [Common code library](#common_code_library) project.
 You should check it out and build it first.
 
 You can build the module system project like this:
@@ -173,7 +173,7 @@ This is where you'll find the Ceylon `ceylon` launcher command, which runs Ceylo
 #### Building
 
 This project depends on the 
-[Common code library](#common_code),
+[Common code library](#common_code_library),
 [Module system](#module_system),
 and [Ceylon language module](#ceylonlanguage_module) projects.
 You should check them out and build them first.
@@ -201,7 +201,7 @@ This is where you'll find code that is commonly used by the other projects. It h
 #### Building
 
 Make sure you read the
-[README](https://github.com/ceylon/ceylon-common/blob/master/README)
+[README](https://github.com/ceylon/ceylon-common/blob/master/README.md)
 information to set it up correctly.
 
 You can build the common code library like this:
