@@ -8,31 +8,38 @@ author: Stephane Epardaud
 
 ## Getting the source
 
-1. Fork https://github.com/ceylon/ceylon-compiler
-1. Clone ceylon.language on your machine
-`$ git clone git@github.com:ceylon/ceylon.language.git`
-1. Install the language module
-`$ cd ceylon.language; ant clean publish`
-1. Clone ceylon-common on your machine
-`$ git clone git@github.com:ceylon/ceylon-common.git`
-1. Install the common module
-`$ cd ceylon-common; ant publish`
-1. Clone ceylon-module-resolver on your machine
-`$ git clone git@github.com:ceylon/ceylon-module-resolver.git`
-1. Install the module resolver
-`$ cd ceylon-module-resolver; ant publish`
-1. Clone ceylon-spec on your machine
-`$ git clone git@github.com:ceylon/ceylon-spec.git`
-1. Install the typechecker
-`$ cd ceylon-spec; ant clean tree publish`
-1. Clone ceylon-compiler on your machine
-`$ git clone git@github.com:YOUR_GITHUB_USERNAME/ceylon-compiler.git`
-1. Add the upstream remote:
-`$ cd ceylon-compiler; git remote add upstream git@github.com:ceylon/ceylon-compiler.git`
-1. Run the tests to check that everything is working (a few tests may fail)
-`ant test`
-1. Import all three projects into Eclipse (see README.Eclipse in ceylon-compiler)
+1. Make sure you have the [Java 7 JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) and [Ant 1.8+](http://ant.apache.org/) installed and that both are working correctly
+2. Make sure you have [Git set up correctly](https://help.github.com/articles/set-up-git)
+3. Make sure you have [GitHub SSH access set up correctly](https://help.github.com/articles/generating-ssh-keys)
+4. Create a new directory for the Ceylon project
+5. Inside that directory clone ceylon-dist
+`$ git clone git@github.com:ceylon/ceylon-dist.git`
+6. Go into the newly created ceylon-dist directory and run the setup
+`$ cd ceylon-dist ; ant setup`
+7. To see if everything compiles okay you can run
+`$ ant siblings install-all`
+
+## Setting up Eclipse
+
+1. Import all projects (except ceylon-dist) into Eclipse (see README.Eclipse in ceylon-compiler)
 1. In Eclipse, run the unit tests: `com.redhat.ceylon.compiler.test.AllTests`
+
+## Forking a project
+
+When you have decided on which project you are going to work you'll have to fork it in GitHub.
+For this example we assume you'll be working on `ceylon-compiler`.
+
+1. Go to the [Ceylon project on GitHub](https://github.com/ceylon) and click on the repository you'll be working on
+2. Click the "Fork" button (in the top left of the page)
+3. Now on the main page of your forked repository copy the SSH url
+4. Go inside the local directory that corresponds with the repository (ceylon-compiler) and run
+`$ git remote set-url origin THE_URL_YOU_JUST_COPIED`
+5. Test if you did it right (the result should be "Current branch master is up to date")
+`$ git pull --rebase`
+6. Add an "upstream" alias for easy remote access:
+`$ git remote add upstream git@github.com:ceylon/ceylon-compiler.git`
+7. Run the tests to check that everything is working (a few tests may fail)
+`$ ant test`
 
 ## Typical workflow
 
