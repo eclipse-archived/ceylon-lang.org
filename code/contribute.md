@@ -8,54 +8,54 @@ author: Stephane Epardaud
 
 ## Getting the source
 
-1. Make sure you have the [Java 7 JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) and [Ant 1.8+](http://ant.apache.org/) installed and that both are working correctly
-2. Make sure you have [Git set up correctly](https://help.github.com/articles/set-up-git)
-3. Make sure you have [GitHub SSH access set up correctly](https://help.github.com/articles/generating-ssh-keys)
-4. Create a new directory for the Ceylon project
-5. Inside that directory clone ceylon-dist
+- Make sure you have the [Java 7 JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) and [Ant 1.8+](http://ant.apache.org/) installed and that both are working correctly
+- Make sure you have [Git set up correctly](https://help.github.com/articles/set-up-git)
+- Make sure you have [GitHub SSH access set up correctly](https://help.github.com/articles/generating-ssh-keys)
+- Create a new directory for the Ceylon project
+- Inside that directory clone ceylon-dist
 
 <!-- lang: bash -->
     $ git clone git@github.com:ceylon/ceylon-dist.git
 
-6. Go into the newly created ceylon-dist directory and run the setup
+- Go into the newly created ceylon-dist directory and run the setup
 
 <!-- lang: bash -->
     $ cd ceylon-dist ; ant setup
 
-7. To see if everything compiles okay you can run
+- To see if everything compiles okay you can run
 
 <!-- lang: bash -->
     $ ant siblings install-all
 
 ## Setting up Eclipse
 
-1. Import all projects (except ceylon-dist) into Eclipse (see README.Eclipse in ceylon-compiler)
-1. In Eclipse, run the unit tests: `com.redhat.ceylon.compiler.test.AllTests`
+- Import all projects (except ceylon-dist) into Eclipse (see README.Eclipse in ceylon-compiler)
+- In Eclipse, run the unit tests: `com.redhat.ceylon.compiler.test.AllTests`
 
 ## Forking a project
 
 When you have decided on which project you are going to work you'll have to fork it in GitHub.
 For this example we assume you'll be working on `ceylon-compiler`.
 
-1. Go to the [Ceylon project on GitHub](https://github.com/ceylon) and click on the repository you'll be working on
-2. Click the `Fork` button (in the top left of the page)
-3. Now on the main page of your forked repository copy the **SSH** url
-4. Go inside the local directory that corresponds with the repository (ceylon-compiler) and run
+- Go to the [Ceylon project on GitHub](https://github.com/ceylon) and click on the repository you'll be working on
+- Click the `Fork` button (in the top left of the page)
+- Now on the main page of your forked repository copy the **SSH** url
+- Go inside the local directory that corresponds with the repository (ceylon-compiler) and run
 
 <!-- lang: bash -->
     $ git remote set-url origin THE_URL_YOU_JUST_COPIED
 
-5. Test if you did it right (the result should be "Current branch master is up to date")
+- Test if you did it right (the result should be "Current branch master is up to date")
 
 <!-- lang: bash -->
     $ git pull --rebase
 
-6. Add an "upstream" alias for easy remote access:
+- Add an "upstream" alias for easy remote access:
 
 <!-- lang: bash -->
     $ git remote add upstream git@github.com:ceylon/ceylon-compiler.git
 
-7. Run the tests to check that everything is working (a few tests may fail)
+- Run the tests to check that everything is working (a few tests may fail)
 
 <!-- lang: bash -->
     $ ant test
