@@ -13,11 +13,22 @@ author: Stephane Epardaud
 3. Make sure you have [GitHub SSH access set up correctly](https://help.github.com/articles/generating-ssh-keys)
 4. Create a new directory for the Ceylon project
 5. Inside that directory clone ceylon-dist
-`$ git clone git@github.com:ceylon/ceylon-dist.git`
+
+```bash
+$ git clone git@github.com:ceylon/ceylon-dist.git
+```
+
 6. Go into the newly created ceylon-dist directory and run the setup
-`$ cd ceylon-dist ; ant setup`
+
+```bash
+$ cd ceylon-dist ; ant setup
+```
+
 7. To see if everything compiles okay you can run
-`$ ant siblings install-all`
+
+```bash
+$ ant siblings install-all
+```
 
 ## Setting up Eclipse
 
@@ -30,16 +41,31 @@ When you have decided on which project you are going to work you'll have to fork
 For this example we assume you'll be working on `ceylon-compiler`.
 
 1. Go to the [Ceylon project on GitHub](https://github.com/ceylon) and click on the repository you'll be working on
-2. Click the "Fork" button (in the top left of the page)
-3. Now on the main page of your forked repository copy the SSH url
+2. Click the `Fork` button (in the top left of the page)
+3. Now on the main page of your forked repository copy the **SSH** url
 4. Go inside the local directory that corresponds with the repository (ceylon-compiler) and run
-`$ git remote set-url origin THE_URL_YOU_JUST_COPIED`
+
+```bash
+$ git remote set-url origin THE_URL_YOU_JUST_COPIED
+```
+
 5. Test if you did it right (the result should be "Current branch master is up to date")
-`$ git pull --rebase`
+
+```bash
+$ git pull --rebase
+```
+
 6. Add an "upstream" alias for easy remote access:
-`$ git remote add upstream git@github.com:ceylon/ceylon-compiler.git`
+
+```bash
+$ git remote add upstream git@github.com:ceylon/ceylon-compiler.git
+```
+
 7. Run the tests to check that everything is working (a few tests may fail)
-`$ ant test`
+
+```bash
+$ ant test
+```
 
 ## Typical workflow
 
