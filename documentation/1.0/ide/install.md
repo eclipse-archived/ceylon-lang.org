@@ -14,7 +14,7 @@ tools.
 
 Please [report any issue in our issue tracker][issues]. _Note that if
 Ceylon IDE doesn't work at all, the problem is probably that Eclipse
-is not executing on a Java 7 VM._
+is not executing on a Java 7 VM._ (see information about [eclipse.ini][eclipseini])
 
 ## Installing from the update site
 
@@ -38,3 +38,4 @@ Here's what you need to do to install the IDE:
 [eclipse]: http://www.eclipse.org/downloads/
 [juno]: http://eclipse.org/juno
 [issues]: https://github.com/ceylon/ceylon-ide-eclipse/issues
+[eclipseini]: http://wiki.eclipse.org/Eclipse.ini
