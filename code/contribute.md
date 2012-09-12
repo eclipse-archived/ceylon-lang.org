@@ -25,7 +25,7 @@ author: Stephane Epardaud
 - To see if everything compiles okay you can run
 
 <!-- lang: bash -->
-    $ ant siblings install-all
+    $ ant publish-all
 
 ## Setting up Eclipse
 
