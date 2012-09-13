@@ -26,7 +26,7 @@ A number of languages support a kind of parallel assignment syntax
 for desctructuring tuples. In our hypothetical language, it might 
 look like this:
 
-    String name, Value value = namedValues[i];
+    String name, Value val = namedValues[i];
 
 Some languages support a kind of destructuring that is so powerful
 that it's referred to as _pattern matching_. In our language we might
@@ -53,7 +53,7 @@ but there are several reasons why I'm not especially enthusiastic
 about the idea. I'm going to describe just one of them.
 
 Let's start with the "pattern matching" example above. And let's
-stipulate that I&mdash;perhaps more than mpst developers&mdash;rely
+stipulate that I&mdash;perhaps more than most developers&mdash;rely
 almost completely on my IDE to write my code for me. I use Extract 
 Value, Extract Function, Assign To Local, Rename, ⌘1, etc, in Ceylon
 IDE like it's a nervous tic. So of course the first thing I want to do 
@@ -165,7 +165,7 @@ we can just write this:
 
     class NamedValue(name) {
         shared String name;
-        shared Value value = findValueForName(name);
+        shared Value val = findValueForName(name);
     }
 
 No constructor, no getters/setters, and if this is a member of 
