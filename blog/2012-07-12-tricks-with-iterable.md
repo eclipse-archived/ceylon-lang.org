@@ -57,8 +57,8 @@ Likewise, `Iterable` has the methods `any()` and `every()`, and
 but it's still usually more convenient and idiomatic to use 
 comprehensions:
 
-    value allLowercase = every(for (c in "Hello Word") c.lowercase)); //false
-    value someUppercase = any(for (c in "Hello Word") c.uppercase)); //true
+    value allLowercase = every(for (c in "Hello Word") c.lowercase); //false
+    value someUppercase = any(for (c in "Hello Word") c.uppercase); //true
 
 ## More operations of `Iterable`
 
