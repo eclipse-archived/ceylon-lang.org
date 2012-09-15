@@ -15,7 +15,7 @@ using named arguments. We're now ready to learn about _comprehensions_.
 
 ## Comprehensions
 
-A comprehension is a convenient way to tranform, filter, or combine a
+A comprehension is a convenient way to transform, filter, or combine a
 stream or streams of values before passing the result to a function.
 Comprehensions always appear as arguments to 
 [sequenced parameters](../named-arguments/#sequenced_parameters)
@@ -79,7 +79,7 @@ Now let's see what the other bits of a comprehension do.
 
 ## Transformation
 
-The first thing we can do with a comprehension is tranform the
+The first thing we can do with a comprehension is transform the
 elements of the stream using an expression to produce a new value
 for each element. This expression appears at the end of a 
 comprehension. It's the thing that the resulting `Iterable` actually
