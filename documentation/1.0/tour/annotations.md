@@ -278,9 +278,9 @@ and attributes, and may occur at most once on any member.
 
 <!-- try: -->
 <!-- check:none:Annotations M5 -->
-    shared class Transactional(Boolean requiresNew)
+    shared class Transactional(requiresNew)
             satisfies OptionalAnnotation<Transactional,Member<Bottom,Void>> {
-        shared Boolean requiresNew = requiresNew;
+        shared Boolean requiresNew;
     }
 
 Now we can apply our annotation to a method of any class.
