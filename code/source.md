@@ -196,7 +196,7 @@ There's more info in the [README](https://github.com/ceylon/ceylon-runtime/blob/
  <tr><th>Issue reporting</th><td><a href="https://github.com/ceylon/ceylon-common/issues">https://github.com/ceylon/ceylon-common/issues</a></td></tr>
 </table>
 
-This is where you'll find code that is commonly used by the other projects. It handles configuration files, repsoitories, authentication, proxies and more things.
+This is where you'll find code that is commonly used by the other projects. It handles configuration files, repositories, authentication, proxies and more things.
 
 #### Building
 
