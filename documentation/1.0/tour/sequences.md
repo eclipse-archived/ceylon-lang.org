@@ -143,7 +143,7 @@ iterating [`Entry`s](#{site.urls.apidoc_current}/ceylon/language/class_Entry.htm
 -->
 <!-- cat: void m(String operators) { -->
     for (i -> op in entries(operators...)) {
-        print("" i.string ": " op "");
+        print("" i ": " op "");
     }
 <!-- cat: } -->
 
