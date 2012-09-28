@@ -335,8 +335,8 @@ construct.
 
 <!-- try-post:
 
-    print(null);
-    print("John Doe");
+    hello(null);
+    hello("John Doe");
 -->
     void hello(String? name) {
         if (exists name) {
@@ -354,8 +354,8 @@ way of writing the following:
 
 <!-- try-post:
 
-    print(null);
-    print("John Doe");
+    hello(null);
+    hello("John Doe");
 -->
     void hello(String? name) {
         if (is String name) {
