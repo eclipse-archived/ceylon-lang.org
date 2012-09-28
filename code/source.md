@@ -7,10 +7,7 @@ author: Emmanuel Bernard
 ---
 # #{page.title}
 
-We publish everything on GitHub under the [Ceylon organization](https://github.com/ceylon).
-
-You need to install the Java Development Kit 7 (from Oracle or OpenJDK). 
-You also need to install `git`.
+We publish everything on GitHub under the [Ceylon organization](https://ceylon.github.com).
 
 ## Ceylon projects
 
@@ -29,6 +26,8 @@ The Ceylon project is actually made up of several smaller projects:
 
 You can also view [all our git projects](http://ceylon.github.com) at quick glance.
 
+Information on how to set up your development environment, how to build the projects and how to contribute to the project can be found [HERE](/code/contribute).
+
 ### Parser, typechecker and specification
 
 <table>
@@ -41,25 +40,6 @@ producing a list of warnings and errors, and a the model of the analyzed source
 code. This is the compiler frontend.
 
 The Ceylon language specification is also kept in this project.
-
-#### Building
-
-This project depends on the 
-[Module system](#module_system).
-You should check that out and build it first.
-
-You can build and publish the typechecker to the local Ceylon repository (`~/.ceylon`) 
-like this:
-
-<!-- lang: bash -->
-    ant clean publish
-
-You can also build the language specification:
-
-<!-- lang: bash -->
-    ant doc
-
-The generated documentation will be available in `build/en/html/index.html`
 
 There's more info in the [README](https://github.com/ceylon/ceylon-spec/blob/master/README.md).
 
@@ -77,20 +57,6 @@ You can find out how to run these commands from the [documentation](#{site.urls.
 
 Feeling adventurous and want to help us with the compiler backend? Read [how to work on that project](/code/contribute).
 
-#### Building
-
-This project depends on the 
-[Common code library](#common_code_library),
-[Module system](#module_system),
-[Ceylon language module](#ceylonlanguage_module),
-and [typechecker](#parser_typechecker_and_specification)  projects. 
-You should check them out and build them first.
-
-You can build the compiler project like this:
-
-<!-- lang: bash -->
-    ant clean publish
-
 There's more info in the [README](https://github.com/ceylon/ceylon-compiler/blob/master/README.md).
 
 ### JavaScript compiler
@@ -101,20 +67,6 @@ There's more info in the [README](https://github.com/ceylon/ceylon-compiler/blob
 </table>
 
 This project contains the JavaScript compiler.
-
-#### Building
-
-This project depends on the 
-[Common code library](#common_code_library),
-[Module system](#module_system),
-[Ceylon language module](#ceylonlanguage_module),
-and [typechecker](#parser_typechecker_and_specification)  projects. 
-You should check them out and build them first.
-
-You can build the JavaScript compiler project like this:
-
-<!-- lang: bash -->
-    ant clean publish
 
 There's more info in the [README](https://github.com/ceylon/ceylon-js/blob/master/README.md).
 
@@ -130,14 +82,6 @@ mentioned in the language specification.
 
 See the [API documentation](#{site.urls.apidoc_current}/ceylon/language/) for more information.
 
-#### Building
-
-You can build and publish the language module to the local Ceylon repository 
-(`~/.ceylon`) like this:
-
-<!-- lang: bash -->
-    ant clean publish
-
 There's more info in the [README](https://github.com/ceylon/ceylon.language/blob/master/README.md).
 
 ### Module system
@@ -148,16 +92,6 @@ There's more info in the [README](https://github.com/ceylon/ceylon.language/blob
 </table>
 
 This is where you'll find the Ceylon module system, based on JBoss Modules.
-
-#### Building
-
-This project depends on the [Common code library](#common_code_library) project.
-You should check it out and build it first.
-
-You can build the module system project like this:
-
-<!-- lang: bash -->
-    ant clean publish
 
 There's more info in the [README](https://github.com/ceylon/ceylon-module-resolver/blob/master/README.md).
 
@@ -170,23 +104,6 @@ There's more info in the [README](https://github.com/ceylon/ceylon-module-resolv
 
 This is where you'll find the Ceylon `ceylon` launcher command, which runs Ceylon modules.
 
-#### Building
-
-This project depends on the 
-[Common code library](#common_code_library),
-[Module system](#module_system),
-and [Ceylon language module](#ceylonlanguage_module) projects.
-You should check them out and build them first.
-
-Make sure you read the 
-[README](https://github.com/ceylon/ceylon-runtime/blob/master/README) 
-information to set it up correctly.
-
-You can build the launcher project like this:
-
-<!-- lang: bash -->
-    ant clean publish
-
 There's more info in the [README](https://github.com/ceylon/ceylon-runtime/blob/master/README).
 
 ### Common code library
@@ -197,17 +114,6 @@ There's more info in the [README](https://github.com/ceylon/ceylon-runtime/blob/
 </table>
 
 This is where you'll find code that is commonly used by the other projects. It handles configuration files, repositories, authentication, proxies and more things.
-
-#### Building
-
-Make sure you read the
-[README](https://github.com/ceylon/ceylon-common/blob/master/README.md)
-information to set it up correctly.
-
-You can build the common code library like this:
-
-<!-- lang: bash -->
-    ant clean publish
 
 There's more info in the [README](https://github.com/ceylon/ceylon-common/blob/master/README).
 
@@ -220,10 +126,7 @@ There's more info in the [README](https://github.com/ceylon/ceylon-common/blob/m
 
 This project contain the Ceylon IDE Eclipse plugin.
 
-#### Building
-
-Instructions may be found in the
-[README](https://github.com/ceylon/ceylon-ide-eclipse/blob/master/README.md).
+There's more info in the [README](https://github.com/ceylon/ceylon-ide-eclipse/blob/master/README.md).
 
 ### Ceylon Herd
 
@@ -234,6 +137,8 @@ Instructions may be found in the
 
 This project contain the Ceylon Herd application.
 
+There's more info in the [README](https://github.com/ceylon/ceylon-herd/blob/master/README.md).
+
 ### Ceylon SDK platform modules
 
 <table>
@@ -242,13 +147,5 @@ This project contain the Ceylon Herd application.
 </table>
 
 This project contains the platform modules belonging to the Ceylon SDK.
-
-#### Building
-
-You can build and publish the platforms modules to the local Ceylon repository 
-(`~/.ceylon`) like this:
-
-<!-- lang: bash -->
-    ant publish
 
 There's more info in the [README](https://github.com/ceylon/ceylon-sdk/blob/master/README.md).
