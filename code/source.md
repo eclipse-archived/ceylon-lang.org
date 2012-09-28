@@ -21,7 +21,7 @@ The Ceylon project is actually made up of several smaller projects:
 - [Module system](#module_system)
 - [Launcher](#launcher)
 - [Common code library](#common_code_library)
-- [Packaging and distribution](#packaging̣_and_distribution)
+- [Packaging and distribution](#packaging_and_distribution)
 - [Ceylon Herd](#ceylon_herd)
 - [Ceylon SDK platform modules](#ceylon_sdk_platform_modules)
 
