@@ -84,3 +84,9 @@ You can install Ceylon IDE (which includes the Ceylon compiler) either:
 You can get started using the [welcome page](screenshots#welcome_page) and 
 [cheat sheets](screenshots#cheat_sheets). After installing, go straight to 
 `Help > Welcome to Ceylon`.
+
+## Installing the latest development (unstable) IDE
+
+If you want to try the latest build of the IDE before it is released, you
+have to use the _development_ [update site](install#installing_from_the_development_unstable_update_site). 
+Beware that this is an unstable and unfinished version.

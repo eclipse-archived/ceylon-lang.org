@@ -40,3 +40,12 @@ Here's what you need to do to install the IDE:
 [juno]: http://eclipse.org/juno
 [issues]: https://github.com/ceylon/ceylon-ide-eclipse/issues
 [eclipseini]: http://wiki.eclipse.org/Eclipse.ini
+
+## Installing from the development (unstable) update site
+
+If you want to try the latest build of the IDE before it is released, you
+have to use the _development_ update site:
+
+<http://ceylon-lang.org/eclipse/development/>
+
+Beware that this is an unstable and unfinished version.
