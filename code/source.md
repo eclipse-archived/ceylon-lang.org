@@ -21,6 +21,7 @@ The Ceylon project is actually made up of several smaller projects:
 - [Module system](#module_system)
 - [Launcher](#launcher)
 - [Common code library](#common_code_library)
+- [Packaging and distribution](#packaging̣_and_distribution)
 - [Ceylon Herd](#ceylon_herd)
 - [Ceylon SDK platform modules](#ceylon_sdk_platform_modules)
 
@@ -116,6 +117,19 @@ There's more info in the [README](https://github.com/ceylon/ceylon-runtime/blob/
 This is where you'll find code that is commonly used by the other projects. It handles configuration files, repositories, authentication, proxies and more things.
 
 There's more info in the [README](https://github.com/ceylon/ceylon-common/blob/master/README).
+
+### Packaging and distribution
+
+<table>
+ <tr><th>Git repository</th><td><a href="https://github.com/ceylon/ceylon-dist">https://github.com/ceylon/ceylon-dist</a></td></tr>
+ <tr><th>Issue reporting</th><td><a href="https://github.com/ceylon/ceylon-dist/issues">https://github.com/ceylon/ceylon-dist/issues</a></td></tr>
+</table>
+
+This is the project that pulls together all the distributable files from the other projects and bundles them into a coherent whole
+that can be distributed publicly. It also serves as the base directory from which to work when as a developer you don't have an
+official Ceylon installation on your system (you might be working on several different versiosn afterall).
+
+There's more info in the [README](https://github.com/ceylon/ceylon-dist/blob/master/README).
 
 ### Ceylon Eclipse IDE plugin
 
