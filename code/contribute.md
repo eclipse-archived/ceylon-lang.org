@@ -29,7 +29,7 @@ author: Stephane Epardaud
 
 ## Setting up Eclipse
 
-- Import all projects (except ceylon-dist) into Eclipse (see README.Eclipse in ceylon-compiler)
+- Import all projects (except ceylon-dist) into Eclipse (see [README.eclipse](https://github.com/ceylon/ceylon-compiler/blob/master/README.eclipse) in ceylon-compiler)
 - In Eclipse, run the unit tests: `com.redhat.ceylon.compiler.test.AllTests`
 
 ## Forking a project
