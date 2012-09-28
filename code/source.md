@@ -7,7 +7,7 @@ author: Emmanuel Bernard
 ---
 # #{page.title}
 
-We publish everything on GitHub under the [Ceylon organization](https://ceylon.github.com).
+We publish everything on GitHub under the [Ceylon organization](http://ceylon.github.com).
 
 ## Ceylon projects
 
