@@ -57,20 +57,20 @@ could:
 The first case is easy:
 
 <!-- try: -->
-    print("hello", "world");
+    printAll("hello", "world");
 
-For the second case, Ceylon requires us to write an elipse:
+For the second case, Ceylon requires us to write an ellipsis:
 
 <!-- try: -->
     value words = { "hello", "world" };
-    print(words...);
+    printAll(words...);
 
 The third, and easily most interesting case allows us to transform,
 filter, and combine iterable streams of values:
 
 <!-- try: -->
     value words = { "Hello", "World" };
-    print(for (w in words) w.lowercased);
+    printAll(for (w in words) w.lowercased);
 
 We'll come back to comprehensions later.
 
