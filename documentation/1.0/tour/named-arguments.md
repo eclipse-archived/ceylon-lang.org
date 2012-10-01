@@ -32,7 +32,7 @@ Inside the method body, the parameter `strings` has type `Iterable<String>`.
 -->
     void printAll(String... strings) {
         for (string in strings) {
-            process.writeLine(string);
+            print(string);
         }
     }
 
