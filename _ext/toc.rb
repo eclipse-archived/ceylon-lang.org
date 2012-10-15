@@ -11,10 +11,20 @@ class TOC
       next unless page.toc
       toc = ""
 
-      if page.is_a?(Awestruct::MarkdownFile)
-        toc = parse_markdown_headers(page.raw_page_content)
-      elsif page.is_a?(Awestruct::TextileFile)
-        toc = parse_textile_headers(page.raw_page_content)
+      # Necessary to support old Awestruct
+      # remove when everyone has moved
+      begin
+        if page.is_a?(Awestruct::MarkdownFile)
+          toc = parse_markdown_headers(page.raw_page_content)
+        elsif page.is_a?(Awestruct::TextileFile)
+          toc = parse_textile_headers(page.raw_page_content)
+        end
+      rescue NameError
+        if page.is_a?(Awestruct::Handlers::MarkdownHandler)
+          toc = parse_markdown_headers(page.raw_page_content)
+        elsif page.is_a?(Awestruct::Handlers::TextileHandler)
+          toc = parse_textile_headers(page.raw_page_content)
+        end
       end
 
       page.table_of_contents = toc
