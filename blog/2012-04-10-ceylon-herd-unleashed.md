@@ -1,6 +1,6 @@
 ---
 title: The Ceylon Herd has been unleashed
-author: Stéphane Épardaud
+author: St&eacute;phane &Eacute;pardaud
 layout: blog
 unique_id: blogpage
 tab: blog
