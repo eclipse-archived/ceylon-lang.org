@@ -1,5 +1,5 @@
 ---
-title: Interview of Stéphane Épardaud on Ceylon at Devoxx France
+title: Interview of St&eacute;phane &Eacute;pardaud on Ceylon at Devoxx France
 author: St&eacute;phane &Eacute;pardaud
 layout: blog
 unique_id: blogpage
