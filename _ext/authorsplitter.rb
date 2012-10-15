@@ -41,7 +41,7 @@ module Awestruct
         end
 
         all.each do |page|
-          page.author = (page.author||[]).collect{|t| @authors[t]}
+          page.author = Array(page.author).collect{|t| @authors[t]}
         end
 
         ordered_authors = @authors.values
