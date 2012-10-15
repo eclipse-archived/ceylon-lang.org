@@ -1,5 +1,5 @@
 ---
-name: Aleš Justin
+name: Ale&#353; Justin
 photo: /images/team/AlesJustin.jpg
 level: 10   
 ---
