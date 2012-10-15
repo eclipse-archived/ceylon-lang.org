@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `ceylonr` - The ceylon repository replicator
+title: '`ceylonr` - The ceylon repository replicator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

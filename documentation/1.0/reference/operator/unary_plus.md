@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `+` (unary plus) operator
+title: '`+` (unary plus) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

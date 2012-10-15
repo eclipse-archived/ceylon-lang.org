@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `super`
+title: '`super`'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

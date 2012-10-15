@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `!` (not) operator
+title: '`!` (not) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `ceylon-import-jar` - The Ceylon JAR importer
+title: '`ceylon-import-jar` - The Ceylon JAR importer'
 tab: documentation
 unique_id: docspage
 author: Stef Epardaud

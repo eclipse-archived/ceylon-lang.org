@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `<ceylonc>` Ant task
+title: '`<ceylonc>` Ant task'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `exists` operator
+title: '`exists` operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

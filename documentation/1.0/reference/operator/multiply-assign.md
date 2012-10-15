@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `*=` (multiply assign) operator
+title: '`*=` (multiply assign) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

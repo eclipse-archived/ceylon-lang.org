@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `return` statement
+title: '`return` statement'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

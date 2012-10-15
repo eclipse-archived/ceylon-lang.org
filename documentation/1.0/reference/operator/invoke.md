@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `()` and `{}` (invoke) operators
+title: '`()` and `{}` (invoke) operators'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

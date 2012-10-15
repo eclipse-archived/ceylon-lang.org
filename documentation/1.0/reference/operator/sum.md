@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `+` (sum) operator
+title: '`+` (sum) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

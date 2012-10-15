@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `Character` literals
+title: '`Character` literals'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

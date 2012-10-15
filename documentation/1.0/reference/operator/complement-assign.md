@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `~=` (complement assign) operator
+title: '`~=` (complement assign) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

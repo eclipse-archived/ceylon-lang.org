@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `ceylond` - The Ceylon documentation compiler
+title: '`ceylond` - The Ceylon documentation compiler'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

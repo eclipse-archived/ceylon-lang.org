@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `%` (remainder) operator
+title: '`%` (remainder) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

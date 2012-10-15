@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `?` (default) operator
+title: '`?` (default) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

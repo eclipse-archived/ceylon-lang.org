@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `>` (greater than) operator
+title: '`>` (greater than) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

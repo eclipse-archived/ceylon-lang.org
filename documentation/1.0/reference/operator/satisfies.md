@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `satisfies` operator
+title: '`satisfies` operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

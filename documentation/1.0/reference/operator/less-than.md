@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `<` (less than) operator
+title: '`<` (less than) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

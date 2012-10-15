@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `-=` (subtract assign) operator
+title: '`-=` (subtract assign) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

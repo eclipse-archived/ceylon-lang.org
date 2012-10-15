@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `if` statement
+title: '`if` statement'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

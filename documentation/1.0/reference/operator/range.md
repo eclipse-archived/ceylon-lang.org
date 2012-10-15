@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `..` (range) operator
+title: '`..` (range) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

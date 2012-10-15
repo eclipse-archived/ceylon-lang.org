@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `[]` (lookup) operator
+title: '`[]` (lookup) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

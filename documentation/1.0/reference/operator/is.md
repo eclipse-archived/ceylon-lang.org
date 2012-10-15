@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `is` operator
+title: '`is` operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

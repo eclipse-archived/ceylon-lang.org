@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `.=` follow/apply
+title: '`.=` follow/apply'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `==` (equal) operator
+title: '`==` (equal) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

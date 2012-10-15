@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `ceylonf` - The ceylon source archive extractor
+title: '`ceylonf` - The ceylon source archive extractor'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

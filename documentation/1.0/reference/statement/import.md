@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `import` statement
+title: '`import` statement'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

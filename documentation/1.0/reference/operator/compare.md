@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `<=>` (compare) operator
+title: '`<=>` (compare) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

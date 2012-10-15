@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `modules.ceylon-lang.org` aka Ceylon Herd
+title: '`modules.ceylon-lang.org` aka Ceylon Herd'
 tab: documentation
 unique_id: docspage
 author: Stef Epardaud

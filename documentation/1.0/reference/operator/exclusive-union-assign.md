@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `^=` (exclusive union assign) operator
+title: '`^=` (exclusive union assign) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

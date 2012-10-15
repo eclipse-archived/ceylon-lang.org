@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `**` (power) operator
+title: '`**` (power) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

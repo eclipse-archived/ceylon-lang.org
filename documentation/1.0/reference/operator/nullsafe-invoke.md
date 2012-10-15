@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `()` or `{}` (null-safe invoke) operator
+title: '`()` or `{}` (null-safe invoke) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

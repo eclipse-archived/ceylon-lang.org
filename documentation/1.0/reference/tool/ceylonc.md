@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `ceylonc` - The Ceylon JVM compiler
+title: '`ceylonc` - The Ceylon JVM compiler'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

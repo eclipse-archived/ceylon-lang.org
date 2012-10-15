@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `&=` (intersect assign) operator
+title: '`&=` (intersect assign) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

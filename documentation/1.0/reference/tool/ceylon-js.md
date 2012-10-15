@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `ceylon-js` - The Ceylon JavaScript launcher
+title: '`ceylon-js` - The Ceylon JavaScript launcher'
 tab: documentation
 unique_id: docspage
 author: Stef Epardaud

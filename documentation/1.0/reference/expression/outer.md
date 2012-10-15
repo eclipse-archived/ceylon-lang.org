@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `outer`
+title: '`outer`'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

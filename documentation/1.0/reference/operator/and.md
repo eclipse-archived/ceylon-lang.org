@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `&&` (and) operator
+title: '`&&` (and) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

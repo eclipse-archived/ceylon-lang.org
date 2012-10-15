@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `Number` literals
+title: '`Number` literals'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

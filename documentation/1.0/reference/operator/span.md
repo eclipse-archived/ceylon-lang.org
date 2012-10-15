@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `[x..y]` (span) operator
+title: '`[x..y]` (span) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `for` statement
+title: '`for` statement'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

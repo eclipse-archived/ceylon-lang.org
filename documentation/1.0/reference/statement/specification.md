@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `=` (specification) statement
+title: '`=` (specification) statement'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

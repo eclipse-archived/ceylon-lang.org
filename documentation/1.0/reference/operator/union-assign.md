@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `|=` (union assign) operator
+title: '`|=` (union assign) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `throw` statement
+title: '`throw` statement'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

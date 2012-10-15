@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `^` (exclusive union) operator
+title: '`^` (exclusive union) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

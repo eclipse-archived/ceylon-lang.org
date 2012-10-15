@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `--` (decrement) operator
+title: '`--` (decrement) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

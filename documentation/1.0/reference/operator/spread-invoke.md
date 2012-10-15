@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `[].` (spread method) operator
+title: '`[].` (spread method) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

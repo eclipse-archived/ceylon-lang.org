@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `ceylonc-js` - The Ceylon JavaScript compiler
+title: '`ceylonc-js` - The Ceylon JavaScript compiler'
 tab: documentation
 unique_id: docspage
 author: Stef Epardaud

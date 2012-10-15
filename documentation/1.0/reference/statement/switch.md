@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `switch` statement
+title: '`switch` statement'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

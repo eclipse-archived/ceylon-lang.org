@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `-` (difference) operator
+title: '`-` (difference) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

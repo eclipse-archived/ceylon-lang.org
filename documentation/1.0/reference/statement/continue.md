@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `continue` statement
+title: '`continue` statement'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley

@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: `!=` (not equal) operator
+title: '`!=` (not equal) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
