@@ -45,7 +45,7 @@ something like this:
         print("Name: " + legalName);
     }
 
-Now, I've always had a bit of a soft spot for destructuring&mdash;it's
+Now, I've always had a bit of a soft spot for destructuring&#8212;it's
 a minor convenience, but there are certainly cases (like iterating
 the entries of a map) where I think it improves the code. A future
 version of Ceylon _might_ feature a lot more support for destructuring,
@@ -53,7 +53,7 @@ but there are several reasons why I'm not especially enthusiastic
 about the idea. I'm going to describe just one of them.
 
 Let's start with the "pattern matching" example above. And let's
-stipulate that I&mdash;perhaps more than most developers&mdash;rely
+stipulate that I&#8212;perhaps more than most developers&#8212;rely
 almost completely on my IDE to write my code for me. I use Extract 
 Value, Extract Function, Assign To Local, Rename, ⌘1, etc, in Ceylon
 IDE like it's a nervous tic. So of course the first thing I want to do 
@@ -154,7 +154,7 @@ just not worth writing a whole class to represent the return
 value of one function". I think this overlooks the effect of
 code growing and evolving and being refactored. And it also
 presupposes that writing a class is a pain, as it is in Java. 
-But in Ceylon writing a class is easy&mdash;indeed, it looks just 
+But in Ceylon writing a class is easy&#8212;indeed, it looks just 
 like a function! Instead of this:
 
     (String, Value) getNamedValue(String name) {

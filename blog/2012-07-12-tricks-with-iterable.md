@@ -26,8 +26,8 @@ Of course, `Iterable` has the famous functions `map()`, and
 
 (This works because a `String` is an `Iterable<Character>`.)
 
-These operations each return `Iterable`&mdash;in this case,
-`Iterable<Character>`&mdash;so they don't actually allocate
+These operations each return `Iterable`&#8212;in this case,
+`Iterable<Character>`&#8212;so they don't actually allocate
 memory (except for a single object instantiation). If you want
 to actually get a new `String`, you need to call a function to
 do that:
