@@ -13,22 +13,31 @@ A bit of Git, a bit a Ruby and you will get your local version of [ceylon-lang.o
 ## Infrastructure
 
 * get Git
-* get Ruby 1.8
+* get Ruby 1.8 or 1.9
 * if on Mac OS, get XCode (needed for native gems)
 
 Install Git to your system. [GitHub's help page](http://help.github.com/) is a good starting
 point. [Emmanuel's blog](http://in.relation.to/Bloggers/HibernateMovesToGitGitTipsAndTricks)
 on Git tips and tricks is useful too.
 
-Install Awestruct, a Ruby based site generator.
+If you run the latest Ruby (1.9), install Awestruct, a Ruby based site generator
+as followed:
 
     gem install awestruct 
     #or
     sudo gem install awestruct
 
-The Awestruct version known to work is 0.2.13
+The Awestruct version known to work for Ruby 1.9 is 0.4.6
 
-    sudo gem install awestruct --version 0.2.13
+    sudo gem install awestruct --version 0.4.6
+
+The Awestruct version known to work for Ruby 1.8 is 0.2.13
+
+Also install the htmlentities gem
+
+    gem install htmlentities
+    #or
+    sudo gem install htmlentities
 
 Get the website source from GitHub.
 

@@ -1,3 +1,5 @@
+require 'htmlentities'
+
 # RemoveAccents version 1.0.3 (c) 2008-2009 Solutions Informatiques Techniconseils inc.
 # 
 # This module adds 2 methods to the string class. 
@@ -41,6 +43,8 @@ class String
     'u' => [249,250,251,252],
     'N' => [209],
     'n' => [241],
+    'S' => [352],
+    's' => [353],
     'Y' => [221],
     'y' => [253,255],
     'AE' => [306],
@@ -53,6 +57,7 @@ class String
   # Remove the accents from the string. Uses String::ACCENTS_MAPPING as the source map.
   def removeaccents    
     str = String.new(self)
+    str = HTMLEntities.new.decode(str)
     String::ACCENTS_MAPPING.each {|letter,accents|
       packed = accents.pack('U*')
       rxp = Regexp.new("[#{packed}]", nil)
