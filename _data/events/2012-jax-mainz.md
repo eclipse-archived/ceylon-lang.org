@@ -1,6 +1,6 @@
 ---
 title: 'Introduction to Ceylon'
-presentor: Stéphane Épardaud
+presentor: St&eacute;phane &Eacute;pardaud
 event: JAX 2012
 event_date: 17 April 2012
 event_url: http://jax.de/2012/sessions/#session-21771

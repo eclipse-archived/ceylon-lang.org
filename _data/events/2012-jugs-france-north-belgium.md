@@ -1,6 +1,6 @@
 ---
 title: 'Introduction to Ceylon'
-presentor: Stéphane Épardaud
+presentor: St&eacute;phane &Eacute;pardaud
 event: Java User Groups
 event_date: 17-18 September 2012
 location: Rouen, Lille, France and Bruxelles, Belgium

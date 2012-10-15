@@ -1,6 +1,6 @@
 ---
 title: 'Introduction to Ceylon'
-presentor: Stéphane Épardaud and Emmanuel Bernard
+presentor: St&eacute;phane &Eacute;pardaud and Emmanuel Bernard
 event: Devoxx France 2012
 event_date: 19 April 2012
 event_url: http://www.devoxx.fr/display/FR12/Conf+Day+2
