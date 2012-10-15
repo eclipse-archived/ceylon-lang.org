@@ -4,7 +4,7 @@ author: Emmanuel Bernard
 layout: blog
 unique_id: blogpage
 tab: blog
-tags: [site, Do-It-Yourself, Cliché]
+tags: [site, Do-It-Yourself, Clich&eacute;]
 ---
 Author names and tags are now sanitized before creating the URL:
 
