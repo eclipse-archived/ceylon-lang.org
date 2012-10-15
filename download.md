@@ -23,7 +23,7 @@ module, and the module runtime.
         <td>
         <a href="/download/dist/1_0_Milestone3_1" 
            title='Download the Zip archive'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone3_1?utm_source=download&utm_medium=web&utm_content=dist&utm_campaign=1_0_M3_1release']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone3_1?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=1_0_M3_1release']);">
            <img src="/images/download/package-zip.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
         </a>
         </td>
@@ -33,7 +33,7 @@ module, and the module runtime.
         <a href="/download/dist/1_0_Milestone3_1" 
            title='Download the Zip archive'
            style='font-weight:bold;text-decoration:none'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone3_1?utm_source=download&utm_medium=web&utm_content=dist&utm_campaign=1_0_M3_1release']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone3_1?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=1_0_M3_1release']);">
            download
         </a>
         </td>
@@ -42,7 +42,7 @@ module, and the module runtime.
         <td>
         <a href="/download/dist/1_0_Milestone3_1_rpm" 
            title='Download the RPM'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone3_1_rpm?utm_source=download&utm_medium=web&utm_content=dist&utm_campaign=1_0_M3_1release']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone3_1_rpm?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=1_0_M3_1release']);">
            <img src="/images/download/package-fedora.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
         </a>
         </td>
@@ -52,7 +52,7 @@ module, and the module runtime.
         <a href="/download/dist/1_0_Milestone3_1_rpm" 
            title='Download the RPM'
            style='font-weight:bold;text-decoration:none'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone3_1_rpm?utm_source=download&utm_medium=web&utm_content=dist&utm_campaign=1_0_M3_1release']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone3_1_rpm?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=1_0_M3_1release']);">
            download
         </a>
         </td>
@@ -61,7 +61,7 @@ module, and the module runtime.
         <td>
         <a href="/download/dist/1_0_Milestone3_1_deb" 
            title='Download the Debian package'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone3_1_deb?utm_source=download&utm_medium=web&utm_content=dist&utm_campaign=1_0_M3_1release']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone3_1_deb?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=1_0_M3_1release']);">
            <img src="/images/download/package-debian.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
         </a>
         </td>
@@ -71,7 +71,7 @@ module, and the module runtime.
         <a href="/download/dist/1_0_Milestone3_1_deb" 
            title='Download the Debian package'
            style='font-weight:bold;text-decoration:none'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone3_1_deb?utm_source=download&utm_medium=web&utm_content=dist&utm_campaign=1_0_M3_1release']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone3_1_deb?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=1_0_M3_1release']);">
            download
         </a>
         </td>
