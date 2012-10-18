@@ -1,6 +1,6 @@
 ---
 title: 'Introduction to Ceylon'
-presentor: St&eacute;phane &Eacute;pardaud and Emmanuel Bernard
+presentor: St&#233;phane &#201;pardaud and Emmanuel Bernard
 event: JavaOne 2012
 event_date: 4 October 2012
 event_url: https://oracleus.activeevents.com/connect/sessionDetail.ww?SESSION_ID=4025

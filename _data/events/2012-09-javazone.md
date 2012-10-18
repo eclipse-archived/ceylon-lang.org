@@ -1,6 +1,6 @@
 ---
 title: 'Introduction to Ceylon'
-presentor: St&eacute;phane &Eacute;pardaud
+presentor: St&#233;phane &#201;pardaud
 event: JavaZone 2012
 event_date: 13 September 2012
 event_url: http://javazone.no/incogito10/events/JavaZone%202012/sessions#ea606905-36c3-49d8-ac5e-08492a498292

@@ -1,5 +1,5 @@
 ---
-name: St&eacute;phane &Eacute;pardaud
+name: St&#233;phane &#201;pardaud
 photo: /images/team/StephaneEpardaud.jpg
 level: 10
 ---
