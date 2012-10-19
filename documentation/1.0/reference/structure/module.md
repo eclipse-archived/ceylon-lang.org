@@ -18,6 +18,7 @@ In Ceylon, a *module* is a collection of [packages](../package) together with a
 An example module descriptor:
 
 <!-- check:none -->
+<!-- try: -->
     module com.example.foo 1.2.0 {
         import com.example.bar 3.4.1
     }
@@ -43,6 +44,7 @@ holds metadata about the module and is declared in a source file called
 name is the same as the module name). Here's an example:
 
 <!-- check:none -->
+<!-- try: -->
     doc "An example module."
     module com.example.foo 1.2.0 {
         import com.example.bar 3.4.1

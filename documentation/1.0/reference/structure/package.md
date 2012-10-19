@@ -19,6 +19,7 @@ optional [package descriptor](#descriptor).
 An simple example [package descriptor](#descriptor):
 
 <!-- check:none -->
+<!-- try: -->
     shared package com.example.foo.bar;
     
 Conventionally this would be in a source file located in
@@ -40,6 +41,7 @@ holds metadata about the package and is declared in a source file called
 `package.ceylon` in the package being described. Here's an example
 
 <!-- check:none -->
+<!-- try: -->
     doc "An example package"
     shared package com.example.foo.bar;
     
