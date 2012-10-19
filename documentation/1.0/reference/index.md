@@ -32,6 +32,7 @@ _This page is very incomplete. Want to help? [See how](/code/website)._
 
 ## Statements
 
+* [`assert` statements](statement/assert)
 * [`break` statements](statement/break)
 * [`continue` statements](statement/continue)
 * [expression statements](expression)
