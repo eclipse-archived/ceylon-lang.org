@@ -28,7 +28,8 @@ verbose compiler messages:
 
 The `<ceylonc>` ant task supports compilation of Ceylon and Java source code
 to `.car` archives in a Ceylon repository using the [Ant build tool](http://ant.apache.org). 
-It provides similar features to the [`ceylon compile`](../ceylonc) command line tool.
+It provides similar features to the [`ceylon compile`](../ceylon/subcommands/ceylon-compile.html) 
+command line tool.
 
 ### Parameters
 
@@ -100,7 +101,7 @@ changed but is not able to detect deletion of source files. <!-- m3 --></td>
 
 <tr>
 <td><code>executable</code></td>
-<td>The filesystem location of the <code>ceylonc</code> command line tool. 
+<td>The filesystem location of the <code>ceylon</code> command line tool. 
 If not specified it is searched in the directory indicated by 
 the <code>ceylon.home</code> system property, or if that is not set 
 the <code>CEYLON_HOME</code> environment variable.</td>

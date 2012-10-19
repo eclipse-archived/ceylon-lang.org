@@ -39,7 +39,8 @@ the `build` directory:
 
 The `<ceylond>` ant task supports documentation of Ceylon and Java source code
 to a Ceylon repository using the [Ant build tool](http://ant.apache.org). 
-It provides similar features to the [`ceylond`](../ceylond) command line tool.
+It provides similar features to the [`ceylon doc`](../ceylon/subcommands/ceylon-doc.html) 
+command line tool.
 
 ### Parameters
 
@@ -102,7 +103,7 @@ changed but is not able to detect deletion of source files. <!-- m3 --></td>
 
 <tr>
 <td><code>executable</code></td>
-<td>The filesystem location of the <code>ceylond</code> command line tool. 
+<td>The filesystem location of the <code>ceylon</code> command line tool. 
 If not specified it is searched in the directory indicated by 
 the <code>ceylon.home</code> system property, or if that is not set 
 the <code>CEYLON_HOME</code> environment variable.</td>

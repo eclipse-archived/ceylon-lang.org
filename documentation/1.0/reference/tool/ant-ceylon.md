@@ -30,7 +30,8 @@ in the `build` directory (repository):
 The `<ceylon>` ant task supports execution of Ceylon modules, top-level classes 
 and top-level functions
 from a Ceylon repository using the [Ant build tool](http://ant.apache.org). 
-It provides similar features to the [`ceylon`](../ceylon) command line tool.
+It provides similar features to the [`ceylon run`](../ceylon/subcommands/ceylon-run.html) 
+command line tool.
 
 ### Parameters
 
@@ -66,7 +67,7 @@ of the module descriptor is used.</td>
 
 <tr>
 <td><code>executable</code></td>
-<td>The filesystem location of the <code>ceylonc</code> command line tool. 
+<td>The filesystem location of the <code>ceylon</code> command line tool. 
 If not specified it is searched in the directory indicated by 
 the <code>ceylon.home</code> system property, or if that is not set 
 the <code>CEYLON_HOME</code> environment variable.</td>
