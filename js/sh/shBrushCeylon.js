@@ -28,9 +28,9 @@
 //						'object of return ' +
 //						'satisfies super switch then this throw ' +
 //						'try void while';
-            var keywords = 'import class interface object given assign void value function of ' +
+            var keywords = 'module package import class interface object given assign void value function of ' +
                            'extends satisfies adapts abstracts in out return break continue throw ' +
-                           'if else switch case for while try catch finally then ' +
+                           'assert if else switch case for while try catch finally then ' +
                            'this outer super is exists nonempty';
 //		var annotations = 'actual doc formal in out see shared';
             var annotations = 'shared abstract formal default actual variable deprecated small ' +
