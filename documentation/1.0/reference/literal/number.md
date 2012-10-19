@@ -48,10 +48,24 @@ is required, the [unary minus](../../operator/unary_minus) operator can be used
 in the  declaration of the `Integer`, like this:
 
     Integer minusTwo = -2;
+    
+### Binary and Hexadecimal
+
+There is currently no support for `Integer` literals in non-decimal bases. 
+
+The language module has 
+[`bin()`](#{site.urls.apidoc_current}/ceylon/language/#bin.html) 
+and [`hex()`](#{site.urls.apidoc_current}/ceylon/language/#hex.html) 
+functions for parsing binary and 
+hexadecimal `String`s. The Ceylon compiler for the JVM recognises when
+these functions have `String` literal argument and generates code with a 
+literal, omitting the String instantiation and method call.
 
 ## See also
 
 * [Numeric literals](#{page.doc_root}/tour/language-module/#numeric_literals) 
   in the Tour of Ceylon 
 * [unary plus](../../operator/unary_plus) and [unary minus](#{page.doc_root}/reference/operator/unary_minus)
-
+* [`bin()`](#{site.urls.apidoc_current}/ceylon/language/#bin.html) 
+  and [`hex()`](#{site.urls.apidoc_current}/ceylon/language/#hex.html) 
+  methods in the API.
