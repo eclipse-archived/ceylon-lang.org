@@ -18,9 +18,8 @@ In Ceylon, a *module* is a collection of [packages](../package) together with a
 An example module descriptor:
 
 <!-- check:none -->
-    Module module {
-        name = 'com.example.foo';
-        version = '1.0';
+    module com.example.foo 1.2.0 {
+        import com.example.bar 3.4.1
     }
     
 Conventionally this would be in a source file located in
@@ -39,14 +38,32 @@ must begin `com.example.foo.`.
 
 The 
 [module descriptor](#{site.urls.apidoc_current}/ceylon/language/descriptor/class_Module.html) 
-holds metadata about the module, including its name, version,
-module-level documentation, what packages the module exports and what other 
-modules it depends on. It is conventionally declared in a source file called
-`module.ceylon`.
+holds metadata about the module and is declared in a source file called
+`module.ceylon` in the base package of the module (that is the package whose 
+name is the same as the module name). Here's an example:
 
-Note that the module descriptor makes use of 
-[single quoted literals](../../literal/single-quoted) even though they are not 
-generally supported in Ceylon 1.0.
+<!-- check:none -->
+    doc "An example module."
+    module com.example.foo 1.2.0 {
+        import com.example.bar 3.4.1
+        import org.example.whizzbang 0.5;
+    }
+
+The `module` declaration may be preceeded by [annotations](../annotation), including:
+
+* [`doc`](#{site.urls.apidoc_current}/ceylon/language/#doc) 
+  to let you to specify module-level documentation,
+* [`license`](#{site.urls.apidoc_current}/ceylon/language/#license) 
+  to let you specify the module's license,
+* [`by`](#{site.urls.apidoc_current}/ceylon/language/#by) 
+  to document the module's author or authors. 
+
+The module declaration itself starts with the `module` keyword followed by the 
+module name and version and a block of other declarations.
+
+Each dependency of the module needs to be declared with an `import` declaration
+specifying the module name of the dependency and its version. The `import` 
+declarations can also be annotated.
 
 ### Distribution
 

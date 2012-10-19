@@ -19,13 +19,10 @@ optional [package descriptor](#descriptor).
 An simple example [package descriptor](#descriptor):
 
 <!-- check:none -->
-    Package package {
-        name = 'com.example.foo.a';
-        shared = true;
-    }
+    shared package com.example.foo.bar;
     
 Conventionally this would be in a source file located in
-`<source-dir>/com/example/foo/a/package.ceylon` where `<source-dir>` is the
+`<source-dir>/com/example/foo/bar/package.ceylon` where `<source-dir>` is the
 directory containing ceylon source code.
 
 ## Description
@@ -39,14 +36,26 @@ A package's members are the top-level declarations contained in its
 
 The 
 [package descriptor](\#{site.urls.apidoc_current}/ceylon/language/descriptor/class_Package.html) 
-holds metadata about the package, including its name, 
-package-level documentation and whether the package is visible outside the 
-containing module. It is conventionally declared in a source file called
-`package.ceylon`.
+holds metadata about the package and is declared in a source file called
+`package.ceylon` in the package being described. Here's an example
 
-Note that the package descriptor makes use of 
-[single quoted literals](../../literal/single-quoted) even though they are not 
-generally supported in Ceylon 1.0.
+<!-- check:none -->
+    doc "An example package"
+    shared package com.example.foo.bar;
+    
+The `package` declaration may be preceeded by [annotations](../annotation), including:
+
+* [`shared`](#{site.urls.apidoc_current}/ceylon/language/#shared) 
+  to allow the package to be visible outside its containing module,
+* [`doc`](#{site.urls.apidoc_current}/ceylon/language/#doc) 
+  to let you to specify package-level documentation,
+* [`by`](#{site.urls.apidoc_current}/ceylon/language/#by) 
+  to document the package's author or authors. 
+
+The package declaration consists of the `package` keyword followed by the 
+package name.
+
+It is common not to have a package descriptor if the package is not `shared`.
 
 ## See also
 
