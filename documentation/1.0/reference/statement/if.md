@@ -17,10 +17,10 @@ The `if` statement allows a block of code to be executed conditionally.
 The general form of the `if` statement is
 
 <!-- check:none -->
-    if ( /* some condition */ ) {
-        /* code executed if some condition is true */
-    } else if (/* other condition */ ) {
-        /* code executed if other condition is true */
+    if ( /* some conditions */ ) {
+        /* code executed if some conditions are true */
+    } else if (/* other conditions */ ) {
+        /* code executed if other conditions are true */
     } else {
         /* code executed otherwise */
     }
@@ -36,7 +36,7 @@ using a C-like language.
 ### Execution
 
 The 'if condition' is evaluated first, and if it evaluates as `true` then 
-execution proceeds with the corresponding block of code and after that 
+execution proceeds with the followin block of code and after that 
 with the code after the `if` statement. 
 
 If the 'if condition' evaluated false, then the first `else if` condition 
@@ -48,45 +48,44 @@ code after the `if` statement. If the 'else if condition' evaluated as
 Finally, if none of the conditions evaluated as `true` the execution proceeds 
 with the `else` block, followed by the code after the `if` statement.
 
-### The use of `if` for typecasting
+### `Boolean` conditions
 
-Ceylon doesn't have an independent syntax for typecasting; you have 
-to use one of the 'special' `if` constructs: 
-`if (is ...)`, `if (exists ...)`, `if (nonempty ...)` or `if (satisfies ...)`. 
+Any `Boolean` expression can be used as a condition in an `if` statement.
 
-By not separating the operation that checks the satefy of the typecast from 
+### 'Special' conditions
+
+The `if` statement also supports the use of certain special form conditions:
+
+* [`if (is ...)`](../conditions/#if_is_), 
+* [`if (exists ...)`](../conditions/#if_exists_), 
+* [`if (nonempty ...)`](../conditions/#if_nonempty_), 
+* [`if (satisfies ...)`](../conditions/#if_satisfies_).
+
+these narrow the type of a reference within the associated block.
+
+By not separating the operation that checks the safety of the typecast from 
 the operation used to actually perform the typecast Ceylon eliminates the 
 possibility that the programmer might forget to do the test before attempting 
 the typecast.
 
-### `if (is ...)`
+### Condition lists
 
-`if (is X x)` is a condition that tests whether a value or variable `x` is 
-assignable to the type `X`. Within the associated block `x` will have the 
-type `X`. 
+<!-- m4 -->
+The condition in an `if` statement can also be a
+[condition list](../conditions#condition_lists).
 
-In other words, `if (is ...)` is similar Java's `instanceof` operator
-with a suitable typecast occuring automatically within the block. 
+The difference between a 
+condition list and a single `Boolean` condition constructed using the 
+[`&&` operator](../../operator/and/)
+is that the typecasting of conditions in the list take effect for conditions 
+later in the list, allowing you to write:
 
-### `if (exists ...)`
+    void m(Object x) {
+        if (is Integer x, x < 10) {
+            // ...
+        }
+    }
 
-`if (exists x)` is equivalent to `if (is X x)` where `x` is an expression 
-of `type X?`. Within the associated block `x` will have the type `X`.
-
-In other words `if (exists ...)` is similar to a `if (x != null)` null check in 
-Java.
-
-### `if (nonempty ...)`
-
-`if (nonempty x)` is equivalent to `if (is Sequence<X> x)` where `x` is 
-an expression of type `X[]?` (that is, an expression of type 
-`Nothing|Empty|Sequence<X>`)
-
-### `if (satisfies ...)`
-
-`if (satisfies X Y)` is a condition that tests whether the type `Y` is a 
-subtype of the type `X`. within the associated block `Y` will be treated 
-as a subtype of `X`.
 
 ## See also
 
