@@ -1,39 +1,64 @@
 ---
 layout: reference
-title: '`ceylon` - The Ceylon JVM launcher'
+title: '`ceylon` - The Ceylon command'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
+milestone: Milestone 4
 doc_root: ../../..
 ---
 
 # #{page.title}
 
+The `ceylon` command provides access to the Ceylon command line toolset.
+
 ## Usage 
 
 <!-- lang: none -->
-    ceylon [options] <module-spec> [args...]
+    ceylon [<options>...] <command> [<command-args>...]
 
-Options include:
-
-* `-run` Specifies the fully qualified name of a toplevel method or class with no parameters.
-* `-src` Specifies a source directory. <!-- m4 -->
-* `-rep` specifies a module repository containing dependencies. Can be repeated. Defaults to `modules`.
-* `-d` Disable the default module repositories and source directory. <!-- m4 -->
-* `-help` Prints a usage help page
-* `-version` Prints the Ceylon version
 
 ## Description
 
-The Ceylon JVM launcher is used to execute a Ceylon program on the JVM. Because Ceylon programs
-are just Java classes, `ceylon` is effectively 'just' a front-end to the 
-`java` application launcher, however `ceylon` has support for modules where 
-`java` does not.
+<!-- m4 --> 
+Note: The command line interface to the Ceylon toolset has been completely 
+revised for Milestone 4. Previously we provided a number of different tools
+(the compiler was `ceylonc`, the documentation generator was `ceylond`, etc). 
+For Milestone 4 we use a single plugin style tool along the patterns 
+established by the `git` toolset.
 
-Any argument passed after the module name and version will be passed directly
-to the Ceylon module being run.
+The top level `ceylon` command is the entry point for a particular subcommand. 
+There is a [list of the available subcommands](subcommands)).
+
+The rest of this page will highlight particular tools
+
+### Backend-agnostic commands
+
+* [`ceylon help`](subcommands/ceylon-help.html)
+  provides interactive help about other `ceylon` commands.
+* [`ceylon doc`](subcommands/ceylon-doc.html)
+  is the command line interface to the Ceylon documentation compiler
+* [`ceylon new`](subcommands/ceylon-new.html)
+  generates Ceylon projects from templates
+
+### JVM-specific commands
+
+* [`ceylon compile`](subcommands/ceylon-compile.html) 
+  is the command line interface to the Ceylon compiler
+* [`ceylon run`](subcommands/ceylon-run.html)
+  is the command line interface for launching a Celyon program on the JVM
+* [`ceylon import-jar`](subcommands/ceylon-import-jar.html)
+  is the command line interface for launching a Celyon program on the JVM
+  
+### JavaScript-specific commands
+
+* [`ceylon compile-js`](subcommands/ceylon-compile-js.html)
+  is the command line interface to the Ceylon compiler for JavaScript
+* [`ceylon run-js`](subcommands/ceylon-run-js.html)
+  is the command line interface for launching a Celyon program on the node.js
+ 
 
 ## See also
 
-* [`ceylon`](#{page.doc_root}/#{site.urls.spec_relative}#thevmfrontent) in the language specification
-* [module names and versions](#{page.doc_root}/#{site.urls.spec_relative}#modulenamesandversionidentifiers) in the language specification.
+* [`ceylon`](#{page.doc_root}/#{site.urls.spec_relative}#vmfrontent) in the language specification
+
