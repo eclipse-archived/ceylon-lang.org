@@ -90,7 +90,7 @@ TODO
 
 ## See also
 
-* The [`if` statement] (../if) statement and the [`throw` statement] (../throw)
+* The [`if` statement](../if) statement and the [`throw` statement] (../throw)
   statement can be used together to achieve similar effects.
 * [`assert` in the language specification](TODO)
 
