@@ -52,7 +52,7 @@ Get the website source from GitHub.
 Any change will be automatically picked up except for `_partials` files, `_base.css`
 and sometimes new blog entries.
 
-### How to also include the spec and ceylondoc pages
+### How to also include the spec and `ceylon doc` pages
 
 Use `./build-site.sh`. This will clone or refresh the spec, language and compiler repos 
 into `_tmp` and build the appropriate artifacts before pushing them to the site.
