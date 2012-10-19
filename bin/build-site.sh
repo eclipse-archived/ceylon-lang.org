@@ -87,9 +87,14 @@ cp -R ceylon-spec/build/en/* ../../_site/documentation/1.0/spec
 # And rename the spec
 mv ../../_site/documentation/1.0/spec/pdf/Ceylon*.pdf ../../_site/documentation/1.0/spec/pdf/ceylon-language-specification.pdf
 
-# Run ceylonc for ceylon.language and copy it into the website
+# Run ceylon doc for ceylon.language and copy it into the website
 mkdir -p ../../_site/documentation/1.0/api/ceylon
-./ceylon-compiler/build/bin/ceylond -source-code -src ceylon.language/src ceylon.language
-mv modules/ceylon/language/0.2/module-doc ../../_site/documentation/1.0/api/ceylon/language
+./ceylon-compiler/build/bin/ceylon doc --source-code --src=ceylon.language/src ceylon.language
+mv modules/ceylon/language/0.4/module-doc ../../_site/documentation/1.0/api/ceylon/language
+
+# Run ceylon doc-tool and copy it into the website
+mkdir -p ../../_site/documentation/1.0/reference/tool/ceylon
+./ceylon-compiler/build/bin/ceylon doc-tool --all-porcelain --index --output=tools
+mv tools ../../_site/documentation/1.0/reference/tool/ceylon/subcommands
 
 cd ../..
