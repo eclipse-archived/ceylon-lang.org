@@ -67,6 +67,19 @@ a list of their permitted subclasses.
 Interfaces can [enumerate](../interface#enumerated_subtypes) 
 a list of their permitted subtypes. 
 
+### Type aliases
+
+You can define an alias for a type using the `alias` keyword:
+
+    alias BasicType = String|Character|Integer|Float|Boolean;
+    
+It is also possible to define [class aliases](../class#alliases)
+ and [interface aliases](../interface#alises) 
+ using an assignment, for example:
+
+    interface Strings = Collection<String>;
+
+    
 ### `Nothing`
 
 `Nothing` is the type of `null`. If an expression permits `null` then it
