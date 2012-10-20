@@ -281,7 +281,8 @@ define the attributes as _getters_.
 Notice that the syntax of a getter declaration looks a lot like a method 
 declaration with no parameter list.
 
-Code that uses `Polar` never needs to know if an attribute is a simple
+So in what way are attributes 'abstracting state'? Well, code that 
+uses `Polar` never needs to know if an attribute is a simple
 attribute or a getter. Now that we know about getters, we could rewrite 
 our `description` attribute as a getter, without affecting any code that 
 uses it.

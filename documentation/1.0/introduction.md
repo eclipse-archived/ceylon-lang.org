@@ -306,9 +306,11 @@ Or it might be a getter/setter pair:
         fullName := name;
     }
 
-In Ceylon, we don't need to write trivial getters or setters, since the
-state of a class is always completely abstracted from clients of the 
-class.
+In Ceylon, we don't need to write trival getters or setters which merely 
+mediate access to a field. The
+state of a class is always [completely abstracted](../classes/#abstracting_state_using_attributes) 
+from clients of the class: We can change a value attribute to a getter/setter 
+pair without breaking clients.
 
 ## Typesafe null and safer type narrowing
 
