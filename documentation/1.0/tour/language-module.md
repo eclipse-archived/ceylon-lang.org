@@ -319,6 +319,12 @@ SI unit prefixes: `m`, `u`, `n`, `p`, `f`, `k`, `M`, `G`, `T`, `P`.
     Float brainCellSize = 4.0u; // u (micro) means E-6
     Integer deathsUnderCommunism = 94M; // M (mega) means E+6
 
+Ceylon doesn't currently have support for binary or hexadecimal `Integer` 
+literals, though it may do in the future. It does have a couple of top 
+level functions, `bin()` and `hex()` which can be used to similar effect, and 
+the JVM compiler recognises when these have a literal argument and generates a 
+literal in the compiled code. 
+
 ## `Whole` and `Decimal`
 
 The platform module `ceylon.math` defines the types `Whole` and `Decimal`,
