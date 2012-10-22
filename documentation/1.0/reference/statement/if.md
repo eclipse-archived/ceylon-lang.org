@@ -89,8 +89,10 @@ later in the list, allowing you to write:
 
 ## See also
 
-* The [`switch` statement] (../switch) is an alternative control structure
+* The [`switch` statement](../switch) is an alternative control structure
   better suited to handling exhaustive lists of cases
+* The [`assert` statement](../assert) is an alternative control structure
+  better suited to expressing invariants.
 * [`if` in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#ifelse)
 * [`if (is ...)` in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#assignabilityexistencenonemptinessconditions)
 * [`if (exists ...)` in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#assignabilityexistencenonemptinessconditions)
