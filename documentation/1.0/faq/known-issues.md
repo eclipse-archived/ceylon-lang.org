@@ -17,11 +17,11 @@ In order to make it easier for you to figure out if you hit a known M3.1 bug, an
 work around it, we've made a list. Check it out, and if you can't find your bug, don't hesitate
 to [report it](/code/issues/). 
 
-## Compiler (<code>ceylonc</code>)
+## Compiler (<code>ceylon compile</code>)
 
 <div class="known-issue">
 <a class="see" href="https://github.com/ceylon/ceylon-compiler/issues/470">See issue</a>
-<div class="title"><code>ceylonc</code> fails to compile module if Java classes and Ceylon classes depend on one another</div>
+<div class="title"><code>ceylon compile</code> fails to compile module if Java classes and Ceylon classes depend on one another</div>
 <b>Workaround:</b>
 <div class="workaround">None</div>
 </div>
@@ -40,7 +40,7 @@ to [report it](/code/issues/).
 <div class="workaround">Don't define toplevel members of the same package whose names differ only by case.</div>
 </div>
 
-## Documentation generator (<code>ceylond</code>)
+## Documentation generator (<code>ceylon doc</code>)
 
 No known issue.
 

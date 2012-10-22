@@ -104,7 +104,7 @@ The ceylon compiler is an extension of the Javac compiler, which handles both .j
 
 The process for the code is roughly the following:
 
-1. You invoke bin/ceylonc
+1. You invoke `bin/ceylon compile`
 1. It calls in com.redhat.ceylon.compiler.tools.LanguageCompiler
 1. That parses every ceylon file into a ceylon tree
 1. LanguageCompiler's superclass calls com.redhat.ceylon.compiler.codegen.CeylonEnter
@@ -118,11 +118,12 @@ Now let's see each relevant part in more details
 
 ### Runner commands
 
-We have three:
+We have one top-level command, `ceylon` which takes a subcommand as it's
+first argument. In particular
 
-- ceylonc: invokes the compiler, takes similar arguments to javac
-- ceylon: runs a ceylon toplevel method, takes similar arguments to java
-- ceylond: generates documentation for ceylon files, takes similar arguments to javadoc
+- `ceylon compile` invokes the compiler, taking similar arguments to `javac`
+- `ceylon run` runs a ceylon toplevel method, takes similar arguments to `java`
+- `ceylon doc` generates documentation for ceylon files, takes similar arguments to `javadoc`
 
 ### Parser, Typechecker and Model
 

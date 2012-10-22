@@ -95,7 +95,7 @@ In order to specify that a given repository is a Maven repository, you just have
 it with `mvn:`, for example, to use Maven Central:
 
 <!-- lang: none -->
-    ceylonc -rep mvn:http://repo1.maven.org/maven2 com.acme.foo
+    ceylon compile --rep=mvn:http://repo1.maven.org/maven2 com.acme.foo
 
 **Note:** the current support for Maven repositories does not use your local Maven configuration
 and does not resolve Maven dependencies, so you only get the one `jar` you defined as a dependency.

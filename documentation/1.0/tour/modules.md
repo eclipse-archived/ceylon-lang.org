@@ -183,17 +183,17 @@ directory might be layed out like this:
     documentation/manual.html
 
 Here, the source code is in a directory called `source` (which is the default and 
-saves us having to pass a `-src` command line option to 
-[`ceylonc`](../../reference/tool/ceylonc/)). From the 
+saves us having to pass a `--src=` command line option to 
+[`ceylon compile`](../../reference/tool/ceylon/subcommands/ceylon-compile.html)). From the 
 project directory (the directory which contains the `source` directory) 
 you can compile using the command
     
 <!-- lang: none -->
-    ceylonc net.example.foo
+    ceylon compile net.example.foo
     
 This command will compile the source code files (`Foo.ceylon` and `FooService.ceylon`)
 into a module archive and publish it to the default output repository, `modules`.
-(you'd use the `-out build` option to publish to `build` instead)). Now your project 
+(you'd use the `--out=build` option to publish to `build` instead)). Now your project 
 directory looks something like this:
 
 <!-- lang: none -->
@@ -213,10 +213,11 @@ which can be used by tools such as the IDE, for source code browsing. The
 be used to detect corrupted archives.
 
 You can generate API documentation using 
-[`ceylond`](../../reference/tool/ceylond/) like this:
+[`ceylon doc`](../../reference/tool/ceylon/subcommands/ceylon-doc.html) 
+like this:
 
 <!-- lang: none -->
-    ceylond net.example.foo
+    ceylon doc net.example.foo
     
 This will create a
 
@@ -228,50 +229,50 @@ directory containing the documentation.
 Now, let's suppose your project gains a dependency on `com.example.bar` 
 version 3.1.4. 
 Having declared that module and version as a dependency in your `module.ceylon` 
-[descriptor](#module_descriptors) you'd need to tell ceylonc which repositories to look in to find the dependencies. 
+[descriptor](#module_descriptors) you'd need to tell `ceylon compile` which repositories to look in to find the dependencies. 
 
 One possibility is that you already have a repository containing `com.example.bar/3.1.4` locally on your machine. If it's in your default 
 repository (`~/.ceylon/repo`) then you don't need to do anything, the same 
 commands will work:
 
 <!-- lang: none -->
-    ceylonc net.example.foo
+    ceylon compile net.example.foo
 
 Alternatively if you have some other local repository you can specify it 
-using the `-rep` option.
+using the `--rep` option.
 
 The [Ceylon Herd](http://modules.ceylon-lang.org/) is an online 
 module repository which contains open source Ceylon modules. As it happens, 
-the Herd is one of the default repositories `ceylonc` knows about. So if 
+the Herd is one of the default repositories `ceylon compile` knows about. So if 
 `com.example.bar/3.1.4` is in the Herd then the command to compile 
 `net.example.foo` would remain pleasingly short
 
 <!-- lang: none -->
-    ceylonc net.example.foo
+    ceylon compile net.example.foo
 
 (that's right, it's the same as before). By the way, you can disable the default 
-repositories with the `-d` option if you want to.
+repositories with the `--d` option if you want to.
 
 If `com.example.bar/3.1.4` were in *another* repository, say `http://repo.example.com`,
 then the command would become
 
 <!-- lang: none -->
-    ceylonc 
-      -rep http://repo.example.com 
+    ceylon compile
+      --rep=http://repo.example.com 
       net.example.foo
 
 (we're breaking the command across multiple lines for clarity here, you would
-need to write the command on a single line). You can specify multiple `-rep` 
+need to write the command on a single line). You can specify multiple `--rep` 
 options as necessary if you have dependencies coming from multiple repositories.
 
 When you are ready, you can publish the module somewhere other people can use 
 it. Let's say that you want to publish to `http://ceylon.example.net/repo`. 
-You can just compile again, this time specifying an `-out` option
+You can just compile again, this time specifying an `--out` option
 
 <!-- lang: none -->
-    ceylonc 
-      -rep http://repo.example.com 
-      -out http://ceylon.example.net/repo
+    ceylon compile
+      --rep=http://repo.example.com 
+      --out=http://ceylon.example.net/repo
       net.example.foo
 
 It's worth noting that by taking advantage of the sensible defaults for 
@@ -297,19 +298,19 @@ the module (possibly from another computer).
 
 If the dependencies (`com.example.bar/3.1.4` from before) can be 
 found in the default repositories the 
-[`ceylon`](../../reference/tool/ceylon/) command is:
+[`ceylon run`](../../reference/tool/ceylon/subcommands/ceylon-run.html) command is:
 
 <!-- lang: none -->
-    ceylon
-      -rep http://ceylon.example.net/repo
+    ceylon run
+      --rep=http://ceylon.example.net/repo
       net.example.foo/1.0
       
 You can pass options too (which are available to the program via the 
 top level `process` object):
 
 <!-- lang: none -->
-    ceylon
-      -rep http://ceylon.example.net/repo
+    ceylon run
+      --rep=http://ceylon.example.net/repo
       net.example.foo/1.0
       my options
 
@@ -317,9 +318,9 @@ If one of the dependencies isn't available from a default repository you will
 need to specify a repository that contains it using another `-rep`:
 
 <!-- lang: none -->
-    ceylon
-      -rep http://ceylon.example.net/repo
-      -rep http://repo.example.com
+    ceylon run
+      --rep=http://ceylon.example.net/repo
+      --rep=http://repo.example.com
       net.example.foo/1.0
       my options
 
@@ -327,7 +328,7 @@ The easiest case though, is where the module and its dependencies are all in one
 (or more) of the default repositories (such as the Herd or `~/.ceylon/repo`):
 
 <!-- lang: none -->
-    ceylon net.example.foo/1.0
+    ceylon run net.example.foo/1.0
 
 
 ## Module repository ecosystem
@@ -336,7 +337,7 @@ One of the nice advantages of this architecture is that it's possible to run a
 module "straight off the internet", just by typing, for example:
 
 <!-- lang:none -->
-    ceylon -rep http://jboss.org/ceylon/modules org.jboss.ceylon.demo/1.0
+    ceylon run --rep=http://jboss.org/ceylon/modules org.jboss.ceylon.demo/1.0
 
 And all required dependencies get automatically downloaded as needed.
 

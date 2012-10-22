@@ -74,14 +74,14 @@ with a different extension, and with a [module descriptor](#descriptor).
 
 Modules are kept in a [module repository](../../repository). The list of module 
 repositories to use is passed to 
-[`ceylonc`](#{page.doc_root}/reference/tool/ceylonc), 
-[`ceylon`](#{page.doc_root}/reference/tool/ceylon),  and 
+[`ceylon compile`](#{page.doc_root}/reference/tool/ceylon/subcommands/ceylon-compile.html), 
+[`ceylon run`](#{page.doc_root}/reference/tool/ceylon/subcommands/ceylon-run.html), and 
 [other tools](#{page.doc_root}/reference/#tools)
 
 ## See also
 
 * Modules contain [packages](../package)
 * [Module repositories](../../repository)
-* ceylond documentation of the 
+* `ceylon doc` documentation of the 
   [Module](#{site.urls.apidoc_current}/ceylon/language/descriptor/class_Module.html) 
   type (the type of the module descriptor)

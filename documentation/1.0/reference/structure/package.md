@@ -63,6 +63,6 @@ It is common not to have a package descriptor if the package is not `shared`.
 
 * Packages are contained in [modules](../module)
 * Packages contains [compilation units](../compilation-unit)
-* ceylond documentation of the 
+* `ceylon doc` documentation of the 
   [Package](\#{site.urls.apidoc_current}/ceylon/language/descriptor/class_Package.html) 
   type (the type of the package descriptor)

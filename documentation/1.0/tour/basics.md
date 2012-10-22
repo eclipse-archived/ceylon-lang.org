@@ -57,8 +57,8 @@ Let's try it out. Save the above code in the file `./source/hello.ceylon`
 and then run the following commands:
 
 <!-- lang: bash -->
-    ceylon-0.3/bin/ceylonc source/hello.ceylon
-    ceylon-0.3/bin/ceylon -run hello default
+    ceylon-0.3/bin/ceylon compile source/hello.ceylon
+    ceylon-0.3/bin/ceylon run --run=hello default
 
 where `ceylon-0.3` is the path to your Ceylon install directory. You should
 see the message `Hello, World!`. You will find the compiled module archive 
@@ -72,8 +72,8 @@ and running the simple examples in the `samples/` directory.*
 A very useful trick is:
 
 <!-- lang: bash -->
-    ceylon-0.3/bin/ceylonc -help
-    ceylon-0.3/bin/ceylon -help
+    ceylon-0.3/bin/ceylon help compile
+    ceylon-0.3/bin/ceylon help run
 
 ## Running the program from the IDE
 
@@ -188,7 +188,8 @@ declarations.
     } -->
 
 The `doc`, `by`, `see`, `throws`, and `tagged` annotations contain documentation 
-that is included in the output of the Ceylon documentation compiler, `ceylond`.
+that is included in the output of the Ceylon documentation compiler, 
+[`ceylon doc`](../../reference/tool/ceylon/subcommands/ceylon-doc.html).
 
 Notice that when an annotation argument is a literal, it doesn't need to be 
 enclosed in parentheses. We can write simply: 
@@ -230,8 +231,8 @@ formatting.
          You can compile and run `hello()` from the 
          command line like this:
          
-             ceylonc source/hello.ceylon
-             ceylon -run hello default
+             ceylon compile source/hello.ceylon
+             ceylon run -run hello default
          
          Or you can use `Run As > Ceylon Application` 
          in the IDE.

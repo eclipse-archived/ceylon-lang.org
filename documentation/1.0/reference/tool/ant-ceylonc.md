@@ -140,7 +140,7 @@ A module to compile. Can be specified multiple times.
 
 #### `<files>`
 A [FileSet](http://ant.apache.org/manual/Types/fileset.html) of source files 
-to pass to ceylonc.
+to pass to `ceylon compile`. <!-- m2 -->
 
 #### `<rep>`
 A module repository containing dependencies. Can be specified multiple times. Defaults to `modules`.

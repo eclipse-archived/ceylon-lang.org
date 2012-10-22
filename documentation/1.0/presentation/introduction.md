@@ -533,12 +533,12 @@ area being spoken of__
 
 ### Tool chain (REMOVED)
 
-- Compiler: ceylonc
+- Compiler: `ceylon compile`
   - Takes Java and Ceylon code
   - Produces a .car
-- Launcher: ceylon
+- Launcher: `ceylon run`
   - Takes a pkg.Name/version to run it
-- Documentation generator: ceylond
+- Documentation generator: `ceylon doc`
   - Takes a pkg.Name/version to generate the docs
 - Eclipse Plugin
 

@@ -97,5 +97,5 @@ that return [`Callable`](#{site.urls.apidoc_current}/ceylon/language/interface_C
 
 ## See also
 
-* ceylond documentation of 
+* `ceylon doc` documentation of 
   [`Callable`](#{site.urls.apidoc_current}/ceylon/language/interface_Callable.html) 

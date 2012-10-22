@@ -51,7 +51,8 @@ There's more info in the [README](https://github.com/ceylon/ceylon-spec/blob/mas
  <tr><th>Issue reporting</th><td><a href="https://github.com/ceylon/ceylon-compiler/issues">https://github.com/ceylon/ceylon-compiler/issues</a></td></tr>
 </table>
 
-This is where you'll find the `ceylonc` compiler and the `ceylond` API documentation compiler,
+This is where you'll find the `ceylon compile` compiler and the 
+`ceylon doc` API documentation compiler, some other command line tools,
 as well as the Ceylon ant tasks.
 
 You can find out how to run these commands from the [documentation](#{site.urls.spec_current}#tools).
