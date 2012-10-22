@@ -128,6 +128,10 @@ It's especially useful to filter using `if (exists ...)`.
 -->
     for (p in people) if (exists s=p.spouse) p->s
 
+You can even use [multiple `if` conditions](../types#condition_lists):
+
+    for (p in people) if (exists s=p.spouse, nonempty inlaws=s.parents) p->inlaws
+
 ## Products and joins
 
 A comprehension may have more than one `for` clause. The allows us
