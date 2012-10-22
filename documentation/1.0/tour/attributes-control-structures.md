@@ -249,7 +249,7 @@ It's not necessary, and there's never any benefit to it.
 
 ## Control structures
 
-Ceylon has five built-in control structures. There's nothing much new here 
+Ceylon has six built-in control structures. There's nothing much new here 
 for Java or C# developers, so a few quick examples without much additional 
 commentary should suffice. However, one thing to be aware of is that Ceylon 
 doesn't allow you to omit the braces in a control structure. The following 
@@ -273,7 +273,9 @@ You are required to write:
 
 OK, so here are the examples. 
 
-### Conditionals
+<a name="conditionals"><!-- old id --></a>
+
+### `if`
 
 The `if/else` statement is totally traditional:
 
@@ -292,8 +294,13 @@ The `if/else` statement is totally traditional:
     }
 <!-- cat: } -->
 
+Later we will learn how `if` can [narrow the type](../types#narrowing_the_type_of_an_object_reference) 
+of references in its block.
+
 We often use [the operators `then` and `else`](../basics/#you_can_chain_an_else...)
 instead of `if`. 
+
+### `switch`
 
 The `switch/case` statement eliminates C's much-criticized "fall through" 
 behavior and irregular syntax:
@@ -311,7 +318,42 @@ behavior and irregular syntax:
 The type of the `switch`ed expression _must_ be an enumerated type. You
 can't `switch` on a `String` or `Integer`. (Use `if` instead.)
 
-### Loops
+### `assert`
+
+Ceylon also has an `assert` statement:
+
+    assert (x < 10);
+    
+Such assertions are good for making statements which you *know* have to be true, but 
+are not apparent to other readers of the code (including the type checker!). 
+Common uses of `assert` include things like preconditions, postconditions and 
+class invariants.
+
+If the condition is `false` at runtime an exception is thrown. The exception 
+message helpfully includes details of the condition which was violated, which 
+is extra important when the `assert` has more than one condition.
+
+Where applicable, the typechecker uses 
+type information from the assert when checking statements which follow it, 
+for example:
+
+    Integer? x = parseInteger("1");
+    assert(exists x);
+    // after the assert x is treated as an Integer
+    value y= x+10;
+
+This is really the same 'structured typecasting' we saw in the 
+[first section](../basics#dealing_with_objects_that_arent_there), only 
+this time it's happening in the middle of a block rather than at the start of 
+an `if`'s block. But don't worry, there's 
+[more on this later](../types#narrowing_the_type_of_an_object_reference).
+
+Note that, unlike Java's `assert`, which can be disabled at runtime, 
+Ceylon's `assert`s are always enabled. 
+
+<a name="loops"><!-- old id --></a>
+
+### `for`
 
 The `for` loop has an optional `else` block, which is executed when the 
 loop completes normally, rather than via a `return` or `break` statement. 
@@ -362,6 +404,8 @@ We often use [comprehensions](../comprehensions) or even
 [higher order functions](../functions/#anonymous_functions) instead of
 `for`.
 
+### `while`
+
 The `while` loop is traditional.
 
 <!-- try-pre:
@@ -376,7 +420,9 @@ The `while` loop is traditional.
 
 There is no `do/while` statement.
 
-### Exception handling
+<a name="exception_handling"><!-- old id --></a>
+
+### `try`
 
 The `try/catch/finally` statement works like Java's:
 
@@ -417,7 +463,7 @@ And `try` will support a "resource" expression similar to Java 7.
 
 There are no Java-style checked exceptions in Ceylon.
 
-### implementation note <!-- m3 -->
+<!-- m3 -->
 
 Resource expressions in `try` are not yet supported in M3.
 
