@@ -61,9 +61,7 @@ then positional invocations look like this:
     m(4, "guttentag", true, true);
 <!-- cat: } -->
 
-TODO Argument with ellipsis to a Sequenced Parameter
-
-### Named argument Invocation
+### Named Argument Invocation
 
 Syntactically, named argument invocation uses braces (`{` and `}`) to 
 enclose the arguments which are separed with semicolons (`;`). The last 
@@ -103,19 +101,69 @@ then named argument invocations look like this:
     };
 <!-- cat: } -->
 
-TODO Argument with ellipsis to a Sequenced Parameter
+### Sequenced arguments
+
+The arguments (if any) to a sequenced parameter are called the 
+sequenced arguments. 
+
+### Using ellipsis with a sequenced argument
+
+Because a sequenced parameter can be declared with a default value 
+just like any other parameter, care must be taken when you want to use an 
+`Empty` argument. Consider the following method:
+
+    void tricky(Object... args = {1, 2, 3}) {
+        // whatever
+    }
+    
+If we call `tricky()` with no arguments in positional style then the default
+value for the parameter will take effect:
+
+    tricky(); // same as calling tricky(1, 2, 3)
+    
+What about the following:
+
+    tricky({});
+    
+There could be two interpretations for this. We might mean "call tricky() with 
+args being `Empty`" or we could mean 
+"call tricky() with one argument, the empty sequence {}".
+
+The same is true if we call
+it in named argument style without specifying the argument name (`tricky{}`). 
+To successfully call it with an empty argument we can either use a
+named argument:
+
+    tricky{
+        args={};
+    };
+    
+Or we can use ellipsis in the invocation:
+
+    tricky({}...);
+
+### Comprehensions
+
+A [comprehension](../comprehensions) provides a convenient way of passing
+(some of) the (possibly transformed) elements returned from an `Iterable` as the 
+sequenced arguments.
+
+See the reference on [comprehensions](../comprehensions) for more details.
+
 
 ### Callable invocation
 
-A [callable reference](../method-reference) such as 
-`Callable<String, Boolean>` has to be assigned to a function in order to be 
-called:
+TODO
 
-    void m(Callable<String, Boolean> callable) {
-        String f (Boolean b) = callable;
-        String s = f(true);
-    }
+### Callable arguments
+
+TODO
+
+### Object arguments
+
+TODO
 
 ## See also
 
-
+* [Comprehensions](../comprehensions)
+* [`Callable`](#{page.doc_root}/api/ceylon/language/interface_Callable.html) API documentation,
