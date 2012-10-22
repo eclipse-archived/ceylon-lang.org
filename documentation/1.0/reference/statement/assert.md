@@ -92,6 +92,8 @@ TODO
 
 * The [`if` statement](../if) statement and the [`throw` statement] (../throw)
   statement can be used together to achieve similar effects.
-* [`assert` in the language specification](TODO)
+<!-- TODO 
+* [`assert` in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#TODO)
+-->
 
 
