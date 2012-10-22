@@ -130,12 +130,18 @@ A `formal` class may have `formal` members.
 
 A block local class may not be annotated `formal`.
 
+A `formal` inner class may be subject to 
+[member class refinement](#member_class_refinement). 
+
 ### Default classes
 
-A class may be annotated `default` is it is contained in a concrete `shared` 
-class or interface.
+A class may be annotated `default` if it is contained in a concrete `shared` 
+class or interface. 
 
 A block local class may not be annotated `formal`.
+
+A `default` inner class may be subject to 
+[member class refinement](#member_class_refinement). 
 
 ### Members
 
@@ -162,6 +168,58 @@ This is similar to [method specifiers](../method#method_specifiers).
 The [`import` statement](../../statement/import) permits aliasing in a 
 similar way.
 
+### Member class refinement
+
+An inner class of a class or interface can be subject to 
+*member class refinement*, which means its instantiation will be 
+polymorphic. 
+
+Here's an example where a `Reader` class declares that concrete 
+subclasses *must* (because we used `formal`) provide an `actual Buffer` 
+inner class.
+
+    shared abstract class Reader() {
+        shared formal class Buffer(Character... chars) 
+                satisfies Sequence<Character> {}
+        // ...
+    }
+
+    shared class FileReader(File file) 
+            extends Reader() {
+        shared actual class Buffer(Character... chars) 
+                extends Reader::Buffer(chars) {
+            // ...
+        }
+        // ...
+    }
+    
+Within `Reader` (and elsewhere) we can instantiate the relevant kind of 
+`Buffer` with a normal instantiation, `Buffer(chars)`. This allows each 
+subclass of `Reader` to implement an appropriate kind of `Buffer`.
+
+Member class refinement has uses similar to the 
+'abstract factory' pattern, but saves you from having to declare a 
+method on the factory for instantiating instances of the type which needs to 
+be created polymorphically.
+
+Only `formal` and `default` member classes are subject to member class 
+refinement. A `formal` member class *must* be refined by concrete subtypes of the 
+type declaring the member class (rather like an `formal` method). A default 
+member class *may* be refined.
+
+In a subtype of the type declaring the member class the member class 
+(i.e. in `FileReader.Buffer` from the example above) must:
+* be declared `actual`,
+* have the same name as the member class in the declaring type (`Buffer` in 
+  the example),
+* have a parameter list with a compatible signature and,
+* extend the member class (you'll need to use 
+  [`super`](../../expression/super) or [`::`](../../expression/supertype-access) 
+  in the `extends` clause).
+
+Refined member types are similar to, but not the same as virtual types, which 
+Ceylon does not support.
+
 ## See also
 
-
+* [Member class refinement](#{page.doc_root}/#{site.urls.spec_relative}#refiningmemberclasses) in the Ceylon spec
