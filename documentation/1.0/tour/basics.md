@@ -75,6 +75,11 @@ A very useful trick is:
     ceylon-0.3/bin/ceylon help compile
     ceylon-0.3/bin/ceylon help run
 
+In fact the 
+[ceylon help](../../reference/tool/ceylon/subcommands/ceylon-help.html) command 
+should be able to give you help about all the other 
+[`ceylon` subcommands](../../reference/tool/ceylon/subcommands/index.html).
+
 ## Running the program from the IDE
 
 To run the program in [Ceylon IDE](#{page.doc_root}/ide), go to the Ceylon 
