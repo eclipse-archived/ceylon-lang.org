@@ -152,3 +152,7 @@ later in the list, allowing you to write:
 * [`while` statement](../while), 
 * [`assert` statement](../assert) 
 * [`if` comprehensions](../../epxression/comprehension)
+<!-- TODO 
+* [condition lists](#{page.doc_root}/#{site.urls.spec_relative}#TODO) 
+in the Ceylon spec 
+-->
