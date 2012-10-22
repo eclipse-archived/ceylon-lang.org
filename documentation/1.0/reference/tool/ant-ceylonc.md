@@ -52,13 +52,13 @@ required.
 
 <tr>
 <td><code>user</code></td>
-<td>The user name to use when connecting to the output repository. Only used for HTTP output repositories. <!-- m2 --></td>
+<td>The user name to use when connecting to the output repository. Only used for HTTP output repositories.</td>
 <td>No</td>
 </tr>
 
 <tr>
 <td><code>pass</code></td>
-<td>The password to use when connecting to the output repository. Only used for HTTP output repositories. <!-- m2 --></td>
+<td>The password to use when connecting to the output repository. Only used for HTTP output repositories.</td>
 <td>No</td>
 </tr>
 
@@ -70,7 +70,7 @@ required.
 
 <tr>
 <td><code>verbose</code></td>
-<td>Whether the compiler should emit verbose logging information. <!-- m2 --></td>
+<td>Whether the compiler should emit verbose logging information.</td>
 <td>No, default is <i>false</i></td>
 </tr>
 
@@ -139,7 +139,7 @@ A module to compile. Can be specified multiple times.
 
 #### `<files>`
 A [FileSet](http://ant.apache.org/manual/Types/fileset.html) of source files 
-to pass to ceylonc. <!-- m2 -->
+to pass to ceylonc.
 
 #### `<rep>`
 A module repository containing dependencies. Can be specified multiple times. Defaults to `modules`.
