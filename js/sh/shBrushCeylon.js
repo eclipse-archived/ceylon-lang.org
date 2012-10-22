@@ -28,7 +28,7 @@
 //						'object of return ' +
 //						'satisfies super switch then this throw ' +
 //						'try void while';
-            var keywords = 'module package import class interface object given assign void value function of ' +
+            var keywords = 'module package import alias class interface object given assign void value function of ' +
                            'extends satisfies adapts abstracts in out return break continue throw ' +
                            'assert if else switch case for while try catch finally then ' +
                            'this outer super is exists nonempty';
