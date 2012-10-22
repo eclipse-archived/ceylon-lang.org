@@ -156,6 +156,8 @@ JVM to be able to contribute something genuinely useful.
 
 ## Note
 
-Since this post was originally written the `Natural` type has since been 
-remove from `ceylon.language`.
+Since this post was originally written:
+
+* the `Natural` type has since been remove from `ceylon.language`.
+* `ceylonc` has become `ceylon compile`.
 

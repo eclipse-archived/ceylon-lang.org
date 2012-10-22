@@ -164,3 +164,11 @@ to fix the tests we broke :)
 We've an awful lot of tests, and we test (almost) everything. Those that are missing will get automated as soon as possible so we can
 forget about them, because that's what tests are for: when we fix a bug or add a feature, we know it works, and we know we didn't break
 anything. This is both priceless and fundamental for a new language.
+
+## Note
+
+Since this post was originally written:
+
+* `ceylonc` has become `ceylon compile`.
+* `ceylond` has become `ceylon doc`.
+
