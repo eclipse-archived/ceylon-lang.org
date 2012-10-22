@@ -26,9 +26,9 @@ verbose compiler messages:
 
 ## Description
 
-The `<celyonc>` ant task supports compilation of Ceylon and Java source code
+The `<ceylonc>` ant task supports compilation of Ceylon and Java source code
 to `.car` archives in a Ceylon repository using the [Ant build tool](http://ant.apache.org). 
-It provides similar features to the [`ceylonc`](../ceylonc) command line tool.
+It provides similar features to the [`ceylon compile`](../ceylonc) command line tool.
 
 ### Parameters
 
@@ -164,8 +164,8 @@ A module repository containing dependencies. Can be specified multiple times. De
 ### Output
 
 The `<ceylonc>` task outputs a module archive and a source archive for 
-each module named on the command line. The compiler produceds `.car` files 
-directly is does not produce individual `.class` files as `javac` does.
+each module named on the command line. The compiler produces `.car` files 
+directly; it does not produce individual `.class` files as `javac` does.
 
 ## See also
 

@@ -27,7 +27,7 @@ in the `build` directory (repository):
 
 ## Description
 
-The `<celyon>` ant task supports execution of Ceylon modules, top-level classes 
+The `<ceylon>` ant task supports execution of Ceylon modules, top-level classes 
 and top-level functions
 from a Ceylon repository using the [Ant build tool](http://ant.apache.org). 
 It provides similar features to the [`ceylon`](../ceylon) command line tool.

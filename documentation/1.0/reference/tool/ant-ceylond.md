@@ -37,7 +37,7 @@ the `build` directory:
 
 ## Description
 
-The `<celyond>` ant task supports documentation of Ceylon and Java source code
+The `<ceylond>` ant task supports documentation of Ceylon and Java source code
 to a Ceylon repository using the [Ant build tool](http://ant.apache.org). 
 It provides similar features to the [`ceylond`](../ceylond) command line tool.
 
