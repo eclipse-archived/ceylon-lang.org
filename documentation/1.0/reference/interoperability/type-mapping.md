@@ -190,5 +190,5 @@ Notes:
 
 ## See also
 
-* The [annotations](../annotations) used for reification
+* The [annotations](../annotations) used for reification.
 
