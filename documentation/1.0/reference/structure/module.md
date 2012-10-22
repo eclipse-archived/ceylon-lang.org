@@ -64,8 +64,15 @@ The module declaration itself starts with the `module` keyword followed by the
 module name and version and a block of other declarations.
 
 Each dependency of the module needs to be declared with an `import` declaration
-specifying the module name of the dependency and its version. The `import` 
-declarations can also be annotated.
+specifying the module name of the dependency and its version. 
+
+The `import` declarations can also be annotated. Two annotations particularly 
+worth noting are:
+
+* [`export`](#{site.urls.apidoc_current}/ceylon/language/#export) to mark the 
+  imported module as also being exported to clients of this module.
+* [`optional`](#{site.urls.apidoc_current}/ceylon/language/#optional) to mark
+  the imported module as being optional.
 
 ### Distribution
 
