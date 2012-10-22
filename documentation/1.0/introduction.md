@@ -667,30 +667,20 @@ Ceylon features language-level package and module constructs, along with languag
 access control via the `shared` annotation which can be used to express block-local, 
 package-private, module-private, and public visibility for program elements. There's 
 no equivalent to Java's `protected`. Dependencies between modules are specified in
-the module descriptor, which is written in Ceylon:
+the module descriptor:
 
 <!-- try: -->
 <!-- check:none -->
-    Module module {
-        name='org.jboss.example';
-        version='1.0.0';
-        
-        doc="This module is just a silly example. You'll 
-             find some proper modules in the community 
-             repository [Ceylon Herd][Herd].
+    doc "This module is just a silly example. You'll 
+         find some proper modules in the community 
+         repository [Ceylon Herd][Herd].
              
-             [Herd]: http://modules.ceylon-lang.org
+         [Herd]: http://modules.ceylon-lang.org
              
-             Happy Herding!";
-             
-        Import {
-            name='ceylon.math';
-            version='0.3.0';
-        },
-        Import {
-            name='ceylon.file';
-            version='0.3.1';
-        }
+         Happy Herding!"
+    module org.jboss.example '1.0.0' {         
+        import ceylon.math '0.3.0';
+        import ceylon.file '0.3.1';
     }
 
 The Ceylon compiler directly produces `.car` module archives in module repositories.

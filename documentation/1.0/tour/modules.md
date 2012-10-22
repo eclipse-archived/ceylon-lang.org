@@ -82,64 +82,51 @@ what does 'modularity' mean? There are several layers to this:
 
 A package in Ceylon may be shared or unshared. An unshared package 
 (the default) is visible only to the module which contains the package. 
-We can make the package shared by providing a package descriptor, which is just a 
-top level 
-[`Package`](#{site.urls.apidoc_current}/ceylon/language/descriptor/class_Package.html) 
-attribute called `package`:
+We can make the package shared by providing a package descriptor:
 
 <!-- try: -->
-<!-- check:none:Quoted-->
-    Package package {
-        name = 'org.hibernate.query';
-        shared = true;
-        doc = "The typesafe query API.";
-    }
+<!-- check:none-->
+    doc "The typesafe query API."
+    shared
+    package org.hibernate.query;
 
 A `shared` package defines part of the "public" API of the module. Other modules 
 can directly access shared declarations in a `shared` package.
 
+At runtime the package is represented by a top level 
+[`Package`](#{site.urls.apidoc_current}/ceylon/language/descriptor/class_Package.html) 
+attribute called `package`.
 
 ## Module descriptors
 
 A module must explicitly specify the other modules on which it depends.
-This is accomplished via a module descriptor, which is a top level
-[`Module`](#{site.urls.apidoc_current}/ceylon/language/descriptor/class_Module.html) 
-attribute called `module`:
+This is accomplished via a module descriptor:
  
 <!-- try: -->
-<!-- check:none:Quoted-->
-    Module module {
-        name = 'org.hibernate';
-        version = '3.0.0.beta';
-        doc = "The best-ever ORM solution!";
-        license = 'http://www.gnu.org/licenses/lgpl.html';
-        Import {
-            name = 'ceylon.language';
-            version = '1.0.1';
-            export = true;
-        },
-        Import {
-            name = 'java.sql';
-            version = '4.0';
-        }
+<!-- check:none-->
+    doc "The best-ever ORM solution!"
+    license "http://www.gnu.org/licenses/lgpl.html"
+    module org.hibernate '3.0.0.beta' {
+        export
+        import ceylon.language '1.0.1';
+        import java.sql '4.0';
     }
+
+At runtime a module is represented by a top level
+[`Module`](#{site.urls.apidoc_current}/ceylon/language/descriptor/class_Module.html) 
+attribute called `module`.
 
 <!--
 A module may be *runnable*. A runnable module must specify a `run()` method in 
 the module descriptor:
 
 --><!-- check:none:Quoted--><!--
-    Module module {
-        name = 'org.hibernate.test';
-        version = '3.0.0.beta';
-        doc = "The test suite for Hibernate";
-        license = 'http://www.gnu.org/licenses/lgpl.html';
+    doc "The test suite for Hibernate"
+    license "http://www.gnu.org/licenses/lgpl.html";
+    module org.hibernate.test '3.0.0.beta' {
+        import org.hibernate '3.0.0.beta';
         void run() {
             TestSuite().run();
-        }
-        Import {
-            name = 'org.hibernate'; 
-            version = '3.0.0.beta';
         }
     }
 -->
