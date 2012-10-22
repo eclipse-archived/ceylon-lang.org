@@ -36,3 +36,5 @@ tasks they need to be declared using a `<taskdef>`:
 * The [`<ceylonc>`](../ant-ceylonc) task
 * The [`<ceylond>`](../ant-ceylond) task
 * The [`<ceylon>`](../ant-ceylon) task
+* The [`<ceyloncjs>`](../ant-ceyloncjs) task
+* The [`<ceylonjs>`](../ant-ceylonjs) task
