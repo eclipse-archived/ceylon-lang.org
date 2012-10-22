@@ -585,7 +585,10 @@ in the language module.
 
 It's often useful to provide a shorter or more semantic name to an existing 
 class or interface type, especially if the class or interface is a 
-parameterized type. For this, we use a *type alias*, for example:
+parameterized type. For this, we use a *type alias*.
+
+Aliasing a class or interfaces can just be done using the `=` specifier, 
+for example:
 
 <!-- try: -->
 <!-- cat: 
@@ -600,10 +603,10 @@ A class alias must declare its formal parameters:
 <!-- check:none:ArrayList -->
     shared class People(Person... people) = ArrayList<Person>;
 
-### implementation note <!-- m3 -->
+If you need to create an alias for a union or intersection type you have to 
+use the `alias` keyword:
 
-Please note that type aliases are not yet supported in Ceylon M3. They will
-make their first appearance in the next release.
+    alias Num = Float|Integer;
 
 ## Type inference
 
