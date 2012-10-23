@@ -91,12 +91,25 @@ in the order they are listed above.
 Ceylon supports Maven repository layouts as well, so you can resolve module dependencies
 for legacy Java `jar` archives from legacy Maven repositories.
 
-In order to specify that a given repository is a Maven repository, you just have to prefix
-it with `mvn:`, for example, to use Maven Central:
+Right now there are two ways of enabling Maven support, the first is using the special "aether"
+repository, like this:
+
+<!--lang: none -->
+    ceylon compile --rep=aether com.example.foo
+
+This is the simplest way and will most likely be enough for most purposes.
+
+If you have special requirements that need a specific Maven `setting.xml` you can point to it:
+
+<!--lang: none -->
+    ceylon compile --rep=aether:/path/to/special/setting.xml com.example.foo
+
+But there's also another way to enable Maven support that is more limited but that allows you
+to specify a specific Maven repository right there on the command line, for example to use
+Maven Central you write:
 
 <!-- lang: none -->
-    ceylon compile --rep=mvn:http://repo1.maven.org/maven2 com.acme.foo
+    ceylon compile --rep=mvn:http://repo1.maven.org/maven2 com.example.foo
 
-**Note:** the current support for Maven repositories does not use your local Maven configuration
-and does not resolve Maven dependencies, so you only get the one `jar` you defined as a dependency.
-We plan to support both Maven settings and Maven artifact dependencies in the next Milestone.
+**Note:** This way of specifying Maven repositories is limited and does not resolve Maven dependencies,
+so you only get the one `jar` you defined as a dependency.
