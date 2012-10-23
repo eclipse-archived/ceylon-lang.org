@@ -13,21 +13,8 @@ doc_root: ../../..
 
 **Note**: You must [declare the tasks with a `<taskdef>`](../ant).
 
-This task compiles Ceylon code to JavaScript, without launching any
-external tools. Because of this, you need to add several Ceylon
-libraries to the classpath:
-
-<!-- lang: xml -->
-    <path id="ant-tasks">
-        <pathelement location="${ceylon.home}/repo/com/redhat/ceylon/common/0.4/com.redhat.ceylon.common-0.4.jar" />
-        <pathelement location="${ceylon.home}/repo/com/redhat/ceylon/ant/0.4/com.redhat.ceylon.ant-0.4.jar" />
-        <pathelement location="${ceylon.home}/repo/com/redhat/ceylon/typechecker/0.4/com.redhat.ceylon.typechecker-0.4.jar" />
-        <pathelement location="${ceylon.home}/repo/com/redhat/ceylon/module-resolver/0.4/com.redhat.ceylon.module-resolver-0.4.jar" />
-        <pathelement location="${ceylon.home}/repo/com/redhat/ceylon/compiler/js/0.4/com.redhat.ceylon.compiler.js-0.4.jar" />
-        <pathelement location="${ceylon.home}/lib/lib/antlr-3.4-complete.jar" />
-        <pathelement location="${ceylon.home}/lib/json-smart-1.1.1.jar" />
-    </path>
-    <taskdef name="ceyloncjs" classname="com.redhat.ceylon.ant.Ceyloncjs" classpathref="ant-tasks" />
+This task compiles Ceylon code to JavaScript, by means of the
+`ceylon` command-line tool.
 
 The `ceyloncjs` task is fairly similar to `ceylonc`; the difference
 lies mainly with some options that are specific to JavaScript code
@@ -54,7 +41,7 @@ command line tool.
 
 ### Parameters
 
-**Note**: In addition to the parameters in the table below table, 
+**Note**: In addition to the parameters in the table below, 
 a nested [`<module>`](#module)s and/or a [`<files>`](#files) element is 
 required.
 

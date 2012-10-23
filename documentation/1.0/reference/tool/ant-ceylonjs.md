@@ -14,12 +14,7 @@ doc_root: ../../..
 **Note**: You must [declare the tasks with a `<taskdef>`](../ant).
 
 This task runs a top-level JavaScript method compiled from Ceylon code.
-It requires [node.js](http://nodejs.org/) to run the JS code, and
-it requires the same libraries in the Ant classpath as the
-[ceyloncjs](../ant-ceyloncjs) task.
-
-<!-- lang: xml -->
-    <taskdef name="ceylonjs" classname="com.redhat.ceylon.ant.Ceylonjs" classpathref="ant-tasks" />
+It requires [node.js](http://nodejs.org/) to run the generated JS code.
 
 To execute the `com.example.foo::start` top level method in 
 version 1.1 of module `com.example.foo` residing

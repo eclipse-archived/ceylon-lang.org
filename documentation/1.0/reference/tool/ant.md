@@ -29,6 +29,12 @@ tasks they need to be declared using a `<taskdef>`:
       <taskdef name="ceylon" 
         classname="com.redhat.ceylon.ant.Ceylon" 
         classpathref="ant-tasks"/>
+      <taskdef name="ceyloncjs"
+        classname="com.redhat.ceylon.ant.CeyloncJs"
+        classpathref="ant-tasks" />
+      <taskdef name="ceylonjs"
+        classname="com.redhat.ceylon.ant.CeylonJs"
+        classpathref="ant-tasks" />
     </target>
 
 ## See also
