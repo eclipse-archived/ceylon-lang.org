@@ -220,8 +220,10 @@ or method of type `Bottom`, you know for certain that it can't possibly ever
 return a value. There is only one possible way that such an operation can
 terminate: by throwing an exception.
 
-Another cool thing to notice here is the return type of the `first` and 
-`value()` operations of `Empty`. You might have been expecting to see `Bottom?` 
+Another cool thing to notice here is the return type of the 
+[`first`]](#{site.urls.apidoc_current}/ceylon/language/interface_Empty.html#first) and 
+[`item()`](#{site.urls.apidoc_current}/ceylon/language/interface_Empty.html#item)
+operations of `Empty`. You might have been expecting to see `Bottom?` 
 here, since they override supertype members of type `T?`. But as we saw in 
 the [first part](../basics) of the Tour, `Bottom?` is just an abbreviation for 
 `Nothing|Bottom`. And `Bottom` is the empty set, so the union `Bottom|T` of 
