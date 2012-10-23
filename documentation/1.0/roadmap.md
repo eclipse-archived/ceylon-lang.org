@@ -19,7 +19,7 @@ However, our roadmap is quite well-defined:
   - [Milestone 1](#milestone_1_done)
   - [Milestone 2](#milestone_2_done)
   - [Milestone 3](#milestone_3_done)
-  - [Milestone 4](#milestone_4) (latest release)
+  - [Milestone 4](#milestone_4_done) (latest release)
   - [Milestone 5](#milestone_5_ceylon_10)
 - [Ceylon 1.1](#ceylon_11_or_later)
 
