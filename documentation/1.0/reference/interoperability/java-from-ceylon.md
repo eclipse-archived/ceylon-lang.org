@@ -258,7 +258,7 @@ And:
         e.method();
     }
 
-## Calling Java code with unsafe nulls
+## Calling Java code with unsafe nulls <!-- m4 -->
 
 Ceylon always knows whether a value can or not be `null`, but this is not the case in Java,
 so when calling Java code, we don't really know if a value, or a method's return value
@@ -276,15 +276,13 @@ We treat Java method parameters and writeable fields and JavaBean properties as 
 optional values if they are not Java primitives, thus allowing you to set them to `null`
 or to a value.
 
-## Implementing Java code with unsafe nulls
+## Implementing Java code with unsafe nulls <!-- m4 -->
 
 When implementing a Java interface or class in Ceylon, you can decide to make the method
 parameters and return values optional or not. The same is true when implementing JavaBean
 properties (as Ceylon attributes). 
 
-## Importing JDK modules
-
-<!-- M4 -->
+## Importing JDK modules <!-- m4 -->
 
 The Java JDK is not imported by default anymore since Milestone 4, which means you need to import
 the JDK modules if you want to import JDK packages.
