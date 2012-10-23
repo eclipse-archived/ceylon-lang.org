@@ -196,40 +196,38 @@ file IO.*
 * `ceylon.file` platform module (access to hierarchical filesystems)
 * `ceylon.process` platform module (operating system processes)
 
-## Milestone 4
+## Milestone 4 _DONE_
+
+Milestone 4 has been released.
 
 *Member classes and type families, type aliases.*
 
 ### Declarations:
 * member class refinement / type families
 * class and interface aliases
-* union and intersection aliases _POSSIBLY_
+* union and intersection aliases (`alias`)
 * new syntax for package and module descriptors
 * fix "object builder" syntax
 
 ### Statements:
-* `try` with resources _POSSIBLY_
+* `assert`
 
 ### Expressions:
-* named argument-style syntax for instantiating interfaces
-* lengthwise range operator (`start:length` and `ranged[start:length]`)
-* laziness for string interpolation _POSSIBLY_
+* Condition lists in `if`, `while`, `assert` and `if` comprehensions
 
 ### Modularity:
-* repository replicator
+* Maven and aether
 
 ### Modules:
 * `ceylon.net` platform module
 * `ceylon.json` platform module (JSON parser)
-* `ceylon.time` platform module (date/time types)
-* `ceylon.local` platform module (basic support for localization)
-* `ceylon.format` platform module (text formatting for numbers and 
-   dates/times)
 * `ceylon.collection` platform module (collection implementations
   organized into mutable array-based collections, mutable 
   hashtable-based collections and immutable linked-list based 
   collections) 
-   _POSSIBLY_
+
+### Tools:
+* Pluggable tools, `git`-style (`ceylonc` -> `ceylon compile`)
 
 ## Milestone 5 (Ceylon 1.0)
 
@@ -242,17 +240,30 @@ file IO.*
 * sequenced type parameters
 * reified generics
 
+### Statements:
+* `try` with resources
+
 ### Expressions:
 * metamodel references
 * numeric widening for custom numeric types
+* lengthwise range operator (`start:length` and `ranged[start:length]`)
+* laziness for string interpolation
+* named argument-style syntax for instantiating interfaces
 
 ### Misc:
 * annotation constraints
 * interception for methods, attributes, and classes
 * serialization
 
+### Modularity
+* repository replicator
+
 ### Modules:
 * language metamodel
+* `ceylon.time` platform module (date/time types)
+* `ceylon.local` platform module (basic support for localization)
+* `ceylon.format` platform module (text formatting for numbers and 
+   dates/times)
 * `ceylon.transaction` platform module (support for distributed
   transaction processing)
 * `ceylon.relational.connect` platform module (access to relational
