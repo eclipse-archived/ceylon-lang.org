@@ -32,7 +32,7 @@ _This page is very incomplete. Want to help? [See how](/code/website)._
 
 ## Statements
 
-* [`assert` statements](statement/assert)
+* [`assert` statements](statement/assert) <!-- m4 -->
 * [`break` statements](statement/break)
 * [`continue` statements](statement/continue)
 * [expression statements](expression)
@@ -60,6 +60,7 @@ _This page is very incomplete. Want to help? [See how](/code/website)._
 * [`this`](expression/this)
 * [`outer`](expression/outer) <!-- m3 -->
 * [`super`](expression/super)
+* [`::` supertype access](expression/supertype-access) <!-- m4 -->
 * [Sequence Instantiation](expression/sequence-instantiation)
 * [String Templates](expression/string-template)
 

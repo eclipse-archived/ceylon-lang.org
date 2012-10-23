@@ -28,7 +28,7 @@ For Milestone 4 we use a single plugin style tool along the patterns
 established by the `git` toolset.
 
 The top level `ceylon` command is the entry point for a particular subcommand. 
-There is a [list of the available subcommands](subcommands)).
+There is a [list of the available subcommands](subcommands).
 
 The rest of this page will highlight particular tools
 

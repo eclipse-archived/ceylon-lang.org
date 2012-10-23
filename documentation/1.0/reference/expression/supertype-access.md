@@ -4,7 +4,7 @@ title: '`::` supertype access'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
-milestone: Milestone 1
+milestone: Milestone 4
 doc_root: ../..
 ---
 

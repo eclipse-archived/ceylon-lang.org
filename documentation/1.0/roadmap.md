@@ -9,7 +9,7 @@ author: Emmanuel Bernard
 
 Ceylon code is released and available on [GitHub](http://github.com/ceylon). 
 
-Milestone 2 of Ceylon [has been released](/download) and we are working on milestone 3 
+Milestone 4 of Ceylon [has been released](/download) and we are working on milestone 5 
 at the moment. Because quality is important to us, we won't release work until we think 
 it's usable. Therefore, we can't give you dates on each milestone.
 
@@ -18,8 +18,8 @@ However, our roadmap is quite well-defined:
 - Ceylon 1.0
   - [Milestone 1](#milestone_1_done)
   - [Milestone 2](#milestone_2_done)
-  - [Milestone 3](#milestone_3_done) (latest release)
-  - [Milestone 4](#milestone_4)
+  - [Milestone 3](#milestone_3_done)
+  - [Milestone 4](#milestone_4) (latest release)
   - [Milestone 5](#milestone_5_ceylon_10)
 - [Ceylon 1.1](#ceylon_11_or_later)
 
