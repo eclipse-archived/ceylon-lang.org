@@ -77,7 +77,7 @@ Awestruct::Extensions::Pipeline.new do
     "<span class='milestone'><a href='/documentation/1.0/roadmap/#milestone_3_done' title='Support for this feature was introduced in Milestone 3'>Milestone 3</a></span>")
   transformer Awestruct::Extensions::Gsub.new(
     /\<!--\s*m4\s*--\>\s*/, 
-    "<span class='milestone future'><a href='/documentation/1.0/roadmap/#milestone_4' title='Support for this feature will be introduced in Milestone 4'>Milestone 4</a></span>")
+    "<span class='milestone'><a href='/documentation/1.0/roadmap/#milestone_4' title='Support for this feature was introduced in Milestone 4'>Milestone 4</a></span>")
   transformer Awestruct::Extensions::Gsub.new(
     /\<!--\s*m5\s*--\>\s*/, 
     "<span class='milestone future'><a href='/documentation/1.0/roadmap/#milestone_5_ceylon_10' title='Support for this feature will be introduced in Ceylon 1.0'>Ceylon 1.0</a></span>")
