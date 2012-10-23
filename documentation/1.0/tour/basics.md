@@ -58,7 +58,7 @@ and then run the following commands:
 
 <!-- lang: bash -->
     ceylon-0.3/bin/ceylon compile source/hello.ceylon
-    ceylon-0.3/bin/ceylon run --run=hello default
+    ceylon-0.3/bin/ceylon run --run hello default
 
 where `ceylon-0.3` is the path to your Ceylon install directory. You should
 see the message `Hello, World!`. You will find the compiled module archive 

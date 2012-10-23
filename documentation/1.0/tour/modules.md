@@ -170,7 +170,7 @@ directory might be layed out like this:
     documentation/manual.html
 
 Here, the source code is in a directory called `source` (which is the default and 
-saves us having to pass a `--src=` command line option to 
+saves us having to pass a `--src` command line option to 
 [`ceylon compile`](../../reference/tool/ceylon/subcommands/ceylon-compile.html)). From the 
 project directory (the directory which contains the `source` directory) 
 you can compile using the command
@@ -180,7 +180,7 @@ you can compile using the command
     
 This command will compile the source code files (`Foo.ceylon` and `FooService.ceylon`)
 into a module archive and publish it to the default output repository, `modules`.
-(you'd use the `--out=build` option to publish to `build` instead)). Now your project 
+(you'd use the `--out build` option to publish to `build` instead)). Now your project 
 directory looks something like this:
 
 <!-- lang: none -->
@@ -245,7 +245,7 @@ then the command would become
 
 <!-- lang: none -->
     ceylon compile
-      --rep=http://repo.example.com 
+      --rep http://repo.example.com 
       net.example.foo
 
 (we're breaking the command across multiple lines for clarity here, you would
@@ -258,8 +258,8 @@ You can just compile again, this time specifying an `--out` option
 
 <!-- lang: none -->
     ceylon compile
-      --rep=http://repo.example.com 
-      --out=http://ceylon.example.net/repo
+      --rep http://repo.example.com 
+      --out http://ceylon.example.net/repo
       net.example.foo
 
 It's worth noting that by taking advantage of the sensible defaults for 
@@ -289,7 +289,7 @@ found in the default repositories the
 
 <!-- lang: none -->
     ceylon run
-      --rep=http://ceylon.example.net/repo
+      --rep http://ceylon.example.net/repo
       net.example.foo/1.0
       
 You can pass options too (which are available to the program via the 
@@ -297,7 +297,7 @@ top level `process` object):
 
 <!-- lang: none -->
     ceylon run
-      --rep=http://ceylon.example.net/repo
+      --rep http://ceylon.example.net/repo
       net.example.foo/1.0
       my options
 
@@ -306,8 +306,8 @@ need to specify a repository that contains it using another `-rep`:
 
 <!-- lang: none -->
     ceylon run
-      --rep=http://ceylon.example.net/repo
-      --rep=http://repo.example.com
+      --rep http://ceylon.example.net/repo
+      --rep http://repo.example.com
       net.example.foo/1.0
       my options
 
@@ -324,7 +324,7 @@ One of the nice advantages of this architecture is that it's possible to run a
 module "straight off the internet", just by typing, for example:
 
 <!-- lang:none -->
-    ceylon run --rep=http://jboss.org/ceylon/modules org.jboss.ceylon.demo/1.0
+    ceylon run --rep http://jboss.org/ceylon/modules org.jboss.ceylon.demo/1.0
 
 And all required dependencies get automatically downloaded as needed.
 
