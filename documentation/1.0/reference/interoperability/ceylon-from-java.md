@@ -74,7 +74,8 @@ according to the Java Bean specification.
 
 #### Toplevel attributes
 
-A toplevel attribute is compiled into a class of the same name, which is `final`,
+A toplevel attribute is compiled into a class of the same name with an underscore (`_`)
+suffix, which is `final`,
 has a `private` constructor, a `static` getter method and if the attribute is mutable, a
 corresponding `static` setter method.
 
@@ -86,11 +87,8 @@ Are accessed and set using the following Java code:
 
 <!-- lang: java -->
     // bool is the name of the Java class that holds the toplevel attribute 
-    boolean value = bool.getBool();
-    bool.setBool(false);
-
-If a Ceylon attribute name is a Java keyword, the Java type name
-will be prefixed with `$`, like `$true`.
+    boolean value = bool_.getBool$();
+    bool_.setBool$(false);
 
 ### Calling Ceylon methods
 
@@ -102,7 +100,8 @@ If a Ceylon method name is a Java keyword, it will be prefixed with `$`, like `$
 
 #### Calling Ceylon toplevel methods
 
-A Ceylon toplevel method is compiled into a class of the same name, which is `final`,
+A Ceylon toplevel method is compiled into a class of the same name with an underscore (`_`)
+suffix, which is `final`,
 has a `private` constructor, and a `static` method of the same name corresponding to the 
 toplevel method.
 
@@ -116,7 +115,7 @@ Are called using the following Java code:
 
 <!-- lang: java -->
     // foo is the name of the Java class that holds the toplevel method 
-    boolean value = foo.foo(false);
+    boolean value = foo_.foo(false);
 
 #### Calling a Ceylon method with default parameter values
 

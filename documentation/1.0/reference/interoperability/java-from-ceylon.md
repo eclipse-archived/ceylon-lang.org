@@ -258,6 +258,30 @@ And:
         e.method();
     }
 
+## Calling Java code with unsafe nulls
+
+Ceylon always knows whether a value can or not be `null`, but this is not the case in Java,
+so when calling Java code, we don't really know if a value, or a method's return value
+can be `null` or not. There's simply no way to know this, unless you know the API, and so
+the decision is yours. When calling Java code, we will make your life easier and treat
+the return values as non-optional, so you can store them in non-optional variables,
+but you can also treat them as optional (like in `exists` tests) and things will work out.
+
+If you decide to store a value obtained from calling Java code into a non-optional variable,
+we will insert a `null` check at the threshold, so that you get an exception at the most useful
+place. That check is of course not generated if you store a Java value in an optional variable,
+because `null` is allowed then.
+
+We treat Java method parameters and writeable fields and JavaBean properties as accepting
+optional values if they are not Java primitives, thus allowing you to set them to `null`
+or to a value.
+
+## Implementing Java code with unsafe nulls
+
+When implementing a Java interface or class in Ceylon, you can decide to make the method
+parameters and return values optional or not. The same is true when implementing JavaBean
+properties (as Ceylon attributes). 
+
 ## Obtaining Java `jar` dependencies
 
 You can either install Java `jar` dependencies in your Ceylon [repositories](../../repository) manually
