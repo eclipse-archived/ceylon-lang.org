@@ -59,6 +59,8 @@ then positional invocations look like this:
     m(2, "bonjour");  // empty sequence
     m(3, "guttentag", true); // singleton sequence
     m(4, "guttentag", true, true);
+    Iterable<Boolean> someBooleans = {true, true, false};
+    m(4, "guttentag", someBooleans...);
 <!-- cat: } -->
 
 ### Named Argument Invocation
@@ -69,8 +71,7 @@ named argument must also have a semicolon. Each named argument consists of the
 argument name separated from the expression with the equals (`=`) specifier.
 
 A named argument invocation's final argument may be unnamed if it was 
-declared as a [sequenced parameter](../../structure/method#sequenced_parameter)
-and in this case the sequence elements are comma separated.
+declared as a [sequenced parameter](../../structure/method#sequenced_parameter).
 
 For example given a method `m` [declared](../../structure/method) like this
 
@@ -99,16 +100,28 @@ then named argument invocations look like this:
         i = 7;
         true, true, false
     };
+    
+    Iterable<Boolean> someBooleans = {true, true, false};
+    m{
+        s = "Kia ora";
+        i = 7;
+        someBooleans...
+    };
 <!-- cat: } -->
 
 ### Sequenced arguments
 
 The arguments (if any) to a sequenced parameter are called the 
-sequenced arguments. 
+*sequenced arguments*. Sequenced arguments can be passed in two ways:
 
-### Using ellipsis with a sequenced argument
+1. If you already have an `Iterable` expression whose elements you'd like to 
+   use as the sequenced arguments you can pass it by appending ellipsis 
+   (`...`) to the argument expression. 
+2. You can provide a comma-separated list of expressions to pass as the 
+   sequenced arguments. The compiler will evaluate the expressions and wrap 
+   them in an `Iterable` for you.
 
-Because a sequenced parameter can be declared with a default value 
+**Caution:** Because a sequenced parameter can be declared with a default value 
 just like any other parameter, care must be taken when you want to use an 
 `Empty` argument. Consider the following method:
 
@@ -116,23 +129,25 @@ just like any other parameter, care must be taken when you want to use an
         // whatever
     }
     
-If we call `tricky()` with no arguments in positional style then the default
+If we call `tricky()` with no arguments in positional style, or use the unnamed
+sequenced argument version of named invocation, then the default
 value for the parameter will take effect:
 
     tricky(); // same as calling tricky(1, 2, 3)
+    tricky{};
     
 What about the following:
 
     tricky({});
     
-There could be two interpretations for this. We might mean "call tricky() with 
-args being `Empty`" or we could mean 
-"call tricky() with one argument, the empty sequence {}".
+Because of the parameter args is of type `Object...` there could be two 
+interpretations for this. We might mean "call tricky() with 
+the argument, `{ {} }`" or we could mean 
+"call tricky() with the empty sequence `{}`. The compiler assumes
+the first interpretation.
 
-The same is true if we call
-it in named argument style without specifying the argument name (`tricky{}`). 
-To successfully call it with an empty argument we can either use a
-named argument:
+There are a couple of ways we can make sure we get what we want, we can 
+either name the sequenced argument in a named argument invocation:
 
     tricky{
         args={};
