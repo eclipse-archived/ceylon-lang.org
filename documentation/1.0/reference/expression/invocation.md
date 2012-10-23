@@ -109,6 +109,84 @@ then named argument invocations look like this:
     };
 <!-- cat: } -->
 
+
+
+#### Getter arguments
+
+If you need to pass an getter argument in a named argument invocation,
+there's a shortcut syntax:
+
+    // given this declaration
+    void myFunction(Integer i) {
+        //... whatever
+    }
+    
+    // we can invoke it like this
+    myFunction {
+        Integer i {
+            return 4;
+        }
+    };
+
+We're basically declaring the getter in the argument list, giving it
+the same name as the relevant parameter.
+
+Note the argument is not followed by a semicolon in this case.
+
+We can also use type inference:
+
+    // we can also invoke it like this
+    myFunction {
+        value i {
+            return 4;
+        }
+    };
+
+#### Object arguments
+
+If you need to pass an `object` argument in a named argument invocation,
+there's a shortcut syntax:
+
+    // given this declaration
+    void myFunction(Object o) {
+        //... whatever
+    }
+
+    // we can invoke it like this
+    myFunction {
+        object o extends Object() {
+            shared actual Boolean equals(Object other) {return false;}
+            shared actual Integer hash = 0;
+        }
+    };
+
+We're basically declaring the `object` in the argument list, giving the `object`
+the same name as the relevant parameter.
+
+Note the argument is not followed by a semicolon in this case.
+
+#### Method arguments
+
+If you need to pass a method (`Callable`) argument in a named argument 
+invocation, there's a shortcut syntax:
+
+    // given this declaration
+    void callFunction(String f(Integer i) o) {
+        //... whatever
+    }
+
+    // we can invoke it like this
+    callFunction {
+        function f(Integer i) {
+            return (i**2).string;
+        }
+    };
+
+We're basically declaring the `function` in the argument list, giving the it
+the same name as the relevant parameter.
+
+Note the argument is not followed by a semicolon in this case.
+
 ### Sequenced arguments
 
 The arguments (if any) to a sequenced parameter are called the 
@@ -165,18 +243,6 @@ sequenced arguments.
 
 See the reference on [comprehensions](../comprehensions) for more details.
 
-
-### Callable invocation
-
-TODO
-
-### Callable arguments
-
-TODO
-
-### Object arguments
-
-TODO
 
 ## See also
 
