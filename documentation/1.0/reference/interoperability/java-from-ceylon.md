@@ -282,6 +282,47 @@ When implementing a Java interface or class in Ceylon, you can decide to make th
 parameters and return values optional or not. The same is true when implementing JavaBean
 properties (as Ceylon attributes). 
 
+## Importing JDK modules
+
+<!-- M4 -->
+
+The Java JDK is not imported by default anymore since Milestone 4, which means you need to import
+the JDK modules if you want to import JDK packages.
+
+The JDK has been mapped to Ceylon modules following the current JDK module list for 
+[Jigsaw](http://openjdk.java.net/projects/jigsaw/), which is the module system planned
+for Java 9. Note that the Jigsaw module list is far from being final, so it is subject to
+change.
+
+The current list of JDK modules is as follows:
+
+- `java.base`: the JDK base packages such as `java.lang`, `java.util`, `java.io`, `java.net`, `java.text`,
+NIO and security
+- `java.logging`: contains `java.util.logging` aka. JUL
+- `java.desktop`: contains `java.applet`, `java.awt.**`, `javax.imageio.**`, `javax.print.**`, `javax.sound`, `javax.swing.**`, `javax.accessibility`
+- `java.jdbc`: contains `java.sql`, `javax.sql`
+- `java.jdbc.rowset`: contains `javax.sql.rowset.**`
+- `javax.script`: contains `javax.script`
+- `javax.xml`: contains `javax.xml.**`, `org.w3c.dom.**`, `org.xml.sax.**`
+- `javax.xmldsig`: contains `javax.xml.crypto.**`
+- `java.management`: contains `javax.management`
+- `java.instrument`: contains `java.lang.instrument`
+- `java.rmi`: contains `java.rmi`
+- `java.prefs`: contains `java.util.prefs`
+- `java.tls`: contains `javax.net.**`, `javax.security.cert`
+- `java.auth`: contains `javax.security.sasl`
+- `java.auth.kerberos`: contains `javax.security.auth.kerberos`, `org.ietf.jgss`
+- `java.security.acl`: contains `java.security.acl`
+- `javax.naming`: contains `javax.naming.**`
+- `javax.transaction`: contains `javax.transaction.**`
+- `javax.jaxws`: contains `javax.xml.bind.**`, `javax.xml.soap`, `javax.xml.ws.**`, `javax.activation`
+- `javax.annotation`: contains `javax.annotation`
+- `java.corba`: contains `javax.activity`, `javax.rmi.**`, `org.omg.**`
+- `java.compiler`: contains `javax.tools`, `javax.lang.model.**`, `javax.annotation.processing`
+
+There are additional vendor-specific JDK modules, whose module/package-list mappings are
+[defined in the source](https://github.com/ceylon/ceylon-module-resolver/blob/master/impl/src/main/resources/com/redhat/ceylon/cmr/impl/package-list.oracle.jdk7).
+
 ## Obtaining Java `jar` dependencies
 
 You can either install Java `jar` dependencies in your Ceylon [repositories](../../repository) manually
