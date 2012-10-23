@@ -38,7 +38,8 @@ in the `build` directory (repository):
 The `<ceylonjs>` ant task supports execution of Ceylon modules, top-level classes 
 and top-level functions compiled to JavaScript,
 from a Ceylon repository using the [Ant build tool](http://ant.apache.org). 
-It provides similar features to the [`ceylon run-js`](../ceylon) command line tool.
+It provides similar features to the [`ceylon run-js`](../ceylon/subcommands/ceylon-run-js.html) 
+command line tool.
 
 ### Parameters
 

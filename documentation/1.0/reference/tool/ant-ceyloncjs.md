@@ -48,7 +48,9 @@ verbose compiler messages:
 
 The `<ceyloncjs>` ant task supports compilation of Ceylon source code
 to `.js` files in a Ceylon repository using the [Ant build tool](http://ant.apache.org). 
-It provides similar features to the [`ceylon compile-js`](../ceylonc) command line tool.
+It provides similar features to the [`ceylon compile-js`](../ceylon/subcommands/ceylon-compile-js.html) 
+command line tool.
+
 
 ### Parameters
 
