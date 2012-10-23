@@ -12,9 +12,10 @@ doc_root: ../..
 This is the final part of the Tour of Ceylon. The [previous part](../annotations) 
 disected annotations. This part covers Ceylons support for *interceptors*.
 
-### implementation note <!-- m3 -->
+### implementation note <!-- m5 -->
 
-Ceylon M3 does not support interceptors or metaprogramming.
+Interceptors and metaprogramming are not yet implemented. They may be 
+implemented in M5.
 
 ## Interceptors
 

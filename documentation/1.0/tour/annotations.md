@@ -12,9 +12,10 @@ Wow, part fifteenth of the Tour of Ceylon and the end is in sight!
 The [last part](../initialization) covered initialization. This part is all 
 about *annotations*.
 
-### implementation note <!-- m3 -->
+### implementation note <!-- mCeylon -->
 
-Ceylon M3 does not support user-defined annotations or metaprogramming.
+Annotations and metaprogramming are not yet implemented. They will be 
+implemented in M5.
 
 ## Annotations
 

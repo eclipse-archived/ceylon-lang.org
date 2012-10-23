@@ -463,9 +463,9 @@ And `try` will support a "resource" expression similar to Java 7.
 
 There are no Java-style checked exceptions in Ceylon.
 
-<!-- m3 -->
+<!-- m5 -->
 
-Resource expressions in `try` are not yet supported in M3.
+Resource expressions are not yet implemented. They will be implemented in M5.
 
 ## There's more...
 
