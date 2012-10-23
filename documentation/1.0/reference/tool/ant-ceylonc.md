@@ -33,7 +33,7 @@ command line tool.
 
 ### Parameters
 
-**Note**: In addition to the parameters in the table below table, 
+**Note**: In addition to the parameters in the table below, 
 a nested [`<module>`](#module)s and/or a [`<files>`](#files) element is 
 required.
 
