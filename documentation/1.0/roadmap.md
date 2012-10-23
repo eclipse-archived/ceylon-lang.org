@@ -229,6 +229,10 @@ Milestone 4 has been released.
 ### Tools:
 * Pluggable tools, `git`-style (`ceylonc` -> `ceylon compile`)
 
+### Interoperability
+* Better support for optional types in Java
+* Map the JDK into Jigsaw-compatible module lists
+
 ## Milestone 5 (Ceylon 1.0)
 
 *Annotations, reified generics, metamodel, interception.*
