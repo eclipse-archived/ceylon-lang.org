@@ -7,7 +7,7 @@ author: Emmanuel Bernard
 ---
 # #{page.title}
 
-[Ceylon M3.1 "V2000"][M3.1] is now available for download! 
+[Ceylon M4 "Analytical Engine"][M4] is now available for download! 
 This is the latest release of the language, command line tools and IDE.
 
 ## Command line tools
@@ -16,62 +16,62 @@ This package contains the Ceylon command line compiler for Java and
 JavaScript virtual machines, the documentation compiler, the language 
 module, and the module runtime.
 
-[M3.1]: /blog/2012/07/11/ceylon-m3_1?utm_source=download&utm_medium=web&utm_content=blog&utm_campaign=1_0_M3_1release
+[M4]: /blog/2012/10/25/ceylon-m4-analytical-engine?utm_source=download&utm_medium=web&utm_content=blog&utm_campaign=latestrelease
 
 <table>
     <tr>
         <td>
-        <a href="/download/dist/1_0_Milestone3_1" 
+        <a href="/download/dist/1_0_Milestone4" 
            title='Download the Zip archive'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone3_1?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=1_0_M3_1release']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone4?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
            <img src="/images/download/package-zip.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
         </a>
         </td>
         <td>Zip archive</td>
         <td>All Operating Systems</td>
         <td>
-        <a href="/download/dist/1_0_Milestone3_1" 
+        <a href="/download/dist/1_0_Milestone4" 
            title='Download the Zip archive'
            style='font-weight:bold;text-decoration:none'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone3_1?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=1_0_M3_1release']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone4?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
            download
         </a>
         </td>
     </tr>
     <tr>
         <td>
-        <a href="/download/dist/1_0_Milestone3_1_rpm" 
+        <a href="/download/dist/1_0_Milestone4_rpm" 
            title='Download the RPM'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone3_1_rpm?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=1_0_M3_1release']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone4_rpm?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
            <img src="/images/download/package-fedora.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
         </a>
         </td>
         <td>RPM</td>
         <td>Fedora/Red Hat</td>
         <td>
-        <a href="/download/dist/1_0_Milestone3_1_rpm" 
+        <a href="/download/dist/1_0_Milestone4_rpm" 
            title='Download the RPM'
            style='font-weight:bold;text-decoration:none'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone3_1_rpm?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=1_0_M3_1release']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone4_rpm?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
            download
         </a>
         </td>
     </tr>
     <tr>
         <td>
-        <a href="/download/dist/1_0_Milestone3_1_deb" 
+        <a href="/download/dist/1_0_Milestone4_deb" 
            title='Download the Debian package'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone3_1_deb?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=1_0_M3_1release']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone4_deb?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
            <img src="/images/download/package-debian.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
         </a>
         </td>
         <td>DEB</td>
         <td>Debian/Ubuntu</td>
         <td>
-        <a href="/download/dist/1_0_Milestone3_1_deb" 
+        <a href="/download/dist/1_0_Milestone4_deb" 
            title='Download the Debian package'
            style='font-weight:bold;text-decoration:none'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone3_1_deb?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=1_0_M3_1release']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone4_deb?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
            download
         </a>
         </td>
@@ -98,7 +98,7 @@ precisely in the release, read our [announcement][minitel].
 or from Eclipse Marketplace:
 
 [ide]: /documentation/current/ide
-[update site]: /documentation/current/ide/install?utm_source=download&utm_medium=web&utm_content=ide-install&utm_campaign=IDE_1_0_M3_1release
+[update site]: /documentation/current/ide/install?utm_source=download&utm_medium=web&utm_content=ide-install&utm_campaign=IDE_latestrelease
 
 <table>
     <tr>
