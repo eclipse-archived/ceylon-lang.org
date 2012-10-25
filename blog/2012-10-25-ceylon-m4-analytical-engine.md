@@ -31,10 +31,10 @@ The Ceylon team hopes to release Ceylon 1.0 beta in January.
 
 ### Language features
 
-M4 is is an almost-complete implementation of the Ceylon language,
-including the following new features compared to M4:
+M4 is an almost-complete implementation of the Ceylon language,
+including the following new features compared to M3:
 
-* [member class refinements](/documentation/1.0/reference/structure/class/#member_class_refinement) (type families)
+* [member class refinement](/documentation/1.0/reference/structure/class/#member_class_refinement) (type families)
 * [class and interface aliases](/documentation/1.0/reference/structure/class/#aliases)
 * [union and intersection aliases](/documentation/1.0/reference/structure/type/#type_aliases)
 * [new syntax for package and module descriptors](/documentation/1.0/reference/structure/module/#descriptor)
@@ -59,7 +59,7 @@ is the complete definition.
 
 ### Ceylon IDE
 
-[Ceylon IDE][] is a complete development environment for Ceylon based 
+[Ceylon IDE][] is a complete development environment for Ceylon, based 
 on the Eclipse platform. This release of Ceylon IDE introduces:
 
 * support for JavaScript compilation and execution,
