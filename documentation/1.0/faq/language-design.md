@@ -97,6 +97,7 @@ Well then, that's easy: yes, it certainly does.
 Primarily because it looks a bit cleaner for defining text in user
 interfaces or other treelike structures.
 
+<!-- try: -->
     Html hello {
         Head head { title="Greeting"; }
         Body body {
@@ -119,6 +120,7 @@ syntax (which are a primary goals for the language).
 
 Which of the following do you prefer:
 
+<!-- try: -->
     shared variable 
     oneToMany column("PID") 
     synchronized
@@ -127,6 +129,7 @@ Which of the following do you prefer:
 where `shared` and `variable` are just ordinary annotations,
 or, alternatively:
 
+<!-- try: -->
     shared variable 
     @oneToMany @column("PID") 
     @synchronized
@@ -160,11 +163,13 @@ ambiguous.
 
 Because we think this:
 
+<!-- try: -->
     shared Float e = ....
     shared Float log(Float b, Float x) { ... }
 
 Is simply much easier to read than this:
 
+<!-- try: -->
     shared value e: Float = .... 
     shared function log(b: Float, x: Float): Float { ... }
 
@@ -194,6 +199,7 @@ that is regular with class and interface declarations. The
 words `extends` and `implements` would simply not work for 
 an upper bound type constraint. Consider:
 
+<!-- try: -->
     class Singleton<Element>(Element element)
             satisfies Iterable<Element>
             given Element satisfies Object { ... }
@@ -212,16 +218,27 @@ be a class or even another type parameter.
 
 Yes, but it would not work in two situations:
 
-* When declaring a variable inline in a control structure
+First, when declaring a variable inline in a control structure
   condition, for example:
+  
+<!-- try: -->
       if (exists second = seq[1]) { ... }
-  The following doesn't work because `exists` has a higher
-  precedence than `=`:
+      
+The following doesn't work because `exists` has a higher
+precedence than `=`:
+
+<!-- try: -->
       if (second = seq[1] exists) { ... } //confusing unsupported syntax
-* When combined with the `!` (not) operator:
+      
+Second, when combined with the `!` (not) operator:
+
+<!-- try: -->
       if (!is Employee person) { ... }
-  The following reads ambiguously, because it's not entirely
-  clear that `!` has a lower precedence than `is`:
+      
+The following reads ambiguously, because it's not entirely
+clear that `!` has a lower precedence than `is`:
+
+<!-- try: -->
       if (!person is Employee) { ... } //confusing unsupported syntax
 
 ## Declaration modifiers
@@ -375,6 +392,7 @@ other advantages. For example, they help make overloading unnecessary.
 And they make it easy to reason about algebraic/enumerated types.
 And intersections help us to narrow types. For example:
 
+<!-- try: -->
     Foo foo = ... ;
     if (is Bar foo) {
         //foo has type Foo&Bar here!
@@ -504,12 +522,14 @@ introduced to a type within a certain lexical scope. For example,
 we might want to introduce an `uppercaseString` attribute to 
 `Object` by writing a method like this:
 
+<!-- try: -->
     shared String uppercaseString(Object this) {
         return this.string.uppercased
     }
 
 Or a `printMe()` method to `String` like this:
 
+<!-- try: -->
     shared void printMe(String this)() {
         print(this);
     }
@@ -529,6 +549,7 @@ Great question. We haven't decided yet. It's the #1 feature
 request from the community. Some people would really like to
 be able to write the following:
 
+<!-- try: -->
     (Float, Float) polar(Float x, Float y) {
         return (sqrt(sqr(x)+sqr(y)), atan(y/x));
     }
@@ -548,6 +569,7 @@ add complexity that we're not sure we want.
 And, in fact, it's not at all hard to write a function that 
 returns multiple values in Ceylon:
 
+<!-- try: -->
     class Polar(Float x, Float y) {
         shared Float r = sqrt(sqr(x)+sqr(y));
         shared Float theta = atan(y/x);
@@ -566,6 +588,7 @@ Ceylon embraces the concept of _declaration site variance_,
 where the variance of a type parameter is specified where a
 type is defined. For example:
 
+<!-- try: -->
     interface Collection<out Element> { ... }
 
 This spares us from having to write, as in Java, things like
@@ -577,6 +600,7 @@ an invariant type like in Java.
 It would be possible to add support for use site variance to
 Ceylon, probably using a syntax like this:
 
+<!-- try: -->
     Array<Integer> ints = array(2, 4, 6);
     Array<out Object> = ints;
 
@@ -584,6 +608,7 @@ Since `Array` is invariant in its type parameter, `Array<Integer>`
 isn't an `Array<Object>`. It can't be, because the signature 
 of the `setItem()` method of `Array<Object>` is:
 
+<!-- try: -->
     void setItem(Integer index, Object item)
 
 So you can put things that aren't `Integer`s in an `Array<Object>`.
@@ -591,6 +616,7 @@ So you can put things that aren't `Integer`s in an `Array<Object>`.
 But `Array<Integer>` _would_ be an `Array<out Object>`, where 
 the signature of the `setItem()` method would be:
 
+<!-- try: -->
     void setItem(Integer index, Bottom item)
 
 (i.e. contravariant occurrences of the type parameter would take 
@@ -619,6 +645,7 @@ introduce an additional type to the metatype of a type. Then
 we would support _metatype constraints_ of form `T is Metatype`, 
 for example:
 
+<!-- try: -->
     Num sum<Num>(Num... numbers) 
             given Num is Number {
         variable Num total:=Num.zero;
@@ -686,6 +713,7 @@ A GADT is a sophisticated kind of algebraic type where the
 cases of the type depend upon the value of one of its type
 arguments. Consider:
 
+<!-- try: -->
     abstract class Expression<T>()
             of Sum<T> | FloatLiteral | IntegerLiteral 
             given T of Float | Integer {}
@@ -781,6 +809,7 @@ If we wanted to declare the exception as part of the signature
 of a function, we could just declare it in the return type like
 this:
 
+<!-- try: -->
     Integer|NegativeException fib(Integer n) { ... }
 
 The reason for using an exception is that we _don't_ want to 
