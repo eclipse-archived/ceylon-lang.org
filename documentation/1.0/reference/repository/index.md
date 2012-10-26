@@ -95,7 +95,7 @@ Right now there are two ways of enabling Maven support, the first is using the s
 repository, like this:
 
 <!--lang: none -->
-    ceylon compile --rep aether com.example.foo
+    ceylon compile --rep aether: com.example.foo
 
 This is the simplest way and will most likely be enough for most purposes.
 
