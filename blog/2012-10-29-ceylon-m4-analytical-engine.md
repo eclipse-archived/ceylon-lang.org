@@ -66,7 +66,6 @@ on the Eclipse platform. This release of Ceylon IDE introduces:
 * module import completion,
 * a repository vew,
 * support for Maven repositories,
-* many new Quick Fixes and Quick Assists, and
 * more than 70 features and bug fixes.
 
 Ceylon IDE M4 requires Java 7. Users of Ceylon IDE on Mac OS should 
@@ -80,7 +79,7 @@ The Ceylon command-line tools and IDE both support compilation to
 either or both of the JVM or JavaScript.
 
 Ceylon programs compiled to JavaScript execute on standard JavaScript 
-virtual machines. The Ceylon command line distribution includes a 
+virtual machines. The Ceylon command line distribution and IDE include a 
 launcher for running Ceylon programs on Node.js.
 
 ### Interoperation with Java
