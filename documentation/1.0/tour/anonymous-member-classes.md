@@ -208,14 +208,14 @@ in a subtype of `BufferedReader`:
     class BufferedFileReader(File file)
             extends BufferedReader(FileReader(file)) {
         shared actual class Buffer()
-                extends super.Buffer() { }
+                extends BufferedReader::Buffer() { }
     }
 -->
 <!-- check:none:Requires IO -->
     class BufferedFileReader(File file)
             extends BufferedReader(FileReader(file)) {
         shared actual class Buffer()
-                extends super.Buffer() { ... }
+                extends BufferedReader::Buffer() { ... }
                 
     }
 
@@ -262,7 +262,7 @@ In this case, a concrete subclass of the `abstract` class must refine the
     shared class BufferedFileReader(File file)
             extends BufferedReader(FileReader(file)) {
         shared actual class Buffer()
-                 extends super.Buffer() {
+                 extends BufferedReader::Buffer() {
              shared actual Byte read() {
                  ...
              }
