@@ -197,18 +197,18 @@ Within `Reader` (and elsewhere) we can instantiate the relevant kind of
 `Buffer` with a normal instantiation, `Buffer(chars)`. This allows each 
 subclass of `Reader` to implement an appropriate kind of `Buffer`.
 
-Member class refinement has uses similar to the 
-'abstract factory' pattern, but saves you from having to declare a 
-method on the factory for instantiating instances of the type which needs to 
-be created polymorphically.
+Member class refinement is a lot like the 'abstract factory' pattern in
+other object-oriented languages, but it's a lot less verbose.
 
 Only `formal` and `default` member classes are subject to member class 
-refinement. A `formal` member class *must* be refined by concrete subtypes of the 
-type declaring the member class (rather like an `formal` method). A default 
-member class *may* be refined.
+refinement. A `formal` member class *must* be refined by concrete subtypes 
+of the type declaring the member class&mdash;just like a `formal` method or 
+attribute. A `default` member class *may* be refined&mdash;just like
+a `default` method or attribute.
 
 In a subtype of the type declaring the member class the member class 
 (i.e. in `FileReader.Buffer` from the example above) must:
+
 * be declared `actual`,
 * have the same name as the member class in the declaring type (`Buffer` in 
   the example),
