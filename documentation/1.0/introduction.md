@@ -308,7 +308,7 @@ Or it might be a getter/setter pair:
 
 In Ceylon, we don't need to write trival getters or setters which merely 
 mediate access to a field. The
-state of a class is always [completely abstracted](../classes/#abstracting_state_using_attributes) 
+state of a class is always [completely abstracted](../tour/classes/#abstracting_state_using_attributes) 
 from clients of the class: We can change a value attribute to a getter/setter 
 pair without breaking clients.
 
