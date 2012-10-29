@@ -14,9 +14,9 @@ tags: [release, progress, M4]
 
 Ceylon M4 "Analytical Engine" is now available for download, along with a 
 simultaneous compatible release of [Ceylon IDE][]. The compiler now 
-implements almost all of the language specification, for both Java and JavaScript
-virtual machines as execution environments. New Ceylon platform modules are available 
-in [Ceylon Herd][], the community module repository. 
+implements almost all of the language specification, for both Java and 
+JavaScript virtual machines as execution environments. New Ceylon platform 
+modules are available in [Ceylon Herd][], the community module repository. 
 
 You can download the Ceylon command line distribution here:
 
@@ -64,9 +64,9 @@ on the Eclipse platform. This release of Ceylon IDE introduces:
 
 * support for JavaScript compilation and execution,
 * module import completion,
-* a repository vew,
-* support for Maven repositories,
-* more than 70 features and bug fixes.
+* the brand new Ceylon Repository Explorer view,
+* support for Maven repositories, and
+* more than 30 other improvements and bug fixes.
 
 Ceylon IDE M4 requires Java 7. Users of Ceylon IDE on Mac OS should 
 install [Eclipse Juno](http://eclipse.org/juno/). Users on other 
@@ -79,14 +79,14 @@ The Ceylon command-line tools and IDE both support compilation to
 either or both of the JVM or JavaScript.
 
 Ceylon programs compiled to JavaScript execute on standard JavaScript 
-virtual machines. The Ceylon command line distribution and IDE include a 
-launcher for running Ceylon programs on Node.js.
+virtual machines. The Ceylon command line distribution and IDE include 
+a launcher for running Ceylon programs on Node.js.
 
 ### Interoperation with Java
 
-Interoperation with Java code is robust and well-tested. This
-release fixes a number of bugs and corner cases that affected Java
-interoperation in the previous release. Ceylon now requires Java 7.
+Interoperation with Java code is robust and well-tested. As usual, 
+this release fixes several bugs that affected Java interoperation in 
+the previous release.
 
 Contrary to previous releases, the JDK is no longer automatically
 imported, so you need to import the JDK using the modularised JDK
@@ -98,9 +98,10 @@ The following new platform modules are now available in [Ceylon Herd][]:
 
 * `ceylon.net` provides URI and HTTP support
 * `ceylon.io` provides charset and socket (blocking and non-blocking) support
-* `ceylon.json` provides JSON parsing and serialising support
-* `ceylon.collection` collection implementations organized into mutable array-based collections, 
-mutable hashtable-based collections and immutable linked-list based collections
+* `ceylon.json` provides JSON parsing and serialization
+* `ceylon.collection` collection implementations organized into mutable array-based 
+  collections, mutable hashtable-based collections and immutable linked-list based 
+  collections
 
 The language module, `ceylon.language` is included in the distribution.
 
