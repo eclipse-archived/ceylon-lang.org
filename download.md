@@ -87,7 +87,7 @@ Mac OS X users running the [Homebrew package manager](http://mxcl.github.com/hom
 Instructions for getting started are contained in the file
 `README.md` in the root directory of the distribution, or
 [right here in GitHub][ceylon-dist readme]. To know what's 
-precisely in the release, read our [announcement][minitel].
+precisely in the release, read our [announcement][M4].
 
 [ceylon-dist readme]: https://github.com/ceylon/ceylon-dist/blob/master/README.md 
 
