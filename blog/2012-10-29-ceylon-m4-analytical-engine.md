@@ -40,6 +40,7 @@ including the following new features compared to M3:
 * [new syntax for package and module descriptors](/documentation/1.0/reference/structure/module/#descriptor)
 * [assertions](/documentation/1.0/reference/statement/assert/)
 * [condition lists](/documentation/1.0/reference/statement/conditions/#condition_lists)
+* support for calling super-interface implementations of refined members
 * [maven repositories](/documentation/1.0/reference/repository/#legacy_repositories)
 * [pluggable command-line tools, git-style](/documentation/1.0/reference/tool/ceylon/)
 * [better support for optional types in Java](/documentation/1.0/reference/interoperability/java-from-ceylon/#calling_java_code_with_unsafe_nulls_milestone_4)
