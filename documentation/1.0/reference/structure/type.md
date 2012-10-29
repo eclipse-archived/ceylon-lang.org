@@ -73,8 +73,8 @@ You can define an alias for a type using the `alias` keyword:
 
     alias BasicType = String|Character|Integer|Float|Boolean;
     
-It is also possible to define [class aliases](../class#alliases)
- and [interface aliases](../interface#alises) 
+It is also possible to define [class aliases](../class#aliases)
+ and [interface aliases](../interface#aliases) 
  using an assignment, for example:
 
     interface Strings = Collection<String>;
