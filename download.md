@@ -16,7 +16,7 @@ This package contains the Ceylon command line compiler for Java and
 JavaScript virtual machines, the documentation compiler, the language 
 module, and the module runtime.
 
-[M4]: /blog/2012/10/25/ceylon-m4-analytical-engine?utm_source=download&utm_medium=web&utm_content=blog&utm_campaign=latestrelease
+[M4]: /blog/2012/10/29/ceylon-m4-analytical-engine?utm_source=download&utm_medium=web&utm_content=blog&utm_campaign=latestrelease
 
 <table>
     <tr>
