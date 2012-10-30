@@ -88,13 +88,13 @@ structures. This is especially useful for creating user interfaces:
 
 <!-- try: -->
 <!-- check:none -->
-    Table table {
+    table=Table {
         title="Squares";
         rows=5;
-        Border border {
+        border=Border {
             padding=2;
             weight=1;
-        }
+        };
         Column {
             heading="x";
             width=10;
@@ -109,14 +109,14 @@ structures. This is especially useful for creating user interfaces:
                 return (row**2).string;
             }
         }
-    }
+    };
 
 But it's much more generally useful, forming a great foundation for 
 expressing everything from build scripts to test suites:
 
 <!-- try: -->
 <!-- check:none -->
-    Suite tests {
+    tests=Suite {
         Test { 
             name = "sqrt() function";
             void run() {
@@ -133,7 +133,7 @@ expressing everything from build scripts to test suites:
                 assert(sqr(3)==9);
             }
         }
-    }
+    };
 
 Any framework that combines Java and XML requires special purpose-built 
 tooling to achieve type-checking and authoring assistance. Ceylon frameworks
