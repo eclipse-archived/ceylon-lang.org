@@ -88,22 +88,22 @@ structures. This is especially useful for creating user interfaces:
 
 <!-- try: -->
 <!-- check:none -->
-    table=Table {
-        title="Squares";
-        rows=5;
-        border=Border {
-            padding=2;
-            weight=1;
+    Table table = Table {
+        title = "Squares";
+        rows = 5;
+        border = Border {
+            padding = 2;
+            weight = 1;
         };
         Column {
-            heading="x";
-            width=10;
+            heading = "x";
+            width = 10;
             String content(Integer row) {
                 return row.string;
             }
         },
         Column {
-            heading="x**2";
+            heading = "x**2";
             width=10;
             String content(Integer row) {
                 return (row**2).string;
@@ -116,7 +116,7 @@ expressing everything from build scripts to test suites:
 
 <!-- try: -->
 <!-- check:none -->
-    tests=Suite {
+    Suite tests = Suite {
         Test { 
             name = "sqrt() function";
             void run() {
