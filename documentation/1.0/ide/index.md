@@ -20,10 +20,11 @@ software company contributing to the Ceylon project.
 
 The plugin provides the following features, among others:
 
-* Ceylon perspective
+* Ceylon perspective with Ceylon Explorer view
 * Incremental compilation and interactive error reporting
 * Inter-compilation with Java
-* [Run / Debug](screenshots#ceylon_launcher_dialog)
+* Optional compilation to JavaScript
+* [Run / Debug](screenshots#ceylon_launcher_dialog) to execute on JVM or Node.js
 * Customizable [syntax highlighting](screenshots#syntax_highlighting_and_outline_view)
 * [Outline view](screenshots#syntax_highlighting_and_outline_view) 
   and popup outline
@@ -37,6 +38,7 @@ The plugin provides the following features, among others:
 * [Hyperlink navigation](screenshots#hyperlink_navigation) to 
   declarations in Ceylon and Java
 * Auto indentation and Correct Indentation
+* Ceylon Repository Explorer view
 * New wizards: [New Ceylon Source File](screenshots#new_ceylon_unit_wizard),
   [New Ceylon Project](screenshots#new_ceylon_project_wizard),
   [New Ceylon Module](screenshots#new_ceylon_module_wizard), and 
@@ -46,6 +48,7 @@ The plugin provides the following features, among others:
 * Multi-project incremental build and cross-project search, 
   navigation, and refactoring
 * Export Ceylon Module to Module Repository wizard
+* Export Java Archive to Module Repository wizard
 * Integration with Ceylon Herd
 * [Open Ceylon Declaration dialog](screenshots#open_ceylon_declaration_dialog)
 * [Ceylon Search dialog](screenshots#ceylon_search_dialog)
