@@ -351,8 +351,8 @@ construct.
 
 Similarly, there's no `ClassCastException` in Ceylon. Instead, the 
 `if (is ...)` and `case (is ...)` constructs test and narrow the type of
-a value in a single step. Indeed, the code above is really just a shortcut
-way of writing the following: 
+a value in a single step. Indeed, the code above is really just a clearer
+way of writing the following:
 
 <!-- try-post:
 
@@ -410,7 +410,7 @@ And we can write a `switch` statement that handles all the enumerated subtypes:
     case (is Leaf) { ... }
     case (is Branch) { .... }
 
-Now, if we add a new subtype of `Node`, we must add the new the subtype to the
+Now, if we add a new subtype of `Node`, we must add the new subtype to the
 `of` clause of the declaration of `Node`, and the compiler will produce an error
 at every `switch` statement which doesn't handle the new subtype.
 
