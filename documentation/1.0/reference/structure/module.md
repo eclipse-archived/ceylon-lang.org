@@ -19,8 +19,8 @@ An example module descriptor:
 
 <!-- check:none -->
 <!-- try: -->
-    module com.example.foo 1.2.0 {
-        import com.example.bar 3.4.1
+    module com.example.foo '1.2.0' {
+        import com.example.bar '3.4.1';
     }
     
 Conventionally this would be in a source file located in
@@ -46,9 +46,9 @@ name is the same as the module name). Here's an example:
 <!-- check:none -->
 <!-- try: -->
     doc "An example module."
-    module com.example.foo 1.2.0 {
-        import com.example.bar 3.4.1
-        import org.example.whizzbang 0.5;
+    module com.example.foo '1.2.0' {
+        import com.example.bar '3.4.1';
+        import org.example.whizzbang '0.5';
     }
 
 The `module` declaration may be preceeded by [annotations](../annotation), including:
