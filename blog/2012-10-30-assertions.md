@@ -9,7 +9,7 @@ tags:
 
 A distinguishing characteristic of Ceylon is that exceptions aren't used 
 to represent programming errors. Well, that statement is a little vague 
-or even overly-broad, so let me make it more concrete with a couple of 
+or even over-broad, so let me make it more concrete with several 
 examples of exceptions that I think always indicate a programming error 
 in Java:
 
@@ -17,7 +17,7 @@ in Java:
 - `ClassCastException`
 - `IndexOutOfBoundsException`
 
-The bit problem with these exceptions is that they undermine the static
+The big problem with these exceptions is that they undermine the static
 type system.
 
 Sure, all exceptions work around the type system&mdash;that's basically
