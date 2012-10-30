@@ -135,15 +135,16 @@ The documentation appears in the assertion failure message.
 This documentation becomes especially useful if start using Extract 
 Function to refactor this code:
 
-    value arg = process.arguments[1];
-    if (process.arguments.size>=3) {
-        printSecondArg(arg);
-    }
     
     void printSecondArg(String? arg) {
         doc "second argument must be provided"
         assert(exists arg);
         print(arg);
+    }
+    
+    value arg = process.arguments[1];
+    if (process.arguments.size>=3) {
+        printSecondArg(arg);
     }
 
 In future, the Ceylon documentation tool will automatically include 
