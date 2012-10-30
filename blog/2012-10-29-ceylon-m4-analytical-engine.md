@@ -1,6 +1,6 @@
 ---
 title: Ceylon M4 and Ceylon IDE M4 released!
-author: Stéphane Épardaud
+author: St&eacute;phane &Eacute;pardaud
 layout: blog
 unique_id: blogpage
 tab: blog
