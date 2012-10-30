@@ -70,7 +70,7 @@ these narrow the type of a reference in the statements following the `assert`.
 ### Condition lists
 
 <!-- m4 -->
-The condition in an `while` statement can also be a
+The condition in an `assert` statement can also be a
 [condition list](../conditions#condition_lists).
 
 The difference between a 
@@ -91,7 +91,7 @@ TODO
 
 ## See also
 
-* The [`if` statement](../if) statement and the [`throw` statement] (../throw)
+* The [`if` statement](../if) statement and the [`throw` statement](../throw)
   statement can be used together to achieve similar effects.
 <!-- TODO 
 * [`assert` in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#TODO)
