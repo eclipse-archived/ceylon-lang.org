@@ -16,6 +16,12 @@ actually writing code. In this section we're going to try to quickly show
 you enough of Ceylon to get you interested enough to actually try it out.
 This is *not* a comprehensive feature list!
 
+## Support for Java and JavaScript virtual machines
+
+Write your code in Ceylon, and have it run on the JVM, on Node.js, or in a 
+web browser. Some modules are platform-dependent, but the language itself
+is equally at home on Java and JavaScript virtual machines.
+
 ## A familiar, readable syntax
 
 Ceylon's syntax is ultimately derived from C. So if you're a C, Java, or C#
@@ -312,7 +318,7 @@ state of a class is always [completely abstracted](../tour/classes/#abstracting_
 from clients of the class: We can change a value attribute to a getter/setter 
 pair without breaking clients.
 
-## Typesafe null and safer type narrowing
+## Typesafe null and flow-dependent typing
 
 There's no `NullPointerException` in Ceylon, nor anything similar. Ceylon
 requires us to be explicit when we declare a value that might be null, or
@@ -366,6 +372,22 @@ way of writing the following:
         else {
             print("Hello, world!");
         }
+    }
+
+The ability to narrow the type of a value using conditions like `is` and
+`exists` is called _flow-dependent typing_. Another scenario where 
+flow-dependent typing comes into play is assertions:
+
+<!-- try: -->
+    if (`/` in string) {
+        value bits = string.split((Character c) c==`/`);
+		value first = split.first; //first may be null
+		value second = split.rest.first; //first may be null
+		assert (exists first); 
+		assert (exists second);
+		value firstLength = first.size; //first is not null
+		value secondLength = second.size; //first is not null
+		...
     }
 
 ## Enumerated subtypes
@@ -683,11 +705,15 @@ the module descriptor:
         import ceylon.file '0.3.1';
     }
 
-The Ceylon compiler directly produces `.car` module archives in module repositories.
-You're never exposed to unpackaged `.class` files.
+For execution on the Java Virtual Machine, the Ceylon compiler directly produces 
+`.car` module archives in module repositories. You're never exposed to unpackaged 
+`.class` files.
 
 At runtime, modules are loaded according to a peer-to-peer classloader architecture,
 based upon the same module runtime that is used at the very core of JBoss AS 7.
+
+For execution on JavaScript Virtual Machines, the Ceylon compiler produces CommonJS
+modules.
 
 [Ceylon Herd](http://modules.ceylon-lang.org) is a community module repository for
 sharing open source modules.
