@@ -20,7 +20,7 @@ in Java:
 The big problem with these exceptions is that they undermine the static
 type system.
 
-Sure, all exceptions work around the type system&mdash;that's basically
+Sure, all exceptions work around the type system—that's basically
 what we have exceptions _for_. And when you're talking about exceptions 
 that represent transient conditions that can legitimately occur in a 
 production system, and you're using the exception to transmit information 
@@ -85,7 +85,7 @@ scenario!
 
 Well, that's a great point, and it's exactly why we've introduced the
 `assert` statement in M4. An assertion failure, unlike an exception,
-always represents a programming error&mdash;in production code, an 
+always represents a programming error—in production code, an 
 assertion should never fail. 
 
 Now, sure, assertion failures _are_ represented by a kind of exception, 
