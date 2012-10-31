@@ -58,7 +58,7 @@ these narrow the type of a reference within the associated block.
 ### Condition lists
 
 <!-- m4 -->
-The condition in an `while` statement can also be a
+The condition in a `while` statement can also be a
 [condition list](../conditions#condition_lists).
 
 The difference between a 
