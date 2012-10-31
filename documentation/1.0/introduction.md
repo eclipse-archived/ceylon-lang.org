@@ -381,8 +381,11 @@ flow-dependent typing comes into play is assertions:
 <!-- try: -->
     if (`/` in string) {
         value bits = string.split((Character c) c==`/`);
-		value first = split.first; //first may be null
-		value second = split.rest.first; //first may be null
+		value first = split.first; //first may be null, according to its type
+		value second = split.rest.first; //first may be null, according to its type
+		//assert that first and second are in 
+		//fact _not_ null, since we happen to
+		//know that the string contains a /
 		assert (exists first); 
 		assert (exists second);
 		value firstLength = first.size; //first is not null
