@@ -109,7 +109,7 @@ or from Eclipse Marketplace:
         </a>
         </td>
         <td>Ceylon IDE</td>
-        <td>Eclipse Indigo</td>
+        <td>Eclipse Indigo (or Juno if on Mac OS X)</td>
         <td>
         <a href='http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=185799' 
            title='Drag and drop into a running Eclipse Indigo workspace to install Ceylon IDE' 
