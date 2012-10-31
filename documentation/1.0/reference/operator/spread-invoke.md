@@ -40,7 +40,7 @@ The `[].` operator is not [polymorphic](#{page.doc_root}/reference/operator/oper
 
 ## See also
 
-* [`[].` (spread attribute)](../spread attribute) operator, the equivalent of the 
+* [`[].` (spread attribute)](../spread-attribute) operator, the equivalent of the 
   spread method operator but for attributes;
 * [sequence operators](#{page.doc_root}/#{site.urls.spec_relative}#listmap) in the 
   language specification

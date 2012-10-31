@@ -32,11 +32,11 @@ more details.
 
 ### Polymorphism
 
-The `[x..]` operator is not [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
+The `[].` operator is not [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 
 ## See also
 
-* [`[].` (spread invoke)](../spread invoke) operator, the equivalent of the 
+* [`[].` (spread invoke)](../spread-invoke) operator, the equivalent of the 
   spread attribute operator but for methods;
 * [sequence operators](#{page.doc_root}/#{site.urls.spec_relative}#listmap) in the 
   language specification
