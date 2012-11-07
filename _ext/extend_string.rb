@@ -60,7 +60,13 @@ class String
     str = HTMLEntities.new.decode(str)
     String::ACCENTS_MAPPING.each {|letter,accents|
       packed = accents.pack('U*')
-      rxp = Regexp.new("[#{packed}]", nil)
+      if RUBY_VERSION.start_with?('1.8')
+        # Ruby 1.8 requires the UTF flag
+        rxp = Regexp.new("[#{packed}]", nil, 'U')
+      else
+        # Ruby 1.9 no longer support the UTF flag
+        rxp = Regexp.new("[#{packed}]", nil)
+      end
       str.gsub!(rxp, letter)
     }
     
