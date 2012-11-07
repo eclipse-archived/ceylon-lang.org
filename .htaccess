@@ -26,6 +26,8 @@ RewriteRule ^documentation/tour(.*)$ /documentation/current/tour$1
 # Redirect /documentation/current to /documentation/1.0
 RewriteRule ^documentation/current(.*)$ /documentation/1.0$1 [L]
 
+# Redirect improper URL for stephane epardaud to correct one
+RewriteRule ^blog/authors/styephane-yepardaud(.*)$ /blog/authors/stephane-epardaud$1
 
 # Redirect download links to GitHub
 RewriteRule ^download/dist/1_0_Milestone1$ "https\:\/\/github\.com\/downloads\/ceylon\/ceylon-dist\/ceylon-0\.1\.zip" [R=302,L]
