@@ -87,7 +87,7 @@ There's two things in particular to notice here:
    constructors in Ceylon. This syntax is less verbose and more regular than 
    Java or C#.
    
-2. We make can use of the parameters of a class anywhere within the body of 
+2. We make use of the parameters of a class anywhere within the body of 
    the class. In Ceylon, we often don't need to define explicit members of the 
    class to hold the parameter values. Instead, we can access the parameters
    `angle` and `radius` directly from the `rotate()` and `dilate()` methods, 

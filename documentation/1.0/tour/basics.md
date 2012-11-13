@@ -57,10 +57,10 @@ Let's try it out. Save the above code in the file `./source/hello.ceylon`
 and then run the following commands:
 
 <!-- lang: bash -->
-    ceylon-0.3/bin/ceylon compile source/hello.ceylon
-    ceylon-0.3/bin/ceylon run --run hello default
+    ceylon-0.4/bin/ceylon compile source/hello.ceylon
+    ceylon-0.4/bin/ceylon run --run hello default
 
-where `ceylon-0.3` is the path to your Ceylon install directory. You should
+where `ceylon-0.4` is the path to your Ceylon install directory. You should
 see the message `Hello, World!`. You will find the compiled module archive 
 `default.car` in the directory `./modules/default`.
 
@@ -72,8 +72,8 @@ and running the simple examples in the `samples/` directory.*
 A very useful trick is:
 
 <!-- lang: bash -->
-    ceylon-0.3/bin/ceylon help compile
-    ceylon-0.3/bin/ceylon help run
+    ceylon-0.4/bin/ceylon help compile
+    ceylon-0.4/bin/ceylon help run
 
 In fact the 
 [ceylon help](../../reference/tool/ceylon/subcommands/ceylon-help.html) command 

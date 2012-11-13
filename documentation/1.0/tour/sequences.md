@@ -221,7 +221,7 @@ return a value. There is only one possible way that such an operation can
 terminate: by throwing an exception.
 
 Another cool thing to notice here is the return type of the 
-[`first`]](#{site.urls.apidoc_current}/ceylon/language/interface_Empty.html#first) and 
+[`first`](#{site.urls.apidoc_current}/ceylon/language/interface_Empty.html#first) and 
 [`item()`](#{site.urls.apidoc_current}/ceylon/language/interface_Empty.html#item)
 operations of `Empty`. You might have been expecting to see `Bottom?` 
 here, since they override supertype members of type `T?`. But as we saw in 
