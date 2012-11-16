@@ -170,3 +170,50 @@ function postSyntaxHighlighting(){
 		}
 	});
 }
+
+// Roadmap
+
+function loadMilestone(div, title, json){
+    var open = json.data.open_issues;
+    var closed = json.data.closed_issues;
+    var percentage = 100 * closed / (open + closed);
+    var milestone = json.data.title;
+    makeMilestoneDiv(div, title, open, closed, milestone);
+}
+
+function makeMilestoneDiv(div, title, open, closed, milestone){
+	var percentage = 100 * closed / (open + closed);
+	div.empty();
+	
+	if(title != null){
+		jQuery("<div/>").addClass("title").text(title + ": " + milestone).appendTo(div);
+	}
+	jQuery("<div/>").addClass("count").text("closed: " + closed + " — open: " + open).appendTo(div);
+
+	var bar = jQuery("<div/>").attr('class', 'progress-bar');
+	var progress = jQuery("<div/>").attr({'class': 'progress', 'style': 'width: ' + percentage + '%;'}).appendTo(bar);
+	jQuery("<div/>").addClass('text').text(Math.round(percentage) + "%").appendTo(progress);
+	div.append(bar);
+	
+	div.addClass("milestone-progress");
+}
+
+jQuery(function (){
+	var $overall = jQuery("#milestone-overall");
+	makeMilestoneDiv($overall, null, 100, 0);
+	var open_total = 0;
+	var closed_total = 0;
+	
+	jQuery("div[data-milestone]").each(function (index, elem){
+		var $elem = jQuery(elem);
+        var title = $elem.attr("data-title");
+		var url = $elem.attr("data-milestone");
+		makeMilestoneDiv($elem, title, 100, 0, "M5");
+		jQuery.getJSON(url, function(json){
+		    open_total += json.data.open_issues;
+		    closed_total += json.data.closed_issues;
+			loadMilestone($elem, title, json);
+			makeMilestoneDiv($overall, null, open_total, closed_total);
+		});
+	});
+});

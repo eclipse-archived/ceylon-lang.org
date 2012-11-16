@@ -23,6 +23,17 @@ However, our roadmap is quite well-defined:
   - [Milestone 5](#milestone_5_ceylon_10)
 - [Ceylon 1.1](#ceylon_11_or_later)
 
+## Current progress for M5
+
+<div id="milestones-progress">
+    <div id="milestone-overall">Loading…</div>
+    <h3>Detail</h3>
+    <div data-title="Ceylon compiler frontend — Language specification" data-milestone="https://api.github.com/repos/ceylon/ceylon-spec/milestones/5?callback=?">Loading…</div>
+    <div data-title="Ceylon compiler — JVM backend" data-milestone="https://api.github.com/repos/ceylon/ceylon-compiler/milestones/5?callback=?">Loading…</div>
+    <div data-title="Ceylon compiler — JS backend" data-milestone="https://api.github.com/repos/ceylon/ceylon-js/milestones/3?callback=?">Loading…</div>
+    <div data-title="ceylon.language module" data-milestone="https://api.github.com/repos/ceylon/ceylon.language/milestones/5?callback=?">Loading…</div>
+</div>
+
 ## Milestone 1 _DONE_
 
 Milestone 1 has been released.

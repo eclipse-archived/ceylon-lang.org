@@ -1021,3 +1021,49 @@ p.screenshot {
   margin: 1em;
  }
 }
+
+#milestones-progress {
+    .milestone-progress {
+        width: 400px;
+        margin-bottom: 1em;
+    }
+    #milestone-overall {
+        width: 600px;
+    }
+    .milestone-progress > * {
+        margin-bottom: 0.5em;
+    }
+    .title {
+        font-weight: bold;
+        font-size: bigger;
+    }
+    .count {
+        color: gray;
+    }
+    .progress-bar {
+        height: 30px;
+        border-radius: 3px;
+        background: #E2E2E2;
+        background: -moz-linear-gradient(#E2E2E2, #D8D8D8);
+        background: -webkit-linear-gradient(#E2E2E2, #D8D8D8);
+        background: linear-gradient(#E2E2E2, #D8D8D8);
+    }
+    .progress {
+        position: relative;
+        height: 30px;
+        border-radius: 3px 0 0 3px;
+        background: #8DCF16;
+        background: -moz-linear-gradient(#8DCF16, #65BD10);
+        background: -webkit-linear-gradient(#8DCF16, #65BD10);
+        background: linear-gradient(#8DCF16, #65BD10);
+        font-size: 16px;
+        font-weight: bold;
+        color: white;
+        text-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
+    }
+    .progress .text {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+    }
+}
