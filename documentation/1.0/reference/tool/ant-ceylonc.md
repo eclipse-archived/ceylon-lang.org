@@ -1,4 +1,4 @@
----
+v---
 layout: reference
 title: '`<ceylonc>` Ant task'
 tab: documentation
@@ -71,8 +71,11 @@ required.
 
 <tr>
 <td><code>verbose</code></td>
-<td>Whether the compiler should emit verbose logging information.</td>
-<td>No, default is <i>false</i></td>
+<td>Whether the compiler should emit verbose logging information. This accepts 
+the same flags as `ceylon compile`'s `--verbose` option, plus the values
+`true`, `yes` and `on` which have the same effect `--verbose` with no flags, 
+which is to be verbose about everything.</td>
+<td>No, default is to not emit verbose logging</td>
 </tr>
 
 <tr>
