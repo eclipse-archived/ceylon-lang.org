@@ -17,6 +17,19 @@ In order to make it easier for you to figure out if you hit a known M4 bug, and 
 work around it, we've made a list. Check it out, and if you can't find your bug, don't hesitate
 to [report it](/code/issues/). 
 
+## Command-line tools (<code>ceylon</code>)
+
+<div class="known-issue">
+<a class="see" href="https://github.com/ceylon/ceylon-compiler/issues/875">See issue</a>
+<div class="title"><code>ceylon</code> command line does not respect <code>JAVA_HOME</code> on Windows.</div>
+<b>Workaround:</b>
+<div class="workaround">
+ Either configure Java properly so that the registry points to your JDK 7 installation (the default
+ when using the installer), or replace the <code>bin\java.bat</code> of your unpacked Ceylon distribution with 
+ <a href="https://github.com/ceylon/ceylon-compiler/raw/master/bin/java.bat">https://github.com/ceylon/ceylon-compiler/raw/master/bin/java.bat</a>
+</div>
+</div>
+
 ## JVM Compiler (<code>ceylon compile</code>)
 
 <div class="known-issue">
