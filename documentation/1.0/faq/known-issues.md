@@ -39,6 +39,23 @@ to [report it](/code/issues/).
 <div class="workaround">None</div>
 </div>
 
+<div class="known-issue">
+<a class="see" href="https://github.com/ceylon/ceylon-compiler/issues/872">See issue</a>
+<div class="title">Class fails to compile if it implements the same interface twice in its hierarchy, and interface contains
+non-<code>formal</code> and non-<code>default</code> methods.</div>
+<b>Workaround:</b>
+<div class="workaround">Make these interface methods <code>default</code></div>
+</div>
+
+<div class="known-issue">
+<a class="see" href="https://github.com/ceylon/ceylon-compiler/issues/868">See issue</a>
+<div class="title">Toplevel methods and classes cannot be run (from the IDE or command-line) if they contain optional
+parameters.</div>
+<b>Workaround:</b>
+<div class="workaround">Invoke a toplevel method that takes no optional parameter which invokes your toplevel method or class that
+has optional parameters.</div>
+</div>
+
 ## JavaScript Compiler (<code>ceylon compile-js</code>)
 
 No known issue.
