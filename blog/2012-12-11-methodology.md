@@ -79,10 +79,11 @@ times as dumb and brief:
   the best ways ever to go about it. On the other hand, if a formal spec won't 
   help you understand your software, don't write it. Either way, write lots 
   and lots of tests for user-visible behavior. Oh and if you need to, write 
-  some unit tests for really complex internal subsystems - but not too many, 
+  some unit tests for really complex internal subsystems&#x2014;but not too many, 
   'cos that's code you don't really absolutely need that you'll still have 
   to maintain and refactor.
 * Sure, it's great to be able to get up and started quickly. But be careful
   with platforms that are inexpensive up front and get more expensive as the 
-  system grows and evolves and the team members change *cough* dynamic typing *cough*.
+  system grows and evolves and the team members change&#x2014;*cough* 
+  dynamic typing *cough*.
 * What are you even still doing here? Don't you have code to write?
