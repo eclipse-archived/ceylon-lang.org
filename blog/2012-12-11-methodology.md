@@ -50,12 +50,12 @@ will ever make it to the fifth, and most important, bullet point.
 
 A good product:
 
-(1) solves an interesting problem,
-(2) with a set of feature that are as general and orthogonal as possible,
-(3) whose behavior is sufficiently well-defined and well-tested,
-(4) using tools and technologies that will help you change and extend the 
-    product in the future, and
-(5) and can be delivered to your users as fast as humanly fucking possible.
+1. solves an interesting problem,
+2. with a set of feature that are as general and orthogonal as possible,
+3. whose behavior is sufficiently well-defined and well-tested,
+4. using tools and technologies that will help you change and extend the 
+   product in the future, and
+5. and can be delivered to your users as fast as humanly fucking possible.
 
 (I had to put a naughty word in my manifesto to let you guys know how 
 serious I am about this and as a shout out to my GeeCON peeps.)
