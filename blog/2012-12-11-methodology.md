@@ -1,12 +1,3 @@
----
-title: The Methodology Luddite Manifesto
-author: Gavin King
-layout: blog
-unique_id: blogpage
-tab: blog
-tags:
----
-
 I'm a proud methodology hater. As soon as you guys start talking about 
 process, about _how_ to build software, my eyes glaze over. I can't 
 prove it, but I at least _hypothesize_ that the practical usefulness 
