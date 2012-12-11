@@ -55,16 +55,16 @@ A good product:
 3. whose behavior is sufficiently well-defined and well-tested,
 4. using tools and technologies that will help you change and extend the 
    product in the future, and
-5. and can be delivered to your users as fast as humanly fucking possible.
+5. can be delivered to your users as fast as humanly fucking possible.
 
 (I had to put a naughty word in my manifesto to let you guys know how 
 serious I am about this and as a shout out to my GeeCON peeps.)
 
-Since this post is already much too long for its URL to fit in bit.ly, and 
+Since this post is already much too long for its URL to fit in `bit.ly`, and 
 because I'm already running out of electrons, and because my fingertips are 
 sore from all this rapid keypressing, I'm not going to bore your 
 social-media-retarded brain with any substantial quantity of words explaining
-what I mean by each bullets. Instead I'm just going to briefly boil it down 
+what I mean by each bullet. Instead I'm just going to briefly boil it down 
 to some dumb shit that would like almost fit in twitter if it were three 
 times as dumb and brief:
 
