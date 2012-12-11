@@ -17,7 +17,7 @@ prescriptive one. That would be the _null methodology_, simply stated as:
 > Please stop wasting valuable electrons with your silly amateur 
 > philosophizing and go and do some real work!
 
-(Here's a popular [alternative formulation=>http://stfuawsc.com/].)
+(Here's a popular [alternative formulation](http://stfuawsc.com/).)
 
 An additional advantage of the null methodology is that it's usually 
 quite inexpensive to implement. You don't need any certified scum masters 
