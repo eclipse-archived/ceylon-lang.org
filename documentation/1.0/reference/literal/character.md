@@ -11,7 +11,7 @@ doc_root: ../../..
 
 ## Usage 
 
-A `Character` literal is a single character enclosed between backticks (`\``), 
+A `Character` literal is a single character enclosed between backticks (`` ` ``), 
 for example:
 
 
@@ -33,7 +33,7 @@ you can use unicode escapes within character literals, like this:
 Backslash is used as an escape character. The following characters must be 
 escaped when they're used in a `Character` literal:
 
-* backtick ( \` ), escaped as \`\
+* backtick (\`), escaped as `` \` ``
 * backslash (`\`), escaped as `\\`
 * tab, escaped as `\t`
 * formfeed, escaped as `\f`
