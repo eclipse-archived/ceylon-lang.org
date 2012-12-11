@@ -1,11 +1,3 @@
----
-title: Ceylon M4 and Ceylon IDE M4 released!
-author: St&#233;phane &#201;pardaud
-layout: blog
-unique_id: blogpage
-tab: blog
-tags: [release, progress, M4]
----
 
 [M4]: /documentation/1.0/roadmap/?utm_source=blog&utm_medium=web&utm_content=roadmap_m4&utm_campaign=latestrelease#milestone_4_done
 [Ceylon Herd]: http://modules.ceylon-lang.org?utm_source=blog&utm_medium=web&utm_content=ide&utm_campaign=latestrelease
