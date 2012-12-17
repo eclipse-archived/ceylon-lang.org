@@ -30,6 +30,7 @@ author: Stephane Epardaud
 ## Setting up Eclipse
 
 - Import all projects (except ceylon-dist) into Eclipse (see [README.eclipse](https://github.com/ceylon/ceylon-compiler/blob/master/README.eclipse) in ceylon-compiler)
+- Configure Eclipse's code formatting for the project's minimal [coding style](#coding_style).
 - In Eclipse, run the unit tests: `com.redhat.ceylon.compiler.test.AllTests`
 
 ## Forking a project
@@ -180,3 +181,36 @@ We have the following types of tests:
 1. If there is already a visitor method for the tree node type that fails (see the tree dump), find its transform() method to fix it
 1. If not, add a visitor method for the failing tree node and a transform() method for it
 1. Run the test and repeat until fixed
+
+## Coding Style
+
+We're not very hung up about coding styles. The main requirement is that it's 
+easy to read. The best piece of advice is to try to mimic the style of 
+existing sources.
+
+There are two stylistic things which will probably result 
+us asking a contributor to amend a pull request:
+
+1. Indentation should be 4 spaces (and no tabs)
+1. Use of braces should follow the One True Brace Style. In other words:
+    * an opening brace is always on the same line as (the last bit of) the 
+      statement or declaration it's delimiting the block of, 
+    * a closing brace is on a line by itself, unless
+    * it is a closing brace in a clause of some larger statement, for example 
+      the closing brace before an `else` clause.
+      
+Here's an example:
+
+<!-- lang:java -->
+    void m(int num) {
+        if (num < 0) {
+            // ...
+        } else if (num > 0) {
+            // ...
+        } else {
+            // ...
+        }
+        
+    }
+
+
