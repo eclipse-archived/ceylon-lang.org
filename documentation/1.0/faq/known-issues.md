@@ -56,6 +56,14 @@ parameters.</div>
 has optional parameters.</div>
 </div>
 
+<div class="known-issue">
+<a class="see" href="https://github.com/ceylon/ceylon-compiler/issues/932">See issue</a>
+<div class="title">Interoperability with overloaded <code>toString</code>/<code>hashCode</code> methods.</div>
+<b>Workaround:</b>
+<div class="workaround">Write a Java class in your Ceylon module, with a static method that
+invokes the overloaded <code>toString</code> or <code>hashCode</code> method on your behalf.</div>
+</div>
+
 ## JavaScript Compiler (<code>ceylon compile-js</code>)
 
 No known issue.
