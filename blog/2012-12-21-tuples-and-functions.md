@@ -20,9 +20,10 @@ Now let´s see a more useful example:
 <!-- try: -->
     // convert a sequence of strings into a sequence of tuples with size, string
     // and number of uppercase letters
-    value results = ["Merry Christmas", "Happy Cheesy Holidays"]
-      .map((String s) [s.size, s, s.count((Character c) c.uppercase)]);
-    for(result in results){
+    Iterable<[Integer,String,Integer]> results = 
+        {"Merry Christmas", "Happy Cheesy Holidays"}
+            .map((String s) [s.size, s, s.count((Character c) c.uppercase)]);
+    for([Integer,String,Integer] result in results){
         Integer size = result[0];
         String s = result[1];
         Integer uppercaseLetters = result[2];
