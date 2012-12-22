@@ -29,6 +29,13 @@ Now let´s see a more useful example:
         print("Size: " size ", for: '" s "', uppercase letters: " uppercaseLetters "");
     }
 
+Which outputs:
+
+<!-- lang: none -->
+    Size: 15, for: 'Merry Christmas', uppercase letters: 2
+    Size: 21, for: 'Happy Cheesy Holidays', uppercase letters: 3
+
+
 As you can see, you can access each tuple element using the `Correspondence.item` syntax sugar `result[i]`,
 and that's because our `Tuple` type _satisfies_ `Sequence`, underneath.
 
