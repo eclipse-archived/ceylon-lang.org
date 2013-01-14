@@ -25,6 +25,7 @@ The plugin provides the following features, among others:
 * Inter-compilation with Java
 * Optional compilation to JavaScript
 * [Run / Debug](screenshots#ceylon_launcher_dialog) to execute on JVM or Node.js
+* [Powerful test framework graphical support](test-plugin)
 * Customizable [syntax highlighting](screenshots#syntax_highlighting_and_outline_view)
 * [Outline view](screenshots#syntax_highlighting_and_outline_view) 
   and popup outline
