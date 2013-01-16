@@ -64,6 +64,16 @@ has optional parameters.</div>
 invokes the overloaded <code>toString</code> or <code>hashCode</code> method on your behalf.</div>
 </div>
 
+<div class="known-issue">
+<a class="see" href="https://github.com/ceylon/ceylon-compiler/issues/965">See issue</a>
+<div class="title">Interfaces with JavaBean property-like method names.</div>
+<b>Workaround:</b>
+<div class="workaround">Do not write methods that conform to JavaBean property getter/setter
+names, like <code>isFoo()</code>/<code>getFoo()</code>/<code>setFoo(X x)</code> in interfaces.
+Rather define <code>formal</code> or <code>default</code> attributes in your interface, which
+will be compiled to JavaBean properties on the JVM.</div>
+</div>
+
 ## JavaScript Compiler (<code>ceylon compile-js</code>)
 
 No known issue.
