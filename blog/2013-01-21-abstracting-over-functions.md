@@ -9,23 +9,23 @@ tags:
 
 Last week, I was finally able to write the functions `compose()` and `curry()`
 in Ceylon and compile them with the Ceylon compiler. These functions are
-general purpose higher order functions that operator on other functions at a
-very high level of abstraction. In most programming language, it's very easy
+general purpose higher order functions that operate on other functions at a
+very high level of abstraction. In most programming languages, it's very easy
 to define a `compose()` function that works for functions with just one
 parameter. For example, in Ceylon:
 
     X compose<X,Y,Z>(X(Y) f, Y(Z) g)(Z z) => f(g(z));
 
-In this function signature, `f` and `g` are functions with one parameter where
-the return type of `g` is the same as the parameter type of `f`. The resulting
+In this function signature, `f()` and `g()` are functions with one parameter where
+the return type of `g()` is the same as the parameter type of `f()`. The resulting
 function is also a function with one parameter, and has the same return type 
-as `f` and the same parameter type as `g`.
+as `f()` and the same parameter type as `g()`.
 
     String format(Float|Integer number) { .... }
     value printf = compose(print,format);
     printf(1.0); //prints 1.0
 
-Now, things get trickier when `g` has more than one parameter. Imagine the
+Now, things get trickier when `g()` has more than one parameter. Imagine the
 following definition of `format()`:
 
     String format(String pattern, Float|Integer number) { .... }
@@ -39,8 +39,8 @@ represents function types. But first we're going to need to understand tuples.
 Tuples
 ------
 Ceylon recently grew tuples. I've heard all sorts of arguments for including
-tuples in the language, but the one that finally convinced me was the 
-realization that they were a simpler way to represent function types.
+tuples in the language, but what finally convinced me was realizing that they 
+were a simpler way to represent function types.
 
 So a major goal of adding tuples to the language was to add zero additional 
 complexity to the type system. So tuples are instances of an ordinary class,
@@ -87,16 +87,17 @@ Well, take a closer look at the verbose type of `point` again. The chain of
 "links" is terminated by `Empty`, Ceylon's empty sequence type. And the type 
 of `first` on `Empty` is `Null`. So we have:
 
-    Null missing = point.rest.rest.rest.first;
+    Null zippo = point.rest.rest.rest.first;
 
-That is, the expression is provably `null`.
+That is, the expression is provably `null`. Provable within the type system,
+that is.
 
 Of course, we don't want to make you write out suff like `point.rest.rest.first`
 whenever you need to get something out of a tuple. A tuple is a sequence, so 
 you can access its elements using the index operator, for example:
 
     Integer i = ... ;
-    Null|Float|String value = point[i];
+    Null|Float|String ith = point[i];
 
 But, as a special convenience, when the index is a literal integer, the compiler
 will treat it as if it were a chain of calls to `rest` and `first`:
@@ -104,7 +105,7 @@ will treat it as if it were a chain of calls to `rest` and `first`:
     Float x = point[0];
     Float y = point[1];
     String label = point[2];
-    Null missing = point[3];
+    Null zippo = point[3];
 
 A chain of `Tuple` instances doesn't need to be terminated by an `Empty`. It may,
 alternatively, be terminated by a nonempty sequence, any instance of `Sequence`.
@@ -129,19 +130,27 @@ types.
 
 Function types
 --------------
-An instance of `Callable` is a function.
+An instance of the interface `Callable` is a function.
 
     shared interface Callable<out Return, in Arguments> 
             given Arguments satisfies Anything[] {}
 
-Going back to our function `format()` above, it's type is:
+Going back to our function `format()` above, its type is:
 
     Callable<String,[String,Float|Integer]>
 
 You can see that we've represented the parameter types of the function using a
 tuple type. That is to say, Ceylon views a function as accepting a tuple of
-arguments, and producing a single value. Now consider a function with a variadic 
-argument:
+arguments, and producing a single value. Indeed, Ceylon even lets use write
+that explicitly:
+
+    [String,Float] args = ["%5.2f", 1.0];
+    print(format(*args));
+
+Here we "spread" the elements of the tuple `args` across the parameters of the
+function `format()`, just like you can do in some dynamically typed languages!
+
+Now consider a function with a variadic argument:
 
      String format(String pattern, Float|Integer* numbers) { .... }
 
@@ -162,7 +171,7 @@ types works out correctly:
 
 - a `String(Object)` is an instance of `Object(String)`,
 - a `String(String=)` is an instance of `String()` and of `String(String)`, and
-- a `String(String...)` is an instance of `String(), of `String(String)`, and of 
+- a `String(String...)` is an instance of `String()`, of `String(String)`, and of 
   `String(String,String)`.
 
 Function composition and currying
@@ -196,15 +205,26 @@ just look at an example of what they do:
 
 That is, `unflatten()` takes any function with any parameter list, and returns a 
 function that accepts a single tuple of the same length as the original parameter
-list. On the other hand, `flatten() does the opposite. It takes a function that 
-accepts a single tuple, and returns a function with a parameter list with the same 
+list. On the other hand, `flatten()` does the opposite. It takes a function that 
+accepts a single tuple, and returns a function with a parameter list of the same 
 length as the tuple.
 
 OK, now we can implement `compose()`:
 
-    shared Callable<X,Args> compose<X,Y,Args>(X(Y) x, Callable<Y,Args> y) 
+    shared Callable<X,Args> compose<X,Y,Args>(X(Y) f, Callable<Y,Args> g) 
             given Args satisfies Anything[]
-                   => flatten((Args args) => x(unflatten(y)(args)));
+                   => flatten((Args args) => f(unflatten(g)(args)));
+
+Perhaps I should unpack this slightly for readability:
+
+    shared Callable<X,Args> compose<X,Y,Args>(X(Y) f, Callable<Y,Args> g) 
+            given Args satisfies Anything[] {
+        X composed(Args args) {
+            Y y = unflatten(g)(args);
+            return f(y);
+        }
+        return flatten(composed);
+    }
 
 The definition of `curry()` is similarly dense:
 
