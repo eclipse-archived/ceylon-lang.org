@@ -171,7 +171,7 @@ types works out correctly:
 
 - a `String(Object)` is an instance of `Object(String)`,
 - a `String(String=)` is an instance of `String()` and of `String(String)`, and
-- a `String(String...)` is an instance of `String()`, of `String(String)`, and of 
+- a `String(String*)` is an instance of `String()`, of `String(String)`, and of 
   `String(String,String)`.
 
 Function composition and currying
