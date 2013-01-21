@@ -7,7 +7,7 @@ tab: blog
 tags:
 ---
 
-If you've worked with any programming langauge, you have gripes about 
+If you've worked with any programming language, you have gripes about 
 it. All design involves compromises, and all languages have warts. More
 interesting are the warts that are shared by many languages. Here's a
 short list of things that are extremely common in static type systems, 
@@ -24,20 +24,20 @@ inconvenient, we may as well just give up and go use a dynamic language.
 Non-denoteable types
 --------------------
 A non-denoteable type is a type which can't be written down in the 
-programming langauge itself. Many languages with sophisticated static
+programming language itself. Many languages with sophisticated static
 type systems require the use of non-denoteable types to typecheck the
 code. This almost guarantees that the programmer can't always reproduce 
 the compiler's reasoning, or understand the resulting error messages.
 
 Aggressively replacing unions with intersections
 ------------------------------------------------
-For some reason, there's some kind of predjudice against union types.
-Many compilers, when encountering something internally that is naturally 
-a union type, immediately attempt to replace it with the intersection of
-its supertypes. This doesn't make a whole lot of sense to me, since in
-these languages both unions and intersections are usually equally
-non-denoteable, and this operation involves throwing away a whole lot
-of useful information about the type.
+For some reason, there's some kind of prejudice against union types.
+Your typical compiler, upon encountering something internally that is 
+naturally a union type, immediately attempts to replace it with the 
+intersection of its supertypes. This doesn't make a whole lot of sense 
+to me, since in these languages both unions and intersections are 
+usually equally non-denoteable, and this operation involves throwing 
+away a whole lot of useful information about the type.
 
 Assigning references a single immutable type
 --------------------------------------------
