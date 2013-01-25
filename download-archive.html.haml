@@ -1,0 +1,149 @@
+---
+layout: default
+title: Download Previous Ceylon versions
+tab: download
+unique_id: downloadpage
+author: Stef
+---
+
+- latest = "M4 0.4"
+- releases = [{"name" => "Analytical Engine",
+               "version" => "M4 0.4",
+               "date" => "Oct 29 2012",
+               "size" => "15MB",
+               "files" => [{"name" => "Zip archive",
+                            "use" => "All Operating Systems",
+                            "href" => "/download/dist/1_0_Milestone4",
+                            "image" => "/images/download/package-zip.png"},
+                           {"name" => "RPM",
+                            "use" => "Fedora/Red Hat",
+                            "href" => "/download/dist/1_0_Milestone4_rpm",
+                            "image" => "/images/download/package-fedora.png"},
+                           {"name" => "Debian package",
+                            "use" => "Debian/Ubuntu",
+                            "href" => "/download/dist/1_0_Milestone4_deb",
+                            "image" => "/images/download/package-debian.png"},
+                            ]},
+              {"name" => "V2000",
+               "version" => "M3.1 0.3.1",
+               "date" => "Jul 6 2012",
+               "size" => "10MB",
+               "files" => [{"name" => "Zip archive",
+                            "use" => "All Operating Systems",
+                            "href" => "/download/dist/1_0_Milestone3_1",
+                            "image" => "/images/download/package-zip.png"},
+                           {"name" => "RPM",
+                            "use" => "Fedora/Red Hat",
+                            "href" => "/download/dist/1_0_Milestone3_1_rpm",
+                            "image" => "/images/download/package-fedora.png"},
+                           {"name" => "Debian package",
+                            "use" => "Debian/Ubuntu",
+                            "href" => "/download/dist/1_0_Milestone3_1_deb",
+                            "image" => "/images/download/package-debian.png"},
+                            ]},
+              {"name" => "V2000",
+               "version" => "M3 0.3",
+               "date" => "Jun 21 2012",
+               "size" => "10MB",
+               "files" => [{"name" => "Zip archive",
+                            "use" => "All Operating Systems",
+                            "href" => "/download/dist/1_0_Milestone3",
+                            "image" => "/images/download/package-zip.png"},
+                           {"name" => "RPM",
+                            "use" => "Fedora/Red Hat",
+                            "href" => "/download/dist/1_0_Milestone3_rpm",
+                            "image" => "/images/download/package-fedora.png"},
+                           {"name" => "Debian package",
+                            "use" => "Debian/Ubuntu",
+                            "href" => "/download/dist/1_0_Milestone3_deb",
+                            "image" => "/images/download/package-debian.png"},
+                            ]},
+              {"name" => "Minitel",
+               "version" => "M2 0.2",
+               "date" => "Mar 2 2012",
+               "size" => "7MB",
+               "files" => [{"name" => "Zip archive",
+                            "use" => "All Operating Systems",
+                            "href" => "/download/dist/1_0_Milestone2",
+                            "image" => "/images/download/package-zip.png"},
+                           {"name" => "RPM",
+                            "use" => "Fedora/Red Hat",
+                            "href" => "/download/dist/1_0_Milestone2_rpm",
+                            "image" => "/images/download/package-fedora.png"},
+                           {"name" => "Debian package",
+                            "use" => "Debian/Ubuntu",
+                            "href" => "/download/dist/1_0_Milestone2_deb",
+                            "image" => "/images/download/package-debian.png"},
+                            ]},
+              {"name" => "Newton",
+               "version" => "M1 0.1",
+               "date" => "Dec 20 2011",
+               "size" => "5.6MB",
+               "files" => [{"name" => "Zip archive",
+                            "use" => "All Operating Systems",
+                            "href" => "/download/dist/1_0_Milestone1",
+                            "image" => "/images/download/package-zip.png"},
+                           {"name" => "RPM",
+                            "use" => "Fedora/Red Hat",
+                            "href" => "/download/dist/1_0_Milestone1_rpm",
+                            "image" => "/images/download/package-fedora.png"},
+                           {"name" => "Debian package",
+                            "use" => "Debian/Ubuntu",
+                            "href" => "/download/dist/1_0_Milestone1_deb",
+                            "image" => "/images/download/package-debian.png"},
+                            ]},
+             ]
+
+%h1
+ = page.title
+
+%p
+ %a{ :href => "/blog/2012/10/29/ceylon-m4-analytical-engine?utm_source=download&utm_medium=web&utm_content=blog&utm_campaign=latestrelease" }
+  Ceylon M4 "Analytical Engine"
+ is the latest release of the language, command line tools and IDE, but if you need older versions of the Command-line distribution,
+ you can find them all here.
+
+%h2 Command line tools
+
+%p
+ This package contains the Ceylon command line compiler for Java and JavaScript virtual machines, the documentation compiler, 
+ the language module, and the module runtime.
+
+%p
+ Go directly to a release:
+ %select{ :onchange => "window.location.hash = this.options[this.selectedIndex].value;" }
+  - for release in releases
+   %option{ :value => release["version"] }
+    Ceylon #{release["version"]} "#{release["name"]}"
+
+- for release in releases
+ - if release["version"] != latest
+  %hr/
+ %i{ :style => "float:right" }
+  Released on #{release["date"]}
+ %h3{:id => release["version"]}
+  Ceylon #{release["version"]} "#{release["name"]}"
+  - if release["version"] == latest
+   (Latest Release)
+ %table
+  - for file in release["files"]
+   %tr
+    %td
+     %a{ :href => file["href"], 
+         :title => 'Download the ' + file["name"],
+         :onClick => "javascript: _gaq.push(['_trackPageview', '" + file["href"] + "?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);"}
+      %img{ :src => file["image"], 
+            :style => "vertical-align: middle; float: right; margin-right: 0.5em" }
+    %td
+     = file["name"]
+    %td
+     = file["use"]
+    %td
+     = release["size"]
+    %td
+     %a{ :href => file["href"], 
+         :title => 'Download the ' + file["name"],
+         :style => 'font-weight:bold;text-decoration:none',
+         :onClick => "javascript: _gaq.push(['_trackPageview', '" + file["href"] + "?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);"}
+      download
+   

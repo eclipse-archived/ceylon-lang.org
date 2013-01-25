@@ -126,3 +126,6 @@ After installing, go to `Help > Welcome to Ceylon` to get started.
 
 The source [code](/code) is available from [GitHub](http://github.com/ceylon).
 
+## Looking for older releases?
+
+You can download every [previous Ceylon release](/download-archive).
