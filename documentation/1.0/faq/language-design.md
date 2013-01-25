@@ -492,7 +492,6 @@ properties of the type system:
 * transitivity of the assignability relationship,
 * distributivity of the assignability relationship over covariant
   container types,
-* covariance of generic types,
 * the semantics of the identity `===` operator, and
 * the ability to infer generic type arguments of an invocation or 
   instantiation.
