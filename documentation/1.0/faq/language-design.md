@@ -513,6 +513,7 @@ Back to our first example, Java's special-case implict type
 conversion of `Object` to `String` actually breaks the 
 associativity of the `+` operator! Quick, what does this do:
 
+<!-- lang: java -->
     print("1 + 1 = " + 1 + 1);
 
 All this additional complexity, just to avoid _one method call?_
