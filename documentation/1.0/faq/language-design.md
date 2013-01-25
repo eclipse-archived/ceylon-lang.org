@@ -509,6 +509,12 @@ make use of temporal state. Thus, the observable behavior of the
 program can depend upon precisely where and how the compiler 
 introduces these "magic" calls.
 
+Back to our first example, Java's special-case implict type
+conversion of `Object` to `String` actually breaks the 
+associativity of the `+` operator! Quick, what does this do:
+
+    print("1 + 1 = " + 1 + 1);
+
 All this additional complexity, just to avoid _one method call?_
 
 ### Extension methods
