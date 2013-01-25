@@ -490,6 +490,8 @@ implicit type conversions that preserves the following important
 properties of the type system:
 
 * transitivity of the assignability relationship,
+* distributivity of the assignability relationship over covariant
+  container types,
 * covariance of generic types,
 * the semantics of the identity `===` operator, and
 * the ability to infer generic type arguments of an invocation or 
@@ -498,19 +500,28 @@ properties of the type system:
 Implicit type conversion is designed to look a little bit like
 subtyping to the user of an API, but it's _not_ subtyping, it 
 doesn't obey the rules of subtyping, and it screws up the simple 
-intuitive relationship between subtyping and assignability. (In 
-Ceylon, "`A` is assignable to `B`" is equivalent to "`A` is a 
-subtype of `B`", always, everywhere, and transitively!)
+intuitive relationship between subtyping and assignability.
 
-Finally, user-defined implicit type conversions work by having the 
-compiler introduce hidden invocations of arbitrary user-written 
-procedural code, code that could potentially have side-effects or 
-make use of temporal state. Thus, the observable behavior of the 
-program can depend upon precisely where and how the compiler 
-introduces these "magic" calls.
+For example, an implicit conversion doesn't "distribute over" a 
+container type. If `A` is assignable to `B`, then we expect a 
+`List<A>` to be a `List<B>`. And we might expect the expression 
+`List(b,a)` to be of inferred type `List<B>`. Neither of these 
+expectations are well-founded in a type system with implicit 
+conversions.
 
-Back to our first example, Java's special-case implict type
-conversion of `Object` to `String` actually breaks the 
+In Ceylon, you can trust your intuitions about subtyping and
+assignability because "`A` is assignable to `B`" is equivalent to 
+"`A` is a subtype of `B`", always, everywhere, and transitively!
+
+It gets worse. User-defined implicit type conversions work by 
+having the compiler introduce hidden invocations of arbitrary 
+user-written procedural code, code that could potentially have 
+side-effects or make use of temporal state. Thus, the observable 
+behavior of the program can depend upon precisely where and how 
+the compiler introduces these "magic" calls.
+
+Finally, back to our first example, Java's special-case implict 
+type conversion of `Object` to `String` actually breaks the 
 associativity of the `+` operator! Quick, what does this do:
 
 <!-- lang: java -->
