@@ -29,26 +29,26 @@ RewriteRule ^documentation/current(.*)$ /documentation/1.0$1 [L]
 # Redirect improper URL for stephane epardaud to correct one
 RewriteRule ^blog/authors/styephane-yepardaud(.*)$ /blog/authors/stephane-epardaud$1
 
-# Redirect download links to GitHub
-RewriteRule ^download/dist/1_0_Milestone1$ "https\:\/\/github\.com\/downloads\/ceylon\/ceylon-dist\/ceylon-0\.1\.zip" [R=302,L]
-RewriteRule ^download/dist/1_0_Milestone1_deb$ "https\:\/\/github\.com\/downloads\/ceylon\/ceylon-dist\/ceylon-0\.1_0\.1_all\.deb" [R=302,L]
-RewriteRule ^download/dist/1_0_Milestone1_rpm$ "https\:\/\/github\.com\/downloads\/ceylon\/ceylon-dist\/ceylon-0\.1\.0-0\.noarch\.rpm" [R=302,L]
+# Redirect download links to our download site
+RewriteRule ^download/dist/1_0_Milestone1$ "http\:\/\/downloads\.ceylon-lang\.org\/cli\/ceylon-0\.1\.zip" [R=302,L]
+RewriteRule ^download/dist/1_0_Milestone1_deb$ "http\:\/\/downloads\.ceylon-lang\.org\/cli\/ceylon-0\.1_0\.1_all\.deb" [R=302,L]
+RewriteRule ^download/dist/1_0_Milestone1_rpm$ "http\:\/\/downloads\.ceylon-lang\.org\/cli\/ceylon-0\.1\.0-0\.noarch\.rpm" [R=302,L]
 
-RewriteRule ^download/dist/1_0_Milestone2$ "https\:\/\/github\.com\/downloads\/ceylon\/ceylon-dist\/ceylon-0\.2\.zip" [R=302,L]
-RewriteRule ^download/dist/1_0_Milestone2_deb$ "https\:\/\/github\.com\/downloads\/ceylon\/ceylon-dist\/ceylon-0\.2_0\.2_all\.deb" [R=302,L]
-RewriteRule ^download/dist/1_0_Milestone2_rpm$ "https\:\/\/github\.com\/downloads\/ceylon\/ceylon-dist\/ceylon-0\.2\.0-0\.noarch\.rpm" [R=302,L]
+RewriteRule ^download/dist/1_0_Milestone2$ "http\:\/\/downloads\.ceylon-lang\.org\/cli\/ceylon-0\.2\.zip" [R=302,L]
+RewriteRule ^download/dist/1_0_Milestone2_deb$ "http\:\/\/downloads\.ceylon-lang\.org\/cli\/ceylon-0\.2_0\.2_all\.deb" [R=302,L]
+RewriteRule ^download/dist/1_0_Milestone2_rpm$ "http\:\/\/downloads\.ceylon-lang\.org\/cli\/ceylon-0\.2\.0-0\.noarch\.rpm" [R=302,L]
 
-RewriteRule ^download/dist/1_0_Milestone3$ "https\:\/\/github\.com\/downloads\/ceylon\/ceylon-dist\/ceylon-0\.3\.zip" [R=302,L]
-RewriteRule ^download/dist/1_0_Milestone3_deb$ "https\:\/\/github\.com\/downloads\/ceylon\/ceylon-dist\/ceylon-0\.3_0\.3_all\.deb" [R=302,L]
-RewriteRule ^download/dist/1_0_Milestone3_rpm$ "https\:\/\/github\.com\/downloads\/ceylon\/ceylon-dist\/ceylon-0\.3\.0-0\.noarch\.rpm" [R=302,L]
+RewriteRule ^download/dist/1_0_Milestone3$ "http\:\/\/downloads\.ceylon-lang\.org\/cli\/ceylon-0\.3\.zip" [R=302,L]
+RewriteRule ^download/dist/1_0_Milestone3_deb$ "http\:\/\/downloads\.ceylon-lang\.org\/cli\/ceylon-0\.3_0\.3_all\.deb" [R=302,L]
+RewriteRule ^download/dist/1_0_Milestone3_rpm$ "http\:\/\/downloads\.ceylon-lang\.org\/cli\/ceylon-0\.3\.0-0\.noarch\.rpm" [R=302,L]
 
-RewriteRule ^download/dist/1_0_Milestone3_1$ "https\:\/\/github\.com\/downloads\/ceylon\/ceylon-dist\/ceylon-0\.3\.1\.zip" [R=302,L]
-RewriteRule ^download/dist/1_0_Milestone3_1_deb$ "https\:\/\/github\.com\/downloads\/ceylon\/ceylon-dist\/ceylon-0\.3\.1_0\.3\.1_all\.deb" [R=302,L]
-RewriteRule ^download/dist/1_0_Milestone3_1_rpm$ "https\:\/\/github\.com\/downloads\/ceylon\/ceylon-dist\/ceylon-0\.3\.1-0\.noarch\.rpm" [R=302,L]
+RewriteRule ^download/dist/1_0_Milestone3_1$ "http\:\/\/downloads\.ceylon-lang\.org\/cli\/ceylon-0\.3\.1\.zip" [R=302,L]
+RewriteRule ^download/dist/1_0_Milestone3_1_deb$ "http\:\/\/downloads\.ceylon-lang\.org\/cli\/ceylon-0\.3\.1_0\.3\.1_all\.deb" [R=302,L]
+RewriteRule ^download/dist/1_0_Milestone3_1_rpm$ "http\:\/\/downloads\.ceylon-lang\.org\/cli\/ceylon-0\.3\.1-0\.noarch\.rpm" [R=302,L]
 
-RewriteRule ^download/dist/1_0_Milestone4$ "https\:\/\/github\.com\/downloads\/ceylon\/ceylon-dist\/ceylon-0\.4\.zip" [R=302,L]
-RewriteRule ^download/dist/1_0_Milestone4_deb$ "https\:\/\/github\.com\/downloads\/ceylon\/ceylon-dist\/ceylon-0\.4_0\.4_all\.deb" [R=302,L]
-RewriteRule ^download/dist/1_0_Milestone4_rpm$ "https\:\/\/github\.com\/downloads\/ceylon\/ceylon-dist\/ceylon-0\.4\.0-0\.noarch\.rpm" [R=302,L]
+RewriteRule ^download/dist/1_0_Milestone4$ "http\:\/\/downloads\.ceylon-lang\.org\/cli\/ceylon-0\.4\.zip" [R=302,L]
+RewriteRule ^download/dist/1_0_Milestone4_deb$ "http\:\/\/downloads\.ceylon-lang\.org\/cli\/ceylon-0\.4_0\.4_all\.deb" [R=302,L]
+RewriteRule ^download/dist/1_0_Milestone4_rpm$ "http\:\/\/downloads\.ceylon-lang\.org\/cli\/ceylon-0\.4\.0-0\.noarch\.rpm" [R=302,L]
 
 # Redirect social network links
 RewriteRule ^plus$ "https\:\/\/plus\.google\.com\/u\/0\/102481741611133754149" [R=302,L]
