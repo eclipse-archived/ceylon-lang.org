@@ -72,7 +72,7 @@ to [constraint the permitted type argument](../type-parameters#constraints).
 
 Methods may have zero or more *parameters* (called *arguments* when the method is 
 [invoked](../../expression/invocation)). Syntactically the method parameters 
-are a comma separated list enclosed in parenthses following 
+are a comma separated list enclosed in parentheses following
 the [type parameters](#type_parameters). Each parameter is composed of a 
 type expression and a name. 
 

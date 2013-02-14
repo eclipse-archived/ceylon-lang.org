@@ -33,7 +33,7 @@ the block early without waiting for the `for` iterator to be exhausted or the
 
 Java's 'labelled' `break` directive is not supported. The 
 `break`directive operates on the directly enclosing `for` or 
-`while` statment.
+`while` statement.
 
 ## See also
 

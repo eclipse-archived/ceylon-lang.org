@@ -33,7 +33,7 @@ executing the rest of the block.
 
 Java's 'labelled' `continue` directive is not supported. The 
 `continue`directive operates on the directly enclosing `for` or 
-`while` statment.
+`while` statement.
 
 ## See also
 

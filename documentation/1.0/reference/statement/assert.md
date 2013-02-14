@@ -41,7 +41,7 @@ which returns `Integer?` so as to force you to handle the possibility that
 the argument was not `String` representing a number:
 
     value num = parseInteger("1");
-    // before the assert statement num is of type Iteger?
+    // before the assert statement num is of type Integer?
     assert (exists num);
     // after the assert statement num is of type Integer
     value plusOne = num + 1;
