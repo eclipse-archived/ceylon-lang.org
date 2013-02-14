@@ -45,7 +45,7 @@ Within the `for` block the [`break` directive](../break/) can be used to exit
 the block early without iterating over the remaining items in the `Iterator`. This is 
 one form of ['early exit'](#early_exit).
 
-The [`contine` directive](../continue) can be used to skip execution of
+The [`continue` directive](../continue) can be used to skip execution of
 the remainder of the block and proceed with the next item from the `Iterator`.
 
 ### Early Exit

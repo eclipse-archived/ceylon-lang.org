@@ -14,7 +14,7 @@ Method invocation transfers execution to the given method.
 
 ## Usage 
 
-A simple example of postional invocation:
+A simple example of positional invocation:
 
 <!-- implicit-id:m: void m(Integer i, String s) {} -->
 
@@ -36,9 +36,9 @@ A simple example of named argument invocation:
 
 ## Description
 
-### Postional Invocation
+### Positional Invocation
 
-Syntactically, postional invocation uses parentheses (`(` and `)`) to 
+Syntactically, positional invocation uses parentheses (`(` and `)`) to
 enclose the arguments which are separated with commas (`,`).
 
 Parameters with [default values](../../structure/method#defaulted_parameters) 
@@ -66,7 +66,7 @@ then positional invocations look like this:
 ### Named Argument Invocation
 
 Syntactically, named argument invocation uses braces (`{` and `}`) to 
-enclose the arguments which are separed with semicolons (`;`). The last 
+enclose the arguments which are separated with semicolons (`;`). The last
 named argument must also have a semicolon. Each named argument consists of the 
 argument name separated from the expression with the equals (`=`) specifier.
 

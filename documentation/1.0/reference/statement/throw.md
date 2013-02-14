@@ -11,7 +11,7 @@ doc_root: ../../..
 # #{page.title}
 
 The `throw` statement is used to indicate that an exception to the normal 
-flow of control has ocurred.
+flow of control has occurred.
 
 ## Usage 
 
@@ -34,7 +34,7 @@ created at the point the `throw` statement is used:
 
 The `throw` statement causes the enclosing method, attribute accessor or 
 initializer to return *abnormally*, signifying an exceptional circumstance 
-which prevents normal completion. Insead of returning to the caller, the 
+which prevents normal completion. Instead of returning to the caller, the
 call stack is searched for the nearest [`try`](../try) statement 
 with a matching `catch` clause, and execution resumes at the start of that
 `catch` block (possibly after [resource cleanup] _doc coming soon_.
@@ -42,7 +42,7 @@ with a matching `catch` clause, and execution resumes at the start of that
 An expression may be supplied with the `throw` statement. If no expression is 
 given a new messageless and causeless 
 [`ceylon.language.Exception`](#{page.doc_root}/api/ceylon/language/interface_Exception.html) instance is 
-created automatically. If an exression is given is must be of a type which is 
+created automatically. If an expression is given is must be of a type which is
 assignable to `ceylon.language.Exception`.
 
 ### Checked exceptions

@@ -41,7 +41,7 @@ interface.
 
 ## See also
 
-* [`[]` (lookup)](../lookup) operator used for accessesing a single item
+* [`[]` (lookup)](../lookup) operator used for accessing a single item
 * API documentation for [`Correspondence`](#{page.doc_root}/api/ceylon/language/interface_Correspondence.html)
 * [sequence operators](#{page.doc_root}/#{site.urls.spec_relative}#listmap) in the 
   language specification
