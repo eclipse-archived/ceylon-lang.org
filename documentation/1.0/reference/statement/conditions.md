@@ -17,7 +17,7 @@ by the
 [`if`](../if), 
 [`while`](../while), 
 [`assert`](../assert) statements and 
-[`if` comprehensions](../../epxression/comprehension)
+[`if` comprehensions](../../expression/comprehension)
 
 **Note**: This page is **not** describing the 
 [`is`](../../operator/is), 
@@ -37,7 +37,7 @@ assignable to the type `X`. Within the associated block `x` will have the
 type `X`.
 
 In other words, `if (is ...)` is similar Java's `instanceof` operator
-with a suitable typecast occuring automatically within the block. 
+with a suitable typecast occurring automatically within the block.
 
 Here's an example
 

@@ -39,6 +39,12 @@ Also install the htmlentities gem
     #or
     sudo gem install htmlentities
 
+Also install the therubyracer gem
+
+    gem install therubyracer
+    #or
+    sudo gem install therubyracer
+
 Get the website source from GitHub.
 
     git clone git@github.com:ceylon/ceylon-lang.org.git

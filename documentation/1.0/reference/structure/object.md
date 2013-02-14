@@ -10,7 +10,7 @@ milestone: Milestone 1
 # #{page.title}
 
 An `object` declaration is an anonymous [class](../class) that is 
-implictly [instantiated](../../expression/class-instantiation) 
+implicitly [instantiated](../../expression/class-instantiation)
 exactly once at the place it is defined, and nowhere else.
 
 ## Usage 

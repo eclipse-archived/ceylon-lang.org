@@ -35,7 +35,7 @@ Or named argument lists:
 
 ### Syntax
 
-Synatically, class instantiation looks the same as 
+Syntactically, class instantiation looks the same as
 [method invocation](../invocation).
 
 

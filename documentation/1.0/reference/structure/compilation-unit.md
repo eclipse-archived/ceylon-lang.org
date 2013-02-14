@@ -21,7 +21,7 @@ three [top-level](#top_level) declarations:
 <!-- check:none -->
     import com.example.baz{Baz}
 
-    shared interace Foo {
+    shared interface Foo {
         // ...
     }
 

@@ -10,7 +10,7 @@ doc_root: ../..
 # #{page.title}
 
 This is the final part of the Tour of Ceylon. The [previous part](../annotations) 
-disected annotations. This part covers Ceylons support for *interceptors*.
+dissected annotations. This part covers Ceylon's support for *interceptors*.
 
 ### implementation note <!-- m5 -->
 
