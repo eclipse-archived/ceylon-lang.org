@@ -103,3 +103,13 @@ reserving much expressive power to oursevles. No, we don't let you define
 your own pope operator `(-:|-+>`, and I guess some people will find that
 limits their self-expression. But I believe Ceylon will foster other
 productive avenues for them to express their creativity.
+
+UPDATE:
+
+To take this argument even further, consider our rule against the use of
+non-denoteable types: we don't use non-denotable types, or operations 
+upon types that can't be expressed within the language itself, _even
+internally in the typechecker_ to reason about your code. Since we needed
+union and intersection types to reason about generics, we needed to make
+them a part of the language. And they turned out to be perhaps the most
+interesting and powerful feature of our typesystem.
