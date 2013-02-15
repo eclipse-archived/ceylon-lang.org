@@ -14,8 +14,8 @@ with, and because his tweet, which I ultimately disagree with, as I'll
 explain, is certainly has at least partly true, at least from a certain
 perspective. Paul wrote:
 
-> One reason I prefer #scala to #kotlin or #ceylon is it adheres to the 
-> #lisp #smalltalk dictum of not confining expressive power to itself.
+> One reason I prefer #scala to #kotlin or #ceylon is it adheres to the #lisp #smalltalk 
+> dictum of not confining expressive power to itself.
 
 So, let's start by seeing what's right about this. Where in the language
 definition does Ceylon "reserve expressive power to itself"?
