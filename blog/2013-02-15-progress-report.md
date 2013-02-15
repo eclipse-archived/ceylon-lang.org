@@ -8,7 +8,7 @@ tags: [progress]
 ---
 Ceylon M4 was [released](/blog/2012/10/29/ceylon-m4-analytical-engine)
 back at the end of October, more than three months ago, so you might be 
-wondering what the hell have we been up to and where is in hell is that 
+wondering what the hell have we been up to and where in hell is that 
 M5 release we promised! At the very least you deserve a progress report.
 
 So what's going on is that M5 has gone quite a bit off the roadmap. This
@@ -60,6 +60,7 @@ It _will_ have the following new features:
   rules of the language
 - `ceylon.time` module
 - `ceylon.net.httpd` package (a HTTP server)
+- the `compose()` and `curry()` functions
 
 (Please don't try to tell me that's not a pretty impressive list!)
 
