@@ -11,7 +11,7 @@ I don't make it my practice to respond to tweets, simply because >99.9%
 of them are just idiotic. But I'll make an exception here, because I
 respect Paul, because he frames an interesting issue in a way I agree
 with, and because his tweet, which I ultimately disagree with, as I'll
-explain, is certainly has at least partly true, at least from a certain
+explain, is certainly at least partly true, at least from a certain
 perspective. Paul wrote:
 
 > One reason I prefer #scala to #kotlin or #ceylon is it adheres to the #lisp #smalltalk 
