@@ -48,7 +48,7 @@ Ceylon's language module has an interface called `Category`
         ...
     }
 
-A `Category` an object that can "contain" other objects. Given
+A `Category` is an object that can "contain" other objects. Given
 an object, we can ask if it belongs to the category by calling
 `contains()`, or using the `in` operator.
 
