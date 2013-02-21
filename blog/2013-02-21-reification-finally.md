@@ -11,6 +11,7 @@ Thanks to a bunch of hard work by Stef, Ceylon finally has fully
 reified types, that is, reified generic type arguments. You can
 now write stuff like this very contrived example:
 
+<!-- try: -->
     "Check if the given value is an instance 
      of the given type."
     Boolean check<T>(Anything o) => o is T;
@@ -41,6 +42,7 @@ _extremely_ difficult to solve without reified generics.
 
 Ceylon's langauge module has an interface called `Category`
 
+<!-- try: -->
     shared interface Category {
         shared formal Boolean contains(Object element);
         ...
@@ -52,6 +54,7 @@ an object, we can ask if it belongs to the category by calling
 
 Of course, collections are `Category`s:
 
+<!-- try: -->
     shared interface Collection<out Element>
         satisfies {Element*} &
                   Category & 
@@ -63,6 +66,7 @@ Now, notice that the signature of `contains()` for a
 want collections to be _covariant_ in their element type.
 I should be able to write the following:
 
+<!-- try: -->
     Collection<String> strings = [ "hello", "world" ];
     Collection<Object> objects = strings;
     print(1 in objects);
@@ -74,6 +78,7 @@ So the, without making use of reified generics, the default
 implementation of `contains()` defined by `Collection` would 
 be as follows:
 
+<!-- try: -->
     shared actual default Boolean contains(Object element) {
         for (elem in this) {
             if (exists elem, elem==element) {
@@ -89,6 +94,7 @@ That's already kinda lame. If I have a `Collection<String>`,
 and `contains()` gets passed an `Integer`, we should be able
 to immediately return `false` like this:
 
+<!-- try: -->
     shared actual default Boolean contains(Object element) {
         if (is Element element) {
             for (elem in this) {
@@ -110,6 +116,7 @@ above default implementation of `contains()`, inherited from
 _wrong_. So `Range` should refine the implementation of 
 `contains()` as follows:
 
+<!-- try: -->
     shared actual Boolean contains(Object element) {
         if (is Element element) {
             return includes(element);
@@ -133,5 +140,7 @@ that in a type system with declaration-site covariance, there
 are _perfectly legitimate_ reasons to want to be able to test
 the runtime type of a value. Sure, ML and Haskell don't need
 to do this kind of thing, but those languages don't feature
-subtyping, and therefore don't have covariance.
+subtyping, and therefore don't have covariance. Object oriented
+languages are _very different_, so please take that into account 
+before arguing that reified generics are unnecessary.
  
