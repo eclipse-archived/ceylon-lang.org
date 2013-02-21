@@ -144,3 +144,8 @@ subtyping, and therefore don't have covariance. Object oriented
 languages are _very different_, so please take that into account 
 before arguing that reified generics are unnecessary.
  
+UPDATE:
+For more information about the implementation, see Stef's
+email here:
+
+<https://groups.google.com/forum/?hl=en&fromgroups=#!topic/ceylon-dev/mIrroqhcf7o>
