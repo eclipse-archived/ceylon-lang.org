@@ -40,7 +40,7 @@ but since then we've spotted a couple of other compelling reasons.
 So lets take a quick look at one practical problem that is 
 _extremely_ difficult to solve without reified generics. 
 
-Ceylon's langauge module has an interface called `Category`
+Ceylon's language module has an interface called `Category`
 
 <!-- try: -->
     shared interface Category {
