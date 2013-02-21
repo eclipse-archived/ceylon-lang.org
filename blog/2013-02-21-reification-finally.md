@@ -149,3 +149,8 @@ For more information about the implementation, see Stef's
 email here:
 
 <https://groups.google.com/forum/?hl=en&fromgroups=#!topic/ceylon-dev/mIrroqhcf7o>
+
+UPDATE 2:
+It was very remiss of me to not mention that we've had support
+for reified generics in the JavaScript backend for a while now.
+Thanks, Enrique!
