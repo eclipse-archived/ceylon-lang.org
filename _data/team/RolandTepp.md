@@ -4,8 +4,9 @@ photo: /images/team/RolandTepp.jpg
 level: 100
 ---
 
-Roland Tepp is a software developer and has been working in this trade for over 13 years.
-When Ceylon needed a new date/time api, he immediately took the opportunity to get involved in an open source project.
-He currently works in [Proekspert] and lives in Estonia.
+Roland Tepp is a software engineer with over 13+ years of experience.
 
-[Proekspert]: http://proekspert.ee
+When Ceylon needed contributions to the sdk, he immediately took the opportunity to help out and lay 
+foundations for a standard Date and Time library that he always wanted but never had.
+
+Roland lives and works in Estonia.
