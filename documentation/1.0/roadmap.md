@@ -20,8 +20,8 @@ However, our roadmap is quite well-defined:
   - [Milestone 2](#milestone_2_done)
   - [Milestone 3](#milestone_3_done)
   - [Milestone 4](#milestone_4_done) (latest release)
-  - [Milestone 5](#milestone_5_ceylon_10)
-- [Ceylon 1.1](#ceylon_11_or_later)
+  - [Milestone 5](#milestone_5)
+  - [Milestone 6](#milestone_6_ceylon_10)
 
 ## Current progress for M5
 
@@ -244,58 +244,60 @@ Milestone 4 has been released.
 * Better support for optional types in Java
 * Map the JDK into Jigsaw-compatible module lists
 
-## Milestone 5 (Ceylon 1.0)
+## Milestone 5
 
-*Annotations, reified generics, metamodel, interception.*
+*Tuples, reified generics, dynamic blocks, various syntax
+changes.*
+
+### Declarations:
+* the `late` annotation
+* fat arrow notation `=>` for single-expression functions
+  and getters  _DONE_
+
+### Generics:
+* reified generics  _DONE_
+* defaulted type parameters  _DONE_
+
+### Expressions:
+* Tuples  _DONE_
+* lengthwise range operator (`start:length` and `ranged[start:length]`)  _DONE_
+* Binary and hexadecimal integer literals  _DONE_
+* verbatim strings  _DONE_
+* `{Element*}` abbreviation for `Iterable<Element>`  _DONE_
+
+### Misc:
+* `dynamic` blocks for interop with native JavaScript  _DONE_
+
+### Modules:
+* `compose()` and `curry()` functions in language module  _DONE_
+* `ceylon.time` platform module (date/time types)
+* `ceylon.net.httpd` package (HTTP server)  _DONE_
+
+## Milestone 6 (Ceylon 1.0)
+
+*Annotations, metamodel, and serialization.*
 
 ### Declarations:
 * annotations
-
-### Generics:
-* sequenced type parameters
-* reified generics
 
 ### Statements:
 * `try` with resources
 
 ### Expressions:
 * metamodel references
-* numeric widening for custom numeric types
-* lengthwise range operator (`start:length` and `ranged[start:length]`)
-* laziness for string interpolation
-* named argument-style syntax for instantiating interfaces
 
 ### Misc:
 * annotation constraints
-* interception for methods, attributes, and classes
 * serialization
 
 ### Modularity
 * repository replicator
 
 ### Modules:
-* language metamodel
-* `ceylon.time` platform module (date/time types)
+* `ceylon.language.model` language metamodel
 * `ceylon.local` platform module (basic support for localization)
 * `ceylon.format` platform module (text formatting for numbers and 
    dates/times)
 * `ceylon.transaction` platform module (support for distributed
   transaction processing)
-* `ceylon.relational.connect` platform module (access to relational
-  databases)
-* `ceylon.relational.sql` platform module (SQL statement builder)
-* `ceylon.http.client` platform module (HTTP client)
-* `ceylon.http.server` platform module (HTTP server)
 
-## Ceylon 1.1 or later
-
-* interfaces upper bounded by classes
-* lower bound constraints
-* parameter bound constraints
-* `if (satisfies ...)`
-* `satisfies` operator
-* single-quoted literals
-* generalized algebraic types
-* introductions (`adapts` clause) ?
-* metatypes (type classes) ?
-* type constructor parameterization ?
