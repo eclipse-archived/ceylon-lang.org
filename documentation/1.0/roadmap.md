@@ -247,7 +247,7 @@ Milestone 4 has been released.
 ## Milestone 5
 
 *Tuples, reified generics, dynamic blocks, various syntax
-changes.*
+changes, HTTP server, dates and times.*
 
 ### Declarations:
 * the `late` annotation
