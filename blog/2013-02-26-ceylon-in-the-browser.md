@@ -46,7 +46,7 @@ the other of which just responds to requests with the text
 
 The entrypoint to our application is a HTML page.
 
-<!-- lang: html try: -->
+<!-- lang: html -->
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
     <html xmlns="http://www.w3.org/1999/xhtml">
@@ -85,7 +85,7 @@ The entrypoint to our application is a HTML page.
         </body>
     </html>
 
-The page had a button which calls the `hello()` function of the
+The page has a button which calls the `hello()` function of the
 Ceylon module `hello.client`.
 
 We're using `require.js` to load our Ceylon modules. Unfortunately
@@ -117,7 +117,7 @@ Finally, the module named `hello.client` has the following function:
     }
 
 This function makes use of the native JavaScript API `XMLHttpRequest` 
-to send an asynchronous request to our server, and then interactes 
+to send an asynchronous request to our server, and then interacts 
 with the browser's DOM. But how on earth can a statically typed 
 language like Ceylon call a weakly typed language like JavaScript!?
 
