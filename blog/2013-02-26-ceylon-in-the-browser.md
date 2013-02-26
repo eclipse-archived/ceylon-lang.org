@@ -152,7 +152,7 @@ to something with a well-defined static type.
 
 Well, that's essentially all there is to our application, except for
 a couple of boring module and package descriptors. Here we can see a
-sever written in Ceylon running in the JVM being called by a client
+server written in Ceylon running in the JVM being called by a client
 written in Ceylon running in a web browser and interacting with the
 browser's native JavaScript APIs. I think that's pretty cool.
 
