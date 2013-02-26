@@ -157,6 +157,6 @@ written in Ceylon running in a web browser and interacting with the
 browser's native JavaScript APIs. I think that's pretty cool.
 
 A note of caution: we're still working through some wrinkles in the 
-semantics of `dymamic`, and `dynamic` is still not supported by the
-on the JVM (it will be, eventually). Nevertheless, this will be 
-available as an experimental feature in Ceylon M5.
+semantics of `dymamic`, and `dynamic` is still not supported on the 
+JVM (it will be, eventually). Nevertheless, this will be available 
+as an experimental feature in Ceylon M5.
