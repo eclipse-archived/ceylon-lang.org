@@ -21,20 +21,12 @@
 
 	function Brush()
 	{
-//		var keywords =	'abstract break case catch class ' +
-//						'continue default do else exists extends ' +
-//						'fail finally for given if import ' +
-//						'interface is ' +
-//						'object of return ' +
-//						'satisfies super switch then this throw ' +
-//						'try void while';
-            var keywords = 'module package import alias class interface object given assign void value function of ' +
+            var keywords = 'module package import alias class interface object given value assign void function of ' +
                            'extends satisfies adapts abstracts in out return break continue throw ' +
-                           'assert if else switch case for while try catch finally then ' +
+                           'assert dynamic if else switch case for while try catch finally then ' +
                            'this outer super is exists nonempty';
-//		var annotations = 'actual doc formal in out see shared';
-            var annotations = 'shared abstract formal default actual variable deprecated small ' +
-                              'literal doc by see throws export optional license';
+            var annotations = 'shared abstract formal default actual variable deprecated small late ' +
+                              'literal doc by see throws optional license';
 
 		this.regexList = [
 			{ regex: SyntaxHighlighter.regexLib.singleLineCComments,	css: 'comments' },		// one line comments
