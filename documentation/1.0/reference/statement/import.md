@@ -33,7 +33,7 @@ Importing several all classes in a package (a *wildcard* `import`):
 <!-- check:none -->
     import com.example.metasyntax {...}
     
-Assigning a difference name to an imported type (to avoid a name conflict):
+Assigning a different name to an imported type (to avoid a name conflict):
 
 <!-- check:none -->
     import com.example.metasyntax { ExampleFoo=Foo, Bar}
