@@ -27,10 +27,10 @@ Here's a classic example program.
         print("Hello, World!");
     }
 
-This method prints `Hello, World!` on the console. A toplevel method like this 
-is just like a C function - it belongs directly to the package that contains 
-it, it's not a member of any specific type. You don't need a receiving object 
-to invoke a toplevel method. Instead, you can just call it like this:
+This function prints `Hello, World!` on the console. We call this a _toplevel_ 
+function because it's not a member of any specific type. So you don't need a 
+receiving object to invoke a toplevel function. Instead, you can just call it 
+like this:
 
 <!-- try:
     void hello() {
@@ -43,10 +43,10 @@ to invoke a toplevel method. Instead, you can just call it like this:
     hello();
 <!-- cat: } -->
 
-Or you can run it directly from the command line. 
+Or you can run it directly from the command line.
 
-Ceylon doesn't have Java-style `static` methods, but you can think of 
-toplevel methods as filling the same role. The reason for this difference
+Ceylon doesn't have `static` methods like Java, C++, or C#, but you can think 
+of toplevel functions as filling the same role. The reason for this difference
 is that Ceylon has a very strict block structure - a nested block always has 
 access to declarations in all containing blocks. This isn't the case with 
 Java's `static` methods.
@@ -57,10 +57,10 @@ Let's try it out. Save the above code in the file `./source/hello.ceylon`
 and then run the following commands:
 
 <!-- lang: bash -->
-    ceylon-0.4/bin/ceylon compile source/hello.ceylon
-    ceylon-0.4/bin/ceylon run --run hello default
+    ceylon-0.5/bin/ceylon compile source/hello.ceylon
+    ceylon-0.5/bin/ceylon run --run hello default
 
-where `ceylon-0.4` is the path to your Ceylon install directory. You should
+where `ceylon-0.5` is the path to your Ceylon install directory. You should
 see the message `Hello, World!`. You will find the compiled module archive 
 `default.car` in the directory `./modules/default`.
 
@@ -72,8 +72,8 @@ and running the simple examples in the `samples/` directory.*
 A very useful trick is:
 
 <!-- lang: bash -->
-    ceylon-0.4/bin/ceylon help compile
-    ceylon-0.4/bin/ceylon help run
+    ceylon-0.5/bin/ceylon help compile
+    ceylon-0.5/bin/ceylon help run
 
 In fact the 
 [ceylon help](../../reference/tool/ceylon/subcommands/ceylon-help.html) command 
@@ -84,9 +84,19 @@ should be able to give you help about all the other
 
 To run the program in [Ceylon IDE](#{page.doc_root}/ide), go to the Ceylon 
 perspective, create a new project using `File > New > Ceylon Project`, then 
-create a new `.ceylon` file using `File > New > Ceylon Source File`. Put the code 
-of `hello()` in this new file, then select the file and run it using 
-`Run > Run As > Ceylon Application`.
+create a new `.ceylon` file using `File > New > Ceylon Source File`. Paste 
+the definition of `hello()` in this new file, then select the file and run 
+it using:
+ 
+    Run > Run As > Ceylon Application
+
+This executes the program on the JVM.
+
+If you have `node.js` installed, you can go to `Project > Properties`, 
+enable `Compile project to JavaScript`, then click `OK`, and run the 
+program using:
+
+    Run > Run As > Ceylon JavaScript Application
 
 Or, if you're unfamiliar with Eclipse, go to `Help > Cheat Sheets`, open
 the `Ceylon` item, and run the `Hello World with Ceylon` cheat sheet which 
@@ -180,8 +190,8 @@ declarations.
 -->
 <!-- check:none: Requires IO -->
 <!-- id: hello -->
-	doc "The classic Hello World program"
-	by "Gavin"
+	doc ("The classic Hello World program")
+	by ("Gavin")
 	see (goodbye)
 	throws (IOException)
 	void hello() {
@@ -196,24 +206,50 @@ The `doc`, `by`, `see`, `throws`, and `tagged` annotations contain documentation
 that is included in the output of the Ceylon documentation compiler, 
 [`ceylon doc`](../../reference/tool/ceylon/subcommands/ceylon-doc.html).
 
+<!--
 Notice that when an annotation argument is a literal, it doesn't need to be 
 enclosed in parentheses. We can write simply: 
 
-<!-- try: -->
-<!-- check:none -->
+<!- - try: - ->
+<!- - check:none - ->
     by "Gavin"
 
 instead of:
 
-<!-- try: -->
-<!-- check:none -->
+<!- - try: - ->
+<!- - check:none - ->
     by ("Gavin")
+-->
 
 Annotations like `doc`, `by`, `see`, and `throws`, aren't keywords. They're 
 just ordinary identifiers. The same is true for annotations which are part of 
 the language definition, for example: `abstract`, `variable`, `shared`, `formal`, 
 `default`, `actual`, etc. This is quite different to other C-like languages. (On 
 the other hand, `void` _is_ a keyword, just like in C or Java.)
+
+Since the `doc` annotation is ubiquitous, its name and parentheses may be left 
+out whenever it occurs as the first annotation in the list of annotations of a 
+program element:
+
+<!-- try-post:
+    void goodbye() {
+    }
+    class IOException() extends Exception() {}
+    hello();
+-->
+<!-- check:none: Requires IO -->
+<!-- id: hello -->
+    "The classic Hello World program"
+    by ("Gavin")
+    see (goodbye)
+    throws (IOException)
+    void hello() {
+        print("Hello, World!");
+    }
+<!-- cat: 
+    void goodbye() {
+        // ...
+    } -->
 
 ## Formatting inline documentation
 
@@ -224,27 +260,27 @@ formatting.
     hello();
 -->
 <!-- id: hello -->
-    doc "The classic [Hello World program][helloworld]
-         that prints a message to the console, this 
-         time written in [Ceylon][]. 
+    "The classic [Hello World program][helloworld]
+     that prints a message to the console, this 
+     time written in [Ceylon][]. 
+     
+     This simple program demonstrates:
+     
+     1. how to define a toplevel method, and
+     2. how to `print()` a literal `String`.
+     
+     You can compile and run `hello()` from the 
+     command line like this:
          
-         This simple program demonstrates:
+         ceylon compile source/hello.ceylon
+         ceylon run -run hello default
          
-         1. how to define a toplevel method, and
-         2. how to `print()` a literal `String`.
-         
-         You can compile and run `hello()` from the 
-         command line like this:
-         
-             ceylon compile source/hello.ceylon
-             ceylon run -run hello default
-         
-         Or you can use `Run As > Ceylon Application` 
-         in the IDE.
-         
-         [helloworld]: http://en.wikipedia.org/wiki/Hello_world_program
-         [Ceylon]: http://ceylon-lang.org"
-         
+     Or you can use `Run As > Ceylon Application` 
+     in the IDE.
+     
+     [helloworld]: http://en.wikipedia.org/wiki/Hello_world_program
+     [Ceylon]: http://ceylon-lang.org"
+    
     void hello() {
         print("Hello, World!");
     }
@@ -264,65 +300,51 @@ You can also use 2-byte and 4-byte hexadecimal escape sequences to embed
 Unicode characters in your text.
 
 <!-- try-pre:
-    Float calculateE() { return 2.72; }
-    Float calculatePi() { return 3.14; }
+    Float calculateE() => 2.72;
+    Float calculatePi() => 3.14;
     
 -->
-    doc "The mathematical constant \{0001D452}, 
-         the base of the natural logarithm."
-    Float e=calculateE();
-    
-    doc "The mathematical constant \{03C0}, the 
-         ratio of the circumference of a circle 
-         to its diameter."
+    "The mathematical constant \{#03C0}, the 
+     ratio of the circumference of a circle 
+     to its diameter."
     Float pi=calculatePi();
+    
+    "The mathematical constant \{#0001D452}, 
+     the base of the natural logarithm."
+    Float e=calculateE();
 
 Ceylon strings are composed of UTF-32 characters, as we'll see 
 [later in the tour](../language-module/#characters_and_character_strings).
+
+## Verbatim strings
+
+Sometimes, escape sequence interpolation is annoying, for example, when
+embedding code in a string literal. If we use three double-quotes, `"""`, 
+to delimit our string, we get a _verbatim string_, which may contain
+unescaped backslash and double-quote characters:
+
+    print(""""Hello!", said the program.""");
 
 ## String interpolation and concatenation
 
 Let's make our program tell us a little more about itself.
 
-<!--
-    doc "The Hello World program
-         ... version 1.1!"
-    void hello() {
-        print("Hello, this is Ceylon " 
-              process.languageVersion
-              " running on Java " 
-              process.javaVersion 
-              "!");
-    }
--->
-
 <!-- try-post:
-    hello2();
+    hello();
 -->
-<!-- id: hello2 -->
-    void hello2() {
-        print("Hello, you ran me at " 
-               process.milliseconds
-              " ms, with " 
-               process.arguments.size
-              " command line arguments.");
+<!-- id: hello -->
+    "The Hello World program
+     ... version 1.1!"
+    void hello() {
+        print("Hello, this is Ceylon ``language.version``  
+               running on Java ``process.vmVersion``!\n
+               You ran me at ``process.milliseconds`` ms, 
+               with ``process.arguments.size`` command 
+               line arguments.");
     }
 
-Notice how our message contains interpolated expressions. This is called
-a _string template_. A string template must begin and end in a string 
-literal. The following is not legal syntax:
-
-<!-- check:none: Demoing error -->
-    print("Hello, you ran me at " 
-           process.milliseconds); //compile error!
-
-But we can easily fix it:
-
-<!-- cat: void m() { -->
-    print("Hello, you ran me at " 
-           process.milliseconds 
-          "");
-<!-- cat: } -->
+Notice how our message contains interpolated expressions, delimited using
+"doublebacks", that is, two backticks. This is called a _string template_. 
 
 (If you're wondering why the syntax isn't something like 
 `"Hello, you ran me at ${process.milliseconds}"`,
@@ -332,10 +354,10 @@ The `+` operator you're probably used to is an alternative way to concatenate
 strings, and more flexible in many cases:
 
 <!-- cat: void m() { -->
-    print("Hello, you ran me at " + 
-           process.milliseconds.string +
-          " ms, with " +
-           process.arguments.size.string +
+    print("Hello, this is Ceylon " + language.version +  
+          "running on Java " + process.vmVersion + "!\n" +
+          "You ran me at " + process.milliseconds.string + 
+          " ms, with " + process.arguments.size.string + 
           " command line arguments.");
 <!-- cat: } -->
 
@@ -347,11 +369,11 @@ attribute to convert numeric expressions to strings. The
 following does not compile:  
 
 <!-- check:none:Demoing error -->
-    print("Hello, you ran me at " + 
-           process.milliseconds +
-          " ms, with " +
-           process.arguments.size +
-          " command line arguments.");    //compile error!
+    print("Hello, this is Ceylon " + language.version +  
+          "running on Java " + process.vmVersion + "!\n" +
+          "You ran me at " + process.milliseconds +    //compile error!
+          " ms, with " + process.arguments.size +    //compile error!
+          " command line arguments.");
 
 ## Dealing with objects that aren't there
 
@@ -366,12 +388,12 @@ convenient form in a moment.)
 <!-- try-post:
     hello();
 -->
-    doc "Print a personalized greeting"
+    "Print a personalized greeting"
     void hello() {
         String? name = process.arguments.first;
         String greeting;
         if (exists name) {
-            greeting = "Hello, " name "!";
+            greeting = "Hello, ``name``!";
         }
         else {
             greeting = "Hello, World!";
@@ -389,7 +411,7 @@ inside the `if (exists ... )` condition:
 <!-- cat: void hello() { -->
     String greeting;
     if (exists name = process.arguments.first) {
-        greeting = "Hello, " name "!";
+        greeting = "Hello, ``name``!";
     }
     else {
         greeting = "Hello, World!";
@@ -524,9 +546,9 @@ So we can finally simplify our example to something reasonable:
 <!-- try-post:
     hello();
 -->
-    doc "Print a personalized greeting"
+    "Print a personalized greeting"
     void hello() {
-        print("Hello, " process.arguments.first else "World" "!");
+        print("Hello, ``process.arguments.first else "World"``!");
     }
 
 Yes, after all that, it's a one-liner ;-)
@@ -542,7 +564,7 @@ that a method parameter may specify a default value.
 -->
 <!-- id: hello -->
     void hello(String name="World") {
-        print("Hello, " name "!");
+        print("Hello, ``name``!");
     }
 
 Then we don't need to specify an argument to the parameter when we call 
@@ -550,7 +572,7 @@ the method:
 
 <!-- try:
     void hello(String name="World") {
-        print("Hello, " name "!");
+        print("Hello, ``name``!");
     }
     hello(); //Hello, World!
     hello("JBoss"); //Hello, JBoss!
@@ -585,11 +607,11 @@ if an `Integer` represents a prime number:
 <!-- try-post:
     print(prime(17));
 -->
-    doc "Determine if `n` is a prime number."
+    "Determine if `n` is a prime number."
     throws (Exception, "if `n<2`")
     Boolean prime(Integer n) {
         if (n<2) {
-            throw Exception("illegal argument " n "<2");
+            throw Exception("illegal argument ``n``<2");
         }
         else if (n<=3) {
             return true;
@@ -601,7 +623,7 @@ if an `Integer` represents a prime number:
             return true;
         }
         else {
-            for (b in 1..((n.float**0.5+1)/6).integer) {
+            for (b in 1..((n.float^0.5+1)/6).integer) {
                 if (n%(6*b-1)==0 || n%(6*b+1)==0) {
                     return false;
                 }
@@ -615,11 +637,11 @@ if an `Integer` represents a prime number:
 Try it, by running the following method:
 
 <!-- try-pre:
-    doc "Determine if `n` is a prime number."
+    "Determine if `n` is a prime number."
     throws (Exception, "if `n<2`")
     Boolean prime(Integer n) {
         if (n<2) {
-            throw Exception("illegal argument " n "<2");
+            throw Exception("illegal argument ``n``<2");
         }
         else if (n<=3) {
             return true;
@@ -631,7 +653,7 @@ Try it, by running the following method:
             return true;
         }
         else {
-            for (b in 1..((n.float**0.5+1)/6).integer) {
+            for (b in 1..((n.float^0.5+1)/6).integer) {
                 if (n%(6*b-1)==0 || n%(6*b+1)==0) {
                     return false;
                 }

@@ -80,7 +80,10 @@ Awestruct::Extensions::Pipeline.new do
     "<span class='milestone'><a href='/documentation/1.0/roadmap/#milestone_4' title='Support for this feature was introduced in Milestone 4'>Milestone 4</a></span>")
   transformer Awestruct::Extensions::Gsub.new(
     /\<!--\s*m5\s*--\>\s*/, 
-    "<span class='milestone future'><a href='/documentation/1.0/roadmap/#milestone_5_ceylon_10' title='Support for this feature will be introduced in Ceylon 1.0'>Ceylon 1.0</a></span>")
+    "<span class='milestone future'><a href='/documentation/1.0/roadmap/#milestone_5' title='Support for this feature will be introduced in Milestone 5'>Milestone 5</a></span>")
+  transformer Awestruct::Extensions::Gsub.new(
+    /\<!--\s*m6\s*--\>\s*/, 
+    "<span class='milestone future'><a href='/documentation/1.0/roadmap/#milestone_6_ceylon_10' title='Support for this feature will be introduced in Ceylon 1.0'>Ceylon 1.0</a></span>")
   transformer Awestruct::Extensions::Gsub.new(
     /\<!--\s*m-later\s*--\>\s*/, 
     "<span class='milestone future'><a href='/documentation/1.0/roadmap/#ceylon_11_or_later' title='Support for this feature will be introduced in Ceylon 1.1 or later'>Ceylon 1.1 or later</a></span>")

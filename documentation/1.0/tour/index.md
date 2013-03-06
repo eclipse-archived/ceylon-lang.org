@@ -48,10 +48,10 @@ Instructions for getting started are contained in the file
 
 [ceylon-dist readme]: https://github.com/ceylon/ceylon-dist/blob/master/README.md 
 
-### implementation note <!-- m4 -->
+### implementation note <!-- m5 -->
 
 Not every language feature described here has been implemented 
-in M4. Where this is the case, you'll see an "implementation note", 
+in M5. Where this is the case, you'll see an "implementation note", 
 explaining when you can expect to be able to use the feature.
 
 ## Begin the tour
