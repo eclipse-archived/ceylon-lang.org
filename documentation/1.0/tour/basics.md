@@ -156,7 +156,7 @@ program.
 ## Adding inline documentation
 
 It's usually a good idea to add some kind of documentation to important 
-methods like `hello()`. One way we could do this is by using a C-style 
+functions like `hello()`. One way we could do this is by using a C-style 
 comment, either like this:
 
 <!-- try-post:
@@ -266,7 +266,7 @@ formatting.
      
      This simple program demonstrates:
      
-     1. how to define a toplevel method, and
+     1. how to define a toplevel function, and
      2. how to `print()` a literal `String`.
      
      You can compile and run `hello()` from the 
@@ -556,7 +556,7 @@ Yes, after all that, it's a one-liner ;-)
 ## Defaulted parameters
 
 While we're on the topic of values that aren't there, it's worth mentioning 
-that a method parameter may specify a default value.
+that a function parameter may specify a default value.
 
 <!-- try-post:
     hello(); //Hello, World!
@@ -568,7 +568,7 @@ that a method parameter may specify a default value.
     }
 
 Then we don't need to specify an argument to the parameter when we call 
-the method:
+the function:
 
 <!-- try:
     void hello(String name="World") {
@@ -584,11 +584,15 @@ the method:
 <!-- cat: } -->
 
 Defaulted parameters must be declared after all required parameters in the 
-parameter list of a method.
+parameter list of a function.
 
-Ceylon also supports sequenced parameters (varargs), declared using an 
-ellipsis (i.e. `String...`). But we'll [come back](../named-arguments/#sequenced_parameters) 
-to them after we discuss [sequences](../sequences).
+Ceylon also has variadic parameters (varargs), declared using an asterisk,
+for example: 
+
+    void printAll(String* strings) { ... } 
+
+But we'll [come back](../named-arguments/#sequenced_parameters) to them 
+after we discuss [sequences](../sequences).
 
 ## Numbers
 
@@ -600,8 +604,14 @@ types, so numeric values are usually represented by the classes
 and [`Float`](#{site.urls.apidoc_current}/ceylon/language/class_Float.html),
 which we'll come back to [later in the tour](../language-module/#numeric_types).
 
+`Float` literals are written with a decimal point, and `Integer` literals 
+without:
+
+    Integer one = 1;
+    Float zero = 0.0;
+
 Even though they're classes, you can use all the usual numeric literals and
-operators with them. For example, the following method efficiently determines 
+operators with them. For example, the following function efficiently determines 
 if an `Integer` represents a prime number:
 
 <!-- try-post:
@@ -634,7 +644,7 @@ if an `Integer` represents a prime number:
         }
     }
 
-Try it, by running the following method:
+Try it, by running the following function:
 
 <!-- try-pre:
     "Determine if `n` is a prime number."
@@ -669,12 +679,78 @@ Try it, by running the following method:
 -->
     doc "Print a list of all two-digit prime numbers."
     void findPrimes() {
-        print({ for (i in 2..99) if (prime(i)) i });
+        print([ for (i in 2..99) if (prime(i)) i ]);
     }
 
-Heh, this was just a little teaser to keep you interested. We'll 
-explain the syntax we're using here a bit 
-[later in the tour](../comprehensions).
+Heh, this was just a little teaser to keep you interested. We'll explain 
+the syntax we're using here a bit [later in the tour](../comprehensions).
+
+## Functions and values
+
+The two most basic constructs found in almost every programming language 
+are functions and variables. In Ceylon, "variables" are, by default, 
+assignable exactly once. That is, they can't be assigned a new value after 
+an initial value has been assigned. Therefore, we use the word _value_ to 
+talk about "variables" collectively, and reserve the word _variable_ to 
+mean a value which is explicitly defined to be reassignable.
+
+    String bye = "Adios"; //a value
+    variable Integer count = 0; //a variable
+    
+    bye = "Adeu"; //compile error
+    count = 1; //allowed
+
+Note that even values which aren't variables in this sense, may still be
+variable in the sense that their value varies between different runs of
+the program, or between contexts within a single execution of the program.
+
+A value may even be recalculated every time it is evaluated.
+
+    String name { return firstName + " " + lastName; } 
+
+If the values of `firstName` and `lastName` vary, then the value of 
+`name` also varies between evaluations.
+
+A function takes this idea one step further. The value of a function
+depends not only upon the context in which it is evaluated, but also
+upon the arguments to its parameters.
+
+    Float sqr(Float x) { return x*x; }
+
+## Fat arrows
+
+Ceylon's expression syntax is much more powerful than Java's, and it is
+therefore possible to express a lot more in a single compact expression.
+It's therefore _extremely_ common to encounter functions and values which
+simply evaluate and return an expression. So Ceylon lets us abbreviate
+such function and value definitions using a "fat arrow", `=>`. For example:
+
+    String name => firstName + " " + lastName; 
+
+    Float sqr(Float x) => x*x;
+
+Now's the time to get comfortable with this syntax, because you're going 
+to be seeing quite a lot of it. Take careful note of the difference between 
+a fat arrow:
+
+    String name => firstName + " " + lastName; 
+
+And an assignment:
+
+    String name = firstName + " " + lastName; 
+
+In the first example, the expression is recomputed every time `name` is
+evaluated. In the second example, the expression is computed once and
+the result assigned to `name`.
+
+We're even allowed to define a `void` function using a fat arrow. Earlier,
+we could have written `hello()` like this:
+
+<!-- id: hello -->
+<!-- try-post:
+    hello();
+-->
+    void hello() => print("Hello, World!");
 
 ## There's more...
 
