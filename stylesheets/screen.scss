@@ -32,7 +32,7 @@ body.bp {
   // Remove the scaffolding when you're ready to start doing visual design.
   // Or leave it in if you're happy with how blueprint looks out-of-the-box
 
-  font: 14px "Lucida Grande", "Lucida Sans Unicode", sans-serif; 
+  font: 15px 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #2c2c2c;
   text-shadow: white 1px 1px 0px;
   background-color: white;
@@ -146,6 +146,8 @@ form.bp {
   }
   
   #menu {
+    font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+    font-size: 14px;
     float: right;
     margin-top: 70px;
     width: 600px;
@@ -369,7 +371,7 @@ form.bp {
     }
     -moz-border-radius: 15px;
     border-radius: 15px;
-    font-size: 14px;
+    font-size: 15px;
     padding:1.5em;
     margin:0em 1.75em;
     border-left: 1px solid #c7d8d8;
@@ -403,7 +405,7 @@ form.bp {
       margin: 0.5em 1em;
     }
     
-    font-size: 14px;
+    font-size: 15px;
     padding:1.5em;
     margin:0em 1.75em;
     p {
@@ -424,7 +426,7 @@ form.bp {
     //font-family: Arial;
     font-weight: bold;
     color: #ffffff;
-    font-size: 13px;
+    font-size: 15px;
     padding: 5px 7px;
     text-decoration: none;
     -webkit-border-radius: 4px;
@@ -462,7 +464,7 @@ form.bp {
     text-align: left;
     margin-left: 1.6em;
     h1 {
-      font-size: 20px;
+      font-size: 21px;
     }
   }
 
@@ -497,7 +499,7 @@ form.bp {
     
     -moz-border-radius: 15px;
     border-radius: 15px;
-    font-size: 14px;
+    font-size: 15px;
     text-shadow: #656565 1px 1px 0px;
     padding: 0.5em 1.5em;
     //margin:0em 1.75em;
@@ -528,6 +530,7 @@ form.bp {
   
   #sidebar {
     @include column(8,true);
+    font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
     #feed {
       padding-left: 34px;
       background: url("../images/feed_icon.png") no-repeat 0px 0px;
@@ -542,7 +545,7 @@ form.bp {
 
     -moz-border-radius: 15px;
     border-radius: 15px;
-    font-size: 14px;
+    font-size: 15px;
     padding:1.5em;
     margin:0em 1.75em;
     border-left: 1px solid #c7d8d8;
@@ -824,12 +827,12 @@ form.bp {
     background: url("../images/bullet_elephant.png") no-repeat 0px 0px;
     min-height: 24px;
     padding-left: 36px;
-    font-size:10px;
+    font-size:11px;
     color: #2c2c2c;
   }
 
   h4 a {
-    font-size:14px;
+    font-size:15px;
   }
 }
 
