@@ -36,7 +36,7 @@ body.bp {
   color: #2c2c2c;
   text-shadow: white 1px 1px 0px;
   background-color: white;
-      
+  
   h1 {
     color: $h1_text_color;
   }
@@ -68,7 +68,11 @@ body.bp {
   h6 {
     font-size:100%;
   }
-
+  
+  ul li {
+    padding:5px;
+  }
+  
   pre {
     //background-color:#f5f5f5;
     //border: 1px solid #d5d8d3;
@@ -84,7 +88,7 @@ body.bp {
   p code {
     //background-color:#f9f9f9;
     //border: 1px solid #d5d8d3;
-    padding: 2px; 
+    //padding: 2px; 
     font-family:'Courier New', 'Andale Mono', Consolas, 'Bitstream Vera Sans Mono', Courier, monospace;
     font-style:normal;
     font-size:.96em;
