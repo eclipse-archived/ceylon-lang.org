@@ -22,10 +22,27 @@ author: Stephane Epardaud
 <!-- lang: bash -->
     $ cd ceylon-dist ; ant setup
 
-- To see if everything compiles okay you can run
+- Now to build the complete distribution run
 
 <!-- lang: bash -->
-    $ ant publish-all
+    $ ant clean publish-all
+
+After this you'll have a newly built distribution in the `dist` folder of your current directory.
+You can run the `ceylon` command without any further setup or installation by simply running
+
+<!-- lang: bash -->
+    $ dist/bin/ceylon
+
+But it's advisable to add the `ceylon` command to your class path (either by adding the `bin` folder to your class path or by creating a symbolic link to it in an appropriate place like `~/bin/`).
+
+If at any time you want to update the distribution to the latest code from GitHub just run
+
+<!-- lang: bash -->
+    $ ant update-all
+    $ ant clean publish-all
+
+NB: The `update-all` command assumes that your projects are "clean", that is you don't have uncommitted changes.
+If that's not the case you'll have to manually update those projects or first stash your changes (using `git stash`).
 
 ## Setting up Eclipse
 
