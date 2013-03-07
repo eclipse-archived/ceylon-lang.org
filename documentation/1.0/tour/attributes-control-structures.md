@@ -23,21 +23,22 @@ Then we're going to skim over some material about
   [`try`](#the_trycatchfinally_statement_works_like...)).
 
 
-## Attributes and locals
+## Attributes and local values
 
 In Java, a field of a class is quite easily distinguished from a local 
-constant or variable of a method or constructor. Ceylon doesn't really make 
-this distinction very strongly. An attribute is really just a local that 
+variable or parameter of a constructor. This distinction is much less
+meaningful in Ceylon, and often irrelevant. An _attribute_ is really 
+just a value declared in the parameter list of body of the class that 
 happens to be captured by some `shared` declaration.
 
-Here, `count` is a local variable of the initializer of `Counter`:
+Here, `count` is a block-local variable of the initializer of `Counter`:
 
 <!-- try-post:
     value c = Counter();
     print(c.count); // Compiler error! No access
 -->
     class Counter() {
-        variable Integer count := 0;
+        variable Integer count=0;
     }
 
 But in the following two examples, `count` is an attribute:
@@ -49,7 +50,7 @@ But in the following two examples, `count` is an attribute:
     print(c.count);
 -->
     class Counter() {
-        shared variable Integer count := 0;
+        shared variable Integer count=0;
     }
 
 <!-- break up the two examples so we don't see a duped decl-->
@@ -59,16 +60,14 @@ But in the following two examples, `count` is an attribute:
     print(c.inc());
 -->
     class Counter() {
-        variable Integer count := 0;
-        shared Integer inc() {
-            return ++count;
-        }
+        variable Integer count=0;
+        shared Integer inc() => ++count;
     }
 
 This might seem a bit strange at first, but it's really just how the principle 
-of closure works. The same behavior applies to locals inside a method. Methods 
-can't declare `shared` members, but they can return an `object` that captures 
-a local variable:
+of closure works. The same behavior applies to block-local values declared in
+the body of a function. Functions can't declare `shared` members, of course, 
+but they can return an `object` that captures a local variable:
 
 <!-- try-post:
     value c = createCounter();
@@ -79,26 +78,22 @@ a local variable:
     }
     
     Counter createCounter() {
-        variable Integer count := 0;
+        variable Integer count=0;
         object counter satisfies Counter {
-            shared actual Integer inc() {
-                return ++count;
-            }
+            shared actual Integer inc() => ++count;
         }
         return counter;
     }
 
-Or, as we'll see [later](../functions), a method can return a nested function 
+Or, as we'll see [later](../functions), a function can return a nested function 
 that captures the local variable:
 
 <!-- try-post:
     print(counter()());
 -->
     Integer() counter() {
-        variable Integer count := 0;
-        Integer inc() {
-            return ++count;
-        }
+        variable Integer count=0;
+        Integer inc() => ++count;
         return inc;
     }
 
@@ -106,11 +101,11 @@ that captures the local variable:
 in is that `counter()` returns a reference to a function `inc()` that captures 
 the variable `count`.)
 
-So even though we'll continue to use the words "local" and "attribute" throughout
-this tutorial, keep in mind that there's no really strong distinction between the 
-terms. Any named value might be captured by some other declaration in the same 
-containing scope. A local is just an attribute that happens to not be captured
-by anything.
+So even though we'll continue to use the terms "local value" and "attribute" 
+throughout this tutorial, keep in mind that there's no really strong distinction 
+between the terms. Any named value might be captured by some other declaration 
+in the same containing scope. A local value is just an attribute that happens 
+to not be captured by anything.
 
 
 ## Variables
@@ -119,61 +114,26 @@ Ceylon encourages you to use *immutable* attributes as much as possible. An
 immutable attribute has its value specified when the object is initialized, 
 and is never reassigned.
 
-<!-- try-post:
+    class Reference<Value>(val) {
+        shared Value val;
+    }
+    
     value ref = Reference("foo");
     print(ref.val);
--->
-    class Reference<Value>(Value x) {
-        shared Value val = x;
-    }
+    ref.val = "bar";    //compile error: value is not variable
+    
 
 If we want to be able to assign a value to a simple attribute or local 
 we need to annotate it `variable`:
 
-<!-- try-post:
+    class Reference<Value>(val) {
+        shared variable Value val;
+    }
+    
     value ref = Reference("foo");
     print(ref.val);
-    ref.val := "bar";
+    ref.val = "bar";    //ok
     print(ref.val);
--->
-    class Reference<Value>(Value x) {
-        shared variable Value val := x;
-    }
-
-Notice the use of `:=` instead of `=` here. This is important! In Ceylon, 
-specification of an immutable value is done using `=`. Assignment to a 
-`variable` attribute or local is considered a different kind of thing, 
-always performed using the `:=` operator.
-
-The `=` specifier is not an operator, and can never appear inside an 
-expression. It's just a punctuation character. The following code is not 
-only wrong, but even fails to parse:
-
-<!-- try:
-    Boolean x = true;
-    if (x=true) {   //compile error
-        print("x is true");
-    }
--->
-<!-- check:none:demoing error -->
-    Boolean x = ... ;
-    if (x=true) {   //compile error
-        ...
-    }
-
-On the other hand, `:=` is an operator, and the following code is well-typed,
-though perhaps not correct!
-
-<!-- try:
-    variable Boolean x := false;
-    if (x:=true) {   //ok
-        print("x is true?");
-    }
--->
-    variable Boolean x := ... ;
-    if (x:=true) {   //ok
-        ...
-    }
 
 ## Setters
 
@@ -186,8 +146,8 @@ consumption only, so un-`shared`:
 
 <!-- try: -->
 <!-- id:attrs -->
-    variable String? firstName := null;
-    variable String? lastName := null;
+    variable String? firstName=null;
+    variable String? lastName=null;
 
 (Remember, Ceylon never automatically initializes attributes to null.)
 
@@ -196,28 +156,27 @@ as a getter/setter pair:
 
 <!-- try-pre:
 class Test() {
-    variable String? firstName := null;
-    variable String? lastName := null;
+    variable String? firstName=null;
+    variable String? lastName=null;
 
 -->
 <!-- try-post:
 }
 value t = Test();
-t.fullName := "Pietje     Pluk";
+t.fullName="Pietje     Pluk";
 print(t.fullName);
 -->
 <!-- cat-id:attrs -->
-    shared String fullName {
-        return " ".join(coalesce(firstName,lastName)...);
-    }
-     
+    shared String fullName =>
+            " ".join(*coalesce{firstName, lastName});
+    
     assign fullName {
-        value tokens = fullName.split().iterator;
+        value tokens = fullName.split().iterator();
         if (is String first = tokens.next()) {
-            firstName := first;
+            firstName=first;
         }
         if (is String last = tokens.next()) {
-            lastName := last;
+            lastName=last;
         }
     }
 
@@ -241,9 +200,9 @@ class Test() {
 <!-- try-post:
 }
 -->
-    variable String _name := "";
-    shared String name { return _name; }
-    assign name { _name:=name; }
+    variable String _name = "";
+    shared String name => _name;
+    assign name => _name=name;
 
 It's not necessary, and there's never any benefit to it. 
 
@@ -270,6 +229,10 @@ You are required to write:
 <!-- cat: void m(Integer x) { -->
     if (x>100) { print("big"); }
 <!-- cat: } -->
+
+(The reason for this is that an expression can being with an opening 
+brace, for example, `{"hello", "world"}`, so optional braces in control
+structures would be ambiguous to the parser.)
 
 OK, so here are the examples. 
 
@@ -324,8 +287,8 @@ Ceylon also has an `assert` statement:
 
     assert (x < 10);
     
-Such assertions are good for making statements which you *know* have to be true, but 
-are not apparent to other readers of the code (including the type checker!). 
+Such assertions are good for making statements which you *know* have to be true, 
+but are not apparent to other readers of the code (including the type checker!). 
 Common uses of `assert` include things like preconditions, postconditions and 
 class invariants.
 
@@ -333,23 +296,22 @@ If the condition is `false` at runtime an exception is thrown. The exception
 message helpfully includes details of the condition which was violated, which 
 is extra important when the `assert` has more than one condition.
 
-Where applicable, the typechecker uses 
-type information from the assert when checking statements which follow it, 
-for example:
+Where applicable, the typechecker uses type information from the assert when 
+checking statements which follow it, for example:
 
     Integer? x = parseInteger("1");
-    assert(exists x);
+    assert (exists x);
     // after the assert x is treated as an Integer
     value y= x+10;
 
-This is really the same 'structured typecasting' we saw in the 
+This is really the same structured typecasting we saw in the 
 [first section](../basics#dealing_with_objects_that_arent_there), only 
 this time it's happening in the middle of a block rather than at the start of 
-an `if`'s block. But don't worry, there's 
+an `if` block. But don't worry, there's 
 [more on this later](../types#narrowing_the_type_of_an_object_reference).
 
-Note that, unlike Java's `assert`, which can be disabled at runtime, 
-Ceylon's `assert`s are always enabled. 
+Note that, unlike Java's `assert`, which can be disabled at runtime, Ceylon's 
+assertions are always enabled. 
 
 <a name="loops"><!-- old id --></a>
 
@@ -367,12 +329,12 @@ loop completes normally, rather than via a `return` or `break` statement.
         variable Boolean minors;
         for (p in people) {
             if (p.age<18) {
-                minors := true;
+                minors=true;
                 break;
             }
         }
         else {
-            minors := false;
+            minors=false;
         }
         return minors;
     }
@@ -383,17 +345,26 @@ loop completes normally, rather than via a `return` or `break` statement.
     variable Boolean minors;
     for (p in people) {
         if (p.age<18) {
-            minors := true;
+            minors=true;
             break;
         }
     }
     else {
-        minors := false;
+        minors=false;
     }
 <!-- cat: } -->
 
-There is no C-style `for`. Instead, you can use the range operator to
-produce a sequence of `Integer`s:
+There is no C-style `for`. Instead, you can use the lengthwise range 
+operator `:` to produce a sequence of `Integer`s given a starting point 
+and a length:
+
+<!-- try:
+    for (i in 5:10) { print(i); }
+-->
+    for (i in min:len) { ... }
+
+Alternatively, you can use the ordinary range operator `..` to produce 
+a sequence of `Integer`s given two endpoints:
 
 <!-- try:
     for (i in 5..10) { print(i); }
@@ -412,7 +383,7 @@ The `while` loop is traditional.
     value names = { "aap", "noot", "mies" };
 -->
 <!-- cat: void m(String[] names) { -->
-    value it = names.iterator;
+    value it = names.iterator();
     while (is String next = it.next()) {
         print(next);
     }
@@ -465,7 +436,7 @@ There are no Java-style checked exceptions in Ceylon.
 
 <!-- m5 -->
 
-Resource expressions are not yet implemented. They will be implemented in M5.
+Resource expressions are not yet implemented.
 
 ## There's more...
 
