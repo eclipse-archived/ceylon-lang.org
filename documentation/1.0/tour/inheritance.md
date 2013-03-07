@@ -469,11 +469,8 @@ Now let's define a concrete implementation of this interface.
 <!-- check:none:depends on above:concrete members of interfaces not yet supported -->
 <!-- cat-id: writer -->
     class ConsoleWriter() satisfies Writer {
-        
         formatter = StringFormatter();
-        
         write(String string) => print(string);
-        
     }
 
 The `satisfies` keyword 
