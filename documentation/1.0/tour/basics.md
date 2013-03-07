@@ -452,15 +452,15 @@ Java where `x==y` evaluates to true if `x` and `y` both evaluate to `null`.
 
 In a language with static typing, we're always wanting to know what the type 
 of something is. So what's the type of `null`? That's easy to answer: `null` 
-is a [`Nothing`](#{site.urls.apidoc_current}/ceylon/language/class_Nothing.html).
+is a [`Null`](#{site.urls.apidoc_current}/ceylon/language/class_Null.html).
 And the syntax `String?` is just an abbreviation for the 
-[union type](../types/#union_types) `Nothing|String`. That's why we can't 
+[union type](../types/#union_types) `Null|String`. That's why we can't 
 call operations of `String` on a `String?`. It's a different type! The
 `if (exists ...)` construct narrowed the type of `name` inside the `if` block,
 allowing us to treat `name` as a `String` there.
 
 So now we can see that the value `null` isn't a primitive value in Ceylon, 
-it's just a perfectly ordinary instance of the perfectly ordinary class `Nothing`, 
+it's just a perfectly ordinary instance of the perfectly ordinary class `Null`, 
 at least from the point of view of Ceylon's type system. 
 
 (However, if you're concerned about performance, it's well worth mentioning that 
