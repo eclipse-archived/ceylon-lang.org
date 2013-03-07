@@ -1,6 +1,6 @@
 ---
 layout: tour
-title: Tour of Ceylon&#58; Types
+title: Tour of Ceylon&#58; Type system
 tab: documentation
 unique_id: docspage
 author: Gavin King
@@ -9,8 +9,8 @@ author: Gavin King
 # #{page.title}
 
 This is the seventh step in the Tour of Ceylon. The 
-[previous installment](../sequences) introduced sequences. Now it's time to 
-explore Ceylon's type system in more detail. 
+[previous installment](../sequences) introduced various kinds of iterable
+objects. Now it's time to explore Ceylon's type system in more detail. 
 
 In this chapter, we're going to discuss the closely related topics of _union 
 and intersection types_, _enumerated types_, narrowing types, and finally 
@@ -55,7 +55,8 @@ which we met earlier.
         }
     }
     
-There's also a special `if (!is ... )` construct which can be handy.
+There's also a special `if (!is ... )` construct which comes in handy
+from time to time.
 
 The `switch` statement can be used in a similar way:
 
@@ -95,60 +96,12 @@ switchingPrint("foo");
         }
     }
 
-These constructs protect us from inadvertantly writing code that would cause a 
-`ClassCastException` in Java, just like `if (exists ... )` protects us from 
-writing code that would cause a `NullPointerException`.
+These constructs protect us from inadvertantly writing code that would 
+cause a `ClassCastException` in Java, just like `if (exists ... )` 
+protects us from writing code that would cause a `NullPointerException`.
 
 The `if (is ... )` construct actually narrows to an 
-[intersection type](#intersection_types), which we'll get to after a 
-digression...
-
-### Condition lists
-
-Now's a good time to come back to something mentioned
-when we covered the [`if`](../attributes-control-structures#if) and 
-[`assert`](../attributes-control-structures#assert) statements. It also applies to 
-[`while`](../attributes-control-structures#while) statements and 
-[`if` comprehensions](../comprehensions) which we'll 
-be coming to later.
-
-All of those things need a `Boolean`-typed expression (a *condition*) 
-determine what should happen when the statement is evaluated at runtime. 
-And we've described above how you can use the special `if (is ...)` construct 
-(and its friends) to perform structured typecasting. 
-
-In general though, these statements each take a *condition list* which
-lets you specify multiple conditions and evaluates a true if (and only if)
-*all* of the conditions are true. 
-
-With plain `Boolean` conditions you 
-could achieve the same thing with the `&&` operator of course. But a 
-condition list lets you use the structured typecasting of `is` and 
-friends in conditions given later in the same list. 
-
-Let's see an example using `assert`:
-
-<!-- try: -->
-    value url = parserUri("http://ceylon-lang.org/download");
-    assert(exists authority=url.authority,
-           exists host=authority.hostname);
-    // do something with host
-
-Here you can see two `exists` conditions in the `assert` statement, separated 
-with a comma. The first one declares 
-`authority` (which is inferred to be a `String`, rather than a `String?` 
-because of the `exists`). The second condition
-then uses this in it's own `exists` condition. 
-
-The important thing to note is 
-that the compiler lets us use `authority` in the second condition and knows
-that it's a `String` not a `String?`. You can't do that by `&&`-ing multiple 
-conditions together. You could do it by nesting several `if`s, but that tends 
-to lead to much less readable code, and doesn't work well in `while` statements or
-comprehensions. 
-
-Now, back to those intersection types...
-
+[intersection type](#intersection_types).
 
 ## Intersection types
 

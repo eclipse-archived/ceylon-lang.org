@@ -438,6 +438,38 @@ There are no Java-style checked exceptions in Ceylon.
 
 Resource expressions are not yet implemented.
 
+## Condition lists
+
+Constructs like `if`, `while`, and `assert` accept a  *condition list*.
+A condition list is simply an ordered list of multiple boolean, `exists`,
+`nonempty`, and `is` conditions. The condition list is satisfied if 
+(and only if) *every one* of the conditions is satisfied. 
+
+With plain `Boolean` conditions you could achieve the same thing with the 
+`&&` operator of course. But a condition list lets you use the "structured 
+typecasting" of `exists`, `is`, and friends in conditions appearing later 
+in the same list. 
+
+Let's see an example using `assert`:
+
+<!-- try: -->
+    value url = parserUri("http://ceylon-lang.org/download");
+    assert(exists authority=url.authority,
+           exists host=authority.hostname);
+    // do something with host
+
+Here you can see two `exists` conditions in the `assert` statement, separated 
+with a comma. The first one declares `authority` (which is inferred to be a 
+`String`, rather than a `String?` because of the `exists`). The second condition
+then uses this in it's own `exists` condition. 
+
+The important thing to note is that the compiler lets us use `authority` in the 
+second condition and knows that it's a `String` not a `String?`. You can't do 
+that by `&&`-ing multiple conditions together. You could do it by nesting several 
+`if`s, but that tends to lead to much less readable code, and doesn't work well 
+in `while` statements or comprehensions. 
+
+
 ## There's more...
 
 Now that we know enough about classes and their members, we're ready to 
