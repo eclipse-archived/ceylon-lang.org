@@ -69,6 +69,27 @@ body.bp {
     font-size:100%;
   }
 
+  pre {
+    //background-color:#f5f5f5;
+    //border: 1px solid #d5d8d3;
+    margin-left:15px;
+    code {
+      font-family:'Courier New', 'Andale Mono', Consolas, 'Bitstream Vera Sans Mono', Courier, monospace;
+      font-style:normal;
+      font-size:.96em;
+      text-shadow: white 0px 0px 0px;
+    }
+  }
+
+  p code {
+    //background-color:#f9f9f9;
+    //border: 1px solid #d5d8d3;
+    padding: 2px; 
+    font-family:'Courier New', 'Andale Mono', Consolas, 'Bitstream Vera Sans Mono', Courier, monospace;
+    font-style:normal;
+    font-size:.96em;
+    text-shadow: white 0px 0px 0px;
+  }
 
   //Home news info
   
@@ -849,22 +870,6 @@ form.bp {
   float:left;
   margin: 0 20px 20px 0;
   display:inline;
-}
-
-//Code for Markdown
-body.bp {
-  pre {
-    background-color:#f5f5f5;
-    border: 1px solid #d5d8d3;
-    padding: 30px; 
-  
-    code {
-      font-family:'Courier New', 'Andale Mono', Consolas, 'Bitstream Vera Sans Mono', Courier, monospace;
-      font-style:normal;
-      font-size:.99em;
-      line-height:1em;
-    }
-  }
 }
 
 // for Milestone indicators

@@ -65,6 +65,7 @@
 	margin: 1em 0 1em 0 !important;
 	padding: 1px !important; /* adds a little border on top and bottom */
 	position: relative !important;
+    margin-left: 15px !important;
 }
 
 .syntaxhighlighter .bold 

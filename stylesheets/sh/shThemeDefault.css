@@ -73,13 +73,13 @@
 /* First line */
 .syntaxhighlighter .line.alt1
 {
-	background-color: #f5f5f5 !important;
+	background-color: white !important;
 }
 
 /* Second line */
 .syntaxhighlighter .line.alt2
 {
-	background-color: #f5f5f5 !important;
+	background-color: white !important;
 }
 
 .syntaxhighlighter .toolbar
