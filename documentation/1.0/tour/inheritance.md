@@ -367,7 +367,7 @@ different return type:
         shared actual Polar polar => 
                 Polar( (x**2+y**2)**0.5, atan(y/x) ); 
         
-        shared actual Cartesian cartesian => return this;
+        shared actual Cartesian cartesian => this;
         
         shared actual Cartesian rotate(Float rotation) =>
                 polar.rotate(rotation).cartesian;
