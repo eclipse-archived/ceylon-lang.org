@@ -700,8 +700,8 @@ mean a value which is explicitly defined to be reassignable.
     bye = "Adeu"; //compile error
     count = 1; //allowed
 
-Note that even values which aren't variables in this sense, may still be
-variable in the sense that their value varies between different runs of
+Note that even a value which isn't a variable in this sense, may still be
+"variable" in the sense that its value varies between different runs of
 the program, or between contexts within a single execution of the program.
 
 A value may even be recalculated every time it is evaluated.
@@ -717,9 +717,15 @@ upon the arguments to its parameters.
 
     Float sqr(Float x) { return x*x; }
 
+In Ceylon, a value or function declaration can occur almost anywhere: as
+a _toplevel_, belonging directly to a package, as an _attribute_ or _method_ 
+of a class, or as a _block-local_ declaration inside a different value or 
+function body. Indeed, as we'll see later, a value or function declaration
+may even occur _inside an expression_ in some cases.
+
 ## Fat arrows
 
-Ceylon's expression syntax is much more powerful than Java's, and it is
+Ceylon's expression syntax is much more powerful than Java's, and it's
 therefore possible to express a lot more in a single compact expression.
 It's therefore _extremely_ common to encounter functions and values which
 simply evaluate and return an expression. So Ceylon lets us abbreviate
