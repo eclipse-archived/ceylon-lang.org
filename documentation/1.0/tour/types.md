@@ -785,6 +785,18 @@ under the covers, helping the compiler solve some hairy, otherwise-ambiguous,
 typing problems.
 
 
+## Anonymous classes and type inference
+
+Since an anonymous class doesn't have a name, Ceylon never replaces anonymous
+classes with the intersection of their supertypes when performing type inference:
+
+    interface Foo {}
+    interface Bar {}
+    object foobar satisfies Foo&Bar {}
+    value fb = foobar; //inferred type Basic&Foo&Bar
+    value fbs = { foobar, foobar }; //inferred type {Basic&Foo&Bar+}
+
+
 ## There's more...
 
 You can read a bit more about enumerated types in Ceylon in 
