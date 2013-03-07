@@ -86,17 +86,12 @@ To run the program in [Ceylon IDE](#{page.doc_root}/ide), go to the Ceylon
 perspective, create a new project using `File > New > Ceylon Project`, then 
 create a new `.ceylon` file using `File > New > Ceylon Source File`. Paste 
 the definition of `hello()` in this new file, then select the file and run 
-it using:
- 
-    Run > Run As > Ceylon Application
-
-This executes the program on the JVM.
+it using `Run > Run As > Ceylon Application`. This executes the program on 
+the JVM.
 
 If you have `node.js` installed, you can go to `Project > Properties`, 
 enable `Compile project to JavaScript`, then click `OK`, and run the 
-program using:
-
-    Run > Run As > Ceylon JavaScript Application
+program using `Run > Run As > Ceylon JavaScript Application`.
 
 Or, if you're unfamiliar with Eclipse, go to `Help > Cheat Sheets`, open
 the `Ceylon` item, and run the `Hello World with Ceylon` cheat sheet which 
@@ -346,9 +341,11 @@ Let's make our program tell us a little more about itself.
 Notice how our message contains interpolated expressions, delimited using
 "doublebacks", that is, two backticks. This is called a _string template_. 
 
+<!--
 (If you're wondering why the syntax isn't something like 
 `"Hello, you ran me at ${process.milliseconds}"`,
 [here's why](#{page.doc_root}/faq/language-design/#string_interpolation_syntax).)
+-->
 
 The `+` operator you're probably used to is an alternative way to concatenate
 strings, and more flexible in many cases:
