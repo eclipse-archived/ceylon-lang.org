@@ -71,6 +71,15 @@ body.bp {
   
   ul li {
     padding:5px;
+    code {
+      //background-color:#f9f9f9;
+      //border: 1px solid #d5d8d3;
+      //padding: 2px; 
+      font-family:'Courier New', 'Andale Mono', Consolas, 'Bitstream Vera Sans Mono', Courier, monospace;
+      font-style:normal;
+      font-size:.96em;
+      text-shadow: white 0px 0px 0px;
+    }
   }
   
   pre {
