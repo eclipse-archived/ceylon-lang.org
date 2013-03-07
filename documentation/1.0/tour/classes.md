@@ -210,7 +210,7 @@ when we declare it.
 On the other hand, it's sometimes useful to separate declaration from 
 assignment.
 <!-- try-pre:
-    doc "A polar coordinate"
+    "A polar coordinate"
     class Polar(Float angle, Float radius, String? label) { 
 -->
 <!-- try-post:
@@ -218,7 +218,7 @@ assignment.
     print(Polar(0.37, 10.0, "point").description);
 -->
 <!-- cat:
-    doc "A polar coordinate"
+    "A polar coordinate"
     class Polar(Float angle, Float radius, String? label) { 
         // ...
      -->
@@ -237,7 +237,7 @@ code? We put it directly in the body of the class!
 <!-- try-post:
     print(Polar(0.37, 10.0).description);
 -->
-    doc "A polar coordinate with an optional label"
+    "A polar coordinate with an optional label"
     class Polar(angle, radius, String? label) {
         
         shared Float angle;
@@ -288,7 +288,7 @@ the attributes as _getters_.
 <!-- check:none:Requires Math -->
     import ceylon.math.float { sin, cos }
     
-    doc "A polar coordinate"
+    "A polar coordinate"
     class Polar(angle, radius) {
         
         shared Float angle;
@@ -312,7 +312,7 @@ attribute as a getter, without affecting any code that uses it.
 <!-- try-post:
     print(Polar(0.37, 10.0).description);
 -->
-    doc "A polar coordinate, with an optional label"
+    "A polar coordinate, with an optional label"
     class Polar(angle, radius, String? label) {
         
         shared Float angle;
@@ -386,7 +386,7 @@ Let's make use of this idea to "overload" the "constructor" of `Polar`.
 
 <!-- try: -->
 <!-- id: polar -->
-    doc "A polar coordinate with an optional label"
+    "A polar coordinate with an optional label"
     class Polar(angle, radius, String? label=null) {
         
         shared Float angle;
