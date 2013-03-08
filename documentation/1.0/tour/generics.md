@@ -35,16 +35,16 @@ enclosed in angle brackets.
 <!-- check:none -->
     shared interface Iterator<out Element> { ... }
 
-    class Array<Element>(Element... elements) 
+    class Array<Element>(Element* elements) 
             satisfies Sequence<Element> { ... }
 
-    shared Entries<Integer,Element> entries<Element>(Element... sequence) { ... }
+    shared Entries<Integer,Element> entries<Element>(Element* sequence) { ... }
 
 As you can see, the convention in Ceylon is to use meaningful names for 
 type parameters (in Java the convention is to use single letter names).
 
 Unlike Java, we always do need to specify type arguments in a type declaration 
-(there are no 'raw types' in Ceylon). The following will not compile:
+(there are no _raw types_ in Ceylon). The following will not compile:
 
 <!-- try:
     Iterable it = {};   //error: missing type argument to parameter Element of Iterable
@@ -65,19 +65,21 @@ method invocations or class instantiations. We don't usually need to write:
 
 <!-- check:none -->
     Array<String> strings = array<String>("Hello", "World"); 
-    Iterable<Entry<Integer,String>> things = entries<String>(strings...);
+    Iterable<Entry<Integer,String>> things = entries<String>(strings);
 
 Instead, it's very often possible to infer the type arguments from the ordinary 
 arguments.
 
 <!-- check:none -->
     value strings = array("Hello", "World"); // type Array<String>
-    value things = entries(strings...); // type Iterable<Entry<Integer,String>>
+    value things = entries(strings); // type Iterable<Entry<Integer,String>>
 
 The generic type argument inference algorithm is slightly involved, so you
 should refer to the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#typeargumentinference) 
 for a complete definition. But essentially what happens is that Ceylon 
-infers a type by combining the types of corresponding arguments using union.
+infers a type argument by combining the types of corresponding arguments 
+using union in the case of a covariant type parameter, or intersection
+in the case of a contravariant type parameter.
 
 <!--try:
     class Polar(Float angle, Float radius) { }
@@ -190,7 +192,7 @@ We can define our `Collection` interface as a mixin of `Producer` with `Consumer
     interface Collection<Element>
             satisfies Producer<Element> & Consumer<Element> {}
 
-Notice that `Collection` remains nonvariant in `Element`. If we tried to add a 
+Notice that `Collection` remains invariant in `Element`. If we tried to add a 
 variance annotation to `Element` in `Collection`, a compile time error would 
 result, because the annotation would contradict the variance annotation of 
 either `Producer` or `Consumer`.
@@ -218,12 +220,12 @@ Which is also intuitively correct — `James` is most certainly a `Person`!
 There's two additional things that follow from the definition of covariance 
 and contravariance:
 
-* `Producer<Void>` is a supertype of `Producer<T>` for any type `T`, and
-* `Consumer<Bottom>` is a supertype of `Consumer<T>` for any type `T`.
+* `Producer<Anything>` is a supertype of `Producer<T>` for any type `T`, and
+* `Consumer<Nothing>` is a supertype of `Consumer<T>` for any type `T`.
 
 These invariants can be very helpful if you need to abstract over all 
 `Producers` or all `Consumers`. (Note, however, that if `Producer` declared 
-upper bound type constraints on `Output`, then `Producer<Void>` would not 
+upper bound type constraints on `Output`, then `Producer<Anything>` would not 
 be a legal type.)
 
 You're unlikely to spend much time writing your own collection classes, since 
@@ -312,7 +314,7 @@ common kind of type constraint, an *upper bound*.
 
 <!-- try: -->
 <!-- check:none -->
-    shared class Set<out Element>(Element... elements)
+    shared class Set<out Element>(Element* elements)
             given Element satisfies Object {
         ...
      
@@ -464,22 +466,15 @@ perfectly sensible, code fragments just wouldn't compile in Java:
 
 (Where `Element` is a generic type parameter.)
 
-A major goal of Ceylon's type system is support for *reified generics*. Like 
-Java, the Ceylon compiler performs erasure, discarding type parameters from 
-the schema of the generic type. But unlike Java, type arguments are supposed 
-to be reified (available at runtime). Of course, generic type arguments won't 
-be checked for typesafety by the underlying virtual machine at runtime, but 
-type arguments are at least available at runtime to code that wants to make 
-use of them explicitly. So the code fragments above are supposed to compile 
-and function as expected. You will even be able to use reflection to discover 
-the type arguments of an instance of a generic type.
-
-### implementation note <!-- m3 -->
-
-We have not yet implemented reified generics in the Ceylon compiler, and 
-there exists the possiblity that when we get to it, we'll discover that the
-performance cost of this feature makes it impractical for today's virtual
-machines.
+Ceylon's type system has *reified generic type arguments*. Like Java, the 
+Ceylon compiler performs erasure, discarding type parameters from the 
+schema of the generic type. But unlike Java, type arguments are _reified_ 
+(available at runtime). Of course, generic type arguments won't be checked 
+for typesafety by the underlying virtual machine at runtime, but type 
+arguments are at least available at runtime to code that wants to make use 
+of them explicitly. So the code fragments above are supposed to compile and 
+function as expected. You will even be able to use reflection to discover the 
+type arguments of an instance of a generic type.
 
 ## There's more...
 

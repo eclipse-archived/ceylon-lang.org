@@ -16,8 +16,8 @@ We're going to learn about *packages* and *modules*.
 
 ## Packages and imports
 
-There's no special `package` statement in Ceylon. The compiler determines the 
-package and module to which a toplevel program element belongs by the 
+There's no `package` statement in Ceylon source files. The compiler determines 
+the package and module to which a toplevel program element belongs by the 
 location of the source file in which it is declared. A class named `Hello` in 
 the package `org.jboss.hello` must be defined in the file 
 `org/jboss/hello/Hello.ceylon`.
@@ -86,9 +86,8 @@ We can make the package shared by providing a package descriptor:
 
 <!-- try: -->
 <!-- check:none-->
-    doc "The typesafe query API."
-    shared
-    package org.hibernate.query;
+    "The typesafe query API."
+    shared package org.hibernate.query;
 
 A `shared` package defines part of the "public" API of the module. Other modules 
 can directly access shared declarations in a `shared` package.
@@ -104,11 +103,10 @@ This is accomplished via a module descriptor:
  
 <!-- try: -->
 <!-- check:none-->
-    doc "The best-ever ORM solution!"
+    "The best-ever ORM solution!"
     license "http://www.gnu.org/licenses/lgpl.html"
     module org.hibernate '3.0.0.beta' {
-        export
-        import ceylon.language '1.0.1';
+        shared import ceylon.language '1.0.1';
         import java.sql '4.0';
     }
 
