@@ -32,11 +32,11 @@
             { regex: SyntaxHighlighter.regexLib.singleLineCComments, css: 'comments' },        // line end comments
             { regex: /\/\*([\s\S]*?)?\*\//gm, css: 'comments' },                               // multiline comments
             { regex: /\/\*(?!\*\/)\*[\s\S]*?\*\//gm, css: 'preprocessor' },                    // documentation comments
-            { regex: /"[^"]*"/gm, css: 'string' },                                             // strings
-            { regex: SyntaxHighlighter.regexLib.doubleQuotedString, css: 'string' },           // strings
-            { regex: SyntaxHighlighter.regexLib.singleQuotedString, css: 'string' },           // strings
-            { regex: new RegExp(this.getKeywords(keywords), 'gm'), css: 'keyword' },           // ceylon keyword
-            { regex: /(#|\$)[a-zA-Z0-9_]+\b/gi, css: 'value' },                            // hex/bin numbers
+            { regex: /"""([^"]|"[^"]|""[^"])*"""/gm, css: 'string' },                          // verbatim strings
+            { regex: /(``|")([^"\\`]|\\.|`[^`"])*(`"|``|")/gm, css: 'string' },                    // strings
+            { regex: /'([^'\\]|\\.)*'/gm, css: 'string' },                                     // characters
+            { regex: new RegExp(this.getKeywords(keywords), 'gm'), css: 'keyword' },           // ceylon keywords
+            { regex: /(#|\$)[a-zA-Z0-9_]+\b/gi, css: 'value' },                                // hex/bin numbers
             { regex: /\b[A-Z][a-zA-Z0-9_]*/g, css: 'color1' },                                 // ceylon type
             { regex: new RegExp(this.getKeywords(annotations), 'gm'), css: 'functions' },      // ceylon annotations
             { regex: /\b(\d|_)+(\.(\d|_)+)?((E|e)(\+|\-)\d+)?[munpfkMGTP]?\b/gi, css: 'value' } // numbers
