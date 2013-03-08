@@ -693,8 +693,10 @@ in `T`. So the following code is well-typed:
 <!-- cat-id: Point -->
 <!-- cat-id: Polar -->
 <!-- cat: void m() { -->
-    value coords  = { Polar(0.0, 0.0), Cartesian(1.0, 2.0) }; //type Iterable<Polar|Cartesian,Nothing>
-    {Point*} coords = sequence; //type Iterable<Point,Null>
+    value coords =
+            { Polar(0.0, 0.0), 
+              Cartesian(1.0, 2.0) }; //type {Polar|Cartesian+}
+    {Point*} coords = sequence;
 <!-- cat: } -->
 
 As is the following code:
@@ -703,8 +705,8 @@ As is the following code:
     print(numbers);
 -->
 <!-- cat: void m() { -->
-    value nums = { 12.0, 1, -3 }; //type Iterable<Float|Integer,Nothing>
-    {Number+} numbers = nums; //type Iterable<Number,Nothing>
+    value nums = { 12.0, 1, -3 }; //type {Float|Integer+}
+    {Number+} numbers = nums;
 <!-- cat: } -->
 
 What about iterables that produce `null`s? Well, do you 
@@ -715,10 +717,13 @@ was [`Null`](#{site.urls.apidoc_current}/ceylon/language/class_Nothing.html)?
     print(s else "null");
 -->
 <!-- cat: void m() { -->
-    value sequence = { null, "Hello", "World" }; //type Iterable<Null|String,Nothing>
-    {String?*} strings = sequence; //type Iterable<Null|String,Null>
-    String? s = strings.first; //type Null|Null|String which is just Null|String
+    value sequence = { null, "Hello", "World" }; //type {String?+}
+    String? s = strings.first;
 <!-- cat: } -->
+
+Note: the declared type of the attribute `first` of `Iterable` is `Element?`.
+Substituting `String?` for `Element`, we get the type `String??`, that is,
+`Null|Null|String`, which is simply `Null|String`, written `String?`.
 
 The same thing works out for sequences:
 
@@ -726,9 +731,9 @@ The same thing works out for sequences:
     print(s else "null");
 -->
 <!-- cat: void m() { -->
-    [Null,String,String] tuple = [null, "Hello", "World"];
-    String?[] strings = tuple; //type Sequential<Null|String>
-    String? s = strings[0]; //type Null|Null|String which is just Null|String
+    value tuple = [null, "Hello", "World"]; //type [Null,String,String]
+    String?[] strings = tuple;
+    String? s = strings[0];
 <!-- cat: } -->
 
 It's interesting just how useful union types turn out to be. Even if you only 
