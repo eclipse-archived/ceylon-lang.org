@@ -497,9 +497,13 @@ with `null` values. The first is `else`:
     print(greeting);
 } -->
 
-The `else` operator returns its first argument if the first argument is not 
-`null`, or its second argument otherwise. It's a more convenient way to 
-handle `null` values in simple cases. You can chain multiple `else`s:
+The `else` operator produces:
+
+- its first operand if the first operand is not `null`, or 
+- its second operand otherwise. 
+
+It's a more convenient way to handle `null` values in simple cases. You 
+can chain multiple `else`s:
 
 <!-- try-pre:
     String? firstName = null;
@@ -520,12 +524,13 @@ There's also an operator for _producing_ a null value:
 -->
     String? name = !arg.trimmed.empty then arg;
 
-The `then` operator evaluates its second argument if its first argument 
-evaluates to `true`, or evaluates to `null` otherwise.
+The `then` operator produces 
+
+- its second operand if its first operand evaluates to `true`, or
+- `null` otherwise.
 
 You can chain an `else` after a `then` to reproduce the behavior of C's
 ternary `?:` operator:
-
 <!-- try-pre:
     String arg = "hello";
 -->
@@ -533,9 +538,9 @@ ternary `?:` operator:
     print(name);
 -->
     String name = !arg.trimmed.empty then arg else "World";
-
+<!--
 Finally, the `?.` operator lets us call operations on optional types:
-
+-->
 <!-- try-pre:
     String? name = null;
 -->
@@ -543,15 +548,15 @@ Finally, the `?.` operator lets us call operations on optional types:
     print(shoutedGreeting);
 -->
 <!-- cat: void hello(String? name) { -->
-    String shoutedGreeting = "HELLO, " + (name?.uppercased else "WORLD");
+<!-- String shoutedGreeting = "HELLO, " + (name?.uppercased else "WORLD"); -->
 <!-- cat: 
     print(shoutedGreeting);
 } -->
-
+<!--
 If `name` is null, `name?.uppercased` evaluates to `null`. Otherwise, the
 `uppercased` attribute of `String` is evaluated. 
-
-So we can finally simplify our example to something reasonable:
+-->
+Using `else`, we can finally simplify our example to something reasonable:
 
 <!-- try-post:
     hello();
