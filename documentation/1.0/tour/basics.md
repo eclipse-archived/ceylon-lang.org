@@ -16,91 +16,12 @@ this language, we need to get comfortable with some of the basic syntax, so
 we'll know what we're looking at later on. 
 
 
-## A _really_ simple program
-
-Here's a classic example program.
-
-<!-- id: hello -->
-<!-- try-post:
-    hello();
--->
-    void hello() {
-        print("Hello, World!");
-    }
-
-This function prints `Hello, World!` on the console. We call this a _toplevel_ 
-function because it's not a member of any specific type. So you don't need a 
-receiving object to invoke a toplevel function. Instead, you can just call it 
-like this:
-
-<!-- try:
-    void hello() {
-        print("Hello, World!");
-    }
-    hello();
--->
-<!-- cat-id: hello -->
-<!-- cat: void m() { -->
-    hello();
-<!-- cat: } -->
-
-Or you can run it directly from the command line.
-
-Ceylon doesn't have `static` methods like Java, C++, or C#, but you can think 
-of toplevel functions as filling the same role. The reason for this difference
-is that Ceylon has a very strict block structure - a nested block always has 
-access to declarations in all containing blocks. This isn't the case with 
-Java's `static` methods.
-
-
-## Running the program from the command line
-
-Let's try it out. Save the above code in the file `./source/hello.ceylon` 
-and then run the following commands:
-
-<!-- lang: bash -->
-    ceylon-0.5/bin/ceylon compile source/hello.ceylon
-    ceylon-0.5/bin/ceylon run --run hello default
-
-where `ceylon-0.5` is the path to your Ceylon install directory. You should
-see the message `Hello, World!`. You will find the compiled module archive 
-`default.car` in the directory `./modules/default`.
-
-*If you're having trouble getting started with the command line tools, the
-[command line distribution](/download) of Ceylon contains a file named
-`README.md` in the root directory that contains instructions on compiling
-and running the simple examples in the `samples/` directory.*
-
-A very useful trick is:
-
-<!-- lang: bash -->
-    ceylon-0.5/bin/ceylon help compile
-    ceylon-0.5/bin/ceylon help run
-
-In fact the 
-[ceylon help](../../reference/tool/ceylon/subcommands/ceylon-help.html) command 
-should be able to give you help about all the other 
-[`ceylon` subcommands](../../reference/tool/ceylon/subcommands/index.html).
-
-## Running the program from the IDE
-
-To run the program in [Ceylon IDE](#{page.doc_root}/ide), go to the Ceylon 
-perspective, create a new project using `File > New > Ceylon Project`, then 
-create a new `.ceylon` file using `File > New > Ceylon Source File`. Paste 
-the definition of `hello()` in this new file, then select the file and run 
-it using `Run > Run As > Ceylon Application`. This executes the program on 
-the JVM.
-
-If you have `node.js` installed, you can go to `Project > Properties`, 
-enable `Compile project to JavaScript`, then click `OK`, and run the 
-program using `Run > Run As > Ceylon JavaScript Application`.
-
-Or, if you're unfamiliar with Eclipse, go to `Help > Cheat Sheets`, open
-the `Ceylon` item, and run the `Hello World with Ceylon` cheat sheet which 
-takes you step by step through the process.
-
-
 ## String literals
+
+As we [just saw](../#a_really_simple_program), a _string literal_ is text 
+enclosed in double-quotes:
+
+    print("Hello, World!");
 
 String literals in Ceylon may span multiple lines. Try this:
 
@@ -341,12 +262,20 @@ Let's make our program tell us a little more about itself.
         print("Hello, this is Ceylon ``language.version``  
                running on Java ``process.vmVersion``!\n
                You ran me at ``process.milliseconds`` ms, 
-               with ``process.arguments.size`` command 
-               line arguments.");
+               with ``process.arguments.size`` arguments.");
     }
 
 Notice how our message contains interpolated expressions, delimited using
 "doublebacks", that is, two backticks. This is called a _string template_. 
+
+On my machine, this program results in the following output:
+
+<!-- lang: none -->
+    Hello, this is Ceylon 0.5 
+    running on Java 1.7!
+    
+    You ran me at 1362763185067 ms,
+    with 0 arguments.
 
 <!--
 (If you're wondering why the syntax isn't something like 
@@ -362,7 +291,7 @@ strings, and more flexible in many cases:
           "running on Java " + process.vmVersion + "!\n" +
           "You ran me at " + process.milliseconds.string + 
           " ms, with " + process.arguments.size.string + 
-          " command line arguments.");
+          " arguments.");
 <!-- cat: } -->
 
 Note that when we use `+` to concatenate strings, we have to explicitly 
@@ -377,7 +306,7 @@ following does not compile:
           "running on Java " + process.vmVersion + "!\n" +
           "You ran me at " + process.milliseconds +    //compile error!
           " ms, with " + process.arguments.size +    //compile error!
-          " command line arguments.");
+          " arguments.");
 
 
 ## Dealing with objects that aren't there
