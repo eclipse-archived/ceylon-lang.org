@@ -173,15 +173,15 @@ graphs.
 
 First, note that the syntax we've already seen for specifying a named argument 
 value looks exactly like the syntax for refining a `formal` attribute. If you 
-think about it, taking into account that a method parameter may accept 
-references to other methods, the whole problem of specifying values for named 
+think about it, taking into account that a function parameter may accept 
+references to other functions, the whole problem of specifying values for named 
 parameters starts to look a lot like the problem of refining abstract members. 
 Therefore, Ceylon will let us reuse much of the member declaration syntax 
 inside a named argument list.
 
 It's legal to include the following constructs in a named argument list:
 
-* method declarations — specify the argument of a parameter that accepts a 
+* function declarations — specify the argument of a parameter that accepts a 
   function,
 * `object` (anonymous class) declarations — are most useful for specifying 
   the value of a parameter whose type is an interface or abstract class, and
@@ -189,7 +189,7 @@ It's legal to include the following constructs in a named argument list:
 
 This helps explain why named argument lists are delimited by braces: the 
 fully general syntax for a named argument list is very, very close to the 
-syntax for a class, method, or attribute body. Notice, again, how flexibility 
+syntax for a class, function, or attribute body. Notice, again, how flexibility 
 derives from language regularity.
 
 So we could rewrite the code that builds a `Table` as follows:
@@ -227,7 +227,7 @@ So we could rewrite the code that builds a `Table` as follows:
     };
 
 Notice that we've specified the value of the parameter named `content` using the 
-usual syntax for declaring a method.
+usual syntax for declaring a function.
 
 Even better, using the shortcuts we've already seen, our example can be further 
 abbreviated like this:
@@ -330,7 +330,7 @@ doesn't make sense, please read the section on [generics](../generics) again.)
 
 Of course, as we saw in the leg on [functions](../functions), a better way to 
 solve this problem might be to eliminate the `Observer` interface and pass a 
-method directly:
+function directly:
 
 <!-- try: -->
 <!-- check:parse:pedagogical -->
