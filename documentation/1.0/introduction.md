@@ -589,6 +589,49 @@ Here, we're using a comprehension as a method argument to format and print the n
 <!-- try: -->
     print(", ".join { for (p in people) p.firstName + " " + p.lastName });
 
+## Tuples
+
+A _tuple_ is a kind of linked list, where the static type of the list 
+encodes the static type of each element of the list, for example:
+
+<!-- try: -->
+    [Float,Float,Float,String] origin = [0.0, 0.0, 0.0, "origin"];
+
+We can access the elements of the list without needing to typecast:
+
+<!-- try: -->
+    [Float,Float,Float,String] xyzWithLabel = ... ;
+    
+    [Float,Float] xy = [xyzWithLabel[0], xyzWithLabel[1]];
+    String label = xyzWithLabel[3];
+
+Tuples aren't something we intend for you to use every day. But they are 
+occasionally useful as a convenience, and they really come into play if you
+want to take advantage of Ceylon's support for typesafe metaprogramming. For
+example, you can take a tuple, and "spread" it across the parameters of a
+function:
+
+Suppose we have a nice function for formatting dates:
+
+<!-- try: -->
+    String formatDate(String format, 
+                      Integer day, 
+                      Integer|String month, 
+                      Integer year) { ... }
+
+And we have a date, held in a tuple:
+
+<!-- try: -->
+    [Integer,String,Integer] date = [25, "March", 20013];
+
+Then we can print the date like this:
+
+<!-- try: -->
+    print(formatDate("dd MMMMM yyyy", *date));
+
+Of course, Ceylon's support for tuples is just some syntax sugar over the
+perfectly ordinary generic class `Tuple`.
+
 ## Simplified generics with fully-reified types
 
 Ceylon does not support Java-style wildcard type parameters, raw types, or any 
