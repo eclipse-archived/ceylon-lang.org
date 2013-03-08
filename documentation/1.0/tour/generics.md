@@ -35,10 +35,17 @@ enclosed in angle brackets.
 <!-- check:none -->
     shared interface Iterator<out Element> { ... }
 
-    class Array<Element>(Element* elements) 
-            satisfies Sequence<Element> { ... }
+    shared class Singleton<out Element>(Element element)
+            extends Object()
+            satisfies [Element+]
+            given Element satisfies Object { ... }
 
-    shared Entries<Integer,Element> entries<Element>(Element* sequence) { ... }
+    shared Value sum<Value>({Value+} values) 
+            given Value satisfies Summable<Value> { ... }
+
+    shared <Key->Item>[] zip<Key,Item>({Key*} keys, {Item*} items)
+            given Key satisfies Object
+            given Item satisfies Object { ... }
 
 As you can see, the convention in Ceylon is to use meaningful names for 
 type parameters (in Java the convention is to use single letter names).
@@ -47,31 +54,31 @@ Unlike Java, we always do need to specify type arguments in a type declaration
 (there are no _raw types_ in Ceylon). The following will not compile:
 
 <!-- try:
-    Iterable it = {};   //error: missing type argument to parameter Element of Iterable
+    Iterator it = {};   //error: missing type argument to parameter Element of Iterable
 -->
 <!-- check:none:Demoing error -->
-    Iterable it = ...;   //error: missing type argument to parameter Element of Iterable
+    Iterator it = ...;   //error: missing type argument to parameter Element of Iterable
 
 We always have to specify a type argument in a type declaration:
 
 <!-- try:
-    Iterable<String> it = {};
+    Iterator<String> it = {};
 -->
 <!-- check:none -->
-    Iterable<String> it = ...;
+    Iterator<String> it = ...;
 
 On the other hand, we don't need to explicitly specify type arguments in most 
 method invocations or class instantiations. We don't usually need to write:
 
 <!-- check:none -->
-    Array<String> strings = array<String>("Hello", "World"); 
-    Iterable<Entry<Integer,String>> things = entries<String>(strings);
+    Array<String> strings = array<String> { "Hello", "World" };
+    {<Integer->String>*} things = entries<String>(strings);
 
 Instead, it's very often possible to infer the type arguments from the ordinary 
 arguments.
 
 <!-- check:none -->
-    value strings = array("Hello", "World"); // type Array<String>
+    value strings = array { "Hello", "World" }; // type Array<String>
     value things = entries(strings); // type Iterable<Entry<Integer,String>>
 
 The generic type argument inference algorithm is slightly involved, so you
@@ -85,11 +92,11 @@ in the case of a contravariant type parameter.
     class Polar(Float angle, Float radius) { }
     class Cartesian(Float x, Float y) { }
 
-    value points = array(Polar(0.7854, 0.5), Cartesian(-1.0, 2.5)); // type Array<Polar|Cartesian>
-    value things = entries(points...); // type Iterable<Entry<Integer,Polar|Cartesian>>
+    value points = array { Polar(0.7854, 0.5), Cartesian(-1.0, 2.5) }; // type Array<Polar|Cartesian>
+    value things = entries(points); // type Iterable<Entry<Integer,Polar|Cartesian>>
 -->
 <!-- check:none -->
-    value points = Array(Polar(pi/4, 0.5), Cartesian(-1.0, 2.5)); // type Array<Polar|Cartesian>
+    value points = array { Polar(pi/4, 0.5), Cartesian(-1.0, 2.5) }; // type Array<Polar|Cartesian>
     value entries = entries(points); // type Entries<Integer,Polar|Cartesian>
 
 Finally, Ceylon eliminates one of the bits of Java generics that's really 
