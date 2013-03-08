@@ -70,7 +70,8 @@ body.bp {
   }
   
   ul li {
-    padding:5px;
+    //padding:5px;
+    margin: 0 0 0.4em 0.4em;
     code {
       //background-color:#f9f9f9;
       //border: 1px solid #d5d8d3;
@@ -101,11 +102,16 @@ body.bp {
     //background-color:#f9f9f9;
     //border: 1px solid #d5d8d3;
     //padding: 2px; 
-      font-family:Menlo, Monaco, 'Andale Mono', Consolas, 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', monospace;
+    font-family:Menlo, Monaco, 'Andale Mono', Consolas, 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', monospace;
     font-style:normal;
     font-size:90%;
     text-shadow: white 0px 0px 0px;
     color:#2E5C00;
+  }
+  
+  p {
+    margin-top:0.8em;
+    margin-bottom:0.8em;
   }
 
   //Home news info
