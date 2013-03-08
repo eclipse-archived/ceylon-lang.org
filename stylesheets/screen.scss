@@ -69,9 +69,13 @@ body.bp {
     font-size:100%;
   }
   
-  ul li {
+  ul {
+    margin-top:0.2em;
+    margin-bottom:0.2em;
+    li {
     //padding:5px;
-    margin: 0 0 0.4em 0.4em;
+    margin-top:0.2em;
+    margin-bottom:0.2em;
     code {
       //background-color:#f9f9f9;
       //border: 1px solid #d5d8d3;
@@ -82,11 +86,14 @@ body.bp {
       text-shadow: white 0px 0px 0px;
       color:#2E5C00;
     }
+    }
   }
   
   pre {
     //background-color:#f5f5f5;
     //border: 1px solid #d5d8d3;
+    margin-top:0.6em;
+    margin-bottom:0.6em;
     margin-left:10px;
     border-left: 5px solid #f0f0f0;
     padding: 10px;
