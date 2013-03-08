@@ -34,7 +34,7 @@
             { regex: /\/\*(?!\*\/)\*[\s\S]*?\*\//gm, css: 'preprocessor' },                    // documentation comments
             { regex: /"""([^"]|"[^"]|""[^"])*"""/gm, css: 'string' },                          // verbatim strings
             { regex: /(``|")([^"\\`]|\\.|`[^`"])*(`"|``|")/gm, css: 'string' },                    // strings
-            { regex: /'([^'\\]|\\.)*'/gm, css: 'string' },                                     // characters
+            { regex: /'([^'\\\n]|\\.)*'/gm, css: 'string' },                                     // characters
             { regex: new RegExp(this.getKeywords(keywords), 'gm'), css: 'keyword' },           // ceylon keywords
             { regex: /(#|\$)[a-zA-Z0-9_]+\b/gi, css: 'value' },                                // hex/bin numbers
             { regex: /\b[A-Z][a-zA-Z0-9_]*/g, css: 'color1' },                                 // ceylon type
