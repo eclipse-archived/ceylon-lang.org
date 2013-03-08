@@ -51,10 +51,10 @@
 	height: auto !important;
 	width: auto !important;
 	line-height: 1.4em !important;
-	font-family: "Courier New", "Andale Mono", "Consolas", "Bitstream Vera Sans Mono", Courier, monospace !important;
+	font-family: Menlo, Monaco, 'Andale Mono', Consolas, 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', monospace !important;
 	font-weight: normal !important;
 	font-stylex: normal !important;
-	font-size: 99% !important;
+	//font-size: 96% !important;
 	min-height: inherit !important; /* For IE8, FF & WebKit */
 	min-height: auto !important; /* For IE7 */
 }
@@ -65,7 +65,7 @@
 	margin: 1em 0 1em 0 !important;
 	padding: 1px !important; /* adds a little border on top and bottom */
 	position: relative !important;
-    margin-left: 15px !important;
+    margin-left: 10px !important;
 }
 
 .syntaxhighlighter .bold 

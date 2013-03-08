@@ -75,21 +75,24 @@ body.bp {
       //background-color:#f9f9f9;
       //border: 1px solid #d5d8d3;
       //padding: 2px; 
-      font-family:'Courier New', 'Andale Mono', Consolas, 'Bitstream Vera Sans Mono', Courier, monospace;
+      font-family:Menlo, Monaco, 'Andale Mono', Consolas, 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', monospace;
       font-style:normal;
-      font-size:.96em;
+      font-size:95%;
       text-shadow: white 0px 0px 0px;
+      color:#751919;
     }
   }
   
   pre {
     //background-color:#f5f5f5;
     //border: 1px solid #d5d8d3;
-    margin-left:15px;
+    margin-left:10px;
+    border-left: 5px solid #f0f0f0;
+    padding: 10px;
     code {
-      font-family:'Courier New', 'Andale Mono', Consolas, 'Bitstream Vera Sans Mono', Courier, monospace;
+      font-family:Menlo, Monaco, 'Andale Mono', Consolas, 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', monospace;
       font-style:normal;
-      font-size:.96em;
+      font-size:85%;
       text-shadow: white 0px 0px 0px;
     }
   }
@@ -98,10 +101,11 @@ body.bp {
     //background-color:#f9f9f9;
     //border: 1px solid #d5d8d3;
     //padding: 2px; 
-    font-family:'Courier New', 'Andale Mono', Consolas, 'Bitstream Vera Sans Mono', Courier, monospace;
+      font-family:Menlo, Monaco, 'Andale Mono', Consolas, 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', monospace;
     font-style:normal;
-    font-size:.96em;
+    font-size:95%;
     text-shadow: white 0px 0px 0px;
+    color:#751919;
   }
 
   //Home news info
