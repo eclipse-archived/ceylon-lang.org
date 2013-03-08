@@ -28,7 +28,7 @@ Then we're going to skim over some material about
 In Java, a field of a class is quite easily distinguished from a local 
 variable or parameter of a constructor. This distinction is much less
 meaningful in Ceylon, and often irrelevant. An _attribute_ is really 
-just a value declared in the parameter list of body of the class that 
+just a value declared in the parameter list or body of the class that 
 happens to be captured by some `shared` declaration.
 
 Here, `count` is a block-local variable of the initializer of `Counter`:
