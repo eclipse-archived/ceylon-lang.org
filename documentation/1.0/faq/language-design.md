@@ -91,8 +91,7 @@ Well then, that's easy: yes, it certainly does.
 
 ### String interpolation syntax
 
-> Why not `"Hello $name"` or `"Hello ${name.uppercased}"` instead 
-> of `"Hello" name ""`?
+> Why not `"Hello $name"` or `"Hello ${name.uppercased}"`?
 
 Primarily because it looks a bit cleaner for defining text in user
 interfaces or other treelike structures.
@@ -101,17 +100,14 @@ interfaces or other treelike structures.
     Html hello {
         Head head { title="Greeting"; }
         Body body {
-            P { "Hello" name ". Welcome back!" }
+            P { "Hello ``name``. Welcome back!" }
         }
     }
 
-We originally looked into the `${...}` syntax, but it turns out that 
-this can't be lexed using a regular expression. Groovy, for example, 
-uses a complex hand-coded lexer to handle this stuff. From a pure
-language-designer perspective, that's a real red flag. The syntax 
-that we ended up settling on isn't as great for everyday procedural
-code, but it *is* much nicer for defining UIs using the declarative
-syntax (which are a primary goals for the language).
+We did originally investigae the `${...}` syntax, but it turns out 
+that this requires a stateful lexer and is more fragile when editing
+code in an IDE. Anyway, some of us just don't love seeing dollar
+signs all over the place.
 
 ### Semicolons `;` at the end of line?
 
@@ -252,7 +248,7 @@ default, providing a `private` annotation to restrict access.
 But that would have been very harmful to modularity, a key
 goal of the language.
 
-The "best" default is the _most restrictive_ option. Othewise,
+The "best" default is the _most restrictive_ option. Otherwise,
 the developer of a module might accidently make something
 something shared that they don't intend to make shared, and
 be forced to either continue to support the 
@@ -532,7 +528,7 @@ All this additional complexity, just to avoid _one method call?_
 
 > Will Ceylon support extension methods?
 
-Yes, almost certainly.
+Yes, probably.
 
 An extension method or attribute is a method or attribute 
 introduced to a type within a certain lexical scope. For example, 
@@ -550,51 +546,6 @@ Or a `printMe()` method to `String` like this:
     shared void printMe(String this)() {
         print(this);
     }
-
-We're still debating whether Ceylon should support plain
-vanilla extension methods, or a more powerful feature called
-_introductions_. You'll find some discussion of this idea in
-[Chapter 3 of the language specification][introductions].
-
-[introductions]: #{page.doc_root}/#{site.urls.spec_relative}#adaptedtypes
-
-### Tuples
-
-> Will Ceylon support tuples?
-
-Great question. We haven't decided yet. It's the #1 feature 
-request from the community. Some people would really like to
-be able to write the following:
-
-<!-- try: -->
-    (Float, Float) polar(Float x, Float y) {
-        return (sqrt(sqr(x)+sqr(y)), atan(y/x));
-    }
-    
-    Float r, Float theta = polar(x, y);
-    print(r);
-    print(theta);
-
-Ceylon's type system&mdash;specifically the notion of
-_sequenced type parameters_&mdash;lets us define `Tuple` as 
-an ordinary Ceylon class without introducing any new primitive
-constructs into the type system. However, true support for
-tuples would mean introducing a fair amount of syntax sugar
-to make use of this class convenient. The syntax sugar would
-add complexity that we're not sure we want.
-
-And, in fact, it's not at all hard to write a function that 
-returns multiple values in Ceylon:
-
-<!-- try: -->
-    class Polar(Float x, Float y) {
-        shared Float r = sqrt(sqr(x)+sqr(y));
-        shared Float theta = atan(y/x);
-    }
-    
-    value p = Polar(x, y);
-    print(p.r);
-    print(p.theta);
 
 ### Use site variance
 
@@ -634,10 +585,10 @@ But `Array<Integer>` _would_ be an `Array<out Object>`, where
 the signature of the `setItem()` method would be:
 
 <!-- try: -->
-    void setItem(Integer index, Bottom item)
+    void setItem(Integer index, Nothing item)
 
 (i.e. contravariant occurrences of the type parameter would take 
-the value `Bottom` in the covariant instantiation of the invariant
+the value `Nothing` in the covariant instantiation of the invariant
 type.)
 
 We're still trying really hard to _not_ need to add use site 
@@ -645,7 +596,7 @@ variance to Ceylon, I guess mainly because of all our traumatic
 experiences with this feature in Java. But, in fairness, the
 feature would not be as awful in Ceylon because:
 
-* `Bottom` is a denotable type,
+* `Nothing` is a denotable type,
 * the syntax would not be awful, and
 * we would have a simpler system without implicit bounds.
 
@@ -741,6 +692,9 @@ GADT support means that the compiler is able to reason that
 when it has an expression of type `Expression<Float>` then it
 can't possibly have an `IntegerLiteral`.
 
+However, there are some decidability issues associated with
+GADTs that we havn't begun to tackle yet.
+
 You'll find some further discussion of this issue in 
 [Chapter 3 of the language specification][gadts].
 
@@ -754,17 +708,17 @@ Yes, probably. The Ceylon compiler already has support for
 this feature. However, we still need to investigate whether 
 this feature is guaranteed to be decidable in all cases.
 
-Self types and type families in Ceylon where previously 
+Self types and type families in Ceylon were previously 
 [discussed here][type families]. In a nutshell:
 
-_A self type is a type parameter of an abstract type (like 
-`Comparable`) which represents the type of a concrete 
-instantiation (like `String`) of the abstract type within 
-the definition of the abstract type itself. In a type family, 
-the self type of a type is declared not by the type itself, 
-but by a containing type which groups together a set of 
-related types. This allows the related types to refer to the
-unknown self type of the type._
+> A self type is a type parameter of an abstract type (like 
+> `Comparable`) which represents the type of a concrete 
+> instantiation (like `String`) of the abstract type within 
+> the definition of the abstract type itself. In a type family, 
+> the self type of a type is declared not by the type itself, 
+> but by a containing type which groups together a set of 
+> related types. This allows the related types to refer to the
+> unknown self type of the type.
 
 [type families]: http://in.relation.to/Bloggers/SelfTypesAndTypeFamiliesInCeylon
 
