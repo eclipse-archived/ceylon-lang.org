@@ -204,7 +204,7 @@ when we declare it.
 <!-- try: -->
 <!-- check:none:Requires Math -->
     shared Float x = radius * sin(angle);
-    shared String greeting = "Hello, " name "!";
+    shared String greeting = "Hello, ``name``!";
     shared Integer months = years * 12;
 
 On the other hand, it's sometimes useful to separate declaration from 
