@@ -34,7 +34,7 @@ body.bp {
 
   font: 15px 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #2c2c2c;
-  text-shadow: white 1px 1px 0px;
+  //text-shadow: white 1px 1px 0px;
   background-color: white;
   
   h1 {
@@ -54,6 +54,7 @@ body.bp {
     font-weight:bold;
     color: #255A5F;
     clear: left;
+    margin-top: 0.6em;
   }
   h3 {
     font-size:1.2em;
