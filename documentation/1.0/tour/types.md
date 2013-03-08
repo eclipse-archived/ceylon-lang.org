@@ -721,9 +721,20 @@ was [`Null`](#{site.urls.apidoc_current}/ceylon/language/class_Nothing.html)?
     String? s = strings.first;
 <!-- cat: } -->
 
-Note: the declared type of the attribute `first` of `Iterable` is `Element?`.
-Substituting `String?` for `Element`, we get the type `String??`, that is,
-`Null|Null|String`, which is simply `Null|String`, written `String?`.
+The declared type of the attribute `first` of `Iterable<Element>` is 
+`Element?`. Here, we have an `Iterable<String?>` Substituting `String?` 
+for `Element`, we get the type `String??`, that is, `Null|Null|String`, 
+which is simply `Null|String`, written `String?`. Of course, the 
+compiler can figure out that kind of thing for us, we could have simply 
+written:
+
+<!-- try-post:
+    print(s else "null");
+-->
+<!-- cat: void m() { -->
+    value sequence = { null, "Hello", "World" }; //type {String?+}
+    value s = strings.first; //type String?
+<!-- cat: } -->
 
 The same thing works out for sequences:
 
@@ -733,7 +744,7 @@ The same thing works out for sequences:
 <!-- cat: void m() { -->
     value tuple = [null, "Hello", "World"]; //type [Null,String,String]
     String?[] strings = tuple;
-    String? s = strings[0];
+    value s = strings[0]; //type String?
 <!-- cat: } -->
 
 It's interesting just how useful union types turn out to be. Even if you only 
