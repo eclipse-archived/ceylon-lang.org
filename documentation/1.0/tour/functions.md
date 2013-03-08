@@ -802,13 +802,16 @@ Fortunately, you won't need to be writing functions like
 `curry()()`, `uncurry()()` and `compose()()` yourself. They're general 
 purpose tools that are packaged as part of the 
 [`ceylon.language`](#{site.urls.apidoc_current}/ceylon/language/)
-module. Nevertheless, it's nice to know that machinery like this is expressible 
-within the type system of Ceylon. 
+module. Nevertheless, it's nice to know that machinery like this is 
+expressible within the type system of Ceylon. 
 -->
 
 ## There's more...
 
-Now we're  going to talk about Ceylon's syntax for [named
-argument lists](../named-arguments) and for defining user interfaces and 
+You'll find a more detailed discussion of how Ceylon represents function 
+types using tupes [here](/blog/2013/01/21/abstracting-over-functions/).
+
+Now we're  going to talk about Ceylon's syntax for [named argument 
+lists](../named-arguments) and for defining user interfaces and 
 structured data. 
 
