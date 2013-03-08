@@ -158,7 +158,7 @@ no `satisfies` clause is actually a package of extension methods!
             adapts Sequence<String> {
         
         shared String concatenated {
-            variable String concatenation := "";
+            variable String concatenation = "";
             for (string in this) {
                 concatenation += string;
             }
@@ -166,7 +166,7 @@ no `satisfies` clause is actually a package of extension methods!
         }
         
         shared String join(String separator=", ") {
-            variable String concatenation := this.first;
+            variable String concatenation = this.first;
             for (string in this.rest) {
                 concatenation += separator + string;
             }

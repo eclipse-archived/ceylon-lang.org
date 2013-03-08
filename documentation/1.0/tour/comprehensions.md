@@ -127,14 +127,14 @@ It's especially useful to filter using `if (exists ...)`.
 <!-- try:
     class Person(name) {
         shared String name;
-        shared variable Person? spouse := null;
+        shared variable Person? spouse = null;
         shared actual String string = name;
     }
     value wim = Person("Wim");
     value zus = Person("Zus");
     value jet = Person("Jet");
-    wim.spouse := jet;
-    jet.spouse := wim;
+    wim.spouse = jet;
+    jet.spouse = wim;
     value people = { wim, zus, jet };
 
     print({for (p in people) if (exists s=p.spouse) p->s});

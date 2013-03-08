@@ -293,7 +293,7 @@ declaration:
         method = user.paymentMethod;
         currency = order.currency;
         value amount {
-            variable Float total := 0.0;
+            variable Float total = 0.0;
             for (item in order.items) {
                 total += item.quantity * item.product.unitPrice;
             }

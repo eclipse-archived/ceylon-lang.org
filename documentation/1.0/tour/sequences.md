@@ -174,23 +174,23 @@ A [`Range`](#{site.urls.apidoc_current}/ceylon/language/class_Range.html)
 is a kind of `Sequence`. The following:
 
 <!-- try:
-    Character[] uppercaseLetters = `A`..`Z`;
+    Character[] uppercaseLetters = 'A'..'Z';
     Integer[] countDown =  10..0 ;
     print(uppercaseLetters);
     print(countDown);
 -->
-    Character[] uppercaseLetters = `A`..`Z`;
+    Character[] uppercaseLetters = 'A'..'Z';
     Integer[] countDown = 10..0;
 
 Is just sugar for:
 
 <!-- try:
-    Sequential<Character> uppercaseLetters = Range(`A`,`Z`);
+    Sequential<Character> uppercaseLetters = Range('A','Z');
     Sequential<Integer> countDown = Range(10,0);
     print(uppercaseLetters);
     print(countDown);
 -->
-    Sequential<Character> uppercaseLetters = Range(`A`,`Z`);
+    Sequential<Character> uppercaseLetters = Range('A','Z');
     Sequential<Integer> countDown = Range(10,0);
 
 In fact, this is just a sneak preview of the fact that almost all operators 

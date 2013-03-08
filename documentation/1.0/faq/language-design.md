@@ -665,9 +665,9 @@ for example:
 <!-- try: -->
     Num sum<Num>(Num... numbers) 
             given Num is Number {
-        variable Num total:=Num.zero;
+        variable Num total=Num.zero;
         for (num in numbers) {
-            total:=Num.sum(total,num);
+            total=Num.sum(total,num);
         }
         return total;
     }
@@ -750,10 +750,9 @@ You'll find some further discussion of this issue in
 
 > Will Ceylon support type families?
 
-Yes, probably. The Ceylon type checker already has support
-for this feature. However, we still need to investigate 
-whether this feature is guaranteed to be decidable in all
-cases.
+Yes, probably. The Ceylon compiler already has support for 
+this feature. However, we still need to investigate whether 
+this feature is guaranteed to be decidable in all cases.
 
 Self types and type families in Ceylon where previously 
 [discussed here][type families]. In a nutshell:
@@ -769,6 +768,7 @@ unknown self type of the type._
 
 [type families]: http://in.relation.to/Bloggers/SelfTypesAndTypeFamiliesInCeylon
 
+<!--
 ### Variables
 
 > The distinctions between immutable and mutable, the `variable` 
@@ -786,7 +786,7 @@ The rules are:
 
 Like in ML, this is to warn you that the code is doing something 
 side-effecty.
-
+-->
 <!--
 
 Introductions are a compromise between two features you'll find 

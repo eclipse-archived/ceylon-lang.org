@@ -252,16 +252,11 @@ We've already met the class `String`, way back in
 a `String` is a [`List`](#{site.urls.apidoc_current}/ceylon/language/interface_List.html)
 of `Character`s.
 
-A character literal is written between backticks. (Not single quotes!)
+A character literal is written between single quotes.
 
-<!-- try:
-    Character[] latinLetters = join(`a`..`z`, `A`..`Z`);
-    Character newline = `\n`;
-    Character pi = `\{#0001D452}`;
--->
-    Character[] latinLetters = join(`a`..`z`, `A`..`Z`);
-    Character newline = `\n`;
-    Character pi = `\{#0001D452}`;
+    Character[] latinLetters = join('a'..'z', 'A'..'Z');
+    Character newline = '\n';
+    Character pi = '\{#0001D452}';
 
 An instance of `Character` represents a 32-bit Unicode character, not a
 Java-style UTF-16 `char`. However, under the covers, Ceylon strings are
