@@ -336,8 +336,7 @@ Let's make our program tell us a little more about itself.
     hello();
 -->
 <!-- id: hello -->
-    "The Hello World program
-     ... version 1.1!"
+    "The Hello World program ... version 1.1!"
     void hello() {
         print("Hello, this is Ceylon ``language.version``  
                running on Java ``process.vmVersion``!\n
@@ -416,7 +415,8 @@ inside the `if (exists ... )` condition:
 
 <!-- cat: void hello() { -->
     String greeting;
-    if (exists name = process.arguments.first) {
+    if (exists name = 
+            process.arguments.first) {
         greeting = "Hello, ``name``!";
     }
     else {
@@ -461,19 +461,22 @@ like we can in Java. This helps avoid the undesirable behavior of `==` in
 Java where `x==y` evaluates to true if `x` and `y` both evaluate to `null`.
 
 In a language with static typing, we're always wanting to know what the type 
-of something is. So what's the type of `null`? That's easy to answer: `null` 
-is a [`Null`](#{site.urls.apidoc_current}/ceylon/language/class_Null.html).
-And the syntax `String?` is just an abbreviation for the 
-[union type](../types/#union_types) `Null|String`. That's why we can't 
-call operations of `String` on a `String?`. It's a different type! The
-`if (exists ...)` construct narrowed the type of `name` inside the `if` block,
-allowing us to treat `name` as a `String` there.
+of something is. So what's the type of `null`? 
 
-So now we can see that the value `null` isn't a primitive value in Ceylon, 
-it's just a perfectly ordinary instance of the perfectly ordinary class `Null`, 
+That's easy to answer: `null` is a [`Null`](#{site.urls.apidoc_current}/ceylon/language/class_Null.html).
+
+Yes, that's right: the value `null` isn't a primitive value in Ceylon, it's 
+just a perfectly ordinary instance of the perfectly ordinary class `Null`, 
 at least from the point of view of Ceylon's type system. 
 
-(However, if you're concerned about performance, it's well worth mentioning that 
+And the syntax `String?` is just an abbreviation for the 
+[union type](../types/#union_types) `Null|String`. 
+
+That's why we can't call operations of `String` on a `String?`. It's simply 
+a different type! The `if (exists ...)` construct narrowed the type of `name` 
+inside the `if` block, allowing us to treat `name` as a `String` there.
+
+(As an aside, if you're concerned about performance, it's worth mentioning that 
 the Ceylon compiler does some special magic to transform this value to a virtual 
 machine-level null, all under the covers.)
 
