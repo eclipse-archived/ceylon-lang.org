@@ -381,6 +381,7 @@ we can declare an *anonymous function* inline, as part of the argument list:
 
 An anonymous function has:
 
+- optionally, the keyword `function` or `void`, and then
 - a parameter list, enclosed in parentheses, followed by
 - a fat arrow, `=>`, with an expression, or
 - a block.
