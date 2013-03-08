@@ -10,12 +10,12 @@ author: Gavin King
 
 Wow, part fifteenth of the Tour of Ceylon and the end is in sight! 
 The [last part](../initialization) covered initialization. This part is all 
-about *annotations*.
+about *annotations* and metaprogramming.
 
-### implementation note <!-- mCeylon -->
+### implementation note <!-- m5 -->
 
 Annotations and metaprogramming are not yet implemented. They will be 
-implemented in M5.
+implemented in M6.
 
 ## Annotations
 
@@ -312,6 +312,13 @@ We won't need to use reflection in our example, since Ceylon's module
 architecture includes special built-in support for using annotations to add
 interceptors to methods and attributes.
 
-## There's more
+## There's more ...
 
-Next we're going to touch on Ceylons support for [interceptors](../interceptors).
+Well actually, we've finished the tour! Of course, there's still plenty of 
+scope for you to explore Ceylon on your own. You should now know enough to 
+start writing Ceylon code for yourself, and start getting to know the platform 
+modules.
+
+Alternatively, if you want to keep reading you can browse the 
+[reference documentation](#{page.doc_root}/reference) or (if you're sitting 
+comfortably) read the [specification](#{page.doc_root}/#{site.urls.spec_relative}).

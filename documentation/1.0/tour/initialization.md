@@ -35,8 +35,9 @@ refers to the parent instance of the current instance of a nested class.
         shared String name;
         shared class Child(name) {
             shared String name;
-            shared String qualifiedName = outer.name + "/" + name;
-            shared Parent parent { return outer; }
+            shared String qualifiedName = 
+                    outer.name + "/" + name;
+            shared Parent parent => outer;
         }
     }
 
@@ -50,10 +51,10 @@ There's a good reason why `super` always refers to a super*class*, and never
 to a super*interface*.
 
 Ceylon features a restricted kind of multiple inheritance often called 
-'mixin inheritance'. Some languages with multiple inheritance or even mixin 
+_mixin inheritance_. Some languages with multiple inheritance or even mixin 
 inheritance feature so-called "depth-first" member resolution or 
-linearization where all supertypes of a class are arranged into a 
-linear order. We believe that this model is arbitrary and fragile.
+linearization where all supertypes of a class are arranged into a linear 
+order. We believe that this model is arbitrary and fragile.
 
 Ceylon doesn't perform any kind of linearization of supertypes. The order in 
 which types appear in the `satisfies` clause is never significant. The only 
@@ -79,9 +80,9 @@ reason why [interfaces are stateless](../inheritance#interfaces_and_mixin_inheri
 would be even more fragile.)
 -->
 
-So Ceylon is more restrictive than some other languages here. But we think 
-that this restriction makes a subtype less vulnerable to breakage due to 
-changes in its supertypes.
+So Ceylon is more restrictive than some other languages in this respect. But 
+we think that this restriction makes a subtype less vulnerable to breakage due 
+to changes in its supertypes.
 
 
 ## Definite assignment and definite initialization
@@ -154,14 +155,14 @@ This behavior is bad enough in and of itself. But it would be even less
 acceptable in Ceylon, where most types don't have an acceptable "default" 
 value. For example, consider the type `Person`. What would be an acceptable 
 default value of this type? The value `null` certainly won't do, since it's 
-not even an instance of `Person`. (It's an instance of `Nothing`, 
+not even an instance of `Person`. (It's an instance of `Null`, 
 [remember!](../basics#dealing_with_objects_that_arent_there)) 
-Although evaluation of an uninitialized instance variable could be defined to
-result in an immediate runtime exception, that would just be our 
-old friend `NullPointerException` creeping back in by the back door. 
+Although evaluation of an uninitialized instance variable could be defined 
+to result in an immediate runtime exception, that would just be our old 
+friend `NullPointerException` creeping back in by the back door. 
 
-Indeed, "few" object-oriented languages  (and possibly none) perform 
-the necessary static analysis to ensure definite initialization of instance 
+Indeed, "few" object-oriented languages  (and possibly none) perform the 
+necessary static analysis to ensure definite initialization of instance 
 variables, and this is perhaps one of the main reasons why object-oriented 
 languages have never featured typesafe handling of `null` values.
 
@@ -305,6 +306,7 @@ According to the language spec:
 > 
 > * a statement or control structure,
 > * a method or attribute declaration with a specifier or initializer,
+> a forward-declared method or attribute declaration not annotated `late`,
 > * an `object` declaration with a non-empty initializer section, or
 > * an `object` declaration that directly extends a class other than 
 >   `Object` or `IdentifiableObject`...
@@ -318,21 +320,36 @@ and declaration sections have in common is _statelessness_.
 ## Circular references
 
 Unfortunately, these rules make it a little tricky to set up circular 
-references between two objects without resort to non-`variable` attributes. 
-This is a problem Ceylon has in common with functional languages, which also 
-emphasize immutability. We can't write the following code in Ceylon:
+references between two objects. This is a problem Ceylon has in common 
+with functional languages, which also emphasize immutability. The 
+following code produces an error:
 
 <!-- check:none:#94 -->
-    class Child(Parent p) {
-        shared Parent parent = p;
+    class Child(parent) {
+        shared Parent parent;
     }
      
     class Parent() {
-        shared Child child = Child(this); //compile error (leaks self reference)
+        shared Child child = 
+                Child(this); //compile error: leaks self reference
     }
 
-Eventually, Ceylon will probably need some specialized machinery for dealing 
-with this problem.
+As a slightly adhoc workaround for this problem, we can annotate the 
+reference `parent`, suppressing the usual definite initialization 
+checks, using the `late` annotation: 
+
+<!-- check:none:#94 -->
+    class Child() {
+        shared late Parent parent;
+    }
+     
+    class Parent() {
+        shared Child child = Child();
+        child.parent = this;
+    }
+
+When a reference is annotated `late`, the checks which normally happen
+at compile time are delayed until runtime.
 
 ## Definite initialization of methods
 
