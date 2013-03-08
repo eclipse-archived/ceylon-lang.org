@@ -100,8 +100,7 @@ These constructs protect us from inadvertantly writing code that would
 cause a `ClassCastException` in Java, just like `if (exists ... )` 
 protects us from writing code that would cause a `NullPointerException`.
 
-The `if (is ... )` construct actually narrows to an 
-[intersection type](#intersection_types).
+The `if (is ... )` construct actually narrows to an intersection type.
 
 ## Intersection types
 
@@ -109,36 +108,36 @@ An expression is assignable to an *intersection type*, written `X&Y`, if it is
 assignable to *both* `X` and `Y`. For example, since 
 [`Empty`](#{site.urls.apidoc_current}/ceylon/language/interface_Empty.html)
 is a subtype of 
-[`Iterable<Bottom>`](#{site.urls.apidoc_current}/ceylon/language/interface_Iterable.html) 
+[`Iterable<Nothing>`](#{site.urls.apidoc_current}/ceylon/language/interface_Iterable.html) 
 and of 
 [`Sized`](#{site.urls.apidoc_current}/ceylon/language/interface_Sized.html),
 it's also a subtype of the intersection 
-`Iterable<Bottom>&Sized`. The supertypes of an intersection type include all 
+`Iterable<Nothing>&Sized`. The supertypes of an intersection type include all 
 supertypes of every intersected type.
 
 Therefore, the following code is well-typed:
 
-    Iterable<Bottom>&Sized empty = {};
+    Iterable<Nothing>&Sized empty = [];
     Integer sizeZero = empty.size;  //call size of Sized
-    Iterator<Bottom> nullIterator = empty.iterator;  //call iterator of Iterable
+    Iterator<Nothing> nullIterator = empty.iterator();  //call iterator() of Iterable
 
 Now consider this code, to see the effect of `if (is ...)`:
 
 <!-- cat: void m() { -->
-    Iterable<Bottom> empty = {};
+    Iterable<Nothing> empty = [];
     if (is Sized empty) {
         Integer sizeZero = empty.size;
-        Iterator<Bottom> nullIterator = empty.iterator;
+        Iterator<Nothing> nullIterator = empty.iterator();
     }
 <!-- cat: } -->
 
-Inside the body of the `if` construct, `empty` has the type `Iterable<Bottom>&Sized`,
+Inside the body of the `if` construct, `empty` has the type `Iterable<Nothing>&Sized`,
 so we can call operations of both `Iterable` and `Sized`.
 
 
 ## Union types
 
-An expression is assignable to a *union type*, written `X|Y`, if it is assigmable
+An expression is assignable to a *union type*, written `X|Y`, if it is assignable
 to *either* `X` or `Y`. The type `X|Y` is always a supertype of both `X` and `Y`. 
 The following code is well-typed:
 
@@ -193,9 +192,9 @@ will let us leave off the `else` clause.
 -->
     void printType(String|Integer|Float val) {
         switch (val)
-        case (is String) { print("String: " val ""); }
-        case (is Integer) { print("Integer: " val ""); }
-        case (is Float) { print("Float: " val ""); }
+        case (is String) { print("String: ``val``"); }
+        case (is Integer) { print("Integer: ``val``"); }
+        case (is Float) { print("Float: ``val``"); }
     }
 
 A union type is a kind of *enumerated type*.
@@ -291,19 +290,14 @@ Let's consider the following tree visitor implementation:
         shared formal void accept(Visitor v);
     }
     
-    class Leaf(Object val) extends Node() {
-        shared Object element = val;
-        shared actual void accept(Visitor v) {
-            v.visitLeaf(this);
-        }
+    class Leaf(shared Object element) 
+            extends Node() {
+        accept(Visitor v) => v.visitLeaf(this);
     }
     
-    class Branch(Node left, Node right) extends Node() {
-        shared Node leftChild = left;
-        shared Node rightChild = right;
-        shared actual void accept(Visitor v) {
-            v.visitBranch(this);
-        }
+    class Branch(shared Node left, shared Node right) 
+            extends Node() {
+        accept(Visitor v) => v.visitBranch(this);
     }
     
     interface Visitor {
@@ -319,19 +313,14 @@ interface:
         shared formal void accept(Visitor v);
     }
     
-    class Leaf(Object val) extends Node() {
-        shared Object element = val;
-        shared actual void accept(Visitor v) {
-            v.visitLeaf(this);
-        }
+    class Leaf(shared Object element) 
+            extends Node() {
+        accept(Visitor v) => v.visitLeaf(this);
     }
     
-    class Branch(Node left, Node right) extends Node() {
-        shared Node leftChild = left;
-        shared Node rightChild = right;
-        shared actual void accept(Visitor v) {
-            v.visitBranch(this);
-        }
+    class Branch(shared Node left, shared Node right) 
+            extends Node() {
+        accept(Visitor v) => v.visitBranch(this);
     }
     
     interface Visitor {
@@ -348,11 +337,11 @@ interface:
     void printTree(Node node) {
         object printVisitor satisfies Visitor {
             shared actual void visitLeaf(Leaf leaf) {
-                print("Found a leaf: " leaf.element "!");
+                print("Found a leaf: ``leaf.element``!");
             }
             shared actual void visitBranch(Branch branch) {
-                branch.leftChild.accept(this);
-                branch.rightChild.accept(this);
+                branch.left.accept(this);
+                branch.right.accept(this);
             }
         }
         node.accept(printVisitor);
@@ -370,14 +359,11 @@ enumerating the subtypes of `Node` in its definition, and using a `switch`:
 <!-- id:tree2 -->
     abstract class Node() of Leaf | Branch {}
     
-    class Leaf(element) extends Node() {
-        shared Object element;
-    }
+    class Leaf(shared Object element) 
+            extends Node() {
     
-    class Branch(leftChild, rightChild) extends Node() {
-        shared Node leftChild;
-        shared Node rightChild;
-    }
+    class Branch(shared Node left, shared Node right) 
+            extends Node() {}
 
 Our `print()` method is now much simpler, but still has the desired behavior 
 of "breaking" when a new subtype of `Node` is added.
@@ -385,14 +371,11 @@ of "breaking" when a new subtype of `Node` is added.
 <!-- try-pre:
     abstract class Node() of Leaf | Branch {}
     
-    class Leaf(element) extends Node() {
-        shared Object element;
-    }
+    class Leaf(shared Object element) 
+            extends Node() {
     
-    class Branch(leftChild, rightChild) extends Node() {
-        shared Node leftChild;
-        shared Node rightChild;
-    }
+    class Branch(shared Node left, shared Node right) 
+            extends Node() {}
 
 -->
 <!-- try-post:
@@ -403,11 +386,11 @@ of "breaking" when a new subtype of `Node` is added.
     void printTree(Node node) {
         switch (node)
         case (is Leaf) {
-            print("Found a leaf: " node.element "!");
+            print("Found a leaf: ``node.element``!");
         }
         case (is Branch) {
-            printTree(node.leftChild);
-            printTree(node.rightChild);
+            printTree(node.left);
+            printTree(node.right);
         }
     }
 
@@ -633,7 +616,7 @@ local method) in place of the type declaration.
 <!-- cat: void m() { -->
     value polar = Polar(pi, 2.0);
     value operators = { "+", "-", "*", "/" };
-    function add(Integer x, Integer y) { return x+y; }
+    function add(Integer x, Integer y) => x+y;
 <!-- cat: } -->
 
 There are some restrictions applying to this feature. You can't use `value` 
@@ -649,16 +632,19 @@ Type inference is purely "right-to-left" and "top-to-bottom". The type of any
 expression is already known without needing to look to any types declared 
 to the left of the `=` specifier, or further down the block of statements.
 
-* The inferred type of a local declared `value` is just the type of the 
-  expression assigned to it using `=` or `:=`.
+* The inferred type of a reference declared `value` is just the type of the 
+  expression assigned to it using `=`.
+* The inferred type of a getter declared `value` is just the union of the 
+  returned expression types appearing in the getter's `return` statements
+  (or `Nothing` if the getter has no `return` statement).
 * The inferred type of a method declared `function` is just the union of the 
   returned expression types appearing in the method's `return` statements
-  (or `Bottom` if the method has no `return` statement).
+  (or `Nothing` if the method has no `return` statement).
 
 
-## Type inference for sequence enumeration expressions
+## Type inference for iterable constructor expressions
 
-What about sequence enumeration expressions like this:
+What about iterable constructor expressions expressions like this:
 
 <!-- try-pre:
     abstract class Point() of Polar | Cartesian { }
@@ -675,18 +661,21 @@ What about sequence enumeration expressions like this:
 <!-- cat-id: Point -->
 <!-- cat-id: Polar -->
 <!-- cat: void m() { -->
-    value sequence  = { Polar(0.0, 0.0), Cartesian(1.0, 2.0) };
+    value coords  = { Polar(0.0, 0.0), Cartesian(1.0, 2.0) };
 <!-- cat: } -->
 
-What type is inferred for `sequence`? You might answer: "`Sequence<X>`
-where `X` is the common superclass or super-interface of all the element 
-types". But that can't be right, since there might be more than one 
-common supertype.
+What type is inferred for `coords`? You might answer: 
 
-The answer is that the inferred type is `Sequence<X>` where `X` is the 
+> `{X+}` where `X` is the common superclass or super-interface 
+> of all the element types. 
+
+But that can't be right, since there might be more than one common 
+supertype.
+
+The correct answer is that the inferred type is `{X*}` where `X` is the 
 union of all the element expression types. In this case, the type is 
-`Sequence<Polar|Cartesian>`. Now, this works out nicely, because 
-`Sequence<T>` is [covariant](../generics#covariance_and_contravariance) 
+`{Polar|Cartesian*}`. Now, this works out nicely, because 
+`Iterable<T>` is [covariant](../generics#covariance_and_contravariance) 
 in `T`. So the following code is well-typed:
 
 <!-- try-pre:
@@ -704,8 +693,8 @@ in `T`. So the following code is well-typed:
 <!-- cat-id: Point -->
 <!-- cat-id: Polar -->
 <!-- cat: void m() { -->
-    value sequence  = { Polar(0.0, 0.0), Cartesian(1.0, 2.0) }; //type Sequence<Polar|Cartesian>
-    Point[] points = sequence; //type Empty|Sequence<Point>
+    value coords  = { Polar(0.0, 0.0), Cartesian(1.0, 2.0) }; //type Iterable<Polar|Cartesian,Nothing>
+    {Point*} coords = sequence; //type Iterable<Point,Null>
 <!-- cat: } -->
 
 As is the following code:
@@ -714,22 +703,32 @@ As is the following code:
     print(numbers);
 -->
 <!-- cat: void m() { -->
-    value nums = { 12.0, 1, -3 }; //type Sequence<Float|Integer>
-    Number[] numbers = nums; //type Empty|Sequence<Number>
+    value nums = { 12.0, 1, -3 }; //type Iterable<Float|Integer,Nothing>
+    {Number+} numbers = nums; //type Iterable<Number,Nothing>
 <!-- cat: } -->
 
-What about sequences that contain `null`? Well, do you 
-[remember](../basics#dealing_with_objects_that_arent_there) 
-the type of `null` was 
-[`Nothing`](#{site.urls.apidoc_current}/ceylon/language/class_Nothing.html)?
+What about iterables that produce `null`s? Well, do you 
+[remember](../basics#dealing_with_objects_that_arent_there) the type of `null` 
+was [`Null`](#{site.urls.apidoc_current}/ceylon/language/class_Nothing.html)?
 
 <!-- try-post:
     print(s else "null");
 -->
 <!-- cat: void m() { -->
-    value sequence = { null, "Hello", "World" }; //type Sequence<Nothing|String>
-    String?[] strings = sequence; //type Empty|Sequence<Nothing|String>
-    String? s = sequence[0]; //type Nothing|Nothing|String which is just Nothing|String
+    value sequence = { null, "Hello", "World" }; //type Iterable<Null|String,Nothing>
+    {String?*} strings = sequence; //type Iterable<Null|String,Null>
+    String? s = strings.first; //type Null|Null|String which is just Null|String
+<!-- cat: } -->
+
+The same thing works out for sequences:
+
+<!-- try-post:
+    print(s else "null");
+-->
+<!-- cat: void m() { -->
+    [Null,String,String] tuple = [null, "Hello", "World"];
+    String?[] strings = tuple; //type Sequential<Null|String,Null>
+    String? s = strings[0]; //type Null|Null|String which is just Null|String
 <!-- cat: } -->
 
 It's interesting just how useful union types turn out to be. Even if you only 
@@ -740,8 +739,8 @@ typing problems.
 
 ## Anonymous classes and type inference
 
-Since an anonymous class doesn't have a name, Ceylon never replaces anonymous
-classes with the intersection of their supertypes when performing type inference:
+Since an anonymous class doesn't have a name, Ceylon replaces anonymous classes 
+with the intersection of their supertypes when performing type inference:
 
     interface Foo {}
     interface Bar {}
