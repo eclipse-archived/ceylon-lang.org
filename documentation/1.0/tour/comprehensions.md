@@ -17,17 +17,20 @@ using named arguments. We're now ready to learn about _comprehensions_.
 
 A comprehension is a convenient way to transform, filter, or combine a
 stream or streams of values before passing the result to a function.
-Comprehensions always appear as arguments to 
-[sequenced parameters](../named-arguments/#sequenced_parameters)
-and always act upon, and produce, instances of 
+Comprehensions act upon, and produce, instances of 
 [`Iterable`](#{site.urls.apidoc_current}/ceylon/language/interface_Iterable.html).
+A comprehension may appear:
+
+- inside brackets, producing a sequence,
+- inside braces, producing an iterable, or
+- inside a named argument list. 
 
 The syntax for instantiating a sequence, [that we met earlier](../sequences#sequence_syntax_sugar)
-is considered to have a sequenced parameter, so we can use a comprehension
-to build a sequence:
+is considered to have a parameter of type `Iterable`, so we can use a 
+comprehension to build a sequence:
 
 <!-- try-pre:
-    class Person(name) { shared String name; }
+    class Person(shared String name) {}
     value people = { Person("Gavin"), Person("Stephane"), Person("Tom"), Person("Tako") };
 
 -->
@@ -35,20 +38,15 @@ to build a sequence:
 
     print(names);
 -->
-    value names = { for (p in people) p.name }; 
+    String[] names = [ for (p in people) p.name ]; 
 
 But comprehensions aren't just useful for building sequences! Suppose 
 we had a class `HashMap`, with the following signature:
 
 <!-- try: -->
-    class HashMap<Key,Item>(Key->Item... entries) { ... }
+    class HashMap<Key,Item>({Key->Item*} entries) { ... }
 
-Then we could construct a `HashMap` like this:
-
-<!-- try: -->
-    value peopleByName = HashMap(for (p in people) p.name->p);
-
-Or, equivalently (using a named argument invocation), like this:
+Then we could construct a `HashMap<String,Person>` like this:
 
 <!-- try: -->
     value peopleByName = HashMap { for (p in people) p.name->p };
@@ -64,18 +62,33 @@ evaluated. This is extremely useful for functions like `every()` and
 `any()`:
 
 <!-- try:
-    class Person(name, age) { shared String name; shared Integer age; }
+    class Person(shared String name, shared Integer age) {}
     value people = { Person("Wim", 43), Person("Zus", 20), Person("Jet", 37) };
 
-    print(every(for (p in people) p.age>=18));
+    print(every { for (p in people) p.age>=18 });
 -->
-    if (every(for (p in people) p.age>=18)) { ... }
+    if (every { for (p in people) p.age>=18 }) { ... }
 
 The function `every()` (in `ceylon.language`) accepts a stream of
 `Boolean` values, and stops iterating the stream as soon as it 
-encounters `false` in the stream. 
+encounters `false` in the stream.
 
-Now let's see what the other bits of a comprehension do.
+If we just need to store the iterable stream somewhere, without 
+evaluating any of its elements, we can use an iterable constructor 
+expression, like this:
+
+<!-- try-pre:
+    class Person(shared String name) {}
+    value people = { Person("Gavin"), Person("Stephane"), Person("Tom"), Person("Tako") };
+
+-->
+<!-- try-post:
+
+    print(names);
+-->
+    {String*} names = { for (p in people) p.name }; 
+
+Now let's see what the various bits of a comprehension do.
 
 ## Transformation
 
@@ -128,9 +141,12 @@ It's especially useful to filter using `if (exists ...)`.
 -->
     for (p in people) if (exists s=p.spouse) p->s
 
-You can even use [multiple `if` conditions](../types#condition_lists):
+You can even use [multiple `if` conditions](../attributes-control-structures#condition_lists):
 
-    for (p in people) if (exists s=p.spouse, nonempty inlaws=s.parents) p->inlaws
+    for (p in people) 
+            if (exists s=p.spouse, 
+                nonempty inlaws=s.parents) 
+                    p->inlaws
 
 ## Products and joins
 
