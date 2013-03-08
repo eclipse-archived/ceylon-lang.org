@@ -59,7 +59,7 @@ Here's a simple class:
 -->
     class Counter(Integer initialValue=0) {
         
-        variable value count := initialValue;
+        variable value count = initialValue;
         
         shared Integer currentValue {
             return count;
@@ -71,12 +71,12 @@ Here's a simple class:
         
     }
 
-Here's how we create and iterate sequences:
+Here's how we create and iterate a sequence:
 
 <!-- cat: void m() { -->
-    String[] names = { "Tom", "Dick", "Harry" };
+    String[] names = ["Tom", "Dick", "Harry"];
     for (name in names) {
-        print("Hello, " name "!");
+        print("Hello, ``name``!");
     }
 <!-- cat: } -->
 
@@ -97,7 +97,7 @@ structures. This is especially useful for creating user interfaces:
     Table table = Table {
         title = "Squares";
         rows = 5;
-        border = Border {
+        Border {
             padding = 2;
             weight = 1;
         };
@@ -124,7 +124,7 @@ expressing everything from build scripts to test suites:
 <!-- check:none -->
     Suite tests = Suite {
         Test { 
-            name = "sqrt() function";
+            "sqrt() function";
             void run() {
                 assert(sqrt(1)==1);
                 assert(sqrt(4)==2);
@@ -132,7 +132,7 @@ expressing everything from build scripts to test suites:
             }
         },
         Test {
-            name = "sqr() function";
+            "sqr() function";
             void run() {
                 assert(sqr(1)==1);
                 assert(sqr(2)==4);
@@ -259,7 +259,7 @@ Ceylon doesn't have fields, at least not in the traditional sense.
 Instead, *attributes* are polymorphic, and may be refined by a subclass, 
 just like methods in other object-oriented languages. 
 
-An attribute might be a simple value:
+An attribute might be a reference to an object:
 
 <!-- try-pre:
     String firstName = "John";
@@ -294,28 +294,28 @@ It might be a getter:
 Or it might be a getter/setter pair:
 
 <!-- try-pre:
-    variable String fullName := "John Doe";
+    variable String fullName = "John Doe";
 
 -->
 <!-- try-post:
 
     print(name);
-    name := "Pietje Pluk";
+    name = "Pietje Pluk";
     print(name);
 -->
-<!-- cat: variable String fullName := "John Doe"; -->
+<!-- cat: variable String fullName = "John Doe"; -->
     String name {
         return fullName;
     }
     
     assign name {
-        fullName := name;
+        fullName = name;
     }
 
 In Ceylon, we don't need to write trival getters or setters which merely 
 mediate access to a field. The
 state of a class is always [completely abstracted](../tour/classes/#abstracting_state_using_attributes) 
-from clients of the class: We can change a value attribute to a getter/setter 
+from clients of the class: We can change a reference attribute to a getter/setter 
 pair without breaking clients.
 
 ## Typesafe null and flow-dependent typing
@@ -348,7 +348,7 @@ construct.
 -->
     void hello(String? name) {
         if (exists name) {
-            print("Hello, " name "!");
+            print("Hello, ``name``!");
         }
         else {
             print("Hello, world!");
@@ -367,7 +367,7 @@ way of writing the following:
 -->
     void hello(String? name) {
         if (is String name) {
-            print("Hello, " name "!");
+            print("Hello, ``name``!");
         }
         else {
             print("Hello, world!");
@@ -380,7 +380,7 @@ flow-dependent typing comes into play is assertions:
 
 <!-- try: -->
     if (`/` in string) {
-        value bits = string.split((Character c) c==`/`);
+        value bits = string.split((Character c) => c==`/`);
 		value first = split.first; //first may be null, according to its type
 		value second = split.rest.first; //second may be null, according to its type
 		//assert that first and second are in 
@@ -526,7 +526,7 @@ Or we can specify the argument function inline, either like this:
 -->
 <!-- cat-id:repeat -->
 <!-- cat: void m() { -->
-    repeat(5, (Integer i) print(i^2));
+    repeat(5, (Integer i) => print(i^2));
 <!-- cat: } -->
 
 Or, using a named argument invocation, like this:
@@ -672,8 +672,8 @@ documentation compiler:
 
 <!-- try: -->
 <!-- check:none -->
-    doc "The user login action"
-    by "Gavin King"
+    "The user login action"
+    by ("Gavin King")
     throws (DatabaseException,
             "if database access fails")
     see (LogoutAction.logout)
@@ -696,13 +696,13 @@ the module descriptor:
 
 <!-- try: -->
 <!-- check:none -->
-    doc "This module is just a silly example. You'll 
-         find some proper modules in the community 
-         repository [Ceylon Herd][Herd].
-             
-         [Herd]: http://modules.ceylon-lang.org
-             
-         Happy Herding!"
+    "This module is just a silly example. You'll 
+     find some proper modules in the community 
+     repository [Ceylon Herd][Herd].
+     
+     [Herd]: http://modules.ceylon-lang.org
+     
+     Happy Herding!"
     module org.jboss.example '1.0.0' {         
         import ceylon.math '0.3.0';
         import ceylon.file '0.3.1';
