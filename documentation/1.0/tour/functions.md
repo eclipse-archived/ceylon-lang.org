@@ -294,7 +294,8 @@ multiple lists of parameters:
     Float adder(Float x)(Float y) => x+y;
 
 The `adder()` function has type `Float(Float)(Float)`. We can invoke it with
-a single argument to get a reference to a function of type `Float(Float)`:
+a single argument to get a reference to a function of type `Float(Float)`,
+and store this reference as a function, like this:
 
 <!-- try-pre:
     Float adder(Float x)(Float y) => x+y;
@@ -306,6 +307,21 @@ a single argument to get a reference to a function of type `Float(Float)`:
 -->
     Float addOne(Float y);
     addOne = adder(1.0);
+
+Or as a value, like this:
+
+<!-- try-pre:
+    Float adder(Float x)(Float y) => x+y;
+
+-->
+<!-- try-post:
+
+    print(addOne(4.0));
+-->
+    Float(Float) addOne = adder(1.0);
+
+(There only real difference between these two approaches is that in the 
+first case we get to assign a name to the parameter of `addOne()`.)
 
 When we subsequently invoke `addOne()`, the actual body of `adder()` is 
 finally executed, producing a `Float`:
