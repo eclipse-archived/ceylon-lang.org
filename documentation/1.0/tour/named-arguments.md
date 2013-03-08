@@ -164,7 +164,7 @@ anonymous functions:
 <!-- check:none:pedagogical -->
     Table table = Table("Squares", 5, Border(2,1), 
             { Column("x",10, (Integer row) => row.string), 
-              Column("x**2",12, (Integer row) => (row**2).string) });
+              Column("x^2",12, (Integer row) => (row^2).string) });
 
 However, it's far more common to use named arguments to build a complex 
 graph of objects. In this section we're going to meet some new features of 
@@ -219,10 +219,10 @@ So we could rewrite the code that builds a `Table` as follows:
                     => row.string;
         },
         Column {
-            heading="x**2";
+            heading="x^2";
             width=12;
             function content(Integer row) 
-                    => (row**2).string;
+                    => (row^2).string;
         }
     };
 
@@ -257,10 +257,10 @@ abbreviated like this:
                     => row.string;
         },
         Column {
-            heading="x**2";
+            heading="x^2";
             width=10;
             content(Integer row) 
-                    => (row**2).string;
+                    => (row^2).string;
         }
     };
 

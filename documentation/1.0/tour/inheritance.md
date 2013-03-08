@@ -365,7 +365,7 @@ different return type:
             extends Point() {
         
         shared actual Polar polar => 
-                Polar( (x**2+y**2)**0.5, atan(y/x) ); 
+                Polar( (x^2+y^2)^0.5, atan(y/x) ); 
         
         shared actual Cartesian cartesian => this;
         

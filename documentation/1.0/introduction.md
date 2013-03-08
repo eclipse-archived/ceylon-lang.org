@@ -44,7 +44,7 @@ Here's what a simple function looks like:
 <!-- cat-id:point -->
 <!-- cat: void m() { -->
     function distance(Point from, Point to) {
-        return ((from.x-to.x)**2 + (from.y-to.y)**2)**0.5;
+        return ((from.x-to.x)^2 + (from.y-to.y)^2)^0.5;
     }
 <!-- cat: } -->
 
@@ -109,10 +109,10 @@ structures. This is especially useful for creating user interfaces:
             }
         },
         Column {
-            heading = "x**2";
+            heading = "x^2";
             width=10;
             String content(Integer row) {
-                return (row**2).string;
+                return (row^2).string;
             }
         }
     };
@@ -456,7 +456,7 @@ declarations. For example:
 <!-- check:none -->
     value names = LinkedList { "Tom", "Dick", "Harry" };
 
-    function sqrt(Float x) { return x**0.5; }
+    function sqrt(Float x) { return x^0.5; }
     
     for (item in order.items) { ... }
 
@@ -507,7 +507,7 @@ function:
 <!-- cat-id:repeat -->
 <!-- cat: void m() { -->
     void printSqr(Integer i) {
-        print(i**2);
+        print(i^2);
     }
     
     repeat(5, printSqr);
@@ -526,7 +526,7 @@ Or we can specify the argument function inline, either like this:
 -->
 <!-- cat-id:repeat -->
 <!-- cat: void m() { -->
-    repeat(5, (Integer i) print(i**2));
+    repeat(5, (Integer i) print(i^2));
 <!-- cat: } -->
 
 Or, using a named argument invocation, like this:
@@ -545,7 +545,7 @@ Or, using a named argument invocation, like this:
     repeat {
         times = 5;
         void iterate(Integer i) {
-            print(i**2);
+            print(i^2);
         }
     };
 <!-- cat: } -->
