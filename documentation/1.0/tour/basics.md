@@ -15,6 +15,7 @@ Before we can get into any of the really interesting and powerful features of
 this language, we need to get comfortable with some of the basic syntax, so
 we'll know what we're looking at later on. 
 
+
 ## A _really_ simple program
 
 Here's a classic example program.
@@ -50,6 +51,7 @@ of toplevel functions as filling the same role. The reason for this difference
 is that Ceylon has a very strict block structure - a nested block always has 
 access to declarations in all containing blocks. This isn't the case with 
 Java's `static` methods.
+
 
 ## Running the program from the command line
 
@@ -96,6 +98,7 @@ program using `Run > Run As > Ceylon JavaScript Application`.
 Or, if you're unfamiliar with Eclipse, go to `Help > Cheat Sheets`, open
 the `Ceylon` item, and run the `Hello World with Ceylon` cheat sheet which 
 takes you step by step through the process.
+
 
 ## String literals
 
@@ -147,6 +150,7 @@ Which results in the output:
 
 Multiline strings are especially useful for adding documentation to a 
 program.
+
 
 ## Adding inline documentation
 
@@ -246,6 +250,7 @@ program element:
         // ...
     } -->
 
+
 ## Formatting inline documentation
 
 The `doc` annotation may contain [Markdown](http://daringfireball.net/projects/markdown/syntax)
@@ -284,6 +289,7 @@ Since Markdown is sensitive to the initial column in which text appears,
 you need to be careful to indent the lines of the multiline string literal 
 correctly, as we've done here.
 
+
 ## Escape sequences
 
 Inside a string literal, you can use the escape sequences `\n`, `\t`, `\\`,
@@ -311,6 +317,7 @@ Unicode characters in your text.
 Ceylon strings are composed of UTF-32 characters, as we'll see 
 [later in the tour](../language-module/#characters_and_character_strings).
 
+
 ## Verbatim strings
 
 Sometimes, escape sequence interpolation is annoying, for example, when
@@ -319,6 +326,7 @@ to delimit our string, we get a _verbatim string_, which may contain
 unescaped backslash and double-quote characters:
 
     print(""""Hello!", said the program.""");
+
 
 ## String interpolation and concatenation
 
@@ -372,6 +380,7 @@ following does not compile:
           " ms, with " + process.arguments.size +    //compile error!
           " command line arguments.");
 
+
 ## Dealing with objects that aren't there
 
 Let's take a name as input from the command line. We have to account for the 
@@ -419,6 +428,7 @@ inside the `if (exists ... )` condition:
 This is the preferred style most of the time, since we can't actually use 
 `name` for anything useful outside of the `if (exists ... )` construct.
 (But this still isn't the most compact way to write this code.)
+
 
 ## Optional types
 
@@ -550,10 +560,54 @@ So we can finally simplify our example to something reasonable:
 
 Yes, after all that, it's a one-liner ;-)
 
+
+## Functions and values
+
+The two most basic constructs found in almost every programming language 
+are functions and variables. In Ceylon, "variables" are, by default, 
+assignable exactly once. That is, they can't be assigned a new value after 
+an initial value has been assigned. Therefore, we use the word _value_ to 
+talk about "variables" collectively, and reserve the word _variable_ to 
+mean a value which is explicitly defined to be reassignable.
+
+    String bye = "Adios"; //a value
+    variable Integer count = 0; //a variable
+    
+    bye = "Adeu"; //compile error
+    count = 1; //allowed
+
+Note that even a value which isn't a variable in this sense, may still be
+"variable" in the sense that its value varies between different runs of
+the program, or between contexts within a single execution of the program.
+
+A value may even be recalculated every time it is evaluated.
+
+    String name { return firstName + " " + lastName; } 
+
+If the values of `firstName` and `lastName` vary, then the value of 
+`name` also varies between evaluations.
+
+A function takes this idea one step further. The value of a function
+depends not only upon the context in which it is evaluated, but also
+upon the arguments to its parameters.
+
+    Float sqr(Float x) { return x*x; }
+
+In Ceylon, a value or function declaration can occur almost anywhere: as
+a _toplevel_, belonging directly to a package, as an _attribute_ or _method_ 
+of a class, or as a _block-local_ declaration inside a different value or 
+function body. Indeed, as we'll see later, a value or function declaration
+may even occur _inside an expression_ in some cases.
+
+Functions declarations look pretty similar to what you're probably already
+used to from other C-like languages, with two exceptions. Ceylon has:
+
+- defaulted parameters, and
+- variadic parameters.  
+
 ## Defaulted parameters
 
-While we're on the topic of values that aren't there, it's worth mentioning 
-that a function parameter may specify a default value.
+A function parameter may specify a default value.
 
 <!-- try-post:
     hello(); //Hello, World!
@@ -583,13 +637,89 @@ the function:
 Defaulted parameters must be declared after all required parameters in the 
 parameter list of a function.
 
-Ceylon also has variadic parameters (varargs), declared using an asterisk,
-for example: 
 
-    void printAll(String* strings) { ... } 
+## Variadic parameters
 
-But we'll [come back](../named-arguments/#sequenced_parameters) to them 
-after we discuss [sequences](../sequences).
+A variadic parameter of a function or class is declared using a postfix
+asterisk, for example, `String*`. There may be only one variadic parameter 
+for a function or class, and it must be the last parameter.
+
+    void helloEveryone(String* names) { 
+        // ... 
+    }
+
+Inside the function body, the parameter `names` has type `[String*]`, a 
+[sequence type](../sequences), which we'll learn about later. Thus, we
+can iterate the parameter using a `for` loop to get at the individual 
+arguments.
+
+<!-- try-post:
+
+    helloEveryone("world", "mars", "saturn");
+-->
+    void helloEveryone(String* names) {
+        for (name in names) {
+            hello(name);
+        }
+    }
+
+To pass an argument to a sequenced parameter we have three choices. We
+could:
+
+- provide a an explicit list of enumerated arguments,
+- pass in iterable object producing the arguments, or
+- specify a comprehension.
+
+The first case is easy:
+
+<!-- try: -->
+    helloEveryone("world", "mars", "saturn");
+
+For the second case, Ceylon requires us to use the _spread operator_:
+
+<!-- try: -->
+    value everyone = { "world", "mars", "saturn" };
+    helloEveryone(*everyone);
+
+We'll come back to the third case, [comprehensions](../comprehensions) 
+later in the tour.
+
+
+## Fat arrows
+
+Ceylon's expression syntax is much more powerful than Java's, and it's
+therefore possible to express a lot more in a single compact expression.
+It's therefore _extremely_ common to encounter functions and values which
+simply evaluate and return an expression. So Ceylon lets us abbreviate
+such function and value definitions using a "fat arrow", `=>`. For example:
+
+    String name => firstName + " " + lastName; 
+
+    Float sqr(Float x) => x*x;
+
+Now's the time to get comfortable with this syntax, because you're going 
+to be seeing quite a lot of it. Take careful note of the difference between 
+a fat arrow:
+
+    String name => firstName + " " + lastName; 
+
+And an assignment:
+
+    String name = firstName + " " + lastName; 
+
+In the first example, the expression is recomputed every time `name` is
+evaluated. In the second example, the expression is computed once and
+the result assigned to `name`.
+
+We're even allowed to define a `void` function using a fat arrow. Earlier,
+we could have written `hello()` like this:
+
+<!-- id: hello -->
+<!-- try-post:
+    hello();
+-->
+    void hello() => print("Hello, World!");
+
 
 ## Numbers
 
@@ -682,78 +812,6 @@ Try it, by running the following function:
 Heh, this was just a little teaser to keep you interested. We'll explain 
 the syntax we're using here a bit [later in the tour](../comprehensions).
 
-## Functions and values
-
-The two most basic constructs found in almost every programming language 
-are functions and variables. In Ceylon, "variables" are, by default, 
-assignable exactly once. That is, they can't be assigned a new value after 
-an initial value has been assigned. Therefore, we use the word _value_ to 
-talk about "variables" collectively, and reserve the word _variable_ to 
-mean a value which is explicitly defined to be reassignable.
-
-    String bye = "Adios"; //a value
-    variable Integer count = 0; //a variable
-    
-    bye = "Adeu"; //compile error
-    count = 1; //allowed
-
-Note that even a value which isn't a variable in this sense, may still be
-"variable" in the sense that its value varies between different runs of
-the program, or between contexts within a single execution of the program.
-
-A value may even be recalculated every time it is evaluated.
-
-    String name { return firstName + " " + lastName; } 
-
-If the values of `firstName` and `lastName` vary, then the value of 
-`name` also varies between evaluations.
-
-A function takes this idea one step further. The value of a function
-depends not only upon the context in which it is evaluated, but also
-upon the arguments to its parameters.
-
-    Float sqr(Float x) { return x*x; }
-
-In Ceylon, a value or function declaration can occur almost anywhere: as
-a _toplevel_, belonging directly to a package, as an _attribute_ or _method_ 
-of a class, or as a _block-local_ declaration inside a different value or 
-function body. Indeed, as we'll see later, a value or function declaration
-may even occur _inside an expression_ in some cases.
-
-## Fat arrows
-
-Ceylon's expression syntax is much more powerful than Java's, and it's
-therefore possible to express a lot more in a single compact expression.
-It's therefore _extremely_ common to encounter functions and values which
-simply evaluate and return an expression. So Ceylon lets us abbreviate
-such function and value definitions using a "fat arrow", `=>`. For example:
-
-    String name => firstName + " " + lastName; 
-
-    Float sqr(Float x) => x*x;
-
-Now's the time to get comfortable with this syntax, because you're going 
-to be seeing quite a lot of it. Take careful note of the difference between 
-a fat arrow:
-
-    String name => firstName + " " + lastName; 
-
-And an assignment:
-
-    String name = firstName + " " + lastName; 
-
-In the first example, the expression is recomputed every time `name` is
-evaluated. In the second example, the expression is computed once and
-the result assigned to `name`.
-
-We're even allowed to define a `void` function using a fat arrow. Earlier,
-we could have written `hello()` like this:
-
-<!-- id: hello -->
-<!-- try-post:
-    hello();
--->
-    void hello() => print("Hello, World!");
 
 ## There's more...
 

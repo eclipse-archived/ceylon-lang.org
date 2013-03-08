@@ -11,78 +11,11 @@ author: Gavin King
 This is the eleventh leg in the Tour of Ceylon. In the 
 [previous leg](../functions) we learnt about functions. This part builds 
 on that by covering Ceylon's support for calling functions using *named 
-arguments*. But first, we need to see what a *sequenced parameter* is.
-
-
-## Sequenced parameters
-
-A sequenced parameter of a method or class is declared using an ellipsis. 
-There may be only one sequenced parameter for a method or class, and it 
-must be the last parameter.
-
-    void printAll(String... strings) { 
-        // ... 
-    }
-
-Inside the method body, the parameter `strings` has type `Iterable<String>`.
-
-<!-- try-post:
-
-    printAll("aap", "noot", "mies");
--->
-    void printAll(String... strings) {
-        for (string in strings) {
-            print(string);
-        }
-    }
-
-A slightly more sophisticated example is the `coalesce()` method we saw 
-[earlier](../attributes-control-structures#then_we_can_abstract_the...). 
-`coalesce()` accepts a sequence of `X?` and eliminates nulls, returning 
-`X[]`, for any type `X`. Its signature is:
-
-<!-- try: -->
-<!-- check:none:pedagogical -->
-    shared Value[] coalesce<Value>(Value?... sequence) { 
-        // ... 
-    }
-
-To pass an argument to a sequenced parameter we have three choices. We
-could:
-
-- provide a an explicit list or arguments,
-- pass in iterable object producing the arguments, or
-- specify a comprehension.
-
-The first case is easy:
-
-<!-- try: -->
-    printAll("hello", "world");
-
-For the second case, Ceylon requires us to write an ellipsis:
-
-<!-- try: -->
-    value words = { "hello", "world" };
-    printAll(words...);
-
-The third, and easily most interesting case allows us to transform,
-filter, and combine iterable streams of values:
-
-<!-- try: -->
-    value words = { "Hello", "World" };
-    printAll(for (w in words) w.lowercased);
-
-We'll come back to comprehensions later.
-
-Sequenced parameters turn out to be especially interesting when used in 
-named argument lists for defining user interfaces or structured data.
-
+arguments*.
 
 ## Named arguments
 
 Consider the following method:
-
-
 
 <!-- try: -->
 <!-- check:none:Requires IO -->
