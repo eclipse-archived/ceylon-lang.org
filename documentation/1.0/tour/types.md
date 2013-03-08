@@ -727,7 +727,7 @@ The same thing works out for sequences:
 -->
 <!-- cat: void m() { -->
     [Null,String,String] tuple = [null, "Hello", "World"];
-    String?[] strings = tuple; //type Sequential<Null|String,Null>
+    String?[] strings = tuple; //type Sequential<Null|String>
     String? s = strings[0]; //type Null|Null|String which is just Null|String
 <!-- cat: } -->
 
