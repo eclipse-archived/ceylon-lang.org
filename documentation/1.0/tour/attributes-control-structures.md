@@ -137,6 +137,8 @@ we need to annotate it `variable`:
 
 ## Setters
 
+We've already met the concept of a [getter](../classes/#abstracting_state_using_attributes).
+
 If we want to make an attribute with a getter mutable, we need to define a 
 matching setter. Usually this is only useful if you have some other internal 
 attribute you're trying to set the value of indirectly.
