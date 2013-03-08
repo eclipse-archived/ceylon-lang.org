@@ -304,14 +304,16 @@ a single argument to get a reference to a function of type `Float(Float)`:
 
     print(addOne(4.0));
 -->
-    Float addOne(Float y) = adder(1.0);
+    Float addOne(Float y);
+    addOne = adder(1.0);
 
 When we subsequently invoke `addOne()`, the actual body of `adder()` is 
 finally executed, producing a `Float`:
 
 <!-- try-pre:
     Float adder(Float x)(Float y) => x+y;
-    Float addOne(Float y) = adder(1.0);
+    Float addOne(Float y);
+    addOne = adder(1.0);
 
 -->
 <!-- try-post:
