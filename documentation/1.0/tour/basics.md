@@ -741,7 +741,7 @@ Try it, by running the following function:
 <!-- try-post:
     findPrimes();
 -->
-    doc "Print a list of all two-digit prime numbers."
+    "Print a list of all two-digit prime numbers."
     void findPrimes() {
         print([ for (i in 2..99) if (prime(i)) i ]);
     }
