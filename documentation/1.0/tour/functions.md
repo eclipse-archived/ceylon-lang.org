@@ -154,7 +154,8 @@ a function.
 
 <!-- try: -->
 <!-- check:none:BROKEN -->
-    void repeat(Integer times, Anything(Integer) perform) {
+    void repeat(Integer times, 
+            Anything(Integer) perform) {
         for (i in 1..times) {
             perform(i);
         }
@@ -163,7 +164,8 @@ a function.
 Let's try it:
 
 <!-- try-pre:
-    void repeat(Integer times, Anything(Integer) perform) {
+    void repeat(Integer times, 
+            Anything(Integer) perform) {
         for (i in 1..times) {
             perform(i);
         }
@@ -185,7 +187,8 @@ syntax for declaring a parameter of type `Callable`:
     repeat(10, printNum);
 -->
 <!-- id:repeat -->
-    void repeat(Integer times, void perform(Integer n)) {
+    void repeat(Integer times, 
+            void perform(Integer n)) {
         for (i in 1..times) {
             perform { n=i; };
         }
@@ -223,7 +226,8 @@ parameter lists match:
 And call it like this
 
 <!-- try-pre:
-    void repeat(Integer times, void perform(Integer n)) {
+    void repeat(Integer times, 
+            void perform(Integer n)) {
         for (i in 1..times) {
             perform { n=i; };
         }
@@ -259,7 +263,8 @@ method to a receiver expression. For example, we could write the following:
 And call it like this:
 
 <!-- try-pre:
-    void repeat(Integer times, void perform(Integer n)) {
+    void repeat(Integer times, 
+            void perform(Integer n)) {
         for (i in 1..times) {
             perform { n=i; };
         }
