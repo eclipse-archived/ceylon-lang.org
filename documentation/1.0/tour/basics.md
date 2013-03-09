@@ -615,10 +615,10 @@ The first case is easy:
 For the second case, Ceylon requires us to use the _spread operator_:
 
 <!-- try: -->
-    value everyone = { "world", "mars", "saturn" };
+    String[] everyone = ["world", "mars", "saturn"];
     helloEveryone(*everyone);
 
-We'll come back to the third case, [comprehensions](../comprehensions) 
+We'll come back to the third case, [comprehensions](../comprehensions),
 later in the tour.
 
 
