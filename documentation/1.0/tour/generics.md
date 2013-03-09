@@ -107,10 +107,10 @@ meet the idea of covariance, and then see how covariance works in Ceylon.
 
 ## Covariance and contravariance
 
-It all starts with the intuitive expectation that a collection of `Geeks` is a 
-collection of `Persons`. That's a reasonable intuition, but especially in 
-non-functional languages, where collections can be mutable, it turns out to be 
-incorrect. Consider the following possible definition of `Collection`:
+It all starts with the intuitive expectation that a collection of `Geek`s is 
+a collection of `Person`s. That's a reasonable intuition, but, if collections 
+are be mutable, it turns out to be incorrect. Consider the following possible 
+definition of `Collection`:
 
 <!-- check:none -->
     interface Collection<Element> {
