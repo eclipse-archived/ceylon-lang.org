@@ -9,7 +9,7 @@ doc_root: ../..
 
 # #{page.title}
 
-This is the eight part of the Tour of Ceylon. The [previous leg](../types)
+This is the ninth part of the Tour of Ceylon. The [previous leg](../types)
 covered intersection types, union types, and enumerated types. In this part 
 we're looking at *generic* types. 
 

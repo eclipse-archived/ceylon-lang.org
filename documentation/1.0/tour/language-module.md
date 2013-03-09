@@ -8,7 +8,7 @@ author: Gavin King
 
 # #{page.title}
 
-This is the thirteenth part of the Tour of Ceylon. The [previous part](../comprehensions)
+This is the fourteenth part of the Tour of Ceylon. The [previous part](../comprehensions)
 introduced comprehensions . We're now going to learn about Ceylon's 
 _language module_ and some of the basic types it defines.
 

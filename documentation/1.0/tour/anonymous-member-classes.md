@@ -1,6 +1,6 @@
 ---
 layout: tour
-title: Tour of Ceylon&#58; Anonymous and Member Classes
+title: Tour of Ceylon&#58; Anonymous and member classes
 tab: documentation
 unique_id: docspage
 author: Emmanuel Bernard

@@ -1,6 +1,6 @@
 ---
 layout: tour
-title: Tour of Ceylon&#58; Packages and Modules
+title: Tour of Ceylon&#58; Packages and modules
 tab: documentation
 unique_id: docspage
 author: Gavin King
@@ -8,7 +8,7 @@ author: Gavin King
 
 # #{page.title}
 
-This is the ninth part of the Tour of Ceylon. If you found the 
+This is the tenth part of the Tour of Ceylon. If you found the 
 [previous part](../generics) on generic types a little overwhelming, don't 
 worry; this part is going to cover some material which should be much easier 
 going. We're turning our attention to a very different subject: modularity. 

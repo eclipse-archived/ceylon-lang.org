@@ -1,6 +1,6 @@
 ---
 layout: tour
-title: Tour of Ceylon&#58; Named Arguments
+title: Tour of Ceylon&#58; Named arguments
 tab: documentation
 unique_id: docspage
 author: Gavin King
@@ -8,7 +8,7 @@ author: Gavin King
 
 # #{page.title}
 
-This is the eleventh leg in the Tour of Ceylon. In the 
+This is the twelfth leg in the Tour of Ceylon. In the 
 [previous leg](../functions) we learnt about functions. This part builds 
 on that by covering Ceylon's support for calling functions using *named 
 arguments*.

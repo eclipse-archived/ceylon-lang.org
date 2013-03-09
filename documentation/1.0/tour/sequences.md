@@ -416,8 +416,6 @@ be viewed as a degenerate tuple type!
 If you're interested, you can find a more in-depth discussion of tuples 
 [here](/blog/2013/01/21/abstracting-over-functions/).
 
-Next we'll explore some more details of the type system, starting with
-[union types, intersection types, algebraic data types, type switching, 
-and type inference](../types). Then, after that, we'll be ready to discuss 
-[generic types](../generics). 
+Next up we'll explore some more details of the type system, starting with
+[type aliases and type inference](../typeinference).
 

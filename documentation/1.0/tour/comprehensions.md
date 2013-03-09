@@ -8,7 +8,7 @@ author: Gavin King
 
 # #{page.title}
 
-This is the twelfth stop in our Tour of Ceylon. In the 
+This is the thirteenth stop in our Tour of Ceylon. In the 
 [previous section](../named-arguments) we looked at invoking functions 
 using named arguments. We're now ready to learn about _comprehensions_.
 

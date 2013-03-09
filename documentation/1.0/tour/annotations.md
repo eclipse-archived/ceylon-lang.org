@@ -8,8 +8,8 @@ author: Gavin King
 
 # #{page.title}
 
-Wow, part fifteenth of the Tour of Ceylon and the end is in sight! 
-The [last part](../initialization) covered initialization. This part is all 
+Wow, part sixteen of the Tour of Ceylon and the end is in sight! The 
+[last part](../initialization) covered initialization. This part is all 
 about *annotations* and metaprogramming.
 
 ### implementation note <!-- m5 -->

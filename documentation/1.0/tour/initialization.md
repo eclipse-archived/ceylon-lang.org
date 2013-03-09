@@ -8,7 +8,7 @@ author: Gavin King
 
 # #{page.title}
 
-This is the fourteenth part of the Tour of Ceylon. In the 
+This is the fifteenth part of the Tour of Ceylon. In the 
 [last part](../language-module) we learned about the language module, 
 [`ceylon.language`](#{site.urls.apidoc_current}/ceylon/language/). Now we're 
 going to go into the details of *initialization*, and the restrictions that 
