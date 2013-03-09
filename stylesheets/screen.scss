@@ -213,6 +213,10 @@ form.bp {
       li:hover {
         cursor:pointer;
       }
+      
+      li {
+        margin-top: 0;
+      }
 
       li#selected a {
         background: url("../images/nav_indicator.png") no-repeat center 15px;
@@ -295,7 +299,10 @@ form.bp {
       border: none;
       padding: 0;
       code {
+        font-family:'Courier New', 'Andale Mono', Consolas, 'Bitstream Vera Sans Mono', Courier, monospace;
         font-weight: bold;
+        font-size: 17px;
+        line-height: .99em;
         .code_type {
           color: #D98BD6;
         }
@@ -409,6 +416,7 @@ form.bp {
     display: inline-block;
     width: 313px;
     vertical-align: top;
+    text-shadow: white 1px 1px 0px;
   }
 
   .bubble-block {
@@ -419,6 +427,7 @@ form.bp {
       color: #456B6E;
     }
     h2 {
+      margin-top: 0;
       text-align: center;
     }
     -moz-border-radius: 15px;
@@ -440,6 +449,7 @@ form.bp {
       text-align: left;
       font-size: 16px;
       color: #3e4747;
+      margin-top: 0;
     }
     h3 {
       margin: 1em 0;
@@ -560,6 +570,7 @@ form.bp {
     p {
       color: white;
       margin-bottom: 1em;
+      margin-top: 0;
     }
     p:last-child {
       margin-bottom: 0;
