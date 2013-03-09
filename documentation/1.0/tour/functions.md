@@ -80,7 +80,7 @@ of the tour](../basics) we said that the return type of a `void` function is
 
 <!-- try: -->
 <!-- check:none -->
-    Callable<Anything,[Object]>
+    Callable<Anything,[Anything]>
 
 Note that a `void` function always implicitly returns the value `null`. This
 is different to a function declared to return the type `Anything`, which may 
@@ -686,22 +686,56 @@ invoking it.
 The first line demonstrates how a function reference can be stored. The second 
 line of code simply invokes the returned reference to `cancel()`.
 
+<!--
 We've already seen how an attribute can be defined using a block of code. Now 
 we see that a method can be defined using a specifier. So, if you like, you 
 can start thinking of a method as an attribute of type `Callable` — an 
 attribute with parameters. Or if you prefer, you can think of an attribute as 
-member with zero parameter lists, and of a method as a member with one or more 
-parameter lists. Either kind of member can be defined by reference, using `=`, 
-or directly, by specifying a block of code to be executed.
+a member with zero parameter lists, and of a method as a member with one or 
+more parameter lists. Either kind of member can be defined by reference, using 
+`=`, or directly, by specifying a block of code to be executed.
 
 Cool, huh? That's more regularity.
+-->
+
+## Composition and curry
+
+The function `compose()` performs _function composition_. For example, given
+the functions `print()` and `plus()` in `ceylon.language`, with the following
+signatures:
+
+    shared void print(Anything line) { ... }
+    
+    shared shared Value plus<Value>(Value x, Value y)
+        given Value satisfies Summable<Value> { ... }
+
+We can see that the type of the function reference `print` is `Anything(Anything)`,
+and that the type of the function reference `plus<Float>` is `Float(Float,Float)`.
+Then we can write the following:
+
+    Anything(Float,Float) printSum = compose(print,plus);
+    printSum(2.0,2.0); //prints 4.0
+
+The function `curry()` produces a function with multiple parameter lists, given
+a function with multiple parameters:
+
+    Anything(Float)(Float) printSum2 = curry(printSum);
+    printSum2(2.0)(2.0);
+
+The function `uncurry()` does the opposite, giving us back our original uncurried
+signature:
+
+    Anything(Float,Float) printSum3 = uncurry(printSum2);
+
+Note that `compose()`, `curry()`, and `uncurry()` are ordinary functions, written 
+in Ceylon.
 
 
 <!--
 ## Curry, uncurry and function composition
 
-A method reference like `Float.times`
-is represented in "curried" form in Ceylon. I can write:
+A method reference like `Float.times` is represented in "curried" form in Ceylon. 
+I can write:
 
     Float twoTimes(Float x) = 2.0.times;
 
@@ -814,7 +848,8 @@ expressible within the type system of Ceylon.
 ## There's more...
 
 You'll find a more detailed discussion of how Ceylon represents function 
-types using tupes [here](/blog/2013/01/21/abstracting-over-functions/).
+types using tupes [here](/blog/2013/01/21/abstracting-over-functions/),
+including an in-depth discussion of `compose()` and `curry()`.
 
 Now we're  going to talk about Ceylon's syntax for [named argument 
 lists](../named-arguments) and for defining user interfaces and 
