@@ -622,7 +622,7 @@ We'll come back to the third case, [comprehensions](../comprehensions)
 later in the tour.
 
 
-## Fat arrows
+## Fat arrows and forward declaration
 
 Ceylon's expression syntax is much more powerful than Java's, and it's
 therefore possible to express a lot more in a single compact expression.
@@ -630,7 +630,7 @@ It's therefore _extremely_ common to encounter functions and values which
 simply evaluate and return an expression. So Ceylon lets us abbreviate
 such function and value definitions using a "fat arrow", `=>`. For example:
 
-    String name => firstName + " " + lastName; 
+    String name => firstName + " " + lastName;
 
     Float sqr(Float x) => x*x;
 
@@ -638,15 +638,15 @@ Now's the time to get comfortable with this syntax, because you're going
 to be seeing quite a lot of it. Take careful note of the difference between 
 a fat arrow:
 
-    String name => firstName + " " + lastName; 
+    String name => firstName + " " + lastName;
 
 And an assignment:
 
-    String name = firstName + " " + lastName; 
+    String name = firstName + " " + lastName;
 
 In the first example, the expression is recomputed every time `name` is
-evaluated. In the second example, the expression is computed once and
-the result assigned to `name`.
+evaluated. In the second example, the expression is computed once and the 
+result assigned to `name`.
 
 We're even allowed to define a `void` function using a fat arrow. Earlier,
 we could have written `hello()` like this:
@@ -657,6 +657,36 @@ we could have written `hello()` like this:
 -->
     void hello() => print("Hello, World!");
 
+In Java and C#, we're allowed to separate the declaration of a variable
+from the initialization of its value. We've 
+[already seen](#dealing_with_objects_that_arent_there) that this is also
+allowed in Ceylon. So we can write:
+
+     String name;
+     name = firstName + " " + lastName;
+     print(name);
+
+But Ceylon even lets us do this with fat arrows:
+
+     String name;
+     name => firstName + " " + lastName;
+     print(name);
+
+And even functions: 
+
+    Float sqr(Float x);
+    sqr(Float x) => x*x;
+    print(sqr(0.01));
+
+    void hello();
+    hello() => print("Hello, World!");
+    hello();
+
+The compiler makes sure we don't evaluate a value or invoke a function
+before assigning it a value or specifying its implementation, as we'll see 
+[later](../initialization/#definite_assignment_and_definite_initialization).
+(Because if we did, it would result in a `NullPointerException`, which
+Ceylon doesn't have!)
 
 ## Numbers
 
