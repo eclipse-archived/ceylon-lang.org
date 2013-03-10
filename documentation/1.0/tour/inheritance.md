@@ -223,12 +223,18 @@ We should _definitely_ refine those:
         
     }
 
-Don't worry if the syntax `if (is Polar that)` throws you. We'll come back 
-to this construct this later in the tour.
+It's the first time we've seen this syntax:
 
-Or, using the shortcut syntax for refinement that we just met, we could
-write it like this:
+    if (is Polar that) { ... }
+    
+As you've probably guessed, `if (is ... )` works just like `if (exists ... )`, 
+testing and narrowing the type of a value. In this case it tests the type of 
+`that` and narrows to `Polar` if `that` is indeed an instance of `Polar`. 
+We'll come back to this construct 
+[later in the tour](../types/#narrowing_the_type_of_an_object_reference).
 
+Using the shortcut syntax for refinement that we just met, we _could_ 
+abbreviate the above code like this:
 
 <!-- try-pre:
     Float pi = 3.1415926535;
@@ -263,7 +269,7 @@ write it like this:
         
     }
 
-(In this case, the shortcut syntax is perhaps _not_ an improvement.)
+(But in this case, the shortcut syntax is perhaps _not_ an improvement.)
 
 ## Abstract classes
 
