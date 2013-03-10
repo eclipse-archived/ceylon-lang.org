@@ -638,7 +638,7 @@ form.bp {
   .sidebar-dark {
     h3 {
       color: white;
-      margin: 1em 0;
+      margin: 0.8em 0;
     }
     
     h3:first-child {
@@ -665,7 +665,7 @@ form.bp {
 
     p {
       color: white;
-      margin-bottom: 1em;
+      margin-bottom: 0.8em;
     }
     p:last-child {
       margin-bottom: 0;
@@ -673,10 +673,15 @@ form.bp {
     
     li {
       font-size: 12px;
+      padding: 2px;
     }
     
     li a {
       text-decoration:none;
+    }
+    
+    ol {
+      margin-bottom: 0;
     }
     
     a {
