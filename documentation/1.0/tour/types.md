@@ -8,7 +8,7 @@ author: Gavin King
 
 # #{page.title}
 
-This is the eighth step in the Tour of Ceylon. The 
+This is the eighth step in the Tour of Ceylon. In the 
 [previous installment](../typeinference) we learned about type aliases and
 type inference. Let's continue our exploration of Ceylon's type system.
 
