@@ -32,8 +32,7 @@ things differently. Ceylon doesn't have C-style typecasts. Instead, we
 must test and narrow the type of an object reference in one step, using the 
 special `if (is ... )` construct. This construct is very, very similar 
 to [`if (exists ... )`](../basics#dealing_with_objects_that_arent_there) and 
-[`if (nonempty ... )`](../sequences#the_interface_sequence_represents_a...), 
-which we met earlier.
+[`if (nonempty ... )`](../sequences#sequences), which we met earlier.
 
 <!-- try-pre:
     interface Printable {
