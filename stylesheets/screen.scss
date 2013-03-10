@@ -70,13 +70,13 @@ body.bp {
     font-size:100%;
   }
   
-  ul {
+  ul, ol {
     margin-top:0.2em;
     margin-bottom:0.2em;
     li {
     //padding:5px;
-    margin-top:0.2em;
-    margin-bottom:0.2em;
+    margin-top:0.3em;
+    margin-bottom:0.3em;
     code {
       //background-color:#f9f9f9;
       //border: 1px solid #d5d8d3;
@@ -115,6 +115,7 @@ body.bp {
     font-size:90%;
     text-shadow: white 0px 0px 0px;
     color:#2E5C00;
+    //color:darkblue;
   }
   
   p {
@@ -673,7 +674,7 @@ form.bp {
     
     li {
       font-size: 12px;
-      padding: 2px;
+      //padding: 2px;
     }
     
     li a {
