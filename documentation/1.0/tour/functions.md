@@ -194,8 +194,7 @@ syntax for declaring a parameter of type `Callable`:
         }
     }
 
-Many people find this version also slightly more readable and more regular, 
-so this is the preferred syntax.
+This version is also slightly more readable, so it's the preferred syntax.
 
 
 ## Function references
@@ -205,11 +204,11 @@ above, it's called a *function reference*. A function reference is the thing
 that really has the type `Callable`. In this case, `printNum` has the type 
 `Callable<Anything,Integer>`.
 
-Now, remember how we said that `Anything` is both the return type of a 
-void method, and also the logical root of the type hierarchy? Well that's 
-useful here, since it means that we can assign a function with any return 
-type to any parameter which expects a `void` function, as long as the 
-parameter lists match:
+Now, remember how we said that `Anything` is both the return type of a `void` 
+function, and also the logical root of the type hierarchy? Well that's useful 
+here, since it means that we can assign a function with any return type to any 
+parameter which expects a `void` function, as long as the parameter lists 
+match:
 
 <!-- try: -->
 <!-- id:attemptPrint -->
