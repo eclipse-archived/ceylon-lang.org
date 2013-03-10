@@ -773,7 +773,39 @@ modules.
 [Ceylon Herd](http://modules.ceylon-lang.org) is a community module repository for
 sharing open source modules.
 
-## 
+## Interoperation with native Java and JavaScript
+
+Code written in Ceylon interoperates elegantly with native code written for the 
+platform. For example, we can make use of Java's collections, which are exposed 
+to Ceylon code in the module `java.base`:
+
+    import java.util { HashMap }
+    
+    value javaHashMap = HashMap<String,Integer>();
+    javaHashMap.put("zero", 0);
+    javaHashMap.put("one", 1);
+    javaHashMap.put("two", 2);
+    print(javaHashMap.values());
+
+Notice that basic types like `String` and `Integer` may be passed completely
+transparently between the two languages. 
+
+We can even call untyped native JavaScript APIs, inside a `dynamic` block:
+
+    dynamic {
+        value req = XMLHttpRequest();
+        req.onreadystatechange = void () {
+            if (req.readyState==4) {
+                document.getElementById("greeting")
+                        .innerHTML = req.status==200
+                                then req.responseText
+                                else "error";
+            }
+        };
+        req.open("GET", "/sayHello", true);
+        req.send();
+    }
+
 
 ## Take the Tour
 
