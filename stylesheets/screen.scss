@@ -32,7 +32,7 @@ body.bp {
   // Remove the scaffolding when you're ready to start doing visual design.
   // Or leave it in if you're happy with how blueprint looks out-of-the-box
 
-  font-size:15px 
+  font-size:15px;
   font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #2c2c2c;
   background-color: white;
@@ -92,7 +92,6 @@ body.bp {
     font-family:Menlo, Monaco, 'Andale Mono', Consolas, 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', monospace;
     font-style:normal;
     font-size:85%;
-    line-height:97%;
   }
   
   p code, ul code, ol code {
@@ -642,7 +641,8 @@ form.bp {
     
     li {
       font-size: 12px;
-      //padding: 2px;
+      padding: 1px;
+      margin: 0;
     }
     li a {
       text-decoration:none;
