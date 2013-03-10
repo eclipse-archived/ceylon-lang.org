@@ -469,6 +469,7 @@ Type inference works somewhat better in Ceylon than in other languages with
 subtyping, because Ceylon has union and intersection types. Consider a map with 
 a heterogeneous key type:
 
+<!-- try: -->
     value numbers = HashMap { "one"->1.0, "zero"->0.0, 1->1.0, 0->0.0  };
 
 The inferred type of `numbers` is `HashMap<String|Integer,Float>`.
