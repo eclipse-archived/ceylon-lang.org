@@ -218,10 +218,10 @@ doesn't even parse:
 
 <!-- try:
     Integer x = 200;
-    if (x>100) print("big");
+    if (x>100) print("big");  //error
 -->
 <!-- check:none:Demoing error -->
-    if (x>100) bigNumber();
+    if (x>100) print("big");  //error
 
 You are required to write:
 
