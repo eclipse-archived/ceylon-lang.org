@@ -106,24 +106,26 @@
 .syntaxhighlighter .plain,
 .syntaxhighlighter .plain a
 { 
-	color: #000 !important;
+	color: black !important;
 }
 
 .syntaxhighlighter .comments,
 .syntaxhighlighter .comments a
 { 
-	color: #428161 !important;
+    font-style: italic !important;
+    color: red !important; 
 }
 
 .syntaxhighlighter .string,
 .syntaxhighlighter .string a
 {
-	color: #0404d1 !important; 
+	color: blue !important; 
+	text-decoration: none;
 }
 
 .syntaxhighlighter .keyword
 { 
-	color: #7f0055 !important; 
+	color: darkmagenta !important; 
 	font-weight: bold !important; 
 }
 
@@ -134,23 +136,22 @@
 
 .syntaxhighlighter .variable 
 { 
-	color: #a70 !important; 
+	color: black !important; 
 }
 
 .syntaxhighlighter .value
 { 
-	color: #0404d1 !important; 
+	color: blue !important; 
 }
 
 .syntaxhighlighter .functions
 { 
-        font-style: normal;
-	color: #808080 !important; 
+	color: black !important; 
 }
 
 .syntaxhighlighter .constants
 { 
-	color: #0066CC !important; 
+	color: black !important; 
 }
 
 .syntaxhighlighter .script
@@ -161,15 +162,14 @@
 .syntaxhighlighter .color1,
 .syntaxhighlighter .color1 a
 { 
-        font-style: normal;
-	color: #0d0380 !important; 
+	color: darkblue !important; 
 }
 
 .syntaxhighlighter .color2,
 .syntaxhighlighter .color2 a
 { 
-	color: #000000 !important; 
-        font-style: normal;
+    color: darkcyan !important; 
+	//color: darkgray !important; 
 }
 
 .syntaxhighlighter .color3,

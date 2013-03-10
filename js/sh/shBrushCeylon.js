@@ -29,17 +29,16 @@
                           'literal doc by see throws optional license';
         
         this.regexList = [
-            { regex: SyntaxHighlighter.regexLib.singleLineCComments, css: 'comments' },        // line end comments
-            { regex: /\/\*([\s\S]*?)?\*\//gm, css: 'comments' },                               // multiline comments
-            { regex: /\/\*(?!\*\/)\*[\s\S]*?\*\//gm, css: 'preprocessor' },                    // documentation comments
-            { regex: /"""([^"]|"[^"]|""[^"])*"""/gm, css: 'string' },                          // verbatim strings
-            { regex: /(``|")([^"\\`]|\\.|`[^`"])*(`"|``|")/gm, css: 'string' },                    // strings
-            { regex: /'([^'\\\n]|\\.)*'/gm, css: 'string' },                                     // characters
-            { regex: new RegExp(this.getKeywords(keywords), 'gm'), css: 'keyword' },           // ceylon keywords
-            { regex: /(#|\$)[a-zA-Z0-9_]+\b/gi, css: 'value' },                                // hex/bin numbers
-            { regex: /\b[A-Z][a-zA-Z0-9_]*/g, css: 'color1' },                                 // ceylon type
-            { regex: new RegExp(this.getKeywords(annotations), 'gm'), css: 'functions' },      // ceylon annotations
-            { regex: /\b(\d|_)+(\.(\d|_)+)?((E|e)(\+|\-)\d+)?[munpfkMGTP]?\b/gi, css: 'value' } // numbers
+            { regex: /\/\/.*/gi, css: 'comments' },                                             // line end comments
+            { regex: /\/\*([\s\S]*?)?\*\//gm, css: 'comments' },                                // multiline comments
+            { regex: /"""([^"]|"[^"]|""[^"])*"""/gm, css: 'string' },                           // verbatim strings
+            { regex: /(``|")([^"\\`]|\\.|`[^`"])*(`"|``|")/gm, css: 'string' },                 // strings
+            { regex: /'([^'\\\n]|\\.)*'/gm, css: 'string' },                                    // characters
+            { regex: new RegExp(this.getKeywords(keywords), 'gm'), css: 'keyword' },            // keywords
+            { regex: /(#|\$)[a-zA-Z0-9_]+\b/gi, css: 'value' },                                 // hex/bin numbers
+            { regex: /\b[A-Z][a-zA-Z0-9_]*/g, css: 'color1' },                                  // types
+            { regex: new RegExp(this.getKeywords(annotations), 'gm'), css: 'color2' },          // annotations
+            { regex: /\b(\d|_)+(\.(\d|_)+)?((E|e)(\+|\-)\d+)?[munpfkMGTP]?\b/g, css: 'value' }  // decimal numbers
         ];
         
         this.forHtmlScript({
