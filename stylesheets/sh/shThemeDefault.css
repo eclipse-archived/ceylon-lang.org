@@ -35,19 +35,16 @@
 
 .syntaxhighlighter
 {
-	background-color: #fff !important;
-	padding: 30px;
-    border-left: 5px solid #f0f0f0 !important;
-    font-size:85% !important;
+	background-color: white !important;
 }
 
-/* Highlighed line number */
+/* Highlighted line number */
 .syntaxhighlighter .line.highlighted .number
 {
 	color: black !important;
 }
 
-/* Highlighed line */
+/* Highlighted line */
 .syntaxhighlighter .line.highlighted.alt1,
 .syntaxhighlighter .line.highlighted.alt2
 {
@@ -64,7 +61,7 @@
 .syntaxhighlighter .line .content
 {
 	border-left: 3px solid #6CE26C !important;
-	color: #000 !important;
+	color: black !important;
 }
 
 .syntaxhighlighter.printing .line .content 
@@ -176,4 +173,5 @@
 .syntaxhighlighter .color3 a
 { 
 	color: red !important; 
+    font-style: italic !important;
 }

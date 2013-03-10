@@ -32,20 +32,14 @@ body.bp {
   // Remove the scaffolding when you're ready to start doing visual design.
   // Or leave it in if you're happy with how blueprint looks out-of-the-box
 
-  font: 15px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size:15px 
+  font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #2c2c2c;
-  //text-shadow: white 1px 1px 0px;
   background-color: white;
+  //text-shadow: white 1px 1px 0px;
   
   h1 {
     color: $h1_text_color;
-  }
-
-  h3, h4, h5, h6 {
-    color: $h3plus_text_color;
-  }
-  
-  h1 {
     font-size: 1.6em;
     font-weight:bold;
   }
@@ -56,66 +50,18 @@ body.bp {
     clear: left;
     margin-top: 0.6em;
   }
+  h3, h4, h5, h6 {
+    color: $h3plus_text_color;
+  }
   h3 {
     font-size:1.2em;
     font-weight:bold;
   }
-  h4 {
-    font-size:1.1em;
-  }
-  h5 {
+  h4, h5 {
     font-size:1.1em;
   }
   h6 {
     font-size:100%;
-  }
-  
-  ul, ol {
-    margin-top:0.2em;
-    margin-bottom:0.2em;
-    li {
-    //padding:5px;
-    margin-top:0.3em;
-    margin-bottom:0.3em;
-    code {
-      //background-color:#f9f9f9;
-      //border: 1px solid #d5d8d3;
-      //padding: 2px; 
-      font-family:Menlo, Monaco, 'Andale Mono', Consolas, 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', monospace;
-      font-style:normal;
-      font-size:90%;
-      text-shadow: white 0px 0px 0px;
-      color:#2E5C00;
-    }
-    }
-  }
-  
-  pre {
-    //background-color:#f5f5f5;
-    //border: 1px solid #d5d8d3;
-    margin-top:0.75em;
-    margin-bottom:0.75em;
-    margin-left:10px;
-    border-left: 5px solid #f0f0f0;
-    padding: 10px;
-    code {
-      font-family:Menlo, Monaco, 'Andale Mono', Consolas, 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', monospace;
-      font-style:normal;
-      font-size:85%;
-      text-shadow: white 0px 0px 0px;
-    }
-  }
-
-  p code {
-    //background-color:#f9f9f9;
-    //border: 1px solid #d5d8d3;
-    //padding: 2px; 
-    font-family:Menlo, Monaco, 'Andale Mono', Consolas, 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', monospace;
-    font-style:normal;
-    font-size:90%;
-    text-shadow: white 0px 0px 0px;
-    color:#2E5C00;
-    //color:darkblue;
   }
   
   p {
@@ -124,8 +70,38 @@ body.bp {
     line-height:1.45em;
   }
 
-  //Home news info
+  ul, ol {
+    margin-top:0.2em;
+    margin-bottom:0.2em;
+    li {
+      margin-top:0.3em;
+      margin-bottom:0.3em;
+    }
+  }
   
+  pre,
+  .syntaxhighlighter .lines,
+  {
+    //background-color:#f5f5f5;
+    //border: 1px solid #d5d8d3;
+    margin-left:10px;
+    margin-top:0px;
+    margin-bottom:0px;
+    border-left: 5px solid #f0f0f0;
+    padding-left: 10px;
+    font-family:Menlo, Monaco, 'Andale Mono', Consolas, 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', monospace;
+    font-style:normal;
+    font-size:85%;
+  }
+  
+  p code, ul code, ol code {
+    font-family:Menlo, Monaco, 'Andale Mono', Consolas, 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', monospace;
+    font-style:normal;
+    font-size:90%;
+    color:#2E5C00;
+  }
+  
+  //Home news info
   
   .news_entry {
 
@@ -316,15 +292,6 @@ form.bp {
       }
     }
 
-    .syntaxhighlighter {
-      margin: 0 !important;
-    }
-  
-    .syntaxhighlighter,
-    .line.alt1,
-    .line.alt2 {
-      background: none !important;
-    }
   }
 }
 
@@ -424,16 +391,6 @@ form.bp {
   }
 
   .bubble-block {
-    strong {
-      font-weight:boldest;
-    }
-    h3 {
-      color: #456B6E;
-    }
-    h2 {
-      margin-top: 0;
-      text-align: center;
-    }
     -moz-border-radius: 15px;
     border-radius: 15px;
     font-size: 15px;
@@ -443,6 +400,19 @@ form.bp {
     border-right: 1px solid #c7d8d8;
     background: url("../images/sidebar_bkg_elephant.png") no-repeat 0px 0px #d4e5e5;
     
+    strong {
+      font-weight:boldest;
+    }
+    
+    h3 {
+      color: #456B6E;
+    }
+    
+    h2 {
+      margin-top: 0;
+      text-align: center;
+    }
+    
     p {
       line-height: 1.2em;    
     }
@@ -450,23 +420,27 @@ form.bp {
 
   .bubble-block-transparent {
     color: #3e4747;
+    font-size: 15px;
+    padding:1.5em;
+    margin:0em 1.75em;
+
     strong {
       font-weight: bold;
     }
+    
     h2 {
       text-align: left;
       font-size: 16px;
       color: #3e4747;
       margin-top: 0;
     }
+    
     h3 {
       margin: 1em 0;
     }
-    
     h3:first-child {
       margin-top: 0;
     }
-
     h3:last-child {
       margin-bottom: 0;
     }
@@ -475,9 +449,6 @@ form.bp {
       margin: 0.5em 1em;
     }
     
-    font-size: 15px;
-    padding:1.5em;
-    margin:0em 1.75em;
     p {
       margin-bottom: 1em;
       line-height: 1.2em;
@@ -541,14 +512,12 @@ form.bp {
 
   .titlebar {
     margin-top:1em;
-    //font-size:40px;
   }
 
   #newsbar {
     width: 900px;
     margin-bottom: $space-after-home-lines;
     margin-left: 1.75em;
-    //0.875em;
     height: 2em;
     
     h3 {
@@ -611,11 +580,6 @@ form.bp {
   }
 
   .sidebar-block {
-    h3 {
-      font-size: 16px;
-      color: #456B6E;
-    }
-
     -moz-border-radius: 15px;
     border-radius: 15px;
     font-size: 14px;
@@ -625,7 +589,12 @@ form.bp {
     border-left: 1px solid #c7d8d8;
     border-right: 1px solid #c7d8d8;
     background: url("../images/sidebar_bkg_elephant.png") no-repeat 0px 0px #d4e5e5;
-
+    
+    h3 {
+      font-size: 16px;
+      color: #456B6E;
+    }
+    
     li {
       font-size: 12px;
     }
@@ -637,23 +606,6 @@ form.bp {
   }
 
   .sidebar-dark {
-    h3 {
-      color: white;
-      margin: 0.8em 0;
-    }
-    
-    h3:first-child {
-      margin-top: 0;
-    }
-
-    h3:last-child {
-      margin-bottom: 0;
-    }
-
-    h4 {
-      margin: 0.5em 1em;
-    }
-    
     -moz-border-radius: 15px;
     border-radius: 15px;
     font-size: 14px;
@@ -663,7 +615,22 @@ form.bp {
     background-color: #121f1f;
     color: white;
     text-style:normal;
-
+    
+    h3 {
+      color: white;
+      margin: 0.8em 0;
+    }
+    h3:first-child {
+      margin-top: 0;
+    }
+    h3:last-child {
+      margin-bottom: 0;
+    }
+    
+    h4 {
+      margin: 0.5em 1em;
+    }
+    
     p {
       color: white;
       margin-bottom: 0.8em;
@@ -676,7 +643,6 @@ form.bp {
       font-size: 12px;
       //padding: 2px;
     }
-    
     li a {
       text-decoration:none;
     }

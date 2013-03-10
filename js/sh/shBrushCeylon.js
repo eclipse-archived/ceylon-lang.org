@@ -29,8 +29,8 @@
                           'literal doc by see throws optional license';
         
         this.regexList = [
-            { regex: /\/\/.*/gi, css: 'comments' },                                             // line end comments
-            { regex: /\/\*([\s\S]*?)?\*\//gm, css: 'comments' },                                // multiline comments
+            { regex: /\/\/.*/gi, css: 'color3' },                                               // line end comments
+            { regex: /\/\*([\s\S]*?)?\*\//gm, css: 'color3' },                                  // multiline comments
             { regex: /"""([^"]|"[^"]|""[^"])*"""/gm, css: 'string' },                           // verbatim strings
             { regex: /(``|")([^"\\`]|\\.|`[^`"])*(`"|``|")/gm, css: 'string' },                 // strings
             { regex: /'([^'\\\n]|\\.)*'/gm, css: 'string' },                                    // characters
