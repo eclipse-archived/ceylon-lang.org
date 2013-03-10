@@ -285,12 +285,21 @@ languages:
 * [`Float`](#{site.urls.apidoc_current}/ceylon/language/class_Float.html) 
   represents floating point approximations to the real numbers.
 
-The number of bits or precision on these types depends on whether you're 
-compiling Ceylon code for Java or for JavaScript. When compiling for Java 
-they have 64-bit precision by default. Eventually, you'll be able to specify 
-that a value has 32-bit precision by annotating it `small`. But note that 
-this annotation is really just a hint that the compiler is free to ignore 
-(and it currently does).
+However, the compiler magically eliminates these classes, wherever possible,
+in order to take advantage of the high performance of the platform's native
+primitive types.
+
+Therefore, the precision of these types depends on whether you're running 
+your code on the JVM or on a JavaScript virtual machine. 
+
+- When compiling for Java both types have 64-bit precision by default. 
+  Eventually, you'll be able to specify that a value has 32-bit precision 
+  by annotating it `small`. But note that this annotation is really just a 
+  hint that the compiler is free to ignore (as it currently does).
+- When compiling for JavaScript, `Float`s have 64-bit precision and
+  `Integer`s have 53-bit precision.
+
+Overflow (on the JVM), or loss of precision (in JavaScript) occurs silently.
 
 ## Numeric literals
 
