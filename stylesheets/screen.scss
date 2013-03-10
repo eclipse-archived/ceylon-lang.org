@@ -612,6 +612,7 @@ form.bp {
     -moz-border-radius: 15px;
     border-radius: 15px;
     font-size: 14px;
+    text-shadow: white 1px 1px 0px;
     padding:1.5em;
     margin:0em 1.75em;
     border-left: 1px solid #c7d8d8;
@@ -620,6 +621,10 @@ form.bp {
 
     li {
       font-size: 12px;
+    }
+    
+    ul {
+      margin-bottom:1em;
     }
     
   }
