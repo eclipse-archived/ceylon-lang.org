@@ -13,7 +13,8 @@ Let's get started!
 
 Before we can get into any of the really interesting and powerful features of 
 this language, we need to get comfortable with some of the basic syntax, so
-we'll know what we're looking at later on. 
+we'll know what we're looking at later on, when we get up to the really good 
+stuff. 
 
 
 ## String literals
