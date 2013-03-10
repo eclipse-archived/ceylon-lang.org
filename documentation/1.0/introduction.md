@@ -321,7 +321,7 @@ pair without breaking clients.
 
 There's no `NullPointerException` in Ceylon, nor anything similar. Ceylon
 requires us to be explicit when we declare a value that might be null, or
-a method that might return null. For example, if `name` might be null, 
+a function that might return null. For example, if `name` might be null, 
 we must declare it like this:
 
 <!-- try: -->
@@ -569,11 +569,12 @@ order function:
 
 ## Comprehensions
 
-Filtering and transforming streams of values is one of the main things computers
-are good at. Therefore, Ceylon provides a special syntax which makes these operations
-especially convenient. Anywhere you could provide a list of expressions (a sequence
-instantiation, or a "vararg"), Ceylon lets you write a comprehension instead. For
-example, the following expression instantiates a sequence of names:
+Filtering and transforming streams of values is one of the main things 
+computers are good at. Therefore, Ceylon provides a special syntax which makes 
+these operations especially convenient. Anywhere you could provide a list of 
+expressions (a sequence instantiation, or a "vararg"), Ceylon lets you write a 
+comprehension instead. For example, the following expression instantiates a 
+sequence of names:
 
 <!-- try: -->
     { for (p in people) p.firstName + " " + p.lastName }
@@ -593,7 +594,8 @@ This expression creates a set of employers:
 <!-- try: -->
     HashSet { for (p in people) for (j in p.jobs) j.organization }
 
-Here, we're using a comprehension as a method argument to format and print the names:
+Here, we're using a comprehension as a function argument to format and print 
+the names:
 
 <!-- try: -->
     print(", ".join { for (p in people) p.firstName + " " + p.lastName });
@@ -714,7 +716,7 @@ reflection in Java.
 
 <!-- try: -->
 <!-- check:none -->
-    Class<Person,Name> personClass = Person;
+    Class<Person,[Name]> personClass = Person;
     Person gavin = personClass(Name("Gavin", "King"));
 
 Ceylon supports program element annotations, with a streamlined syntax. Indeed,
