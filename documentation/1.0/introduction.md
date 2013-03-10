@@ -221,29 +221,22 @@ inheritance*.
 -->
 <!-- check:none -->
     interface Sized {
-        
         shared formal Integer size;
-    
         shared Boolean empty {
             return size==0;
         }
-    
     }
     
     interface Printable {
-    
         shared void printIt() {
             print(this);
         }
-        
     }
     
     object empty satisfies Sized & Printable {
-    
         shared actual Integer size {
             return 0;
         }
-        
     }
 
 What really distinguished interfaces from classes in Ceylon is that 
