@@ -719,13 +719,14 @@ Then we can write the following:
 The function `curry()` produces a function with multiple parameter lists, given
 a function with multiple parameters:
 
-    Anything(Float)(Float) printSum2 = curry(printSum);
-    printSum2(2.0)(2.0);
+    Anything(Float)(Float) printSumCurried = curry(printSum);
+    Anything(Float) printPlus2 = printSumCurried(2.0);
+    printPlus2(2.0); //prints 4.0
 
 The function `uncurry()` does the opposite, giving us back our original uncurried
 signature:
 
-    Anything(Float,Float) printSum3 = uncurry(printSum2);
+    Anything(Float,Float) printSumUncurried = uncurry(printSumCurried);
 
 Note that `compose()`, `curry()`, and `uncurry()` are ordinary functions, written 
 in Ceylon.
