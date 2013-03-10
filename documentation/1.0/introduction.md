@@ -470,7 +470,7 @@ subtyping, because Ceylon has union and intersection types. Consider a map with
 a heterogeneous key type:
 
 <!-- try: -->
-    value numbers = HashMap { "one"->1.0, "zero"->0.0, 1->1.0, 0->0.0  };
+    value numbers = HashMap { "one"->1.0, "zero"->0.0, 1->1.0, 0->0.0 };
 
 The inferred type of `numbers` is `HashMap<String|Integer,Float>`.
 
@@ -564,7 +564,7 @@ order function:
 
 <!-- try: -->
 <!-- check:none -->
-    String[] names = { "Gavin", "Stef", "Tom", "Tako" } ;
+    String[] names = { "Gavin", "Stef", "Tom", "Tako" };
     String[] uppercaseNames = names.map(String.uppercased);
 
 ## Comprehensions
@@ -631,7 +631,7 @@ Suppose we have a nice function for formatting dates:
 And we have a date, held in a tuple:
 
 <!-- try: -->
-    [Integer,String,Integer] date = [25, "March", 20013];
+    [Integer,String,Integer] date = [25, "March", 2013];
 
 Then we can print the date like this:
 
@@ -772,6 +772,8 @@ modules.
 
 [Ceylon Herd](http://modules.ceylon-lang.org) is a community module repository for
 sharing open source modules.
+
+## 
 
 ## Take the Tour
 
