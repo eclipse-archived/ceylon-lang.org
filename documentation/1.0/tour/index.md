@@ -41,6 +41,13 @@ Not every language feature described here has been implemented
 in M5. Where this is the case, you'll see an "implementation note", 
 explaining when you can expect to be able to use the feature.
 
+### Help us improve!
+
+If you find some part of this tour difficult to read or difficult 
+to understand, or if you think one of the examples sucks, or if 
+you think a section is missing some useful information, please
+[let us know](/community).
+
 ## Before you start
 
 If you're using the [command line distribution](/download) to
