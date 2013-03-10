@@ -44,6 +44,16 @@ refers to the parent instance of the current instance of a nested class.
 There are some restrictions on the use of `this`, `super`, and `outer`, which 
 we'll explore below.
 
+Finally, the keyword `package` may be used to refer to the toplevel declarations
+in the current package.
+
+<!-- try: -->
+    String name = "Trompon";
+    
+    class Elephant(name=package.name) {
+        String name;
+    }
+
 
 ## Multiple inheritance and "linearization"
 
@@ -174,8 +184,8 @@ initialization of attributes, Ceylon imposes some restrictions on the body of
 a class. (Remember that Ceylon doesn't have constructors!) Actually, to be 
 completely fair, they're not really restrictions at all, at least not from one 
 point of view, since you're actually allowed *extra* flexibility in the body 
-of a class that you're not allowed in the body of method or attribute 
-declarations! But compared to Java, there's some things you're not allowed 
+of a class that you're not allowed in the body of a function or getter
+declaration! But compared to Java, there's some things you're not allowed 
 to do.
 
 First, we need to know that the compiler automatically divides the body of 
@@ -345,40 +355,53 @@ checks, using the `late` annotation:
      
     class Parent() {
         shared Child child = Child();
-        child.parent = this;
+        child.parent = this; //ok, since parent is late
     }
 
 When a reference is annotated `late`, the checks which normally happen
 at compile time are delayed until runtime.
 
-## Definite initialization of methods
+## Definite initialization of functions
 
-Ceylon lets us separate the declaration of a method defined using a method 
-reference from the actual specification statement that specifies the method 
-reference.
+Ceylon lets us separate the declaration of a function from the actual 
+specification statement that specifies the function implementation.
 
-<!-- check:parse:Needs switch on values -->
-<!-- cat: Callable<Float, Float> arithmetic(String symbol, Float x, Float y) { -->
-        Float op(Float y);
-        switch (symbol)
-        case ("+") { op = x.plus; }
-        case ("-") { op = x.minus; }
-        case ("*") { op = x.times; }
-        case ("/") { op = x.divided; }
-<!-- cat:        
-        return op;
+This applies when a function implementation is specified by assigning
+a reference:
+
+<!-- try: -->
+    Float(Float) arithmetic(Operation op, Float x) {
+        Float fun(Float y);
+        switch (op)
+        case (plus) { fun = x.plus; }
+        case (minus) { fun = x.minus; }
+        case (times) { fun = x.times; }
+        case (divide) { fun = x.divided; }
+        return fun;
     }
--->
 
-The rules for definite initialization of locals and attributes also apply to 
-methods defined using a specification statement.
+Or when a function implementation is specified using a fat arrow:
+
+<!-- try: -->
+    Float(Float) arithmetic(Operation op, Float x) {
+        Float fun(Float y);
+        switch (op)
+        case (plus) { fun(Float y) => x+y; }
+        case (minus) { fun(Float y) => x-y; }
+        case (times) { fun(Float y) => x*y; }
+        case (divide) { fun(Float y) => x/y; }
+        return fun;
+    }
+
+The rules for definite initialization of values apply equally to functions 
+defined this way.
 
 
 ## Definite return
 
 While we're on the topic, it's worth noting that the Ceylon compiler, just 
 like the Java compiler, also performs definite return checking, to ensure 
-that a method or getter always has an explicitly specified return value. 
+that a function or getter always has an explicitly specified return value. 
 So, this code compiles without error:
 
 <!-- try-pre:
@@ -417,6 +440,7 @@ But the following code results in an error at compile time:
         if (person==me) {
             return "You're beautiful!";
         }
+        //or otherwise? what now?
     }
 
 

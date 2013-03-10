@@ -15,7 +15,9 @@ about *annotations* and metaprogramming.
 ### implementation note <!-- m5 -->
 
 Annotations and metaprogramming are not yet implemented. They will be 
-implemented in M6.
+implemented in M6. The information in this section is based on an 
+unimplemented design that will certainly change before Ceylon 1.0 is
+released.
 
 ## Annotations
 

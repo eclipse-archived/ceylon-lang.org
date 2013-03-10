@@ -170,7 +170,7 @@ print(t.fullName);
 -->
 <!-- cat-id:attrs -->
     shared String fullName =>
-            " ".join(coalesce{firstName, lastName});
+            " ".join(coalesce { firstName, lastName });
     
     assign fullName {
         value tokens = fullName.split().iterator();
@@ -203,8 +203,8 @@ class Test() {
 }
 -->
     variable String _name = "";
-    shared String name => _name;
-    assign name => _name=name;
+    shared String name => _name;  //pointless getter
+    assign name => _name=name;    //pointless setter
 
 It's not necessary, and there's never any benefit to it. 
 
@@ -303,8 +303,8 @@ checking statements which follow it, for example:
 
     Integer? x = parseInteger("1");
     assert (exists x);
-    // after the assert x is treated as an Integer
-    value y= x+10;
+    // after the assert x has type Integer instead of Integer?
+    value y = x+10;
 
 This is really the same structured typecasting we saw in the 
 [first section](../basics#dealing_with_objects_that_arent_there), only 
@@ -436,7 +436,7 @@ And `try` will support a "resource" expression similar to Java 7.
 
 There are no Java-style checked exceptions in Ceylon.
 
-<!-- m5 -->
+### implementation note <!-- m5 -->
 
 Resource expressions are not yet implemented.
 
