@@ -180,8 +180,7 @@ of types:
 Union and intersection types are occasionally useful as a convenience in 
 ordinary code. More importantly, they help make things that are complex 
 and magical in other languages (especially generic type argument inference) 
-simple and straightforward in Ceylon. For example, consider the following 
-sequences:
+simple and straightforward in Ceylon. For example, consider the following:
 
 <!-- try-post:
 
@@ -190,15 +189,15 @@ sequences:
 -->
 <!-- check:none -->
     value stuff = { "hello", "world", 1.0, -1 };
-    value joinedStuff = join({"hello", "world"}, {1.0, 2.0}, {});
+    value joinedStuff = join { {"hello", "world"}, {1.0, 2.0}, {} };
 
 The compiler automatically infers the types: 
 
-* `Sequence<String|Float|Integer>` for `stuff`, and 
-* `Empty|Sequence<String|Float>` for `joinedStuff`. 
+* `Iterable<String|Float|Integer>` for `stuff`, and 
+* `Sequential<String|Float>` for `joinedStuff`. 
 
-These are the correct principal types of the expressions. We didn't need to 
-explictly specify any types anywhere.
+These are the correct principal types of the expressions. We didn't need 
+to explictly specify any types anywhere.
 
 We've worked hard to keep the type system [quite simple at its core][manifesto]. 
 This makes the language easier to learn, and helps control the number of 
@@ -436,13 +435,14 @@ And we can write a `switch` statement that handles all the enumerated subtypes:
     case (is Branch) { .... }
 
 Now, if we add a new subtype of `Node`, we must add the new subtype to the
-`of` clause of the declaration of `Node`, and the compiler will produce an error
-at every `switch` statement which doesn't handle the new subtype.
+`of` clause of the declaration of `Node`, and the compiler will produce an 
+error at every `switch` statement which doesn't handle the new subtype.
 
 ## Type aliases and type inference
 
 Fully-explicit type declarations very often make difficult code much easier to
-understand. But there are other occasions where the repetition of a verbose
+understand, and they're an invaluable aid to understanding the API of a library 
+or framework. But there are other occasions where the repetition of a verbose
 generic type can detract from the readability of the code. We've observed that:
 
 1. explicit type annotations are of much less value for local declarations, and
@@ -464,6 +464,14 @@ On the other hand, for declarations which are accessible outside the compilation
 unit in which they are defined, Ceylon requires an explicit type annotation. We 
 think this makes the code more readable, not less, and it makes the compiler more 
 efficient and less vulnerable to stack overflows.
+
+Type inference works somewhat better in Ceylon than in other languages with 
+subtyping, because Ceylon has union and intersection types. Consider a map with 
+a heterogeneous key type:
+
+    value numbers = HashMap { "one"->1.0, "zero"->0.0, 1->1.0, 0->0.0  };
+
+The inferred type of `numbers` is `HashMap<String|Integer,Float>`.
 
 Ceylon addresses the second problem via *type aliases*, which are very similar
 to a `typedef` in C. A type alias can act as an abbreviation for a generic type
