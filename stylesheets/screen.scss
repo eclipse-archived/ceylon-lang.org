@@ -441,6 +441,10 @@ form.bp {
     border-left: 1px solid #c7d8d8;
     border-right: 1px solid #c7d8d8;
     background: url("../images/sidebar_bkg_elephant.png") no-repeat 0px 0px #d4e5e5;
+    
+    p {
+      line-height: 1.3em;    
+    }
   }
 
   .bubble-block-transparent {
@@ -475,6 +479,7 @@ form.bp {
     margin:0em 1.75em;
     p {
       margin-bottom: 1em;
+      line-height: 1.3em;
     }
     p:last-child {
       margin-bottom: 0;
