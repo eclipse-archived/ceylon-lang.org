@@ -122,10 +122,16 @@ type.
 ## Equality and identity
 
 On the other hand, since `Object` is a supertype of types like `Float` 
-which are passed by value at the level of the Java Virtual Machine, you 
+which are passed by value at the level of the virtual machine, you 
 can't use the `===` operator to test the identity of two values of type 
-`Object`. Instead, `===` is defined to act upon instances of the interface 
-[`Identifiable`](#{site.urls.apidoc_current}/ceylon/language/interface_Identifiable.html)
+`Object`. The following is not allowed: 
+
+    assert (x===1) {} //compile error: Integer is not Identifiable 
+
+Instead, `===` is defined to act on instances of the interface 
+[`Identifiable`](#{site.urls.apidoc_current}/ceylon/language/interface_Identifiable.html).
+`Integer`, `Float`, `Character`, and `String` _don't_ satisfy this
+interface, but most classes do.
 
 <!-- try: -->
 <!-- check:none:decl from ceylon.language -->
@@ -216,8 +222,8 @@ means, by definition,
     x.equals(y)
 
 Therefore, it's easy to customize operators like `<` and `==` with specific 
-behavior for our own classes, just by implementing or refining methods 
-like `compare()` and `equals()`. Thus, we say that operators are polymorphic 
+behavior for our own classes, just by implementing or refining methods like 
+`compare()` and `equals()`. Thus, we say that operators are _polymorphic_ 
 in Ceylon.
 
 Apart from `Comparable` and `Object`, which provide the underlying 
