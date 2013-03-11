@@ -363,8 +363,8 @@ The ability to narrow the type of a value using conditions like `is` and
 flow-dependent typing comes into play is assertions:
 
 <!-- try: -->
-    if (`/` in string) {
-        value bits = string.split((Character c) => c==`/`);
+    if ('/' in string) {
+        value bits = string.split("/");
 		value first = split.first; //first may be null, according to its type
 		value second = split.rest.first; //second may be null, according to its type
 		//assert that first and second are in 
