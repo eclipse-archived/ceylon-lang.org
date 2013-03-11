@@ -324,8 +324,8 @@ declaration:
         }
     };
 
-(Note that `Observer<T>` is assignable to `Observer<Nothing>` for any type `T`, 
-since `Observer<T>` is contravariant in its type parameter `T`. If this 
+(Note that `Observer<T>` is assignable to `Observer<Nothing>` for any type 
+`T`, since `Observer<T>` is contravariant in its type parameter `T`. If this 
 doesn't make sense, please read the section on [generics](../generics) again.)
 
 Of course, as we saw in the leg on [functions](../functions), a better way to 
@@ -369,10 +369,13 @@ something like this:
         };
     }
 
+Even though this looks like some kind of templating language, it's just an 
+ordinary expression.
+
 ### implementation note <!-- m5 -->
 
-This library does not yet exist! Why not [get involved](/community) in developing 
-the Ceylon platform?
+This library does not yet exist! Why not [get involved](/community) in 
+developing the Ceylon platform?
 
 
 ## There's more...
