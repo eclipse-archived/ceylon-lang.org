@@ -253,6 +253,85 @@ also important in the definition of Ceylon's polymorphic operators:
   is the basis of the set operators.
 
 
+## Comparison operators
+
+In addition to the traditional `<`, `>`, `<=`, and `>=` operators, which 
+evaluate to `Boolean`, there is a `<=>` operator, which produces an instance
+of the enumerated type 
+[`Comparison`](#{site.urls.apidoc_current}/ceylon/language/class_Comparison.html).
+
+<!-- try: -->
+    switch(x<=>0)
+    case (smaller) {
+        return sqrt(-x);
+    }
+    case (equal) {
+        return 0;
+    }
+    case (larger) {
+        return sqrt(x);
+    }
+
+Two `<` or `<=` operators may be combined to determine if a value falls withing
+a range:
+
+<!-- try: -->
+    assert(0<quantity<=100);
+
+## Set operators
+
+The operators `|` and `&` represent set union and intersection when they appear in a
+value expression. But, as we've already seen, when they appear in a type expression 
+they represent _type_ union and intersection! Indeed, there is a relationship between
+the two kinds of union/intersection:
+
+<!-- try: -->
+    Set<Integer> integers = ... ;
+    Set<Float> floats = ... ;
+    Set<Float|Integer> numbers = integers|floats;
+
+<br/>
+
+<!-- try: -->
+    Set<Foo> foos = ... ;
+    Set<Bar> bars = ... ;
+    Set<Foo&Bar> foobars = foos&bars;
+
+
+## Indexed operations
+
+We can access an element of a `Correspondence` by using the index operator. Both
+`List`s and `Map`s are instances of `Correspondence`:
+
+<!-- try: -->
+    "string must start with a \""
+    assert (exists ch = text[0], ch=='"');
+
+All `List`s are also instances of `Ranged`. We can produce a subrange of a `Ranged` 
+by providing two endpoints:
+
+<!-- try: -->
+    if (text[i..i]=="/") {
+        [String,String] split = [text[...i-1], text[i+1...]];
+        //...
+    }
+
+We can also produce a subrange of a `Ranged` by providing a starting point and a 
+length.
+
+<!-- try: -->
+    String selectedText = text[selection.offset:selection.length];
+
+Please take careful note the difference between `..` and `:`, they have quite distinct
+purposes:
+
+    print("hello"[2..2]); //prints "l"
+    print("hello"[2:2]);  //prints "ll" 
+
+    print("hello"[2..0]); //prints "leh"
+    print("hello"[2:0]);  //prints "" 
+
+
 ## Characters and character strings
 
 We've already met the class `String`, way back in 
