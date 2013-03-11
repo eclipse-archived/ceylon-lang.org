@@ -33,7 +33,7 @@ body.bp {
   // Or leave it in if you're happy with how blueprint looks out-of-the-box
 
   font-size:15px;
-  font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family:'PT Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #2c2c2c;
   background-color: white;
   //text-shadow: white 1px 1px 0px;
@@ -89,13 +89,13 @@ body.bp {
     margin-bottom:0px;
     border-left: 5px solid #f0f0f0;
     padding-left: 10px;
-    font-family:Menlo, Monaco, 'Andale Mono', Consolas, 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', monospace;
+    font-family:Menlo, 'Source Code Pro', Monaco, Consolas, 'Lucida Console', 'Bitstream Vera Sans Mono', monospace;
     font-style:normal;
     font-size:85%;
   }
   
   p code, ul code, ol code {
-    font-family:Menlo, Monaco, 'Andale Mono', Consolas, 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', monospace;
+    font-family:Menlo, 'Source Code Pro', Monaco, Consolas, 'Lucida Console', 'Bitstream Vera Sans Mono', monospace;
     font-style:normal;
     font-size:90%;
     color:#2E5C00;
@@ -176,14 +176,14 @@ form.bp {
   }
   
   #menu {
-    font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+    font-family:'PT Sans', "Lucida Grande", "Lucida Sans Unicode", sans-serif;
     font-size: 14px;
     float: right;
     margin-top: 70px;
     width: 600px;
   
     #menu-core {
-      font-size:110%;
+      font-size:120%;
       padding:0 15 0 0;
       margin:0;
       list-style-type: none;
@@ -409,11 +409,15 @@ form.bp {
     }
     
     h2 {
+      font-size: 22px;
       margin-top: 0;
+      margin-bottom: 10px;
       text-align: center;
     }
     
     p {
+      font-size: 15px;
+      margin-top: 0px;
       line-height: 1.2em;    
     }
   }
@@ -430,7 +434,7 @@ form.bp {
     
     h2 {
       text-align: left;
-      font-size: 16px;
+      font-size: 17px;
       color: #3e4747;
       margin-top: 0;
     }
@@ -578,7 +582,7 @@ form.bp {
   
   #sidebar {
     @include column(8,true);
-    font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+    font-family:'PT Sans', "Lucida Grande", "Lucida Sans Unicode", sans-serif;
     #feed {
       padding-left: 34px;
       background: url("../images/feed_icon.png") no-repeat 0px 0px;
