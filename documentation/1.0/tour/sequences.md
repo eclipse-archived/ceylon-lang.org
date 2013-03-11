@@ -40,6 +40,26 @@ iterable object. So `moreWords` produces the values `"hola", "mundo", "hello",
 As we'll see [later](../comprehensions), the braces may even contain a
 _comprehension_, making them much more powerful than what you see here.
 
+`Iterable` is a subtype of the interface 
+[`Category`](#{site.urls.apidoc_current}/ceylon/language/interface_Category.html),
+so we can use the `in` operator to test if a value is produced by the 
+`Iterable`.
+
+<!-- try: -->
+    if (exists char = text[i],
+        char in {',', '.', '!', '?', ';', ':'}) {
+        //...
+    }
+
+<br/>
+
+<!-- try: -->
+    "index must be between 1 and 100"
+    assert (index in 1..100);
+
+The `in` operator is just syntactic sugar for the method `contains()` of
+`Category`.
+
 
 ## Iterating using `for`
 
