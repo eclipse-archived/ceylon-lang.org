@@ -15,7 +15,10 @@ _language module_ and some of the basic types it defines.
 The language module is special, because it is referred to by the language
 specification, and some language-level constructs are defined in terms of
 the types it declares. Therefore, you can think of it as forming part of 
-the language definition. 
+the language definition. In practice, the language module is implemented
+in a mix of Ceylon and native (Java and JavaScript) code. Of course, we've
+already met quite a few of the inhabitants of the language module, 
+especially in [this chapter](../sequences).
 
 ## An overview of the language module
 
@@ -126,7 +129,7 @@ which are passed by value at the level of the virtual machine, you
 can't use the `===` operator to test the identity of two values of type 
 `Object`. The following is not allowed: 
 
-    assert (x===1) {} //compile error: Integer is not Identifiable 
+    assert (x===1); //compile error: Integer is not Identifiable 
 
 Instead, `===` is defined to act on instances of the interface 
 [`Identifiable`](#{site.urls.apidoc_current}/ceylon/language/interface_Identifiable.html).
