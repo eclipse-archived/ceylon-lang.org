@@ -52,7 +52,8 @@ code nicely.
 
 It's often useful to collapse whitespace in a multiline string literal. The
 [`String`](#{site.urls.apidoc_current}/ceylon/language/class_String.html)
-class has an attribute called [`normalized`](#{site.urls.apidoc_current}/ceylon/language/class_String.html#normalized). 
+class has an attribute called 
+[`normalized`](#{site.urls.apidoc_current}/ceylon/language/class_String.html#normalized). 
 We can use it like this:
 
 <!-- try-post:
@@ -337,7 +338,7 @@ convenient form in a moment.)
     }
 
 The type `String?` indicates that `name` may contain a `null` value. We then 
-use the `if (exists ...)` control structure to handle the case of a `null` 
+use the `if (exists ... )` control structure to handle the case of a `null` 
 name separately from the case of a non-`null` name.
 
 It's possible to abbreviate the code we just saw by declaring the local `name` 
