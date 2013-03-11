@@ -1,20 +1,20 @@
 ---
 layout: documentation
-title: Quick Introduction to Ceylon
+title: Quick introduction
 tab: documentation
 unique_id: docspage
 author: Gavin King
 doc_root: ..
 ---
 
-# Quick introduction
+# #{page.title}
 
 It's impossible to get to the essence of a programming language by looking
-at a list of its features. What really *makes* the language is how all the
+at a list of its features. What really _makes_ the language is how all the
 little bits work together. And that's impossible to appreciate without 
 actually writing code. In this section we're going to try to quickly show 
 you enough of Ceylon to get you interested enough to actually try it out.
-This is *not* a comprehensive feature list!
+This is _not_ a comprehensive feature list!
 
 ## Support for Java and JavaScript virtual machines
 
@@ -93,7 +93,6 @@ Ceylon has a special built-in "declarative" syntax for defining hierarchical
 structures. This is especially useful for creating user interfaces:
 
 <!-- try: -->
-<!-- check:none -->
     Table table = Table {
         title = "Squares";
         rows = 5;
@@ -121,7 +120,6 @@ But it's much more generally useful, forming a great foundation for
 expressing everything from build scripts to test suites:
 
 <!-- try: -->
-<!-- check:none -->
     Suite tests = Suite {
         Test { 
             "sqrt() function";
@@ -167,14 +165,12 @@ support for union and intersection types. A *union type* is a type which
 accepts instances of any one of a list of types:
 
 <!-- try: -->
-<!-- check:none -->
     Person|Organization personOrOrganization = ... ;
 
 An *intersection type* is a type which accepts instances of all of a list
 of types:
 
 <!-- try: -->
-<!-- check:none -->
     Printable&Sized&Persistent printableSizedPersistent = ... ;
 
 Union and intersection types are occasionally useful as a convenience in 
@@ -187,7 +183,6 @@ simple and straightforward in Ceylon. For example, consider the following:
     print(stuff);
     print(joinedStuff);
 -->
-<!-- check:none -->
     value stuff = { "hello", "world", 1.0, -1 };
     value joinedStuff = join({"hello", "world"}, {1.0, 2.0}, {});
 
@@ -219,7 +214,6 @@ inheritance*.
 
     print(empty.size);
 -->
-<!-- check:none -->
     interface Sized {
         shared formal Integer size;
         shared Boolean empty {
@@ -318,13 +312,11 @@ a function that might return null. For example, if `name` might be null,
 we must declare it like this:
 
 <!-- try: -->
-<!-- check:none -->
     String? name = ...
 
 Which is actually just an abbreviation for:
 
 <!-- try: -->
-<!-- check:none -->
     String|Nothing name = ...
 
 An attribute of type `String?` might refer to an actual instance of `String`, 
@@ -406,7 +398,6 @@ Ceylon gives us the best of both worlds. We can specify an *enumerated list
 of subtypes* when we define a supertype:
 
 <!-- try: -->
-<!-- check:none -->
     abstract class Node() of Leaf | Branch {}
 
 And we can write a `switch` statement that handles all the enumerated subtypes:
@@ -421,7 +412,6 @@ And we can write a `switch` statement that handles all the enumerated subtypes:
     case (is Leaf) { print("Leaf"); }
     case (is Branch) { print("Branch"); }
 -->
-<!-- check:none -->
     Node node = ... ;
     switch (node)
     case (is Leaf) { ... }
@@ -446,11 +436,16 @@ Ceylon addresses the first problem by allowing type inference for local
 declarations. For example:
 
 <!-- try: -->
-<!-- check:none -->
     value names = LinkedList { "Tom", "Dick", "Harry" };
 
+<br/>
+
+<!-- try: -->
     function sqrt(Float x) { return x^0.5; }
-    
+
+<br/>    
+
+<!-- try: -->
     for (item in order.items) { ... }
 
 On the other hand, for declarations which are accessible outside the compilation 
@@ -556,7 +551,6 @@ It's even possible to pass a member method or attribute reference to a higher
 order function:
 
 <!-- try: -->
-<!-- check:none -->
     String[] names = { "Gavin", "Stef", "Tom", "Tako" };
     String[] uppercaseNames = names.map(String.uppercased);
 
@@ -649,7 +643,6 @@ parameter may be marked as covariant (`out`) or contravariant (`in`) by the clas
 or interface that declares the parameter.
 
 <!-- try: -->
-<!-- check:none -->
     interface Correspondence<in Key, out Item> { ... }
 
 Ceylon has a more expressive system of generic type constraints with a much cleaner, 
@@ -657,7 +650,6 @@ more regular syntax. The syntax for declaring type constraints on a type paramet
 looks very similar to a class or interface declaration.
 
 <!-- try: -->
-<!-- check:none -->
     interface Producer<in Input, out Value>
             given Value(Input input) satisfies Container { ... }
 
@@ -678,7 +670,6 @@ call this approach *operator polymorphism*.
 For example, the Ceylon language module defines the interface `Summable`.
 
 <!-- try: -->
-<!-- check:none -->
     shared interface Summable<Other> of Other
             given Other satisfies Summable<Other> {
         shared formal Other plus(Other that);
@@ -688,13 +679,11 @@ And the `+` operation is defined for values which are assignable to `Summable`.
 The following expression:
 
 <!-- try: -->
-<!-- check:none -->
     x+y
 
 Is merely an abbreviation of:
 
 <!-- try: -->
-<!-- check:none -->
     x.plus(y)
 
 Likewise, `<` is defined in terms of the interface `Comparable`, `*` in terms of
@@ -708,7 +697,6 @@ member invocations. This facility is more powerful, and much more typesafe, than
 reflection in Java.
 
 <!-- try: -->
-<!-- check:none -->
     Class<Person,[Name]> personClass = Person;
     Person gavin = personClass(Name("Gavin", "King"));
 
@@ -718,7 +706,6 @@ which are not keywords in Ceylon - and for embedding API documentation for the
 documentation compiler:
 
 <!-- try: -->
-<!-- check:none -->
     "The user login action"
     by ("Gavin King")
     throws (DatabaseException,
@@ -742,7 +729,6 @@ no equivalent to Java's `protected`. Dependencies between modules are specified 
 the module descriptor:
 
 <!-- try: -->
-<!-- check:none -->
     "This module is just a silly example. You'll 
      find some proper modules in the community 
      repository [Ceylon Herd][Herd].
@@ -774,6 +760,7 @@ Code written in Ceylon interoperates elegantly with native code written for the
 platform. For example, we can make use of Java's collections, which are exposed 
 to Ceylon code in the module `java.base`:
 
+<!-- try: -->
     import java.util { HashMap }
     
     value javaHashMap = HashMap<String,Integer>();
@@ -787,6 +774,7 @@ transparently between the two languages.
 
 We can even call untyped native JavaScript APIs, inside a `dynamic` block:
 
+<!-- try: -->
     dynamic {
         value req = XMLHttpRequest();
         req.onreadystatechange = void () {
@@ -800,7 +788,6 @@ We can even call untyped native JavaScript APIs, inside a `dynamic` block:
         req.open("GET", "/sayHello", true);
         req.send();
     }
-
 
 ## Take the Tour
 

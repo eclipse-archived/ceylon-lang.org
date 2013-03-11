@@ -32,17 +32,25 @@ just like in Java, type parameters are listed before ordinary parameters,
 enclosed in angle brackets.
 
 <!-- try: -->
-<!-- check:none -->
     shared interface Iterator<out Element> { ... }
 
+<br/>
+
+<!-- try: -->
     shared class Singleton<out Element>(Element element)
             extends Object()
             satisfies [Element+]
             given Element satisfies Object { ... }
 
+<br/>
+
+<!-- try: -->
     shared Value sum<Value>({Value+} values) 
             given Value satisfies Summable<Value> { ... }
 
+<br/>
+
+<!-- try: -->
     shared <Key->Item>[] zip<Key,Item>({Key*} keys, {Item*} items)
             given Key satisfies Object
             given Item satisfies Object { ... }
