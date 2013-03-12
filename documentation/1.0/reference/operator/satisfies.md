@@ -16,7 +16,7 @@ left-hand  operand is *satisfies* its right-hand operand.
 ## Usage 
 
 <!-- check:none -->
-    void m(Type<Void> x) {
+    void m(Type<Anything> x) {
         Boolean satisfaction = satisfies String Iterator;
     }
 

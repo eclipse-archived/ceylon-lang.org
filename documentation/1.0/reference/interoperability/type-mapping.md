@@ -55,7 +55,7 @@ Please note: **These mapping rules are subject to change as the compiler develop
       <th>Java type</th>
     </tr>
     <tr>
-      <td><code>ceylon.language.Void</code></td>
+      <td><code>ceylon.language.Anything</code></td>
       <td><code>java.lang.Object</code></td>
     </tr>
     <tr>
