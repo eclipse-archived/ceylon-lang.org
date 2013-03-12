@@ -122,6 +122,8 @@ _This page is very incomplete. Want to help? [See how](/code/website)._
 * [`{}`  (null-safe invoke)](operator/nullsafe-invoke)
 * [`~`   (Set complement)](operator/complement) <!-- m3 -->
 * [`~=`  (Set complement assign)](operator/complement-assign) <!-- m3 -->
+* [`else`](operator/else)
+* [`then`](operator/then)
 
 
 ## Literals
