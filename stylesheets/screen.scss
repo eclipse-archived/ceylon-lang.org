@@ -33,7 +33,7 @@ body.bp {
   // Or leave it in if you're happy with how blueprint looks out-of-the-box
 
   font-size:15px;
-  font-family:'Helvetica Neue', Helvetica, Tahoma, Arial, sans-serif;
+  font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #2c2c2c;
   background-color: white;
   //text-shadow: white 1px 1px 0px;
@@ -89,13 +89,13 @@ body.bp {
     margin-bottom:0px;
     border-left: 5px solid #f0f0f0;
     padding-left: 10px;
-    font-family:Menlo, Monaco, 'Lucida Console', 'Bitstream Vera Sans Mono', monospace;
+    font-family:Menlo, Monaco, 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', monospace;
     font-style:normal;
     font-size:85%;
   }
   
   p code, ul code, ol code {
-    font-family:Menlo, Monaco, 'Lucida Console', 'Bitstream Vera Sans Mono', monospace;
+    font-family:Menlo, Monaco, 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', monospace;
     font-style:normal;
     font-size:90%;
     color:#2E5C00;
