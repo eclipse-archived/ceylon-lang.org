@@ -72,10 +72,15 @@ following the line containing the opening `"` character is removed.
 The whitespace trimming algorithm understands the usual conventions for 
 spaces and tabs in indentation.
 
+### Interpolation ###
+
+Strings containing two backticks (` `` `) are not plain `String` literals, but 
+[`String` templates](../../expression/string-template)
+
 ## See also
 
-* [String literals](#{page.doc_root}/tour/basics/#strings_and_string_interpolation) 
+* [`String` literals](#{page.doc_root}/tour/basics/#strings_and_string_interpolation) 
   in the Tour of Ceylon 
-* [String literals in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#stringliterals)
-* [String templates](../../expression/string-template)
+* [`String` literals in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#stringliterals)
+* [`String` templates](../../expression/string-template)
 
