@@ -79,7 +79,7 @@ _This page is very incomplete. Want to help? [See how](/code/website)._
 * [`()`  (invoke)](operator/invoke)
 * [`()`  (null-safe invoke)](operator/nullsafe-invoke)
 * [`*`   (product)](operator/product)
-* [`**`  (power)](operator/power)
+* [`^`   (power)](operator/power)
 * [`*=`  (multiply assign)](operator/multiply-assign)
 * [`+`   (sum)](operator/sum)
 * [`+`   (unary plus)](operator/unary_plus)

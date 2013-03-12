@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: '`**` (power) operator'
+title: '`^` (power) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
@@ -10,18 +10,18 @@ doc_root: ../../..
 
 # #{page.title}
 
-The right-associative, binary `**` operator is used to compute its left-hand 
+The right-associative, binary `^` operator is used to compute its left-hand 
 operand *raised to the power* of its right-hand operand.
 
 ## Usage 
 
-    Integer eight = 2 ** 3;
+    Integer eight = 2 ^ 3;
 
 ## Description
 
 ### Definition
 
-The `**` operator is defined as follows:
+The `^` operator is defined as follows:
 
 <!-- check:none -->
     lhs.castTo<N>().power(rhs.castTo<N>());
@@ -30,9 +30,9 @@ See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#ari
 
 ### Polymorphism
 
-The `**` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
-The meaning of `**` depends on the 
-[`Numeric`](#{page.doc_root}/api/ceylon/language/interface_Numeric.html) and
+The `^` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
+The meaning of `^` depends on the 
+[`Numeric`](#{page.doc_root}/api/ceylon/language/interface_Exponentiable.html) and
 [`Castable`](#{page.doc_root}/api/ceylon/language/interface_Castable.html) interfaces.
 
 ### Meaning of power for built-in types
@@ -54,7 +54,7 @@ such a widening is not possible.
 
 ## See also
 
-* API documentation for [`Numeric`](#{page.doc_root}/api/ceylon/language/interface_Numeric.html)
+* API documentation for [`Exponentiable`](#{page.doc_root}/api/ceylon/language/interface_Exponentiable.html)
 * API documentation for [`Castable`](#{page.doc_root}/api/ceylon/language/interface_Castable.html)
 * [arithmetic operators](#{page.doc_root}/#{site.urls.spec_relative}#arithmetic) in the 
   language specification
