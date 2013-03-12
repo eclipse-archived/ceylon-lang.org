@@ -87,10 +87,10 @@ needs `Null` as a supertype. This is usually expressed as using a
 [union type](#union_types) such as `T|Null`, which can be abbreviated 
 as `T?`.
 
-### `Bottom`
+### `Nothing`
 
-`Bottom` is the intersection of *all* types. It is equivalent to the empty set.
-Because `Bottom` is the intersection of all types it is assignable to 
+`Nothing` is the intersection of *all* types. It is equivalent to the empty set.
+Because `Nothing` is the intersection of all types it is assignable to 
 all types. Similarly because it is the intersection of all types it can have 
 no instances.
 
