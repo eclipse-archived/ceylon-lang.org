@@ -213,7 +213,9 @@ It's not necessary, and there's never any benefit to it.
 
 Ceylon has six built-in control structures. There's nothing much new here 
 for Java or C# developers, so a few quick examples without much additional 
-commentary should suffice. However, one thing to be aware of is that Ceylon 
+commentary should suffice.
+
+First, one "gotcha" for folks coming from other C-like languages: Ceylon 
 doesn't allow you to omit the braces in a control structure. The following 
 doesn't even parse:
 
@@ -233,11 +235,12 @@ You are required to write:
     if (x>100) { print("big"); }
 <!-- cat: } -->
 
-(The reason for this is that an expression can being with an opening 
-brace, for example, `{"hello", "world"}`, so optional braces in control
-structures would be ambiguous to the parser.)
+(The reason braces aren't optional in Ceylon is that an expression 
+can begin with an opening brace, for example, `{"hello", "world"}`, 
+so optional braces in control structures make the whole grammar 
+ambiguous to the parser.)
 
-OK, so here are the examples. 
+OK, so here we go with the examples. 
 
 <a name="conditionals"><!-- old id --></a>
 
@@ -261,7 +264,8 @@ The `if/else` statement is totally traditional:
 <!-- cat: } -->
 
 Later we will learn how `if` can [narrow the type](../types#narrowing_the_type_of_an_object_reference) 
-of references in its block.
+of references in its block. We've already seen an example of that, 
+back when we talked about [optional types](../basics/#dealing_with_objects_that_arent_there).
 
 We often use [the operators `then` and `else`](../basics/#you_can_chain_an_else...)
 instead of `if`. 
@@ -310,19 +314,19 @@ To customize the assertion message, add a `doc` annotation:
     "length must be less than 10"
     assert (length < 10);
 
-Where applicable, the typechecker uses type information from the assert when 
-checking statements which follow it, for example:
+Where applicable, the typechecker uses `assert`ed type information when checking 
+statements which follow the assertion, for example:
 
     Integer? x = parseInteger("1");
     assert (exists x);
-    // after the assert x has type Integer instead of Integer?
+    // after the assert, x has type Integer instead of Integer?
     value y = x+10;
 
-This is really the same structured typecasting we saw in the 
-[first section](../basics#dealing_with_objects_that_arent_there), only 
-this time it's happening in the middle of a block rather than at the start of 
-an `if` block. But don't worry, there's 
-[more on this later](../types#narrowing_the_type_of_an_object_reference).
+This is really just the same behavior we saw 
+[earlier](../basics#dealing_with_objects_that_arent_there), only this time 
+it's happening in the middle of a block rather than at the start of an `if` block. 
+(Don't worry, there's 
+[more on this later](../types#narrowing_the_type_of_an_object_reference).)
 
 Note that, unlike Java's `assert`, which can be disabled at runtime, Ceylon's 
 assertions are always enabled. 
