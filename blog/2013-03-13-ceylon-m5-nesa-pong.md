@@ -81,7 +81,8 @@ freely available from GitHub:
 
 ### Issues
 
-Bugs and suggestions may be reported in GitHub's issue tracker.
+Bugs and suggestions may be reported in GitHub's 
+[issue tracker](/code/issues).
 
 ### Community
 
