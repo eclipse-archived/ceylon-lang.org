@@ -33,7 +33,7 @@ body.bp {
   // Or leave it in if you're happy with how blueprint looks out-of-the-box
 
   font-size:15px;
-  font-family:Arial, sans-serif;
+  font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;
   color: #2c2c2c;
   background-color: white;
   font-weight: 400;
@@ -43,7 +43,7 @@ body.bp {
     color: $h1_text_color;
     font-size: 1.6em;
     font-weight:bold;
-    font-family:'PT Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-family:'PT Sans', Helvetica, 'Helvetica Neue', Arial, sans-serif;
   }
   h2 {
     font-size:1.3em;
@@ -51,18 +51,18 @@ body.bp {
     color: #255A5F;
     clear: left;
     margin-top: 0.6em;
-    font-family:'PT Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-family:'PT Sans', Helvetica, 'Helvetica Neue', Arial, sans-serif;
   }
   h3, h4, h5, h6 {
     color: $h3plus_text_color;
   }
   h3 {
-    font-family:'PT Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-family:'PT Sans', Helvetica, 'Helvetica Neue', Arial, sans-serif;
     font-size:1.2em;
     font-weight:bold;
   }
   h4, h5 {
-    font-family:'PT Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-family:'PT Sans', Helvetica, 'Helvetica Neue', Arial, sans-serif;
     font-size:1.1em;
   }
   h6 {
@@ -439,6 +439,7 @@ form.bp {
       font-size: 16px;
       color: #3e4747;
       margin-top: 0;
+      font-family:Helvetica, 'Helvetica Neue', Arial, sans-serif;
     }
     
     h3 {
