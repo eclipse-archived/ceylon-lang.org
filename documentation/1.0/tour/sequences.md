@@ -63,7 +63,8 @@ The `in` operator is just syntactic sugar for the method `contains()` of
 
 ## Iterating using `for`
 
-To iterate an instance of `Iterable`, we can use a `for` loop:
+To iterate an instance of `Iterable`, we can use a 
+[`for` loop](../attributes-control-structures/#for):
 
 <!-- try-pre:
     {String+} moreWords = { "hola", "mundo", *words };

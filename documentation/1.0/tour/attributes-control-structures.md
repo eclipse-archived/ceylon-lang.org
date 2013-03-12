@@ -283,6 +283,10 @@ behavior and irregular syntax:
 The type of the `switch`ed expression _must_ be an enumerated type. You
 can't `switch` on a `String` or `Integer`. (Use `if` instead.)
 
+We'll have much more to say about `switch` when we discuss 
+[enumerated types](../types/#enumerated_types).
+
+
 ### `assert`
 
 Ceylon also has an `assert` statement:
@@ -373,6 +377,9 @@ a sequence of `Integer`s given two endpoints:
 -->
     for (i in min..max) { ... }
 
+There are a couple of other tricks with `for` that we'll come back to
+[later](../sequences/#iterating_using_for).
+
 We often use [comprehensions](../comprehensions) or even 
 [higher order functions](../functions/#anonymous_functions) instead of
 `for`.
@@ -397,7 +404,7 @@ There is no `do/while` statement.
 
 ### `try`
 
-The `try/catch/finally` statement works like Java's:
+The `try/catch/finally` statement works just like Java's:
 
 <!-- implicit-id:tx: 
     shared interface Message { 
@@ -423,7 +430,27 @@ The `try/catch/finally` statement works like Java's:
     }
 <!-- cat: } -->
 
-And `try` will support a "resource" expression similar to Java 7.
+To handle all Ceylon exceptions, together with all JavaScript exceptions,
+or all Java exceptions that are subclasses of `java.lang.Exception`, we 
+can `catch` the type 
+[`Exception`](#{site.urls.apidoc_current}/ceylon/language/class_Exception.html) 
+defined in `ceylon.language`. If we don't explicitly specify a type,
+`Exception` is inferred:
+
+<!-- try: -->
+<!-- cat-id:tx -->
+<!-- cat: void m(Message message, Transaction tx) { -->
+    try {
+        message.send();
+    }
+    catch (e) {  //equivalent to "catch (Exception e)"
+        tx.setRollbackOnly();
+    }
+<!-- cat: } -->
+
+There is no way to handle exceptions of type of `java.lang.Error`.
+
+Eventually `try` will support a "resource" expression similar to Java 7.
 
 <!-- try: -->
 <!-- cat-id:tx -->
@@ -435,6 +462,7 @@ And `try` will support a "resource" expression similar to Java 7.
     }
 
 There are no Java-style checked exceptions in Ceylon.
+
 
 ### implementation note <!-- m5 -->
 
