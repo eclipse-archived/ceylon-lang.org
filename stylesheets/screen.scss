@@ -564,6 +564,11 @@ form.bp {
       color: white;
       margin-bottom: 1em;
       margin-top: 0;
+      code {
+        font-family: Courier, monospace;
+        color: white;
+        text-shadow: none;
+      }
     }
     p:last-child {
       margin-bottom: 0;
