@@ -36,4 +36,5 @@ The `is` operator is not [polymorphic](#{page.doc_root}/tour/language-module/#op
 * [`satisfies` operator](../satisfies)
 * [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 
   language specification
-* [`if (is ...)` special form](../../statement/if)
+* [`if (is ...)` special form](../../statement/if#special_conditions)
+* [`case (is ...)` special form](../../statement/switch#polymorphism)
