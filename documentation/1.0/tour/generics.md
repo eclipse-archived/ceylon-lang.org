@@ -482,14 +482,29 @@ perfectly sensible, code fragments just wouldn't compile in Java:
 (Where `Element` is a generic type parameter.)
 
 Ceylon's type system has *reified generic type arguments*. Like Java, the 
-Ceylon compiler performs erasure, discarding type parameters from the 
-schema of the generic type. But unlike Java, type arguments are _reified_ 
-(available at runtime). Of course, generic type arguments won't be checked 
-for typesafety by the underlying virtual machine at runtime, but type 
-arguments are at least available at runtime to code that wants to make use 
-of them explicitly. So the code fragments above are supposed to compile and 
-function as expected. You will even be able to use reflection to discover the 
-type arguments of an instance of a generic type.
+Ceylon compiler performs erasure, discarding type parameters from the schema 
+of the generic type. On the JavaScript platform, types are discarded when 
+producing JavaScript source. But unlike Java, type arguments are _reified_ 
+(available at runtime). Types are even reified when executing on a JavaScript 
+virtual machine!
+
+So the code fragments above compile and function as expected on both 
+platforms. Once we finish implementing the metamodel, you will even be able 
+to use reflection to discover the type arguments of an instance of a generic 
+type.
+
+Now of course, generic type arguments aren't checked for typesafety by the 
+underlying virtual machine at runtime, but that's not really strictly 
+necessary since the compiler has already checked the soundness of the code.
+
+### implementation note <!-- m5 -->
+
+In the M5 release we have not had time to implement certain important
+optimizations related to reified generics. Therefore, you'll likely run into
+some performance problems when using generic types in this release. Don't
+worry, we're confident that we can resolve these issues by the time Ceylon
+reaches its 1.0 release. (But please let us know your experiences!)
+
 
 ## There's more...
 
