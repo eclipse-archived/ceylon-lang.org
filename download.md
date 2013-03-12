@@ -7,7 +7,7 @@ author: Emmanuel Bernard
 ---
 # #{page.title}
 
-[Ceylon M5 &ldquo;Nesa Pong&rdquo;][M5] is now available for download! 
+[Ceylon M5][M5] _&ldquo;Nesa Pong&rdquo;_ is now available for download! 
 This is the latest release of the language, command line tools and IDE.
 
 ## Command line tools
@@ -16,7 +16,7 @@ This package contains the Ceylon command line compiler for Java and
 JavaScript virtual machines, the documentation compiler, the language 
 module, and the module runtime.
 
-[M5]: /blog/2012/10/29/ceylon-m5-nesa-pong?utm_source=download&utm_medium=web&utm_content=blog&utm_campaign=latestrelease
+[M5]: /blog/2013/03/13/ceylon-m5-nesa-pong?utm_source=download&utm_medium=web&utm_content=blog&utm_campaign=latestrelease
 
 <table>
     <tr>
