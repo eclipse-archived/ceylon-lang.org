@@ -69,8 +69,10 @@ specifying the module name of the dependency and its version.
 The `import` declarations can also be annotated. Two annotations particularly 
 worth noting are:
 
-* [`export`](#{site.urls.apidoc_current}/ceylon/language/#export) to mark the 
-  imported module as also being exported to clients of this module.
+* [`shared`](#{site.urls.apidoc_current}/ceylon/language/#shared) to mark the 
+  imported module as also being exported to clients of this module. If your 
+  modules uses types from an imported modules in its API then the compiler 
+  requires you to mark that module `shared` in your module descriptor.
 * [`optional`](#{site.urls.apidoc_current}/ceylon/language/#optional) to mark
   the imported module as being optional.
 
