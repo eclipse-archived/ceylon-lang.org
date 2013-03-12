@@ -292,7 +292,7 @@ We'll have much more to say about `switch` when we discuss
 
 Ceylon also has an `assert` statement:
 
-    assert (x < 10);
+    assert (length < 10);
     
 Such assertions are good for making statements which you *know* have to be true, 
 but are not apparent to other readers of the code (including the type checker!). 
@@ -302,6 +302,13 @@ class invariants.
 If the condition is `false` at runtime an exception is thrown. The exception 
 message helpfully includes details of the condition which was violated, which 
 is extra important when the `assert` has more than one condition.
+
+    assert (exists arg, !arg.empty);
+
+To customize the assertion message, add a `doc` annotation:
+
+    "length must be less than 10"
+    assert (length < 10);
 
 Where applicable, the typechecker uses type information from the assert when 
 checking statements which follow it, for example:
