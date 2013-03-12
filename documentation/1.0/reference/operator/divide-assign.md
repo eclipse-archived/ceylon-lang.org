@@ -16,7 +16,7 @@ the amount given by its right-hand operand.
 ## Usage 
 
 <!-- cat: void m() { -->
-    variable Float num := 1.0;
+    variable Float num = 1.0;
     num /= 2.0; // half num 
 <!-- cat: } -->
 
@@ -27,8 +27,8 @@ the amount given by its right-hand operand.
 
 The `/=` operator is defined as follows
 
-<!-- cat: void m<N>(Numeric<N> lhs1, Castable<N> rhs) given N satisfies Numeric<N> { variable Numeric<N> lhs := lhs1; -->
-    lhs:=lhs.divided(rhs.castTo<N>())
+<!-- cat: void m<N>(Numeric<N> lhs1, Castable<N> rhs) given N satisfies Numeric<N> { variable Numeric<N> lhs = lhs1; -->
+    lhs = lhs.divided(rhs.castTo<N>())
 <!-- cat: ;} -->
 
 except that `lhs` is evaluated only once.

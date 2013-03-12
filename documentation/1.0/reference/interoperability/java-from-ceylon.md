@@ -253,8 +253,8 @@ And:
 
     void enums(){
         JavaEnum e = one;
-        e.field := e.field;
-        e.property := e.property;
+        e.field = e.field;
+        e.property = e.property;
         e.method();
     }
 

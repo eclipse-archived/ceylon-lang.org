@@ -17,7 +17,7 @@ the left-hand operand with the result.
 ## Usage 
 
 <!-- cat: void m() { -->
-    variable Integer num := 10;
+    variable Integer num = 10;
     num %= 2; // half num 
 <!-- cat: } -->
 
@@ -28,8 +28,8 @@ the left-hand operand with the result.
 
 The `%=` operator is defined as follows:
 
-<!-- cat: void m<N>(Integral<N> lhs1, Castable<N> rhs) given N satisfies Integral<N> { variable Integral<N> lhs := lhs1; -->
-    lhs:=lhs.remainder(rhs.castTo<N>())
+<!-- cat: void m<N>(Integral<N> lhs1, Castable<N> rhs) given N satisfies Integral<N> { variable Integral<N> lhs = lhs1; -->
+    lhs = lhs.remainder(rhs.castTo<N>())
 <!-- cat: ;} -->
 
 except that `lhs` is evaluated only once.

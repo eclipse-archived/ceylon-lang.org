@@ -20,7 +20,7 @@ Those operators which do not have such a definition are called
 *primitive* operators. The primitive operators are:
 
 * `.` (member), 
-* `:=` (assignment), 
+* `=` (assignment), 
 * `is`, 
 * `()` (positional invocation),
 * `{}` (named argument invocation)

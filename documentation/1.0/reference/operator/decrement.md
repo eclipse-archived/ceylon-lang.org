@@ -18,14 +18,14 @@ differ in whether the result is assigned before or after the decrement.
 Postfix `--` has the operator after the operand:
 
 <!-- cat: void m() { -->
-    variable Integer num := 1;
+    variable Integer num = 1;
     num--;
 <!-- cat: } -->
     
 Prefix `--` puts the operator before the operand:
 
 <!-- cat: void m() { -->
-    variable Integer num := 1;
+    variable Integer num = 1;
     --num;
 <!-- cat: } -->
 
@@ -41,7 +41,7 @@ value of the operand *before* the decrement.
 The prefix `--` is defined as:
 
 <!-- check:none -->
-    rhs:=rhs.predecessor
+    rhs = rhs.predecessor
     
 The postfix `--` is defined as:
 

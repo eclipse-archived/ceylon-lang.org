@@ -39,12 +39,12 @@ The *apply* version is used for invoking methods:
 The *follow* operator is defined as:
 
 <!-- check:none -->
-    lhs:=lhs.member
+    lhs = lhs.member
 
 The *apply* operator is defined as:
 
 <!-- check:none -->
-    lhs:=lhs.member(x,y,z)
+    lhs =   lhs.member(x,y,z)
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#basic) for more details.
 

@@ -18,7 +18,7 @@ operand.
 
 <!-- check:none -->
     void m(Set<Integer> odds, Set<Integer> evens) {
-        variable Set<Integer> all := odds;
+        variable Set<Integer> all = odds;
         all |= evens;
     }
 
@@ -30,7 +30,7 @@ operand.
 The `|=` operator is defined as follows:
 
 <!-- check:none -->
-    lhs:=lhs|rhs
+    lhs = lhs | rhs
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#sets) for 
 more details.

@@ -18,7 +18,7 @@ operand.
 
 <!-- check:none -->
     void m(Set<Integer> primes, Set<Integer> evens) {
-        variable Set<Integer> two := primes;
+        variable Set<Integer> two = primes;
         two &= evens;
     }
 
@@ -27,7 +27,7 @@ operand.
 And is defined as follows:
 
 <!-- check:none -->
-    lhs:=lhs&rhs
+    lhs = lhs & rhs
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#sets) for 
 more details.

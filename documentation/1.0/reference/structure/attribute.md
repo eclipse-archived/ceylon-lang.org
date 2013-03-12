@@ -18,8 +18,8 @@ An attribute holds state.
 A `variable` attribute declaration:
 
 <!-- id:attr -->
-    variable String? firstName := "John";
-    variable String? lastName := "Smith";
+    variable String? firstName = "John";
+    variable String? lastName = "Smith";
 
 An attribute getter:
 
@@ -36,8 +36,8 @@ An attribute setter:
 <!-- cat: String[] parseName(String? name) { throw; } -->
     assign name {
         value parts = parseName(name);
-        firstName := parts[0];
-        lastName := parts[1];
+        firstName = parts[0];
+        lastName = parts[1];
     }
     
 

@@ -19,7 +19,7 @@ result to the left-hand operand.
 <!-- check:none -->
     void m<Dog>(Set<Dog> dogs, Set<Dog> blackDogs) 
       given Dog satisfies Object {
-        variable Set<Dog> nonBlackDogs := dogs;
+        variable Set<Dog> nonBlackDogs = dogs;
         nonBlackDogs ~= blackDogs;
     }
 
@@ -31,7 +31,7 @@ result to the left-hand operand.
 The `~` operator is defined as follows:
 
 <!-- check:none -->
-    lhs := lhs~rhs
+    lhs = lhs ~ rhs
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#sets) for 
 more details.

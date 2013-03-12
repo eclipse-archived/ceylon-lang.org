@@ -16,7 +16,7 @@ by the amount given by its right-hand operand.
 ## Usage 
 
 <!-- cat: void m() { -->
-    variable Integer num := 1;
+    variable Integer num = 1;
     num += 1; // increment num by 1
     num += num; // increment num by 2
 <!-- cat: } -->
@@ -28,8 +28,8 @@ by the amount given by its right-hand operand.
 
 The operator is defined as: 
 
-<!-- cat: void m<N>(Summable<N> lhs1, Castable<N> rhs) given N satisfies Summable<N> { variable Summable<N> lhs := lhs1; -->
-    lhs:=lhs.plus(rhs.castTo<N>())
+<!-- cat: void m<N>(Summable<N> lhs1, Castable<N> rhs) given N satisfies Summable<N> { variable Summable<N> lhs = lhs1; -->
+    lhs = lhs.plus(rhs.castTo<N>())
 <!-- cat: ;} -->
 
 except that `lhs` is evaluated only once.

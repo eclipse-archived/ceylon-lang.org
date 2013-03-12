@@ -50,8 +50,8 @@ Given type expressions `X` and `Y`, Ceylon lets you express the union of
 instances of those types using the notation `X|Y`. For example:
 
 <!-- cat: void m() { -->
-    variable String|Integer x:= "";
-    x:= 0;
+    variable String|Integer x = "";
+    x = 0;
 <!-- cat: } -->
 
 ### Intersection types
