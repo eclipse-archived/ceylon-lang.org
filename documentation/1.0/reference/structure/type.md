@@ -80,11 +80,11 @@ It is also possible to define [class aliases](../class#aliases)
     interface Strings = Collection<String>;
 
     
-### `Nothing`
+### `Null`
 
-`Nothing` is the type of `null`. If an expression permits `null` then it
-needs `Nothing` as a supertype. This is usually expressed as using a 
-[union type](#union_types) such as `T|Nothing`, which can be abbreviated 
+`Null` is the type of `null`. If an expression permits `null` then it
+needs `Null` as a supertype. This is usually expressed as using a 
+[union type](#union_types) such as `T|Null`, which can be abbreviated 
 as `T?`.
 
 ### `Bottom`

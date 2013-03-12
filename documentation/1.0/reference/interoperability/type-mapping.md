@@ -67,7 +67,7 @@ Please note: **These mapping rules are subject to change as the compiler develop
       <td><code>java.lang.Object</code></td>
     </tr>
     <tr>
-      <td><code>ceylon.language.Nothing</code></td>
+      <td><code>ceylon.language.Null</code></td>
       <td><code>java.lang.Object</code></td>
     </tr>
     <tr>
