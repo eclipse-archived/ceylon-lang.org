@@ -23,12 +23,12 @@ a simultaneous compatible release of Ceylon IDE. This is a huge
 release, with the following headline features:
 
 - a fully-reified type system with generic type arguments 
-  available at runtime
-- direct interoperation with native JavaScript
-- tuples
+  available at runtime,
+- direct interoperation with native JavaScript,
+- tuples,
 - several important syntax changes in response to community 
-  feedback and practical experience
-- a datetime module and a HTTP server
+  feedback and practical experience, and
+- a datetime module and a HTTP server.
 
 You can download the Ceylon command line distribution here:
 
