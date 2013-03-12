@@ -8,7 +8,7 @@ author: Emmanuel Bernard
 # #{page.title}
 
 We're working as hard as we can to get the 
-[fifth milestone](/documentation/1.0/roadmap#milestone_5_ceylon_10) into 
+[beta release](/documentation/1.0/roadmap#milestone_6_ceylon_10) into 
 your hands. You can help by trying out the latest code and 
 contributing bug reports or code!
 
