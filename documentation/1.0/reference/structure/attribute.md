@@ -25,9 +25,12 @@ An attribute getter:
 
 <!-- id:attr2 -->
 <!-- cat-id: attr -->
+    // A getter with a block:
     shared String name {
         return (firstName ? "") + " " + (lastName ? "");
     }
+    // A getter using 'fat arrow':
+    shared String nameNormalized => name.normalized;
     
 An attribute setter:
 
@@ -57,7 +60,9 @@ exactly once, moreover the specification must occur before its first use.
 
 ### Attribute Getters (derived attributes)
 
-An attribute getter defines how the value of a derived attribute is obtained.
+An attribute getter defines how the value of a derived attribute is obtained. 
+Like methods, you can either use a block of statements or the *fat arrow*
+(`=>`) syntax if the attribute value can be computed from a single expression.
 
 ### Attribute Setters
 

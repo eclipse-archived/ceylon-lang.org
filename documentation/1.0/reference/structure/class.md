@@ -157,12 +157,12 @@ and [`object`s](../object).
 A *class alias* is a class declaration that specifies another class, like this:
 
 <!-- cat: class B() {} -->
-    class C() = B;
+    class C() => B();
 
 The specified class may have type arguments:
 
 <!-- cat: class D<X>() {} -->
-    class C() = D<String>;
+    class C() => D<String>();
 
 This is similar to [method specifiers](../method#method_specifiers).
 

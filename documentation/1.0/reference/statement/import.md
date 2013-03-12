@@ -36,7 +36,7 @@ Importing several all classes in a package (a *wildcard* `import`):
 Assigning a different name to an imported type (to avoid a name conflict):
 
 <!-- check:none -->
-    import com.example.metasyntax { ExampleFoo=Foo, Bar}
+    import com.example.metasyntax { ExampleFoo=>Foo, Bar}
 
 **Note:** Import statements should not end with a semicolon.
 
@@ -44,9 +44,10 @@ Assigning a different name to an imported type (to avoid a name conflict):
 
 ### Modules and versions
 
-The `dependencies` attribute of the [package descriptor] _doc coming soon_ is used to 
-determine which version of which module is required for compilation and 
-execution.
+The `import` declarations in the 
+[module descriptor](../module#descriptor) 
+are used to determine which version of which module is required for 
+compilation and execution.
 
 ### Execution
 

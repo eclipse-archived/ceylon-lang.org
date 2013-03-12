@@ -20,11 +20,11 @@ looks like this:
         /* method block: statements */
     }
     
-Alternatively it is possible to declare a method using a 
-[*specifier*](#method_specifiers), like this:
+Alternatively it is possible to declare a method using 
+[*fat arrow* (`=>`)](#method_specifiers), like this:
 
 <!-- cat: void anotherMethod(){} -->
-    void m() = anotherMethod;
+    void m() => anotherMethod();
 
 ## Description
 
@@ -170,20 +170,19 @@ TODO
 
 ### Method blocks
 
-The body of a method is composed of [statements](../../#statement).
+The body of a method is composed of [statements](../../#statement) in a 
+brace-delimited *block*.
 
-The body of a non-`void` method must (*definitely return*)[TODO].
+The body of a non-`void` method must *definitely return*.
 
 ### Method specifiers
 
-An alternative to providing a method block is to specify a callable 
-expression (often a [callable reference](../../expression/callable-reference)) 
-using `=`:
+An alternative to providing a method block is to use *fat arrow* (`=>`) syntax 
+and provide a single expression:
 
 <!-- cat: void anotherMethod(){} -->
-    void m() = anotherMethod;
-
-This is similar to [class alises](../class#aliases).
+    Integer zero() => 0
+    void callAnother() => anotherMethod();
 
 ### Type inference
 
