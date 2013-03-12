@@ -94,21 +94,11 @@ Note that an interface cannot have an [`object`](../object) member.
 
 ### Aliases
 
-An *interface alias* is an interface declaration that specifies another 
-interface, like this:
+An *interface alias* is a kind of [type alias](../type-alias) that 
+declares an interface in terms of a type expression:
 
 <!-- cat: interface I2{} -->
     interface I => I2;
-
-The specified interface may have type arguments:
-
-<!-- cat: interface I2<E>{} -->
-    interface I => I2<String>;
-
-This is similar to [method specifiers](../method#method_specifiers).
-
-The [`import` statement](../../statement/import) permits aliasing in a 
-similar way.
 
 ## See also
 
