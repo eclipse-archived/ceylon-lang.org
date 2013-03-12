@@ -33,16 +33,17 @@ body.bp {
   // Or leave it in if you're happy with how blueprint looks out-of-the-box
 
   font-size:15px;
-  font-family:'PT Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family:Arial, sans-serif;
   color: #2c2c2c;
   background-color: white;
-  font-weight: 550;
+  font-weight: 400;
   //text-shadow: white 1px 1px 0px;
   
   h1 {
     color: $h1_text_color;
     font-size: 1.6em;
     font-weight:bold;
+    font-family:'PT Sans', 'Helvetica Neue', Arial, sans-serif;
   }
   h2 {
     font-size:1.3em;
@@ -50,15 +51,18 @@ body.bp {
     color: #255A5F;
     clear: left;
     margin-top: 0.6em;
+    font-family:'PT Sans', 'Helvetica Neue', Arial, sans-serif;
   }
   h3, h4, h5, h6 {
     color: $h3plus_text_color;
   }
   h3 {
+    font-family:'PT Sans', 'Helvetica Neue', Arial, sans-serif;
     font-size:1.2em;
     font-weight:bold;
   }
   h4, h5 {
+    font-family:'PT Sans', 'Helvetica Neue', Arial, sans-serif;
     font-size:1.1em;
   }
   h6 {
@@ -177,7 +181,7 @@ form.bp {
   }
   
   #menu {
-    font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+    font-family:'Lucida Grande', 'Lucida Sans Unicode', Arial, sans-serif;
     font-size: 14px;
     float: right;
     margin-top: 70px;
@@ -278,9 +282,8 @@ form.bp {
       border: none;
       padding: 0;
       code {
-        font-family:'Courier New', 'Andale Mono', Consolas, 'Bitstream Vera Sans Mono', Courier, monospace;
-        font-weight: bold;
-        font-size: 17px;
+        font-family:'Courier New', Courier, monospace;
+        font-size: 15.5px;
         font-weight: bold;
         text-shadow: none;
         line-height: .99em;
@@ -581,7 +584,7 @@ form.bp {
   
   #sidebar {
     @include column(8,true);
-    font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+    //font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
     #feed {
       padding-left: 34px;
       background: url("../images/feed_icon.png") no-repeat 0px 0px;
