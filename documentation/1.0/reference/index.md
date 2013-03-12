@@ -22,6 +22,7 @@ _This page is very incomplete. Want to help? [See how](/code/website)._
 * [Packages](structure/package)
 * [Compilation units](structure/compilation-unit)
 * [Types](structure/type)
+* [Type abbreviations](structure/type-abbreviation)
 * [Type parameters](structure/type-parameters)
 * [Classes](structure/class)
 * [Interfaces](structure/class)

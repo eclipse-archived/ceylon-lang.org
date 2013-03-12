@@ -103,8 +103,9 @@ no instances.
 
 `Sequence` is the type of non-empty 
 [sequences](../../expression/sequence-instantiation). Because we often want 
-to treat empty and non-empty sequences in a common way the 
-[union type](#union_types) `Sequence<T>|Empty` can be abbreviated to `T[]`.
+to treat empty and non-empty sequences in a common way `Sequence` and `Empty`
+have the enumerated supertype `Sequential<T>` 
+which is usually abbreviated to `T[]`.
 
 ### Type inference
 
@@ -120,4 +121,5 @@ on *principal types* there is only one type the compiler can infer.
 * [`object` declaration](../object)
 * [method declaration](../method)
 * [attribute declaration](../attribute)
+* [type abbreviations](../type-abbreviation)
 * [type parameters](../type-parameters)
