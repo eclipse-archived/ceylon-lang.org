@@ -69,7 +69,7 @@ For example:
 ### Hex literals <!-- m5 -->
 
 A hexadecimal integer can be written within `\{#` and `}` delimiters. Using
-`_` to group digits is supported, only hex digits are in groups of 2.
+`_` to group digits is supported, only hex digits are in groups of 2 or 4.
 
     Integer red = \{#ff0000}; // hex literal
 
