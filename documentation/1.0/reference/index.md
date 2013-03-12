@@ -128,11 +128,10 @@ _This page is very incomplete. Want to help? [See how](/code/website)._
 
 ## Literals
 
-* [Number literals](literal/number)
-* [Float literals](literal/float)
-* [String literals](literal/string)
-* [Character literals](literal/character)
-* [Single-quoted literals](literal/single-quoted) <!-- m-later -->
+* [`Integer` literals](literal/integer)
+* [`Float` literals](literal/float)
+* [`String` literals](literal/string)
+* [`Character` literals](literal/character)
 
 ## Language module (`ceylon.language`)
 
