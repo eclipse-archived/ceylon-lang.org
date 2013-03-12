@@ -123,8 +123,9 @@ and is never reassigned.
     ref.val = "bar";    //compile error: value is not variable
     
 
-If we want to be able to assign a value to a simple attribute or local 
-we need to annotate it `variable`:
+If we want to be able to assign a value to a 
+[reference](../classes/#initializing_attributes), we need to annotate it 
+`variable`:
 
     class Reference<Value>(val) {
         shared variable Value val;
@@ -143,7 +144,7 @@ If we want to make an attribute with a getter mutable, we need to define a
 matching setter. Usually this is only useful if you have some other internal 
 attribute you're trying to set the value of indirectly.
 
-Suppose our class has the following simple attributes, intended for internal 
+Suppose our class has the following attributes, intended for internal 
 consumption only, so un-`shared`:
 
 <!-- try: -->
@@ -153,7 +154,7 @@ consumption only, so un-`shared`:
 
 (Remember, Ceylon never automatically initializes attributes to null.)
 
-Then we can abstract the simple attributes using a third attribute defined 
+Then we can abstract the attributes using a third attribute defined 
 as a getter/setter pair:
 
 <!-- try-pre:
@@ -189,10 +190,10 @@ being set.
 
 Yes, this is a lot like a Java get/set method pair, though the syntax is 
 significantly streamlined. But since Ceylon attributes are polymorphic, and 
-since you can redefine a simple attribute as a getter or getter/setter pair 
-without affecting clients that call the attribute, you don't need to write 
-getters and setters unless you're doing something special with the value 
-you're getting or setting.
+since you can redefine a reference as a getter or getter/setter pair without 
+affecting clients that call the attribute, you don't need to write getters 
+and setters unless you're doing something special with the value you're 
+getting or setting.
 
 Don't ever write code like this in Ceylon:
 

@@ -256,7 +256,7 @@ code? We put it directly in the body of the class!
     }
 
 The Ceylon compiler forces you to specify a value of any reference before 
-making use of the simple attribute or local in an expression.
+making use of the reference in an expression.
 
 <!-- check:none:Demoing error -->
     Integer count;

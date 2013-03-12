@@ -404,11 +404,10 @@ implementation. Interfaces in Ceylon are a little more flexible:
 
 * An interface may define concrete methods, attribute getters, and attribute 
   setters, but
-* it may not define simple attributes or initialization logic.
+* it may not define references or initialization logic.
 
-Notice that prohibiting simple attributes and initialization logic makes 
-interfaces completely stateless. An interface can't hold references to other 
-objects.
+Notice that prohibiting references and initialization logic makes interfaces 
+completely stateless. An interface can't hold references to other objects.
 
 Let's take advantage of mixin inheritance to define a reusable `Writer` 
 interface for Ceylon.
@@ -442,8 +441,7 @@ interface for Ceylon.
     }
 
 Note that we can't define a concrete value for the `formatter` attribute, 
-since an interface may not define a simple attribute, and may not hold a 
-reference to another object.
+since an interface may not hold a reference to another object.
 
 Now let's define a concrete implementation of this interface.
 
