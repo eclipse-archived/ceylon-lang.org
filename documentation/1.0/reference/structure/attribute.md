@@ -54,7 +54,7 @@ attribute (that is, an attribute within a block) represents state associated
 with execution of that block.
 
 If the attribute is annotated `shared` it can be 
-[assigned](#{page.doc_root}/reference/operator/assignment) more than once.
+[assigned](#{page.doc_root}/reference/operator/assign) more than once.
 Otherwise it must be [specified](#{page.doc_root}/reference/statement/specification) 
 exactly once, moreover the specification must occur before its first use.
 
