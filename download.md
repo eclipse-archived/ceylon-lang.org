@@ -91,12 +91,36 @@ precisely in the release, read our [announcement][M5].
 
 [ceylon-dist readme]: https://github.com/ceylon/ceylon-dist/blob/master/README.md 
 
+
 ## Ceylon IDE
 
-[Ceylon IDE][ide] is available from our [update site][update site].
+[Ceylon IDE][ide] is a suite of plugins for Eclipse, available 
+from our [update site][update site].
 
-[ide]: /documentation/current/ide
+[ide]: /documentation/ide
 [update site]: /documentation/current/ide/install?utm_source=download&utm_medium=web&utm_content=ide-install&utm_campaign=IDE_latestrelease
+
+<table>
+    <tr>
+        <td>
+        <a href="/documentation/current/ide/install" 
+           title='Install the IDE'
+           onClick="javascript: _gaq.push(['_trackPageview', '/documentation/current/ide/install?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
+           <img src="/images/download/eclipse-ide.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
+        </a>
+        </td>
+        <td>Ceylon IDE</td>
+        <td>Eclipse Juno/Indigo (Juno required on Mac OS X)</td>
+        <td>
+        <a href="/documentation/current/ide/install" 
+           title='Install the IDE'
+           style='font-weight:bold;text-decoration:none'
+           onClick="javascript: _gaq.push(['_trackPageview', '/documentation/current/ide/install?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
+           follow these instructions
+        </a>
+        </td>
+    </tr>
+</table>
 
 <!--
 <table>
@@ -120,11 +144,11 @@ precisely in the release, read our [announcement][M5].
 </table>
 -->
 
-After installing, go to `Help > Welcome to Ceylon` to get started. 
+After installing, go to `Help > Welcome to Ceylon` to get started.
 
 ## Source code
 
-The source [code](/code) is available from [GitHub](http://github.com/ceylon).
+The source [code](/code) is available from [GitHub](http://ceylon.github.com).
 
 ## Looking for older releases?
 
