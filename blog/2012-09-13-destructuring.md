@@ -12,6 +12,7 @@ for quickly declaring multiple local variables and assigning their
 values from the attributes of some complex object. For example, in
 Ceylon, we let you write:
 
+<!-- try: -->
     for (k->v in map) { ... }
 
 This is a simple kind of destructuring where the `key` and `item`
@@ -26,6 +27,7 @@ A number of languages support a kind of parallel assignment syntax
 for desctructuring tuples. In our hypothetical language, it might 
 look like this:
 
+<!-- try: -->
     String name, Value val = namedValues[i];
 
 Some languages support a kind of destructuring that is so powerful
@@ -33,6 +35,7 @@ that it's referred to as _pattern matching_. In our language we might
 support pattern matching in `switch` statements, using a syntax
 something like this:
 
+<!-- try: -->
     Person|Org identity = getIdentityFromSomewhere();
     switch (identity)
     case (Person(name, age, ...)) {
@@ -60,6 +63,7 @@ IDE like it's a nervous tic. So of course the first thing I want to do
 when I see code like the above is to run
 Extract Function on the two branches, resulting in:
 
+<!-- try: -->
     Person|Org identity = getIdentityFromSomewhere();
     switch (identity)
     case (Person(name, age, ...)) {
@@ -96,6 +100,7 @@ Extract Function on the implementation of `printPerson()` and
 Now consider what we would get _without_ the use of destructuring,
 as we would do in Ceylon _today_. We would have started with:
 
+<!-- try: -->
     Person|Org identity = getIdentityFromSomewhere();
     switch (identity)
     case (is Person) {
@@ -113,6 +118,7 @@ matching is somewhat in the eye of the beholder, but clearly it's
 not _much_ worse and is arguably even a little cleaner. Now
 let's run Extract Function on it. We get:
 
+<!-- try: -->
     Person|Org identity = getIdentityFromSomewhere();
     switch (identity)
     case (is Person) {
@@ -157,12 +163,14 @@ presupposes that writing a class is a pain, as it is in Java.
 But in Ceylon writing a class is easy&#8212;indeed, it looks just 
 like a function! Instead of this:
 
+<!-- try: -->
     (String, Value) getNamedValue(String name) {
         return (name, findValueForName(name));
     }
 
 we can just write this:
 
+<!-- try: -->
     class NamedValue(name) {
         shared String name;
         shared Value val = findValueForName(name);

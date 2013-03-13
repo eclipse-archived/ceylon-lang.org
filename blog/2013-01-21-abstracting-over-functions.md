@@ -14,6 +14,7 @@ very high level of abstraction. In most programming languages, it's very easy
 to define a `compose()` function that works for functions with just one
 parameter. For example, in Ceylon:
 
+<!-- try: -->
     X compose<X,Y,Z>(X(Y) f, Y(Z) g)(Z z) => f(g(z));
 
 In this function signature, `f()` and `g()` are functions with one parameter where
@@ -21,6 +22,7 @@ the return type of `g()` is the same as the parameter type of `f()`. The resulti
 function is also a function with one parameter, and has the same return type 
 as `f()` and the same parameter type as `g()`.
 
+<!-- try: -->
     String format(Float|Integer number) { .... }
     value printf = compose(print,format);
     printf(1.0); //prints 1.0
@@ -28,6 +30,7 @@ as `f()` and the same parameter type as `g()`.
 Now, things get trickier when `g()` has more than one parameter. Imagine the
 following definition of `format()`:
 
+<!-- try: -->
     String format(String pattern, Float|Integer number) { .... }
 
 This function has the type `String(String,Float|Integer)`, which can't be a 
@@ -50,17 +53,20 @@ complexity to the type system. So tuples are instances of an ordinary class,
 A tuple is a linked list where each link in the list encodes the static type
 of the element. Without syntax sugar, we can write:
 
+<!-- try: -->
     value point = Tuple(0.0, Tuple(0.0, Tuple("origin")));
 
 I bet you're wondering what type `point` has. Well, if you really _have_ to 
 know, it's:
 
+<!-- try: -->
     Tuple<Float|String,Float,Tuple<Float|String,Float,Tuple<String,String,Empty>>> 
 
 Phew! Fortunately we never see this type, because Ceylon lets us abbreviate it 
 to `[Float,Float,String]`, and the IDE always shows us the abbreviated form. 
 We can also use the square brackets to instantiate tuples, letting us write:
 
+<!-- try: -->
     [Float,Float,String] point = [0.0, 0.0, "origin"];
 
 (Yep, tuples are square in Ceylon. Don't worry, you'll quickly get used to 
@@ -69,12 +75,14 @@ that.)
 A tuple is a sequence (`Tuple` is a subclass of `Sequence`), so the following 
 is well-typed:
 
+<!-- try: -->
     <Float|String>[] seq = point;
     Null|Float|String first = seq[0];
 
 Now, what makes a tuple special is that we can access its elements without 
 losing their static type information. We can write:
 
+<!-- try: -->
     Float x = point.first;
     Float y = point.rest.first;
     String label = point.rest.rest.first;
@@ -87,6 +95,7 @@ Well, take a closer look at the verbose type of `point` again. The chain of
 "links" is terminated by `Empty`, Ceylon's empty sequence type. And the type 
 of `first` on `Empty` is `Null`. So we have:
 
+<!-- try: -->
     Null zippo = point.rest.rest.rest.first;
 
 That is, the expression is provably `null`. Provable within the type system,
@@ -96,12 +105,14 @@ Of course, we don't want to make you write out suff like `point.rest.rest.first`
 whenever you need to get something out of a tuple. A tuple is a sequence, so 
 you can access its elements using the index operator, for example:
 
+<!-- try: -->
     Integer i = ... ;
     Null|Float|String ith = point[i];
 
 But, as a special convenience, when the index is a literal integer, the compiler
 will treat it as if it were a chain of calls to `rest` and `first`:
 
+<!-- try: -->
     Float x = point[0];
     Float y = point[1];
     String label = point[2];
@@ -111,16 +122,19 @@ A chain of `Tuple` instances doesn't need to be terminated by an `Empty`. It may
 alternatively, be terminated by a nonempty sequence, any instance of `Sequence`.
 We can write the following:
 
+<!-- try: -->
     String[] labels = ["origin", "center"];
     [Float, Float, String*] point = [0.0, 0.0, *labels];
 
 The type `[Float, Float, String*]` is an abbreviation for:
 
+<!-- try: -->
     Tuple<Float|String,Float,Tuple<Float|String,Float,String[]>> 
 
 It represents a sequence of two `Float`s, followed by an unknown number of 
 `String`s. So the following is well-typed:
 
+<!-- try: -->
     [Float, Float, String*] point0 = [0.0, 0.0];
     [Float, Float, String*] point1 = [0.0, 0.0, "origin"];
     [Float, Float, String*] point2 = [0.0, 0.0, "origin", "center"];
@@ -132,11 +146,13 @@ Function types
 --------------
 An instance of the interface `Callable` is a function.
 
+<!-- try: -->
     shared interface Callable<out Return, in Arguments> 
             given Arguments satisfies Anything[] {}
 
 Going back to our function `format()` above, its type is:
 
+<!-- try: -->
     Callable<String,[String,Float|Integer]>
 
 You can see that we've represented the parameter types of the function using a
@@ -144,6 +160,7 @@ tuple type. That is to say, Ceylon views a function as accepting a tuple of
 arguments, and producing a single value. Indeed, Ceylon even lets use write
 that explicitly:
 
+<!-- try: -->
     [String,Float] args = ["%5.2f", 1.0];
     print(format(*args));
 
@@ -152,11 +169,13 @@ function `format()`, just like you can do in some dynamically typed languages!
 
 Now consider a function with a variadic argument:
 
+<!-- try: -->
      String format(String pattern, Float|Integer* numbers) { .... }
 
 This function accepts a `String`, followed by any number of `Float`s and 
 `Integer`s. We can represent its type as follows:
 
+<!-- try: -->
      Callable<String,[String,Float|Integer*]>
 
 We usually abbreviate function types, writing `String(String,Float|Integer)` 
@@ -180,6 +199,7 @@ Finally we have the machinery we need to define `compose()` and `curry()`.
 
 The signature of `compose()` is:
 
+<!-- try: -->
     shared Callable<X,Args> compose<X,Y,Args>(X(Y) x, Callable<Y,Args> y) 
             given Args satisfies Anything[]
 
@@ -189,6 +209,7 @@ I'm going to need to resort to two `native` functions that I can't yet implement
 within the language. I can write down their signatures, however, so this isn't
 a limitation of the type system itself:
 
+<!-- try: -->
     shared native Callable<Return,Args> flatten<Return,Args>
                 (Return tupleFunction(Args tuple))
             given Args satisfies Anything[];
@@ -200,6 +221,7 @@ a limitation of the type system itself:
 If you're not _extremely_ interested, you can skip over these declarations, and
 just look at an example of what they do:
 
+<!-- try: -->
     String([String,Float|Integer]) unflatFormat = unflatten(format);
     String(String,Float|Integer) flatFormat = flatten(unflatFormat);
 
@@ -211,12 +233,14 @@ length as the tuple.
 
 OK, now we can implement `compose()`:
 
+<!-- try: -->
     shared Callable<X,Args> compose<X,Y,Args>(X(Y) f, Callable<Y,Args> g) 
             given Args satisfies Anything[]
                    => flatten((Args args) => f(unflatten(g)(args)));
 
 Perhaps I should unpack this slightly for readability:
 
+<!-- try: -->
     shared Callable<X,Args> compose<X,Y,Args>(X(Y) f, Callable<Y,Args> g) 
             given Args satisfies Anything[] {
         X composed(Args args) {
@@ -228,6 +252,7 @@ Perhaps I should unpack this slightly for readability:
 
 The definition of `curry()` is similarly dense:
 
+<!-- try: -->
     shared Callable<Return,Rest> curry<Return,Argument,First,Rest>
                 (Callable<Return,Tuple<Argument,First,Rest>> f)
                 (First first)
@@ -241,6 +266,7 @@ original function, and the second parameter list has the rest of the parameters.
 
 Great! Now we can write:
 
+<!-- try: -->
     value printf = compose(print,format);
     printf("%5.2f", 1.0); //prints 1.00
     value printFloat = curry(printf)("%5.2f");
