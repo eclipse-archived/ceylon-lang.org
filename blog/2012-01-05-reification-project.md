@@ -10,6 +10,7 @@ tags:
 According to the Ceylon [language specification](/documentation/1.0/spec),
 I'm allowed to write code like this on Ceylon:
 
+<!-- try: -->
     Object obj = HashSet<String&Number>();
     if (is Set<String|Integer> obj) {
         for (x in obj) {

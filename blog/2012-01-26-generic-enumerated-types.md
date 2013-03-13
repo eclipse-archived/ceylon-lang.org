@@ -15,11 +15,13 @@ In the [previous post][] I discussed Ceylon's support for enumerated types. Look
 
 An enumerated type may be parameterized:
 
+<!-- try: -->
     interface Container<Item>
         of None<Item> | One<Item> | Many<Item> { ... }
 
 Ceylon currently requires that each case of the enumerated type completely "covers" all possible arguments to the type parameter of the enumerated type itself. So we could not write:
 
+<!-- try: -->
     //bad!
     interface One<Item> 
         satisfies Container<Item>
@@ -29,6 +31,7 @@ By adding a new constraint on `Item` that is not present in `Container`, we've c
 
 One thing we _are_ allowed to write, however, is the following:
 
+<!-- try: -->
     interface Container<out Item>
         of None | One<Item> | Many<Item> { ... }
 
@@ -49,10 +52,12 @@ In the language design FAQ, I already wrote up a mini-explanation of [GADT suppo
 
 In the previous post, I started with an example where a union type is used to emulate overloading. Alert readers might have noticed that the only reason this worked was that the "overloaded" type only appeared once in the method signature. We had something like this:
 
+<!-- try: -->
     void add(Integer|Float x) { ... }
 
 What if the overloaded type appears more than once? Well, to handle this sort of thing, we would need to introduce a type parameter:
 
+<!-- try: -->
     Num increment<Num>(Num x) 
             given Num of Integer|Float {
         ...
@@ -62,6 +67,7 @@ The syntax `given Num of Integer|Float` defines a type parameter with an enumera
 
 This looks like a very nice feature, but the truth is that Ceylon is still missing one extra thing in order for it to be truly useful. The problem is that the following code is not well-typed:
 
+<!-- try: -->
     Num increment<Num>(Num x) 
             given Num of Integer|Float {
         switch (x)
@@ -71,6 +77,7 @@ This looks like a very nice feature, but the truth is that Ceylon is still missi
 
 The `if (is ...)` and `case (is ...)` constructs let us narrow the type of a single value. What we need here is the ability to narrow a type parameter itself, "pinning" the value of the type parameter within the body of the method, letting us write:
 
+<!-- try: -->
     Num increment<Num>(Num x) 
             given Num of Integer|Float {
         switch (Num)

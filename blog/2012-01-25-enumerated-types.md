@@ -13,6 +13,7 @@ We're just wrapping up the implementation of Ceylon's enumerated types (_algebra
 
 The simplest kind of enumerated type is simply a union of classes. For example, the type `Integer|Float` is a very simple enumerated type. Since `Float` and `Integer` are distinct classes and neither inherits from the other, the compiler reasons that the types are _disjoint_, meaning they have no common instances. Therefore, it lets us write the following:
 
+<!-- try: -->
     void add(Integer|Float x) {
         switch (x)
         case (is Integer x) { integers.add(x); }
@@ -30,6 +31,7 @@ A `switch` statement which covers all possible values of the switched type is sa
 
 The purpose of the required `else` clause is to syntactically distinguish `switch` statements which don't need to be fixed and recompiled when a new type is added.
 
+<!-- try: -->
     void add(Integer|Float|String x) {
         switch (x)
         case (is Integer x) { integers.add(x); }
@@ -45,6 +47,7 @@ We can extend this idea for an interface or abstract class. Ceylon lets us decla
 
 This says that the class `Void` has exactly the same instances as the union type `Nothing|Object`. So when we encounter a value of type `Void`, we know it must either be an instance of `Object`, or an instance of `Nothing`. We can write:
 
+<!-- try: -->
     void printVoid(Void v) {
         switch (v)
         case (is Nothing) { print("nothing"); }
@@ -55,11 +58,13 @@ The compiler won't let us define a third subclass of `Void` that doesn't extend 
 
 Since an `object` declaration is also a type, we can even include the names of objects in the `of` clause. For example, this is how the language module expressed the fact that the only instance of `Nothing` is the null value:
 
+<!-- try: -->
     shared abstract class Nothing() of null {}
     shared object null extends Nothing() {}
 
 More commonly, there will be multiple values, allowing us to recapture the semantics of a Java `enum`, without introducing a special language construct. For example, Ceylon's `Boolean` is an enumerated type with two values:
 
+<!-- try: -->
     shared abstract class Boolean() of true | false {}
 
     shared object true extends Boolean() {
@@ -72,6 +77,7 @@ More commonly, there will be multiple values, allowing us to recapture the seman
 
 Therefore, we can `switch` on a `Boolean` value:
 
+<!-- try: -->
     void printBoolean(Boolean bool) {
         switch (bool)
         case (true) { print("true"); }
@@ -80,6 +86,7 @@ Therefore, we can `switch` on a `Boolean` value:
 
 Note that the classic example of a Java enumerated type works out significantly more verbose in Ceylon:
 
+<!-- try: -->
     shared abstract class Suit() 
             of hearts|diamonds|clubs|spades {}
     shared object hearts extends Suit() {} 
@@ -93,16 +100,19 @@ I think that's OK. The tradeoff is that enumerated types in Ceylon are simply mu
 
 Enumerated interfaces are a little more special. Consider:
 
+<!-- try: -->
     interface Association 
         of OneToOne | OneToMany | ManyToOne | ManyToMany { ... }
 
 Interfaces support multiple inheritance, so in general interface types are not disjoint. But when an interface declares an enumerated list of subinterfaces, the compiler enforces that those interfaces be disjoint by rejecting any attempt to define a concrete class or object that is a subtype of more than one of them. This code is not well-typed:
 
+<!-- try: -->
     class BrokenAssociation() 
         satisfies OneToOne & OneToMany {} //error: inherits multiple cases of enumerated type
 
 Note that the types named in the `of` clause don't need to be _direct_ subtypes of the enumerated type. The following code _is_ well-typed:
 
+<!-- try: -->
     interface ToOne satisfies Association {}
     class OneToOne() satisfies ToOne {}
     class ManyToOne() satisfies ToOne {}
@@ -113,6 +123,7 @@ The interface `ToOne` is a subtype of the enumerated type `Association` but not 
 
 A `case` of a `switch` can handle more than one type at once. For example, `ToOne` could be a `case` type:
 
+<!-- try: -->
     Association assoc = ... ;
     switch (assoc)
     case (is ToOne) { ... }
@@ -120,6 +131,7 @@ A `case` of a `switch` can handle more than one type at once. For example, `ToOn
 
 Even better, we can form unions of the cases of the enumerated type:
 
+<!-- try: -->
     Association assoc = ... ;
     switch (assoc)
     case (is OneToOne|ManyToOne) { ... }
@@ -127,6 +139,7 @@ Even better, we can form unions of the cases of the enumerated type:
 
 For `object` cases, the syntax is slightly different:
 
+<!-- try: -->
     switch (suit)
     case (hearts, diamonds) { return red; }
     case (clubs, spades) { return black; }
@@ -140,6 +153,7 @@ Now let's see something cool. When the compiler encounters an enumerated type in
 
 Thus, the following `switch` is well-typed:
 
+<!-- try: -->
     void printVoid(Void v) {
         switch (v)
         case (nothing) { print("nothing"); }
@@ -148,6 +162,7 @@ Thus, the following `switch` is well-typed:
 
 Likewise, remembering that `Boolean?` means `Nothing|Boolean`, we can write:
 
+<!-- try: -->
     void printBoolean(Boolean? bool) {
         switch (bool)
         case (true) { print("true"); }
