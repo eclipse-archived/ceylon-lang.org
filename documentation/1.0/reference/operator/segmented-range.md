@@ -1,40 +1,44 @@
 ---
 layout: reference
-title: '`..` (range) operator'
+title: '`:` (segmented range) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
-milestone: Milestone 1
+milestone: Milestone 4
 doc_root: ../../..
 ---
 
 # #{page.title}
 
-The *range* operator creates a `Range` from its endpoints.
+The *segmented range* operator creates a `Range` from its endpoints.
 
 ## Usage 
 
-    Range<Integer> ten = 1..10;
+    Range<Integer> ten = 1:10;
 
 ## Description
 
 
 ### Definition
 
-The `..` operator is defined as follows:
+The `lhs:rhs` operator is defined in pseudocode as:
 
 <!-- check:none -->
-    Range(lhs, rhs)
+    rhs <=0 then [] else Range(lhs, {lhs++ rhs times} )
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#constructors) for 
 more details.
 
 ### Polymorphism
 
-The `[].` operator is not [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
+The `:` operator is not [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
+The meaning of `:` depends on the 
+[`Range`](#{page.doc_root}/api/ceylon/language/class_Range.html) 
+class.
 
 ## See also
 
+* [`..` (spanned range)](../spanned-range)
 * [object creation operators](#{page.doc_root}/#{site.urls.spec_relative}#constructors) in the 
   language specification
 * [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 
