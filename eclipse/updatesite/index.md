@@ -7,14 +7,15 @@ author: Max Rydahl Andersen
 
 # #{page.title}
 
-To install Ceylon tooling into your Eclipse do the following:
+To install Ceylon IDE:
 
-1. Run [Eclipse 3.7/Indigo](http://eclipse.org/downloads)
-2. Go to *Help > Install Software...*
-3. Type in `http://ceylon-lang.org/eclipse/updatesite` to the "Work With" field and Hit Enter.
-4. Eclipse will load the updatesite and when it finish, select the plugin
-5. Press 'Finish'
+1. Run [Eclipse 3.7 Indigo](http://eclipse.org/downloads) or above.
+2. Go to `Help > Install Software...`
+3. Type the URL <http://ceylon-lang.org/eclipse/updatesite> in the 
+   `Work With` field and hit Enter.
+4. Click `Select All` and then `Finish`.
 
 ![eclipseupdatesite](/images/eclipseupdatesite.png "Update Site")
 
-Eclipse will install the Ceylon Eclipse plugins and it will ask you to restart. After the restart you will be ready to start using Ceylon.
+Eclipse will install the Ceylon Eclipse plugins and then ask you to 
+restart. After restarting you will be ready to start using Ceylon IDE.
