@@ -116,6 +116,10 @@ and provide a single expression:
     Integer zero() => 0
     void callAnother() => anotherMethod();
 
+Note that you can use this to *partially apply* a method:
+
+    function zeroTo(Integer n) => Range(0, n);
+
 ### Type inference
 
 The type of a [block local](TODO) method will be inferred by the compiler
