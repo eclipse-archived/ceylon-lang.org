@@ -147,8 +147,6 @@ as a subtype of `X`.
 
 ### Condition lists
 
-<!-- m4 -->
-
 Ceylon supports having multiple conditions (called a *condition list*) 
 in `if`, `while`, `assert` statements and in `if` comprehensions. 
 

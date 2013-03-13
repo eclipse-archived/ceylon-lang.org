@@ -57,7 +57,7 @@ exception types.
 
 ### `try` with resources
 
-`try` with resources will be implemented in  <!-- m4 -->
+`try` with resources will be implemented in  <!-- m6 -->
 
 ## See also
 

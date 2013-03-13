@@ -19,14 +19,7 @@ The `ceylon` command provides access to the Ceylon command line toolset.
 
 
 ## Description
-
-<!-- m4 --> 
-Note: The command line interface to the Ceylon toolset has been completely 
-revised for Milestone 4. Previously we provided a number of different tools
-(the compiler was `ceylonc`, the documentation generator was `ceylond`, etc). 
-For Milestone 4 we use a single plugin style tool along the patterns 
-established by the `git` toolset.
-
+ 
 The top level `ceylon` command is the entry point for a particular subcommand. 
 There is a [list of the available subcommands](subcommands).
 
