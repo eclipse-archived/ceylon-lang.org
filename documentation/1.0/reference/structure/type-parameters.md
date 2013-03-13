@@ -76,13 +76,51 @@ declared type parameter to constrain the permitted type argument.
 The constraints are:
 
 * Upper bound: `given X satisfies T` constrains `X` to be a subtype of `T`
-* Lower bound: `given X abstracts T` constrains `X` to be a supertype of `T`
 * Enumerated bound: `given X of T|U|V` constraints `X` to be one of the 
   enumerated types, `T`, `U` or `V`.
-* Parameter bound: `given X(...)` constraints `X` to be a class with an 
-  initializer the given types.
 * Combinations of the above using `&`.
 
+#### Examples
+
+The default supertype of a type parameter is `Anything`, so it's common to 
+see type constraints which use `Object` as an upper bound if the declaration 
+doesn't support `Null`. An example of this is `Set` from the language module:
+
+    shared interface Set<out Element>
+            satisfies Collection<Element> &
+                      Cloneable<Set<Element>>
+            given Element satisfies Object {
+        // ...
+    }
+
+Given this declaration it's not allowed to have a `Set<String?>`, because 
+`String?` means `String|Null` and although `String` satisfies `Object`, 
+`Null` does not.
+
+Another example from the language module is `Comparable`, declared like this:
+
+    shared interface Comparable<in Other> of Other 
+            given Other satisfies Comparable<Other> {
+        // ...
+    }
+
+This is an example of a *self type* bound: The type parameter `Other` is 
+constrained to itself be `Comparable<Other>`, loosely meaning that once the 
+type `Comparable<Other>` is instantiated, `Other` will be the 
+same type as type as the type instantiating it. Concretely, 
+in the type instantiation `Comparable<Integer>`, `Other` has the 
+type `Integer`.
+
+A final example is the language module's
+`sort()` function which constrains the type parameter `Element` so that 
+it can only be called with `Comparable` Elements
+
+    shared Element[] sort<Element>({Element*} elements) 
+            given Element satisfies Comparable<Element>
+
+This is necessary so that `sort()` can use the `<=>` operator to determine 
+how two elements compare, and so that you cannot call `sort()` with elements 
+which cannot be compared. 
 
 ### Defaulted type parameters
 
