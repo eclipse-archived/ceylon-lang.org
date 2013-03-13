@@ -139,7 +139,7 @@ takes form `attribute nonempty`.
 
 ### `if (satisfies ...)`
 
-<!-- m6 -->
+<!-- m-later -->
 
 `if (satisfies X Y)` is a condition that tests whether the type `Y` is a 
 subtype of the type `X`. within the associated block `Y` will be treated 

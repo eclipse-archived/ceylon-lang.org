@@ -108,6 +108,8 @@ parameterized type, for example you can write a case such as
 
 ### `case(satisfies...)` (subtype conditions)
 
+<!-- m-later -->
+
 If the switch expression is of type `Type<U>` for some 
 [enumerated type](../../structure/type#enumerated_types) `U` 
 then the `case` must be of the form `case (satisfies V)` where 
