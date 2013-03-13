@@ -7,9 +7,9 @@ author: Gavin King
 ---
 # #{page.title}
 
-The M4 release of the Ceylon IDE is available from our Eclipse plugin 
+The M5 release of the Ceylon IDE is available from our Eclipse plugin 
 update site. Note that the version of the Ceylon compiler embedded in 
-this release is compatible with the Ceylon M4 "Analytical Engine" 
+this release is compatible with the Ceylon M5 _&ldquo;Nesa Pong&rdquo;_ 
 command line tools.
 
 Please [report any issue in our issue tracker][issues]. _Note that if
