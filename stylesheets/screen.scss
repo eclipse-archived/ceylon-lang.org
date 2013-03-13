@@ -473,32 +473,33 @@ form.bp {
 
   //from http://css3buttongenerator.com/
   .bubble-button {
-    //font-family: Arial;
-    font-weight: bold;
-    color: #ffffff;
+    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    //font-family: "Marvel", "Trebuchet MS", Arial, sans-serif;
+    font-weight: normal;
     font-size: 15px;
-    padding: 5px 7px;
-    text-decoration: none;
+    padding:10px;
+    color: white;
+    background-color: #5bb65b;
+    text-shadow: 0 -1px 1px #666666;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
     border-radius: 4px;
-    -webkit-box-shadow: 0px 1px 3px #666666;
-    -moz-box-shadow: 0px 1px 3px #666666;
-    box-shadow: 0px 1px 3px #666666;
-    text-shadow: 1px 1px 3px #255A5F;
-    border: solid #368D73 1px;
-    background: -webkit-gradient(linear, 0 0, 0 100%, from(#82CDBA), to(#368D73));
-    background: -moz-linear-gradient(top, #82CDBA, #368D73);
-    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#82CDBA, endColorStr=#368D73);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#82CDBA, endColorStr=#368D73);
-    display:inline-block; /* IE is so silly */
+    text-decoration: none;
+    line-height: normal;
+    background-image: -moz-linear-gradient(top, #62c462, #51a351);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#62c462), to(#51a351));
+    background-image: -webkit-linear-gradient(top, #62c462, #51a351);
+    background-image: -o-linear-gradient(top, #62c462, #51a351);
+    background-image: linear-gradient(to bottom, #62c462, #51a351);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF62C462', endColorstr='#FF51A351', GradientType=0);
   }
 
   .bubble-button:hover {
-    background: -webkit-gradient(linear, 0 0, 0 100%, from(#6BAE9D), to(#368D73));
-    background: -moz-linear-gradient(top, #6BAE9D, #368D73);
-    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#6BAE9D, endColorStr=#368D73);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#6BAE9D, endColorStr=#368D73);
+    color: #aaddff;
+    text-shadow: 0 -1px 1px #666666;
   }
 
   .bubble-bottom {
