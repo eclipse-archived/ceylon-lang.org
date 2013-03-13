@@ -90,6 +90,10 @@ after the class name.
 A class declaration with type parameters may have a `given` clause for each declared type parameter 
 to [constraint the permitted type argument](../type-parameters#constraints).
 
+### Parameter list
+
+A class declaration requires a [parameter list](../parameter-list)
+
 ### Concrete classes
 
 A class that can be [instantiated](../../expression/class-instantiation) is 
