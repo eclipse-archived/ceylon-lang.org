@@ -79,7 +79,6 @@ _This page is very incomplete. Want to help? [See how](/code/website)._
 * [`()`  (invoke)](operator/invoke)
 * [`()`  (null-safe invoke)](operator/nullsafe-invoke)
 * [`*`   (product)](operator/product)
-* [`^`   (power)](operator/power)
 * [`*=`  (multiply assign)](operator/multiply-assign)
 * [`+`   (sum)](operator/sum)
 * [`+`   (unary plus)](operator/unary_plus)
@@ -111,8 +110,7 @@ _This page is very incomplete. Want to help? [See how](/code/website)._
 * [`x[y...]` (upper span)](operator/upper-span)
 * [`x[...z]` (lower span)](operator/lower-span)
 * [`x[y:n]`  (segment)](operator/segment)
-* [`^`   (Set exclusive union)](operator/exclusive-union) <!-- m3 -->
-* [`^=`  (Set exclusive union assign)](operator/exclusive-union-assign) <!-- m3 -->
+* [`^`   (power)](operator/power)
 * [`in`  (in)](operator/in)
 * [`is`  (is)](operator/is)
 * [`|`   (Set union)](operator/union) <!-- m3 -->
