@@ -44,7 +44,7 @@ The keywords in Ceylon are:
    [operator](../../operator/extends))
 * [`finally`](../../statement/try)
 * [`for`](../../statement/for)
-* [`function`](../attribute#type_inference)
+* [`function`](../type-inference)
 * [`given`](../type-parameters#constraints)
 * [`if`](../../statement/if)
 
@@ -79,7 +79,7 @@ The keywords in Ceylon are:
 * [`this`](../../expression/this)
 * [`throw`](../../statement/throw)
 * [`try`](../../statement/try)
-* [`value`](../attribute#type_inference)
+* [`value`](../type-inference)
 * [`void`](../method#return_type)
 * [`while`](../../statement/while)
 
