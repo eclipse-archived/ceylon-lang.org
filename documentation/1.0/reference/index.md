@@ -29,11 +29,11 @@ _This page is very incomplete. Want to help? [See how](/code/website)._
 * [`object`s](structure/object)
 * [Methods](structure/method)
 * [Attributes](structure/attribute)
-* [Annotations](structure/annotation) <!-- m5 -->
+* [Annotations](structure/annotation) <!-- m6 -->
 
 ## Statements
 
-* [`assert` statements](statement/assert) <!-- m4 -->
+* [`assert` statements](statement/assert) 
 * [`break` statements](statement/break)
 * [`continue` statements](statement/continue)
 * [expression statements](expression)
@@ -55,13 +55,13 @@ _This page is very incomplete. Want to help? [See how](/code/website)._
 * [Callable References](expression/callable-reference)
 * [Class Instantiation](expression/class-instantiation)
 * [Literals](#literals)
-* [Metamodel References](expression/metamodel-reference) <!-- m5 -->
+* [Metamodel References](expression/metamodel-reference) <!-- m6 -->
 * [Method Invocation](expression/invocation)
 * [Operator expressions](#operators)
 * [`this`](expression/this)
-* [`outer`](expression/outer) <!-- m3 -->
+* [`outer`](expression/outer) 
 * [`super`](expression/super)
-* [`::` supertype access](expression/supertype-access) <!-- m4 -->
+* [`::` supertype access](expression/supertype-access) 
 * [Sequence Instantiation](expression/sequence-instantiation)
 * [String Templates](expression/string-template)
 
@@ -72,10 +72,10 @@ _This page is very incomplete. Want to help? [See how](/code/website)._
 * [`!=`  (not equal)](operator/not-equal)
 * [`%`   (remainder)](operator/remainder)
 * [`%=`  (remainder assign)](operator/remainder-assign)
-* [`&`   (Set intersection)](operator/intersection) <!-- m3 -->
+* [`&`   (Set intersection)](operator/intersection) 
 * [`&&`  (and)](operator/and)
 * [`&&=` (and assign)](operator/and-assign)
-* [`&=`  (Set intersect assign)](operator/intersect-assign) <!-- m3 -->
+* [`&=`  (Set intersect assign)](operator/intersect-assign)
 * [`()`  (invoke)](operator/invoke)
 * [`()`  (null-safe invoke)](operator/nullsafe-invoke)
 * [`*`   (product)](operator/product)
@@ -114,14 +114,14 @@ _This page is very incomplete. Want to help? [See how](/code/website)._
 * [`^`   (power)](operator/power)
 * [`in`  (in)](operator/in)
 * [`is`  (is)](operator/is)
-* [`|`   (Set union)](operator/union) <!-- m3 -->
-* [`|=`  (Set union assign)](operator/union-assign) <!-- m3 -->
+* [`|`   (Set union)](operator/union) 
+* [`|=`  (Set union assign)](operator/union-assign) 
 * [`||`  (or)](operator/or)
 * [`||=` (or assign)](operator/or-assign)
 * [`{}`  (invoke)](operator/invoke)
 * [`{}`  (null-safe invoke)](operator/nullsafe-invoke)
-* [`~`   (Set complement)](operator/complement) <!-- m3 -->
-* [`~=`  (Set complement assign)](operator/complement-assign) <!-- m3 -->
+* [`~`   (Set complement)](operator/complement) 
+* [`~=`  (Set complement assign)](operator/complement-assign) 
 * [`else`](operator/else)
 * [`then`](operator/then)
 
