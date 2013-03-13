@@ -77,6 +77,29 @@ Attribute declarations often don't need to explictly declare a type,
 but can instead use 
 [type inference](../type-inference) via the `value` keyword.
 
+### `late` attributes
+
+An attribute can be declared `late` in which case the typechecker's
+definite specification checks are not performed. Instead code is generated 
+which performs a runtime check for accessing the attribute when it hasn't 
+been initialized uninitialised (and re-initializing a
+non-`variable` attribute that has already been initialized). 
+
+This is intended to permit cyclic references between attributes, for example:
+
+    class Child() {
+        shared late Parent parent;
+    }
+    class Parent(children) {
+        shared Child* children;
+        for (child in children) {
+            child.parent = this;
+        }
+    }
+
+Only simple attributes may be annotated `late` 
+(it doesn't make sense for attribute getters). 
+
 ## See also
 
 * [Compilation unit](../compilation-unit)
