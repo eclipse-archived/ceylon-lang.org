@@ -143,6 +143,7 @@ The API documentation for [`ceylon.language`](#{page.doc_root}/api/ceylon/langua
 * The `ceylon` command, [`ceylon`](tool/ceylon)
 * An index of [`ceylon` subcommands](tool/ceylon/subcommands)
 * The Ceylon [`Ant` tasks](tool/ant)
+* The [configuration file format](tool/config)
 
 ## Interoperability
 
