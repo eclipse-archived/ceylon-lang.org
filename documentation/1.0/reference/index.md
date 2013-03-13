@@ -109,6 +109,7 @@ _This page is very incomplete. Want to help? [See how](/code/website)._
 * [`[].` (spread invoke)](operator/spread-invoke)
 * [`[x..y]` (span)](operator/span)
 * [`[x...]` (upper span)](operator/upper-span)
+* [`[...x]` (lower span)](operator/lower-span)
 * [`^`   (Set exclusive union)](operator/exclusive-union) <!-- m3 -->
 * [`^=`  (Set exclusive union assign)](operator/exclusive-union-assign) <!-- m3 -->
 * [`in`  (in)](operator/in)
