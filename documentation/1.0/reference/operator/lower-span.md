@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: '`[...x]` (lower span) operator'
+title: '`x[...z]` (lower span) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
@@ -25,7 +25,7 @@ right-hand operand.
 
 ### Definition
 
-The `[...x]` operator is defined as follows:
+The `lhs[...rhs]` operator is defined as follows:
 
 <!-- check:none -->
     lhs.spanTo(rhs)
@@ -35,15 +35,15 @@ more details.
 
 ### Polymorphism
 
-The `[...x]` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
-The meaning of `[...x]` depends on the 
+The `x[...z]` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
+The meaning of `x[...z]` depends on the 
 [`Ranged`](#{page.doc_root}/api/ceylon/language/interface_Ranged.html) 
 interface.
 
 ## See also
 
-* [`[x..y]` (span)](../span) operator used for obtaining a span of a `Ranged`.
-* [`[x...]` (upper span)](../upper-span) operator used for obtaining a span of a `Ranged`.
+* [`x[y..z]` (span)](../span) operator used for obtaining a span of a `Ranged`.
+* [`x[y...]` (upper span)](../upper-span) operator used for obtaining a span of a `Ranged`.
 * API documentation for [`Ranged`](#{page.doc_root}/api/ceylon/language/interface_Ranged.html)
 * [sequence operators](#{page.doc_root}/#{site.urls.spec_relative}#listmap) in the 
   language specification
