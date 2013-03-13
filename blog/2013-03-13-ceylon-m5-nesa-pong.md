@@ -34,8 +34,7 @@ You can download the Ceylon command line distribution here:
 
 [http://ceylon-lang.org/download](http://ceylon-lang.org/download?utm_source=blog&utm_medium=web&utm_content=download&utm_campaign=latestrelease)
 
-Or you can install Ceylon IDE from Eclipse Marketplace or from our 
-[Eclipse update site].
+Or you can install Ceylon IDE from our [Eclipse update site].
 
 ### Language features
 

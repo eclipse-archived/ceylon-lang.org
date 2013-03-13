@@ -93,13 +93,12 @@ precisely in the release, read our [announcement][M5].
 
 ## Ceylon IDE
 
-[Ceylon IDE][ide] is available from our 
-[update site][update site]
-or from Eclipse Marketplace:
+[Ceylon IDE][ide] is available from our [update site][update site].
 
 [ide]: /documentation/current/ide
 [update site]: /documentation/current/ide/install?utm_source=download&utm_medium=web&utm_content=ide-install&utm_campaign=IDE_latestrelease
 
+<!--
 <table>
     <tr>
         <td>
@@ -119,6 +118,7 @@ or from Eclipse Marketplace:
         </td>
     </tr>
 </table>
+-->
 
 After installing, go to `Help > Welcome to Ceylon` to get started. 
 
