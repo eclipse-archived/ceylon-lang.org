@@ -50,11 +50,11 @@ These 'functions operating on types' are sometimes known as *functors*.
 Type parameter lists are a comma separated list of types or type parameters 
 enclosed in angle brackets (`<` and `>`). The type 
 parameter list occurs directly after the class, interface or method name 
-in the declaration.
+in the declaration and before the [parameter list](../parameter-list).
 
 #### Variance
 
-The type names in a type parameter list of a class or interface 
+The type names in the type parameter list of a class or interface 
 may optionally be preceeded with the variance modifier
 `in` (indicating a *contravariant* type parameter) or 
 `out` (indicating a *covariant* type parameter). Type parameters without 
@@ -71,7 +71,7 @@ return type.
 ### Constraints
 
 Type-parameterized declarations may have a `given` clause for each 
-declared type parameter to constraint the permitted type argument.
+declared type parameter to constrain the permitted type argument.
 
 The constraints are:
 
@@ -84,9 +84,28 @@ The constraints are:
 * Combinations of the above using `&`.
 
 
-### Sequenced type parameters
+### Defaulted type parameters
 
-TODO
+Just as a parameter list can define defaulted parameters, a type argument list
+can define defaulted type parameters. Here's an example from the language module:
+
+    Iterable<out Element, out Absent=Null>
+    
+This means we can apply the type constructor `Iterable` using either one 
+or two type arguments. If we supply only one type argument, the default 
+type (in this case `Null`) is used:
+
+    // same as Iterable<String, Null>
+    Iterable<String> zeroOrMore; 
+
+    Iterable<String, Nothing> oneOrMore;
+    
+Using a defaulted type parameter can be used as an alternative to 
+a [type `alias`](../type-alias): We could have declared `Iterable` without a
+defaulted type parameter and uses alises:
+
+    alias PossiblyEmpty<T> => Iterable<String, Null>
+    alias NonEmpty<T> => Iterable<String, Nothing>
 
 ### Parameterized type parameters
 
