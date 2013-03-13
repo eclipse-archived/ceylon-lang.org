@@ -43,7 +43,15 @@ the method receiver.
 ### Return type
 
 A method declaration always specifies the *return type* of the method, or the 
-keyword `void` if the method has no return type.
+keyword `void` if the method has no return value.
+
+The type system considers a `void` method identically to a method declared to 
+return `Anything`. In particular a `void` member method can actually 
+be refined by a subtype to return a more specific type. The value actually 
+returned from an unrefined `void` method is always `null`.
+
+Method declarations often don't need to explictly declare a type, but can instead use 
+[type inference](../type-inference) via the `function` keyword.
 
 ### Type parameters
 

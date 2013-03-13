@@ -94,24 +94,48 @@ Because `Nothing` is the intersection of all types it is assignable to
 all types. Similarly because it is the intersection of all types it can have 
 no instances.
 
+### `Sequential`
+
+`Sequential` is an enumerated type with subtypes `Sequence` and `Empty`
+`Sequential<T>` is usually abbreviated to `T[]`.
+
 ### `Empty`
 
 `Empty` is the type of the 
-[expression `{}`](../../expression/sequence-instantiation). 
+[expression `[]`](../../expression/sequence-instantiation). 
 
 ### `Sequence`
 
 `Sequence` is the type of non-empty 
-[sequences](../../expression/sequence-instantiation). Because we often want 
-to treat empty and non-empty sequences in a common way `Sequence` and `Empty`
-have the enumerated supertype `Sequential<T>` 
-which is usually abbreviated to `T[]`.
+[sequences](../../expression/sequence-instantiation).
 
-### Type inference
+### `Tuple`
 
-Local declarations don't need to explictly declare a type, they can let the 
-compiler infer the type from the expression. Because the type system is based 
-on *principal types* there is only one type the compiler can infer.
+`Tuple` is a subclass of `Sequence` (and thus cannot be empty). It differs from 
+`Sequence` in that the typechecker knows types of each of its elements 
+individually.
+
+    [Integer, Boolean, String] t = [1, true, ""];
+    Integer first = t[0];
+    Boolean second = t[1];
+    String last = t[2];
+
+Tuples also have a notion of 'variadicity':
+
+    // A tuple of at least two elements
+    // the first is an Integer and 
+    // the rest are Boolean
+    [Integer, Boolean+] t = [1, true, false];
+    // A tuple of at least element
+    // the first is an Integer and 
+    // the rest are Boolean
+    [Integer, Boolean*] t2 = t;
+
+`Tuple`s thus have the same assignability rules as do 
+positional argument list and parameter lists.
+
+Unabreviated tuple types are extremely verbose, and therefore the abbreviated 
+form is strongly preferred. 
 
 ## See also
 

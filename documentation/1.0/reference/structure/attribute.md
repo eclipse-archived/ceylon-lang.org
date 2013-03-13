@@ -73,16 +73,9 @@ declaration.
 
 ### Type inference
 
-The type of a [block local](TODO) attribute will be inferred by the compiler
-if the keyword `value` is given in place of a type. In the example below the
-`name` attribute's type is inferred to be `Name`:
-
-<!-- TODO Better example -->
-
-<!-- check:none -->
-    value name { 
-        return Name(firstName, initial, lastName);
-    }
+Attribute declarations often don't need to explictly declare a type, 
+but can instead use 
+[type inference](../type-inference) via the `value` keyword.
 
 ## See also
 
