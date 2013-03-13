@@ -40,7 +40,7 @@ Or you can install Ceylon IDE from Eclipse Marketplace or from our
 ### Language features
 
 M5 is an almost-complete implementation of the Ceylon language,
-including the following new features compared to M3:
+including the following new features compared to M4:
 
 - [tuples](/documentation/1.0/tour/sequences/#tuples)
 - direct interop with native JavaScript APIs via the new `dynamic` block
