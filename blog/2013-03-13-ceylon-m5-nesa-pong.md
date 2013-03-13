@@ -59,6 +59,7 @@ including the following new features compared to M4:
 - `ceylon.time` module
 - `ceylon.net.http.server` package (a HTTP server)
 - the `compose()` and `curry()` functions
+- reworked interop with Java arrays
 - more than 500 features and bug fixes
 
 In addition, the [language specification][spec] and 
