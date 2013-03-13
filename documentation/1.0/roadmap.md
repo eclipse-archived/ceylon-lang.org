@@ -28,8 +28,8 @@ However, our roadmap is quite well-defined:
 <div id="milestones-progress">
     <div id="milestone-overall">Loading…</div>
     <h3>Detail</h3>
-    <div data-title="Ceylon compiler frontend — Language specification" data-milestone="https://api.github.com/repos/ceylon/ceylon-spec/milestones/6?callback=?">Loading…</div>
-    <div data-title="Ceylon compiler — JVM backend" data-milestone="https://api.github.com/repos/ceylon/ceylon-compiler/milestones/6?callback=?">Loading…</div>
+    <div data-title="Ceylon compiler frontend — Language specification" data-milestone="https://api.github.com/repos/ceylon/ceylon-spec/milestones/8?callback=?">Loading…</div>
+    <div data-title="Ceylon compiler — JVM backend" data-milestone="https://api.github.com/repos/ceylon/ceylon-compiler/milestones/9?callback=?">Loading…</div>
     <div data-title="Ceylon compiler — JS backend" data-milestone="https://api.github.com/repos/ceylon/ceylon-js/milestones/4?callback=?">Loading…</div>
     <div data-title="ceylon.language module" data-milestone="https://api.github.com/repos/ceylon/ceylon.language/milestones/6?callback=?">Loading…</div>
 </div>
