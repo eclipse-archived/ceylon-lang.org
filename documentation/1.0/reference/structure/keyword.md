@@ -23,7 +23,7 @@ The keywords in Ceylon are:
 
 * [`abstracts`](../type-parameters#constraints)
 * `adapts`
-* `alias`
+* [`alias`](../type-alias)
 * [`assert`](../../statement/assert)
 * [`assign`](../attribute#attribute_setters)
 * [`break`](../../statement/break)
@@ -40,9 +40,8 @@ The keywords in Ceylon are:
 * `exists` 
    (used with [`if`](../../statement/if#if_exists_) and as an 
    [operator](../../operator/exists))
-* `extends` 
-   (used with [class](../class), and as an 
-   [operator](../../operator/exists))
+* [`extends`](../class), and as an 
+   [operator](../../operator/extends))
 * [`finally`](../../statement/try)
 * [`for`](../../statement/for)
 * [`function`](../attribute#type_inference)
@@ -81,7 +80,7 @@ The keywords in Ceylon are:
 * [`throw`](../../statement/throw)
 * [`try`](../../statement/try)
 * [`value`](../attribute#type_inference)
-* `void`
+* [`void`](../method#return_type)
 * [`while`](../../statement/while)
 
 
