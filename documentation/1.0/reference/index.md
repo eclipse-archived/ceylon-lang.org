@@ -110,6 +110,7 @@ _This page is very incomplete. Want to help? [See how](/code/website)._
 * [`x[y..z]` (span)](operator/span)
 * [`x[y...]` (upper span)](operator/upper-span)
 * [`x[...z]` (lower span)](operator/lower-span)
+* [`x[y:n]`  (segment)](operator/segment)
 * [`^`   (Set exclusive union)](operator/exclusive-union) <!-- m3 -->
 * [`^=`  (Set exclusive union assign)](operator/exclusive-union-assign) <!-- m3 -->
 * [`in`  (in)](operator/in)
