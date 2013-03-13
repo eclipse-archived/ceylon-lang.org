@@ -22,9 +22,9 @@ An simple example [package descriptor](#descriptor):
 <!-- try: -->
     shared package com.example.foo.bar;
     
-Conventionally this would be in a source file located in
+This would be in the source file 
 `<source-dir>/com/example/foo/bar/package.ceylon` where `<source-dir>` is the
-directory containing ceylon source code.
+directory containing ceylon source code, conventionally `source`.
 
 ## Description
 

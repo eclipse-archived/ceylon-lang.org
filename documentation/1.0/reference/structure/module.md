@@ -23,22 +23,21 @@ An example module descriptor:
         import com.example.bar '3.4.1';
     }
     
-Conventionally this would be in a source file located in
-`<source-dir>/com/example/foo/module.ceylon` where `<source-dir>` is the
-directory containing ceylon source code.
+This would be in the source file 
+`<source-dir>/com/example/foo/module.ceylon` where `<source-dir>` is a
+directory containing ceylon source code, conventionally `source`.
 
 ## Description
 
 ### Member packages
 
 The names of the packages in a module must begin with the name of the module,
-so for example is a module called `com.example.foo` all the the package names
+so for example in a module called `com.example.foo` all the the package names
 must begin `com.example.foo.`.
 
 ### Descriptor
 
-The 
-[module descriptor](#{site.urls.apidoc_current}/ceylon/language/descriptor/class_Module.html) 
+The module descriptor
 holds metadata about the module and is declared in a source file called
 `module.ceylon` in the base package of the module (that is the package whose 
 name is the same as the module name). Here's an example:
