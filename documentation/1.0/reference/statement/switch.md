@@ -121,7 +121,7 @@ parameterized type, for example you can write a case such as
 
 ## See also
 
-* The [`if` statement] (../if) is an alternative control structure for 
+* The [`if` statement](../if) is an alternative control structure for 
   conditional execution
 * [`switch` in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#switchcaseelse)
 
