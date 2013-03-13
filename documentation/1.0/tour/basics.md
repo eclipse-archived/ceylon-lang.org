@@ -614,7 +614,8 @@ The first case is easy:
 <!-- try: -->
     helloEveryone("world", "mars", "saturn");
 
-For the second case, Ceylon requires us to use the _spread operator_:
+For the second case, Ceylon requires us to use the 
+[spread operator](../functions/#the_spread_operator):
 
 <!-- try: -->
     String[] everyone = ["world", "mars", "saturn"];
