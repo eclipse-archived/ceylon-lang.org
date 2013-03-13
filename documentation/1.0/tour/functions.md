@@ -731,6 +731,60 @@ Note that `compose()`, `curry()`, and `uncurry()` are ordinary functions, writte
 in Ceylon.
 
 
+## The spread operator
+
+We've already seen a few examples of the spread operator. We've seen how to use
+it to instantiate an iterable:
+
+<!-- try: -->
+    { "hello", *names }
+
+Or a tuple:
+
+<!-- try: -->
+    [x, y, *labels]
+
+We can also use it when calling a function. Consider the following function:
+
+<!-- try: -->
+    String formatDate(String format, 
+                      Integer day, 
+                      Integer|String month, 
+                      Integer year) {
+        ...
+    }
+
+And suppose we have a tuple representing a date:
+
+<!-- try: -->
+    value date = [15, "January", 2010];
+
+Then we can pass the date to our function like this:
+
+<!-- try: -->
+    formatDate("dd MMMMM yyyy", *date)
+
+Notice that the type of the tuple `["dd MMMMM yyyy", *date]` is:
+
+<!-- try: -->
+    [String,Integer,String,Integer] 
+
+Now consider type of the function `formatDate`. It is:
+
+<!-- try: -->
+    String(String,Integer,Integer|String,Integer)
+    
+Or rather:
+
+<!-- try: -->
+    Callable<String,[String,Integer,Integer|String,Integer]>
+
+Since the tuple type `[String,Integer,String,Integer]` is a subtype of 
+`[String,Integer,Integer|String,Integer]`, the invocation is well-typed.
+This demonstrates the relationship between tuples and function argument!
+     
+
+
 <!--
 ## Curry, uncurry and function composition
 

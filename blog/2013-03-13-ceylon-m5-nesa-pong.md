@@ -48,6 +48,8 @@ including the following new features compared to M4:
 - [verbatim strings](/documentation/1.0/tour/basics/#verbatim_strings)
 - [fat arrow](/documentation/1.0/tour/basics/#fat_arrows_and_forward_declaration) 
   `=>` abbreviation for defining single-expression functions
+- [syntactic sugar for iterables](/documentation/1.0/tour/sequences/#iterables)
+- more powerful [spread operator](/documentation/1.0/tour/functions/#the_spread_operator)
 - [the `late` annotation](/documentation/1.0/tour/initialization/#circular_references)
 - [binary and hexadecimal numeric literals](/documentation/1.0/tour/language-module/#numeric_literals)
 - defaulted type parameters
