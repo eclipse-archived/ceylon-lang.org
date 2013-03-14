@@ -100,6 +100,13 @@ is that Ceylon has a very strict block structure - a nested block always has
 access to declarations in all containing blocks. This isn't the case with 
 Java's `static` methods.
 
+Ceylon doesn't (yet) support _scripting_. You can't write statements like 
+`print("Hello, World!");` outside of a function or class. This is _not_, on
+its own, a legal program:
+
+<!-- try: -->
+    print("Hello, World!");  //error: must occur inside a function or class
+
 
 ## Running the program from the command line
 

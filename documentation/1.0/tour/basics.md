@@ -22,7 +22,9 @@ stuff.
 As we [just saw](../#a_really_simple_program), a _string literal_ is text 
 enclosed in double-quotes:
 
-    print("Hello, World!");
+    void hello() {
+        print("Hello, World!");
+    }
 
 String literals in Ceylon may span multiple lines. Try this:
 
