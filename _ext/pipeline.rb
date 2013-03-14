@@ -61,6 +61,12 @@ Awestruct::Extensions::Pipeline.new do
     /\<!--\s*lang:\s*javascript\s*--\>\s*<pre><code>(.*?)<\/code><\/pre>/, 
     "<pre class=\"brush: javascript\">\\1</pre>")
   transformer Awestruct::Extensions::Gsub.new(
+    /\<!--\s*lang:\s*xml\s*--\>\s*<pre><code>(.*?)<\/code><\/pre>/, 
+    "<pre class=\"brush: xml\">\\1</pre>")
+  transformer Awestruct::Extensions::Gsub.new(
+    /\<!--\s*lang:\s*html\s*--\>\s*<pre><code>(.*?)<\/code><\/pre>/, 
+    "<pre class=\"brush: html\">\\1</pre>")
+  transformer Awestruct::Extensions::Gsub.new(
     /\<!--\s*lang:\s*none\s*--\>\s*<pre><code>(.*?)<\/code><\/pre>/, 
     "<pre><code>\\1</code></pre >")
   transformer Awestruct::Extensions::Gsub.new(
@@ -80,7 +86,7 @@ Awestruct::Extensions::Pipeline.new do
     "<span class='milestone'><a href='/documentation/1.0/roadmap/#milestone_4' title='Support for this feature was introduced in Milestone 4'>Milestone 4</a></span>")
   transformer Awestruct::Extensions::Gsub.new(
     /\<!--\s*m5\s*--\>\s*/, 
-    "<span class='milestone future'><a href='/documentation/1.0/roadmap/#milestone_5' title='Support for this feature will be introduced in Milestone 5'>Milestone 5</a></span>")
+    "<span class='milestone'><a href='/documentation/1.0/roadmap/#milestone_5' title='Support for this feature was introduced in Milestone 5'>Milestone 5</a></span>")
   transformer Awestruct::Extensions::Gsub.new(
     /\<!--\s*m6\s*--\>\s*/, 
     "<span class='milestone future'><a href='/documentation/1.0/roadmap/#milestone_6_ceylon_10' title='Support for this feature will be introduced in Ceylon 1.0'>Ceylon 1.0</a></span>")
