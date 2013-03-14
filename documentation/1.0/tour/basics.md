@@ -521,6 +521,13 @@ the program, or between contexts within a single execution of the program.
 
 A value may even be recalculated every time it is evaluated.
 
+<!-- try-pre:
+    value firstName = "David";
+    value lastName = "Hilbert";
+-->
+<!-- try-post:
+    print(name);
+-->
     String name { return firstName + " " + lastName; } 
 
 If the values of `firstName` and `lastName` vary, then the value of 
@@ -530,6 +537,9 @@ A function takes this idea one step further. The value of a function
 depends not only upon the context in which it is evaluated, but also
 upon the arguments to its parameters.
 
+<!-- try-post:
+    print(sqr(3.5));
+-->
     Float sqr(Float x) { return x*x; }
 
 In Ceylon, a value or function declaration can occur almost anywhere: as
@@ -583,6 +593,7 @@ A variadic parameter of a function or class is declared using a postfix
 asterisk, for example, `String*`. There may be only one variadic parameter 
 for a function or class, and it must be the last parameter.
 
+<!-- try: -->
     void helloEveryone(String* names) { 
         // ... 
     }
@@ -633,18 +644,44 @@ It's therefore _extremely_ common to encounter functions and values which
 simply evaluate and return an expression. So Ceylon lets us abbreviate
 such function and value definitions using a "fat arrow", `=>`. For example:
 
+<!-- try-pre:
+    value firstName = "David";
+    value lastName = "Hilbert";
+-->
+<!-- try-post:
+    print(name);
+-->
     String name => firstName + " " + lastName;
 
+<br/>
+
+<!-- try-post:
+    print(sqr(3.5));
+-->
     Float sqr(Float x) => x*x;
 
 Now's the time to get comfortable with this syntax, because you're going 
 to be seeing quite a lot of it. Take careful note of the difference between 
 a fat arrow:
 
+<!-- try-pre:
+    value firstName = "David";
+    value lastName = "Hilbert";
+-->
+<!-- try-post:
+    print(name);
+-->
     String name => firstName + " " + lastName;
 
 And an assignment:
 
+<!-- try-pre:
+    value firstName = "David";
+    value lastName = "Hilbert";
+-->
+<!-- try-post:
+    print(name);
+-->
     String name = firstName + " " + lastName;
 
 In the first example, the expression is recomputed every time `name` is
