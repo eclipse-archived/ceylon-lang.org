@@ -13,7 +13,7 @@ We're not happy about this, but hey, that's the way it is, so while we're busy s
 in our code repository, the fact is you will need to use workarounds for them until we build
 a new release.
 
-In order to make it easier for you to figure out if you hit a known M4 bug, and how best to
+In order to make it easier for you to figure out if you hit a known M5 bug, and how best to
 work around it, we've made a list. Check it out, and if you can't find your bug, don't hesitate
 to [report it](/code/issues/). 
 
