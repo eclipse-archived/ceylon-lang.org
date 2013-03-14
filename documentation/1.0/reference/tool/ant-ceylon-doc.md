@@ -64,6 +64,12 @@ a nested [`<module>`](#module)(s) is required.
 </tr>
 
 <tr>
+<td><code>encoding</code></td>
+<td>The character encoding used for source files</td>
+<td>No, default is the OS default encoding</td>
+</tr>
+
+<tr>
 <td><code>out</code></td>
 <td>The output module repository (which must be publishable).</td>
 <td>No, default is <i>modules</i></td>

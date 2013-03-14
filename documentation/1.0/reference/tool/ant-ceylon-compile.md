@@ -72,6 +72,12 @@ required.
 </tr>
 
 <tr>
+<td><code>encoding</code></td>
+<td>The character encoding used for source files</td>
+<td>No, default is the OS default encoding</td>
+</tr>
+
+<tr>
 <td><code>verbose</code></td>
 <td>Whether the compiler should emit verbose logging information.</td>
 <td>No, default is <i>false</i></td>
