@@ -39,12 +39,12 @@ more details.
 
 The `|=` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 Tge `|` in its definition is the [union operator](../union) which depends on the 
-[`Set`](#{page.doc_root}/api/ceylon/language/interface_Set.html) interface.
+[`Set`](#{site.urls.apidoc_current}/ceylon/language/interface_Set.html) interface.
 
 ## See also
 
 * [`|` (union)](../union) operator
-* API documentation for [`Set`](#{page.doc_root}/api/ceylon/language/interface_Set.html)
+* API documentation for [`Set`](#{site.urls.apidoc_current}/ceylon/language/interface_Set.html)
 * [set operators](#{page.doc_root}/#{site.urls.spec_relative}#sets) in the 
   language specification
 * [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 

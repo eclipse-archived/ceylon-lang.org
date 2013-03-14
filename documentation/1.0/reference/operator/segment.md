@@ -37,13 +37,13 @@ more details.
 
 The `x[y:n]` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `x[y:n]` depends on the 
-[`Ranged`](#{page.doc_root}/api/ceylon/language/interface_Ranged.html) 
+[`Ranged`](#{site.urls.apidoc_current}/ceylon/language/interface_Ranged.html) 
 interface.
 
 ## See also
 
 * [`x[y...z]` (span)](../span) operator used for obtaining a subrange from a `Ranged`.
-* API documentation for [`Ranged`](#{page.doc_root}/api/ceylon/language/interface_Ranged.html)
+* API documentation for [`Ranged`](#{site.urls.apidoc_current}/ceylon/language/interface_Ranged.html)
 * [sequence operators](#{page.doc_root}/#{site.urls.spec_relative}#listmap) in the 
   language specification
 * [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 

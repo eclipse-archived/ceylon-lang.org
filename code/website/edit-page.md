@@ -129,7 +129,7 @@ Or from within the documentation section,
 
 <!-- lang: none -->
     [Doc for `Comparable`]
-    (\#{page.doc_root}/api/ceylon/language/Comparable.html)
+    (\#{site.urls.apidoc_current}/ceylon/language/Comparable.html)
 
 By using these placeholders, we will be able to move the spec or ceylondoc to other places.
 

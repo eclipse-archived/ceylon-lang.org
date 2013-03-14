@@ -32,11 +32,11 @@ See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#ari
 
 The `%` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `%` depends on the 
-[`Integral`](#{page.doc_root}/api/ceylon/language/interface_Integral.html) interface. 
+[`Integral`](#{site.urls.apidoc_current}/ceylon/language/interface_Integral.html) interface. 
 
 ### Meaning of remainder for built-in types
 
-For the built-in numeric type ([`Intege`](#{page.doc_root}/api/ceylon/language/class_Integer.html) 
+For the built-in numeric type ([`Intege`](#{site.urls.apidoc_current}/ceylon/language/class_Integer.html) 
 `%` computes normal mathematical remainder.
 
 Since the other built-in numeric types do not satisfy `Integral`, the
@@ -44,7 +44,7 @@ remainder operator cannot be used on them.
 
 ## See also
 
-* API documentation for [`Integral`](#{page.doc_root}/api/ceylon/language/interface_Integral.html)
+* API documentation for [`Integral`](#{site.urls.apidoc_current}/ceylon/language/interface_Integral.html)
 * [arithmetic operators](#{page.doc_root}/#{site.urls.spec_relative}#arithmetic) in the 
   language specification
 * [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 

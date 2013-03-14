@@ -32,20 +32,20 @@ See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#ari
 
 The `/` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `/` depends on the 
-[`Numeric`](#{page.doc_root}/api/ceylon/language/interface_Numeric.html) interface.
+[`Numeric`](#{site.urls.apidoc_current}/ceylon/language/interface_Numeric.html) interface.
 
 
 ### Meaning of quotient for built-in types
 
-For the built-in numeric types ([`Integer`](#{page.doc_root}/api/ceylon/language/class_Integer.html) and
-[`Float`](#{page.doc_root}/api/ceylon/language/class_Float.html),
+For the built-in numeric types ([`Integer`](#{site.urls.apidoc_current}/ceylon/language/class_Integer.html) and
+[`Float`](#{site.urls.apidoc_current}/ceylon/language/class_Float.html),
 `*` performs normal mathematical division, subject to the limitations
 of the relevant type.
 
 
 ## See also
 
-* API documentation for [`Numeric`](#{page.doc_root}/api/ceylon/language/interface_Numeric.html)
+* API documentation for [`Numeric`](#{site.urls.apidoc_current}/ceylon/language/interface_Numeric.html)
 * [arithmetic operators](#{page.doc_root}/#{site.urls.spec_relative}#arithmetic) in the 
   language specification
 * [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 

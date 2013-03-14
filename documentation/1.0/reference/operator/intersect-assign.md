@@ -37,12 +37,12 @@ more details.
 The `&=` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 
 The `&` in the definition is the [intersect operator](../intersect) which 
-depends on the [`Set`](#{page.doc_root}/api/ceylon/language/interface_Set.html) interface.
+depends on the [`Set`](#{site.urls.apidoc_current}/ceylon/language/interface_Set.html) interface.
 
 ## See also
 
 * [`&` (intersect)](../intersect) operator
-* API documentation for [`Set`](#{page.doc_root}/api/ceylon/language/interface_Set.html)
+* API documentation for [`Set`](#{site.urls.apidoc_current}/ceylon/language/interface_Set.html)
 * [set operators](#{page.doc_root}/#{site.urls.spec_relative}#sets) in the 
   language specification
 * [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 

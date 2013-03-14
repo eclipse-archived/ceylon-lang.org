@@ -37,7 +37,7 @@ That means the specification anchors should be stable.
 
 Likewise, to point to a ceylondoc entry, use the variable `site.urls.apidocs`.   
 
-**\[**Doc for `Comparable`**\](\#{site.urls.apidoc}**_/ceylon/language/Comparable.html_**)**
+**\[**Doc for `Comparable`**\](\#{site.urls.apidoc_current}**_/ceylon/language/Comparable.html_**)**
 
 By using these placeholders, we will be able to move the spec or ceylondoc to other places.
 Note that [/documentation/1.0/api](/documentation/1.0/api) page is pretty useless as it is but

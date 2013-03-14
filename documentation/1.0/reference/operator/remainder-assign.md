@@ -37,7 +37,7 @@ See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#ari
 ### Polymorphism
 
 The `%=` operator is polymorphic. The definition of the `%=` operator depends 
-on the [`Integral`](#{page.doc_root}/api/ceylon/language/interface_Integral.html) 
+on the [`Integral`](#{site.urls.apidoc_current}/ceylon/language/interface_Integral.html) 
 interface.
 
 

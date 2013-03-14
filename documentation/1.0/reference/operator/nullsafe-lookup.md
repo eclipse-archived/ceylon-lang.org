@@ -11,7 +11,7 @@ doc_root: ../../..
 # #{page.title}
 
 The *null-safe lookup* operator accesses an element in a 
-[`Correspondence?`](#{page.doc_root}/api/ceylon/language/interface_Correspondence.html) if that operand is 
+[`Correspondence?`](#{site.urls.apidoc_current}/ceylon/language/interface_Correspondence.html) if that operand is 
 not `null`, otherwise results in `null`.
 
 ## Usage 
@@ -36,13 +36,13 @@ more details.
 
 The `?[]` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `?[]` depends on the 
-[`Correspondence`](#{page.doc_root}/api/ceylon/language/interface_Correspondence.html) 
+[`Correspondence`](#{site.urls.apidoc_current}/ceylon/language/interface_Correspondence.html) 
 interface.
 
 ## See also
 
 * [`[]` (lookup)](../lookup) operator used for accessing a single item
-* API documentation for [`Correspondence`](#{page.doc_root}/api/ceylon/language/interface_Correspondence.html)
+* API documentation for [`Correspondence`](#{site.urls.apidoc_current}/ceylon/language/interface_Correspondence.html)
 * [sequence operators](#{page.doc_root}/#{site.urls.spec_relative}#listmap) in the 
   language specification
 * [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 
