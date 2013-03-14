@@ -499,10 +499,10 @@ only thing approaching an implicit type conversion in the whole language.
 
 The language module includes several interfaces that represent container
 types: 
-[`Collection`](#{site.urls.apidoc_current}/interface_Castable.html),
-[`List`](#{site.urls.apidoc_current}/interface_Castable.html),
-[`Map`](#{site.urls.apidoc_current}/interface_Castable.html), and
-[`Set`](#{site.urls.apidoc_current}/interface_Castable.html).
+[`Collection`](#{site.urls.apidoc_current}/interface_Collection.html),
+[`List`](#{site.urls.apidoc_current}/interface_List.html),
+[`Map`](#{site.urls.apidoc_current}/interface_Map.html), and
+[`Set`](#{site.urls.apidoc_current}/interface_Set.html).
 
 You might be disappointed to discover that there are no general-purpose 
 implementations of these interfaces in the language module itself. In fact,
