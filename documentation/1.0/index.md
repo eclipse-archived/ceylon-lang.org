@@ -34,6 +34,13 @@ The [API documentation](api/ceylon/language) for the Ceylon Language Module
 for other modules, including platform modules in 
 [Herd](http://modules.ceylon-lang.org/).
 
+## Tools
+
+You can find information about [Ceylon IDE](ide) and how to 
+[install it](ide/install).
+
+There is even [Vim support](resources/vim) available.
+
 ## Got questions? We have FAQs
 
 We're compiling a list of common questions. Check out the [FAQs](faq). 
