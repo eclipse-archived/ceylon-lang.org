@@ -18,7 +18,7 @@ tags: [release, progress, M5]
 [documentation]: /documentation/1.0/?utm_source=blog&utm_medium=web&utm_content=documentation&utm_campaign=latestrelease
 [code]: /code?utm_source=blog&utm_medium=web&utm_content=code&utm_campaign=latestrelease
 
-Ceylon M5 _&ldquo;Nesa Pong&rdquo;_ is now available for download, along with 
+Ceylon M5 _&#8220;Nesa Pong&#8221;_ is now available for download, along with 
 a simultaneous compatible release of Ceylon IDE. This is a huge 
 release, with the following headline features:
 
