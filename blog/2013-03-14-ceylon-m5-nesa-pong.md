@@ -28,7 +28,7 @@ release, with the following headline features:
 - tuples,
 - several important syntax changes in response to community 
   feedback and practical experience, and
-- a datetime module and a HTTP server.
+- a datetime module and an HTTP server.
 
 You can download the Ceylon command line distribution here:
 
