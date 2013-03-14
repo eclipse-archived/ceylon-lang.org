@@ -37,9 +37,8 @@ assignable to the type `X`. Within the associated block `x` will have the
 type `X`.
 
 In other words, `if (is ...)` is similar Java's `instanceof` operator
-with a suitable typecast occurring automatically within the block.
-
-Here's an example
+with a suitable typecast occurring automatically within the block. 
+Here's a simple example
 
     Integer plusOneIfInteger(Object x) {
         if (is Integer x) {
@@ -55,10 +54,21 @@ which case it is the new local attribute that has the narrowed type:
     Integer plusOneIfInteger(Object x) {
         if (is Integer y=x) {
             // x still of type Object here
+            // but y is Integer
             return y+1;
         }
         return 0;
     } 
+
+`if (is ...)` is more sophistocated than a Java `instanceof` though, 
+because it inderstand parameterized types: You can say 
+`if (is List<Integer> list)` to distinguish a `List<Integer>` from a 
+`List<String>`.
+
+**Note**: Do not confuse the `is` *condition* described here and which takes 
+the form `is Type attribute` with the [`is` *operator*](../../operator/is) which 
+takes form `attribute is Type`.
+
 
 ### `if (exists ...)`
 
@@ -89,10 +99,16 @@ which case it is the new local attribute that has the narrowed type:
         return 0;
     } 
 
+**Note**: Do not confuse the `exists` *condition* described here 
+and which takes the form `exists attribute` with the 
+[`exists` *operator*](../../operator/exists) which 
+takes form `attribute exists`.
+
 ### `if (nonempty ...)`
 
-`if (nonempty x)` is equivalent to `is Some<E> x` where x is an expression 
-whose type is an invariant subtype of `FixedSized<E>`.  Within 
+`if (nonempty x)` is equivalent to whether the subtype of `Anything[]?` when 
+intersected with `[]`  is not `Nothing`, and when intersected with 
+`[Nothing+]` is not `Nothing`. Within 
 the associated block `x` will have the type `E`
 
 Here's an example
@@ -116,17 +132,20 @@ which case it is the new local attribute that has the narrowed type:
         return 0;
     } 
 
+**Note**: Do not confuse the `nonempty` *condition* described here 
+and which takes the form `nonempty attribute` with the 
+[`nonempty` *operator*](../../operator/nonempty) which 
+takes form `attribute nonempty`.
+
 ### `if (satisfies ...)`
 
-<!-- m5 -->
+<!-- m-later -->
 
 `if (satisfies X Y)` is a condition that tests whether the type `Y` is a 
 subtype of the type `X`. within the associated block `Y` will be treated 
 as a subtype of `X`.
 
 ### Condition lists
-
-<!-- m4 -->
 
 Ceylon supports having multiple conditions (called a *condition list*) 
 in `if`, `while`, `assert` statements and in `if` comprehensions. 

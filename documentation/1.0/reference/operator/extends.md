@@ -16,8 +16,8 @@ left-hand operand is *extends* its right-hand operand
 ## Usage 
 
 <!-- check:none -->
-    void m(Type<Void> x) {
-        Boolean extension = x extends Class<Void>;
+    void m(Type<Anything> x) {
+        Boolean extension = x extends Class<Anything>;
     }
 
 ## Description
@@ -35,13 +35,13 @@ See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#equ
 
 The `extends` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `extends` depends on the 
-[`Class`](#{page.doc_root}/api/ceylon/language/metamodel/interface_Class.html) class and 
-[`Type`](#{page.doc_root}/api/ceylon/language/metamodel/interface_Type.html) interface.
+[`Class`](#{site.urls.apidoc_current}/metamodel/interface_Class.html) class and 
+[`Type`](#{site.urls.apidoc_current}/metamodel/interface_Type.html) interface.
 
 ## See also
 
-* API documentation for [`Class`] _doc coming soon at_ (#{page.doc_root}/api/ceylon/language/metamodel/interface_Class.html)
-* API documentation for [`Type`](#{page.doc_root}/api/ceylon/language/metamodel/interface_Type.html)
+* API documentation for [`Class`] _doc coming soon at_ (#{site.urls.apidoc_current}/metamodel/interface_Class.html)
+* API documentation for [`Type`](#{site.urls.apidoc_current}/metamodel/interface_Type.html)
 * [`extends` in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#equalitycomparison)
 * [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 
   language specification

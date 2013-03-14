@@ -28,13 +28,19 @@ separate from its specification:
 
 ## Description
 
-Ceylon makes a distinction between assigning mutable state (the `:=` operator) 
-and specifying immutable state (the `=` statement). 
+Ceylon makes a distinction between assigning mutable state (the `=` *operator*) 
+and specifying immutable state (the `=` *statement*). 
 
 ### Execution
 
 After the specification statement and for the rest of the scope of the local 
 or attribute that member will have the specified value.
+
+### Assignment
+
+If an attribute (or a parameter default) is `variable` then it cannot be 
+specified. Instead it is [assigned](../../operator/assign) using an 
+operator;
 
 ### Not an operator
 
@@ -49,6 +55,6 @@ statement and not an operator it cannot be used within expressions:
 
 ## See also
 
-* The [`:=` (assignment) operator](../../operator/assignment/), used for 
+* The [`=` (assignment) *operator*](../../operator/assignment/), used for 
   assigning a value to `variable` locals or attributes.
 

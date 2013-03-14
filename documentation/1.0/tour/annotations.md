@@ -8,14 +8,16 @@ author: Gavin King
 
 # #{page.title}
 
-Wow, part fifteenth of the Tour of Ceylon and the end is in sight! 
-The [last part](../initialization) covered initialization. This part is all 
-about *annotations*.
+Wow, part sixteen of the Tour of Ceylon and the end is in sight! The 
+[last part](../initialization) covered initialization. This part is all 
+about *annotations* and metaprogramming.
 
-### implementation note <!-- mCeylon -->
+### implementation note <!-- m5 -->
 
 Annotations and metaprogramming are not yet implemented. They will be 
-implemented in M5.
+implemented in M6. The information in this section is based on an 
+unimplemented design that will certainly change before Ceylon 1.0 is
+released.
 
 ## Annotations
 
@@ -26,7 +28,7 @@ yet really explored what an annotation *is*.
 
 Let's finally rectify that. The answer is simple: an annotation is a toplevel 
 method that returns a subtype of 
-[`ConstrainedAnnotation`](#{site.urls.apidoc_current}/ceylon/language/metamodel/interface_ConstrainedAnnotation.html). 
+[`ConstrainedAnnotation`](#{site.urls.apidoc_current}/metamodel/interface_ConstrainedAnnotation.html). 
 
 Here's the definition of a some of our old friends:
 
@@ -150,11 +152,11 @@ two direct subtypes. So any annotation type must be a subtype of one of
 these two interfaces:
 
 * If an annotation type is a subtype of 
-  [`OptionalAnnotation`](#{site.urls.apidoc_current}/ceylon/language/metamodel/interface_OptionalAnnotation.html), 
+  [`OptionalAnnotation`](#{site.urls.apidoc_current}/metamodel/interface_OptionalAnnotation.html), 
   at most one annotation of a given program element may be of this annotation type, or, 
   otherwise
 * if an annotation type is a subtype of 
-  [`SequencedAnnotation`](#{site.urls.apidoc_current}/ceylon/language/metamodel/interface_SequencedAnnotation.html),
+  [`SequencedAnnotation`](#{site.urls.apidoc_current}/metamodel/interface_SequencedAnnotation.html),
   more than one
   annotation of a given program element may be of this annotation type.
 
@@ -200,7 +202,7 @@ Here are a couple of examples from the language spec:
 ## Reading annotation values at runtime
 
 Annotation values may be obtained by calling the toplevel method 
-[`annotations()`](#{site.urls.apidoc_current}/ceylon/language/metamodel/#annotations) defined in the language module.
+[`annotations()`](#{site.urls.apidoc_current}/metamodel/#annotations) defined in the language module.
 
 <!-- try: -->
 <!-- check:none:Annotations M5 -->
@@ -312,6 +314,13 @@ We won't need to use reflection in our example, since Ceylon's module
 architecture includes special built-in support for using annotations to add
 interceptors to methods and attributes.
 
-## There's more
+## There's more ...
 
-Next we're going to touch on Ceylons support for [interceptors](../interceptors).
+Well actually, we've finished the tour! Of course, there's still plenty of 
+scope for you to explore Ceylon on your own. You should now know enough to 
+start writing Ceylon code for yourself, and start getting to know the platform 
+modules.
+
+Alternatively, if you want to keep reading you can browse the 
+[reference documentation](#{page.doc_root}/reference) or (if you're sitting 
+comfortably) read the [specification](#{page.doc_root}/#{site.urls.spec_relative}).

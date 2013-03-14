@@ -39,28 +39,31 @@ A simple example of named argument invocation:
 ### Positional Invocation
 
 Syntactically, positional invocation uses parentheses (`(` and `)`) to
-enclose the arguments which are separated with commas (`,`).
+enclose the arguments which are separated with commas (`,`), thus forming 
+a *positional argument list*.
 
-Parameters with [default values](../../structure/method#defaulted_parameters) 
+Parameters with [default values](../../structure/parameter-list#defaulted_parameters) 
 may be omitted from the argument list.
 
-For example, given a method `m` [declared](../../structure/method) like this
+For example, given a 
+[*variadic method*](../../structure/parameter-list#variadic_methods_and_classes_varargs) 
+`varargs` declared like this
 
-<!-- id: m -->
-    void m(Integer i, String s="hello", Boolean... b) {
+<!-- id: varargs -->
+    void varargs(Integer i, String s="hello", Boolean* b) {
         /* method block: statements */
     }
     
 then positional invocations look like this:
 
-<!-- cat-id: m -->
-<!-- cat: void x() { -->
-    m(1);   // default parameter, empty sequence
-    m(2, "bonjour");  // empty sequence
-    m(3, "guttentag", true); // singleton sequence
-    m(4, "guttentag", true, true);
+<!-- cat-id: varargs -->
+<!-- cat: void calling_varargs() { -->
+    varargs(1);   // default parameter, empty sequence
+    varargs(2, "bonjour");  // empty sequence
+    varargs(3, "guttentag", true); // singleton sequence
+    varargs(4, "guttentag", true, true);
     Iterable<Boolean> someBooleans = {true, true, false};
-    m(4, "guttentag", someBooleans...);
+    varargs(4, "guttentag", someBooleans*);
 <!-- cat: } -->
 
 ### Named Argument Invocation
@@ -76,14 +79,14 @@ declared as a [sequenced parameter](../../structure/method#sequenced_parameter).
 For example given a method `m` [declared](../../structure/method) like this
 
 <!-- id: m -->
-    void m(Integer i, String s="hello", Boolean... b) {
+    void m(Integer i, String s="hello", Boolean* b) {
         /* method block: statements */
     }
     
 then named argument invocations look like this:
 
 <!-- cat-id: m -->
-<!-- cat: void x() { -->
+<!-- cat: void named_invocation() { -->
     m{
         s = "ola";
         i = 5;
@@ -108,7 +111,6 @@ then named argument invocations look like this:
         someBooleans...
     };
 <!-- cat: } -->
-
 
 
 #### Getter arguments
@@ -187,53 +189,19 @@ the same name as the relevant parameter.
 
 Note the argument is not followed by a semicolon in this case.
 
-### Sequenced arguments
+### Sequenced arguments (varargs)
 
-The arguments (if any) to a sequenced parameter are called the 
+The arguments (if any) to a 
+[variadic parameter](../../structure/parameter-list#variadic_methods_and_classes_varargs) 
+are called the 
 *sequenced arguments*. Sequenced arguments can be passed in two ways:
 
 1. If you already have an `Iterable` expression whose elements you'd like to 
-   use as the sequenced arguments you can pass it by appending ellipsis 
-   (`...`) to the argument expression. 
+   use as the sequenced arguments you can pass it by appending star 
+   (`*`) to the argument expression. This is called a *spread argument*.
 2. You can provide a comma-separated list of expressions to pass as the 
    sequenced arguments. The compiler will evaluate the expressions and wrap 
-   them in an `Iterable` for you.
-
-**Caution:** Because a sequenced parameter can be declared with a default value 
-just like any other parameter, care must be taken when you want to use an 
-`Empty` argument. Consider the following method:
-
-    void tricky(Object... args = {1, 2, 3}) {
-        // whatever
-    }
-    
-If we call `tricky()` with no arguments in positional style, or use the unnamed
-sequenced argument version of named invocation, then the default
-value for the parameter will take effect:
-
-    tricky(); // same as calling tricky(1, 2, 3)
-    tricky{};
-    
-What about the following:
-
-    tricky({});
-    
-Because of the parameter args is of type `Object...` there could be two 
-interpretations for this. We might mean "call tricky() with 
-the argument, `{ {} }`" or we could mean 
-"call tricky() with the empty sequence `{}`. The compiler assumes
-the first interpretation.
-
-There are a couple of ways we can make sure we get what we want, we can 
-either name the sequenced argument in a named argument invocation:
-
-    tricky{
-        args={};
-    };
-    
-Or we can use ellipsis in the invocation:
-
-    tricky({}...);
+   them in an `Sequential` or `Sequence` for you.
 
 ### Comprehensions
 
@@ -247,4 +215,4 @@ See the reference on [comprehensions](../comprehensions) for more details.
 ## See also
 
 * [Comprehensions](../comprehensions)
-* [`Callable`](#{page.doc_root}/api/ceylon/language/interface_Callable.html) API documentation,
+* [`Callable`](#{site.urls.apidoc_current}/interface_Callable.html) API documentation,

@@ -39,12 +39,12 @@ The *apply* version is used for invoking methods:
 The *follow* operator is defined as:
 
 <!-- check:none -->
-    lhs:=lhs.member
+    lhs = lhs.member
 
 The *apply* operator is defined as:
 
 <!-- check:none -->
-    lhs:=lhs.member(x,y,z)
+    lhs =   lhs.member(x,y,z)
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#basic) for more details.
 
@@ -54,8 +54,8 @@ The *follow* and *apply* operators are not [polymorphic](#{page.doc_root}/refere
 
 ## See also
 
-* API documentation for [`Attribute`] _doc coming soon at_ (#{page.doc_root}/api/ceylon/language/metamodel/Attribute)
-* API documentation for [`Method`] _doc coming soon at_ (#{page.doc_root}/api/ceylon/language/metamodel/Method)
+* API documentation for [`Attribute`] _doc coming soon at_ (#{site.urls.apidoc_current}/metamodel/Attribute)
+* API documentation for [`Method`] _doc coming soon at_ (#{site.urls.apidoc_current}/metamodel/Method)
 * [`.=` in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#basic)
 * [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 
   language specification

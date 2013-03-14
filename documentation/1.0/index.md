@@ -29,10 +29,19 @@ Try the [reference](reference) page.
 Or, if you want to be absolutely certain, you can dive into the 
 [language specification](spec)&mdash;the gospel according to Ceylon.
 
-The [API documentation](api/ceylon/language) for the Ceylon Language Module 
-`ceylon.language` is also available here. You can find the API documentation 
-for other modules, including platform modules in 
-[Herd](http://modules.ceylon-lang.org/).
+## Module APIs
+
+You can find the API documentation for modules, including platform modules, 
+in [Herd](http://modules.ceylon-lang.org/). The API documentation for the 
+Ceylon Language Module `ceylon.language` is 
+[right here](#{site.urls.apidoc_current}/index.html).
+
+## Tools
+
+You can find information about [Ceylon IDE](ide) and how to 
+[install it](ide/install).
+
+There is even [Vim support](resources/vim) available.
 
 ## Got questions? We have FAQs
 

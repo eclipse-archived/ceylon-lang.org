@@ -50,8 +50,8 @@ Given type expressions `X` and `Y`, Ceylon lets you express the union of
 instances of those types using the notation `X|Y`. For example:
 
 <!-- cat: void m() { -->
-    variable String|Integer x:= "";
-    x:= 0;
+    variable String|Integer x = "";
+    x = 0;
 <!-- cat: } -->
 
 ### Intersection types
@@ -80,37 +80,62 @@ It is also possible to define [class aliases](../class#aliases)
     interface Strings = Collection<String>;
 
     
-### `Nothing`
+### `Null`
 
-`Nothing` is the type of `null`. If an expression permits `null` then it
-needs `Nothing` as a supertype. This is usually expressed as using a 
-[union type](#union_types) such as `T|Nothing`, which can be abbreviated 
+`Null` is the type of `null`. If an expression permits `null` then it
+needs `Null` as a supertype. This is usually expressed as using a 
+[union type](#union_types) such as `T|Null`, which can be abbreviated 
 as `T?`.
 
-### `Bottom`
+### `Nothing`
 
-`Bottom` is the intersection of *all* types. It is equivalent to the empty set.
-Because `Bottom` is the intersection of all types it is assignable to 
+`Nothing` is the intersection of *all* types. It is equivalent to the empty set.
+Because `Nothing` is the intersection of all types it is assignable to 
 all types. Similarly because it is the intersection of all types it can have 
 no instances.
+
+### `Sequential`
+
+`Sequential` is an enumerated type with subtypes `Sequence` and `Empty`
+`Sequential<T>` is usually abbreviated to `T[]`.
 
 ### `Empty`
 
 `Empty` is the type of the 
-[expression `{}`](../../expression/sequence-instantiation). 
+[expression `[]`](../../expression/sequence-instantiation). 
 
 ### `Sequence`
 
 `Sequence` is the type of non-empty 
-[sequences](../../expression/sequence-instantiation). Because we often want 
-to treat empty and non-empty sequences in a common way the 
-[union type](#union_types) `Sequence<T>|Empty` can be abbreviated to `T[]`.
+[sequences](../../expression/sequence-instantiation).
 
-### Type inference
+### `Tuple`
 
-Local declarations don't need to explictly declare a type, they can let the 
-compiler infer the type from the expression. Because the type system is based 
-on *principal types* there is only one type the compiler can infer.
+`Tuple` is a subclass of `Sequence` (and thus cannot be empty). It differs from 
+`Sequence` in that the typechecker knows types of each of its elements 
+individually.
+
+    [Integer, Boolean, String] t = [1, true, ""];
+    Integer first = t[0];
+    Boolean second = t[1];
+    String last = t[2];
+
+Tuples also have a notion of 'variadicity':
+
+    // A tuple of at least two elements
+    // the first is an Integer and 
+    // the rest are Boolean
+    [Integer, Boolean+] t = [1, true, false];
+    // A tuple of at least element
+    // the first is an Integer and 
+    // the rest are Boolean
+    [Integer, Boolean*] t2 = t;
+
+`Tuple`s thus have the same assignability rules as do 
+positional argument list and parameter lists.
+
+Unabreviated tuple types are extremely verbose, and therefore the abbreviated 
+form is strongly preferred. 
 
 ## See also
 
@@ -120,4 +145,5 @@ on *principal types* there is only one type the compiler can infer.
 * [`object` declaration](../object)
 * [method declaration](../method)
 * [attribute declaration](../attribute)
+* [type abbreviations](../type-abbreviation)
 * [type parameters](../type-parameters)

@@ -42,6 +42,7 @@ But that's not the role of the exceptions above. These exceptions:
 Instead, Ceylon tries to encode these "corner" conditions into the type
 system. The compiler won't let you write:
 
+<!-- try: -->
     print(process.arguments[1].uppercased);
 
 This code isn't well-typed because `process.arguments[1]` is of type
@@ -51,6 +52,7 @@ in the list `process.arguments`.
 Instead you're forced to at least take into account the possibility that
 there are less than two arguments:
 
+<!-- try: -->
     if (exists arg = process.arguments[1]) {
         print(arg.uppercased);
     }
@@ -70,6 +72,7 @@ would.
 But _what if_, ask my doubters, I already _know_ that there is more than
 one argument? What if my code looks like this:
 
+<!-- try: -->
     if (process.arguments.size>=3) {
         if (exists arg = process.arguments[1]) {
             print(arg.uppercased);
@@ -97,6 +100,7 @@ later.
 
 We can rewrite the example above like this:
 
+<!-- try: -->
     if (process.arguments.size>=3) {
         assert(exists arg = process.arguments[1]);
         print(arg.uppercased);
@@ -104,6 +108,7 @@ We can rewrite the example above like this:
 
 Or even like this:
 
+<!-- try: -->
     value arg = process.arguments[1];
     if (process.arguments.size>=3) {
         assert(exists arg);
@@ -113,6 +118,7 @@ Or even like this:
 You can `assert` an `exists`, `nonempty`, `is`, or boolean condition,
 all the same options you have with `if` or `while`.
 
+<!-- try: -->
     Object person = ... ;
     assert (is Person person);
     print(person.name);
@@ -123,6 +129,7 @@ the syntax reflects a much more disciplined approach to the problem.
 You're encouraged to add some extra information to document the
 assertion:
 
+<!-- try: -->
     value arg = process.arguments[1];
     if (process.arguments.size>=3) {
         doc "second argument must be provided"
@@ -136,6 +143,7 @@ This documentation becomes especially useful if start using Extract
 Function to refactor this code:
 
     
+<!-- try: -->
     void printSecondArg(String? arg) {
         doc "second argument must be provided"
         assert(exists arg);
@@ -154,6 +162,7 @@ preconditions.
 A single `assert` statement may assert multiple conditions, for 
 example:
 
+<!-- try: -->
     value first = process.arguments[0];
     value second = process.arguments[1];
     if (process.arguments.size>=3) {
@@ -164,6 +173,7 @@ example:
 For the record, by popular demand, Ceylon M4 even lets us include multiple 
 conditions in an `if` or `while` statement:
 
+<!-- try: -->
     if (exists first = process.arguments[0],
         exists second = process.arguments[1]) {
         print(first + ", " + second);

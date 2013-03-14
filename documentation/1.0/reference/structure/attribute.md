@@ -18,16 +18,19 @@ An attribute holds state.
 A `variable` attribute declaration:
 
 <!-- id:attr -->
-    variable String? firstName := "John";
-    variable String? lastName := "Smith";
+    variable String? firstName = "John";
+    variable String? lastName = "Smith";
 
 An attribute getter:
 
 <!-- id:attr2 -->
 <!-- cat-id: attr -->
+    // A getter with a block:
     shared String name {
         return (firstName ? "") + " " + (lastName ? "");
     }
+    // A getter using 'fat arrow':
+    shared String nameNormalized => name.normalized;
     
 An attribute setter:
 
@@ -36,8 +39,8 @@ An attribute setter:
 <!-- cat: String[] parseName(String? name) { throw; } -->
     assign name {
         value parts = parseName(name);
-        firstName := parts[0];
-        lastName := parts[1];
+        firstName = parts[0];
+        lastName = parts[1];
     }
     
 
@@ -51,13 +54,15 @@ attribute (that is, an attribute within a block) represents state associated
 with execution of that block.
 
 If the attribute is annotated `shared` it can be 
-[assigned](#{page.doc_root}/reference/operator/assignment) more than once.
+[assigned](#{page.doc_root}/reference/operator/assign) more than once.
 Otherwise it must be [specified](#{page.doc_root}/reference/statement/specification) 
 exactly once, moreover the specification must occur before its first use.
 
 ### Attribute Getters (derived attributes)
 
-An attribute getter defines how the value of a derived attribute is obtained.
+An attribute getter defines how the value of a derived attribute is obtained. 
+Like methods, you can either use a block of statements or the *fat arrow*
+(`=>`) syntax if the attribute value can be computed from a single expression.
 
 ### Attribute Setters
 
@@ -68,16 +73,32 @@ declaration.
 
 ### Type inference
 
-The type of a [block local](TODO) attribute will be inferred by the compiler
-if the keyword `value` is given in place of a type. In the example below the
-`name` attribute's type is inferred to be `Name`:
+Attribute declarations often don't need to explictly declare a type, 
+but can instead use 
+[type inference](../type-inference) via the `value` keyword.
 
-<!-- TODO Better example -->
+### `late` attributes
 
-<!-- check:none -->
-    value name { 
-        return Name(firstName, initial, lastName);
+An attribute can be declared `late` in which case the typechecker's
+definite specification checks are not performed. Instead code is generated 
+which performs a runtime check for accessing the attribute when it hasn't 
+been initialized uninitialised (and re-initializing a
+non-`variable` attribute that has already been initialized). 
+
+This is intended to permit cyclic references between attributes, for example:
+
+    class Child() {
+        shared late Parent parent;
     }
+    class Parent(children) {
+        shared Child* children;
+        for (child in children) {
+            child.parent = this;
+        }
+    }
+
+Only simple attributes may be annotated `late` 
+(it doesn't make sense for attribute getters). 
 
 ## See also
 

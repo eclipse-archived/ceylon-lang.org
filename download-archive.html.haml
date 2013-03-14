@@ -6,8 +6,25 @@ unique_id: downloadpage
 author: Stef
 ---
 
-- latest = "M4 0.4"
-- releases = [{"name" => "Analytical Engine",
+- latest = "M5 0.5"
+- releases = [{"name" => "Nesa Pong",
+               "version" => "M5 0.5",
+               "date" => "Mar 13 2013",
+               "size" => "11MB",
+               "files" => [{"name" => "Zip archive",
+                            "use" => "All Operating Systems",
+                            "href" => "/download/dist/1_0_Milestone5",
+                            "image" => "/images/download/package-zip.png"},
+                           {"name" => "RPM",
+                            "use" => "Fedora/Red Hat",
+                            "href" => "/download/dist/1_0_Milestone5_rpm",
+                            "image" => "/images/download/package-fedora.png"},
+                           {"name" => "Debian package",
+                            "use" => "Debian/Ubuntu",
+                            "href" => "/download/dist/1_0_Milestone5_deb",
+                            "image" => "/images/download/package-debian.png"},
+                            ]},
+              {"name" => "Analytical Engine",
                "version" => "M4 0.4",
                "date" => "Oct 29 2012",
                "size" => "15MB",
@@ -98,8 +115,8 @@ author: Stef
  = page.title
 
 %p
- %a{ :href => "/blog/2012/10/29/ceylon-m4-analytical-engine?utm_source=download&utm_medium=web&utm_content=blog&utm_campaign=latestrelease" }
-  Ceylon M4 "Analytical Engine"
+ %a{ :href => "/blog/2013/03/14/ceylon-m5-nesa-pong?utm_source=download&utm_medium=web&utm_content=blog&utm_campaign=latestrelease" }
+  Ceylon M5 "Nesa Pong"
  is the latest release of the language, command line tools and IDE, but if you need older versions of the Command-line distribution,
  you can find them all here.
 
@@ -142,8 +159,8 @@ author: Stef
      = release["size"]
     %td
      %a{ :href => file["href"], 
+         :class => 'bubble-button',
          :title => 'Download the ' + file["name"],
-         :style => 'font-weight:bold;text-decoration:none',
          :onClick => "javascript: _gaq.push(['_trackPageview', '" + file["href"] + "?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);"}
       download
    

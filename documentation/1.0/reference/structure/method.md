@@ -20,11 +20,11 @@ looks like this:
         /* method block: statements */
     }
     
-Alternatively it is possible to declare a method using a 
-[*specifier*](#method_specifiers), like this:
+Alternatively it is possible to declare a method using 
+[*fat arrow* (`=>`)](#method_specifiers), like this:
 
 <!-- cat: void anotherMethod(){} -->
-    void m() = anotherMethod;
+    void m() => anotherMethod();
 
 ## Description
 
@@ -43,7 +43,15 @@ the method receiver.
 ### Return type
 
 A method declaration always specifies the *return type* of the method, or the 
-keyword `void` if the method has no return type.
+keyword `void` if the method has no return value.
+
+The type system considers a `void` method identically to a method declared to 
+return `Anything`. In particular a `void` member method can actually 
+be refined by a subtype to return a more specific type. The value actually 
+returned from an unrefined `void` method is always `null`.
+
+Method declarations often don't need to explictly declare a type, but can instead use 
+[type inference](../type-inference) via the `function` keyword.
 
 ### Type parameters
 
@@ -68,86 +76,10 @@ Of course, methods may be members of types which themselves have
 A method declaration may have a `given` clause for each declared type parameter 
 to [constraint the permitted type argument](../type-parameters#constraints).
 
-### Parameter lists
+### Parameter list
 
-Methods may have zero or more *parameters* (called *arguments* when the method is 
-[invoked](../../expression/invocation)). Syntactically the method parameters 
-are a comma separated list enclosed in parentheses following
-the [type parameters](#type_parameters). Each parameter is composed of a 
-type expression and a name. 
+A method declaration requires a [parameter list](../parameter-list)
 
-For example a method taking an Integer parameter `i` and a parameter `b` 
-whose type is a type parameter `<Z>` looks like this:
-
-    void m<Z>(Integer i, Z b) {
-        /* method body: statements */
-    }
-
-
-#### Defaulted parameters
-
-A default value for a parameter may be specified. This allows the method to 
-be [invoked](../../expression/invocation) without passing an argument for 
-that parameter. Parameters with default values may be called 
-*optional* parameters, simiarly parameters without default values may be called
-*required* parameters.
-
-Syntactically default values are [expressions](../../#expression) separated from the 
-parameter name with the equals specifier.
-
-For example a method `m` declared like this
-
-<!-- id:m -->
-    void m(Integer i = 0) {
-        /* method body: statements */
-    }
-
-can be [invoked](../../expression/invocation) without supplying an argument 
-for the parameter `i`, like this:
-
-<!-- cat-id:m -->
-<!-- cat: void m2() { -->
-    m();
-<!-- cat: } -->
-
-To avoid ambiguity, defaulted parameters are only permitted after all the 
-non-defaulted parameters in the parameter list.
-
-#### Sequenced parameter
-
-A method may have a *sequenced parameter* (just one) as the last parameter 
-in the parameter list. This allows the method to be 
-[invoked](../../expression/invocation) with the caller specifying zero or 
-more arguments after the next-to-last argument.
-
-Syntactically sequenced parameters are declared as a type name followed by 
-ellipsis (`...`) followed by the parameter name.
-
-For example a method `m` declared like this
-
-<!-- id:m -->
-    void m(String s, Integer... i) {
-        /* method body: statements 
-           parameter i treated as an Integer[] */
-    }
-
-can be [invoked](../../expression/invocation) supplying a zero or more 
-expressions for `i`, like this:
-
-<!-- cat-id:m -->
-<!-- cat: void x() { -->
-    m("hello");
-    m("hello", 1);
-    m("hello", 1, 2);
-    m("hello", 1, 2, 3);
-<!-- cat: } -->
-
-Within the method block a sequenced parameter declared as `T...` has 
-type [`T[]`](../type#Sequence).
-
-#### Multiple parameter lists
-
-TODO
 
 ### Exceptions
 
@@ -170,20 +102,23 @@ TODO
 
 ### Method blocks
 
-The body of a method is composed of [statements](../../#statement).
+The body of a method is composed of [statements](../../#statement) in a 
+brace-delimited *block*.
 
-The body of a non-`void` method must (*definitely return*)[TODO].
+The body of a non-`void` method must *definitely return*.
 
 ### Method specifiers
 
-An alternative to providing a method block is to specify a callable 
-expression (often a [callable reference](../../expression/callable-reference)) 
-using `=`:
+An alternative to providing a method block is to use *fat arrow* (`=>`) syntax 
+and provide a single expression:
 
 <!-- cat: void anotherMethod(){} -->
-    void m() = anotherMethod;
+    Integer zero() => 0
+    void callAnother() => anotherMethod();
 
-This is similar to [class alises](../class#aliases).
+Note that you can use this to *partially apply* a method:
+
+    function zeroTo(Integer n) => Range(0, n);
 
 ### Type inference
 

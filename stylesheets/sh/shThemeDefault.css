@@ -35,17 +35,16 @@
 
 .syntaxhighlighter
 {
-	background-color: #fff !important;
-	padding: 30px;
+	background-color: white !important;
 }
 
-/* Highlighed line number */
+/* Highlighted line number */
 .syntaxhighlighter .line.highlighted .number
 {
 	color: black !important;
 }
 
-/* Highlighed line */
+/* Highlighted line */
 .syntaxhighlighter .line.highlighted.alt1,
 .syntaxhighlighter .line.highlighted.alt2
 {
@@ -62,7 +61,7 @@
 .syntaxhighlighter .line .content
 {
 	border-left: 3px solid #6CE26C !important;
-	color: #000 !important;
+	color: black !important;
 }
 
 .syntaxhighlighter.printing .line .content 
@@ -73,13 +72,13 @@
 /* First line */
 .syntaxhighlighter .line.alt1
 {
-	background-color: #f5f5f5 !important;
+	background-color: white !important;
 }
 
 /* Second line */
 .syntaxhighlighter .line.alt2
 {
-	background-color: #f5f5f5 !important;
+	background-color: white !important;
 }
 
 .syntaxhighlighter .toolbar
@@ -104,24 +103,26 @@
 .syntaxhighlighter .plain,
 .syntaxhighlighter .plain a
 { 
-	color: #000 !important;
+	color: black !important;
 }
 
 .syntaxhighlighter .comments,
 .syntaxhighlighter .comments a
 { 
-	color: #428161 !important;
+    font-style: italic !important;
+    color: red !important; 
 }
 
 .syntaxhighlighter .string,
 .syntaxhighlighter .string a
 {
-	color: #0404d1 !important; 
+	color: blue !important; 
+	text-decoration: none;
 }
 
 .syntaxhighlighter .keyword
 { 
-	color: #7f0055 !important; 
+	color: darkmagenta !important; 
 	font-weight: bold !important; 
 }
 
@@ -132,23 +133,22 @@
 
 .syntaxhighlighter .variable 
 { 
-	color: #a70 !important; 
+	color: black !important; 
 }
 
 .syntaxhighlighter .value
 { 
-	color: #0404d1 !important; 
+	color: blue !important; 
 }
 
 .syntaxhighlighter .functions
 { 
-        font-style: normal;
-	color: #808080 !important; 
+	color: black !important; 
 }
 
 .syntaxhighlighter .constants
 { 
-	color: #0066CC !important; 
+	color: black !important; 
 }
 
 .syntaxhighlighter .script
@@ -159,19 +159,19 @@
 .syntaxhighlighter .color1,
 .syntaxhighlighter .color1 a
 { 
-        font-style: normal;
-	color: #0d0380 !important; 
+	color: darkblue !important; 
 }
 
 .syntaxhighlighter .color2,
 .syntaxhighlighter .color2 a
 { 
-	color: #000000 !important; 
-        font-style: normal;
+    color: darkcyan !important; 
+	//color: darkgray !important; 
 }
 
 .syntaxhighlighter .color3,
 .syntaxhighlighter .color3 a
 { 
 	color: red !important; 
+    font-style: italic !important;
 }

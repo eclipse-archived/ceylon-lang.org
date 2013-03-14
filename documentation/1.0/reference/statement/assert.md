@@ -69,7 +69,6 @@ these narrow the type of a reference in the statements following the `assert`.
 
 ### Condition lists
 
-<!-- m4 -->
 The condition in an `assert` statement can also be a
 [condition list](../conditions#condition_lists).
 

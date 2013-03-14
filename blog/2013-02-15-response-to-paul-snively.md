@@ -30,11 +30,13 @@ We "reserve expressive power" here, in the sense that we don't let you
 write your own `MyTuple` class, and then instantiate it using this 
 syntax:
 
+<!-- try: -->
     [String,String] myTuple = ["hello","world"];
 
 If you want to use the brackets, you're stuck with our `Tuple` class, and
 if it doesn't suit your needs just right, you're going to have to write:
 
+<!-- try: -->
     MyTuple<String,MyTuple<String>> myTuple = MyTuple("hello",MyTuple("world"));
 
 Or whatever. Likewise, while you can certainly use the `+` operator with
@@ -43,6 +45,7 @@ your own `Complex` class, if you want to use it to add a `Period` to a
 that `+` must be a symmetric operation via the self-type constraint on
 `Other`. You're going to have to write:
 
+<!-- try: -->
     value date = delay after now;
 
 Or whatever.

@@ -8,7 +8,7 @@ author: Gavin King
 
 # #{page.title}
 
-This is the tenth part of the Tour of Ceylon. In the [previous leg](../modules) 
+This is the eleventh part of the Tour of Ceylon. In the [previous leg](../modules) 
 we looked at packages and modules. This leg covers first class and higher-order 
 functions.
 
@@ -34,7 +34,7 @@ and higher order functions. A little bit of PL jargon:
   arguments, or returns another function.
   
 It's clear that these two ideas go hand-in-hand, so we'll just use the term 
-"higher order function support" from now on.
+"higher order functions" from now on.
 
 
 ## Representing the type of a function
@@ -47,17 +47,18 @@ types of a function into the type system. Remember that Ceylon doesn't have
 representable within the type system as a class or interface declaration.
 
 In Ceylon, a single type 
-[`Callable`](#{site.urls.apidoc_current}/ceylon/language/interface_Callable.html) 
+[`Callable`](#{site.urls.apidoc_current}/interface_Callable.html) 
 abstracts *all* functions. Its declaration is the following:
 
 <!-- check:none -->
-    interface Callable<out Result, Argument...> {}
+    shared interface Callable<out Return, in Arguments> 
+            given Arguments satisfies Anything[] {}
 
-The syntax `P...` is called a *sequenced type parameter*. By analogy with a 
-sequenced parameter, which accepts zero or more values as arguments, 
-a sequenced type parameter accepts zero or more types as arguments. The type 
-parameter `Result` represents the return type of the function. The sequenced 
-type parameter `Argument...` represents the parameter types of the function.
+The type parameter `Return` represents the return type of the function. The 
+sequenced type parameter `Arguments`, which must be a sequence type, 
+represents the parameter types of the function. We can encode any parameter
+list as a tuple type. For example, the parameter list `(String s, Float x)`
+is encoded as the tuple type `[String,Float]`.
 
 So, take the following function:
 
@@ -65,31 +66,43 @@ So, take the following function:
 
     print(sum(4, 2));
 -->
-    function sum(Integer x, Integer y) { return x+y; }
+    function sum(Integer x, Integer y) => x+y;
 
-The type of `sum()` in is:
+The type of `sum()` is:
 
 <!-- try: -->
 <!-- check:none -->
-    Callable<Integer, Integer, Integer>
+    Callable<Integer,[Integer,Integer]>
 
 What about `void` functions? Well, remember that way back in [the first part 
 of the tour](../basics) we said that the return type of a `void` function is 
-`Void`. So the type of a function like `print()` is:
+`Anything`. So the type of a function like `print()` is:
 
 <!-- try: -->
 <!-- check:none -->
-    Callable<Void,String>
+    Callable<Anything,[Anything]>
 
 Note that a `void` function always implicitly returns the value `null`. This
-is different to a function declared to return the type `Void`, which may 
+is different to a function declared to return the type `Anything`, which may 
 return any value at all, but must do it explicitly, via a `return` statement.
+The following functions have the same type, `Anything()`, but don't do exactly 
+the same thing:
+
+    Anything hello() { 
+        print("hello");
+        return "hello";
+    }
+
+    void hello() { 
+        print("hello");
+        //implicitly returns null
+    }
 
 We can abbreviate `Callable` types with a little syntax sugar:
 
-- `Integer(Integer,Integer)` means `Callable<Integer,Integer,Integer>`, 
+- `Integer(Integer,Integer)` means `Callable<Integer,[Integer,Integer]>`, 
    and, likewise,
-- `Void(String)` means `Callable<Void,String>`.
+- `Anything(String)` means `Callable<Anything,[String]>`.
 
 <!--
 ## Representing the type of a method
@@ -141,7 +154,8 @@ a function.
 
 <!-- try: -->
 <!-- check:none:BROKEN -->
-    void repeat(Integer times, Void(Integer) perform) {
+    void repeat(Integer times, 
+            Anything(Integer) perform) {
         for (i in 1..times) {
             perform(i);
         }
@@ -150,13 +164,14 @@ a function.
 Let's try it:
 
 <!-- try-pre:
-    void repeat(Integer times, Void(Integer) perform) {
+    void repeat(Integer times, 
+            Anything(Integer) perform) {
         for (i in 1..times) {
             perform(i);
         }
     }
 -->
-    void printNum(Integer n) { print(n); }
+    void printNum(Integer n) => print(n);
     repeat(10, printNum);
 
 Which would print the numbers 1 to 10 to the console.
@@ -168,31 +183,32 @@ syntax for declaring a parameter of type `Callable`:
 
 <!-- try-post:
 
-    void printNum(Integer n) { print(n); }
+    void printNum(Integer n) => print(n);
     repeat(10, printNum);
 -->
 <!-- id:repeat -->
-    void repeat(Integer times, void perform(Integer n)) {
+    void repeat(Integer times, 
+            void perform(Integer n)) {
         for (i in 1..times) {
-            perform{n=i;};
+            perform { n=i; };
         }
     }
 
-Many people find this version also slightly more readable and more regular, 
-so this is the preferred syntax.
+This version is also slightly more readable, so it's the preferred syntax.
 
 
 ## Function references
 
 When a name of a function appears without any arguments, like `printNum` does 
-above, it's called a *function reference*. A function reference is the 
-thing that really has the type `Callable`. In this case, `printNum` has the type 
-`Callable<Void,Integer>`.
+above, it's called a *function reference*. A function reference is the thing 
+that really has the type `Callable`. In this case, `printNum` has the type 
+`Callable<Anything,Integer>`.
 
-Now, remember how we said that `Void` is both the return type of a 
-void method, and also the logical root of the type hierarchy? Well that's 
-useful here, since it means that we can assign a function with a non-`Void` 
-return type to any parameter which expects a void method:
+Now, remember how we said that `Anything` is both the return type of a `void` 
+function, and also the logical root of the type hierarchy? Well that's useful 
+here, since it means that we can assign a function with any return type to any 
+parameter which expects a `void` function, as long as the parameter lists 
+match:
 
 <!-- try: -->
 <!-- id:attemptPrint -->
@@ -209,9 +225,10 @@ return type to any parameter which expects a void method:
 And call it like this
 
 <!-- try-pre:
-    void repeat(Integer times, void perform(Integer n)) {
+    void repeat(Integer times, 
+            void perform(Integer n)) {
         for (i in 1..times) {
-            perform{n=i;};
+            perform { n=i; };
         }
     }
     Boolean attemptPrint(Integer n) {
@@ -231,7 +248,6 @@ And call it like this
     repeat(10, attemptPrint);
 <!-- cat: } -->
 
-
 Another way we can produce a function reference is by partially applying a 
 method to a receiver expression. For example, we could write the following:
 
@@ -239,22 +255,23 @@ method to a receiver expression. For example, we could write the following:
 <!-- id:Hello -->
     class Hello(String name) {
         shared void say(Integer n) {
-            print("Hello, " name ", for the " n "th time!");
+            print("Hello, ``name``, for the ``n``th time!");
         }
     }
 
 And call it like this:
 
 <!-- try-pre:
-    void repeat(Integer times, void perform(Integer n)) {
+    void repeat(Integer times, 
+            void perform(Integer n)) {
         for (i in 1..times) {
-            perform{n=i;};
+            perform { n=i; };
         }
     }
 
     class Hello(String name) {
         shared void say(Integer n) {
-            print("Hello, " name ", for the " n "th time!");
+            print("Hello, ``name``, for the ``n``th time!");
         }
     }
 -->
@@ -265,46 +282,7 @@ And call it like this:
 <!-- cat: } -->
 
 Here the expression `Hello("Gavin").say` has the same type as `print` above. 
-It is a `Void(Integer)`.
-
-Function references don't only appear in argument lists. It's even possible
-to define a function by reference:
-
-<!-- try-pre:
-    void repeat(Integer times, void perform(Integer n)) {
-        for (i in 1..times) {
-            perform{n=i;};
-        }
-    }
-
-    class Hello(String name) {
-        shared void say(Integer n) {
-            print("Hello, " name ", for the " n "th time!");
-        }
-    }
-
--->
-<!-- try-post:
-    repeat(10, sayHelloToTako);
--->
-    void sayHelloToTako(Integer n) = Hello("Tako").say;
-
-A reference to a class is also a function reference! A class is considered a 
-function that produces an instance:
-
-<!-- try-pre:
-    class Hello(String name) {
-        shared void say(Integer n) {
-            print("Hello, " name ", for the " n "th time!");
-        }
-    }
-
--->
-<!-- try-post:
-
-    createHello("Stephane").say(1);
--->
-    Hello createHello(String name) = Hello;
+It is of type `Anything(Integer)`.
 
 
 ## Curried functions
@@ -317,33 +295,45 @@ multiple lists of parameters:
 
     print(adder(4.0)(2.0));
 -->
-    Float adder(Float x)(Float y) {
-        return x+y;
-    }
+    Float adder(Float x)(Float y) => x+y;
 
 The `adder()` function has type `Float(Float)(Float)`. We can invoke it with
-a single argument to get a reference to a function of type `Float(Float)`:
+a single argument to get a reference to a function of type `Float(Float)`,
+and store this reference as a function, like this:
 
 <!-- try-pre:
-    Float adder(Float x)(Float y) {
-        return x+y;
-    }
+    Float adder(Float x)(Float y) => x+y;
 
 -->
 <!-- try-post:
 
     print(addOne(4.0));
 -->
-    Float addOne(Float y) = adder(1.0);
+    Float addOne(Float y);
+    addOne = adder(1.0);
+
+Or as a value, like this:
+
+<!-- try-pre:
+    Float adder(Float x)(Float y) => x+y;
+
+-->
+<!-- try-post:
+
+    print(addOne(4.0));
+-->
+    Float(Float) addOne = adder(1.0);
+
+(There only real difference between these two approaches is that in the 
+first case we get to assign a name to the parameter of `addOne()`.)
 
 When we subsequently invoke `addOne()`, the actual body of `adder()` is 
 finally executed, producing a `Float`:
 
 <!-- try-pre:
-    Float adder(Float x)(Float y) {
-        return x+y;
-    }
-    Float addOne(Float y) = adder(1.0);
+    Float adder(Float x)(Float y) => x+y;
+    Float addOne(Float y);
+    addOne = adder(1.0);
 
 -->
 <!-- try-post:
@@ -358,10 +348,10 @@ finally executed, producing a `Float`:
 The most famous higher-order functions are a trio of functions for tranforming,
 filtering, and summarizing sequences of values. In Ceylon, these three functions,
 `map()`, `filter()`, and `fold()` are methods of the interface 
-[`Iterable`](#{site.urls.apidoc_current}/ceylon/language/interface_Iterable.html).
+[`Iterable`](#{site.urls.apidoc_current}/interface_Iterable.html).
 (They even have a fourth, slightly less glamorous friend called `find()`, also a 
 method of `Iterable`.)
- 
+
 As you've probably noticed, all the functions we've defined so far have been 
 declared with a name, using a traditional C-like syntax. There's nothing wrong
 with passing a named function to `map()` or `filter()`, and indeed that is often
@@ -381,21 +371,43 @@ However, quite commonly, it's inconvenient to have to declare a whole named
 function just to pass it to `map()`, `filter()`, `fold()` or `find()`. Instead, 
 we can declare an *anonymous function* inline, as part of the argument list:
 
+<!-- try-pre:
+    value measurements = { 3.4, 8.7, 1.7, 13.1, 7.7, 1.2 };
+
+-->
 <!-- try-post:
 
     print(max);
 -->
-    Float max = {1.0, 2.0}.fold(0.0, 
-            (Float max, Float num) num>max then num else max);
+    Float max = measurements.fold(0.0, 
+            (Float max, Float num) => 
+                    num>max then num else max);
 
 An anonymous function has:
 
-- a parameter list, followed by
-- an expression.
+- optionally, the keyword `function` or `void`, and then
+- a parameter list, enclosed in parentheses, followed by
+- a fat arrow, `=>`, with an expression, or
+- a block.
 
-Anonymous functions in positional argument lists can't have multiple statements
-like in some languages (we think that just gets really messy). However, inline 
-functions in [named argument lists](../named-arguments) _can_.
+So we could rewrite the above using a block
+
+<!-- try-pre:
+    value measurements = { 3.4, 8.7, 1.7, 13.1, 7.7, 1.2 };
+
+-->
+<!-- try-post:
+
+    print(max);
+-->
+    Float max = measurements.fold(0.0, 
+            (Float max, Float num) {
+                return num>max then num else max;
+            });
+
+Note that it's quite difficult to come up with a good way to format anonymous
+functions with blocks, so it's usually better to just give the function a 
+name and use it by reference.
 
 ## More about higher-order functions
 
@@ -416,10 +428,10 @@ other objects in the system. We could use something like Java's
     }
     abstract class Component() {
          
-        variable Observer[] observers := {};
+        variable {Observer*} observers = {};
          
-        shared void addObserver(Observer o) {
-            observers:=observers.append(observe);
+        shared void addObserver(Observer observer) {
+            observers = {observer, *observers};
         }
          
         shared void fire(Event event) {
@@ -441,10 +453,10 @@ a parameter.
 <!-- check:parse:Requires OpenList -->
     abstract class Component() {
          
-        variable Void(Event)[] observers := {};
+        variable {Anything(Event)*} observers = {};
          
         shared void addObserver(void observe(Event event)) {
-            observers:=observers.append(observe);
+            observers = {observe, *observers};
         }
          
         shared void fire(Event event) {
@@ -458,7 +470,7 @@ Here we see the difference between the two ways of specifying a function type:
 
 * `void observe(Event event)` is more readable in parameter lists, where 
   `observe` is the name of the parameter, but
-* `Void(Event)` is useful in container types like sequences.
+* `Anything(Event)` is useful in container types such as iterables.
 
 Now, any event observer can just pass a reference to one of its own methods to 
 `addObserver()`:
@@ -466,10 +478,13 @@ Now, any event observer can just pass a reference to one of its own methods to
 <!-- try-pre:
     interface Event { }
     abstract class Component() {
-        variable Void(Event)[] observers := {};
+         
+        variable {Anything(Event)*} observers = {};
+         
         shared void addObserver(void observe(Event event)) {
-            //observers:=observers.append(observe);
+            observers = {observe, *observers};
         }
+         
         shared void fire(Event event) {
             for (observe in observers) {
                 observe(event);
@@ -494,7 +509,7 @@ Now, any event observer can just pass a reference to one of its own methods to
 
 When the name of a method appears in an expression without a list of arguments 
 after it, it is a reference to the method, not an invocation of the method. 
-Here, the expression `onEvent` is an expression of type `Void(Event)` that 
+Here, the expression `onEvent` is an expression of type `Anything(Event)` that 
 refers to the method `onEvent()`.
 
 If `onEvent()` were `shared`, we could even wire together the `Component` and 
@@ -504,10 +519,13 @@ on `Component`:
 <!-- try-pre:
     interface Event { }
     abstract class Component() {
-        variable Void(Event)[] observers := {};
+         
+        variable {Anything(Event)*} observers = {};
+         
         shared void addObserver(void observe(Event event)) {
-            //observers:=observers.append(observe);
+            observers = {observe, *observers};
         }
+         
         shared void fire(Event event) {
             for (observe in observers) {
                 observe(event);
@@ -546,18 +564,24 @@ use a `Subscription` interface:
     interface Subscription {
          shared formal void cancel();
     }
-    abstract class Component () {
-
-        shared Subscription addObserver( void observe( Event event)) {
-            //observers:=observers.append(observe);
-            object subscription  satisfies Subscription {
-                shared actual void cancel() {
-                    //observers.remove(observe);
-                }
+    shared abstract class Component() {
+         
+        variable {Anything(Event)*} observers = {};
+         
+        shared Subscription addObserver(void observe(Event event)) {
+            observers = {observe, *observers};
+            object subscription satisfies Subscription {
+                cancel() => observers.remove(observe);
             }
             return subscription;
-         }
-
+        }
+         
+        shared void fire(Event event) {
+            for (observe in observers) {
+                observe(event);
+            }
+        }
+     
     }
 -->
 <!-- check:parse:Depends on OpenList -->
@@ -566,19 +590,21 @@ use a `Subscription` interface:
     }
     shared abstract class Component() {
          
-        // ...
+        variable {Anything(Event)*} observers = {};
          
         shared Subscription addObserver(void observe(Event event)) {
-           observers:=observers.append(observe);
+            observers = {observe, *observers};
             object subscription satisfies Subscription {
-                shared actual void cancel() {
-                    observers.remove(observe);
-                }
+                cancel() => observers.remove(observe);
             }
             return subscription;
         }
          
-        // ...
+        shared void fire(Event event) {
+            for (observe in observers) {
+                observe(event);
+            }
+        }
      
     }
 
@@ -587,44 +613,50 @@ But a simpler solution might be to just eliminate the interface and return the
 
 <!-- try:
     interface Event { }
-    abstract class Component () {
-        shared Void () addObserver( void observe( Event event)) {
-            //observers:=observers.append(observe);
-            void cancel() {
-                //observers.remove(observe);
-            }
-            return cancel;
+    shared abstract class Component() {
+         
+        variable {Anything(Event)*} observers = {};
+         
+        shared Void() addObserver(void observe(Event event)) {
+            observers = {observe, *observers};
+            return () => observers.remove(observe);
         }
+         
+        shared void fire(Event event) {
+            for (observe in observers) {
+                observe(event);
+            }
+        }
+     
     }
 -->
 <!-- check:parse:Depends on OpenList -->
     shared abstract class Component() {
          
-        // ...
+        variable {Anything(Event)*} observers = {};
          
-        shared Void() addObserver(void observe(Event event)) {
-            observers:=observers.append(observe);
-            void cancel() {
-                observers.remove(observe);
-            }
-            return cancel;
+        shared Anything() addObserver(void observe(Event event)) {
+            observers = {observe, *observers};
+            return void () => observers.remove(observe);
         }
          
-        // ...
+        shared void fire(Event event) {
+            for (observe in observers) {
+                observe(event);
+            }
+        }
      
     }
 
-Here, we define a method `cancel()` inside the body of the `addObserver()` 
-method, and return a reference to the inner method from the outer method. The 
-inner method `cancel()` can't be called directly from outside the body of the 
-`addObserver()` method, since it is a block local declaration. But the 
-reference to `cancel()` returned by `addObserver()` can be called by any 
-code that obtains the reference.
+Here, we define an anonymous function inside the body of the `addObserver()` 
+method, and return a reference to this function from the outer method. The 
+reference to the anonymous function returned by `addObserver()` can be called 
+by any code that obtains the reference.
 
 In case you're wondering, the type of the function `addObserver()` is 
-`Void()(Void(Event))`.
+`Anything()(Anything(Event))`.
 
-Notice that `cancel()` is able to use the parameter `observe` of 
+Notice that the anonymous function is able to use the parameter `observe` of 
 `addObserver()`. We say that the inner method receives a *closure* of the 
 non-`variable` locals and parameters of the outer method — just like a method 
 of a class receives a closure of the class initialization parameters and locals 
@@ -646,37 +678,125 @@ invoking it.
 
 <!-- try: -->
 <!-- check:none -->
-    void cancel() = addObserver(onEvent);
+    Anything() cancel = addObserver(onEvent);
     // ...
     cancel();
 
-The first line demonstrates how a method can be defined using a `=` 
-specification statement, just like a simple attribute definition. The second 
+The first line demonstrates how a function reference can be stored. The second 
 line of code simply invokes the returned reference to `cancel()`.
 
+<!--
 We've already seen how an attribute can be defined using a block of code. Now 
 we see that a method can be defined using a specifier. So, if you like, you 
 can start thinking of a method as an attribute of type `Callable` — an 
 attribute with parameters. Or if you prefer, you can think of an attribute as 
-member with zero parameter lists, and of a method as a member with one or more 
-parameter lists. Either kind of member can be defined by reference, using `=`, 
-or directly, by specifying a block of code to be executed.
+a member with zero parameter lists, and of a method as a member with one or 
+more parameter lists. Either kind of member can be defined by reference, using 
+`=`, or directly, by specifying a block of code to be executed.
 
 Cool, huh? That's more regularity.
+-->
+
+## Composition and curry
+
+The function `compose()` performs _function composition_. For example, given
+the functions `print()` and `plus()` in `ceylon.language`, with the following
+signatures:
+
+    shared void print(Anything line) { ... }
+    
+    shared shared Value plus<Value>(Value x, Value y)
+        given Value satisfies Summable<Value> { ... }
+
+We can see that the type of the function reference `print` is `Anything(Anything)`,
+and that the type of the function reference `plus<Float>` is `Float(Float,Float)`.
+Then we can write the following:
+
+    Anything(Float,Float) printSum = compose(print,plus);
+    printSum(2.0,2.0); //prints 4.0
+
+The function `curry()` produces a function with multiple parameter lists, given
+a function with multiple parameters:
+
+    Anything(Float)(Float) printSumCurried = curry(printSum);
+    Anything(Float) printPlus2 = printSumCurried(2.0);
+    printPlus2(2.0); //prints 4.0
+
+The function `uncurry()` does the opposite, giving us back our original uncurried
+signature:
+
+    Anything(Float,Float) printSumUncurried = uncurry(printSumCurried);
+
+Note that `compose()`, `curry()`, and `uncurry()` are ordinary functions, written 
+in Ceylon.
+
+
+## The spread operator
+
+We've already seen a few examples of the spread operator. We've seen how to use
+it to instantiate an iterable:
+
+<!-- try: -->
+    { "hello", *names }
+
+Or a tuple:
+
+<!-- try: -->
+    [x, y, *labels]
+
+We can also use it when calling a function. Consider the following function:
+
+<!-- try: -->
+    String formatDate(String format, 
+                      Integer day, 
+                      Integer|String month, 
+                      Integer year) {
+        ...
+    }
+
+And suppose we have a tuple representing a date:
+
+<!-- try: -->
+    value date = [15, "January", 2010];
+
+Then we can pass the date to our function like this:
+
+<!-- try: -->
+    formatDate("dd MMMMM yyyy", *date)
+
+Notice that the type of the tuple `["dd MMMMM yyyy", *date]` is:
+
+<!-- try: -->
+    [String,Integer,String,Integer] 
+
+Now consider type of the function `formatDate`. It is:
+
+<!-- try: -->
+    String(String,Integer,Integer|String,Integer)
+    
+Or rather:
+
+<!-- try: -->
+    Callable<String,[String,Integer,Integer|String,Integer]>
+
+Since the tuple type `[String,Integer,String,Integer]` is a subtype of 
+`[String,Integer,Integer|String,Integer]`, the invocation is well-typed.
+This demonstrates the relationship between tuples and function argument!
+     
 
 
 <!--
 ## Curry, uncurry and function composition
 
-A method reference like `Float.times`
-is represented in "curried" form in Ceylon. I can write:
+A method reference like `Float.times` is represented in "curried" form in Ceylon. 
+I can write:
 
     Float twoTimes(Float x) = 2.0.times;
 
 Here, the expression `2.times` is a typical first-class function reference 
 produced by the partial application of the method 
 
-[`times()`](#{site.urls.apidoc_current}/ceylon/language/interface_Numeric.html#times) 
+[`times()`](#{site.urls.apidoc_current}/interface_Numeric.html#times) 
 to the receiver expression `2.0`.
 
 But I can also write:
@@ -701,7 +821,7 @@ Unfortunately, the following isn't correctly typed:
 
 The problem is that `Float.times`, when considered as a function reference, 
 is a higher-order function that accepts a 
-[`Float`](#{site.urls.apidoc_current}/ceylon/language/class_Float.html) 
+[`Float`](#{site.urls.apidoc_current}/class_Float.html) 
 and returns a function that accepts a `Float`, not a first-order function 
 that accepts two `Float`s.
 
@@ -774,14 +894,18 @@ This function composes two functions:
 Fortunately, you won't need to be writing functions like 
 `curry()()`, `uncurry()()` and `compose()()` yourself. They're general 
 purpose tools that are packaged as part of the 
-[`ceylon.language`](#{site.urls.apidoc_current}/ceylon/language/)
-module. Nevertheless, it's nice to know that machinery like this is expressible 
-within the type system of Ceylon. 
+[`ceylon.language`](#{site.urls.apidoc_current}/)
+module. Nevertheless, it's nice to know that machinery like this is 
+expressible within the type system of Ceylon. 
 -->
 
 ## There's more...
 
-Now we're  going to talk about Ceylon's syntax for [named
-argument lists](../named-arguments) and for defining user interfaces and 
+You'll find a more detailed discussion of how Ceylon represents function 
+types using tupes [here](/blog/2013/01/21/abstracting-over-functions/),
+including an in-depth discussion of `compose()` and `curry()`.
+
+Now we're  going to talk about Ceylon's syntax for [named argument 
+lists](../named-arguments) and for defining user interfaces and 
 structured data. 
 

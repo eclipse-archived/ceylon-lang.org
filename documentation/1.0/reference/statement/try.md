@@ -57,11 +57,11 @@ exception types.
 
 ### `try` with resources
 
-`try` with resources will be implemented in  <!-- m4 -->
+`try` with resources will be implemented in  <!-- m6 -->
 
 ## See also
 
 * [`throw`](../throw)
-* [`Exception`](#{page.doc_root}/api/ceylon/language/interface_Exception.html)
+* [`Exception`](#{site.urls.apidoc_current}/interface_Exception.html)
 * [`try` in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#trycatchfinally)
 

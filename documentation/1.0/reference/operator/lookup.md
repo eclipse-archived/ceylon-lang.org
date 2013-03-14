@@ -46,14 +46,14 @@ more details.
 
 The `[]` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `[]` depends on the 
-[`Correspondence`](#{page.doc_root}/api/ceylon/language/interface_Correspondence.html) 
+[`Correspondence`](#{site.urls.apidoc_current}/interface_Correspondence.html) 
 interface.
 
 ## See also
 
 * [`?[]` (nullsafe lookup)](../nullsafe-lookup) operator used for accessesing 
   a `Correspondence?`
-* API documentation for [`Correspondence`](#{page.doc_root}/api/ceylon/language/interface_Correspondence.html) 
+* API documentation for [`Correspondence`](#{site.urls.apidoc_current}/interface_Correspondence.html) 
 * [sequence operators](#{page.doc_root}/#{site.urls.spec_relative}#listmap) in the 
   language specification
 * [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 

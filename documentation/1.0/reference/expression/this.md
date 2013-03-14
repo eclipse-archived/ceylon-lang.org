@@ -18,9 +18,9 @@ doc_root: ../..
 Here's a simple example:
 
     class C(String initial) {
-        variable String attr := initial;
+        variable String attr = initial;
         void m(String attr) {
-            this.attr := attr;
+            this.attr = attr;
         }
     }
 

@@ -11,6 +11,7 @@ I think perhaps the least ergonomic syntactic feature of Ceylon
 has been the syntax for attribute initialization. I never ever 
 managed to get comfortable writing the following:
 
+<!-- try: -->
     //old syntax!
     class Person(String name, Integer age=0) {
         shared String name = name;
@@ -28,6 +29,7 @@ to always name parameters like `initialName`, `initialAge`, etc.
 Worse, this ad hoc rule results in some fairly pathological 
 stuff. Consider:
 
+<!-- try: -->
     //old syntax!
     class Person(String name, Integer age=0) {
         shared String name = name;
@@ -45,6 +47,7 @@ finished updating the language spec and type checker.)
 
 Now, the above can be written like this:
 
+<!-- try: -->
     class Person(name, age=0) {
         shared String name;
         shared variable Integer age;
@@ -57,6 +60,7 @@ in the body of the class, but it's argument is automatically
 used to initialize the attribute. That is, there's only one 
 unambiguous thing called `age`:
 
+<!-- try: -->
     class Person(name, age=0) {
         shared String name;
         shared variable Integer age;
@@ -68,6 +72,7 @@ The really nice thing about this solution is that it gives us
 an extremely terse and well-organized syntax for "data holder" 
 classes.
 
+<!-- try: -->
     class Address(street, city, state, zip, country) {
 
         doc "the street, street number, 

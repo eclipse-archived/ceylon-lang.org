@@ -18,7 +18,7 @@ operand.
 
 <!-- check:none -->
     void m(Set<Integer> odds, Set<Integer> evens) {
-        variable Set<Integer> all := odds;
+        variable Set<Integer> all = odds;
         all |= evens;
     }
 
@@ -30,7 +30,7 @@ operand.
 The `|=` operator is defined as follows:
 
 <!-- check:none -->
-    lhs:=lhs|rhs
+    lhs = lhs | rhs
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#sets) for 
 more details.
@@ -39,12 +39,12 @@ more details.
 
 The `|=` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 Tge `|` in its definition is the [union operator](../union) which depends on the 
-[`Set`](#{page.doc_root}/api/ceylon/language/interface_Set.html) interface.
+[`Set`](#{site.urls.apidoc_current}/interface_Set.html) interface.
 
 ## See also
 
 * [`|` (union)](../union) operator
-* API documentation for [`Set`](#{page.doc_root}/api/ceylon/language/interface_Set.html)
+* API documentation for [`Set`](#{site.urls.apidoc_current}/interface_Set.html)
 * [set operators](#{page.doc_root}/#{site.urls.spec_relative}#sets) in the 
   language specification
 * [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 

@@ -16,7 +16,7 @@ about Ceylon types. For example, consider the Ceylon method:
         // ...
     }
 
-In Ceylon, the return type (after syntactic desugaring) is `Object|Nothing`, 
+In Ceylon, the return type (after syntactic desugaring) is `Object|Null`, 
 and the compiler needs to know this when typechecking code which 
 depends on `m()`.
 

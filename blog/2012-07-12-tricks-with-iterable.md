@@ -11,7 +11,7 @@ Now that Ceylon has full support for mixin inheritance, we've
 been able to fill in all the interesting operations of the
 `Iterable` interface defined in `ceylon.language`. You can 
 see the [definition of `Iterable` 
-here](http://ceylon-lang.org/documentation/1.0/api/ceylon/language/Iterable.ceylon.html).
+here](#{site.urls.apidoc_current}/Iterable.ceylon.html).
 (But be aware that, like the rest of the language module, the
 actual real implementation is in Java and JavaScript. The
 Ceylon definition is never actually compiled.)
@@ -21,6 +21,7 @@ Ceylon definition is never actually compiled.)
 Of course, `Iterable` has the famous functions `map()`, and
 `filter()`. You can call them like this:
 
+<!-- try: -->
     value filtered = "Hello Word".filter((Character c) c.uppercase);
     value mapped = "Hello Word".map((Character c) c.uppercased);
 
@@ -32,6 +33,7 @@ memory (except for a single object instantiation). If you want
 to actually get a new `String`, you need to call a function to
 do that:
 
+<!-- try: -->
     print(string(filtered...)); //prints "HW"
     print(string(mapped...)); //prints "HELLO WORLD"
 
@@ -50,6 +52,7 @@ Now, `map()` and `filter()` have their uses, I suppose, but in
 fact they're not the usual way to do mapping and filtering in
 Ceylon. We would really write the above code like this:
 
+<!-- try: -->
     print(string(for (c in "Hello Word") if (c.uppercase) c)); //prints "HW"
     print(string(for (c in "Hello Word") c.uppercased)); //prints "HELLO WORLD"
 
@@ -57,6 +60,7 @@ Likewise, `Iterable` has the methods `any()` and `every()`, and
 but it's still usually more convenient and idiomatic to use 
 comprehensions:
 
+<!-- try: -->
     value allLowercase = every(for (c in "Hello Word") c.lowercase); //false
     value someUppercase = any(for (c in "Hello Word") c.uppercase); //true
 
@@ -65,20 +69,24 @@ comprehensions:
 However, there are some really useful methods of `Iterable`. 
 First, `find()` and `findLast()`:
 
+<!-- try: -->
     value char = "Hello Word".find((Character c) c>`l`); //`o`
 
 We _can_ write this using a comprehension, but to be honest in 
 this case it's slightly less ergonomic:
 
+<!-- try: -->
     value char = first(for (c in "Hello World") if (c>`l`) c);
 
 Next, `sorted()`:
 
+<!-- try: -->
     value sorted = "Hello World".sorted(byIncreasing((Character c) c.uppercased)); 
             //" deHllloorW"
 
 Finally, `fold()`:
 
+<!-- try: -->
     value string = "Hello World".fold("", 
             (String s, Character c) 
                 s.empty then c.string 
@@ -95,6 +103,7 @@ There's also two very useful attributes declared by `Iterable`.
 `coalesced` produces an iterable object containing the non-null
 elements:
 
+<!-- try: -->
     value letters = { "Hello World".map((Character c) c.letter 
             then c.uppercased).coalesced... };
             //{ H, E, L, L, O, W, O, R, L, D }
@@ -102,13 +111,15 @@ elements:
 The `indexed` attribute produces an iterable object containing
 the elements indexed by their position in the stream:
 
+<!-- try: -->
     value entries = { "Hello World".indexed... }; 
             //{ 0->H, 1->e, 2->l, 3->l, 4->o, 5-> , 6->W, 7->o, 8->r, 9->l, 10->d }
 
 It's quite interesting to see the 
-[declaration](http://ceylon-lang.org/documentation/1.0/api/ceylon/language/Iterable.ceylon.html#205,207) 
+[declaration](#{site.urls.apidoc_current}/Iterable.ceylon.html#205,207) 
 of these operations. For example:
 
+<!-- try: -->
     shared default Iterable<Element&Object> coalesced {
         return elements(for (e in this) if (exists e) e);
     }
@@ -119,7 +130,7 @@ type constraint, which would be required to write down the
 signature of this operation in most other languages. Indeed,
 we use the same trick for the operations `union()` and
 `intersection()` of `Set`, 
-[as you can see here](http://ceylon-lang.org/documentation/1.0/api/ceylon/language/Set.ceylon.html#64,67).
+[as you can see here](#{site.urls.apidoc_current}/Set.ceylon.html#64,67).
 
 ## Set union and intersection
 
@@ -127,6 +138,7 @@ We let you write the union of two `Set`s as `s|t` in Ceylon,
 and the intersection of two `Set`s as `s&t`. Now check this 
 out:
 
+<!-- try: -->
     Set<String> strings = ... ;
     Set<Integer> ints = ... ;
     value stringsAndInts = strings|ints; //type Set<String|Integer>
@@ -139,6 +151,7 @@ a `Set<Y>` is `Set<X&Y>`. Cool, huh?
 By the way, we just added similar methods `withLeading()` and
 `withTrailing()` to `List`:
 
+<!-- try: -->
     value floatsAndInts = { 1, 2, 3.0 }; //type Sequence<Integer|Float>
     value stuff = floatsAndInts.withTrailing("hello", "world"); //type Sequence<Integer|Float|String>
 
@@ -155,8 +168,9 @@ narrowing a sequence to a nonempty sequence without too much
 ceremony.)
 
 This lets us do something pretty cool with the [signature of 
-`min()` and `max()`](http://ceylon-lang.org/documentation/1.0/api/ceylon/language/max.ceylon.html#1,21).
+`min()` and `max()`](#{site.urls.apidoc_current}/max.ceylon.html#1,21).
 
+<!-- try: -->
     value nothingToMax = max({}); //type Nothing
     value somethingToMax = max({0.0, 1.0, -1.0}); //type Float
     List<Character> chars = "hello";
@@ -180,5 +194,5 @@ types, union types, and principal instantiation inheritance
 of generic types lets us express something within the type 
 system that might seem almost magical. The real magic is in 
 the declaration of the language module type 
-[`ContainerWithFirstElement`](http://ceylon-lang.org/documentation/1.0/api/ceylon/language/ContainerWithFirstElement.ceylon.html).
+[`ContainerWithFirstElement`](#{site.urls.apidoc_current}/ContainerWithFirstElement.ceylon.html).
 

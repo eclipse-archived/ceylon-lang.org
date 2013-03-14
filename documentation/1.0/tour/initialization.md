@@ -8,9 +8,9 @@ author: Gavin King
 
 # #{page.title}
 
-This is the fourteenth part of the Tour of Ceylon. In the 
+This is the fifteenth part of the Tour of Ceylon. In the 
 [last part](../language-module) we learned about the language module, 
-[`ceylon.language`](#{site.urls.apidoc_current}/ceylon/language/). Now we're 
+[`ceylon.language`](#{site.urls.apidoc_current}/). Now we're 
 going to go into the details of *initialization*, and the restrictions that 
 Ceylon places upon your code to ensure that you never experience anything 
 like Java's `NullPointerException`.
@@ -35,13 +35,24 @@ refers to the parent instance of the current instance of a nested class.
         shared String name;
         shared class Child(name) {
             shared String name;
-            shared String qualifiedName = outer.name + "/" + name;
-            shared Parent parent { return outer; }
+            shared String qualifiedName = 
+                    outer.name + "/" + name;
+            shared Parent parent => outer;
         }
     }
 
 There are some restrictions on the use of `this`, `super`, and `outer`, which 
 we'll explore below.
+
+Finally, the keyword `package` may be used to refer to the toplevel declarations
+in the current package.
+
+<!-- try: -->
+    String name = "Trompon";
+    
+    class Elephant(name=package.name) {
+        String name;
+    }
 
 
 ## Multiple inheritance and "linearization"
@@ -50,10 +61,10 @@ There's a good reason why `super` always refers to a super*class*, and never
 to a super*interface*.
 
 Ceylon features a restricted kind of multiple inheritance often called 
-'mixin inheritance'. Some languages with multiple inheritance or even mixin 
+_mixin inheritance_. Some languages with multiple inheritance or even mixin 
 inheritance feature so-called "depth-first" member resolution or 
-linearization where all supertypes of a class are arranged into a 
-linear order. We believe that this model is arbitrary and fragile.
+linearization where all supertypes of a class are arranged into a linear 
+order. We believe that this model is arbitrary and fragile.
 
 Ceylon doesn't perform any kind of linearization of supertypes. The order in 
 which types appear in the `satisfies` clause is never significant. The only 
@@ -79,9 +90,9 @@ reason why [interfaces are stateless](../inheritance#interfaces_and_mixin_inheri
 would be even more fragile.)
 -->
 
-So Ceylon is more restrictive than some other languages here. But we think 
-that this restriction makes a subtype less vulnerable to breakage due to 
-changes in its supertypes.
+So Ceylon is more restrictive than some other languages in this respect. But 
+we think that this restriction makes a subtype less vulnerable to breakage due 
+to changes in its supertypes.
 
 
 ## Definite assignment and definite initialization
@@ -154,14 +165,14 @@ This behavior is bad enough in and of itself. But it would be even less
 acceptable in Ceylon, where most types don't have an acceptable "default" 
 value. For example, consider the type `Person`. What would be an acceptable 
 default value of this type? The value `null` certainly won't do, since it's 
-not even an instance of `Person`. (It's an instance of `Nothing`, 
+not even an instance of `Person`. (It's an instance of `Null`, 
 [remember!](../basics#dealing_with_objects_that_arent_there)) 
-Although evaluation of an uninitialized instance variable could be defined to
-result in an immediate runtime exception, that would just be our 
-old friend `NullPointerException` creeping back in by the back door. 
+Although evaluation of an uninitialized instance variable could be defined 
+to result in an immediate runtime exception, that would just be our old 
+friend `NullPointerException` creeping back in by the back door. 
 
-Indeed, "few" object-oriented languages  (and possibly none) perform 
-the necessary static analysis to ensure definite initialization of instance 
+Indeed, "few" object-oriented languages  (and possibly none) perform the 
+necessary static analysis to ensure definite initialization of instance 
 variables, and this is perhaps one of the main reasons why object-oriented 
 languages have never featured typesafe handling of `null` values.
 
@@ -173,8 +184,8 @@ initialization of attributes, Ceylon imposes some restrictions on the body of
 a class. (Remember that Ceylon doesn't have constructors!) Actually, to be 
 completely fair, they're not really restrictions at all, at least not from one 
 point of view, since you're actually allowed *extra* flexibility in the body 
-of a class that you're not allowed in the body of method or attribute 
-declarations! But compared to Java, there's some things you're not allowed 
+of a class that you're not allowed in the body of a function or getter
+declaration! But compared to Java, there's some things you're not allowed 
 to do.
 
 First, we need to know that the compiler automatically divides the body of 
@@ -305,6 +316,7 @@ According to the language spec:
 > 
 > * a statement or control structure,
 > * a method or attribute declaration with a specifier or initializer,
+> a forward-declared method or attribute declaration not annotated `late`,
 > * an `object` declaration with a non-empty initializer section, or
 > * an `object` declaration that directly extends a class other than 
 >   `Object` or `IdentifiableObject`...
@@ -318,50 +330,78 @@ and declaration sections have in common is _statelessness_.
 ## Circular references
 
 Unfortunately, these rules make it a little tricky to set up circular 
-references between two objects without resort to non-`variable` attributes. 
-This is a problem Ceylon has in common with functional languages, which also 
-emphasize immutability. We can't write the following code in Ceylon:
+references between two objects. This is a problem Ceylon has in common 
+with functional languages, which also emphasize immutability. The 
+following code produces an error:
 
 <!-- check:none:#94 -->
-    class Child(Parent p) {
-        shared Parent parent = p;
+    class Child(parent) {
+        shared Parent parent;
     }
      
     class Parent() {
-        shared Child child = Child(this); //compile error (leaks self reference)
+        shared Child child = 
+                Child(this); //compile error: leaks self reference
     }
 
-Eventually, Ceylon will probably need some specialized machinery for dealing 
-with this problem.
+As a slightly adhoc workaround for this problem, we can annotate the 
+reference `parent`, suppressing the usual definite initialization 
+checks, using the `late` annotation: 
 
-## Definite initialization of methods
-
-Ceylon lets us separate the declaration of a method defined using a method 
-reference from the actual specification statement that specifies the method 
-reference.
-
-<!-- check:parse:Needs switch on values -->
-<!-- cat: Callable<Float, Float> arithmetic(String symbol, Float x, Float y) { -->
-        Float op(Float y);
-        switch (symbol)
-        case ("+") { op = x.plus; }
-        case ("-") { op = x.minus; }
-        case ("*") { op = x.times; }
-        case ("/") { op = x.divided; }
-<!-- cat:        
-        return op;
+<!-- check:none:#94 -->
+    class Child() {
+        shared late Parent parent;
     }
--->
+     
+    class Parent() {
+        shared Child child = Child();
+        child.parent = this; //ok, since parent is late
+    }
 
-The rules for definite initialization of locals and attributes also apply to 
-methods defined using a specification statement.
+When a reference is annotated `late`, the checks which normally happen
+at compile time are delayed until runtime.
+
+## Definite initialization of functions
+
+Ceylon lets us separate the declaration of a function from the actual 
+specification statement that specifies the function implementation.
+
+This applies when a function implementation is specified by assigning
+a reference:
+
+<!-- try: -->
+    Float(Float) arithmetic(Operation op, Float x) {
+        Float fun(Float y);
+        switch (op)
+        case (plus) { fun = x.plus; }
+        case (minus) { fun = x.minus; }
+        case (times) { fun = x.times; }
+        case (divide) { fun = x.divided; }
+        return fun;
+    }
+
+Or when a function implementation is specified using a fat arrow:
+
+<!-- try: -->
+    Float(Float) arithmetic(Operation op, Float x) {
+        Float fun(Float y);
+        switch (op)
+        case (plus) { fun(Float y) => x+y; }
+        case (minus) { fun(Float y) => x-y; }
+        case (times) { fun(Float y) => x*y; }
+        case (divide) { fun(Float y) => x/y; }
+        return fun;
+    }
+
+The rules for definite initialization of values apply equally to functions 
+defined this way.
 
 
 ## Definite return
 
 While we're on the topic, it's worth noting that the Ceylon compiler, just 
 like the Java compiler, also performs definite return checking, to ensure 
-that a method or getter always has an explicitly specified return value. 
+that a function or getter always has an explicitly specified return value. 
 So, this code compiles without error:
 
 <!-- try-pre:
@@ -400,6 +440,7 @@ But the following code results in an error at compile time:
         if (person==me) {
             return "You're beautiful!";
         }
+        //or otherwise? what now?
     }
 
 

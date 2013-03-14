@@ -20,7 +20,7 @@ Those operators which do not have such a definition are called
 *primitive* operators. The primitive operators are:
 
 * `.` (member), 
-* `:=` (assignment), 
+* `=` (assignment), 
 * `is`, 
 * `()` (positional invocation),
 * `{}` (named argument invocation)
@@ -35,7 +35,7 @@ terms of the primitive operators, for example.
 ### Simple Example
 
 A simple example might be writing a complex number class which implements
-`Invertable`, `Number`, `Numeric` and `Castable`. 
+`Invertable`, `Number` and `Numeric`. 
 This would allow you to write expressions using the 
 operators `+` (unary plus), `-` (unary minus), 
 `+` (sum), `-` (difference), `*` (product) and `/` (quotient). For example

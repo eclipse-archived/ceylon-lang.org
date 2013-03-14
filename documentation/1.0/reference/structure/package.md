@@ -22,9 +22,9 @@ An simple example [package descriptor](#descriptor):
 <!-- try: -->
     shared package com.example.foo.bar;
     
-Conventionally this would be in a source file located in
+This would be in the source file 
 `<source-dir>/com/example/foo/bar/package.ceylon` where `<source-dir>` is the
-directory containing ceylon source code.
+directory containing ceylon source code, conventionally `source`.
 
 ## Description
 
@@ -36,7 +36,7 @@ A package's members are the top-level declarations contained in its
 ### Descriptor
 
 The 
-[package descriptor](\#{site.urls.apidoc_current}/ceylon/language/descriptor/class_Package.html) 
+[package descriptor](\#{site.urls.apidoc_current}/descriptor/class_Package.html) 
 holds metadata about the package and is declared in a source file called
 `package.ceylon` in the package being described. Here's an example
 
@@ -47,11 +47,11 @@ holds metadata about the package and is declared in a source file called
     
 The `package` declaration may be preceeded by [annotations](../annotation), including:
 
-* [`shared`](#{site.urls.apidoc_current}/ceylon/language/#shared) 
+* [`shared`](#{site.urls.apidoc_current}/#shared) 
   to allow the package to be visible outside its containing module,
-* [`doc`](#{site.urls.apidoc_current}/ceylon/language/#doc) 
+* [`doc`](#{site.urls.apidoc_current}/#doc) 
   to let you to specify package-level documentation,
-* [`by`](#{site.urls.apidoc_current}/ceylon/language/#by) 
+* [`by`](#{site.urls.apidoc_current}/#by) 
   to document the package's author or authors. 
 
 The package declaration consists of the `package` keyword followed by the 
@@ -64,5 +64,5 @@ It is common not to have a package descriptor if the package is not `shared`.
 * Packages are contained in [modules](../module)
 * Packages contains [compilation units](../compilation-unit)
 * `ceylon doc` documentation of the 
-  [Package](\#{site.urls.apidoc_current}/ceylon/language/descriptor/class_Package.html) 
+  [Package](\#{site.urls.apidoc_current}/descriptor/class_Package.html) 
   type (the type of the package descriptor)

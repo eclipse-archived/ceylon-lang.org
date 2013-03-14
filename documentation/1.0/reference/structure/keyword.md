@@ -21,43 +21,52 @@ Usage depends on the keyword in question.
 
 The keywords in Ceylon are:
 
-* `adapts`
 * [`abstracts`](../type-parameters#constraints)
+* `adapts`
+* [`alias`](../type-alias)
+* [`assert`](../../statement/assert)
 * [`assign`](../attribute#attribute_setters)
 * [`break`](../../statement/break)
 * [`case`](../../statement/switch)
 * [`catch`](../../statement/try)
 * [`class`](../class)
 * [`continue`](../../statement/continue)
+* `dynamic`
 * `else` 
-   (used with [`for`](../../statement/for), 
+   (used with the [`for`](../../statement/for), 
    [`if`](../../statement/if) and 
-   [`switch`](../../statement/switch))
+   [`switch`](../../statement/switch) statements and as an
+   [operator](../../operator/else/))
 * `exists` 
    (used with [`if`](../../statement/if#if_exists_) and as an 
    [operator](../../operator/exists))
-* `extends` 
-   (used with [class](../class), and as an 
-   [operator](../../operator/exists))
+* [`extends`](../class), and as an 
+   [operator](../../operator/extends))
 * [`finally`](../../statement/try)
 * [`for`](../../statement/for)
-* [`function`](../attribute#type_inference)
-* [`given`](../type-parameters)
+* [`function`](../type-inference)
+* [`given`](../type-parameters#constraints)
 * [`if`](../../statement/if)
+
 * [`import`](../../statement/import)
 * `in` 
-   (used for [variance](../type-parameters#variance) and with 
-   [`for`](../../statement/for))
+   (used for [variance](../type-parameters#variance) and with the
+   [`for`](../../statement/for) statement and as the
+   [`in`](../../operator/in) operator)
 * [`interface`](../interface)
-* `is` (used in [`if`](../../statement/if#if_is_) and 
-   [`case`](../../statement/switch))
-* `nonempty`
+* `is` (used in the [`if`](../../statement/if#if_is_) and 
+   [`case`](../../statement/switch) statements and as an 
+   [operator](../../operator/is)
+* [`module`](../module#descriptor)
+* [`nonempty`](used in the [`if`](../../statement/if#if_is_) statement and as an 
+   [operator](../../operator/is)
 * [`object`](../object)
 * `of` 
    (used with [`class`](../class) and 
    [`interface`](../interface) declarations)
 * [`out`](../type-parameters#variance)
 * [`outer`](../../expression/outer)
+* [`package`](../package#usage)
 * [`return`](../../statement/return)
 * `satisfies` 
    (used in [`class`](../class) and 
@@ -66,12 +75,12 @@ The keywords in Ceylon are:
    [`case`](../../statement/switch))
 * [`super`](../../expression/super)
 * [`switch`](../../statement/switch)
-* `then`
+* [`then`](../../operator/then/)
 * [`this`](../../expression/this)
 * [`throw`](../../statement/throw)
 * [`try`](../../statement/try)
-* [`value`](../attribute#type_inference)
-* `void`
+* [`value`](../type-inference)
+* [`void`](../method#return_type)
 * [`while`](../../statement/while)
 
 

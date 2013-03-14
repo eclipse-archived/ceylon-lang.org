@@ -70,7 +70,6 @@ the typecast.
 
 ### Condition lists
 
-<!-- m4 -->
 The condition in an `if` statement can also be a
 [condition list](../conditions#condition_lists).
 

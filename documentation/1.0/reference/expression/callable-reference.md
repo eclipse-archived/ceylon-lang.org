@@ -86,16 +86,16 @@ instantiated a particular class you could write:
 
 You can pass callable references as arguments to methods 
 expecting 
-[`Callable`](#{site.urls.apidoc_current}/ceylon/language/interface_Callable.html)
+[`Callable`](#{site.urls.apidoc_current}/interface_Callable.html)
 arguments
 
 ### Use as return values
 
 You can [`return`](../../statement/return) callable references from methods 
-that return [`Callable`](#{site.urls.apidoc_current}/ceylon/language/interface_Callable.html) results.
+that return [`Callable`](#{site.urls.apidoc_current}/interface_Callable.html) results.
 
 
 ## See also
 
 * `ceylon doc` documentation of 
-  [`Callable`](#{site.urls.apidoc_current}/ceylon/language/interface_Callable.html) 
+  [`Callable`](#{site.urls.apidoc_current}/interface_Callable.html) 

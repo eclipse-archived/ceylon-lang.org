@@ -18,10 +18,10 @@ define classes with methods and attributes.
 
 The case of the first character of an identifier is significant.
 Type (interface, class, and type parameter) names must start 
-with an initial capital letter. Member (method and attribute) 
-and local names start with an initial lowercase letter or
-underscore. The Ceylon compiler is very fussy about this. You'll 
-get a compilation error if you write:
+with an initial capital letter. Function and value names start 
+with an initial lowercase letter or underscore. The Ceylon 
+compiler is very fussy about this. You'll get a compilation error 
+if you write:
 
 <!-- try:
     class hello() { } //compile error
@@ -38,7 +38,7 @@ or:
 There is a way to work around this restriction, which is 
 mainly useful when calling legacy Java code. You can "force"
 the compiler to understand that an identifier is a type name
-by prefixing it with `\I`, or that it is a member or local
+by prefixing it with `\I`, or that it is a function or value
 name by prefixing it with `\i`. For example, `\iRED` is 
 considered an initial lowercase identifier.
 
@@ -65,18 +65,16 @@ system. Our class has two parameters, two methods, and an attribute.
 <!-- try-post:
     print(Polar(0.37, 10.0).description);
 -->
-    doc "A polar coordinate"
+    "A polar coordinate"
     class Polar(Float angle, Float radius) {
         
-        shared Polar rotate(Float rotation) {
-            return Polar(angle+rotation, radius);
-        }
+        shared Polar rotate(Float rotation) =>
+                Polar(angle+rotation, radius);
         
-        shared Polar dilate(Float dilation) {
-            return Polar(angle, radius*dilation);
-        }
+        shared Polar dilate(Float dilation) =>
+                Polar(angle, radius*dilation);
         
-        shared String description = "(" radius "," angle ")";
+        shared String description = "(``radius``,``angle``)";
         
     }
 
@@ -85,7 +83,7 @@ There's two things in particular to notice here:
 1. The parameters used to instantiate a class are specified as part of the 
    class declaration, right after the name of the class. There's no Java-style 
    constructors in Ceylon. This syntax is less verbose and more regular than 
-   Java or C#.
+   Java, C#, or C++.
    
 2. We make use of the parameters of a class anywhere within the body of 
    the class. In Ceylon, we often don't need to define explicit members of the 
@@ -126,7 +124,7 @@ Finally, packages are hidden from code outside the module to which the
 package belongs by default. Only explicitly shared packages are visible to 
 other modules.
 
-Got the idea? We are playing russian dolls here.
+Got the idea? We are playing Russian dolls here.
 
 
 ## Exposing parameters as attributes
@@ -140,21 +138,19 @@ so Ceylon provides a streamlined syntax for this.
     print(Polar(0.37, 10.0).description);
 -->
 <!-- id:polar -->
-    doc "A polar coordinate"
+    "A polar coordinate"
     class Polar(angle, radius) {
         
         shared Float angle;
         shared Float radius;
         
-        shared Polar rotate(Float rotation) {
-            return Polar(angle+rotation, radius);
-        }
+        shared Polar rotate(Float rotation) =>
+                Polar(angle+rotation, radius);
         
-        shared Polar dilate(Float dilation) {
-            return Polar(angle, radius*dilation);
-        }
+        shared Polar dilate(Float dilation) =>
+                Polar(angle, radius*dilation);
         
-        shared String description = "(" radius "," angle ")";
+        shared String description = "(``radius``,``angle``)";
         
     }
 
@@ -171,23 +167,50 @@ convenient syntax.
                          polar.radius*sin(polar.angle));
     }
 
+There's an even more compact way to write the code above, though it's often
+less readable:
+
+<!-- try-post:
+    print(Polar(0.37, 10.0).description);
+-->
+<!-- id:polar -->
+    "A polar coordinate"
+    class Polar(shared Float angle, shared Float radius) {
+        
+        shared Polar rotate(Float rotation) =>
+                Polar(angle+rotation, radius);
+        
+        shared Polar dilate(Float dilation) =>
+                Polar(angle, radius*dilation);
+        
+        shared String description = "(``radius``,``angle``)";
+        
+    }
+
+This illustrates an important feature of Ceylon: there is almost no 
+essential difference, aside from syntax, between a parameter of a class,
+and a value declared in the body of the class.
+
+Instead of declaring the attributes in the body of the class, we simply
+annotated the parameters `shared`. We encourage you to avoid this shortcut 
+when you have more than one or two parameters.
 
 ## Initializing attributes
 
-The attributes `angle` and `radius` are _simple attributes_, the closest thing 
-Ceylon has to a Java field. Usually we specify the value of a simple attribute
-as part of the declaration of the attribute.
+The attributes `angle` and `radius` are _references_, the closest thing 
+Ceylon has to a Java field. Usually we specify the value of a reference
+when we declare it.
 
 <!-- try: -->
 <!-- check:none:Requires Math -->
     shared Float x = radius * sin(angle);
-    shared String greeting = "Hello, " name "!";
+    shared String greeting = "Hello, ``name``!";
     shared Integer months = years * 12;
 
-On the other hand, it's sometimes useful to separate declaration from specification 
-of a value.
+On the other hand, it's sometimes useful to separate declaration from 
+assignment.
 <!-- try-pre:
-    doc "A polar coordinate"
+    "A polar coordinate"
     class Polar(Float angle, Float radius, String? label) { 
 -->
 <!-- try-post:
@@ -195,7 +218,7 @@ of a value.
     print(Polar(0.37, 10.0, "point").description);
 -->
 <!-- cat:
-    doc "A polar coordinate"
+    "A polar coordinate"
     class Polar(Float angle, Float radius, String? label) { 
         // ...
      -->
@@ -204,7 +227,7 @@ of a value.
         description = label;
     }
     else {
-        description = "(" radius "," angle ")";
+        description = "(``radius``,``angle``)";
     }
 <!-- cat: } -->
 
@@ -212,9 +235,9 @@ But if there's no constructors in Ceylon, where precisely should we put this
 code? We put it directly in the body of the class!
 
 <!-- try-post:
-    print(Polar(0.37, 10.0, null).description);
+    print(Polar(0.37, 10.0).description);
 -->
-    doc "A polar coordinate with an optional label"
+    "A polar coordinate with an optional label"
     class Polar(angle, radius, String? label) {
         
         shared Float angle;
@@ -225,15 +248,15 @@ code? We put it directly in the body of the class!
             description = label;
         }
         else {
-            description = "(" radius "," angle ")";
+            description = "(``radius``,``angle``)";
         }
         
         // ...
         
     }
 
-The Ceylon compiler forces you to specify a value of any simple attribute or 
-local before making use of the simple attribute or local in an expression.
+The Ceylon compiler forces you to specify a value of any reference before 
+making use of the reference in an expression.
 
 <!-- check:none:Demoing error -->
     Integer count;
@@ -245,34 +268,34 @@ We'll learn more about this [later in the tour](../initialization).
 
 ## Abstracting state using attributes
 
-If you're used to writing JavaBeans, you can think of a simple attribute as a
+If you're used to writing JavaBeans, you can think of a reference as a
 combination of several things:
 
 * a field,
 * a getter, and, sometimes, 
 * a setter. 
 
-That's because not all attributes are simple value holders like the one we've 
-just seen; others are more like a getter method, or, sometimes, like a getter 
-and setter method pair.
+That's because not all value are references like the one we've just seen; 
+others are more like a getter method, or, sometimes, like a getter and 
+setter method pair.
 
 We'll need to expose the equivalent cartesian coordinates of a `Polar`.
 Since the cartesian coordinates can be computed from the polar coordinates,
-we don't need to define state-holding simple attributes. Instead, we can
-define the attributes as _getters_.
+we don't need to define state-holding references. Instead, we can define 
+the attributes as _getters_.
 
 <!-- try: -->
 <!-- check:none:Requires Math -->
     import ceylon.math.float { sin, cos }
     
-    doc "A polar coordinate"
+    "A polar coordinate"
     class Polar(angle, radius) {
         
         shared Float angle;
         shared Float radius;
         
-        shared Float x { return radius * cos(angle); }
-        shared Float y { return radius * sin(angle); }
+        shared Float x => radius * cos(angle);
+        shared Float y => radius * sin(angle);
         
         // ...
         
@@ -281,16 +304,15 @@ define the attributes as _getters_.
 Notice that the syntax of a getter declaration looks a lot like a method 
 declaration with no parameter list.
 
-So in what way are attributes 'abstracting state'? Well, code that 
-uses `Polar` never needs to know if an attribute is a simple
-attribute or a getter. Now that we know about getters, we could rewrite 
-our `description` attribute as a getter, without affecting any code that 
-uses it.
+So in what way are attributes "abstracting state"? Well, code that uses 
+`Polar` never needs to know if an attribute is a reference or a getter. 
+Now that we know about getters, we could rewrite our `description` 
+attribute as a getter, without affecting any code that uses it.
 
 <!-- try-post:
-    print(Polar(0.37, 10.0, null).description);
+    print(Polar(0.37, 10.0).description);
 -->
-    doc "A polar coordinate, with an optional label"
+    "A polar coordinate, with an optional label"
     class Polar(angle, radius, String? label) {
         
         shared Float angle;
@@ -301,20 +323,20 @@ uses it.
                 return label;
             }
             else {
-                return "(" radius "," angle ")";
+                return "(``radius``,``angle``)";
             }
         }
     }
 
 ## Living without overloading
 
-It's time for some bad news: Ceylon doesn't support method or constructor 
+It's time for some bad news: Ceylon doesn't have method or constructor 
 overloading (the truth is that overloading is the source of various problems 
 in Java, especially when generics come into play). However we can emulate 
 most non-harmful uses of constructor or method overloading using:
 
 * defaulted parameters, 
-* sequenced parameters, i.e. varargs, and
+* variadic parameters (varargs), and
 * union types or enumerated type constraints.
 
 We're not going to get into all the details of these workarounds right now, 
@@ -336,9 +358,8 @@ but here's a quick example of each of the three techniques:
         shared String last = "Doe";
     } -->
     //defaulted parameter
-    void println(String line, String eol = "\n") {
-        process.write(line + eol);
-    }
+    void println(String line, String eol = "\n") =>
+            process.write(line + eol);
 
     //sequenced parameter
     void printlns(String... lines) {
@@ -365,7 +386,7 @@ Let's make use of this idea to "overload" the "constructor" of `Polar`.
 
 <!-- try: -->
 <!-- id: polar -->
-    doc "A polar coordinate with an optional label"
+    "A polar coordinate with an optional label"
     class Polar(angle, radius, String? label=null) {
         
         shared Float angle;
@@ -376,7 +397,7 @@ Let's make use of this idea to "overload" the "constructor" of `Polar`.
                 return label;
             }
             else {
-                return "(" radius "," angle ")";
+                return "(``radius``,``angle``)";
             }
         }
         

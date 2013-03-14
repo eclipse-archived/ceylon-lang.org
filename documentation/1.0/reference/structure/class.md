@@ -43,7 +43,7 @@ keyword like this:
     }
 
 If a class is declared without using the `extends` keywords it is a subclass of
-[`IdentifiableObject`](#{site.urls.apidoc_current}/ceylon/language/class_IdentifiableObject.html).
+[`IdentifiableObject`](#{site.urls.apidoc_current}/class_IdentifiableObject.html).
 
 Note that the arguments to the superclasses [initializer](#initializer) are 
 specified in parenthesis after the name of the superclass in the `extends` 
@@ -89,6 +89,10 @@ after the class name.
 
 A class declaration with type parameters may have a `given` clause for each declared type parameter 
 to [constraint the permitted type argument](../type-parameters#constraints).
+
+### Parameter list
+
+A class declaration requires a [parameter list](../parameter-list)
 
 ### Concrete classes
 
@@ -154,20 +158,12 @@ and [`object`s](../object).
 
 ### Aliases
 
-A *class alias* is a class declaration that specifies another class, like this:
+A *class alias* is a kind of [type alias](../type-alias) that declares a 
+class in terms of a type expression:
 
 <!-- cat: class B() {} -->
-    class C() = B;
+    class C() => B();
 
-The specified class may have type arguments:
-
-<!-- cat: class D<X>() {} -->
-    class C() = D<String>;
-
-This is similar to [method specifiers](../method#method_specifiers).
-
-The [`import` statement](../../statement/import) permits aliasing in a 
-similar way.
 
 ### Member class refinement
 

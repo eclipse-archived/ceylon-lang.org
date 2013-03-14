@@ -1,6 +1,6 @@
 ---
 layout: tour
-title: Tour of Ceylon&#58; Anonymous and Member Classes
+title: Tour of Ceylon&#58; Anonymous and member classes
 tab: documentation
 unique_id: docspage
 author: Emmanuel Bernard
@@ -21,29 +21,28 @@ any actual name for the class itself. This is usually most useful when we're
 extending an `abstract` class or implementing an interface.
 
 <!-- implicit-id:polar: 
-    doc "A polar coordinate"
+    "A polar coordinate"
     class Polar(Float angle, Float radius) {
- 
-        shared Polar rotate(Float rotation) {
-            return Polar(angle+rotation, radius);
-        }
-     
-        shared Polar dilate(Float dilation) {
-            return Polar(angle, radius*dilation);
-        }
         
-        doc "The default description"
-        shared default String description = "(" radius "," angle ")";
-    
+        shared Polar rotate(Float rotation) =>
+                Polar(angle+rotation, radius);
+        
+        shared Polar dilate(Float dilation) =>
+                Polar(angle, radius*dilation);
+        
+        "The default description"
+        shared default String description => 
+                "(``radius``,``angle``)";
+        
     }
 -->
 
 <!-- try-pre:
-    doc "A polar coordinate"
+    "A polar coordinate"
     class Polar(Float angle, Float radius) {
-        doc "The default description"
-        shared default String description = "(" radius "," angle ")";
-        shared actual String string { return description; }
+        "The default description"
+        shared default String description => "(``radius``,``angle``)";
+        shared actual String string => description;
     }
 -->
 <!-- try-post:
@@ -52,7 +51,7 @@ extending an `abstract` class or implementing an interface.
 <!-- cat-id:polar -->
     doc "The origin"
     object origin extends Polar(0.0, 0.0) {
-        shared actual String description = "origin";
+        description => "origin";
     }
 
 An anonymous class may extend an ordinary class and satisfy interfaces.
@@ -60,13 +59,8 @@ An anonymous class may extend an ordinary class and satisfy interfaces.
 <!-- try: -->
 <!-- check:none:Requires IO -->
     shared object consoleWriter satisfies Writer {
-                 
         formatter = StringFormatter();
-         
-        shared actual void write(String string) {
-            process.write(string);
-        }
-         
+        write(String string) => process.write(string);
     }
 
 The downside to an `object` declaration is that we can't write code that 
@@ -100,9 +94,8 @@ Let's see how this can be useful:
     Subscription register(Subscriber s) {
         subscribers.append(s);
         object subscription satisfies Subscription {
-            shared actual void cancel() {
+            shared actual void cancel() =>
                 subscribers.remove(s);
-            }
         }
         return subscription;
     }

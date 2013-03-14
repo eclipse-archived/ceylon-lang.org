@@ -87,7 +87,7 @@ The following statements each demonstrate an expression statement:
 
 <!-- cat: void m() { -->
 <!-- cat: variable String greeting; -->
-    greeting := "howdy";
+    greeting = "howdy";
 <!-- cat: } -->
     
 ### [Operators](../#operators)

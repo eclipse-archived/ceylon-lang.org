@@ -45,7 +45,7 @@ including the following new features compared to M3:
 * [pluggable command-line tools, git-style](/documentation/1.0/reference/tool/ceylon/)
 * [better support for optional types in Java](/documentation/1.0/reference/interoperability/java-from-ceylon/#calling_java_code_with_unsafe_nulls_milestone_4)
 * [JDK/Jigsaw modules](/documentation/1.0/reference/interoperability/java-from-ceylon/#importing_jdk_modules_milestone_4)
-* [all-new API doc redesign](/documentation/1.0/api/ceylon/language)
+* [all-new API doc redesign](#{site.urls.apidoc_current})
 * more than 300 features and bug fixes
 
 The following language features are not yet supported in M4:

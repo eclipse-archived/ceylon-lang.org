@@ -9,7 +9,7 @@ doc_root: ../..
 
 # #{page.title}
 
-This is the eight part of the Tour of Ceylon. The [previous leg](../types)
+This is the ninth part of the Tour of Ceylon. The [previous leg](../types)
 covered intersection types, union types, and enumerated types. In this part 
 we're looking at *generic* types. 
 
@@ -32,62 +32,79 @@ just like in Java, type parameters are listed before ordinary parameters,
 enclosed in angle brackets.
 
 <!-- try: -->
-<!-- check:none -->
     shared interface Iterator<out Element> { ... }
 
-    class Array<Element>(Element... elements) 
-            satisfies Sequence<Element> { ... }
+<br/>
 
-    shared Entries<Integer,Element> entries<Element>(Element... sequence) { ... }
+<!-- try: -->
+    shared class Singleton<out Element>(Element element)
+            extends Object()
+            satisfies [Element+]
+            given Element satisfies Object { ... }
+
+<br/>
+
+<!-- try: -->
+    shared Value sum<Value>({Value+} values) 
+            given Value satisfies Summable<Value> { ... }
+
+<br/>
+
+<!-- try: -->
+    shared <Key->Item>[] zip<Key,Item>({Key*} keys, {Item*} items)
+            given Key satisfies Object
+            given Item satisfies Object { ... }
 
 As you can see, the convention in Ceylon is to use meaningful names for 
 type parameters (in Java the convention is to use single letter names).
 
 Unlike Java, we always do need to specify type arguments in a type declaration 
-(there are no 'raw types' in Ceylon). The following will not compile:
+(there are no _raw types_ in Ceylon). The following will not compile:
 
 <!-- try:
-    Iterable it = {};   //error: missing type argument to parameter Element of Iterable
+    Iterator it = {};   //error: missing type argument to parameter Element of Iterable
 -->
 <!-- check:none:Demoing error -->
-    Iterable it = ...;   //error: missing type argument to parameter Element of Iterable
+    Iterator it = ...;   //error: missing type argument to parameter Element of Iterable
 
 We always have to specify a type argument in a type declaration:
 
 <!-- try:
-    Iterable<String> it = {};
+    Iterator<String> it = {};
 -->
 <!-- check:none -->
-    Iterable<String> it = ...;
+    Iterator<String> it = ...;
 
 On the other hand, we don't need to explicitly specify type arguments in most 
 method invocations or class instantiations. We don't usually need to write:
 
 <!-- check:none -->
-    Array<String> strings = array<String>("Hello", "World"); 
-    Iterable<Entry<Integer,String>> things = entries<String>(strings...);
+    Array<String> strings = array<String> { "Hello", "World" };
+    {<Integer->String>*} things = entries<String>(strings);
 
 Instead, it's very often possible to infer the type arguments from the ordinary 
 arguments.
 
 <!-- check:none -->
-    value strings = array("Hello", "World"); // type Array<String>
-    value things = entries(strings...); // type Iterable<Entry<Integer,String>>
+    value strings = array { "Hello", "World" }; // type Array<String>
+    value things = entries(strings); // type Iterable<Entry<Integer,String>>
 
 The generic type argument inference algorithm is slightly involved, so you
 should refer to the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#typeargumentinference) 
 for a complete definition. But essentially what happens is that Ceylon 
-infers a type by combining the types of corresponding arguments using union.
+infers a type argument by combining the types of corresponding arguments 
+using union in the case of a covariant type parameter, or intersection
+in the case of a contravariant type parameter.
 
 <!--try:
     class Polar(Float angle, Float radius) { }
     class Cartesian(Float x, Float y) { }
 
-    value points = array(Polar(0.7854, 0.5), Cartesian(-1.0, 2.5)); // type Array<Polar|Cartesian>
-    value things = entries(points...); // type Iterable<Entry<Integer,Polar|Cartesian>>
+    value points = array { Polar(0.7854, 0.5), Cartesian(-1.0, 2.5) }; // type Array<Polar|Cartesian>
+    value things = entries(points); // type Iterable<Entry<Integer,Polar|Cartesian>>
 -->
 <!-- check:none -->
-    value points = Array(Polar(pi/4, 0.5), Cartesian(-1.0, 2.5)); // type Array<Polar|Cartesian>
+    value points = array { Polar(pi/4, 0.5), Cartesian(-1.0, 2.5) }; // type Array<Polar|Cartesian>
     value entries = entries(points); // type Entries<Integer,Polar|Cartesian>
 
 Finally, Ceylon eliminates one of the bits of Java generics that's really 
@@ -98,10 +115,10 @@ meet the idea of covariance, and then see how covariance works in Ceylon.
 
 ## Covariance and contravariance
 
-It all starts with the intuitive expectation that a collection of `Geeks` is a 
-collection of `Persons`. That's a reasonable intuition, but especially in 
-non-functional languages, where collections can be mutable, it turns out to be 
-incorrect. Consider the following possible definition of `Collection`:
+It all starts with the intuitive expectation that a collection of `Geek`s is 
+a collection of `Person`s. That's a reasonable intuition, but, if collections 
+are be mutable, it turns out to be incorrect. Consider the following possible 
+definition of `Collection`:
 
 <!-- check:none -->
     interface Collection<Element> {
@@ -190,7 +207,7 @@ We can define our `Collection` interface as a mixin of `Producer` with `Consumer
     interface Collection<Element>
             satisfies Producer<Element> & Consumer<Element> {}
 
-Notice that `Collection` remains nonvariant in `Element`. If we tried to add a 
+Notice that `Collection` remains invariant in `Element`. If we tried to add a 
 variance annotation to `Element` in `Collection`, a compile time error would 
 result, because the annotation would contradict the variance annotation of 
 either `Producer` or `Consumer`.
@@ -218,12 +235,12 @@ Which is also intuitively correct — `James` is most certainly a `Person`!
 There's two additional things that follow from the definition of covariance 
 and contravariance:
 
-* `Producer<Void>` is a supertype of `Producer<T>` for any type `T`, and
-* `Consumer<Bottom>` is a supertype of `Consumer<T>` for any type `T`.
+* `Producer<Anything>` is a supertype of `Producer<T>` for any type `T`, and
+* `Consumer<Nothing>` is a supertype of `Consumer<T>` for any type `T`.
 
 These invariants can be very helpful if you need to abstract over all 
 `Producers` or all `Consumers`. (Note, however, that if `Producer` declared 
-upper bound type constraints on `Output`, then `Producer<Void>` would not 
+upper bound type constraints on `Output`, then `Producer<Anything>` would not 
 be a legal type.)
 
 You're unlikely to spend much time writing your own collection classes, since 
@@ -305,14 +322,14 @@ For example, if we were writing a parameterized type `Set<Element>`, we would
 need to be able to compare instances of `Element` using `==` to see if a 
 certain instance of `Element` is contained in the `Set`. Since `==` is 
 defined for expressions of type 
-[`Object`](#{site.urls.apidoc_current}/ceylon/language/class_Object.html),
+[`Object`](#{site.urls.apidoc_current}/class_Object.html),
 we need some way to assert that `Element` is a subtype of `Object`. This is 
 an example of a *type constraint* — in fact, it's an example of the most 
 common kind of type constraint, an *upper bound*.
 
 <!-- try: -->
 <!-- check:none -->
-    shared class Set<out Element>(Element... elements)
+    shared class Set<out Element>(Element* elements)
             given Element satisfies Object {
         ...
      
@@ -366,7 +383,7 @@ instantiate the type parameter.
 
 A type argument to `Result` of `Factory` must be a class with a single 
 initialization parameter of type 
-[`String`](#{site.urls.apidoc_current}/ceylon/language/class_String.html).
+[`String`](#{site.urls.apidoc_current}/class_String.html).
 
 A second kind of type constraint is an *enumerated type bound*, which 
 constrains the type argument to be one of an enumerated list of types. 
@@ -464,22 +481,30 @@ perfectly sensible, code fragments just wouldn't compile in Java:
 
 (Where `Element` is a generic type parameter.)
 
-A major goal of Ceylon's type system is support for *reified generics*. Like 
-Java, the Ceylon compiler performs erasure, discarding type parameters from 
-the schema of the generic type. But unlike Java, type arguments are supposed 
-to be reified (available at runtime). Of course, generic type arguments won't 
-be checked for typesafety by the underlying virtual machine at runtime, but 
-type arguments are at least available at runtime to code that wants to make 
-use of them explicitly. So the code fragments above are supposed to compile 
-and function as expected. You will even be able to use reflection to discover 
-the type arguments of an instance of a generic type.
+Ceylon's type system has *reified generic type arguments*. Like Java, the 
+Ceylon compiler performs erasure, discarding type parameters from the schema 
+of the generic type. On the JavaScript platform, types are discarded when 
+producing JavaScript source. But unlike Java, type arguments are _reified_ 
+(available at runtime). Types are even reified when executing on a JavaScript 
+virtual machine!
 
-### implementation note <!-- m3 -->
+So the code fragments above compile and function as expected on both 
+platforms. Once we finish implementing the metamodel, you will even be able 
+to use reflection to discover the type arguments of an instance of a generic 
+type.
 
-We have not yet implemented reified generics in the Ceylon compiler, and 
-there exists the possiblity that when we get to it, we'll discover that the
-performance cost of this feature makes it impractical for today's virtual
-machines.
+Now of course, generic type arguments aren't checked for typesafety by the 
+underlying virtual machine at runtime, but that's not really strictly 
+necessary since the compiler has already checked the soundness of the code.
+
+### implementation note <!-- m5 -->
+
+In the M5 release we have not had time to implement certain important
+optimizations related to reified generics. Therefore, you'll likely run into
+some performance problems when using generic types in this release. Don't
+worry, we're confident that we can resolve these issues by the time Ceylon
+reaches its 1.0 release. (But please let us know your experiences!)
+
 
 ## There's more...
 

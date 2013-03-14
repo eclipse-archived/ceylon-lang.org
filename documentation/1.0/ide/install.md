@@ -7,9 +7,9 @@ author: Gavin King
 ---
 # #{page.title}
 
-The M4 release of the Ceylon IDE is available from our Eclipse plugin 
+The M5 release of the Ceylon IDE is available from our Eclipse plugin 
 update site. Note that the version of the Ceylon compiler embedded in 
-this release is compatible with the Ceylon M4 "Analytical Engine" 
+this release is compatible with the Ceylon M5 _&ldquo;Nesa Pong&rdquo;_ 
 command line tools.
 
 Please [report any issue in our issue tracker][issues]. _Note that if
@@ -28,12 +28,12 @@ Here's what you need to do to install the IDE:
     about selecting the JVM in the [eclipse.ini][eclipseini] if needed.
 2.  Go to `Help > Install New Software ...`.
 3.  Enter the URL <http://ceylon-lang.org/eclipse/updatesite/>
-    in the `Work With` field and hit Enter.
+    in the `Work With` field and hit Enter.<br/>
     ![eclipseupdatesite](/images/eclipseupdatesite.png "Update Site")
 4.  Click `Select All` and then `Finish`.
 5.  Wait while Eclipse installs the Ceylon plugin, and then restart 
     Eclipse when prompted.
-6.  Go to `Help > Welcome to Ceylon` to get started. 
+6.  Go to `Help > Welcome to Ceylon` to get started.<br/>
     ![welcomepage](/images/screenshots/intro.png "Welcome Page")
 
 [eclipse]: http://www.eclipse.org/downloads/

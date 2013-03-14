@@ -86,25 +86,42 @@ If the `case`s cover every possible case of the `switch` expression then the
 switch is said to be *exhaustive*, and the `else` clause is prohibited. 
 Otherwise the `else` clause is required.
 
-### Polymorphism
+### `case` with an enumerated type (value reference)
 
-If the `switch` expression is of an enumerated type `U` then the 
-`case`s may be
-
-* **value reference:** of the form `case (x)` where `x` is one of the cases 
+If the `switch` expression is of an 
+[enumerated type](../../structure/type#enumerated_types) `U` 
+then the 
+`case`s may be of the form `case (x)` where `x` is one of the cases 
   of `U` (a list of cases `case(x, y, z)` is also permitted).
-* **assignability condition:** of the form `case (is V)` where `V` is a case 
-  of the type `U`.
 
-If the switch expression is of type `Type<U>` for some an enumerated type `U` 
-then the `case` must be:
+### `case(is...)` (assignability condition)
+  
+If the `switch` expression is of an 
+[enumerated type](../../structure/type#enumerated_types) `U` 
+then the 
+`case`s may be of the form `case (is V)` where `V` is a case 
+of the type `U`.
 
-* **subtype condition:** of the form `case (satisfies V)` where `V` is a case 
-  of the type `U`.
+Note that because Ceylon supports reified generics V may be a 
+parameterized type, for example you can write a case such as
+`case (is List<Integer>)`
+
+### `case(satisfies...)` (subtype conditions)
+
+<!-- m-later -->
+
+If the switch expression is of type `Type<U>` for some 
+[enumerated type](../../structure/type#enumerated_types) `U` 
+then the `case` must be of the form `case (satisfies V)` where 
+`V` is a case of the type `U`.
+
+Note that because Ceylon supports reified generics V may be a 
+parameterized type, for example you can write a case such as
+`case (satisfies List<Integer>)`
 
 ## See also
 
-* The [`if` statement] (../if) is an alternative control structure for 
+* The [`if` statement](../if) is an alternative control structure for 
   conditional execution
 * [`switch` in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#switchcaseelse)
 

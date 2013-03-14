@@ -66,12 +66,12 @@ not been found:
     variable Boolean minors;
     for (p in people) {
         if (p.age<18) {
-            minors := true;
+            minors = true;
             break;
         }
     }
     else {
-        minors := false;
+        minors = false;
     }
 <!-- cat: } -->
 
@@ -87,7 +87,7 @@ This isn't a problem in practice; see
 * The [`break` statement](../break)
 * The [`continue` statement](../continue)
 * The [`while` statement](../while)
-* [`Iterable`](#{page.doc_root}/api/ceylon/language/interface_Iterable.html)
+* [`Iterable`](#{site.urls.apidoc_current}/interface_Iterable.html)
 * The [`for` statement](#{page.doc_root}/tour/attributes-control-structures#control_structures) 
   and [Iterating Sequences](#{page.doc_root}/tour/sequences#iterating_sequences)
   in the Tour of Ceylon

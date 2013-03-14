@@ -11,29 +11,27 @@ doc_root: ../../..
 
 ## Usage 
 
-A `Character` literal is a single character enclosed between backticks (`` ` ``), 
+A `Character` literal is a single character enclosed between single quotes (`'`), 
 for example:
 
 
-    Character x = `x`;
-    Character backtick = `\``;
+    Character x = 'x';
+    Character quote = '\'';
 
 ## Description
 
 ### Unicode characters
 
-Since Ceylon source files are preprocessed for unicode escapes prior to parsing
-you can use unicode escapes within character literals, like this:
+You can use unicode escapes within character literals, like this:
 
-
-    Character therefore = `\u2234`; // an escaped Unicode therefore symbol
+    Character therefore = `\{#2234}`; // an escaped Unicode 'therefore' symbol
 
 ### Escaping
 
 Backslash is used as an escape character. The following characters must be 
 escaped when they're used in a `Character` literal:
 
-* backtick (\`), escaped as `` \` ``
+* single quote ('), escaped as `\'`
 * backslash (`\`), escaped as `\\`
 * tab, escaped as `\t`
 * formfeed, escaped as `\f`
@@ -43,7 +41,6 @@ escaped when they're used in a `Character` literal:
 
 In addition, the following may be escaped with a backslash:
 
-* single quote (`'`), escaped as `\'`
 * double quote (`"`), escaped as `\"`
 
 ## See also

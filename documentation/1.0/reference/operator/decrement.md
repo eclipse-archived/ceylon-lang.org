@@ -18,14 +18,14 @@ differ in whether the result is assigned before or after the decrement.
 Postfix `--` has the operator after the operand:
 
 <!-- cat: void m() { -->
-    variable Integer num := 1;
+    variable Integer num = 1;
     num--;
 <!-- cat: } -->
     
 Prefix `--` puts the operator before the operand:
 
 <!-- cat: void m() { -->
-    variable Integer num := 1;
+    variable Integer num = 1;
     --num;
 <!-- cat: } -->
 
@@ -41,7 +41,7 @@ value of the operand *before* the decrement.
 The prefix `--` is defined as:
 
 <!-- check:none -->
-    rhs:=rhs.predecessor
+    rhs = rhs.predecessor
     
 The postfix `--` is defined as:
 
@@ -54,8 +54,8 @@ See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#ari
 
 The `--` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `--` depends on the 
-[`Ordinal`](#{page.doc_root}/api/ceylon/language/interface_Ordinal.html) and
-[`Settable`](#{page.doc_root}/api/ceylon/language/interface_Settable.html) interfaces.
+[`Ordinal`](#{site.urls.apidoc_current}/interface_Ordinal.html) and
+[`Settable`](#{site.urls.apidoc_current}/interface_Settable.html) interfaces.
 
 ## See also
 

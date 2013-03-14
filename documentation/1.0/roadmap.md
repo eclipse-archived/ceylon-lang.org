@@ -9,7 +9,7 @@ author: Emmanuel Bernard
 
 Ceylon code is released and available on [GitHub](http://github.com/ceylon). 
 
-Milestone 4 of Ceylon [has been released](/download) and we are working on milestone 5 
+Milestone 5 of Ceylon [has been released](/download) and we are working on milestone 6 
 at the moment. Because quality is important to us, we won't release work until we think 
 it's usable. Therefore, we can't give you dates on each milestone.
 
@@ -19,19 +19,19 @@ However, our roadmap is quite well-defined:
   - [Milestone 1](#milestone_1_done)
   - [Milestone 2](#milestone_2_done)
   - [Milestone 3](#milestone_3_done)
-  - [Milestone 4](#milestone_4_done) (latest release)
-  - [Milestone 5](#milestone_5)
+  - [Milestone 4](#milestone_4_done)
+  - [Milestone 5](#milestone_5_done) (latest release)
   - [Milestone 6](#milestone_6_ceylon_10)
 
-## Current progress for M5
+## Current progress for M6
 
 <div id="milestones-progress">
     <div id="milestone-overall">Loading…</div>
     <h3>Detail</h3>
-    <div data-title="Ceylon compiler frontend — Language specification" data-milestone="https://api.github.com/repos/ceylon/ceylon-spec/milestones/5?callback=?">Loading…</div>
-    <div data-title="Ceylon compiler — JVM backend" data-milestone="https://api.github.com/repos/ceylon/ceylon-compiler/milestones/5?callback=?">Loading…</div>
-    <div data-title="Ceylon compiler — JS backend" data-milestone="https://api.github.com/repos/ceylon/ceylon-js/milestones/3?callback=?">Loading…</div>
-    <div data-title="ceylon.language module" data-milestone="https://api.github.com/repos/ceylon/ceylon.language/milestones/5?callback=?">Loading…</div>
+    <div data-title="Ceylon compiler frontend — Language specification" data-milestone="https://api.github.com/repos/ceylon/ceylon-spec/milestones/8?callback=?">Loading…</div>
+    <div data-title="Ceylon compiler — JVM backend" data-milestone="https://api.github.com/repos/ceylon/ceylon-compiler/milestones/9?callback=?">Loading…</div>
+    <div data-title="Ceylon compiler — JS backend" data-milestone="https://api.github.com/repos/ceylon/ceylon-js/milestones/4?callback=?">Loading…</div>
+    <div data-title="ceylon.language module" data-milestone="https://api.github.com/repos/ceylon/ceylon.language/milestones/6?callback=?">Loading…</div>
 </div>
 
 ## Milestone 1 _DONE_
@@ -244,7 +244,7 @@ Milestone 4 has been released.
 * Better support for optional types in Java
 * Map the JDK into Jigsaw-compatible module lists
 
-## Milestone 5
+## Milestone 5 _DONE_
 
 *Tuples, reified generics, dynamic blocks, various syntax
 changes, HTTP server, dates and times.*
@@ -252,26 +252,26 @@ changes, HTTP server, dates and times.*
 ### Declarations:
 * the `late` annotation
 * fat arrow notation `=>` for single-expression functions
-  and getters  _DONE_
+  and getters
 
 ### Generics:
-* reified generics  _DONE_
-* defaulted type parameters  _DONE_
+* reified generics
+* defaulted type parameters
 
 ### Expressions:
-* Tuples  _DONE_
-* lengthwise range operator (`start:length` and `ranged[start:length]`)  _DONE_
-* Binary and hexadecimal integer literals  _DONE_
-* verbatim strings  _DONE_
-* `{Element*}` abbreviation for `Iterable<Element>`  _DONE_
+* Tuples
+* lengthwise range operator (`start:length` and `ranged[start:length]`)
+* Binary and hexadecimal integer literals
+* verbatim strings
+* `{Element*}` abbreviation for `Iterable<Element>`
 
 ### Misc:
-* `dynamic` blocks for interop with native JavaScript  _DONE_
+* `dynamic` blocks for interop with native JavaScript
 
 ### Modules:
-* `compose()` and `curry()` functions in language module  _DONE_
+* `compose()` and `curry()` functions in language module
 * `ceylon.time` platform module (date/time types)
-* `ceylon.net.httpd` package (HTTP server)  _DONE_
+* `ceylon.net.httpd` package (HTTP server)
 
 ## Milestone 6 (Ceylon 1.0)
 

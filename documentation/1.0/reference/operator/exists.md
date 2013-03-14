@@ -32,6 +32,14 @@ The meaning of `exists` is defined as follows:
 
 The `exists` operator is not [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 
+### Note
+
+Do not to confuse the `exists` *operator* described here and which 
+takes form `attribute exists` with the 
+[`exists` *condition*](../../statement/conditions) used in `if`, `assert` and 
+`while` statements and which takes the form 
+`exists attribute`.
+
 ## See also
 
 * [`exists`](#{page.doc_root}/#{site.urls.spec_relative}#nullvalues) in the language specification.

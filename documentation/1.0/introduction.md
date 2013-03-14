@@ -1,20 +1,20 @@
 ---
 layout: documentation
-title: Quick Introduction to Ceylon
+title: Quick introduction
 tab: documentation
 unique_id: docspage
 author: Gavin King
 doc_root: ..
 ---
 
-# Quick introduction
+# #{page.title}
 
 It's impossible to get to the essence of a programming language by looking
-at a list of its features. What really *makes* the language is how all the
+at a list of its features. What really _makes_ the language is how all the
 little bits work together. And that's impossible to appreciate without 
 actually writing code. In this section we're going to try to quickly show 
 you enough of Ceylon to get you interested enough to actually try it out.
-This is *not* a comprehensive feature list!
+This is _not_ a comprehensive feature list!
 
 ## Support for Java and JavaScript virtual machines
 
@@ -44,7 +44,7 @@ Here's what a simple function looks like:
 <!-- cat-id:point -->
 <!-- cat: void m() { -->
     function distance(Point from, Point to) {
-        return ((from.x-to.x)**2 + (from.y-to.y)**2)**0.5;
+        return ((from.x-to.x)^2 + (from.y-to.y)^2)^0.5;
     }
 <!-- cat: } -->
 
@@ -59,7 +59,7 @@ Here's a simple class:
 -->
     class Counter(Integer initialValue=0) {
         
-        variable value count := initialValue;
+        variable value count = initialValue;
         
         shared Integer currentValue {
             return count;
@@ -71,12 +71,12 @@ Here's a simple class:
         
     }
 
-Here's how we create and iterate sequences:
+Here's how we create and iterate a sequence:
 
 <!-- cat: void m() { -->
-    String[] names = { "Tom", "Dick", "Harry" };
+    String[] names = ["Tom", "Dick", "Harry"];
     for (name in names) {
-        print("Hello, " name "!");
+        print("Hello, ``name``!");
     }
 <!-- cat: } -->
 
@@ -93,11 +93,10 @@ Ceylon has a special built-in "declarative" syntax for defining hierarchical
 structures. This is especially useful for creating user interfaces:
 
 <!-- try: -->
-<!-- check:none -->
     Table table = Table {
         title = "Squares";
         rows = 5;
-        border = Border {
+        Border {
             padding = 2;
             weight = 1;
         };
@@ -109,10 +108,10 @@ structures. This is especially useful for creating user interfaces:
             }
         },
         Column {
-            heading = "x**2";
+            heading = "x^2";
             width=10;
             String content(Integer row) {
-                return (row**2).string;
+                return (row^2).string;
             }
         }
     };
@@ -121,10 +120,9 @@ But it's much more generally useful, forming a great foundation for
 expressing everything from build scripts to test suites:
 
 <!-- try: -->
-<!-- check:none -->
     Suite tests = Suite {
         Test { 
-            name = "sqrt() function";
+            "sqrt() function";
             void run() {
                 assert(sqrt(1)==1);
                 assert(sqrt(4)==2);
@@ -132,7 +130,7 @@ expressing everything from build scripts to test suites:
             }
         },
         Test {
-            name = "sqr() function";
+            "sqr() function";
             void run() {
                 assert(sqr(1)==1);
                 assert(sqr(2)==4);
@@ -167,38 +165,34 @@ support for union and intersection types. A *union type* is a type which
 accepts instances of any one of a list of types:
 
 <!-- try: -->
-<!-- check:none -->
     Person|Organization personOrOrganization = ... ;
 
 An *intersection type* is a type which accepts instances of all of a list
 of types:
 
 <!-- try: -->
-<!-- check:none -->
     Printable&Sized&Persistent printableSizedPersistent = ... ;
 
 Union and intersection types are occasionally useful as a convenience in 
 ordinary code. More importantly, they help make things that are complex 
 and magical in other languages (especially generic type argument inference) 
-simple and straightforward in Ceylon. For example, consider the following 
-sequences:
+simple and straightforward in Ceylon. For example, consider the following:
 
 <!-- try-post:
 
     print(stuff);
     print(joinedStuff);
 -->
-<!-- check:none -->
     value stuff = { "hello", "world", 1.0, -1 };
     value joinedStuff = join({"hello", "world"}, {1.0, 2.0}, {});
 
 The compiler automatically infers the types: 
 
-* `Sequence<String|Float|Integer>` for `stuff`, and 
-* `Empty|Sequence<String|Float>` for `joinedStuff`. 
+* `Iterable<String|Float|Integer>` for `stuff`, and 
+* `Sequential<String|Float>` for `joinedStuff`. 
 
-These are the correct principal types of the expressions. We didn't need to 
-explictly specify any types anywhere.
+These are the correct principal types of the expressions. We didn't need 
+to explictly specify any types anywhere.
 
 We've worked hard to keep the type system [quite simple at its core][manifesto]. 
 This makes the language easier to learn, and helps control the number of 
@@ -220,31 +214,23 @@ inheritance*.
 
     print(empty.size);
 -->
-<!-- check:none -->
     interface Sized {
-        
         shared formal Integer size;
-    
         shared Boolean empty {
             return size==0;
         }
-    
     }
     
     interface Printable {
-    
         shared void printIt() {
             print(this);
         }
-        
     }
     
     object empty satisfies Sized & Printable {
-    
         shared actual Integer size {
             return 0;
         }
-        
     }
 
 What really distinguished interfaces from classes in Ceylon is that 
@@ -259,7 +245,7 @@ Ceylon doesn't have fields, at least not in the traditional sense.
 Instead, *attributes* are polymorphic, and may be refined by a subclass, 
 just like methods in other object-oriented languages. 
 
-An attribute might be a simple value:
+An attribute might be a reference to an object:
 
 <!-- try-pre:
     String firstName = "John";
@@ -294,45 +280,43 @@ It might be a getter:
 Or it might be a getter/setter pair:
 
 <!-- try-pre:
-    variable String fullName := "John Doe";
+    variable String fullName = "John Doe";
 
 -->
 <!-- try-post:
 
     print(name);
-    name := "Pietje Pluk";
+    name = "Pietje Pluk";
     print(name);
 -->
-<!-- cat: variable String fullName := "John Doe"; -->
+<!-- cat: variable String fullName = "John Doe"; -->
     String name {
         return fullName;
     }
     
     assign name {
-        fullName := name;
+        fullName = name;
     }
 
 In Ceylon, we don't need to write trival getters or setters which merely 
 mediate access to a field. The
 state of a class is always [completely abstracted](../tour/classes/#abstracting_state_using_attributes) 
-from clients of the class: We can change a value attribute to a getter/setter 
+from clients of the class: We can change a reference attribute to a getter/setter 
 pair without breaking clients.
 
 ## Typesafe null and flow-dependent typing
 
 There's no `NullPointerException` in Ceylon, nor anything similar. Ceylon
 requires us to be explicit when we declare a value that might be null, or
-a method that might return null. For example, if `name` might be null, 
+a function that might return null. For example, if `name` might be null, 
 we must declare it like this:
 
 <!-- try: -->
-<!-- check:none -->
     String? name = ...
 
 Which is actually just an abbreviation for:
 
 <!-- try: -->
-<!-- check:none -->
     String|Nothing name = ...
 
 An attribute of type `String?` might refer to an actual instance of `String`, 
@@ -348,7 +332,7 @@ construct.
 -->
     void hello(String? name) {
         if (exists name) {
-            print("Hello, " name "!");
+            print("Hello, ``name``!");
         }
         else {
             print("Hello, world!");
@@ -367,7 +351,7 @@ way of writing the following:
 -->
     void hello(String? name) {
         if (is String name) {
-            print("Hello, " name "!");
+            print("Hello, ``name``!");
         }
         else {
             print("Hello, world!");
@@ -379,8 +363,8 @@ The ability to narrow the type of a value using conditions like `is` and
 flow-dependent typing comes into play is assertions:
 
 <!-- try: -->
-    if (`/` in string) {
-        value bits = string.split((Character c) c==`/`);
+    if ('/' in string) {
+        value bits = string.split("/");
 		value first = split.first; //first may be null, according to its type
 		value second = split.rest.first; //second may be null, according to its type
 		//assert that first and second are in 
@@ -414,7 +398,6 @@ Ceylon gives us the best of both worlds. We can specify an *enumerated list
 of subtypes* when we define a supertype:
 
 <!-- try: -->
-<!-- check:none -->
     abstract class Node() of Leaf | Branch {}
 
 And we can write a `switch` statement that handles all the enumerated subtypes:
@@ -429,20 +412,20 @@ And we can write a `switch` statement that handles all the enumerated subtypes:
     case (is Leaf) { print("Leaf"); }
     case (is Branch) { print("Branch"); }
 -->
-<!-- check:none -->
     Node node = ... ;
     switch (node)
     case (is Leaf) { ... }
     case (is Branch) { .... }
 
 Now, if we add a new subtype of `Node`, we must add the new subtype to the
-`of` clause of the declaration of `Node`, and the compiler will produce an error
-at every `switch` statement which doesn't handle the new subtype.
+`of` clause of the declaration of `Node`, and the compiler will produce an 
+error at every `switch` statement which doesn't handle the new subtype.
 
 ## Type aliases and type inference
 
 Fully-explicit type declarations very often make difficult code much easier to
-understand. But there are other occasions where the repetition of a verbose
+understand, and they're an invaluable aid to understanding the API of a library 
+or framework. But there are other occasions where the repetition of a verbose
 generic type can detract from the readability of the code. We've observed that:
 
 1. explicit type annotations are of much less value for local declarations, and
@@ -453,17 +436,31 @@ Ceylon addresses the first problem by allowing type inference for local
 declarations. For example:
 
 <!-- try: -->
-<!-- check:none -->
     value names = LinkedList { "Tom", "Dick", "Harry" };
 
-    function sqrt(Float x) { return x**0.5; }
-    
+<br/>
+
+<!-- try: -->
+    function sqrt(Float x) { return x^0.5; }
+
+<br/>    
+
+<!-- try: -->
     for (item in order.items) { ... }
 
 On the other hand, for declarations which are accessible outside the compilation 
 unit in which they are defined, Ceylon requires an explicit type annotation. We 
 think this makes the code more readable, not less, and it makes the compiler more 
 efficient and less vulnerable to stack overflows.
+
+Type inference works somewhat better in Ceylon than in other languages with 
+subtyping, because Ceylon has union and intersection types. Consider a map with 
+a heterogeneous key type:
+
+<!-- try: -->
+    value numbers = HashMap { "one"->1.0, "zero"->0.0, 1->1.0, 0->0.0 };
+
+The inferred type of `numbers` is `HashMap<String|Integer,Float>`.
 
 Ceylon addresses the second problem via *type aliases*, which are very similar
 to a `typedef` in C. A type alias can act as an abbreviation for a generic type
@@ -507,7 +504,7 @@ function:
 <!-- cat-id:repeat -->
 <!-- cat: void m() { -->
     void printSqr(Integer i) {
-        print(i**2);
+        print(i^2);
     }
     
     repeat(5, printSqr);
@@ -526,7 +523,7 @@ Or we can specify the argument function inline, either like this:
 -->
 <!-- cat-id:repeat -->
 <!-- cat: void m() { -->
-    repeat(5, (Integer i) print(i**2));
+    repeat(5, (Integer i) => print(i^2));
 <!-- cat: } -->
 
 Or, using a named argument invocation, like this:
@@ -545,7 +542,7 @@ Or, using a named argument invocation, like this:
     repeat {
         times = 5;
         void iterate(Integer i) {
-            print(i**2);
+            print(i^2);
         }
     };
 <!-- cat: } -->
@@ -554,17 +551,17 @@ It's even possible to pass a member method or attribute reference to a higher
 order function:
 
 <!-- try: -->
-<!-- check:none -->
-    String[] names = { "Gavin", "Stef", "Tom", "Tako" } ;
+    String[] names = { "Gavin", "Stef", "Tom", "Tako" };
     String[] uppercaseNames = names.map(String.uppercased);
 
 ## Comprehensions
 
-Filtering and transforming streams of values is one of the main things computers
-are good at. Therefore, Ceylon provides a special syntax which makes these operations
-especially convenient. Anywhere you could provide a list of expressions (a sequence
-instantiation, or a "vararg"), Ceylon lets you write a comprehension instead. For
-example, the following expression instantiates a sequence of names:
+Filtering and transforming streams of values is one of the main things 
+computers are good at. Therefore, Ceylon provides a special syntax which makes 
+these operations especially convenient. Anywhere you could provide a list of 
+expressions (a sequence instantiation, or a "vararg"), Ceylon lets you write a 
+comprehension instead. For example, the following expression instantiates a 
+sequence of names:
 
 <!-- try: -->
     { for (p in people) p.firstName + " " + p.lastName }
@@ -584,10 +581,54 @@ This expression creates a set of employers:
 <!-- try: -->
     HashSet { for (p in people) for (j in p.jobs) j.organization }
 
-Here, we're using a comprehension as a method argument to format and print the names:
+Here, we're using a comprehension as a function argument to format and print 
+the names:
 
 <!-- try: -->
     print(", ".join { for (p in people) p.firstName + " " + p.lastName });
+
+## Tuples
+
+A _tuple_ is a kind of linked list, where the static type of the list 
+encodes the static type of each element of the list, for example:
+
+<!-- try: -->
+    [Float,Float,Float,String] origin = [0.0, 0.0, 0.0, "origin"];
+
+We can access the elements of the list without needing to typecast:
+
+<!-- try: -->
+    [Float,Float,Float,String] xyzWithLabel = ... ;
+    
+    [Float,Float] xy = [xyzWithLabel[0], xyzWithLabel[1]];
+    String label = xyzWithLabel[3];
+
+Tuples aren't something we intend for you to use every day. But they are 
+occasionally useful as a convenience, and they really come into play if you
+want to take advantage of Ceylon's support for typesafe metaprogramming. For
+example, you can take a tuple, and "spread" it across the parameters of a
+function:
+
+Suppose we have a nice function for formatting dates:
+
+<!-- try: -->
+    String formatDate(String format, 
+                      Integer day, 
+                      Integer|String month, 
+                      Integer year) { ... }
+
+And we have a date, held in a tuple:
+
+<!-- try: -->
+    [Integer,String,Integer] date = [25, "March", 2013];
+
+Then we can print the date like this:
+
+<!-- try: -->
+    print(formatDate("dd MMMMM yyyy", *date));
+
+Of course, Ceylon's support for tuples is just some syntax sugar over the
+perfectly ordinary generic class `Tuple`.
 
 ## Simplified generics with fully-reified types
 
@@ -602,7 +643,6 @@ parameter may be marked as covariant (`out`) or contravariant (`in`) by the clas
 or interface that declares the parameter.
 
 <!-- try: -->
-<!-- check:none -->
     interface Correspondence<in Key, out Item> { ... }
 
 Ceylon has a more expressive system of generic type constraints with a much cleaner, 
@@ -610,7 +650,6 @@ more regular syntax. The syntax for declaring type constraints on a type paramet
 looks very similar to a class or interface declaration.
 
 <!-- try: -->
-<!-- check:none -->
     interface Producer<in Input, out Value>
             given Value(Input input) satisfies Container { ... }
 
@@ -631,7 +670,6 @@ call this approach *operator polymorphism*.
 For example, the Ceylon language module defines the interface `Summable`.
 
 <!-- try: -->
-<!-- check:none -->
     shared interface Summable<Other> of Other
             given Other satisfies Summable<Other> {
         shared formal Other plus(Other that);
@@ -641,13 +679,11 @@ And the `+` operation is defined for values which are assignable to `Summable`.
 The following expression:
 
 <!-- try: -->
-<!-- check:none -->
     x+y
 
 Is merely an abbreviation of:
 
 <!-- try: -->
-<!-- check:none -->
     x.plus(y)
 
 Likewise, `<` is defined in terms of the interface `Comparable`, `*` in terms of
@@ -661,8 +697,7 @@ member invocations. This facility is more powerful, and much more typesafe, than
 reflection in Java.
 
 <!-- try: -->
-<!-- check:none -->
-    Class<Person,Name> personClass = Person;
+    Class<Person,[Name]> personClass = Person;
     Person gavin = personClass(Name("Gavin", "King"));
 
 Ceylon supports program element annotations, with a streamlined syntax. Indeed,
@@ -671,9 +706,8 @@ which are not keywords in Ceylon - and for embedding API documentation for the
 documentation compiler:
 
 <!-- try: -->
-<!-- check:none -->
-    doc "The user login action"
-    by "Gavin King"
+    "The user login action"
+    by ("Gavin King")
     throws (DatabaseException,
             "if database access fails")
     see (LogoutAction.logout)
@@ -695,14 +729,13 @@ no equivalent to Java's `protected`. Dependencies between modules are specified 
 the module descriptor:
 
 <!-- try: -->
-<!-- check:none -->
-    doc "This module is just a silly example. You'll 
-         find some proper modules in the community 
-         repository [Ceylon Herd][Herd].
-             
-         [Herd]: http://modules.ceylon-lang.org
-             
-         Happy Herding!"
+    "This module is just a silly example. You'll 
+     find some proper modules in the community 
+     repository [Ceylon Herd][Herd].
+     
+     [Herd]: http://modules.ceylon-lang.org
+     
+     Happy Herding!"
     module org.jboss.example '1.0.0' {         
         import ceylon.math '0.3.0';
         import ceylon.file '0.3.1';
@@ -720,6 +753,41 @@ modules.
 
 [Ceylon Herd](http://modules.ceylon-lang.org) is a community module repository for
 sharing open source modules.
+
+## Interoperation with native Java and JavaScript
+
+Code written in Ceylon interoperates elegantly with native code written for the 
+platform. For example, we can make use of Java's collections, which are exposed 
+to Ceylon code in the module `java.base`:
+
+<!-- try: -->
+    import java.util { HashMap }
+    
+    value javaHashMap = HashMap<String,Integer>();
+    javaHashMap.put("zero", 0);
+    javaHashMap.put("one", 1);
+    javaHashMap.put("two", 2);
+    print(javaHashMap.values());
+
+Notice that basic types like `String` and `Integer` may be passed completely
+transparently between the two languages. 
+
+We can even call untyped native JavaScript APIs, inside a `dynamic` block:
+
+<!-- try: -->
+    dynamic {
+        value req = XMLHttpRequest();
+        req.onreadystatechange = void () {
+            if (req.readyState==4) {
+                document.getElementById("greeting")
+                        .innerHTML = req.status==200
+                                then req.responseText
+                                else "error";
+            }
+        };
+        req.open("GET", "/sayHello", true);
+        req.send();
+    }
 
 ## Take the Tour
 

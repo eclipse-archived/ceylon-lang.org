@@ -23,22 +23,21 @@ An example module descriptor:
         import com.example.bar '3.4.1';
     }
     
-Conventionally this would be in a source file located in
-`<source-dir>/com/example/foo/module.ceylon` where `<source-dir>` is the
-directory containing ceylon source code.
+This would be in the source file 
+`<source-dir>/com/example/foo/module.ceylon` where `<source-dir>` is a
+directory containing ceylon source code, conventionally `source`.
 
 ## Description
 
 ### Member packages
 
 The names of the packages in a module must begin with the name of the module,
-so for example is a module called `com.example.foo` all the the package names
+so for example in a module called `com.example.foo` all the the package names
 must begin `com.example.foo.`.
 
 ### Descriptor
 
-The 
-[module descriptor](#{site.urls.apidoc_current}/ceylon/language/descriptor/class_Module.html) 
+The module descriptor
 holds metadata about the module and is declared in a source file called
 `module.ceylon` in the base package of the module (that is the package whose 
 name is the same as the module name). Here's an example:
@@ -53,11 +52,11 @@ name is the same as the module name). Here's an example:
 
 The `module` declaration may be preceeded by [annotations](../annotation), including:
 
-* [`doc`](#{site.urls.apidoc_current}/ceylon/language/#doc) 
+* [`doc`](#{site.urls.apidoc_current}/#doc) 
   to let you to specify module-level documentation,
-* [`license`](#{site.urls.apidoc_current}/ceylon/language/#license) 
+* [`license`](#{site.urls.apidoc_current}/#license) 
   to let you specify the module's license,
-* [`by`](#{site.urls.apidoc_current}/ceylon/language/#by) 
+* [`by`](#{site.urls.apidoc_current}/#by) 
   to document the module's author or authors. 
 
 The module declaration itself starts with the `module` keyword followed by the 
@@ -69,9 +68,11 @@ specifying the module name of the dependency and its version.
 The `import` declarations can also be annotated. Two annotations particularly 
 worth noting are:
 
-* [`export`](#{site.urls.apidoc_current}/ceylon/language/#export) to mark the 
-  imported module as also being exported to clients of this module.
-* [`optional`](#{site.urls.apidoc_current}/ceylon/language/#optional) to mark
+* [`shared`](#{site.urls.apidoc_current}/#shared) to mark the 
+  imported module as also being exported to clients of this module. If your 
+  modules uses types from an imported modules in its API then the compiler 
+  requires you to mark that module `shared` in your module descriptor.
+* [`optional`](#{site.urls.apidoc_current}/#optional) to mark
   the imported module as being optional.
 
 ### Distribution
@@ -90,5 +91,5 @@ repositories to use is passed to
 * Modules contain [packages](../package)
 * [Module repositories](../../repository)
 * `ceylon doc` documentation of the 
-  [Module](#{site.urls.apidoc_current}/ceylon/language/descriptor/class_Module.html) 
+  [Module](#{site.urls.apidoc_current}/descriptor/class_Module.html) 
   type (the type of the module descriptor)

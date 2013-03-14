@@ -32,46 +32,82 @@ body.bp {
   // Remove the scaffolding when you're ready to start doing visual design.
   // Or leave it in if you're happy with how blueprint looks out-of-the-box
 
-  font: 15px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size:15px;
+  font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;
   color: #2c2c2c;
-  text-shadow: white 1px 1px 0px;
   background-color: white;
-      
-  h1 {
-    color: $h1_text_color;
-  }
-
-  h3, h4, h5, h6 {
-    color: $h3plus_text_color;
-  }
+  font-weight: 400;
   
   h1 {
+    color: $h1_text_color;
     font-size: 1.6em;
     font-weight:bold;
+    font-family:'PT Sans', Helvetica, 'Helvetica Neue', Arial, sans-serif;
   }
   h2 {
     font-size:1.3em;
     font-weight:bold;
     color: #255A5F;
     clear: left;
+    margin-top: 0.6em;
+    font-family:'PT Sans', Helvetica, 'Helvetica Neue', Arial, sans-serif;
+  }
+  h3, h4, h5, h6 {
+    color: $h3plus_text_color;
   }
   h3 {
+    font-family:'PT Sans', Helvetica, 'Helvetica Neue', Arial, sans-serif;
     font-size:1.2em;
     font-weight:bold;
+    margin-top: 0.6em;
+    margin-bottom: 0.6em;
   }
-  h4 {
-    font-size:1.1em;
-  }
-  h5 {
+  h4, h5 {
+    font-family:'PT Sans', Helvetica, 'Helvetica Neue', Arial, sans-serif;
     font-size:1.1em;
   }
   h6 {
     font-size:100%;
   }
-
-
-  //Home news info
   
+  p {
+    margin-top:1em;
+    margin-bottom:1em;
+    line-height:1.45em;
+  }
+
+  ul, ol {
+    margin-top:0.2em;
+    margin-bottom:0.2em;
+    li {
+      margin-top:0.3em;
+      margin-bottom:0.3em;
+    }
+  }
+  
+  pre,
+  .syntaxhighlighter .lines,
+  {
+    //background-color:#f5f5f5;
+    //border: 1px solid #d5d8d3;
+    margin-left:10px;
+    margin-top:0px;
+    margin-bottom:0px;
+    border-left: 5px solid #f0f0f0;
+    padding-left: 10px;
+    font-family:Menlo, Monaco, Courier, monospace;
+    font-style:normal;
+    font-size:85%;
+  }
+  
+  p code, ul code, ol code {
+    font-family:Menlo, Monaco, Courier, monospace;
+    font-style:normal;
+    font-size:90%;
+    color:#2E5C00;
+  }
+  
+  //Home news info
   
   .news_entry {
 
@@ -146,7 +182,7 @@ form.bp {
   }
   
   #menu {
-    font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+    font-family:'Lucida Grande', 'Lucida Sans Unicode', Arial, sans-serif;
     font-size: 14px;
     float: right;
     margin-top: 70px;
@@ -160,6 +196,10 @@ form.bp {
       float: right;
       li:hover {
         cursor:pointer;
+      }
+      
+      li {
+        margin-top: 0;
       }
 
       li#selected a {
@@ -234,7 +274,7 @@ form.bp {
     padding: 1em 2em 1em 2em;
     color: white;
     text-shadow: none;
-    font-size: 17px;
+    font-size: 15px;
     font-weight: bold;
 
     pre {
@@ -243,7 +283,11 @@ form.bp {
       border: none;
       padding: 0;
       code {
+        font-family:'Courier New', Courier, monospace;
+        font-size: 15.5px;
         font-weight: bold;
+        text-shadow: none;
+        line-height: .99em;
         .code_type {
           color: #D98BD6;
         }
@@ -253,15 +297,6 @@ form.bp {
       }
     }
 
-    .syntaxhighlighter {
-      margin: 0 !important;
-    }
-  
-    .syntaxhighlighter,
-    .line.alt1,
-    .line.alt2 {
-      background: none !important;
-    }
   }
 }
 
@@ -357,18 +392,10 @@ form.bp {
     display: inline-block;
     width: 313px;
     vertical-align: top;
+    text-shadow: white 1px 1px 0px;
   }
 
   .bubble-block {
-    strong {
-      font-weight:boldest;
-    }
-    h3 {
-      color: #456B6E;
-    }
-    h2 {
-      text-align: center;
-    }
     -moz-border-radius: 15px;
     border-radius: 15px;
     font-size: 15px;
@@ -377,26 +404,51 @@ form.bp {
     border-left: 1px solid #c7d8d8;
     border-right: 1px solid #c7d8d8;
     background: url("../images/sidebar_bkg_elephant.png") no-repeat 0px 0px #d4e5e5;
+    
+    strong {
+      font-weight:boldest;
+    }
+    
+    h3 {
+      color: #456B6E;
+    }
+    
+    h2 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    
+    p {
+      margin-top: 0;
+      line-height: 1.2em;    
+    }
   }
 
   .bubble-block-transparent {
     color: #3e4747;
+    font-size: 15px;
+    padding:1.5em;
+    margin:0em 1.75em;
+
     strong {
       font-weight: bold;
     }
+    
     h2 {
       text-align: left;
       font-size: 16px;
       color: #3e4747;
+      margin-top: 0;
+      font-family:Helvetica, 'Helvetica Neue', Arial, sans-serif;
     }
+    
     h3 {
       margin: 1em 0;
     }
-    
     h3:first-child {
       margin-top: 0;
     }
-
     h3:last-child {
       margin-bottom: 0;
     }
@@ -405,11 +457,9 @@ form.bp {
       margin: 0.5em 1em;
     }
     
-    font-size: 15px;
-    padding:1.5em;
-    margin:0em 1.75em;
     p {
       margin-bottom: 1em;
+      line-height: 1.2em;
     }
     p:last-child {
       margin-bottom: 0;
@@ -417,38 +467,37 @@ form.bp {
   }
 
   .fixed-vertical-bubble {
-    height: 180px;
+    height: 170px;
     position:relative;
   }
 
   //from http://css3buttongenerator.com/
   .bubble-button {
-    //font-family: Arial;
-    font-weight: bold;
-    color: #ffffff;
+    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    //font-family: "Marvel", "Trebuchet MS", Arial, sans-serif;
+    font-weight: normal;
     font-size: 15px;
-    padding: 5px 7px;
     text-decoration: none;
+    line-height: normal;
+    padding:7px 10px;
+    color: white;
+    background-color: #5bb65b;
+    text-shadow: 0 -1px 1px #666666;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
-    -webkit-box-shadow: 0px 1px 3px #666666;
-    -moz-box-shadow: 0px 1px 3px #666666;
-    box-shadow: 0px 1px 3px #666666;
-    text-shadow: 1px 1px 3px #255A5F;
-    border: solid #368D73 1px;
-    background: -webkit-gradient(linear, 0 0, 0 100%, from(#82CDBA), to(#368D73));
-    background: -moz-linear-gradient(top, #82CDBA, #368D73);
-    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#82CDBA, endColorStr=#368D73);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#82CDBA, endColorStr=#368D73);
-    display:inline-block; /* IE is so silly */
+    background-image: -moz-linear-gradient(top, #62c462, #51a351);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#62c462), to(#51a351));
+    background-image: -webkit-linear-gradient(top, #62c462, #51a351);
+    background-image: -o-linear-gradient(top, #62c462, #51a351);
+    background-image: linear-gradient(to bottom, #62c462, #51a351);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF62C462', endColorstr='#FF51A351', GradientType=0);
   }
 
   .bubble-button:hover {
-    background: -webkit-gradient(linear, 0 0, 0 100%, from(#6BAE9D), to(#368D73));
-    background: -moz-linear-gradient(top, #6BAE9D, #368D73);
-    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#6BAE9D, endColorStr=#368D73);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#6BAE9D, endColorStr=#368D73);
+    color: #aaddff;
+    text-shadow: 0 -1px 1px #666666;
   }
 
   .bubble-bottom {
@@ -477,14 +526,12 @@ form.bp {
 
   .titlebar {
     margin-top:1em;
-    //font-size:40px;
   }
 
   #newsbar {
     width: 900px;
     margin-bottom: $space-after-home-lines;
     margin-left: 1.75em;
-    //0.875em;
     height: 2em;
     
     h3 {
@@ -515,6 +562,12 @@ form.bp {
     p {
       color: white;
       margin-bottom: 1em;
+      margin-top: 0;
+      code {
+        font-family: Courier, monospace;
+        color: white;
+        text-shadow: none;
+      }
     }
     p:last-child {
       margin-bottom: 0;
@@ -537,7 +590,7 @@ form.bp {
   
   #sidebar {
     @include column(8,true);
-    font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+    //font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
     #feed {
       padding-left: 34px;
       background: url("../images/feed_icon.png") no-repeat 0px 0px;
@@ -546,57 +599,85 @@ form.bp {
   }
 
   .sidebar-block {
-    h3 {
-      color: #456B6E;
-    }
-
     -moz-border-radius: 15px;
     border-radius: 15px;
-    font-size: 15px;
+    font-size: 14px;
+    text-shadow: white 1px 1px 0px;
     padding:1.5em;
     margin:0em 1.75em;
     border-left: 1px solid #c7d8d8;
     border-right: 1px solid #c7d8d8;
     background: url("../images/sidebar_bkg_elephant.png") no-repeat 0px 0px #d4e5e5;
+    
+    h3 {
+      font-size: 16px;
+      color: #456B6E;
+    }
+    
+    li {
+      font-size: 12px;
+    }
+    
+    ul {
+      margin-bottom:1em;
+    }
+    
   }
 
   .sidebar-dark {
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    font-size: 14px;
+    //text-shadow: #656565 1px 1px 0px;
+    padding:1.5em;
+    margin:0em 1.75em;
+    background-color: #121f1f;
+    color: white;
+    text-style:normal;
+    
     h3 {
       color: white;
-      margin: 1em 0;
+      margin: 0.8em 0;
     }
-    
     h3:first-child {
       margin-top: 0;
     }
-
     h3:last-child {
       margin-bottom: 0;
     }
-
+    
     h4 {
       margin: 0.5em 1em;
     }
     
-    -moz-border-radius: 15px;
-    border-radius: 15px;
-    font-size: 14px;
-    text-shadow: #656565 1px 1px 0px;
-    padding:1.5em;
-    margin:0em 1.75em;
-    background-color: #121f1f;
-
     p {
       color: white;
-      margin-bottom: 1em;
+      margin-bottom: 0.8em;
     }
     p:last-child {
-     margin-bottom: 0;
+      margin-bottom: 0;
     }
-
+    
+    li {
+      font-size: 12px;
+      padding: 1px;
+      margin: 0;
+    }
+    li a {
+      text-decoration:none;
+    }
+    
+    ol {
+      margin-bottom: 0;
+    }
+    
     a {
       color: white;
-    }   
+      font-weight:normal;
+    }
+    a:hover {
+      color: #d5d5d5;
+    }
   }
 }
 
@@ -856,23 +937,6 @@ form.bp {
   float:left;
   margin: 0 20px 20px 0;
   display:inline;
-}
-
-//Code for Markdown
-body.bp {
-  pre {
-    background-color:#f5f5f5;
-    border: 1px solid #d5d8d3;
-    padding: 30px; 
-    line-height: inherit;
-  
-    code {
-      font-family:'Courier New', 'Andale Mono', Consolas, 'Bitstream Vera Sans Mono', Courier, monospace;
-      font-style:normal;
-      font-size:.99em;
-      line-height:1em;
-    }
-  }
 }
 
 // for Milestone indicators

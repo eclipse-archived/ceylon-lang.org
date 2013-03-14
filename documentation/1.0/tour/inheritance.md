@@ -1,6 +1,6 @@
 ---
 layout: tour
-title: Tour of Ceylon&#58; Inheritance, Refinement, and Interfaces
+title: Tour of Ceylon&#58; Inheritance, refinement, and interfaces
 tab: documentation
 unique_id: docspage
 author: Emmanuel Bernard
@@ -11,9 +11,9 @@ doc_root: ../..
 
 This is the fourth leg of the Tour of Ceylon. In the 
 [previous part](../attributes-control-structures) we looked at attributes, 
-locals, variables, setters, and control structures. In this section we're 
-going to learn about *inheritance* and *refinement* (known as "overriding" 
-in many other languages).
+variables, setters, and control structures. In this section we're going to 
+learn about *inheritance* and *refinement* (known as "overriding" in many 
+other languages).
 
 Inheritance is one of two ways Ceylon lets us abstract over types. (The
 other is [generics](../generics), which we'll get to later in this tour.)
@@ -36,19 +36,18 @@ with two different implementations of `description`. Here's the superclass:
     print(Polar(0.31, 13.0).description);
 -->
 <!-- id:polar -->
-    doc "A polar coordinate"
+    "A polar coordinate"
     class Polar(Float angle, Float radius) {
  
-        shared Polar rotate(Float rotation) {
-            return Polar(angle+rotation, radius);
-        }
-     
-        shared Polar dilate(Float dilation) {
-            return Polar(angle, radius*dilation);
-        }
+        shared Polar rotate(Float rotation) =>
+                Polar(angle+rotation, radius);
         
-        doc "The default description"
-        shared default String description = "(" radius "," angle ")";
+        shared Polar dilate(Float dilation) =>
+                Polar(angle, radius*dilation);
+        
+        "The default description"
+        shared default String description => 
+                "(``radius``,``angle``)";
     
     }
 
@@ -62,19 +61,18 @@ to be sent to the superclass initializer parameters. It looks just like
 an expression that instantiates the superclass:
 
 <!-- try-pre:
-    doc "A polar coordinate"
+    "A polar coordinate"
     class Polar(Float angle, Float radius) {
  
-        shared Polar rotate(Float rotation) {
-            return Polar(angle+rotation, radius);
-        }
-     
-        shared Polar dilate(Float dilation) {
-            return Polar(angle, radius*dilation);
-        }
+        shared Polar rotate(Float rotation) =>
+                Polar(angle+rotation, radius);
         
-        doc "The default description"
-        shared default String description = "(" radius "," angle ")";
+        shared Polar dilate(Float dilation) =>
+                Polar(angle, radius*dilation);
+        
+        "The default description"
+        shared default String description => 
+                "(``radius``,``angle``)";
     
     }
 
@@ -83,15 +81,14 @@ an expression that instantiates the superclass:
     print(LabeledPolar(0.31, 13.0, "point").description);
 -->
 <!-- cat-id:polar -->
-    doc "A polar coordinate with a label"
+    "A polar coordinate with a label"
     class LabeledPolar(Float angle, Float radius, String label)
             extends Polar(angle, radius) {
-         
-        doc "The labeled description"
-        shared actual String description {
-            return label + " " + super.description;
-        }
-     
+        
+        "The labeled description"
+        shared actual String description =>
+                label + "-" + super.description;
+        
     }
 
 Ceylon also forces us to declare that an attribute or method refines 
@@ -108,21 +105,89 @@ in `Duck`. We don't believe that the name of a method or attribute alone is
 sufficient to identify its semantics. And, more importantly, [structural
 typing doesn't work properly with tools](#{page.doc_root}/faq/language-design/#structural_typing).
 
+## Shortcut syntax for refinement
+
+There's a more compact way to refine a `default` member of a superclass: 
+simply specify its refined implementation using `=>`, like this:
+
+<!-- try-pre:
+    "A polar coordinate"
+    class Polar(Float angle, Float radius) {
+ 
+        shared Polar rotate(Float rotation) =>
+                Polar(angle+rotation, radius);
+        
+        shared Polar dilate(Float dilation) =>
+                Polar(angle, radius*dilation);
+        
+        "The default description"
+        shared default String description => 
+                "(``radius``,``angle``)";
+    
+    }
+
+-->
+<!-- try-post:
+    print(LabeledPolar(0.31, 13.0, "point").description);
+-->
+<!-- cat-id:polar -->
+    "A polar coordinate with a label"
+    class LabeledPolar(Float angle, Float radius, String label)
+            extends Polar(angle, radius) {
+        
+        description => label + "-" + super.description;
+        
+    }
+
+Or assign a value to it using `=`, like this:
+
+<!-- try-pre:
+    "A polar coordinate"
+    class Polar(Float angle, Float radius) {
+ 
+        shared Polar rotate(Float rotation) =>
+                Polar(angle+rotation, radius);
+        
+        shared Polar dilate(Float dilation) =>
+                Polar(angle, radius*dilation);
+        
+        "The default description"
+        shared default String description => 
+                "(``radius``,``angle``)";
+    
+    }
+
+-->
+<!-- try-post:
+    print(LabeledPolar(0.31, 13.0, "point").description);
+-->
+<!-- cat-id:polar -->
+    "A polar coordinate with a label"
+    class LabeledPolar(Float angle, Float radius, String label)
+            extends Polar(angle, radius) {
+        
+        description = label + "-" + super.description;
+        
+    }
+
+You can refine any function or non-`variable` value using this streamlined
+syntax.
+
 ## Refining a member of `Object`
 
 Our `Polar` class is an implicit subtype of the class 
-[`Object`](#{site.urls.apidoc_current}/ceylon/language/class_Object.html)
+[`Object`](#{site.urls.apidoc_current}/class_Object.html)
 in the package `ceylon.language`. If you take a look at this class, you'll 
 see that it has a `default` attribute named 
-[`string`](#{site.urls.apidoc_current}/ceylon/language/class_Object.html#string). 
+[`string`](#{site.urls.apidoc_current}/class_Object.html#string). 
 It's common to refine this attribute to provide a developer-friendly 
 representation of the object.
 
 `Polar` is also a subtype of the interface 
-[`Identifiable`](#{site.urls.apidoc_current}/ceylon/language/interface_Identifiable.html) 
+[`Identifiable`](#{site.urls.apidoc_current}/interface_Identifiable.html) 
 which defines `default` implementations of 
-[`equals()`](#{site.urls.apidoc_current}/ceylon/language/interface_Identifiable.html#equals) 
-and [`hash`](#{site.urls.apidoc_current}/ceylon/language/interface_Identifiable.html#hash).
+[`equals()`](#{site.urls.apidoc_current}/interface_Identifiable.html#equals) 
+and [`hash`](#{site.urls.apidoc_current}/interface_Identifiable.html#hash).
 We should _definitely_ refine those:
 
 <!-- try-pre:
@@ -132,18 +197,15 @@ We should _definitely_ refine those:
     print(Polar(0.31, 13.0));
 -->
 <!-- cat: Float pi = 3.1415926535; -->
-    doc "A polar coordinate"
+    "A polar coordinate"
     class Polar(Float angle, Float radius) {
         
         // ...
 
-        shared default String description = "(" radius "," angle ")";
+        shared default String description => 
+                "(``radius``,``angle``)";
         
-        shared actual String string { return description; }
-        
-        value azimuth {
-            return pi*(angle/pi).fractionalPart;
-        }
+        value azimuth => pi*(angle/pi).fractionalPart;
         
         shared actual Boolean equals(Object that) {
             if (is Polar that) {
@@ -155,13 +217,59 @@ We should _definitely_ refine those:
             }
         }
         
-        shared actual Integer hash { return radius.hash; }
+        shared actual Integer hash => radius.hash;
+        
+        shared actual String string => description;
         
     }
 
-Don't worry if the syntax `if (is Polar that)` throws you. We'll come back 
-to this construct this later in the tour.
+It's the first time we've seen this syntax:
 
+    if (is Polar that) { ... }
+    
+As you've probably guessed, `if (is ... )` works just like `if (exists ... )`, 
+testing and narrowing the type of a value. In this case it tests the type of 
+`that` and narrows to `Polar` if `that` is indeed an instance of `Polar`. 
+We'll come back to this construct 
+[later in the tour](../types/#narrowing_the_type_of_an_object_reference).
+
+Using the shortcut syntax for refinement that we just met, we _could_ 
+abbreviate the above code like this:
+
+<!-- try-pre:
+    Float pi = 3.1415926535;
+-->
+<!-- try-post:
+    print(Polar(0.31, 13.0));
+-->
+<!-- cat: Float pi = 3.1415926535; -->
+    "A polar coordinate"
+    class Polar(Float angle, Float radius) {
+        
+        // ...
+
+        shared default String description => 
+                "(``radius``,``angle``)";
+        
+        value azimuth => pi*(angle/pi).fractionalPart;
+        
+        shared actual Boolean equals(Object that) {
+            if (is Polar that) {
+                return azimuth==that.azimuth && 
+                       radius==that.radius; 
+            }
+            else {
+                return false;
+            }
+        }
+        
+        hash => radius.hash;
+        
+        string => description;
+        
+    }
+
+(But in this case, the shortcut syntax is perhaps _not_ an improvement.)
 
 ## Abstract classes
 
@@ -173,8 +281,8 @@ an abstract superclass:
 <!-- try: -->
 <!-- cat-id:polar -->
 <!-- cat: class Cartesian(Float x, Float y) {} -->
-    doc "A coordinate-system free abstraction 
-         of a geometric point"
+    "A coordinate-system free abstraction of a 
+     geometric point"
     abstract class Point() {
          
          shared formal Polar polar;
@@ -201,45 +309,42 @@ attribute. Ceylon doesn't initialize attributes to zero or `null` unless
 you explicitly tell it to!
 
 One way to define an implementation for an inherited abstract attribute is 
-to simply assign a value to it in the subclass.
+to use the shortcut refinement syntax we saw above.
 
 <!-- try: -->
 <!-- check:parse:Requires ceylon.math -->
-    doc "A polar coordinate"
+    "A polar coordinate"
     class Polar(Float angle, Float radius) 
             extends Point() {
         
-        polar = this;
-        cartesian = Cartesian(radius*cos(angle), radius*sin(angle));
+        polar => this;
+        cartesian => Cartesian(radius*cos(angle), radius*sin(angle));
         
-        ...
+        rotate(Float rotation) => Polar(angle+rotation, radius);
+        dilate(Float dilation) => Polar(angle, radius*dilation);
         
     }
 
-Alternatively, we can also define an implementation for an inherited abstract 
-attribute by *refining* it.
+Alternatively, we can write it all out the long way.
 
 <!-- try: -->
 <!-- check:parse:Requires ceylon.math -->
     import ceylon.math.float { sin, cos }
      
-    doc "A polar coordinate"
+    "A polar coordinate"
     class Polar(Float angle, Float radius) 
             extends Point() {
         
-        shared actual Polar polar { return this; }
+        shared actual Polar polar => this;
         
-        shared actual Cartesian cartesian {
-            return Cartesian(radius*cos(angle), radius*sin(angle));
-        }
+        shared actual Cartesian cartesian =>
+                Cartesian(radius*cos(angle), radius*sin(angle));
         
-        shared actual Polar rotate(Float rotation) {
-            return Polar(angle+rotation, radius);
-        }
+        shared actual Polar rotate(Float rotation) =>
+                Polar(angle+rotation, radius);
         
-        shared actual Polar dilate(Float dilation) {
-            return Polar(angle, radius*dilation);
-        }
+        shared actual Polar dilate(Float dilation) =>
+                Polar(angle, radius*dilation);
            
     }
 
@@ -261,26 +366,21 @@ different return type:
 <!-- check:parse:Requires ceylon.math -->
     import ceylon.math.float { atan } 
     
-    doc "A cartesian coordinate"
+    "A cartesian coordinate"
     class Cartesian(Float x, Float y) 
             extends Point() {
         
-        shared actual Polar polar { 
-            return Polar( (x**2+y**2)**0.5, atan(y/x) ); 
-        }
+        shared actual Polar polar => 
+                Polar( (x^2+y^2)^0.5, atan(y/x) ); 
         
-        shared actual Cartesian cartesian {
-            return this;
-        }
+        shared actual Cartesian cartesian => this;
         
-        shared actual Cartesian rotate(Float rotation) {
-            return polar.rotate(rotation).cartesian;
-        }
+        shared actual Cartesian rotate(Float rotation) =>
+                polar.rotate(rotation).cartesian;
         
-        shared actual Cartesian dilate(Float dilation) {
-            return Cartesian(x*dilation, y*dilation);
-        }
-                
+        shared actual Cartesian dilate(Float dilation) =>
+                Cartesian(x*dilation, y*dilation);
+        
     }
 
 There's no way to prevent other code from extending a class (there's 
@@ -304,11 +404,10 @@ implementation. Interfaces in Ceylon are a little more flexible:
 
 * An interface may define concrete methods, attribute getters, and attribute 
   setters, but
-* it may not define simple attributes or initialization logic.
+* it may not define references or initialization logic.
 
-Notice that prohibiting simple attributes and initialization logic makes 
-interfaces completely stateless. An interface can't hold references to other 
-objects.
+Notice that prohibiting references and initialization logic makes interfaces 
+completely stateless. An interface can't hold references to other objects.
 
 Let's take advantage of mixin inheritance to define a reusable `Writer` 
 interface for Ceylon.
@@ -322,7 +421,7 @@ interface for Ceylon.
 <!-- id:writer -->
 <!-- cat: 
     interface Formatter { 
-        shared formal String format(String format, Object... args);
+        shared formal String format(String format, Object* args);
     } -->
     interface Writer {
      
@@ -335,21 +434,20 @@ interface for Ceylon.
             write("\n");
         }
          
-        shared void writeFormattedLine(String format, Object... args) {
+        shared void writeFormattedLine(String format, Object* args) {
             writeLine( formatter.format(format, args) );
         }
          
     }
 
 Note that we can't define a concrete value for the `formatter` attribute, 
-since an interface may not define a simple attribute, and may not hold a 
-reference to another object.
+since an interface may not hold a reference to another object.
 
 Now let's define a concrete implementation of this interface.
 
 <!-- try-pre:
     interface Formatter { 
-        shared formal String format(String format, Object... args);
+        shared formal String format(String format, Object* args);
     }
     interface Writer {
         shared formal Formatter formatter;
@@ -358,12 +456,12 @@ Now let's define a concrete implementation of this interface.
             write(string);
             write("\n");
         }
-        shared void writeFormattedLine(String format, Object... args) {
+        shared void writeFormattedLine(String format, Object* args) {
             writeLine( formatter.format(format, args) );
         }
     }
     class StringFormatter() satisfies Formatter {
-        shared actual String format(String format, Object... args) {
+        shared actual String format(String format, Object* args) {
             return format; // Fake implementation
         }
     }
@@ -375,13 +473,8 @@ Now let's define a concrete implementation of this interface.
 <!-- check:none:depends on above:concrete members of interfaces not yet supported -->
 <!-- cat-id: writer -->
     class ConsoleWriter() satisfies Writer {
-         
         formatter = StringFormatter();
-         
-        shared actual void write(String string) {
-            print(string);
-        }
-         
+        write(String string) => print(string);
     }
 
 The `satisfies` keyword 
@@ -410,18 +503,14 @@ any ambiguity. The following results in a compilation error:
 <!-- check:none:demos error -->
     interface Party {
         shared formal String legalName;
-        shared default String name {
-            return legalName;
-        }
+        shared default String name => legalName;
     }
-     
+    
     interface User {
         shared formal String userId;
-        shared default String name {
-            return userId;
-        }
+        shared default String name => userId;
     }
-     
+    
     class Customer(String customerName, String email)
             satisfies User & Party {
         shared actual String legalName = customerName;
@@ -440,21 +529,17 @@ To fix this code, we'll factor out a `formal` declaration of the attribute
     interface Named {
         shared formal String name;
     }
-     
+    
     interface Party satisfies Named {
         shared formal String legalName;
-        shared actual default String name {
-            return legalName;
-        }
+        shared actual default String name => legalName;
     }
-     
+    
     interface User satisfies Named {
         shared formal String userId;
-        shared actual default String name {
-            return userId;
-        }
+        shared actual default String name => userId;
     }
-     
+    
     class Customer(String customerName, String email)
             satisfies User & Party {
         shared actual String legalName = customerName;
@@ -468,21 +553,17 @@ Oh, of course, the following is illegal:
     interface Named {
         shared formal String name;
     }
-     
+    
     interface Party satisfies Named {
         shared formal String legalName;
-        shared actual String name {
-            return legalName;
-        }
+        shared actual String name => legalName;
     }
-     
+    
     interface User satisfies Named {
         shared formal String userId;
-        shared actual String name {
-            return userId;
-        }
+        shared actual String name => userId;
     }
-     
+    
     class Customer(String customerName, String email)
             satisfies User & Party {    //error: inherits multiple definitions of name
         shared actual String legalName = customerName;

@@ -18,14 +18,14 @@ differ in whether the result is assigned before or after the increment.
 Postfix unary `++` operator has the operator after the operand:
 
 <!-- cat: void m() { -->
-    variable Integer num := 1;
+    variable Integer num = 1;
     num++;
 <!-- cat: } -->
     
 Prefix unary `++` operator  puts the operator before the operand:
 
 <!-- cat: void m() { -->
-    variable Integer num := 1;
+    variable Integer num = 1;
     ++num;
 <!-- cat: } -->
 
@@ -41,7 +41,7 @@ value of the operand *before* the increment.
 The prefix `++` is defined as:
 
 <!-- check:none -->
-    rhs:=rhs.successor
+    rhs = rhs.successor
     
 The postfix `++` is defined as:
 
@@ -54,7 +54,7 @@ See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#ari
 
 The `++` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `++` depends on the 
-[`Ordinal`](#{page.doc_root}/api/ceylon/language/interface_Ordinal.html).
+[`Ordinal`](#{site.urls.apidoc_current}/interface_Ordinal.html).
 
 ## See also
 

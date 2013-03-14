@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: '`[x...]` (upper span) operator'
+title: '`x[y...]` (upper span) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
@@ -24,25 +24,26 @@ as specified by its right-hand operand.
 
 ### Definition
 
-The `[x...]` operator is defined as follows:
+The `lhs[rhs...]` operator is defined as follows:
 
 <!-- check:none -->
-    lhs.span(from)
+    lhs.spanFrom(rhs)
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#listmap) for 
 more details.
 
 ### Polymorphism
 
-The `[x...]` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
-The meaning of `[x...]` depends on the 
-[`Ranged`](#{page.doc_root}/api/ceylon/language/interface_Ranged.html) 
+The `x[y...]` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
+The meaning of `x[y...]` depends on the 
+[`Ranged`](#{site.urls.apidoc_current}/interface_Ranged.html) 
 interface.
 
 ## See also
 
-* [`[x..y]` (span)](../span) operator used for obtaining a span of a `Ranged`.
-* API documentation for [`Ranged`](#{page.doc_root}/api/ceylon/language/interface_Ranged.html)
+* [`x[y..z]` (span)](../span) operator used for obtaining a span of a `Ranged`.
+* [`x[...z]` (lower span)](../lower-span) operator used for obtaining a span of a `Ranged`.
+* API documentation for [`Ranged`](#{site.urls.apidoc_current}/interface_Ranged.html)
 * [sequence operators](#{page.doc_root}/#{site.urls.spec_relative}#listmap) in the 
   language specification
 * [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 

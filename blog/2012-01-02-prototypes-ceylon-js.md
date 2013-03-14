@@ -18,6 +18,7 @@ to JavaScript making use of JavaScript's lexical scope to
 create nicely encapsulated JavaScript objects. For example,
 given the following Ceylon code:
 
+<!-- try: -->
     shared class Counter(Integer initialCount=0) {
         variable value currentCount:=initialCount;
         shared Integer count {

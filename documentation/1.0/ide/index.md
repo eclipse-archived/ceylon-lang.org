@@ -75,6 +75,10 @@ You need a clean install of [Eclipse 3.7 Indigo][eclipse] or of
 
 _You cannot run Ceylon IDE on Java 6._
 
+You can install Ceylon IDE (which includes the Ceylon compiler)
+from our [Eclipse plugin update site](install).
+
+<!--
 You can install Ceylon IDE (which includes the Ceylon compiler) either:
 
 * from our [Eclipse plugin update site](install), or 
@@ -84,6 +88,7 @@ You can install Ceylon IDE (which includes the Ceylon compiler) either:
   <img src='http://marketplace.eclipse.org/misc/installbutton.png'/>
   <br/>Ceylon IDE 
   </a>
+-->
 
 You can get started using the [welcome page](screenshots#welcome_page) and 
 [cheat sheets](screenshots#cheat_sheets). After installing, go straight to 

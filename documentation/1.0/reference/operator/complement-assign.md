@@ -19,7 +19,7 @@ result to the left-hand operand.
 <!-- check:none -->
     void m<Dog>(Set<Dog> dogs, Set<Dog> blackDogs) 
       given Dog satisfies Object {
-        variable Set<Dog> nonBlackDogs := dogs;
+        variable Set<Dog> nonBlackDogs = dogs;
         nonBlackDogs ~= blackDogs;
     }
 
@@ -31,7 +31,7 @@ result to the left-hand operand.
 The `~` operator is defined as follows:
 
 <!-- check:none -->
-    lhs := lhs~rhs
+    lhs = lhs ~ rhs
 
 See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#sets) for 
 more details.
@@ -41,12 +41,12 @@ more details.
 The `~=` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism).
 
 The `~` in the definition is the [complement](../complement) operator 
-which depends on the [`Set`](#{page.doc_root}/api/ceylon/language/interface_Set.html) interface.
+which depends on the [`Set`](#{site.urls.apidoc_current}/interface_Set.html) interface.
 
 ## See also
 
 * [`~`](../complement) (complement) operator
-* [`Set`](#{page.doc_root}/api/ceylon/language/interface_Set.html)
+* [`Set`](#{site.urls.apidoc_current}/interface_Set.html)
 * [set operators](#{page.doc_root}/#{site.urls.spec_relative}#sets) in the 
   language specification
 * [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 

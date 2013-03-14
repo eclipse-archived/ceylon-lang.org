@@ -1,6 +1,6 @@
 ---
 layout: tour
-title: Tour of Ceylon&#58; Types
+title: Tour of Ceylon&#58; Union, intersection, and enumerated types
 tab: documentation
 unique_id: docspage
 author: Gavin King
@@ -8,14 +8,13 @@ author: Gavin King
 
 # #{page.title}
 
-This is the seventh step in the Tour of Ceylon. The 
-[previous installment](../sequences) introduced sequences. Now it's time to 
-explore Ceylon's type system in more detail. 
+This is the eighth step in the Tour of Ceylon. In the 
+[previous installment](../typeinference) we learned about type aliases and
+type inference. Let's continue our exploration of Ceylon's type system.
 
 In this chapter, we're going to discuss the closely related topics of _union 
-and intersection types_, _enumerated types_, narrowing types, and finally 
-_local type inference_. In this area, Ceylon's type system works quite 
-differently from other langauges with static typing.
+and intersection types_ and _enumerated types_. In this area, Ceylon's type 
+system works quite differently to other languages with static typing.
 
 
 ## Narrowing the type of an object reference
@@ -33,8 +32,7 @@ things differently. Ceylon doesn't have C-style typecasts. Instead, we
 must test and narrow the type of an object reference in one step, using the 
 special `if (is ... )` construct. This construct is very, very similar 
 to [`if (exists ... )`](../basics#dealing_with_objects_that_arent_there) and 
-[`if (nonempty ... )`](../sequences#the_interface_sequence_represents_a...), 
-which we met earlier.
+[`if (nonempty ... )`](../sequences#sequences), which we met earlier.
 
 <!-- try-pre:
     interface Printable {
@@ -55,7 +53,8 @@ which we met earlier.
         }
     }
     
-There's also a special `if (!is ... )` construct which can be handy.
+There's also a special `if (!is ... )` construct which comes in handy
+from time to time.
 
 The `switch` statement can be used in a similar way:
 
@@ -95,97 +94,48 @@ switchingPrint("foo");
         }
     }
 
-These constructs protect us from inadvertantly writing code that would cause a 
-`ClassCastException` in Java, just like `if (exists ... )` protects us from 
-writing code that would cause a `NullPointerException`.
+These constructs protect us from inadvertantly writing code that would 
+cause a `ClassCastException` in Java, just like `if (exists ... )` 
+protects us from writing code that would cause a `NullPointerException`.
 
-The `if (is ... )` construct actually narrows to an 
-[intersection type](#intersection_types), which we'll get to after a 
-digression...
-
-### Condition lists
-
-Now's a good time to come back to something mentioned
-when we covered the [`if`](../attributes-control-structures#if) and 
-[`assert`](../attributes-control-structures#assert) statements. It also applies to 
-[`while`](../attributes-control-structures#while) statements and 
-[`if` comprehensions](../comprehensions) which we'll 
-be coming to later.
-
-All of those things need a `Boolean`-typed expression (a *condition*) 
-determine what should happen when the statement is evaluated at runtime. 
-And we've described above how you can use the special `if (is ...)` construct 
-(and its friends) to perform structured typecasting. 
-
-In general though, these statements each take a *condition list* which
-lets you specify multiple conditions and evaluates a true if (and only if)
-*all* of the conditions are true. 
-
-With plain `Boolean` conditions you 
-could achieve the same thing with the `&&` operator of course. But a 
-condition list lets you use the structured typecasting of `is` and 
-friends in conditions given later in the same list. 
-
-Let's see an example using `assert`:
-
-<!-- try: -->
-    value url = parserUri("http://ceylon-lang.org/download");
-    assert(exists authority=url.authority,
-           exists host=authority.hostname);
-    // do something with host
-
-Here you can see two `exists` conditions in the `assert` statement, separated 
-with a comma. The first one declares 
-`authority` (which is inferred to be a `String`, rather than a `String?` 
-because of the `exists`). The second condition
-then uses this in it's own `exists` condition. 
-
-The important thing to note is 
-that the compiler lets us use `authority` in the second condition and knows
-that it's a `String` not a `String?`. You can't do that by `&&`-ing multiple 
-conditions together. You could do it by nesting several `if`s, but that tends 
-to lead to much less readable code, and doesn't work well in `while` statements or
-comprehensions. 
-
-Now, back to those intersection types...
-
+The `if (is ... )` construct actually narrows to an intersection type.
 
 ## Intersection types
 
 An expression is assignable to an *intersection type*, written `X&Y`, if it is 
 assignable to *both* `X` and `Y`. For example, since 
-[`Empty`](#{site.urls.apidoc_current}/ceylon/language/interface_Empty.html)
+[`Empty`](#{site.urls.apidoc_current}/interface_Empty.html)
 is a subtype of 
-[`Iterable<Bottom>`](#{site.urls.apidoc_current}/ceylon/language/interface_Iterable.html) 
+[`Iterable<Nothing>`](#{site.urls.apidoc_current}/interface_Iterable.html) 
 and of 
-[`Sized`](#{site.urls.apidoc_current}/ceylon/language/interface_Sized.html),
+[`Sized`](#{site.urls.apidoc_current}/interface_Sized.html),
 it's also a subtype of the intersection 
-`Iterable<Bottom>&Sized`. The supertypes of an intersection type include all 
+`Iterable<Nothing>&Sized`. The supertypes of an intersection type include all 
 supertypes of every intersected type.
 
 Therefore, the following code is well-typed:
 
-    Iterable<Bottom>&Sized empty = {};
+    Iterable<Nothing>&Sized empty = [];
     Integer sizeZero = empty.size;  //call size of Sized
-    Iterator<Bottom> nullIterator = empty.iterator;  //call iterator of Iterable
+    Iterator<Nothing> nullIterator = empty.iterator();  //call iterator() of Iterable
 
 Now consider this code, to see the effect of `if (is ...)`:
 
 <!-- cat: void m() { -->
-    Iterable<Bottom> empty = {};
+    Iterable<Nothing> empty = [];
     if (is Sized empty) {
         Integer sizeZero = empty.size;
-        Iterator<Bottom> nullIterator = empty.iterator;
+        Iterator<Nothing> nullIterator = empty.iterator();
     }
 <!-- cat: } -->
 
-Inside the body of the `if` construct, `empty` has the type `Iterable<Bottom>&Sized`,
+Inside the body of the `if` construct, `empty` has the type `Iterable<Nothing>&Sized`,
 so we can call operations of both `Iterable` and `Sized`.
 
 
 ## Union types
 
-An expression is assignable to a *union type*, written `X|Y`, if it is assigmable
+An expression is assignable to a *union type*, written `X|Y`, if it is assignable
 to *either* `X` or `Y`. The type `X|Y` is always a supertype of both `X` and `Y`. 
 The following code is well-typed:
 
@@ -219,9 +169,9 @@ determines this automatically. So the following code is also well-typed:
     Object obj = val; // Object is a supertype of String, Integer, and Float
 
 However, the following code is *not* well-typed, since 
-[`Number`](#{site.urls.apidoc_current}/ceylon/language/interface_Number.html) 
+[`Number`](#{site.urls.apidoc_current}/interface_Number.html) 
 is not a supertype of
-[`String`](#{site.urls.apidoc_current}/ceylon/language/class_String.html).
+[`String`](#{site.urls.apidoc_current}/class_String.html).
 
 <!-- check:none:demoing compile error -->
     String|Integer|Float x = -1;
@@ -240,9 +190,9 @@ will let us leave off the `else` clause.
 -->
     void printType(String|Integer|Float val) {
         switch (val)
-        case (is String) { print("String: " val ""); }
-        case (is Integer) { print("Integer: " val ""); }
-        case (is Float) { print("Float: " val ""); }
+        case (is String) { print("String: ``val``"); }
+        case (is Integer) { print("Integer: ``val``"); }
+        case (is Float) { print("Float: ``val``"); }
     }
 
 A union type is a kind of *enumerated type*.
@@ -338,19 +288,14 @@ Let's consider the following tree visitor implementation:
         shared formal void accept(Visitor v);
     }
     
-    class Leaf(Object val) extends Node() {
-        shared Object element = val;
-        shared actual void accept(Visitor v) {
-            v.visitLeaf(this);
-        }
+    class Leaf(shared Object element) 
+            extends Node() {
+        accept(Visitor v) => v.visitLeaf(this);
     }
     
-    class Branch(Node left, Node right) extends Node() {
-        shared Node leftChild = left;
-        shared Node rightChild = right;
-        shared actual void accept(Visitor v) {
-            v.visitBranch(this);
-        }
+    class Branch(shared Node left, shared Node right) 
+            extends Node() {
+        accept(Visitor v) => v.visitBranch(this);
     }
     
     interface Visitor {
@@ -366,19 +311,14 @@ interface:
         shared formal void accept(Visitor v);
     }
     
-    class Leaf(Object val) extends Node() {
-        shared Object element = val;
-        shared actual void accept(Visitor v) {
-            v.visitLeaf(this);
-        }
+    class Leaf(shared Object element) 
+            extends Node() {
+        accept(Visitor v) => v.visitLeaf(this);
     }
     
-    class Branch(Node left, Node right) extends Node() {
-        shared Node leftChild = left;
-        shared Node rightChild = right;
-        shared actual void accept(Visitor v) {
-            v.visitBranch(this);
-        }
+    class Branch(shared Node left, shared Node right) 
+            extends Node() {
+        accept(Visitor v) => v.visitBranch(this);
     }
     
     interface Visitor {
@@ -395,11 +335,11 @@ interface:
     void printTree(Node node) {
         object printVisitor satisfies Visitor {
             shared actual void visitLeaf(Leaf leaf) {
-                print("Found a leaf: " leaf.element "!");
+                print("Found a leaf: ``leaf.element``!");
             }
             shared actual void visitBranch(Branch branch) {
-                branch.leftChild.accept(this);
-                branch.rightChild.accept(this);
+                branch.left.accept(this);
+                branch.right.accept(this);
             }
         }
         node.accept(printVisitor);
@@ -417,14 +357,11 @@ enumerating the subtypes of `Node` in its definition, and using a `switch`:
 <!-- id:tree2 -->
     abstract class Node() of Leaf | Branch {}
     
-    class Leaf(element) extends Node() {
-        shared Object element;
-    }
+    class Leaf(shared Object element) 
+            extends Node() {
     
-    class Branch(leftChild, rightChild) extends Node() {
-        shared Node leftChild;
-        shared Node rightChild;
-    }
+    class Branch(shared Node left, shared Node right) 
+            extends Node() {}
 
 Our `print()` method is now much simpler, but still has the desired behavior 
 of "breaking" when a new subtype of `Node` is added.
@@ -432,14 +369,11 @@ of "breaking" when a new subtype of `Node` is added.
 <!-- try-pre:
     abstract class Node() of Leaf | Branch {}
     
-    class Leaf(element) extends Node() {
-        shared Object element;
-    }
+    class Leaf(shared Object element) 
+            extends Node() {
     
-    class Branch(leftChild, rightChild) extends Node() {
-        shared Node leftChild;
-        shared Node rightChild;
-    }
+    class Branch(shared Node left, shared Node right) 
+            extends Node() {}
 
 -->
 <!-- try-post:
@@ -450,11 +384,11 @@ of "breaking" when a new subtype of `Node` is added.
     void printTree(Node node) {
         switch (node)
         case (is Leaf) {
-            print("Found a leaf: " node.element "!");
+            print("Found a leaf: ``node.element``!");
         }
         case (is Branch) {
-            printTree(node.leftChild);
-            printTree(node.rightChild);
+            printTree(node.left);
+            printTree(node.right);
         }
     }
 
@@ -626,163 +560,9 @@ Yes, this is a bit more verbose than a Java `enum`, but it's also somewhat
 more flexible.
 
 For a more practical example, check out the definition of 
-[`Boolean`](#{site.urls.apidoc_current}/ceylon/language/class_Boolean.html) 
-and [`Comparison`](#{site.urls.apidoc_current}/ceylon/language/class_Comparison.html) 
+[`Boolean`](#{site.urls.apidoc_current}/class_Boolean.html) 
+and [`Comparison`](#{site.urls.apidoc_current}/class_Comparison.html) 
 in the language module.
-
-
-## Type aliases
-
-It's often useful to provide a shorter or more semantic name to an existing 
-class or interface type, especially if the class or interface is a 
-parameterized type. For this, we use a *type alias*.
-
-Aliasing a class or interfaces can just be done using the `=` specifier, 
-for example:
-
-<!-- try: -->
-<!-- cat: 
-    class Person() {
-    }
--->
-    interface People = Set<Person>;
-
-A class alias must declare its formal parameters:
-
-<!-- try: -->
-<!-- check:none:ArrayList -->
-    shared class People(Person... people) = ArrayList<Person>;
-
-If you need to create an alias for a union or intersection type you have to 
-use the `alias` keyword:
-
-    alias Num = Float|Integer;
-
-## Type inference
-
-So far, we've always been explicitly specifying the type of every declaration. 
-This generally makes code, especially example code, much easier to read and 
-understand.
-
-However, Ceylon does have the ability to infer the type of a local variable 
-or the return type of a local method. Just place the keyword 
-`value` (in the case of a local variable) or `function` (in the case of a 
-local method) in place of the type declaration.
-
-<!-- try-pre:
-    Float pi = 3.14159;
-    class Polar(Float angle, Float radius) {}
-
--->
-<!-- cat-id: Point -->
-<!-- cat-id: Polar -->
-<!-- cat: Float pi = 3.14159; -->
-<!-- cat: void m() { -->
-    value polar = Polar(pi, 2.0);
-    value operators = { "+", "-", "*", "/" };
-    function add(Integer x, Integer y) { return x+y; }
-<!-- cat: } -->
-
-There are some restrictions applying to this feature. You can't use `value` 
-or `function`:
-
-* for declarations annotated `shared`,
-* for declarations annotated `formal`,
-* when the value is specified later in the block of statements, or
-* to declare a parameter.
-
-These restrictions mean that Ceylon's type inference rules are quite simple. 
-Type inference is purely "right-to-left" and "top-to-bottom". The type of any 
-expression is already known without needing to look to any types declared 
-to the left of the `=` specifier, or further down the block of statements.
-
-* The inferred type of a local declared `value` is just the type of the 
-  expression assigned to it using `=` or `:=`.
-* The inferred type of a method declared `function` is just the union of the 
-  returned expression types appearing in the method's `return` statements
-  (or `Bottom` if the method has no `return` statement).
-
-
-## Type inference for sequence enumeration expressions
-
-What about sequence enumeration expressions like this:
-
-<!-- try-pre:
-    abstract class Point() of Polar | Cartesian { }
-    class Polar(radius, angle) extends Point() {
-        shared Float radius;
-        shared Float angle;
-    }
-    class Cartesian(x, y) extends Point() {
-        shared Float x;
-        shared Float y;
-    }
-
--->
-<!-- cat-id: Point -->
-<!-- cat-id: Polar -->
-<!-- cat: void m() { -->
-    value sequence  = { Polar(0.0, 0.0), Cartesian(1.0, 2.0) };
-<!-- cat: } -->
-
-What type is inferred for `sequence`? You might answer: "`Sequence<X>`
-where `X` is the common superclass or super-interface of all the element 
-types". But that can't be right, since there might be more than one 
-common supertype.
-
-The answer is that the inferred type is `Sequence<X>` where `X` is the 
-union of all the element expression types. In this case, the type is 
-`Sequence<Polar|Cartesian>`. Now, this works out nicely, because 
-`Sequence<T>` is [covariant](../generics#covariance_and_contravariance) 
-in `T`. So the following code is well-typed:
-
-<!-- try-pre:
-    abstract class Point() of Polar | Cartesian { }
-    class Polar(radius, angle) extends Point() {
-        shared Float radius;
-        shared Float angle;
-    }
-    class Cartesian(x, y) extends Point() {
-        shared Float x;
-        shared Float y;
-    }
-
--->
-<!-- cat-id: Point -->
-<!-- cat-id: Polar -->
-<!-- cat: void m() { -->
-    value sequence  = { Polar(0.0, 0.0), Cartesian(1.0, 2.0) }; //type Sequence<Polar|Cartesian>
-    Point[] points = sequence; //type Empty|Sequence<Point>
-<!-- cat: } -->
-
-As is the following code:
-
-<!-- try-post:
-    print(numbers);
--->
-<!-- cat: void m() { -->
-    value nums = { 12.0, 1, -3 }; //type Sequence<Float|Integer>
-    Number[] numbers = nums; //type Empty|Sequence<Number>
-<!-- cat: } -->
-
-What about sequences that contain `null`? Well, do you 
-[remember](../basics#dealing_with_objects_that_arent_there) 
-the type of `null` was 
-[`Nothing`](#{site.urls.apidoc_current}/ceylon/language/class_Nothing.html)?
-
-<!-- try-post:
-    print(s else "null");
--->
-<!-- cat: void m() { -->
-    value sequence = { null, "Hello", "World" }; //type Sequence<Nothing|String>
-    String?[] strings = sequence; //type Empty|Sequence<Nothing|String>
-    String? s = sequence[0]; //type Nothing|Nothing|String which is just Nothing|String
-<!-- cat: } -->
-
-It's interesting just how useful union types turn out to be. Even if you only 
-rarely write code with explicit union type declarations, they're still there, 
-under the covers, helping the compiler solve some hairy, otherwise-ambiguous, 
-typing problems.
 
 
 ## There's more...
