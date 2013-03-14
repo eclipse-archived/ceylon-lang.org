@@ -32,7 +32,7 @@ module, and the module runtime.
         <td>
         <a href="/download/dist/1_0_Milestone5" 
            title='Download the Zip archive'
-           style='font-weight:bold;text-decoration:none'
+           class='bubble-button'
            onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone5?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
            download
         </a>
@@ -51,7 +51,7 @@ module, and the module runtime.
         <td>
         <a href="/download/dist/1_0_Milestone5_rpm" 
            title='Download the RPM'
-           style='font-weight:bold;text-decoration:none'
+           class='bubble-button'
            onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone5_rpm?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
            download
         </a>
@@ -70,7 +70,7 @@ module, and the module runtime.
         <td>
         <a href="/download/dist/1_0_Milestone5_deb" 
            title='Download the Debian package'
-           style='font-weight:bold;text-decoration:none'
+           class='bubble-button'
            onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone5_deb?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
            download
         </a>
@@ -110,11 +110,11 @@ from our [update site][update site].
         </a>
         </td>
         <td>Ceylon IDE</td>
-        <td>Eclipse Juno/Indigo (Juno required on Mac OS X)</td>
+        <td>Eclipse Juno/Indigo (Juno required for Mac OS X)</td>
         <td>
         <a href="/documentation/current/ide/install" 
            title='Install the IDE'
-           style='font-weight:bold;text-decoration:none'
+           class='bubble-button'
            onClick="javascript: _gaq.push(['_trackPageview', '/documentation/current/ide/install?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
            follow these instructions
         </a>
