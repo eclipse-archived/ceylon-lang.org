@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: '`<ceylonc>` Ant task'
+title: '`<ceylon-compile>` Ant task'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
@@ -11,7 +11,9 @@ doc_root: ../../..
 
 ## Usage 
 
-**Note**: You must [declare the tasks with a `<taskdef>`](../ant).
+**Note**: In M5 the `<ceylonc>` task was renamed `<ceylon-compile>`.
+
+**Note**: You must [declare the tasks with a `<typedef>`](../ant).
 
 To compile the module `com.example.foo` whose source code is in the 
 `src` directory to a module repository in the `build` directory, with 
@@ -19,14 +21,14 @@ verbose compiler messages:
 
 <!-- lang: xml -->
     <target name="compile" depends="ceylon-ant-taskdefs">
-      <ceylonc src="src" out="build" verbose="true">
+      <ceylon-compile src="src" out="build" verbose="true">
         <module name="com.example.foo"/>
-      </ceylonc>
+      </ceylon-compile>
     </target>
 
 ## Description
 
-The `<ceylonc>` ant task supports compilation of Ceylon and Java source code
+The `<ceylon-compile>` ant task supports compilation of Ceylon and Java source code
 to `.car` archives in a Ceylon repository using the [Ant build tool](http://ant.apache.org). 
 It provides similar features to the [`ceylon compile`](../ceylon/subcommands/ceylon-compile.html) 
 command line tool.
@@ -111,14 +113,20 @@ the <code>CEYLON_HOME</code> environment variable.</td>
 </tbody>
 </table>
 
-### Nested parameters
+### Nested elements
 
-**Note**: Unlike ant's `<javac>` task, `<ceylonc>` does not support an implict
+**Note**: Unlike ant's `<javac>` task, `<ceylon-compile>` does not support an implict
 [FileSet](http://ant.apache.org/manual/Types/fileset.html) so you cannot
 add `<include>`/`<exclude>` etc as direct subelements. You must use 
 [`<files>`](#files) explicitly.
 
+#### `<moduleset>`
+
+A reference to a [`<moduleset>`](../ant#reposet) defined elsewhere in the 
+ant build file. 
+
 #### `<module>`
+
 A module to compile. Can be specified multiple times.
 
 <table class="ant-parameters">
@@ -142,6 +150,10 @@ A module to compile. Can be specified multiple times.
 A [FileSet](http://ant.apache.org/manual/Types/fileset.html) of source files 
 to pass to `ceylon compile`. <!-- m2 -->
 
+#### `<reposet>`
+A reference to a [`<reposet>`](../ant#reposet) defined elsewhere in the 
+ant build file. 
+
 #### `<rep>`
 A module repository containing dependencies. Can be specified multiple times. Defaults to `modules`.
 
@@ -164,11 +176,11 @@ A module repository containing dependencies. Can be specified multiple times. De
 
 ### Output
 
-The `<ceylonc>` task outputs a module archive and a source archive for 
+The `<ceylon-compile>` task outputs a module archive and a source archive for 
 each module named on the command line. The compiler produces `.car` files 
 directly; it does not produce individual `.class` files as `javac` does.
 
 ## See also
 
-* How to [declare the tasks with a `<taskdef>`](../ant).
+* How to [declare the tasks with a `<typedef>`](../ant).
 

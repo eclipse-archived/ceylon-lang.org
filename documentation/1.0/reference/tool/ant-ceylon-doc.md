@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: '`<ceylond>` Ant task'
+title: '`<ceylon-doc>` Ant task'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
@@ -11,7 +11,9 @@ doc_root: ../../..
 
 ## Usage 
 
-**Note**: You must [declare the tasks with a `<taskdef>`](../ant).
+**Note**: In M5 the `<ceylond>` task was renamed `<ceylon-doc>`.
+
+**Note**: You must [declare the tasks with a `<typedef>`](../ant).
 
 To compile the documentation for module `com.example.foo` whose 
 source code is in the `src` directory to a module repository in 
@@ -19,9 +21,9 @@ the `build` directory:
 
 <!-- lang: xml -->
     <target name="documentation" depends="ceylon-ant-taskdefs">
-      <ceylond src="src" out="build">
+      <ceylon-doc src="src" out="build">
         <module name="com.example.foo"/>
-      </ceylond>
+      </ceylon-doc>
     </target>
     
 To compile the documentation for version 1.1 of module `com.example.foo` 
@@ -30,14 +32,14 @@ the `build` directory:
 
 <!-- lang: xml -->
     <target name="documentation" depends="ceylon-ant-taskdefs">
-      <ceylond out="build">
+      <ceylon-doc out="build">
         <module name="com.example.foo" version="1.1"/>
-      </ceylond>
+      </ceylon-doc>
     </target>
 
 ## Description
 
-The `<ceylond>` ant task supports documentation of Ceylon and Java source code
+The `<ceylon-doc>` ant task supports documentation of Ceylon and Java source code
 to a Ceylon repository using the [Ant build tool](http://ant.apache.org). 
 It provides similar features to the [`ceylon doc`](../ceylon/subcommands/ceylon-doc.html) 
 command line tool.
@@ -113,15 +115,20 @@ the <code>CEYLON_HOME</code> environment variable.</td>
 </tbody>
 </table>
 
-### Nested parameters
+### Nested elements
 
 **Note**: Unlike ant's `<javadoc>` task, `<ceylond>` does not support an implict
 [FileSet](http://ant.apache.org/manual/Types/fileset.html) so you cannot
 add `<include>`/`<exclude>` etc as direct subelements. You must use 
 [`<files>`](#files) explicitly.
 
+
+#### `<moduleset>`
+A reference to a [`<moduleset>`](../ant#reposet) defined elsewhere in the 
+ant build file. 
+
 #### `<module>`
-A module to compile. Can be specified multiple times.
+A module to document. Can be specified multiple times.
 
 <table class="ant-parameters">
 <tbody>
@@ -147,6 +154,10 @@ the module is assumed to exist in a <a href="#param-src">source directory</a>.</
 </tbody>
 </table>
 
+#### `<reposet>`
+A reference to a [`<reposet>`](../ant#reposet) defined elsewhere in the 
+ant build file. 
+
 #### `<rep>`
 A module repository containing dependencies. Can be specified multiple times. Default to `modules`.
 
@@ -169,11 +180,11 @@ A module repository containing dependencies. Can be specified multiple times. De
 
 ### Output
 
-The `<ceylond>` task outputs a module documentation folder for 
+The `<ceylon-doc>` task outputs a module documentation folder for 
 each module named on the command line. The documentation generator produceds `module-doc` 
 folders directly, in the output module repository.
 
 ## See also
 
-* How to [declare the tasks with a `<taskdef>`](../ant).
+* How to [declare the tasks with a `<typedef>`](../ant).
 

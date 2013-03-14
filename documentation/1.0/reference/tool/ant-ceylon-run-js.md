@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: '`<ceylonjs>` Ant task'
+title: '`<ceylon-run-js>` Ant task'
 tab: documentation
 unique_id: docspage
 author: Enrique Zamudio
@@ -11,7 +11,9 @@ doc_root: ../../..
 
 ## Usage 
 
-**Note**: You must [declare the tasks with a `<taskdef>`](../ant).
+**Note**: In M5 the `<ceylonjs>` task was renamed `<ceylon-run-js>`.
+
+**Note**: You must [declare the tasks with a `<typedef>`](../ant).
 
 This task runs a top-level JavaScript method compiled from Ceylon code.
 It requires [node.js](http://nodejs.org/) to run the generated JS code.
@@ -22,15 +24,15 @@ in the `build` directory (repository):
 
 <!-- lang: xml -->
     <target name="execute" depends="ceylon-ant-taskdefs">
-      <ceylonjs run="start"
+      <ceylon-run-js run="start"
         module="com.example.foo/1.1">
         <rep url="build"/>
-      </ceylonjs>
+      </ceylon-run-js>
     </target>
 
 ## Description
 
-The `<ceylonjs>` ant task supports execution of Ceylon modules, top-level classes 
+The `<ceylon-run-js>` ant task supports execution of Ceylon modules, top-level classes 
 and top-level functions compiled to JavaScript,
 from a Ceylon repository using the [Ant build tool](http://ant.apache.org). 
 It provides similar features to the [`ceylon run-js`](../ceylon/subcommands/ceylon-run-js.html) 
@@ -69,7 +71,38 @@ If not specified it is searched in the standard executable path.</td>
 </tbody>
 </table>
 
-### Nested parameters
+### Nested elements
+
+#### `<moduleset>`
+A reference to a [`<moduleset>`](../ant#reposet) defined elsewhere in the 
+ant build file. 
+
+#### `<module>`
+A module to compile. Can be specified multiple times.
+
+<table class="ant-parameters">
+<tbody>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+
+<tr>
+<td><code>name</code></td>
+<td>The module name</td>
+<td>Yes</td>
+</tr>
+
+<tr>
+<td><code>version</code></td>
+<td>The module version. If no version identifier is specified for a module, 
+the module is assumed to exist in a <a href="#param-src">source directory</a>.</td>
+<td>No</td>
+</tr>
+
+</tbody>
+</table>
 
 #### `<rep>`
 A module repository containing the [module](#param-module) and/or dependencies. Can be specified multiple times.
@@ -94,5 +127,5 @@ Defaults to `modules`.
 
 ## See also
 
-* How to [declare the tasks with a `<taskdef>`](../ant).
+* How to [declare the tasks with a `<typedef>`](../ant).
 

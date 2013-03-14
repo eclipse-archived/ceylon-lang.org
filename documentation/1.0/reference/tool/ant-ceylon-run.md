@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: '`<ceylon>` Ant task'
+title: '`<ceylon-run>` Ant task'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
@@ -11,7 +11,9 @@ doc_root: ../../..
 
 ## Usage 
 
-**Note**: You must [declare the tasks with a `<taskdef>`](../ant).
+**Note**: In M5 the `<ceylon>` task was renamed `<ceylon-run>`.
+
+**Note**: You must [declare the tasks with a `<typedef>`](../ant).
 
 To execute the `com.example.foo.lifecycle.start` top level method in 
 version 1.1 of module `com.example.foo` residing
@@ -19,15 +21,15 @@ in the `build` directory (repository):
 
 <!-- lang: xml -->
     <target name="execute" depends="ceylon-ant-taskdefs">
-      <ceylon run="com.example.foo.lifecycle.start" 
+      <ceylon-run run="com.example.foo.lifecycle.start" 
         module="com.example.foo/1.1">
-        <rep url="build"/>
-      </ceylon>
+        <repo url="build"/>
+      </ceylon-run>
     </target>
 
 ## Description
 
-The `<ceylon>` ant task supports execution of Ceylon modules, top-level classes 
+The `<ceylon-run>` ant task supports execution of Ceylon modules, top-level classes 
 and top-level functions
 from a Ceylon repository using the [Ant build tool](http://ant.apache.org). 
 It provides similar features to the [`ceylon run`](../ceylon/subcommands/ceylon-run.html) 
@@ -77,7 +79,11 @@ the <code>CEYLON_HOME</code> environment variable.</td>
 </tbody>
 </table>
 
-### Nested parameters
+### Nested elements
+
+#### `<reposet>`
+A reference to a [`<reposet>`](../ant#reposet) defined elsewhere in the 
+ant build file. 
 
 #### `<rep>`
 A module repository containing the [module](#param-module) and/or dependencies. Can be specified multiple times.
@@ -102,5 +108,5 @@ Defaults to `modules`.
 
 ## See also
 
-* How to [declare the tasks with a `<taskdef>`](../ant).
+* How to [declare the tasks with a `<typedef>`](../ant).
 

@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: '`<ceyloncjs>` Ant task'
+title: '`<ceylon-compile-js>` Ant task'
 tab: documentation
 unique_id: docspage
 author: Enrique Zamudio
@@ -11,12 +11,14 @@ doc_root: ../../..
 
 ## Usage 
 
-**Note**: You must [declare the tasks with a `<taskdef>`](../ant).
+**Note**: In M5 the `<ceyloncjs>` task was renamed `<ceylon-compile-js>`.
+
+**Note**: You must [declare the tasks with a `<typedef>`](../ant).
 
 This task compiles Ceylon code to JavaScript, by means of the
-`ceylon` command-line tool.
+`ceylon-js` command-line tool.
 
-The `ceyloncjs` task is fairly similar to `ceylonc`; the difference
+The `<ceylon-compile-js>` task is fairly similar to `<ceylon-compile>`; the difference
 lies mainly with some options that are specific to JavaScript code
 generation.
 
@@ -26,14 +28,14 @@ verbose compiler messages:
 
 <!-- lang: xml -->
     <target name="compile" depends="ceylon-ant-taskdefs">
-      <ceyloncjs src="src" out="build" verbose="true">
+      <ceylon-compile-js src="src" out="build" verbose="true">
         <module name="com.example.foo"/>
-      </ceyloncjs>
+      </ceylon-compile-js>
     </target>
 
 ## Description
 
-The `<ceyloncjs>` ant task supports compilation of Ceylon source code
+The `<ceylon-compile-js>` ant task supports compilation of Ceylon source code
 to `.js` files in a Ceylon repository using the [Ant build tool](http://ant.apache.org). 
 It provides similar features to the [`ceylon compile-js`](../ceylon/subcommands/ceylon-compile-js.html) 
 command line tool.
@@ -106,12 +108,16 @@ generating the .src archive twice.</td>
 </tbody>
 </table>
 
-### Nested parameters
+### Nested elements
 
 **Note**: Unlike ant's `<javac>` task, `<ceyloncjs>` does not support an implict
 [FileSet](http://ant.apache.org/manual/Types/fileset.html) so you cannot
 add `<include>`/`<exclude>` etc as direct subelements. You must use 
 [`<files>`](#files) explicitly.
+
+#### `<moduleset>`
+A reference to a [`<moduleset>`](../ant#reposet) defined elsewhere in the 
+ant build file. 
 
 #### `<module>`
 A module to compile. Can be specified multiple times.
@@ -137,6 +143,10 @@ A module to compile. Can be specified multiple times.
 A [FileSet](http://ant.apache.org/manual/Types/fileset.html) of source files 
 to pass to ceyloncjs.
 
+#### `<reposet>`
+A reference to a [`<reposet>`](../ant#reposet) defined elsewhere in the 
+ant build file. 
+
 #### `<rep>`
 A module repository containing dependencies. Can be specified multiple times. Defaults to `modules`.
 
@@ -159,10 +169,10 @@ A module repository containing dependencies. Can be specified multiple times. De
 
 ### Output
 
-The `<ceyloncjs>` task outputs a JS file and a source archive for 
+The `<ceylon-compile-js>` task outputs a JS file and a source archive for 
 each module named on the command line.
 
 ## See also
 
-* How to [declare the tasks with a `<taskdef>`](../ant).
+* How to [declare the tasks with a `<typedef>`](../ant).
 
