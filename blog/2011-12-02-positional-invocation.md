@@ -62,9 +62,9 @@ invocation. But the two certainly aren't equivalent.
 Although notionally in Ceylon 'everything is an object', the compiler is 
 allowed (and does) optimise the numerical types 
 (`Natural`, 
-[`Integer`](#{site.urls.apidoc_current}/ceylon/language/0.5/module-doc//class_Integer.html), 
-[`Float`](#{site.urls.apidoc_current}/ceylon/language/0.5/module-doc//class_Float.html), 
-[`Boolean`](#{site.urls.apidoc_current}/ceylon/language/0.5/module-doc//class_Boolean.html)) to the
+[`Integer`](#{site.urls.apidoc_current}/class_Integer.html), 
+[`Float`](#{site.urls.apidoc_current}/class_Float.html), 
+[`Boolean`](#{site.urls.apidoc_current}/class_Boolean.html)) to the
 corresponding Java primitive type 
 (`long`, `long`, `double` and `boolean` respectively). This means that when you 
 write a Ceylon statement such as
@@ -126,10 +126,10 @@ Now consider the Ceylon call site
     varargs<String>("foo", "bar", "baz");
 
 When compiling this invocation we have to create a concrete instance of the 
-[`Iterable<T>`](#{site.urls.apidoc_current}/ceylon/language/0.5/module-doc//interface_Iterable.html) (using the arguments provided) to pass 
+[`Iterable<T>`](#{site.urls.apidoc_current}/interface_Iterable.html) (using the arguments provided) to pass 
 to the method.
 This is done using an `ArraySequence` (an implementation of a Ceylon 
-[`Sequence`](#{site.urls.apidoc_current}/ceylon/language/0.5/module-doc//interface_Sequence.html) 
+[`Sequence`](#{site.urls.apidoc_current}/interface_Sequence.html) 
 in the runtime), so that the generated Java looks something like this
 
 <!-- lang: java -->

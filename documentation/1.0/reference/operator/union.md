@@ -42,11 +42,11 @@ more details.
 
 The `|` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `|` depends on the 
-[`Set`](#{site.urls.apidoc_current}/ceylon/language/interface_Set.html) interface 
+[`Set`](#{site.urls.apidoc_current}/interface_Set.html) interface 
 
 ## See also
 
-* API documentation for [`Set`](#{site.urls.apidoc_current}/ceylon/language/interface_Set.html)
+* API documentation for [`Set`](#{site.urls.apidoc_current}/interface_Set.html)
 * [set operators](#{page.doc_root}/#{site.urls.spec_relative}#sets) in the 
   language specification
 * [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 

@@ -51,9 +51,9 @@ all that whitespace was automatically removed. This helps us format our
 code nicely.
 
 It's often useful to collapse whitespace in a multiline string literal. The
-[`String`](#{site.urls.apidoc_current}/ceylon/language/class_String.html)
+[`String`](#{site.urls.apidoc_current}/class_String.html)
 class has an attribute called 
-[`normalized`](#{site.urls.apidoc_current}/ceylon/language/class_String.html#normalized). 
+[`normalized`](#{site.urls.apidoc_current}/class_String.html#normalized). 
 We can use it like this:
 
 <!-- try-post:
@@ -298,7 +298,7 @@ strings, and more flexible in many cases:
 
 Note that when we use `+` to concatenate strings, we have to explicitly 
 invoke the 
-[`string`](#{site.urls.apidoc_current}/ceylon/language/class_Object.html#string) 
+[`string`](#{site.urls.apidoc_current}/class_Object.html#string) 
 attribute to convert numeric expressions to strings. The 
 `+` operator does not automatically convert its operands to strings, so the 
 following does not compile:  
@@ -394,7 +394,7 @@ Java where `x==y` evaluates to true if `x` and `y` both evaluate to `null`.
 In a language with static typing, we're always wanting to know what the type 
 of something is. So what's the type of `null`? 
 
-That's easy to answer: `null` is a [`Null`](#{site.urls.apidoc_current}/ceylon/language/class_Null.html).
+That's easy to answer: `null` is a [`Null`](#{site.urls.apidoc_current}/class_Null.html).
 
 Yes, that's right: the value `null` isn't a primitive value in Ceylon, it's 
 just a perfectly ordinary instance of the perfectly ordinary class `Null`, 
@@ -697,8 +697,8 @@ Unfortunately, not every program is as simple and elegant as "hello world".
 In business or scientific computing, we often encounter programs that do 
 fiendishly complicated stuff with numbers. Ceylon doesn't have any primitive 
 types, so numeric values are usually represented by the classes 
-[`Integer`](#{site.urls.apidoc_current}/ceylon/language/class_Integer.html)
-and [`Float`](#{site.urls.apidoc_current}/ceylon/language/class_Float.html),
+[`Integer`](#{site.urls.apidoc_current}/class_Integer.html)
+and [`Float`](#{site.urls.apidoc_current}/class_Float.html),
 which we'll come back to [later in the tour](../language-module/#numeric_types).
 
 `Float` literals are written with a decimal point, and `Integer` literals 

@@ -135,7 +135,7 @@ _This page is very incomplete. Want to help? [See how](/code/website)._
 
 ## Language module (`ceylon.language`)
 
-The API documentation for [`ceylon.language`](#{site.urls.apidoc_current}/ceylon/language).
+The API documentation for [`ceylon.language`](#{site.urls.apidoc_current}).
 
 
 ## Tools

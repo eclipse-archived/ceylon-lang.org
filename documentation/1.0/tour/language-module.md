@@ -22,13 +22,13 @@ especially in [this chapter](../sequences).
 
 ## An overview of the language module
 
-The module [`ceylon.language`](#{site.urls.apidoc_current}/ceylon/language/) 
+The module [`ceylon.language`](#{site.urls.apidoc_current}/) 
 contains classes and interfaces that are referred to in the language 
 specification, other declarations *they* refer to, and a number of related 
 useful functions and types. Let's meet the main characters.
 
 Just like Java, Ceylon has a class named 
-[`Object`](#{site.urls.apidoc_current}/ceylon/language/class_Object.html).
+[`Object`](#{site.urls.apidoc_current}/class_Object.html).
 
 <!-- try: -->
 <!-- check:none:decl from ceylon.language -->
@@ -56,11 +56,11 @@ In Ceylon, `Object` *isn't* the root of the type system. An expression of
 type `Object` has a definite, well-defined, non-`null` value. 
 As we've seen, the Ceylon type system can also represent some more exotic 
 types, for example 
-[`Null`](#{site.urls.apidoc_current}/ceylon/language/class_Nothing.html), 
+[`Null`](#{site.urls.apidoc_current}/class_Nothing.html), 
 which is the type of `null`.
 
 Therefore, Ceylon's `Object` has a superclass, named 
-[`Anything`](#{site.urls.apidoc_current}/ceylon/language/class_Anything.html).
+[`Anything`](#{site.urls.apidoc_current}/class_Anything.html).
 
 <!-- try: -->
 <!-- check:none:decl from ceylon.language -->
@@ -111,10 +111,10 @@ All types that represent well-defined values extend `Object`, including:
 * all interfaces, including, 
 * function types, and even
 * the types that are considered primitive in Java, such as 
-  [`Boolean`](#{site.urls.apidoc_current}/ceylon/language/class_Boolean.html),
-  [`Integer`](#{site.urls.apidoc_current}/ceylon/language/class_Integer.html),
-  [`Float`](#{site.urls.apidoc_current}/ceylon/language/class_Float.html), and 
-  [`Character`](#{site.urls.apidoc_current}/ceylon/language/class_Character.html).
+  [`Boolean`](#{site.urls.apidoc_current}/class_Boolean.html),
+  [`Integer`](#{site.urls.apidoc_current}/class_Integer.html),
+  [`Float`](#{site.urls.apidoc_current}/class_Float.html), and 
+  [`Character`](#{site.urls.apidoc_current}/class_Character.html).
 
 Since an expression of type `Object` always evaluates to a definite, 
 well-defined value, it's possible to obtain the runtime type of an 
@@ -132,7 +132,7 @@ can't use the `===` operator to test the identity of two values of type
     assert (x===1); //compile error: Integer is not Identifiable 
 
 Instead, `===` is defined to act on instances of the interface 
-[`Identifiable`](#{site.urls.apidoc_current}/ceylon/language/interface_Identifiable.html).
+[`Identifiable`](#{site.urls.apidoc_current}/interface_Identifiable.html).
 `Integer`, `Float`, `Character`, and `String` _don't_ satisfy this
 interface, but most classes do.
 
@@ -174,7 +174,7 @@ operator, the only constraint being, that for subtypes of `Identifiable`,
 `x===y` should imply `x==y`— equality should be consistent with identity.
 
 By default, a user-written class extends the class 
-[`Basic`](#{site.urls.apidoc_current}/ceylon/language/class_Basic.html), 
+[`Basic`](#{site.urls.apidoc_current}/class_Basic.html), 
 which extends `Object` and satisfies `Identifiable`. It's possible for a 
 user-written class to directly extend `Object`, but most of the classes 
 you write will be subclasses of `Basic`. All classes with `variable` 
@@ -198,7 +198,7 @@ writing some more complex expression involving other operators and ordinary
 function calls.
  
 For example, the `<` operator is defined in terms of the interface 
-[`Comparable`](#{site.urls.apidoc_current}/ceylon/language/interface_Comparable.html), 
+[`Comparable`](#{site.urls.apidoc_current}/interface_Comparable.html), 
 which has a method named `compare()`. The operator expression
 
 <!-- try: -->
@@ -233,23 +233,23 @@ Apart from `Comparable` and `Object`, which provide the underlying
 definition of comparison and equality operators, the following interfaces are 
 also important in the definition of Ceylon's polymorphic operators:
 
-* [`Summable`](#{site.urls.apidoc_current}/ceylon/language/interface_Summable.html) 
+* [`Summable`](#{site.urls.apidoc_current}/interface_Summable.html) 
   supports the infix `+` operator,
-* [`Invertable`](#{site.urls.apidoc_current}/ceylon/language/interface_Invertable.html) 
+* [`Invertable`](#{site.urls.apidoc_current}/interface_Invertable.html) 
   supports the prefix `+` and `-` operators,
-* [`Ordinal`](#{site.urls.apidoc_current}/ceylon/language/interface_Ordinal.html) 
+* [`Ordinal`](#{site.urls.apidoc_current}/interface_Ordinal.html) 
   supports the unary `++` and `--` operators,
-* [`Numeric`](#{site.urls.apidoc_current}/ceylon/language/interface_Numeric.html) 
+* [`Numeric`](#{site.urls.apidoc_current}/interface_Numeric.html) 
   supports the other basic arithmetic operators,
-* [`Comparable`](#{site.urls.apidoc_current}/ceylon/language/interface_Comparable.html) 
+* [`Comparable`](#{site.urls.apidoc_current}/interface_Comparable.html) 
   supports the comparison operators,
-* [`Correspondence`](#{site.urls.apidoc_current}/ceylon/language/interface_Correspondence.html) 
+* [`Correspondence`](#{site.urls.apidoc_current}/interface_Correspondence.html) 
   supports the index operator, 
-* [`Ranged`](#{site.urls.apidoc_current}/ceylon/language/interface_Ranged.html) 
+* [`Ranged`](#{site.urls.apidoc_current}/interface_Ranged.html) 
   supports the segment and span operators, 
-* [`Boolean`](#{site.urls.apidoc_current}/ceylon/language/class_Boolean.html)
+* [`Boolean`](#{site.urls.apidoc_current}/class_Boolean.html)
   is the basis of the logical operators, and
-* [`Set`](#{site.urls.apidoc_current}/ceylon/language/interface_Set.html) 
+* [`Set`](#{site.urls.apidoc_current}/interface_Set.html) 
   is the basis of the set operators.
 
 
@@ -258,7 +258,7 @@ also important in the definition of Ceylon's polymorphic operators:
 In addition to the traditional `<`, `>`, `<=`, and `>=` operators, which 
 evaluate to `Boolean`, there is a `<=>` operator, which produces an instance
 of the enumerated type 
-[`Comparison`](#{site.urls.apidoc_current}/ceylon/language/class_Comparison.html).
+[`Comparison`](#{site.urls.apidoc_current}/class_Comparison.html).
 
 <!-- try: -->
     switch(x<=>0)
@@ -336,8 +336,8 @@ purposes:
 
 We've already met the class `String`, way back in 
 [the first leg of the tour](../basics/#string_literals). Ceylon strings are composed of 
-[`Character`](#{site.urls.apidoc_current}/ceylon/language/class_Character.html)s&mdash;indeed, 
-a `String` is a [`List`](#{site.urls.apidoc_current}/ceylon/language/interface_List.html)
+[`Character`](#{site.urls.apidoc_current}/class_Character.html)s&mdash;indeed, 
+a `String` is a [`List`](#{site.urls.apidoc_current}/interface_List.html)
 of `Character`s.
 
 A character literal is written between single quotes.
@@ -368,9 +368,9 @@ Java's primitive types. The types that represent numeric values are just
 ordinary classes. Ceylon has fewer built-in numeric types than other C-like 
 languages:
 
-* [`Integer`](#{site.urls.apidoc_current}/ceylon/language/class_Integer.html) 
+* [`Integer`](#{site.urls.apidoc_current}/class_Integer.html) 
   represents signed integers, and
-* [`Float`](#{site.urls.apidoc_current}/ceylon/language/class_Float.html) 
+* [`Float`](#{site.urls.apidoc_current}/class_Float.html) 
   represents floating point approximations to the real numbers.
 
 However, the compiler magically eliminates these classes, wherever possible,
@@ -458,7 +458,7 @@ As mentioned earlier, Ceylon doesn't have implicit type conversions, not even
 built-in conversions for numeric types. Assignment does not automatically 
 widen (or narrow) numeric values. Instead, we usually need to call one of the 
 operations (well, attributes, actually) defined by the interface 
-[`Number`](#{site.urls.apidoc_current}/ceylon/language/interface_Number.html).
+[`Number`](#{site.urls.apidoc_current}/interface_Number.html).
 
     Float zero = 0.float; // explicitly widen from Integer
 
@@ -499,15 +499,15 @@ only thing approaching an implicit type conversion in the whole language.
 
 The language module includes several interfaces that represent container
 types: 
-[`Collection`](#{site.urls.apidoc_current}/ceylon/language/interface_Castable.html),
-[`List`](#{site.urls.apidoc_current}/ceylon/language/interface_Castable.html),
-[`Map`](#{site.urls.apidoc_current}/ceylon/language/interface_Castable.html), and
-[`Set`](#{site.urls.apidoc_current}/ceylon/language/interface_Castable.html).
+[`Collection`](#{site.urls.apidoc_current}/interface_Castable.html),
+[`List`](#{site.urls.apidoc_current}/interface_Castable.html),
+[`Map`](#{site.urls.apidoc_current}/interface_Castable.html), and
+[`Set`](#{site.urls.apidoc_current}/interface_Castable.html).
 
 You might be disappointed to discover that there are no general-purpose 
 implementations of these interfaces in the language module itself. In fact,
 they're only declared here so that `String`, `Sequence`, and 
-[`Array`](#{site.urls.apidoc_current}/ceylon/language/class_Array.html) 
+[`Array`](#{site.urls.apidoc_current}/class_Array.html) 
 can be subtypes of `List`.
 
 You might be even more disappointed when you look at these interfaces and

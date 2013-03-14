@@ -11,7 +11,7 @@ Now that Ceylon has full support for mixin inheritance, we've
 been able to fill in all the interesting operations of the
 `Iterable` interface defined in `ceylon.language`. You can 
 see the [definition of `Iterable` 
-here](#{site.urls.apidoc_current}/ceylon/language/0.5/module-doc//Iterable.ceylon.html).
+here](#{site.urls.apidoc_current}/Iterable.ceylon.html).
 (But be aware that, like the rest of the language module, the
 actual real implementation is in Java and JavaScript. The
 Ceylon definition is never actually compiled.)
@@ -116,7 +116,7 @@ the elements indexed by their position in the stream:
             //{ 0->H, 1->e, 2->l, 3->l, 4->o, 5-> , 6->W, 7->o, 8->r, 9->l, 10->d }
 
 It's quite interesting to see the 
-[declaration](#{site.urls.apidoc_current}/ceylon/language/0.5/module-doc//Iterable.ceylon.html#205,207) 
+[declaration](#{site.urls.apidoc_current}/Iterable.ceylon.html#205,207) 
 of these operations. For example:
 
 <!-- try: -->
@@ -130,7 +130,7 @@ type constraint, which would be required to write down the
 signature of this operation in most other languages. Indeed,
 we use the same trick for the operations `union()` and
 `intersection()` of `Set`, 
-[as you can see here](#{site.urls.apidoc_current}/ceylon/language/0.5/module-doc//Set.ceylon.html#64,67).
+[as you can see here](#{site.urls.apidoc_current}/Set.ceylon.html#64,67).
 
 ## Set union and intersection
 
@@ -168,7 +168,7 @@ narrowing a sequence to a nonempty sequence without too much
 ceremony.)
 
 This lets us do something pretty cool with the [signature of 
-`min()` and `max()`](#{site.urls.apidoc_current}/ceylon/language/0.5/module-doc//max.ceylon.html#1,21).
+`min()` and `max()`](#{site.urls.apidoc_current}/max.ceylon.html#1,21).
 
 <!-- try: -->
     value nothingToMax = max({}); //type Nothing
@@ -194,5 +194,5 @@ types, union types, and principal instantiation inheritance
 of generic types lets us express something within the type 
 system that might seem almost magical. The real magic is in 
 the declaration of the language module type 
-[`ContainerWithFirstElement`](#{site.urls.apidoc_current}/ceylon/language/0.5/module-doc//ContainerWithFirstElement.ceylon.html).
+[`ContainerWithFirstElement`](#{site.urls.apidoc_current}/ContainerWithFirstElement.ceylon.html).
 

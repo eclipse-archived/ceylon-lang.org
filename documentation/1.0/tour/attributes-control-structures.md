@@ -445,7 +445,7 @@ The `try/catch/finally` statement works just like Java's:
 To handle all Ceylon exceptions, together with all JavaScript exceptions,
 or all Java exceptions that are subclasses of `java.lang.Exception`, we 
 can `catch` the type 
-[`Exception`](#{site.urls.apidoc_current}/ceylon/language/class_Exception.html) 
+[`Exception`](#{site.urls.apidoc_current}/class_Exception.html) 
 defined in `ceylon.language`. If we don't explicitly specify a type,
 `Exception` is inferred:
 

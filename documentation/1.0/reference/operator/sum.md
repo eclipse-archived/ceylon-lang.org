@@ -32,21 +32,21 @@ See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#ari
 
 The `+` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `+` depends on the 
-[`Summable`](#{site.urls.apidoc_current}/ceylon/language/interface_Summable.html) interface.
+[`Summable`](#{site.urls.apidoc_current}/interface_Summable.html) interface.
 
 ### Meaning of `+` for built-in types
 
-For the built-in numeric types ([`Integer`](#{site.urls.apidoc_current}/ceylon/language/class_Integer.html) and
-[`Float`](#{site.urls.apidoc_current}/ceylon/language/class_Float.html),
+For the built-in numeric types ([`Integer`](#{site.urls.apidoc_current}/class_Integer.html) and
+[`Float`](#{site.urls.apidoc_current}/class_Float.html),
 `+` performs normal mathematical addition, subject to the limitations
 of the relevant type.
 
-For [`String`](#{site.urls.apidoc_current}/ceylon/language/class_String.html), `+` performs concatenation.
+For [`String`](#{site.urls.apidoc_current}/class_String.html), `+` performs concatenation.
 
 
 ## See also
 
-* API documentation for [`Summable`](#{site.urls.apidoc_current}/ceylon/language/interface_Summable.html)
+* API documentation for [`Summable`](#{site.urls.apidoc_current}/interface_Summable.html)
 * [arithmetic operators](#{page.doc_root}/#{site.urls.spec_relative}#arithmetic) in the 
   language specification
 * [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 

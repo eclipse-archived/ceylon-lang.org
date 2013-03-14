@@ -322,7 +322,7 @@ For example, if we were writing a parameterized type `Set<Element>`, we would
 need to be able to compare instances of `Element` using `==` to see if a 
 certain instance of `Element` is contained in the `Set`. Since `==` is 
 defined for expressions of type 
-[`Object`](#{site.urls.apidoc_current}/ceylon/language/class_Object.html),
+[`Object`](#{site.urls.apidoc_current}/class_Object.html),
 we need some way to assert that `Element` is a subtype of `Object`. This is 
 an example of a *type constraint* — in fact, it's an example of the most 
 common kind of type constraint, an *upper bound*.
@@ -383,7 +383,7 @@ instantiate the type parameter.
 
 A type argument to `Result` of `Factory` must be a class with a single 
 initialization parameter of type 
-[`String`](#{site.urls.apidoc_current}/ceylon/language/class_String.html).
+[`String`](#{site.urls.apidoc_current}/class_String.html).
 
 A second kind of type constraint is an *enumerated type bound*, which 
 constrains the type argument to be one of an enumerated list of types. 

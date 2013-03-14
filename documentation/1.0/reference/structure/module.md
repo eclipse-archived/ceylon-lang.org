@@ -52,11 +52,11 @@ name is the same as the module name). Here's an example:
 
 The `module` declaration may be preceeded by [annotations](../annotation), including:
 
-* [`doc`](#{site.urls.apidoc_current}/ceylon/language/#doc) 
+* [`doc`](#{site.urls.apidoc_current}/#doc) 
   to let you to specify module-level documentation,
-* [`license`](#{site.urls.apidoc_current}/ceylon/language/#license) 
+* [`license`](#{site.urls.apidoc_current}/#license) 
   to let you specify the module's license,
-* [`by`](#{site.urls.apidoc_current}/ceylon/language/#by) 
+* [`by`](#{site.urls.apidoc_current}/#by) 
   to document the module's author or authors. 
 
 The module declaration itself starts with the `module` keyword followed by the 
@@ -68,11 +68,11 @@ specifying the module name of the dependency and its version.
 The `import` declarations can also be annotated. Two annotations particularly 
 worth noting are:
 
-* [`shared`](#{site.urls.apidoc_current}/ceylon/language/#shared) to mark the 
+* [`shared`](#{site.urls.apidoc_current}/#shared) to mark the 
   imported module as also being exported to clients of this module. If your 
   modules uses types from an imported modules in its API then the compiler 
   requires you to mark that module `shared` in your module descriptor.
-* [`optional`](#{site.urls.apidoc_current}/ceylon/language/#optional) to mark
+* [`optional`](#{site.urls.apidoc_current}/#optional) to mark
   the imported module as being optional.
 
 ### Distribution
@@ -91,5 +91,5 @@ repositories to use is passed to
 * Modules contain [packages](../package)
 * [Module repositories](../../repository)
 * `ceylon doc` documentation of the 
-  [Module](#{site.urls.apidoc_current}/ceylon/language/descriptor/class_Module.html) 
+  [Module](#{site.urls.apidoc_current}/descriptor/class_Module.html) 
   type (the type of the module descriptor)

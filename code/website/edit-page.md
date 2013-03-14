@@ -123,13 +123,13 @@ Likewise, to point to a ceylondoc entry, use the variable `site.urls.apidoc_curr
 
 <!-- lang: none -->
     [Doc for `Comparable`]
-    (\#{site.urls.apidoc_current}/ceylon/language/Comparable.html)
+    (\#{site.urls.apidoc_current}/Comparable.html)
 
 Or from within the documentation section,
 
 <!-- lang: none -->
     [Doc for `Comparable`]
-    (\#{site.urls.apidoc_current}/ceylon/language/Comparable.html)
+    (\#{site.urls.apidoc_current}/Comparable.html)
 
 By using these placeholders, we will be able to move the spec or ceylondoc to other places.
 

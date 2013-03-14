@@ -33,7 +33,7 @@ more details.
 
 The `:` operator is not [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `:` depends on the 
-[`Range`](#{site.urls.apidoc_current}/ceylon/language/class_Range.html) 
+[`Range`](#{site.urls.apidoc_current}/class_Range.html) 
 class.
 
 ## See also

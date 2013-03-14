@@ -63,5 +63,5 @@ See the reference on [comprehensions](../comprehensions) for more details.
 ## See also
 
 * [Comprehensions](../comprehensions) can be used to transform, filter and join
-  [Iterables](#{site.urls.apidoc_current}/ceylon/language/interface_Iterable.html) 
+  [Iterables](#{site.urls.apidoc_current}/interface_Iterable.html) 
   in a sequence instantiation.

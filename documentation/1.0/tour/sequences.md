@@ -18,7 +18,7 @@ and *tuples*.
 
 An _iterable_ object is an object that produces a stream of values. Iterable
 objects satisfy the interface 
-[`Iterable`](#{site.urls.apidoc_current}/ceylon/language/interface_Iterable.html).
+[`Iterable`](#{site.urls.apidoc_current}/interface_Iterable.html).
 
 Ceylon provides some syntax sugar for working with iterable objects:
 
@@ -41,7 +41,7 @@ As we'll see [later](../comprehensions), the braces may even contain a
 _comprehension_, making them much more powerful than what you see here.
 
 `Iterable` is a subtype of the interface 
-[`Category`](#{site.urls.apidoc_current}/ceylon/language/interface_Category.html),
+[`Category`](#{site.urls.apidoc_current}/interface_Category.html),
 so we can use the `in` operator to test if a value is produced by the 
 `Iterable`.
 
@@ -75,7 +75,7 @@ To iterate an instance of `Iterable`, we can use a
 
 If, for any reason, we need an index for each element produced by an iterable 
 object, we can use a special variation of the `for` loop that is designed for 
-iterating [`Entry`s](#{site.urls.apidoc_current}/ceylon/language/class_Entry.html):
+iterating [`Entry`s](#{site.urls.apidoc_current}/class_Entry.html):
 
 <!-- try-pre:
     {String+} moreWords = { "hola", "mundo", *words };
@@ -84,13 +84,13 @@ iterating [`Entry`s](#{site.urls.apidoc_current}/ceylon/language/class_Entry.htm
         print("``i``: ``op``");
     }
 
-The [`entries()`](#{site.urls.apidoc_current}/ceylon/language/#entries) 
+The [`entries()`](#{site.urls.apidoc_current}/#entries) 
 function returns an instance of `Entry<Integer,String>[]` containing the 
 indexed elements of the sequence. (The `->` is syntax sugar for the class 
 `Entry`.)
 
 It's often useful to be able to iterate two sequences at once. The 
-[`zip()`](#{site.urls.apidoc_current}/ceylon/language/#zip) 
+[`zip()`](#{site.urls.apidoc_current}/#zip) 
 function comes in handy here:
 
 <!-- try-pre:
@@ -108,9 +108,9 @@ function comes in handy here:
 
 Some kind of array or list construct is a universal feature of all programming 
 languages. The Ceylon language module defines support for *sequence types* via
-the interfaces [`Sequential`](#{site.urls.apidoc_current}/ceylon/language/interface_Sequential.html),
-[`Sequence`](#{site.urls.apidoc_current}/ceylon/language/interface_Sequence.html),
-and [`Empty`](#{site.urls.apidoc_current}/ceylon/language/interface_Empty.html). 
+the interfaces [`Sequential`](#{site.urls.apidoc_current}/interface_Sequential.html),
+[`Sequence`](#{site.urls.apidoc_current}/interface_Sequence.html),
+and [`Empty`](#{site.urls.apidoc_current}/interface_Empty.html). 
 
 Again, there is some syntax sugar associated with sequences:
 
@@ -176,7 +176,7 @@ The code above is exactly equivalent to the following de-sugared code:
 (We'll come back to what the list of values in brackets means in a minute!)
 
 The `Sequence` interface extends 
-[`Iterable`](#{site.urls.apidoc_current}/ceylon/language/interface_Iterable.html), 
+[`Iterable`](#{site.urls.apidoc_current}/interface_Iterable.html), 
 so we can iterate a `Sequence` using a `for` loop:
 
 <!-- try-pre:
@@ -191,7 +191,7 @@ so we can iterate a `Sequence` using a `for` loop:
 
 ## Ranges
 
-A [`Range`](#{site.urls.apidoc_current}/ceylon/language/class_Range.html)
+A [`Range`](#{site.urls.apidoc_current}/class_Range.html)
 is a kind of `Sequence`. The following:
 
 <!-- try:
@@ -235,25 +235,25 @@ It's probably a good time to see some more advanced Ceylon code. What better
 place to find some than in the language module itself?
 
 You can find the API documentation and source code of 
-[`Sequence`](#{site.urls.apidoc_current}/ceylon/language/interface_Sequence.html)
+[`Sequence`](#{site.urls.apidoc_current}/interface_Sequence.html)
 online, or you can go to `Navigate > Open Ceylon Declaration...` to view the 
 declaration of `Sequential` directly inside Ceylon IDE.
 
 The most important operations of `Sequential` are inherited from 
-[`Correspondence`](#{site.urls.apidoc_current}/ceylon/language/interface_Correspondence.html), 
-and [`Iterable`](#{site.urls.apidoc_current}/ceylon/language/interface_Iterable.html).
+[`Correspondence`](#{site.urls.apidoc_current}/interface_Correspondence.html), 
+and [`Iterable`](#{site.urls.apidoc_current}/interface_Iterable.html).
 
 - `Correspondence` provides the capability to access elements of the sequence
   by index, and
 - `Iterable` provides the ability to iterate the elements of the sequence. 
 
-Now open the class [`Range`](#{site.urls.apidoc_current}/ceylon/language/class_Range.html)
+Now open the class [`Range`](#{site.urls.apidoc_current}/class_Range.html)
 in the IDE, to see a concrete implementation of the `Sequence` interface.
 
 ## Empty sequences and the bottom type
 
 Finally, check out the definition of 
-[`Empty`](#{site.urls.apidoc_current}/ceylon/language/interface_Empty.html).
+[`Empty`](#{site.urls.apidoc_current}/interface_Empty.html).
 Notice that `Empty` is declared to be a subtype of `List<Nothing>`. This special 
 type `Nothing`, often called the _bottom type_, represents:
 
@@ -272,8 +272,8 @@ return a value. There is only one possible way that such an operation can
 terminate: by throwing an exception.
 
 Another cool thing to notice here is the return type of the 
-[`first`](#{site.urls.apidoc_current}/ceylon/language/interface_Empty.html#first) and 
-[`item()`](#{site.urls.apidoc_current}/ceylon/language/interface_Empty.html#item)
+[`first`](#{site.urls.apidoc_current}/interface_Empty.html#first) and 
+[`item()`](#{site.urls.apidoc_current}/interface_Empty.html#item)
 operations of `Empty`. You might have been expecting to see `Nothing?` 
 here, since they override supertype members of type `T?`. But as we saw in 
 the [first part](../basics) of the Tour, `Nothing?` is just an abbreviation for 
@@ -390,7 +390,7 @@ This is much cleaner:
 
 All this may take a little getting used to. But what's nice is that all the 
 exact same idioms also apply to other kinds of `Correspondence`, including 
-[`Map`s](#{site.urls.apidoc_current}/ceylon/language/interface_Map.html) .
+[`Map`s](#{site.urls.apidoc_current}/interface_Map.html) .
 
 ## Tuples
 
@@ -403,7 +403,7 @@ This tuple contains a two `Float`s followed by a `String`. That information
 is captured in its static type, `[Float,Float,String]`.
 
 Each link of the list is an instance of the class
-[`Tuple`](#{site.urls.apidoc_current}/ceylon/language/class_Tuple.html).
+[`Tuple`](#{site.urls.apidoc_current}/class_Tuple.html).
 If you really _must know_, the code above is syntax sugar for the following:
 
     Tuple<Float|String,Float,Tuple<Float|String,Float,Tuple<String,String,Empty>>>

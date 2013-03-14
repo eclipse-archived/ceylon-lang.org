@@ -18,7 +18,7 @@ using named arguments. We're now ready to learn about _comprehensions_.
 A comprehension is a convenient way to transform, filter, or combine a
 stream or streams of values before passing the result to a function.
 Comprehensions act upon, and produce, instances of 
-[`Iterable`](#{site.urls.apidoc_current}/ceylon/language/interface_Iterable.html).
+[`Iterable`](#{site.urls.apidoc_current}/interface_Iterable.html).
 A comprehension may appear:
 
 - inside brackets, producing a sequence,

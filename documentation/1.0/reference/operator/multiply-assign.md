@@ -39,7 +39,7 @@ See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#ari
 
 The `*=` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism).
 The definition of the `*=` operator depends 
-on the [`Numeric`](#{site.urls.apidoc_current}/ceylon/language/interface_Numeric.html) interface.
+on the [`Numeric`](#{site.urls.apidoc_current}/interface_Numeric.html) interface.
 
 ## See also
 

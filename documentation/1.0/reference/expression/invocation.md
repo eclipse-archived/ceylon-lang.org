@@ -215,4 +215,4 @@ See the reference on [comprehensions](../comprehensions) for more details.
 ## See also
 
 * [Comprehensions](../comprehensions)
-* [`Callable`](#{site.urls.apidoc_current}/ceylon/language/interface_Callable.html) API documentation,
+* [`Callable`](#{site.urls.apidoc_current}/interface_Callable.html) API documentation,

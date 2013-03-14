@@ -54,8 +54,8 @@ The *follow* and *apply* operators are not [polymorphic](#{page.doc_root}/refere
 
 ## See also
 
-* API documentation for [`Attribute`] _doc coming soon at_ (#{site.urls.apidoc_current}/ceylon/language/metamodel/Attribute)
-* API documentation for [`Method`] _doc coming soon at_ (#{site.urls.apidoc_current}/ceylon/language/metamodel/Method)
+* API documentation for [`Attribute`] _doc coming soon at_ (#{site.urls.apidoc_current}/metamodel/Attribute)
+* API documentation for [`Method`] _doc coming soon at_ (#{site.urls.apidoc_current}/metamodel/Method)
 * [`.=` in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#basic)
 * [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 
   language specification

@@ -31,10 +31,10 @@ The above abbreviations can be used anywhere a type is expected.
 
 ## See Also
 
-* [`Null`](#{site.urls.apidoc_current}/ceylon/language/class_Null.html)
-* [`Sequential`](#{site.urls.apidoc_current}/ceylon/language/interface_Sequential.html)
-* [`Sequence`](#{site.urls.apidoc_current}/ceylon/language/interface_Sequence.html)
-* [`Empty`](#{site.urls.apidoc_current}/ceylon/language/class_Empty.html)
-* [`Iterable`](#{site.urls.apidoc_current}/ceylon/language/interface_Iterable.html)
-* [`Tuple`](#{site.urls.apidoc_current}/ceylon/language/class_Tuple.html)
-* [`Callable`](#{site.urls.apidoc_current}/ceylon/language/interface_Callable.html)
+* [`Null`](#{site.urls.apidoc_current}/class_Null.html)
+* [`Sequential`](#{site.urls.apidoc_current}/interface_Sequential.html)
+* [`Sequence`](#{site.urls.apidoc_current}/interface_Sequence.html)
+* [`Empty`](#{site.urls.apidoc_current}/class_Empty.html)
+* [`Iterable`](#{site.urls.apidoc_current}/interface_Iterable.html)
+* [`Tuple`](#{site.urls.apidoc_current}/class_Tuple.html)
+* [`Callable`](#{site.urls.apidoc_current}/interface_Callable.html)

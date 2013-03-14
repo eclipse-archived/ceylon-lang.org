@@ -54,7 +54,7 @@ See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#ari
 
 The `++` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `++` depends on the 
-[`Ordinal`](#{site.urls.apidoc_current}/ceylon/language/interface_Ordinal.html).
+[`Ordinal`](#{site.urls.apidoc_current}/interface_Ordinal.html).
 
 ## See also
 

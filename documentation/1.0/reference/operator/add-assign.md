@@ -41,7 +41,7 @@ See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#ari
 The `+=` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism).
 
 The definition of the `+=` operator depends 
-on the [`Summable`](#{site.urls.apidoc_current}/ceylon/language/interface_Summable.html)
+on the [`Summable`](#{site.urls.apidoc_current}/interface_Summable.html)
 interface.
 
 ## See also

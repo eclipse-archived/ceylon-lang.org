@@ -10,7 +10,7 @@ author: Gavin King
 
 This is the fifteenth part of the Tour of Ceylon. In the 
 [last part](../language-module) we learned about the language module, 
-[`ceylon.language`](#{site.urls.apidoc_current}/ceylon/language/). Now we're 
+[`ceylon.language`](#{site.urls.apidoc_current}/). Now we're 
 going to go into the details of *initialization*, and the restrictions that 
 Ceylon places upon your code to ensure that you never experience anything 
 like Java's `NullPointerException`.

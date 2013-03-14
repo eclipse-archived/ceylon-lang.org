@@ -104,11 +104,11 @@ The `if (is ... )` construct actually narrows to an intersection type.
 
 An expression is assignable to an *intersection type*, written `X&Y`, if it is 
 assignable to *both* `X` and `Y`. For example, since 
-[`Empty`](#{site.urls.apidoc_current}/ceylon/language/interface_Empty.html)
+[`Empty`](#{site.urls.apidoc_current}/interface_Empty.html)
 is a subtype of 
-[`Iterable<Nothing>`](#{site.urls.apidoc_current}/ceylon/language/interface_Iterable.html) 
+[`Iterable<Nothing>`](#{site.urls.apidoc_current}/interface_Iterable.html) 
 and of 
-[`Sized`](#{site.urls.apidoc_current}/ceylon/language/interface_Sized.html),
+[`Sized`](#{site.urls.apidoc_current}/interface_Sized.html),
 it's also a subtype of the intersection 
 `Iterable<Nothing>&Sized`. The supertypes of an intersection type include all 
 supertypes of every intersected type.
@@ -169,9 +169,9 @@ determines this automatically. So the following code is also well-typed:
     Object obj = val; // Object is a supertype of String, Integer, and Float
 
 However, the following code is *not* well-typed, since 
-[`Number`](#{site.urls.apidoc_current}/ceylon/language/interface_Number.html) 
+[`Number`](#{site.urls.apidoc_current}/interface_Number.html) 
 is not a supertype of
-[`String`](#{site.urls.apidoc_current}/ceylon/language/class_String.html).
+[`String`](#{site.urls.apidoc_current}/class_String.html).
 
 <!-- check:none:demoing compile error -->
     String|Integer|Float x = -1;
@@ -560,8 +560,8 @@ Yes, this is a bit more verbose than a Java `enum`, but it's also somewhat
 more flexible.
 
 For a more practical example, check out the definition of 
-[`Boolean`](#{site.urls.apidoc_current}/ceylon/language/class_Boolean.html) 
-and [`Comparison`](#{site.urls.apidoc_current}/ceylon/language/class_Comparison.html) 
+[`Boolean`](#{site.urls.apidoc_current}/class_Boolean.html) 
+and [`Comparison`](#{site.urls.apidoc_current}/class_Comparison.html) 
 in the language module.
 
 

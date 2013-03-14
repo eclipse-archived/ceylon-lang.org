@@ -36,11 +36,11 @@ for more details.
 
 TODO The `satisfies` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `satisfies` depends on the 
-[`Type`](#{site.urls.apidoc_current}/ceylon/language/metamodel/interface_Type.html) interface.
+[`Type`](#{site.urls.apidoc_current}/metamodel/interface_Type.html) interface.
 
 ## See also
 
-* API documentation for [`Type`](#{site.urls.apidoc_current}/ceylon/language/metamodel/interface_Type.html)
+* API documentation for [`Type`](#{site.urls.apidoc_current}/metamodel/interface_Type.html)
 * [`is` in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#equalitycomparison)
 * [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 
   language specification

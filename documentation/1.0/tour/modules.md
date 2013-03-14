@@ -93,7 +93,7 @@ A `shared` package defines part of the "public" API of the module. Other modules
 can directly access shared declarations in a `shared` package.
 
 At runtime the package is represented by a top level 
-[`Package`](#{site.urls.apidoc_current}/ceylon/language/descriptor/class_Package.html) 
+[`Package`](#{site.urls.apidoc_current}/descriptor/class_Package.html) 
 attribute called `package`.
 
 ## Module descriptors
@@ -111,7 +111,7 @@ This is accomplished via a module descriptor:
     }
 
 At runtime a module is represented by a top level
-[`Module`](#{site.urls.apidoc_current}/ceylon/language/descriptor/class_Module.html) 
+[`Module`](#{site.urls.apidoc_current}/descriptor/class_Module.html) 
 attribute called `module`.
 
 <!--

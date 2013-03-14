@@ -30,7 +30,7 @@ them an
 argument to a sequenced parameter in an [invocation](../invocation). 
 [sequence instantiation](../sequence-instantiation) is considered an 
 invocation, so comprehensions are also a convenient way of creating a 
-[`Sequence`](#{site.urls.apidoc_current}/ceylon/language/interface_Sequence.html).
+[`Sequence`](#{site.urls.apidoc_current}/interface_Sequence.html).
 
 ### `for`, `if` and expression clauses
 
@@ -77,7 +77,7 @@ Continuing the example:
 
 * [sequence instantiation](../sequence-instantiation) in the reference,
 * [invocation](../invocation) in the reference,
-* [`Iterable`](#{site.urls.apidoc_current}/ceylon/language/interface_Iterable.html) API documentation,
+* [`Iterable`](#{site.urls.apidoc_current}/interface_Iterable.html) API documentation,
 * [comprehenions](../../tour/comprehensions) in the Tour of Ceylon,
 <!-- TODO
 * [comprehenions](#{page.doc_root}/#{site.urls.spec_relative}#) in Ceylon spec.

@@ -62,6 +62,6 @@ exception types.
 ## See also
 
 * [`throw`](../throw)
-* [`Exception`](#{site.urls.apidoc_current}/ceylon/language/interface_Exception.html)
+* [`Exception`](#{site.urls.apidoc_current}/interface_Exception.html)
 * [`try` in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#trycatchfinally)
 
