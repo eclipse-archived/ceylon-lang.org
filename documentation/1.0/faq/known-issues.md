@@ -8,7 +8,7 @@ author: Stephane Epardaud
 ---
 
 [However many tests we have](/blog/2012/02/02/how-we-test-ceylon/) in Ceylon, we managed to find 
-several bugs after we [released M5](/blog/2013/03/13/ceylon-m5-nesa-pong/).
+several bugs after we [released M5](/blog/2013/03/14/ceylon-m5-nesa-pong/).
 We're not happy about this, but hey, that's the way it is, so while we're busy squashing them
 in our code repository, the fact is you will need to use workarounds for them until we build
 a new release.
