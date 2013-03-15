@@ -664,8 +664,8 @@ very similar to a class or interface declaration.
             given Value satisfies Summable<Value> { ... }
 
 Ceylon's type system is _fully reified_. In particular, generic type arguments are 
-reified, eliminating many problems that result from generic type argument erasure 
-in Java.
+reified, eliminating many frustrations that result from type argument erasure in 
+Java. For example, Ceylon lets us write `if (is Map<String,Object> map)`.
 
 ## Operator polymorphism
 
