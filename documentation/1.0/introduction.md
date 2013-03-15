@@ -640,20 +640,30 @@ to humans.
 
 Instead of wildcard types, Ceylon features *declaration-site variance*. A type 
 parameter may be marked as covariant (`out`) or contravariant (`in`) by the class 
-or interface that declares the parameter.
+or interface that declares the parameter. Consider:
 
 <!-- try: -->
-    interface Correspondence<in Key, out Item> { ... }
+    shared interface Map<in Key, out Item> {
+         shared formal Item? get(Key key);
+    }
 
-Ceylon has a more expressive system of generic type constraints with a much cleaner, 
-more regular syntax. The syntax for declaring type constraints on a type parameter 
-looks very similar to a class or interface declaration.
+Given this declaration of `Map`:
+
+- a `Map<String,Integer>` is also a `Map<String,Number>`, since `get()` produces an 
+  `Integer`, which is also an `Number`, and 
+- a `Map<List<Character>,Integer>` is also a `Map<String,Integer>`, since `get()` 
+  accepts any key which is an `List<Character>`, and every `String` is a 
+  `List<Character>`.
+
+Ceylon has an expressive system of generic type constraints with a cleaner, more 
+regular syntax. The syntax for declaring type constraints on a type parameter looks 
+very similar to a class or interface declaration.
 
 <!-- try: -->
-    interface Producer<in Input, out Value>
-            given Value(Input input) satisfies Container { ... }
+    shared Value sum<Value>({Value+} values) 
+            given Value satisfies Summable<Value> { ... }
 
-Ceylon's type system is fully reified. In particular, generic type arguments are 
+Ceylon's type system is _fully reified_. In particular, generic type arguments are 
 reified, eliminating many problems that result from generic type argument erasure 
 in Java.
 
