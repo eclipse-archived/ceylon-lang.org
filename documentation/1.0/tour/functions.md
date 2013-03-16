@@ -74,19 +74,25 @@ The type of `sum()` is:
 <!-- check:none -->
     Callable<Integer,[Integer,Integer]>
 
-What about `void` functions? Well, remember that way back in [the first part 
-of the tour](../basics) we said that the return type of a `void` function is 
-`Anything`. So the type of a function like `print()` is:
+What about `void` functions? Well, the return type of a `void` function is 
+considered to be `Anything`. So the type of a function like `print()` is:
 
 <!-- try: -->
 <!-- check:none -->
     Callable<Anything,[Anything]>
 
-Note that a `void` function always implicitly returns the value `null`. This
-is different to a function declared to return the type `Anything`, which may 
-return any value at all, but must do it explicitly, via a `return` statement.
-The following functions have the same type, `Anything()`, but don't do exactly 
-the same thing:
+Folks who have a background in languages like ML might have expected that
+`void` would be identified with some "unit" type, for example, `Null`, or
+perhaps `[]`. But this approach would mean that a non-`void` method would
+not be able to refine a `void` method, and that a non-`void` function would
+not be able to be assigned to a `void` functional parameter. Therefore,
+perfectly reasonable code would be rejected by the compiler.  
+
+Note that a `void` function with a concrete implementation implicitly returns 
+the value `null`. This is different to a function declared to return the type 
+`Anything`, which may return any value at all, but must do it explicitly, via 
+a `return` statement. The following functions have the same type, `Anything()`, 
+but don't do exactly the same thing:
 
     Anything hello() { 
         print("hello");
@@ -97,6 +103,10 @@ the same thing:
         print("hello");
         //implicitly returns null
     }
+
+You shouldn't rely upon a function that is declared `void` returning `null`,
+because it might be a method that is refined by a non-`void` method, or a
+reference to a non-`void` function.
 
 We can abbreviate `Callable` types with a little syntax sugar:
 
