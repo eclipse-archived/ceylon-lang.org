@@ -84,7 +84,7 @@ iterating [`Entry`s](#{site.urls.apidoc_current}/class_Entry.html):
     {String+} moreWords = { "hola", "mundo", *words };
 -->
     for (i -> word in entries(moreWords)) {
-        print("``i``: ``op``");
+        print("``i``: ``word``");
     }
 
 The [`entries()`](#{site.urls.apidoc_current}/#entries) 
