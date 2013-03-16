@@ -11,7 +11,8 @@ author: Gavin King
 This is the sixth leg of the Tour of Ceylon. In the 
 [previous leg](../anonymous-member-classes) we covered anonymous classes and 
 member classes. Now we're going to look at *iterable objects*, *sequences*, 
-and *tuples*.
+and *tuples*. These are examples of generic _container objects_. Don't worry,
+we'll come back to talk more about generics [later](../generics).
 
 
 ## Iterables
