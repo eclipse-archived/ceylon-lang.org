@@ -143,6 +143,7 @@ It's especially useful to filter using `if (exists ...)`.
 
 You can even use [multiple `if` conditions](../attributes-control-structures#condition_lists):
 
+<!-- try: -->
     for (p in people) 
             if (exists s=p.spouse, 
                 nonempty inlaws=s.parents) 
@@ -155,7 +156,9 @@ to combine two streams to obtain a stream of values of their cartesian
 product:
 
 <!-- try:
-    class Node(Integer x, Integer y) { shared actual String string = "(" x "," y ")"; }
+    class Node(Integer x, Integer y) { 
+        shared actual String string = "(``x``,``y``)"; 
+    }
 
     print({for (i in 0..5) for (j in 0..5) Node(i,j)});
 -->
@@ -166,9 +169,9 @@ a lot like a `join` in SQL.
 
 <!-- try:
     class Employee(name) { shared String name; }
-    class Organisation(name, employees) { shared String name; shared Employee[] employees; }
-    value orgs = { Organisation("RedHat", { Employee("Joe"), Employee("Jack") }),
-                   Organisation("Fedora", { Employee("Lisa") }) };
+    class Organisation(name, employees) { shared String name; shared Employee* employees; }
+    value orgs = { Organisation("RedHat", Employee("Joe"), Employee("Jack")),
+                   Organisation("Fedora", Employee("Lisa")) };
 
     print({for (o in orgs) for (e in o.employees) o.name->e.name});
 -->
