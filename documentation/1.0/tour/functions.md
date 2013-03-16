@@ -574,14 +574,15 @@ use a `Subscription` interface:
     interface Subscription {
          shared formal void cancel();
     }
-    shared abstract class Component() {
+    abstract class Component() {
          
         variable {Anything(Event)*} observers = {};
          
         shared Subscription addObserver(void observe(Event event)) {
             observers = {observe, *observers};
             object subscription satisfies Subscription {
-                cancel() => observers.remove(observe);
+                cancel() => observers = 
+                        { for (o in observers) !o===observe };
             }
             return subscription;
         }
@@ -598,14 +599,15 @@ use a `Subscription` interface:
     shared interface Subscription {
         shared void cancel();
     }
-    shared abstract class Component() {
+    abstract class Component() {
          
         variable {Anything(Event)*} observers = {};
          
         shared Subscription addObserver(void observe(Event event)) {
             observers = {observe, *observers};
             object subscription satisfies Subscription {
-                cancel() => observers.remove(observe);
+                cancel() => observers = 
+                        { for (o in observers) !o===observe };
             }
             return subscription;
         }
@@ -623,13 +625,14 @@ But a simpler solution might be to just eliminate the interface and return the
 
 <!-- try:
     interface Event { }
-    shared abstract class Component() {
+    abstract class Component() {
          
         variable {Anything(Event)*} observers = {};
          
-        shared Void() addObserver(void observe(Event event)) {
+        shared Anything() addObserver(void observe(Event event)) {
             observers = {observe, *observers};
-            return () => observers.remove(observe);
+            return void () => observers = 
+                        { for (o in observers) !o===observe };
         }
          
         shared void fire(Event event) {
@@ -641,13 +644,14 @@ But a simpler solution might be to just eliminate the interface and return the
     }
 -->
 <!-- check:parse:Depends on OpenList -->
-    shared abstract class Component() {
+    abstract class Component() {
          
         variable {Anything(Event)*} observers = {};
          
         shared Anything() addObserver(void observe(Event event)) {
             observers = {observe, *observers};
-            return void () => observers.remove(observe);
+            return void () => observers = 
+                        { for (o in observers) !o===observe };
         }
          
         shared void fire(Event event) {
