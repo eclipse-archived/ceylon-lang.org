@@ -279,12 +279,12 @@ terminate: by throwing an exception.
 
 Another cool thing to notice here is the return type of the 
 [`first`](#{site.urls.apidoc_current}/interface_Empty.html#first) and 
-[`item()`](#{site.urls.apidoc_current}/interface_Empty.html#item)
-operations of `Empty`. You might have been expecting to see `Nothing?` 
-here, since they override supertype members of type `T?`. But as we saw in 
-the [first part](../basics) of the Tour, `Nothing?` is just an abbreviation for 
+[`item()`](#{site.urls.apidoc_current}/interface_Empty.html#item) operations 
+of `Empty`. You might have been expecting to see `Nothing?` here, since they 
+override supertype members of type `T?`. But as we saw in the 
+[first part](../basics) of the Tour, `Nothing?` is just an abbreviation for 
 `Null|Nothing`. And `Nothing` is the empty set, so the union `Nothing|T` of 
-`Bottom` with any other type `T` is just `T` itself.
+`Nothing` with any other type `T` is just `T` itself.
 
 The Ceylon compiler is able to do all this reasoning automatically. So when 
 it sees an `Iterable<Nothing>`, it knows that the operation `first` is of type 

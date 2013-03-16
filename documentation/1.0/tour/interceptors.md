@@ -30,7 +30,7 @@ All we need to do is have our `Transactional` class implement the interfaces
 <!-- try: -->
 <!-- check:none: Not supported yet -->
     shared class Transactional(Boolean requiresNew)
-            satisfies OptionalAnnotation<Transactional,Member<Bottom,Void>> &
+            satisfies OptionalAnnotation<Transactional,Member<Nothing,Anything>> &
                       MethodAnnotation & AttributeAnnotation {
              
         shared Boolean requiresNew = requiresNew;

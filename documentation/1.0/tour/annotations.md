@@ -183,7 +183,7 @@ constrains the kinds of program elements at which the annotation can occur.
 The argument to `ProgramElement` must be a metamodel type. So the argument 
 `Type<Number>` would constrain the annotation to occur only at program 
 elements that declare a subtype of `Number`. The argument 
-`Attribute<Bottom,String>` would constrain the annotation to occur only 
+`Attribute<Nothing,String>` would constrain the annotation to occur only 
 at program elements that declare an attribute of type `String`.
 
 Here are a couple of examples from the language spec:
@@ -229,7 +229,7 @@ we can write:
     Boolean deprecated = exists annotations(Deprecated, Thread.stop);
 
 Note that the expression `Thread.stop` returns the metamodel object for the 
-method `stop()` of `Thread`, an instance of `Method<Thread,Void>`.
+method `stop()` of `Thread`, an instance of `Method<Thread,Anything>`.
 
 Here are two more examples, to make sure you get the idea:
 
@@ -247,14 +247,14 @@ so you're more likely to be writing code like this:
 
 <!-- try: -->
 <!-- check:none:Annotations M5 -->
-    Entry<Attribute<Bottom,Object?>,String>[] attributeColumnNames(Class<Object> clazz) {
-        return { for (att in clazz.members(Attribute<Bottom,Object?>))
+    Entry<Attribute<Nothing,Object?>,String>[] attributeColumnNames(Class<Object> clazz) {
+        return { for (att in clazz.members(Attribute<Nothing,Object?>))
                     att->columnName(att) };
     }
 
 <!-- try: -->
 <!-- check:none:Annotations M5 -->
-    String columnName(Attribute<Bottom,Object?> member) {
+    String columnName(Attribute<Nothing,Object?> member) {
         return annotations(Column, member)?.name else member.name;
     }
 
@@ -282,7 +282,7 @@ and attributes, and may occur at most once on any member.
 <!-- try: -->
 <!-- check:none:Annotations M5 -->
     shared class Transactional(requiresNew)
-            satisfies OptionalAnnotation<Transactional,Member<Bottom,Void>> {
+            satisfies OptionalAnnotation<Transactional,Member<Nothing,Anything>> {
         shared Boolean requiresNew;
     }
 

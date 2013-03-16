@@ -105,7 +105,7 @@ modularity.*
 * methods/attributes with named arguments
 * `shared` members + visibility rules
 * local capture [TODO: test and bugfix capture of forward declared locals]
-* erasure of `Void`/`Object`/`Nothing`/`Equality`/`IdentifiableObject`
+* erasure of `Anything`/`Object`/`Nothing`/`Equality`/`IdentifiableObject`
 * optimization of locals in class initializer
 * sequenced (varargs) parameters
 * optimization of primitives with auto(un)boxing
