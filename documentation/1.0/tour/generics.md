@@ -56,7 +56,8 @@ enclosed in angle brackets.
             given Item satisfies Object { ... }
 
 As you can see, the convention in Ceylon is to use meaningful names for 
-type parameters (in Java the convention is to use single letter names).
+type parameters (in other languages the usual convention is to use single 
+letter names).
 
 A type parameter may have a default argument.
 
