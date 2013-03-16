@@ -186,9 +186,7 @@ A `formal` member class can declare `formal` members.
         shared formal class Buffer() {
             shared formal Byte read();
         }
-        
         ...
-        
     }
 
 In this case, a concrete subclass of the `abstract` class must refine the 
@@ -203,6 +201,7 @@ In this case, a concrete subclass of the `abstract` class must refine the
                  ...
              }
         }
+        ...
     }
 
 Notice the difference between an `abstract` class and a `formal` member class. 
