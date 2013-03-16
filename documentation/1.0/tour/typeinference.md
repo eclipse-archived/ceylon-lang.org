@@ -26,26 +26,26 @@ parameterized type. For this, we use a *type alias*.
 To define an alias for a class or interface, we use a fat arrow, for example:
 
 <!-- try: -->
-<!-- cat: 
-    class Person() {
-    }
--->
     interface People => Set<Person>;
 
 A class alias must declare its formal parameters:
 
 <!-- try: -->
 <!-- check:none:ArrayList -->
-    shared class People({Person*} people) => ArrayList<Person>(people);
+    class People({Person*} people) => ArrayList<Person>(people);
 
 If you need to create an alias for a union or intersection type you have to 
 use the `alias` keyword:
 
-    alias Num = Float|Integer;
+<!-- try: -->
+    alias Num => Float|Integer;
 
 A type alias may be parameterized, and have type constraints, which we'll
 [learn about later](../generics/#generic_type_constraints):
 
+<!-- try-post:
+    Named<Float> zero = Named("Zero", 0.0);   
+-->
     class Named<Value>(String name, Value val) 
             given Value satisfies Object
             => Entry<String,Value>(name,val);
@@ -54,6 +54,12 @@ Type aliases help us reduce verbosity, because instead of repeatedly writing
 out the same generic type, for example `Set<Person>`, we can use a snappier
 alias, such as `People`. But in some cases, Ceylon lets us omit the type
 altogether. 
+
+A toplevel type alias or a type alias belonging to a class or interface may 
+be `shared`.
+
+<!-- try: -->
+    shared interface People => Set<Person>;
 
 
 ## Type inference
