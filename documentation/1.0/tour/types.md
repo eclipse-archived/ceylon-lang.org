@@ -360,7 +360,7 @@ enumerating the subtypes of `Node` in its definition, and using a `switch`:
     abstract class Node() of Leaf | Branch {}
     
     class Leaf(shared Object element) 
-            extends Node() {
+            extends Node() {}
     
     class Branch(shared Node left, shared Node right) 
             extends Node() {}
@@ -372,7 +372,7 @@ of "breaking" when a new subtype of `Node` is added.
     abstract class Node() of Leaf | Branch {}
     
     class Leaf(shared Object element) 
-            extends Node() {
+            extends Node() {}
     
     class Branch(shared Node left, shared Node right) 
             extends Node() {}
