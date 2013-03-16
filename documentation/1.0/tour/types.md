@@ -115,15 +115,17 @@ intersection type include all supertypes of every intersected type.
 
 Therefore, the following code is well-typed:
 
-    Iterable<String>&Correspondence<Integer,String> strings = ["hello", "world"];
+    Iterable<String>&Correspondence<Integer,String> strings = 
+            ["hello", "world"];
     String? str = strings.get(0);  //call get() of Correspondence
     Integer size = strings.size;  //call size of Iterable
 
 Now consider this code, to see the effect of `if (is ...)`:
 
     Iterable<String> strings = ["hello", "world"];
-    if (is Correspondence<Integer,String> empty) {
-        //strings has type Iterable<String>&Correspondence<Integer,String> here
+    if (is Correspondence<Integer,String> strings) {
+        //here strings has type 
+        //Iterable<String> & Correspondence<Integer,String>
         String? str = strings.get(0);
         Integer size = strings.size;
     }
