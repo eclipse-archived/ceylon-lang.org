@@ -294,7 +294,7 @@ parameter `Element`, that is, if it's declared like this:
 -->
     interface List<out Element> { ... }
 
-We say that Ceylon supports _principal instantiation inheritance_. 
+We say that Ceylon features _principal instantiation inheritance_. 
 Even the following code is legal:
 
 <!-- try: -->
