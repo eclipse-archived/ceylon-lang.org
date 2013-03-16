@@ -104,33 +104,33 @@ The `if (is ... )` construct actually narrows to an intersection type.
 
 An expression is assignable to an *intersection type*, written `X&Y`, if it is 
 assignable to *both* `X` and `Y`. For example, since 
-[`Empty`](#{site.urls.apidoc_current}/interface_Empty.html)
+[`Tuple`](#{site.urls.apidoc_current}/class_Tuple.html)
 is a subtype of 
 [`Iterable<Nothing>`](#{site.urls.apidoc_current}/interface_Iterable.html) 
 and of 
-[`Sized`](#{site.urls.apidoc_current}/interface_Sized.html),
-it's also a subtype of the intersection 
-`Iterable<Nothing>&Sized`. The supertypes of an intersection type include all 
-supertypes of every intersected type.
+[`Correspondence`](#{site.urls.apidoc_current}/interface_Correspondence.html),
+the tuple type `[String,String]` is also a subtype of the intersection 
+`Iterable<String>&Correspondence<Integer,String>`. The supertypes of an 
+intersection type include all supertypes of every intersected type.
 
 Therefore, the following code is well-typed:
 
-    Iterable<Nothing>&Sized empty = [];
-    Integer sizeZero = empty.size;  //call size of Sized
-    Iterator<Nothing> nullIterator = empty.iterator();  //call iterator() of Iterable
+    Iterable<String>&Correspondence<Integer,String> strings = ["hello", "world"];
+    String? str = strings.get(0);  //call get() of Correspondence
+    Integer size = strings.size;  //call size of Iterable
 
 Now consider this code, to see the effect of `if (is ...)`:
 
-<!-- cat: void m() { -->
-    Iterable<Nothing> empty = [];
-    if (is Sized empty) {
-        Integer sizeZero = empty.size;
-        Iterator<Nothing> nullIterator = empty.iterator();
+    Iterable<String> strings = ["hello", "world"];
+    if (is Correspondence<Integer,String> empty) {
+        //strings has type Iterable<String>&Correspondence<Integer,String> here
+        String? str = strings.get(0);
+        Integer size = strings.size;
     }
-<!-- cat: } -->
 
-Inside the body of the `if` construct, `empty` has the type `Iterable<Nothing>&Sized`,
-so we can call operations of both `Iterable` and `Sized`.
+Inside the body of the `if` construct, `strings` has the type 
+`Iterable<String>&Correspondence<Integer,String>`, so we can call operations of 
+both `Iterable` and `Correspondence`.
 
 
 ## Union types
