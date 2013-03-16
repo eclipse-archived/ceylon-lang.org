@@ -34,9 +34,9 @@ Just like Java, Ceylon has a class named
 <!-- check:none:decl from ceylon.language -->
     "The abstract supertype of all types representing 
      definite values..."
-    see (IdentifiableObject)
+    see (Basic)
     shared abstract class Object() 
-            extends Void() {
+            extends Anything() {
         
         "Determine if two values are equal..."
         shared formal Boolean equals(Object that);
@@ -56,7 +56,7 @@ In Ceylon, `Object` *isn't* the root of the type system. An expression of
 type `Object` has a definite, well-defined, non-`null` value. 
 As we've seen, the Ceylon type system can also represent some more exotic 
 types, for example 
-[`Null`](#{site.urls.apidoc_current}/class_Nothing.html), 
+[`Null`](#{site.urls.apidoc_current}/class_Null.html), 
 which is the type of `null`.
 
 Therefore, Ceylon's `Object` has a superclass, named 
@@ -68,8 +68,8 @@ Therefore, Ceylon's `Object` has a superclass, named
      `Anything` may be a definite value of type `Object`, or it 
      may be the `null` value. A method declared `void` is 
      considered to have the return type `Anything`..."
-    shared abstract class Void() 
-            of Object | Nothing {}
+    shared abstract class Anything() 
+            of Object | Null {}
 
 All Ceylon types are assignable to `Anything`. Expressions of type `Anything` 
 aren't useful for very much, since `Anything` has no members or operations. 
@@ -77,19 +77,6 @@ The one useful thing you can do with `Anything` is represent the signature of
 a method when you don't care about the return type, since a method declared 
 `void` is considered to have return type `Anything`, as we saw in the 
 [part about functions](../functions).
-
-<!--I guess this information is useful but definitely doesn't belong in this chapter:
-A method declared `void` is considered to have return type `Void`, as we saw in the 
-[part about functions](../functions), and implicitly returns `null`. On the 
-other hand a method declared `Void` can return anything at all, but the caller 
-will have to narrow the return value it to something more specific to do 
-anything with it. In practice there's no point declaring a method `Void` 
-because if it returns something useful to the caller *any* other type is 
-more useful, and if it doesn't return something useful it should be declared 
-`void`. The only other difference between the two is that a `void` method is 
-allowed to use a plain `return` statement, or return implicitly, whereas any 
-other return type requires an explicit `return` with an expression.
--->
 
 The class `Null` also directly extends `Anything`. 
 
