@@ -31,6 +31,9 @@ syntax defined for references to a concrete member of a superinterface.
 In addition to `this` and `super`, Ceylon features the keyword `outer`, which 
 refers to the parent instance of the current instance of a nested class.
 
+<!-- try:post
+    print(Parent("outer").Child("inner").qualifiedName);
+-->
     class Parent(name) {
         shared String name;
         shared class Child(name) {
