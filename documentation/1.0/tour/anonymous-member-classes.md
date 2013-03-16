@@ -113,19 +113,7 @@ think of a method as a parametrized attribute.
 An `object` declaration can refine an attribute declared `formal` or `default`,
 as long as it is a subtype of the declared type of the attribute.
 
-<!-- try:
-    interface OutputStream { }
-
-    abstract class App() {
-        shared formal OutputStream stream;
-    }
-
-    class ConsoleApp() extends App() {
-        shared actual object stream
-                satisfies OutputStream { }
-    }
--->
-<!-- check:none:Requires IO -->
+<!-- try: -->
     shared abstract class App() {
         shared formal OutputStream stream;
         ...
@@ -149,36 +137,18 @@ more than natural. But in Ceylon, a non-abstract nested class is actually
 considered a member of the containing type. For example, `BufferedReader` 
 defines the member class `Buffer`:
 
-<!-- try:
-    interface Reader {}
-    class BufferedReader(Reader reader) satisfies Reader {
-        shared default class Buffer() satisfies Container {
-            shared actual Boolean empty = true;
-        }
-    }
--->
-<!-- check:none:Requires IO -->
+<!-- try: -->
     class BufferedReader(Reader reader)
             satisfies Reader {
         shared default class Buffer()
                 satisfies List<Character> { ... }
         ...
-        
     }
 
 The member class `Buffer` is annotated shared, so we can instantiate it like 
 this:
 
-<!-- try-pre:
-    interface Reader {}
-    class ExampleReader() satisfies Reader {}
-    class BufferedReader(Reader reader) satisfies Reader {
-        shared default class Buffer() satisfies Container {
-            shared actual Boolean empty = true;
-        }
-    }
--->
-<!-- check:none:Requires IO -->
+<!-- try: -->
     BufferedReader br = BufferedReader(ExampleReader());
     BufferedReader.Buffer b = br.Buffer();
 
@@ -188,28 +158,12 @@ when used outside of the containing type.
 The member class `Buffer` is also annotated `default`, so we can refine it 
 in a subtype of `BufferedReader`:
 
-<!-- try:
-    interface Reader {}
-    interface File {}
-    class FileReader(File file) satisfies Reader {}
-    class BufferedReader(Reader reader) satisfies Reader {
-        shared default class Buffer() satisfies Container {
-            shared actual Boolean empty = true;
-        }
-    }
-
-    class BufferedFileReader(File file)
-            extends BufferedReader(FileReader(file)) {
-        shared actual class Buffer()
-                extends super.Buffer() { }
-    }
--->
-<!-- check:none:Requires IO -->
+<!-- try: -->
     class BufferedFileReader(File file)
             extends BufferedReader(FileReader(file)) {
         shared actual class Buffer()
                 extends super.Buffer() { ... }
-                
+        ...     
     }
 
 That's right: Ceylon lets us "override" a member class defined by a supertype!
@@ -226,17 +180,7 @@ our code.
 It's even possible to define a `formal` member class of an `abstract` class. 
 A `formal` member class can declare `formal` members.
 
-<!-- try:
-    interface Reader {}
-    interface Byte {}
-    abstract class BufferedReader(Reader reader)
-            satisfies Reader {
-        shared formal class Buffer() {
-            shared formal Byte read();
-        }
-    }
--->
-<!-- check:none:Requires IO -->
+<!-- try: -->
     abstract class BufferedReader(Reader reader)
             satisfies Reader {
         shared formal class Buffer() {
@@ -251,7 +195,6 @@ In this case, a concrete subclass of the `abstract` class must refine the
 `formal` member class.
 
 <!-- try: -->
-<!-- check:none:Requires IO -->
     shared class BufferedFileReader(File file)
             extends BufferedReader(FileReader(file)) {
         shared actual class Buffer()
