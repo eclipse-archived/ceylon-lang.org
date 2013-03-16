@@ -68,6 +68,7 @@ To iterate an instance of `Iterable`, we can use a
 [`for` loop](../attributes-control-structures/#for):
 
 <!-- try-pre:
+    {String+} words = { "hello", "world" };
     {String+} moreWords = { "hola", "mundo", *words };
 -->
     for (word in moreWords) {
@@ -79,6 +80,7 @@ object, we can use a special variation of the `for` loop that is designed for
 iterating [`Entry`s](#{site.urls.apidoc_current}/class_Entry.html):
 
 <!-- try-pre:
+    {String+} words = { "hello", "world" };
     {String+} moreWords = { "hola", "mundo", *words };
 -->
     for (i -> word in entries(moreWords)) {
@@ -95,8 +97,8 @@ It's often useful to be able to iterate two sequences at once. The
 function comes in handy here:
 
 <!-- try-pre:
-    String[] names = { "mies", "wim", "jet" };
-    String[] places = { "hoogezand", "sappemeer", "kalkwijk" };
+    String[] names = ["mies", "wim", "jet"];
+    String[] places = ["hoogezand", "sappemeer", "kalkwijk"];
 -->
 <!-- cat: void m(String[] names, String[] places) { -->
     for (name -> place in zip(names,places)) {
@@ -126,8 +128,8 @@ can't call them if all you have is `X[]`. Therefore, we need the
  `if (nonempty ... )` construct to gain access to these operations.
 
 <!-- try-post:
-    printBounds({"aap", "noot", "mies"});
-    printBounds({});
+    printBounds(["aap", "noot", "mies"]);
+    printBounds([]);
 -->
     void printBounds(String[] strings) {
         if (nonempty strings) {
@@ -163,6 +165,9 @@ familiar Java-like syntax:
 
 Oh, and the expression `[]` evaluates to an instance of `Empty`.
 
+<!-- try-post:
+    print(none);
+-->
     [] none = [];
 
 However, unlike Java, all these syntactic constructs are pure abbreviations. 
@@ -181,7 +186,7 @@ The `Sequence` interface extends
 so we can iterate a `Sequence` using a `for` loop:
 
 <!-- try-pre:
-    String[] operators = { "+", "-", "*", "/" };
+    String[] operators = ["+", "-", "*", "/"];
 -->
 <!-- cat: void m(String[] operators) { -->
     for (op in operators) {
@@ -296,7 +301,7 @@ an immutable interface, it's not a mutable concrete type like an array. We
 can't set the value of an element:
 
 <!-- try:
-    String[] operators = { "+", "-", "*", "/" };
+    String[] operators = ["+", "-", "*", "/"];
     operators[0] = "^"; //compile error
 -->
 <!-- check:none:Demoing error -->
@@ -309,7 +314,7 @@ don't iterate sequences by index like in C or Java. The following code does
 not compile:
 
 <!-- try-pre:
-    String[] operators = [ "+", "-", "*", "/" ];
+    String[] operators = ["+", "-", "*", "/"];
 -->
 <!-- check:none:Demoing error -->
     for (i in 0..operators.size-1) {
