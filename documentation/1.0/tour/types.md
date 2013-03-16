@@ -60,7 +60,7 @@ The `switch` statement can be used in a similar way:
 
 <!-- try-pre:
     class Hello(String txt) {
-        shared void printMsg() { print("Hello, " txt ""); }
+        shared void printMsg() { print("Hello, ``txt``"); }
     }
     class Person(firstName, lastName) {
         shared String firstName;
@@ -142,9 +142,9 @@ The following code is well-typed:
 <!-- try:
     void printType( String | Integer | Float val) {
         switch(val)
-        case(is String) { print("String: " val ""); }
-        case(is Integer) { print("Integer: " val ""); }
-        case(is Float) { print("Float: " val ""); }
+        case(is String) { print("String: ``val``"); }
+        case(is Integer) { print("Integer: ``val``"); }
+        case(is Float) { print("Float: ``val``"); }
     }
 
     printType("hello");
