@@ -235,7 +235,8 @@ But if there's no constructors in Ceylon, where precisely should we put this
 code? We put it directly in the body of the class!
 
 <!-- try-post:
-    print(Polar(0.37, 10.0).description);
+    print(Polar(0.37, 10.0, null).description);
+    print(Polar(0.0, 0.0, "origin").description);
 -->
     "A polar coordinate with an optional label"
     class Polar(angle, radius, String? label) {
