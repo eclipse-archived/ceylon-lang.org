@@ -17,7 +17,8 @@ we're looking at *generic* types.
 over types. But this tool has its limitations. It can't help us express generic 
 container types like collections. For this problem we need parameterized types. 
 We've seen plenty of parameterized types already&mdash;for example, 
-[sequences](../sequences)&mdash;but now let's explore a few more details.
+[iterables, sequences, and tuples](../sequences)&mdash;but now let's explore a 
+few more details.
 
 
 ## Defining generic types
@@ -61,6 +62,7 @@ letter names).
 
 A type parameter may have a default argument.
 
+<!-- try: -->
     shared interface Iterable<out Element, out Absent=Null> ...
 
 
