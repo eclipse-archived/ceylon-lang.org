@@ -723,14 +723,14 @@ We can see that the type of the function reference `print` is `Anything(Anything
 and that the type of the function reference `plus<Float>` is `Float(Float,Float)`.
 Then we can write the following:
 
-    Anything(Float,Float) printSum = compose(print,plus);
+    Anything(Float,Float) printSum = compose(print,plus<Float>);
     printSum(2.0,2.0); //prints 4.0
 
 The function `curry()` produces a function with multiple parameter lists, given
 a function with multiple parameters:
 
 <!-- try-pre:
-    Anything(Float,Float) printSum = compose(print,plus);
+    Anything(Float,Float) printSum = compose(print,plus<Float>);
 -->
     Anything(Float)(Float) printSumCurried = curry(printSum);
     Anything(Float) printPlus2 = printSumCurried(2.0);
@@ -740,7 +740,7 @@ The function `uncurry()` does the opposite, giving us back our original uncurrie
 signature:
 
 <!-- try-pre:
-    Anything(Float,Float) printSum = compose(print,plus);
+    Anything(Float,Float) printSum = compose(print,plus<Float>);
     Anything(Float)(Float) printSumCurried = curry(printSum);
 -->
 <!-- try-post:
