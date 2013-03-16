@@ -570,7 +570,7 @@ use a `Subscription` interface:
     interface Event { }
 -->
     interface Subscription {
-        shared void cancel();
+        shared formal void cancel();
     }
     abstract class Component() {
          
@@ -580,7 +580,7 @@ use a `Subscription` interface:
             observers = {observe, *observers};
             object subscription satisfies Subscription {
                 cancel() => observers = 
-                        { for (o in observers) if (!o===observe) o };
+                        { for (o in observers) if (o!=observe) o };
             }
             return subscription;
         }
@@ -606,7 +606,7 @@ But a simpler solution might be to just eliminate the interface and return the
         shared Anything() addObserver(void observe(Event event)) {
             observers = {observe, *observers};
             return void () => observers = 
-                        { for (o in observers) if (!o===observe) o };
+                        { for (o in observers) if (o!=observe) o };
         }
          
         shared void fire(Event event) {
