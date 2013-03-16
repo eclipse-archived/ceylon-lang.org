@@ -77,7 +77,7 @@ Unlike Java, we always do need to specify type arguments in a type declaration
 <!-- check:none:Demoing error -->
     Iterator it = ...;   //error: missing type argument to parameter Element of Iterable
 
-We always have to specify a type argument in a type declaration:
+Instead, we have to provide a type argument like this:
 
 <!-- try:
     Iterator<String> it = {};
@@ -261,6 +261,28 @@ You're unlikely to spend much time writing your own collection classes, since
 the Ceylon SDK will soon have a powerful collections framework built in. But 
 you'll still appreciate Ceylon's approach to covariance as a user of the 
 built-in collection types.
+
+
+## Covariance and contravariance with unions and intersections
+
+There's a couple of interesting relationships that arise when we introduce
+union and intersection types into the picture.
+
+First, consider a covariant type like `List<Element>`. Then for any types 
+`X` and `Y`:
+
+- `List<X>|List<Y>` is a subtype of `List<X|Y>` , and
+- `List<X>&List<Y>` is a supertype of `List<X&Y>`.
+
+Next, consider a contravariant type like `Consumer<Element>`. Then for any 
+types `X` and `Y`:
+
+- `Consumer<X>|Consumer<Y>` is a subtype of `Consumer<X&Y>` , and
+- `Consumer<X>&Consumer<Y>` is a supertype of `Consumer<X|Y>`.
+
+It's worth coming back to this section later, and trying to develop some 
+intuition about exactly why these relationships are correct and what they 
+mean. But don't waste time on that now. We've got bigger fish to fry!
 
 
 ## Generics and inheritance
