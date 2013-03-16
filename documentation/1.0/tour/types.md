@@ -532,21 +532,7 @@ We're allowed to use the names of `object` declarations in the `of` clause.
 
 Now we can exhaust all cases of `Suit` in a `switch`:
 
-<!-- try-pre:
-    abstract class Suit(String name)
-            of hearts | diamonds | clubs | spades {}
-    
-    object hearts extends Suit("hearts") {}
-    object diamonds extends Suit("diamonds") {}
-    object clubs extends Suit("clubs") {}
-    object spades extends Suit("spades") {}
-
--->
-<!-- try-post:
-
-    printSuit(hearts);
--->
-<!-- cat-id:Suit -->
+<!-- try: -->
     void printSuit(Suit suit) {
         switch (suit)
         case (hearts) { print("Heartzes"); }
