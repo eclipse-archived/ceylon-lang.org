@@ -713,6 +713,7 @@ The function `compose()` performs _function composition_. For example, given
 the functions `print()` and `plus()` in `ceylon.language`, with the following
 signatures:
 
+<!-- try: -->
     shared void print(Anything line) { ... }
     
     shared shared Value plus<Value>(Value x, Value y)
@@ -728,6 +729,9 @@ Then we can write the following:
 The function `curry()` produces a function with multiple parameter lists, given
 a function with multiple parameters:
 
+<!-- try-pre:
+    Anything(Float,Float) printSum = compose(print,plus);
+-->
     Anything(Float)(Float) printSumCurried = curry(printSum);
     Anything(Float) printPlus2 = printSumCurried(2.0);
     printPlus2(2.0); //prints 4.0
@@ -735,6 +739,13 @@ a function with multiple parameters:
 The function `uncurry()` does the opposite, giving us back our original uncurried
 signature:
 
+<!-- try-pre:
+    Anything(Float,Float) printSum = compose(print,plus);
+    Anything(Float)(Float) printSumCurried = curry(printSum);
+-->
+<!-- try-post:
+    printSumUncurried(2.0,2.0);
+-->
     Anything(Float,Float) printSumUncurried = uncurry(printSumCurried);
 
 Note that `compose()`, `curry()`, and `uncurry()` are ordinary functions, written 
