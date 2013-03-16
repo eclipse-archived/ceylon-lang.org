@@ -135,7 +135,7 @@ simply specify its refined implementation using `=>`, like this:
     class LabeledPolar(Float angle, Float radius, String label)
             extends Polar(angle, radius) {
         
-        description => label + "-" + super.description;
+        description => label + ": " + super.description;
         
     }
 
@@ -166,7 +166,7 @@ Or assign a value to it using `=`, like this:
     class LabeledPolar(Float angle, Float radius, String label)
             extends Polar(angle, radius) {
         
-        description = label + "-" + super.description;
+        description = "``label``: (``radius``,``angle``)";
         
     }
 
@@ -225,6 +225,7 @@ We should _definitely_ refine those:
 
 It's the first time we've seen this syntax:
 
+<!-- try: -->
     if (is Polar that) { ... }
     
 As you've probably guessed, `if (is ... )` works just like `if (exists ... )`, 
@@ -414,7 +415,7 @@ interface for Ceylon.
 
 <!-- try-pre:
     interface Formatter { 
-        shared formal String format(String format, Object... args);
+        shared formal String format(String format, Object* args);
     }
 -->
 <!-- check:none:concrete members of interfaces not yet supported -->
