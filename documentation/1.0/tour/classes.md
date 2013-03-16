@@ -310,7 +310,7 @@ Now that we know about getters, we could rewrite our `description`
 attribute as a getter, without affecting any code that uses it.
 
 <!-- try-post:
-    print(Polar(0.37, 10.0).description);
+    print(Polar(0.37, 10.0, null).description);
 -->
     "A polar coordinate, with an optional label"
     class Polar(angle, radius, String? label) {
