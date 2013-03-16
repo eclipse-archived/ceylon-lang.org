@@ -58,6 +58,13 @@ enclosed in angle brackets.
 As you can see, the convention in Ceylon is to use meaningful names for 
 type parameters (in Java the convention is to use single letter names).
 
+A type parameter may have a default argument.
+
+    shared interface Iterable<out Element, out Absent=Null> ...
+
+
+## Type arguments
+
 Unlike Java, we always do need to specify type arguments in a type declaration 
 (there are no _raw types_ in Ceylon). The following will not compile:
 
@@ -107,13 +114,17 @@ in the case of a contravariant type parameter.
     value points = array { Polar(pi/4, 0.5), Cartesian(-1.0, 2.5) }; // type Array<Polar|Cartesian>
     value entries = entries(points); // type Entries<Integer,Polar|Cartesian>
 
-Finally, Ceylon eliminates one of the bits of Java generics that's really 
-hard to get your head around: wildcard types. Wildcard types were Java's 
-solution to the problem of *covariance* in a generic type system. Let's first 
-meet the idea of covariance, and then see how covariance works in Ceylon.
+If a type parameter has a default argument, we're allowed to leave out the
+type argument to that type parameter when we supply a type argument list.
+Therefore `Iterable<String>` means `Iterable<String,Null`>.
 
 
 ## Covariance and contravariance
+
+Ceylon eliminates one of the bits of Java generics that's really hard to get 
+your head around: wildcard types. Wildcard types were Java's solution to the 
+problem of *covariance* in a generic type system. Let's meet the idea of 
+covariance, and then see how covariance works in Ceylon.
 
 It all starts with the intuitive expectation that a collection of `Geek`s is 
 a collection of `Person`s. That's a reasonable intuition, but, if collections 
