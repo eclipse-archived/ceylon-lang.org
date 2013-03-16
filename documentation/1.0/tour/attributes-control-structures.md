@@ -296,6 +296,9 @@ We'll have much more to say about `switch` when we discuss
 
 Ceylon also has an `assert` statement:
 
+<!-- try-pre:
+    value length = "hello world".size;
+-->
     assert (length < 10);
     
 Such assertions are good for making statements which you *know* have to be true, 
@@ -307,10 +310,16 @@ If the condition is `false` at runtime an exception is thrown. The exception
 message helpfully includes details of the condition which was violated, which 
 is extra important when the `assert` has more than one condition.
 
+<!-- try-pre:
+    value arg = process.arguments.first;
+-->
     assert (exists arg, !arg.empty);
 
 To customize the assertion message, add a `doc` annotation:
 
+<!-- try-pre:
+    value length = "hello world".size;
+-->
     "length must be less than 10"
     assert (length < 10);
 
