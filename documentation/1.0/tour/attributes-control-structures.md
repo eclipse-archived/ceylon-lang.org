@@ -352,7 +352,7 @@ loop completes normally, rather than via a `return` or `break` statement.
         shared String name;
         shared Integer age;
     }
-    Boolean hasMinors(Person[] people) {
+    Boolean hasMinors(Person* people) {
         variable Boolean minors;
         for (p in people) {
             if (p.age<18) {
@@ -365,7 +365,7 @@ loop completes normally, rather than via a `return` or `break` statement.
         }
         return minors;
     }
-    print(hasMinors({Person("john", 34), Person("jake", 47)}));
+    print(hasMinors(Person("john", 34), Person("jake", 47)));
 -->
 <!-- cat: class Person() {shared Integer age = 0;} -->
 <!-- cat: void m(Person[] people) { -->
