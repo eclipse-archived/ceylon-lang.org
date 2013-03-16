@@ -361,8 +361,8 @@ but here's a quick example of each of the three techniques:
     void println(String line, String eol = "\n") =>
             process.write(line + eol);
 
-    //sequenced parameter
-    void printlns(String... lines) {
+    //variadic parameter
+    void printlns(String* lines) {
         for (line in lines) {
             println(line);
         }
