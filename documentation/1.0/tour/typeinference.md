@@ -182,7 +182,7 @@ What about iterables that produce `null`s? Well, do you
 was [`Null`](#{site.urls.apidoc_current}/class_Nothing.html)?
 
 <!-- try-post:
-    print(s);
+    print(str);
 -->
 <!-- cat: void m() { -->
     value strings = { null, "Hello", "World" }; //type {String?+}
@@ -197,7 +197,7 @@ compiler can figure out that kind of thing for us, we could have simply
 written:
 
 <!-- try-post:
-    print(s);
+    print(str);
 -->
 <!-- cat: void m() { -->
     value strings = { null, "Hello", "World" }; //type {String?+}
@@ -207,12 +207,12 @@ written:
 The same thing works out for sequences:
 
 <!-- try-post:
-    print(s else "null");
+    print(str else "null");
 -->
 <!-- cat: void m() { -->
     value tuple = [null, "Hello", "World"]; //type [Null,String,String]
     String?[] strings = tuple;
-    value s = strings[0]; //type String?
+    value str = strings[0]; //type String?
 <!-- cat: } -->
 
 It's interesting just how useful union types turn out to be. Even if you only 
