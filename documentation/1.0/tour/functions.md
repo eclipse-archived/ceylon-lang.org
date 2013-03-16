@@ -431,8 +431,6 @@ other objects in the system. We could use something like Java's
 <!-- try-pre:
     interface Event { }
 -->
-<!-- check:parse:Requires OpenList -->
-<!-- cat: class Event() { } -->
     interface Observer {
         shared formal void observe(Event event);
     }
@@ -460,7 +458,6 @@ a parameter.
 <!-- try-pre:
     interface Event { }
 -->
-<!-- check:parse:Requires OpenList -->
     abstract class Component() {
          
         variable {Anything(Event)*} observers = {};
@@ -569,34 +566,10 @@ It's also possible to declare a method that returns a function. Let's
 consider adding the ability to remove observers from a `Component`. We could 
 use a `Subscription` interface:
 
-<!-- try:
+<!-- try-pre:
     interface Event { }
-    interface Subscription {
-         shared formal void cancel();
-    }
-    abstract class Component() {
-         
-        variable {Anything(Event)*} observers = {};
-         
-        shared Subscription addObserver(void observe(Event event)) {
-            observers = {observe, *observers};
-            object subscription satisfies Subscription {
-                cancel() => observers = 
-                        { for (o in observers) !o===observe };
-            }
-            return subscription;
-        }
-         
-        shared void fire(Event event) {
-            for (observe in observers) {
-                observe(event);
-            }
-        }
-     
-    }
 -->
-<!-- check:parse:Depends on OpenList -->
-    shared interface Subscription {
+    interface Subscription {
         shared void cancel();
     }
     abstract class Component() {
@@ -607,7 +580,7 @@ use a `Subscription` interface:
             observers = {observe, *observers};
             object subscription satisfies Subscription {
                 cancel() => observers = 
-                        { for (o in observers) !o===observe };
+                        { for (o in observers) if (!o===observe) o };
             }
             return subscription;
         }
@@ -623,27 +596,9 @@ use a `Subscription` interface:
 But a simpler solution might be to just eliminate the interface and return the 
 `cancel()` method directly:
 
-<!-- try:
+<!-- try-pre:
     interface Event { }
-    abstract class Component() {
-         
-        variable {Anything(Event)*} observers = {};
-         
-        shared Anything() addObserver(void observe(Event event)) {
-            observers = {observe, *observers};
-            return void () => observers = 
-                        { for (o in observers) !o===observe };
-        }
-         
-        shared void fire(Event event) {
-            for (observe in observers) {
-                observe(event);
-            }
-        }
-     
-    }
 -->
-<!-- check:parse:Depends on OpenList -->
     abstract class Component() {
          
         variable {Anything(Event)*} observers = {};
@@ -651,7 +606,7 @@ But a simpler solution might be to just eliminate the interface and return the
         shared Anything() addObserver(void observe(Event event)) {
             observers = {observe, *observers};
             return void () => observers = 
-                        { for (o in observers) !o===observe };
+                        { for (o in observers) if (!o===observe) o };
         }
          
         shared void fire(Event event) {
