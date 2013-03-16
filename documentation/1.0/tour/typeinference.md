@@ -164,7 +164,7 @@ in `T`. So the following code is well-typed:
     value coords =
             { Polar(0.0, 0.0), 
               Cartesian(1.0, 2.0) }; //type {Polar|Cartesian+}
-    {Point*} coords = sequence;
+    {Point*} points = coords;
 <!-- cat: } -->
 
 As is the following code:
@@ -182,11 +182,11 @@ What about iterables that produce `null`s? Well, do you
 was [`Null`](#{site.urls.apidoc_current}/class_Nothing.html)?
 
 <!-- try-post:
-    print(s else "null");
+    print(s);
 -->
 <!-- cat: void m() { -->
-    value sequence = { null, "Hello", "World" }; //type {String?+}
-    String? s = strings.first;
+    value strings = { null, "Hello", "World" }; //type {String?+}
+    String? str = strings.first;
 <!-- cat: } -->
 
 The declared type of the attribute `first` of `Iterable<Element>` is 
@@ -197,11 +197,11 @@ compiler can figure out that kind of thing for us, we could have simply
 written:
 
 <!-- try-post:
-    print(s else "null");
+    print(s);
 -->
 <!-- cat: void m() { -->
-    value sequence = { null, "Hello", "World" }; //type {String?+}
-    value s = strings.first; //type String?
+    value strings = { null, "Hello", "World" }; //type {String?+}
+    value str = strings.first; //type String?
 <!-- cat: } -->
 
 The same thing works out for sequences:
