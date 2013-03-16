@@ -343,25 +343,13 @@ most non-harmful uses of constructor or method overloading using:
 We're not going to get into all the details of these workarounds right now, 
 but here's a quick example of each of the three techniques:
 
-<!-- try-pre:
-    class Named() { 
-        shared String first = "John";
-        shared String last = "Doe";
-    }
--->
-<!-- try-post:
-    printName("joe");
-    printName(Named());
--->
-<!-- cat: 
-    class Named() { 
-        shared String first = "John";
-        shared String last = "Doe";
-    } -->
+<!-- try: -->
     //defaulted parameter
     void println(String line, String eol = "\n") =>
             process.write(line + eol);
 
+<br/>
+<!-- try: -->
     //variadic parameter
     void printlns(String* lines) {
         for (line in lines) {
@@ -369,6 +357,8 @@ but here's a quick example of each of the three techniques:
         }
     }
 
+<br/>
+<!-- try: -->
     //union type
     void printName(String|Named name) {
         switch (name)
@@ -420,7 +410,7 @@ Now we can create `Polar` coordinates with or without labels:
                 return label;
             }
             else {
-                return "(" radius "," angle ")";
+                return "(``radius``,``angle``)";
             }
         }
         
