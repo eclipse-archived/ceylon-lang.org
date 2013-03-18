@@ -121,11 +121,6 @@ where `ceylon-0.5` is the path to your Ceylon install directory. You should
 see the message `Hello, World!`. You will find the compiled module archive 
 `default.car` in the directory `./modules/default`.
 
-*If you're having trouble getting started with the command line tools, the
-[command line distribution](/download) of Ceylon contains a file named
-`README.md` in the root directory that contains instructions on compiling
-and running the simple examples in the `samples/` directory.*
-
 A very useful trick is:
 
 <!-- lang: bash -->
@@ -136,10 +131,14 @@ And:
 <!-- lang: bash -->
     ceylon-0.5/bin/ceylon help run
 
-In fact the 
-[ceylon help](../../reference/tool/ceylon/subcommands/ceylon-help.html) command 
-should be able to give you help about all the other 
+The command
+[ceylon help](../../reference/tool/ceylon/subcommands/ceylon-help.html) 
+outputs usage information about any of the 
 [`ceylon` subcommands](../../reference/tool/ceylon/subcommands/index.html).
+
+*If you're still having trouble getting started with the command line tools, 
+try [compiling and running the samples](#before_you_start) if you haven't 
+already.*
 
 ### Selecting the JDK
 
