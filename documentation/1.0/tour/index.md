@@ -130,6 +130,10 @@ A very useful trick is:
 
 <!-- lang: bash -->
     ceylon-0.5/bin/ceylon help compile
+
+And:
+
+<!-- lang: bash -->
     ceylon-0.5/bin/ceylon help run
 
 In fact the 
