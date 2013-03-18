@@ -161,7 +161,7 @@ function postSyntaxHighlighting(){
 				}
 				$editorIFrame.dialog({
 					width: 800,
-					height: 500,
+					height: 505,
 					closeText: "Close",
 					modal: true
 				});
