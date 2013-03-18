@@ -137,6 +137,41 @@ In fact the
 should be able to give you help about all the other 
 [`ceylon` subcommands](../../reference/tool/ceylon/subcommands/index.html).
 
+### Selecting the JDK
+
+Ceylon requires Java 7, so you might need to verify that this is the version
+of Java you're using.
+
+<!-- lang: bash -->
+    bash$ java -version
+    java version "1.7.0_05"
+    Java(TM) SE Runtime Environment (build 1.7.0_05-b06)
+    Java HotSpot(TM) 64-Bit Server VM (build 23.1-b03, mixed mode)
+    bash$ javac -version
+    javac 1.7.0_05
+
+If you're using some other version of Java, you'll need to change to use 
+Java 7:
+
+- on Linux, use `update-java-alternatives`,
+- on Mac, use the `System Preferences` 
+  [applet](http://www.java.com/en/download/help/mac_controlpanel.xml), or
+- on Windows, set the `JAVA_HOME` environment variable.
+
+### Setting the character encoding
+
+If you see the following error, or similar, when compiling a Ceylon program:
+
+<!-- lang: none -->
+    unmappable character for encoding ASCII
+
+Then you have a source file whose character encoding doesn't match the default
+character encoding for your OS. You'll need to explicitly specify the character
+encoding on the command line like this:
+
+<!-- lang: bash -->
+    ceylon compile --encoding UTF-8 source/hello.ceylon
+
 ## Running the program from the IDE
 
 To run the program in [Ceylon IDE](#{page.doc_root}/ide), go to the Ceylon 
@@ -146,13 +181,31 @@ the definition of `hello()` in this new file, then select the file and run
 it using `Run > Run As > Ceylon Application`. This executes the program on 
 the JVM.
 
-If you have `node.js` installed, you can go to `Project > Properties`, 
-enable `Compile project to JavaScript`, then click `OK`, and run the 
-program using `Run > Run As > Ceylon JavaScript Application`.
+If you have `node.js` installed, you can go to `Project > Properties`, select 
+the `Ceylon` section, enable `Compile project to JavaScript`, then click `OK`, 
+and run the program using `Run > Run As > Ceylon JavaScript Application`.
 
-Or, if you're unfamiliar with Eclipse, go to `Help > Cheat Sheets`, open
-the `Ceylon` item, and run the `Hello World with Ceylon` cheat sheet which 
-takes you step by step through the process.
+Or, if you're unfamiliar with Eclipse, go to `Help > Cheat Sheets`, open the 
+`Ceylon` item, and run the `Hello World with Ceylon` cheat sheet which takes 
+you step by step through the process.
+
+### Selecting the JDK
+
+Ceylon IDE requires Java 7, so you might need to verify that Eclipse is running 
+on a Java 7 VM. Go to `Eclipse > About Eclipse`, click `Installation Details`,
+and go to the `Configuration` tab. You'll see the Java version listed among the 
+other system properties. See the [instructions above](#selecting_the_jdk) to
+change the version of Java. You might need to edit `eclipse.ini`.
+
+You need to make sure that your project is configured to compile using the Java 
+7 compiler. Go to `Project > Properties`, select the `Java Compiler` section,
+and make sure that the project is configures to use the Java 7 compiler.
+
+### Setting the character encoding
+
+To set the source file character encoding in Eclipse, go to 
+`Project > Properties`, select the `Resource` section, and select a
+`Text file encoding`, for example, `UTF-8`.
 
 ## Continue the tour
 
