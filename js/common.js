@@ -163,6 +163,7 @@ function postSyntaxHighlighting(){
 					width: 800,
 					height: 505,
 					closeText: "Close",
+					closeOnEscape: true,
 					modal: true
 				});
 			});
