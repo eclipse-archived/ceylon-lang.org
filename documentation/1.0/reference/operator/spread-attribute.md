@@ -1,28 +1,28 @@
 ---
 layout: reference
-title: '`[].` (spread attribute) operator'
+title: '`*.` (spread attribute) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
-milestone: Milestone 1
+milestone: Milestone 5
 doc_root: ../../..
 ---
 
 # #{page.title}
 
-The *spread attribute* operator maps a sequence of instances through an 
-attribute, resulting in a sequence of the attribute values.
+The *spread attribute* operator maps an iterable of instances through an 
+attribute, resulting in a iterable of the attribute values.
 
 ## Usage 
 
-    String[] names = {"foo", "bar", "baz"};
-    Integer[] sizes = names[].size;
+    {String+} names = {"foo", "bar", "baz"};
+    {Integer+} sizes = names*.size;
 
 ## Description
 
 ### Definition
 
-The `[].` operator is defined by the sequence comprehension:
+The `*.` operator is defined by the iterable comprehension:
 
 <!-- check:none -->
     { for (X x in lhs) x.member }
@@ -32,11 +32,11 @@ more details.
 
 ### Polymorphism
 
-The `[].` operator is not [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
+The `*.` operator is not [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 
 ## See also
 
-* [`[].` (spread invoke)](../spread-invoke) operator, the equivalent of the 
+* [`*.` (spread invoke)](../spread-invoke) operator, the equivalent of the 
   spread attribute operator but for methods;
 * [sequence operators](#{page.doc_root}/#{site.urls.spec_relative}#listmap) in the 
   language specification
