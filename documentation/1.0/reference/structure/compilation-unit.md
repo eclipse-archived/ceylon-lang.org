@@ -9,17 +9,16 @@ milestone: Milestone 1
 
 # #{page.title}
 
-In Ceylon, a *compilation unit* is a text file with the `.ceylon` filename extension 
-written in the Ceylon language which contains one or more of top-level 
-[declarations](#declarations).
+A *compilation unit* is a text file with the filename extension 
+`.ceylon`, containing one or more toplevel [declarations](#declarations).
 
 ## Usage 
 
-Here's an example compilation unit in the package `com.example.foo` containing 
-three [top-level](#top_level) declarations:
+Here's an example compilation unit in the package `com.example.foo` 
+containing three toplevel declarations:
 
 <!-- check:none -->
-    import com.example.baz{Baz}
+    import com.example.baz { Baz }
 
     shared interface Foo {
         // ...
@@ -41,30 +40,27 @@ role at runtime.
 
 ### Declarations
 
-A compilation unit must contain one or more declarations
+A compilation unit must contain one or more declarations:
 
 * [type declarations](../type) ([class](../class), 
   [interface](../interface) or [`object`](../object)), 
-* [method declarations](../method) and
-* [attribute declarations](../attribute)
+* [function declarations](../method), and/or
+* [value declarations](../attribute).
 
 Ceylon does not have Java's restriction on `public` (`shared`) classes having 
 to be declared in a source file named after the class name.
 
 ### Source Location
 
-A compilation unit resides in a directory hierarchy 
-derived from the name of the package the declarations are being made in. 
-For instance the compilation unit(s) for 
-declarations in the `com.example.foo` package would be held in a
-`com/example/foo` directory (where `/` is the directory separator on the
-platform in question). This directory can contain any number of source files 
-with arbitrary names. Each source file can contain one or more declarations.
-Those declarations will all be in the `com.example.foo` package.
+A compilation unit belongs a [package](../package), determined 
+by the location of the compilation unit in the source directory. 
+For example, the compilation unit `<source-dir>/foo/bar/unit.ceylon` 
+belongs to the package `foo.bar` if `<source-dir>` is the source 
+directory.
+
+All compilation units in a certain directory belong to the same
+package.
 
 ## See also
 
-* Compilation units are contained in [packages](../package).
-* Compilation units contain [type declarations](../types),
-  [method declarations](../method) and
-  [attribute declarations](../attribute)
+* Compilation units belong to [packages](../package).

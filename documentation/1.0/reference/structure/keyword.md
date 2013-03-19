@@ -11,7 +11,7 @@ doc_root: ../../..
 # #{page.title}
 
 Keywords are reserved tokens whose role in the language is defined in the 
-language specification.
+language specification. They may not be used as identifiers.
 
 ## Usage 
 
@@ -19,10 +19,10 @@ Usage depends on the keyword in question.
 
 ## Description
 
-The keywords in Ceylon are:
+The following are reserved worlds:
 
-* [`abstracts`](../type-parameters#constraints)
-* `adapts`
+* `abstracts` (currently unused)
+* `adapts` (currently unused)
 * [`alias`](../type-alias)
 * [`assert`](../../statement/assert)
 * [`assign`](../attribute#attribute_setters)
@@ -40,8 +40,7 @@ The keywords in Ceylon are:
 * `exists` 
    (used with [`if`](../../statement/if#if_exists_) and as an 
    [operator](../../operator/exists))
-* [`extends`](../class), and as an 
-   [operator](../../operator/extends))
+* [`extends`](../class)
 * [`finally`](../../statement/try)
 * [`for`](../../statement/for)
 * [`function`](../type-inference)
@@ -51,32 +50,32 @@ The keywords in Ceylon are:
 * [`import`](../../statement/import)
 * `in` 
    (used for [variance](../type-parameters#variance) and with the
-   [`for`](../../statement/for) statement and as the
-   [`in`](../../operator/in) operator)
+   [`for`](../../statement/for) statement and as an
+   [operator](../../operator/in))
 * [`interface`](../interface)
-* `is` (used in the [`if`](../../statement/if#if_is_) and 
-   [`case`](../../statement/switch) statements and as an 
-   [operator](../../operator/is)
+* `is` (used in the [`if`](../../statement/if#special_conditions),
+   [`while`](../../statement/while#special_conditions), and 
+   [`case`](../../statement/switch#caseis_assignability_condition) 
+   statements and as an [operator](../../operator/is))
 * [`module`](../module#descriptor)
-* [`nonempty`](used in the [`if`](../../statement/if#if_is_) statement and as an 
-   [operator](../../operator/is)
+* `nonempty` (used in the [`if`](../../statement/if#special_conditions),
+   [`while`](../../statement/while#special_conditions), and 
+   [`case`](../../statement/switch#caseis_assignability_condition) 
+   statements and as an [operator](../../operator/nonempty))
 * [`object`](../object)
-* `of` 
-   (used with [`class`](../class) and 
-   [`interface`](../interface) declarations)
+* `of` (used with [`class`](../class) and 
+   [`interface`](../interface) declarations) and as an 
+   [operator](../../operator/of))
 * [`out`](../type-parameters#variance)
-* [`outer`](../../expression/outer)
+* [`outer`](../../expression/#self_and_outer_references)
 * [`package`](../package#usage)
 * [`return`](../../statement/return)
-* `satisfies` 
-   (used in [`class`](../class) and 
-   [`interface`](../interface) declarations and with
-   [`if`](../../statement/if#if_satisfies_) and
-   [`case`](../../statement/switch))
-* [`super`](../../expression/super)
+* `satisfies` (used in [`class`](../class) and 
+   [`interface`](../interface) declarations)
+* [`super`](../../expression/#self_and_outer_references)
 * [`switch`](../../statement/switch)
-* [`then`](../../operator/then/)
-* [`this`](../../expression/this)
+* [`then`](../../operator/then)
+* [`this`](../../expression/#self_and_outer_references)
 * [`throw`](../../statement/throw)
 * [`try`](../../statement/try)
 * [`value`](../type-inference)
@@ -100,8 +99,6 @@ keywords but [annotations](../annotation).
 
 ## See also
 
-* [Annotations](../../../tour/annotations) on the Tour of Ceylon
 * [Identifiers and keywords](#{page.doc_root}/#{site.urls.spec_relative}#identifiersandkeywords)
-  in the Ceylon specification.
-
+  in the Ceylon specification
 
