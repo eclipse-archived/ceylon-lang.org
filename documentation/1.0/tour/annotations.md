@@ -12,7 +12,7 @@ Wow, part sixteen of the Tour of Ceylon and the end is in sight! The
 [last part](../initialization) covered initialization. This part is all 
 about *annotations* and metaprogramming.
 
-### implementation note <!-- m5 -->
+### implementation note <!-- m6 -->
 
 Annotations and metaprogramming are not yet implemented. They will be 
 implemented in M6. The information in this section is based on an 
