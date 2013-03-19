@@ -49,21 +49,7 @@ _This page is very incomplete. Want to help? [See how](/code/website)._
 
 ## Expressions
 
-* [What is an expression](expression)
-* [Attribute Evaluation](expression/attribute-evaluation)
-* [Attribute Assignment](expression/attribute-assignment)
-* [Callable References](expression/callable-reference)
-* [Class Instantiation](expression/class-instantiation)
-* [Literals](#literals)
-* [Metamodel References](expression/metamodel-reference) <!-- m6 -->
-* [Method Invocation](expression/invocation)
-* [Operator expressions](#operators)
-* [`this`](expression/this)
-* [`outer`](expression/outer) 
-* [`super`](expression/super)
-* [`::` supertype access](expression/supertype-access) 
-* [Sequence Instantiation](expression/sequence-instantiation)
-* [String Templates](expression/string-template)
+* [Expressions](expression)
 
 ## Operators
 
