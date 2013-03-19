@@ -10,89 +10,108 @@ doc_root: ../..
 
 # #{page.title}
 
-Expressions are a kind of [statement](../#statements) which have a type and 
-produce a value when executed.
+An expression produce a value when executed. Complex expressions
+may be constructed by recursively applying operators to simpler
+expressions. Certain expressions are legal statements, called 
+_expression statements_.
 
 ## Usage 
 
-The following statements each demonstrate an expression statement:
+Expressions are built using the following constructs. 
 
 
-### [Literals](../#literals)
+### Literals
 
-    String greeting = "hello, world";
-    Character a = `a`;
-    Integer one = 1;
-    Float three = 3.0;
+String literals:
+
+<!-- try: -->
+    "hello, world"
+
+Character literals:
+
+<!-- try: -->
+    'a'
+
+Integer number literals:
+
+<!-- try: -->
+    1
+
+Floating point number literals:
+
+<!-- try: -->
+    3.0
     
-### [String templates](string-template)
+[Further information.](../#literals)
 
-<!-- cat: String name = ""; -->
-    String greeting = "Hello " name "";
+### String templates
+
+<!-- try: -->
+    "Hello ``name``, good ``timeOfDay(now)``!";
     
-### [`this`](this)
+### Self and outer references 
 
-<!-- cat: class C() { String attr = ""; void m() { -->
-    String attr = this.attr;
-<!-- cat: }} -->
+Current instance reference:
+
+<!-- try: -->
+    this
     
-### [`outer`](outer) <!-- m3-->
+Outer instance reference:
 
-<!-- check:none -->
-    outer.m();
+<!-- try: -->
+    outer
     
-### [`super`](super)
+Superclass reference
 
-<!-- check:none -->
-    super.m();
+<!-- try: -->
+    super
     
-### [Metamodel reference](metamodel-reference) <!-- m5-->
+Containing package qualifier:
 
-<!-- check:none -->
-    Type<String> stringType = String;
-    Class<String> stringClass = String;
-    Method<String, String, Integer> initialMethod = String.initial;
-    Attribute<String, Integer> size = String.size;
+<!-- try: -->
+    package
 
-### [Class instantiation](class-instantiation)
+Note: `package` by itself is not an expression, but may be
+used to qualify a reference.
 
-<!-- cat: class Person(String name) {} -->
-    Person tom = Person("Tom");
+### References
 
-### [Sequence instantiation](sequence-instantiation)
+<!-- try: -->
+    print
+    String
+    String.size
+    String.initial
 
-    Integer[] seq = {1, 2};
+### Invocation
 
-### [Method Invocation](invocation)
-
-<!-- cat: void m() { -->
-    process.writeLine("hello");
-    process.writeLine{
-        line="hello";
-    };
-<!-- cat: } -->
+<!-- try: -->
+    print("Hello");
+    "hello world".initial(5)
+    Entry("one", 1)
     
-### [Callable reference](callable-reference)
+### Iterable and tuple enumeration
 
-<!-- cat: void m() { -->
-    function f(String line) = process.writeLine;
-<!-- cat: } -->
+Iterable enumeration:
 
-### [Attribute Evaluation](attribute-evaluation)
-
-<!-- cat: object greeter { shared String greeting = ""; } -->
-    String greeting = greeter.greeting;
+<!-- try: -->
+    {1, 2}
     
-### [Attribute Assignment](attribute-assignment)
+Tuple enumeration:
 
-<!-- cat: void m() { -->
-<!-- cat: variable String greeting; -->
-    greeting = "howdy";
-<!-- cat: } -->
-    
-### [Operators](../#operators)
+<!-- try: -->
+    [1, 2]
 
-    Integer s = 1 + 2;
+### Operators
+
+<!-- try: -->
+    x = 1
+    2 + 2
+    "hello world"[6..11]
+    0<=x<10
+    names.empty || !enabled
+
+[Further information.](../#operators)
+
 
 ## Description
 
