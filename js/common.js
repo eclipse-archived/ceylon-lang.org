@@ -156,8 +156,8 @@ function postSyntaxHighlighting(){
 					});
 				}
 				$editorIFrame.dialog({
-					width: 800,
-					height: 505,
+					width: 630,
+					height: 555,
 					closeText: "Close",
 					closeOnEscape: true,
 					modal: true
