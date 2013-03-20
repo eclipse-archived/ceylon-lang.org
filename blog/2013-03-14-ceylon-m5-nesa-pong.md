@@ -32,7 +32,7 @@ release, with the following headline features:
 
 You can download the Ceylon command line distribution here:
 
-<a text-align="center" href="http://ceylon-lang.org/download?utm_source=blog&utm_medium=web&utm_content=download&utm_campaign=latestrelease" class="bubble-button">http://ceylon-lang.org/download</a>
+<a text-align="center" href="http://ceylon-lang.org/download?utm_source=blog&amp;utm_medium=web&amp;utm_content=download&amp;utm_campaign=latestrelease" class="bubble-button">http://ceylon-lang.org/download</a>
 
 Or you can install Ceylon IDE from our [Eclipse update site].
 
