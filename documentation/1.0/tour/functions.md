@@ -675,7 +675,7 @@ signatures:
 <!-- try: -->
     shared void print(Anything line) { ... }
     
-    shared shared Value plus<Value>(Value x, Value y)
+    shared Value plus<Value>(Value x, Value y)
         given Value satisfies Summable<Value> { ... }
 
 We can see that the type of the function reference `print` is `Anything(Anything)`,
