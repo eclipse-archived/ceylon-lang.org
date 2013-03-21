@@ -22,7 +22,7 @@
 // when stylesheets are concatenated together.
 @include blueprint-scaffolding("body.bp");
 
-$space-after-home-lines: 2.5em;
+$space-after-home-lines: 1.5em;
 
 body.bp {
   @include blueprint-typography(true);
@@ -441,6 +441,7 @@ form.bp {
       color: #3e4747;
       margin-top: 0;
       font-family:Helvetica, 'Helvetica Neue', Arial, sans-serif;
+      margin-bottom: 6px;
     }
     
     h3 {
@@ -458,8 +459,9 @@ form.bp {
     }
     
     p {
-      margin-bottom: 1em;
       line-height: 1.2em;
+      margin-bottom: 6px;
+      margin-top: 0px;
     }
     p:last-child {
       margin-bottom: 0;
