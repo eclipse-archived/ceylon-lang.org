@@ -151,7 +151,7 @@ You can even use [multiple `if` conditions](../attributes-control-structures#con
 
 ## Products and joins
 
-A comprehension may have more than one `for` clause. The allows us
+A comprehension may have more than one `for` clause. This allows us
 to combine two streams to obtain a stream of values of their cartesian 
 product:
 
