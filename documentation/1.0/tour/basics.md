@@ -704,15 +704,28 @@ from the initialization of its value. We've
 [already seen](#dealing_with_objects_that_arent_there) that this is also
 allowed in Ceylon. So we can write:
 
-     String name;
-     name = firstName + " " + lastName;
-     print(name);
+<!-- try-pre:
+    value firstName = "Walter";
+    value lastName = "Kovacs";
+-->
+    String name;
+    name = firstName + " " + lastName;
+    print(name);
 
 But Ceylon even lets us do this with fat arrows:
 
-     String name;
-     name => firstName + " " + lastName;
-     print(name);
+### _Note <!-- m5 -->_
+
+_Oops! Due to a bug in M5, the following example currently does not compile for 
+the JVM._
+
+<!-- try-pre:
+    value firstName = "Walter";
+    value lastName = "Kovacs";
+-->
+    String name;
+    name => firstName + " " + lastName;
+    print(name);
 
 And even functions: 
 
