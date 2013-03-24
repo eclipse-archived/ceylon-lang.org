@@ -15,14 +15,16 @@ Here's some of what's special about it. For more detail, get started with the
 <div class="feature">
 <h2>Cross-platform execution</h2>
 <p>Ceylon programs execute on Java and JavaScript virtual machines, and can 
-easily interoperate with native code.</p>
+easily <a href="/documentation/current/introduction/#interoperation_with_native_java_and_javascript">
+interoperate with native code</a>.</p>
 <div><img src="/images/features/javajs1.png" style="box-shadow: 0 0 15px #888;"/>
 <img src="/images/features/javajs2.png" style="box-shadow: 0 0 15px #888;"/></div>
 </div>
 
 <div style="text-align:right" class="feature">
 <h2>Platform libraries</h2>
-<p>Ceylon provides a brand-new modular SDK.</p>
+<p>Ceylon provides a brand-new 
+<a href="https://modules.ceylon-lang.org/categories/SDK">modular SDK</a>.</p>
 <div>
 <img src="/images/features/herd.png" style="box-shadow: 0 0 15px #888;"/>
 <img src="/images/features/sdk2.png" style="box-shadow: 0 0 15px #888;"/>
@@ -31,9 +33,10 @@ easily interoperate with native code.</p>
 
 <div class="feature">
 <h2>Modularity</h2>
-<p>Code is organized into packages and modules, and compiled to module archives.
-The tooling supports a system of module repositores, with Ceylon Herd as its
-social focus point.</p>
+<p>Code is organized into 
+<a href="/documentation/current/introduction/#modularity">packages and modules</a>, 
+and compiled to module archives.The tooling supports a system of module repositories, 
+with <a href="http://modules.ceylon-lang.org">Ceylon Herd</a> as its social focus point.</p>
 <div>
 <img src="/images/features/modularity2.png" style="box-shadow: 0 0 15px #888;"/>
 </div>
@@ -44,15 +47,20 @@ social focus point.</p>
 
 <div style="text-align:right" class="feature">
 <h2>Tooling</h2>
-<p>Ceylon has a full-featured Eclipse-based IDE and excellent command-line tools, 
-with support for modularity baked right in.</p>
+<p>Ceylon has a full-featured 
+<a href="/documentation/current/ide">Eclipse-based IDE</a> and excellent 
+<a href="/documentation/current/reference/tool/ceylon/subcommands/">command-line 
+tools</a>, with support for modularity baked right in.</p>
 <div><img src="/images/features/tools1.png" style="box-shadow: 0 0 15px #888;"/></div>
 </div>
 
 <div class="feature">
 <h2>Powerful type system</h2>
-<p>The type system is especially clean, elegant, and powerful, featuring intersection 
-and union types as basic building blocks, along with enumerated types and type aliases.</p>
+<p>The type system is especially clean, elegant, and powerful, featuring 
+<a href="/documentation/current/introduction/#principal_typing_union_types_and_intersection_types">
+intersection and union types</a> as basic building blocks, along with 
+<a href="/documentation/current/introduction/#enumerated_subtypes">enumerated types</a> 
+and <a href="/documentation/current/introduction/#type_aliases_and_type_inference">type aliases</a>.</p>
 <div>
 <img src="/images/features/enumerated.png" style="box-shadow: 0 0 15px #888;"/>
 </div>
@@ -64,15 +72,22 @@ and union types as basic building blocks, along with enumerated types and type a
 <div style="text-align:right" class="feature">
 <h2>Object-oriented programming</h2>
 <p>Programming with objects is a breeze. Everything is an object, even a function or 
-class. Handle collections with higher-order functions and comprehensions. Model difficult 
-relationships with mixin inheritance.</p>
+class. Handle collections with 
+<a href="/documentation/current/introduction/#higher_order_functions">higher-order functions</a> 
+and <a href="/documentation/current/introduction/#comprehensions">comprehensions</a>. 
+Model difficult relationships with 
+<a href="/documentation/current/introduction/#mixin_inheritance">mixin inheritance</a>.</p>
 <div><img src="/images/features/heirarchy.png" style="box-shadow: 0 0 15px #888;"/></div>
 </div>
 
 <div class="feature">
 <h2>Type inference, flow-dependent typing, and typesafe <code>null</code></h2>
 <p>Ceylon is more typesafe than other languages, but you write down fewer types: the 
-language features type inference, flow-dependent typing, a typesafe <code>null</code>
+language features 
+<a href="/documentation/current/introduction/#type_aliases_and_type_inference">local
+type inference</a>, 
+<a href="/documentation/current/introduction/#typesafe_null_and_flow_dependent_typing">
+flow-dependent typing</a>, a typesafe <code>null</code>
 value, and a typesafe <code>switch</code> statement.</p>
 <div>
 <img src="/images/features/flowtyping.png" style="box-shadow: 0 0 15px #888;"/>
@@ -82,8 +97,10 @@ value, and a typesafe <code>switch</code> statement.</p>
 
 <div style="text-align:right" class="feature">
 <h2>Simplified generics with fully-reified types</h2>
-<p>Generics that don't suck: Ceylon "fixes" generics with declaration-site covariance 
-and contravariance, reified type arguments, and principal instantiation inheritance.</p>
+<p>Generics that don't suck: Ceylon 
+<a href="/documentation/current/introduction/#simplified_generics_with_fully_reified_types">"fixes" 
+generics</a> with declaration-site covariance and contravariance, reified type arguments, and 
+principal instantiation inheritance.</p>
 <img src="/images/features/generics.png" style="vertical-align:top;box-shadow: 0 0 15px #888;"/>
 </div>
 
