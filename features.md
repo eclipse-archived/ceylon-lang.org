@@ -82,8 +82,8 @@ value, and a typesafe <code>switch</code> statement.</p>
 
 <div style="text-align:right" class="feature">
 <h2>Simplified generics with fully-reified types</h2>
-<p>Generics that don't suck: Ceylon "fixes" generics with declaration-site covariance, 
-and contravariance reified type arguments, and principal instantiation inheritance.</p>
+<p>Generics that don't suck: Ceylon "fixes" generics with declaration-site covariance 
+and contravariance, reified type arguments, and principal instantiation inheritance.</p>
 <img src="/images/features/generics.png" style="vertical-align:top;box-shadow: 0 0 15px #888;"/>
 </div>
 
