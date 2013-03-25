@@ -5,12 +5,11 @@ tab: features
 unique_id: keyfeaturespage
 author: Gavin King
 ---
-<h1 style="text-align:center">Key features</h1>
+<h1 style="text-align:center">Key features of Ceylon</h1>
 <div style="margin-left:15%;margin-right:15%;text-shadow: 0 -1px 1px #ffffff;padding-bottom:10px;">
 <p style="margin-left:15%;margin-right:15%;text-align:center">
-<em>Ceylon is a programming language for writing large programs in teams. 
-Here's some of what's special about it. For more detail, get started with the
-<a href="/documentation/current/introduction">quick introduction</a>.</em></p>
+Ceylon is a language for writing large programs in teams.<br/> 
+Here's some of what's special about it.</p>
 
 <div class="feature">
 <h2>Cross-platform execution</h2>
@@ -107,5 +106,9 @@ principal instantiation inheritance.</p>
 <!-- TODO: typesafe metamodel -->
 
 <!-- TODO: named args + tree structures -->
+
+<p style="margin-left:15%;margin-right:15%;text-align:center">
+To learn more, start with the 
+<a href="/documentation/current/introduction">quick introduction</a>.</p>
 
 </div>

@@ -1148,3 +1148,20 @@ p.screenshot {
         left: 5px;
     }
 }
+
+#features {
+    width: 900px;
+    #features_link {
+      //padding-top:10px;
+      padding-bottom:10px;
+      width:100%;
+      text-align:center;
+      .bubble-button {
+        padding: 10px 15px;
+        border-radius: 6px;
+      }
+    }
+    margin-left: 1.75em;
+    padding:0;
+    margin-bottom:0;
+}
