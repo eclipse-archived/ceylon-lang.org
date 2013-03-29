@@ -1,28 +1,28 @@
-<!DOCTYPE html>
-<!-- DO NOT REMOVE the doctype, it's required for IE to render in standards mode -->
+!!!5
+-# DO NOT REMOVE the doctype, it's required for IE to render in standards mode
 %html
   %head
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    %title
-      #{escape_once(site.title)}: #{escape_once(page.title)}
-    %link{ :rel=>'shortcut icon', :type=>'image/vnd.microsoft.icon', :href=>'/images/favicon.ico' }/
-    %link{ :rel=>'publisher', :href=>'https://plus.google.com/102481741611133754149' }/
-    %link{ :href=>"/stylesheets/sh/shCore.css", :rel=>"stylesheet", :type=>"text/css" }/
-    %link{ :href=>"/stylesheets/sh/shThemeDefault.css", :rel=>"stylesheet", :type=>"text/css" }/
-    %link{ :rel=>'stylesheet', :type=>'text/css', :href=>'/stylesheets/screen.css', :media=>'screen, projection' }/
-    %link{ :rel=>'stylesheet', :type=>'text/css', :href=>'/stylesheets/print.css', :media=>'print' }/
+    %meta{ :'http-equiv'=>'content-type', :content=>'text/html; charset=utf-8' }
+    %title=site.title
+    -##{escape_once(site.title)}: #{escape_once(page.title)}
+    %link{ :rel=>'shortcut icon', :type=>'image/vnd.microsoft.icon', :href=>'/images/favicon.ico' }
+    %link{ :rel=>'publisher', :href=>'https://plus.google.com/102481741611133754149' }
+    %link{ :href=>'/stylesheets/sh/shCore.css', :rel=>'stylesheet' }
+    %link{ :href=>'/stylesheets/sh/shThemeDefault.css', :rel=>'stylesheet' }
+    %link{ :rel=>'stylesheet', :href=>'/stylesheets/screen.css', :media=>'screen, projection' }
+    %link{ :rel=>'stylesheet', :href=>'/stylesheets/print.css', :media=>'print' }
     /[if lt IE 8]
-      %link{ :rel=>'stylesheet', :type=>'text/css', :href=>'/stylesheets/ie.css', :media=>'screen, projection' }/
-    %link{ :href=>'/blog/blog.atom', :rel=>'alternate', :type=>'application/atom+xml'}/
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script type="text/javascript" src="/js/jquery-ui-1.8.22.custom.min.js"></script>
-    <script type="text/javascript" src="/js/common.js"></script>
-    <script type="text/javascript" src="/js/sh/shCore.js"></script>
-    <script type="text/javascript" src="/js/sh/shBrushJava.js"></script>
-    <script type="text/javascript" src="/js/sh/shBrushBash.js"></script>
-    <script type="text/javascript" src="/js/sh/shBrushCeylon.js"></script>
-    <script type="text/javascript" src="/js/sh/shBrushJScript.js"></script>
-    <script type="text/javascript" src="/js/sh/shBrushXml.js"></script>
+      %link{ :rel=>'stylesheet', :href=>'/stylesheets/ie.css', :media=>'screen, projection' }
+    %link{ :href=>'/blog/blog.atom', :rel=>'alternate', :type=>'application/atom+xml' }
+    %script{ :src=>'https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js' }
+    %script{ :src=>'/js/jquery-ui-1.8.22.custom.min.js' }
+    %script{ :src=>'/js/common.js' }
+    %script{ :src=>'/js/sh/shCore.js' }
+    %script{ :src=>'/js/sh/shBrushJava.js' }
+    %script{ :src=>'/js/sh/shBrushBash.js' }
+    %script{ :src=>'/js/sh/shBrushCeylon.js' }
+    %script{ :src=>'/js/sh/shBrushJScript.js' }
+    %script{ :src=>'/js/sh/shBrushXml.js' }
     :javascript
       SyntaxHighlighter.defaults['gutter'] = false;
       SyntaxHighlighter.defaults['toolbar'] = false;
@@ -37,5 +37,4 @@
   %body.bp
     #container{:class => "#{page.unique_id}"}
       ~ content
-      
   = page.disqus_comments_count
