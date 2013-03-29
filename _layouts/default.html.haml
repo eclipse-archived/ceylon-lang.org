@@ -40,15 +40,15 @@ tab: to-be-defined
     <!-- lang: none -->
     %pre
       %code
-        :erb
+        :preserve
           <span class="code_type">Html</span> html = <span class="code_type">Html</span> {
-          &nbsp;&nbsp;&nbsp;<span class="code_type">Head</span> {
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title = <span class="code_string">"Ceylon: home page"</span>;
-          &nbsp;&nbsp;&nbsp;};
-          &nbsp;&nbsp;&nbsp;<span class="code_type">Body</span> {
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_type">H2</span> ( <span class="code_string">"Welcome to Ceylon, &#96;&#96;</span>user.name<span class="code_string">&#96;&#96;!"</span> ),
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_type">P</span> ( <span class="code_string">"Now get your code on :)"</span> )
-          &nbsp;&nbsp;&nbsp;};
+             <span class="code_type">Head</span> {
+                title = <span class="code_string">"Ceylon: home page"</span>;
+             };
+             <span class="code_type">Body</span> {
+                <span class="code_type">H2</span> ( <span class="code_string">"Welcome to Ceylon, &#96;&#96;</span>user.name<span class="code_string">&#96;&#96;!"</span> ),
+                <span class="code_type">P</span> ( <span class="code_string">"Now get your code on :)"</span> )
+             };
           };
 #primary-content
   ~ content

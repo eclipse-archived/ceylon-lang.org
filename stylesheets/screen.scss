@@ -10,21 +10,13 @@
 // Import the non-default scaffolding module.
 @import "blueprint/scaffolding";
 
-@import "compass/utilities/lists";
-@import "compass/utilities/links/link-colors";
-
-// To generate css equivalent to the blueprint css but with your
-// configuration applied, uncomment:
-// @include blueprint
-
-// But Compass recommends that you scope your blueprint styles
-// So that you can better control what pages use blueprint
-// when stylesheets are concatenated together.
-@include blueprint-scaffolding("body.bp");
+@import "compass/typography/lists";
+@import "compass/typography/links/link-colors";
 
 $space-after-home-lines: 1.5em;
 
 body.bp {
+  @include blueprint-scaffolding;
   @include blueprint-typography(true);
   @include blueprint-utilities;
   @include blueprint-debug;
