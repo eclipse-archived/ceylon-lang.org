@@ -28,7 +28,7 @@ class String
   # The extended characters map used by removeaccents. The accented characters 
   # are coded here using their numerical equivalent to sidestep encoding issues.
   # These correspond to ISO-8859-1 encoding.
-  ACCENTS_MAPPING = {
+  ACCENTS_MAPPINGS = {
     'E' => [200,201,202,203],
     'e' => [232,233,234,235],
     'A' => [192,193,194,195,196,197],
@@ -58,7 +58,7 @@ class String
   def removeaccents    
     str = String.new(self)
     str = HTMLEntities.new.decode(str)
-    String::ACCENTS_MAPPING.each {|letter,accents|
+    String::ACCENTS_MAPPINGS.each {|letter,accents|
       packed = accents.pack('U*')
       if RUBY_VERSION.start_with?('1.8')
         # Ruby 1.8 requires the UTF flag
