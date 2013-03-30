@@ -317,10 +317,10 @@ we must declare it like this:
 Which is actually just an abbreviation for:
 
 <!-- try: -->
-    String|Nothing name = ...
+    String|Null name = ...
 
 An attribute of type `String?` might refer to an actual instance of `String`, 
-or it might refer to the value `null` (the only instance of the class `Nothing`). 
+or it might refer to the value `null` (the only instance of the class `Null`). 
 So Ceylon won't let us do anything useful with a value of type `String?` 
 without first checking that it isn't null using the special `if (exists ...)` 
 construct.

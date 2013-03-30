@@ -1146,19 +1146,11 @@ p.screenshot {
     }
 }
 
-#features {
-    width: 900px;
-    #features_link {
-      padding-top:15px;
-      padding-bottom:10px;
-      width:100%;
-      text-align:center;
-      .bubble-button {
-        padding: 10px 15px;
-        border-radius: 6px;
-      }
+#features_link {
+    margin-top: 30px;
+    text-align:center;
+    .bubble-button {
+      padding: 10px 15px;
+      border-radius: 6px;
     }
-    margin-left: 1.75em;
-    padding:0;
-    margin-bottom:0;
 }
