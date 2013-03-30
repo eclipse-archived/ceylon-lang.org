@@ -403,6 +403,9 @@ exact same idioms also apply to other kinds of `Correspondence`, including
 A _tuple_ is a linked list which captures the static type of each individual 
 element in the list. For example:
 
+<!-- try-post:
+    print(point);
+-->
     [Float,Float,String] point = [0.0, 0.0, "origin"];
 
 This tuple contains a two `Float`s followed by a `String`. That information
@@ -412,6 +415,9 @@ Each link of the list is an instance of the class
 [`Tuple`](#{site.urls.apidoc_current}/class_Tuple.html).
 If you really _must know_, the code above is syntax sugar for the following:
 
+<!-- try-post:
+    print(point);
+-->
     Tuple<Float|String,Float,Tuple<Float|String,Float,Tuple<String,String>>>
             point = Tuple(0.0, Tuple(0.0, Tuple("origin", [])));
 
@@ -422,7 +428,7 @@ things to a tuple, iterate it, and so on. As with sequences, we can access
 a tuple element by index. But in the case of a tuple, Ceylon is able to
 determine the type of the element when the index is a literal integer: 
 
-<!-- try:pre:
+<!-- try-pre:
     value point = [0.0, 0.0, "origin"];
 -->
     Float x = point[0];
