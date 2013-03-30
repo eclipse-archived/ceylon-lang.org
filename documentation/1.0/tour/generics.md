@@ -72,7 +72,7 @@ Unlike Java, we always do need to specify type arguments in a type declaration
 (there are no _raw types_ in Ceylon). The following will not compile:
 
 <!-- try:
-    Iterator it = {};   //error: missing type argument to parameter Element of Iterable
+    Iterator it = {"hello"}.iterator();   //error: missing type argument to parameter Element of Iterable
 -->
 <!-- check:none:Demoing error -->
     Iterator it = ...;   //error: missing type argument to parameter Element of Iterable
@@ -80,7 +80,7 @@ Unlike Java, we always do need to specify type arguments in a type declaration
 Instead, we have to provide a type argument like this:
 
 <!-- try:
-    Iterator<String> it = {};
+    Iterator<String> it = {"hello"}.iterator();
 -->
 <!-- check:none -->
     Iterator<String> it = ...;
