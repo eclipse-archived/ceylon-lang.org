@@ -47,7 +47,7 @@ body.bp {
   h2 {
     font-size:1.3em;
     font-weight:bold;
-    color: #255A5F;
+    color: #CB004E;
     clear: left;
     margin-top: 0.6em;
     font-family:'PT Sans', Helvetica, 'Helvetica Neue', Arial, sans-serif;
@@ -267,7 +267,7 @@ form.bp {
     position: absolute;
     width: 475px;
     height: 170px;
-    background: rgba(12, 31, 31, 0.9);
+    background: rgba(203, 0, 78, 0.9);
     top: 80px;
     right: 0;
     border-radius: 15px;
@@ -401,9 +401,9 @@ form.bp {
     font-size: 15px;
     padding:1.5em;
     margin:0em 1.75em;
-    border-left: 1px solid #c7d8d8;
-    border-right: 1px solid #c7d8d8;
-    background: url("../images/sidebar_bkg_elephant.png") no-repeat 0px 0px #d4e5e5;
+    border-left: 1px solid #E8C7CE;
+    border-right: 1px solid #E8C7CE;
+    background: url("../images/sidebar_bkg_elephant.png") no-repeat 0px 0px #ffe7ec;
     
     strong {
       font-weight:boldest;
@@ -483,18 +483,18 @@ form.bp {
     line-height: normal;
     padding:7px 10px;
     color: white;
-    background-color: #5bb65b;
+    background-color: #FF77AD;
     text-shadow: 0 -1px 1px #666666;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
-    background-image: -moz-linear-gradient(top, #62c462, #51a351);
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#62c462), to(#51a351));
-    background-image: -webkit-linear-gradient(top, #62c462, #51a351);
-    background-image: -o-linear-gradient(top, #62c462, #51a351);
-    background-image: linear-gradient(to bottom, #62c462, #51a351);
+    background-image: -moz-linear-gradient(top, #FF77AD, #FF2B7F);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#FF77AD), to(#FF2B7F));
+    background-image: -webkit-linear-gradient(top, #FF77AD, #FF2B7F);
+    background-image: -o-linear-gradient(top, #FF77AD, #FF2B7F);
+    background-image: linear-gradient(to bottom, #FF77AD, #FF2B7F);
     background-repeat: repeat-x;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF62C462', endColorstr='#FF51A351', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFF77AD', endColorstr='#FFFF2B7F', GradientType=0);
   }
 
   .bubble-button:hover {
@@ -559,7 +559,7 @@ form.bp {
     text-shadow: #656565 1px 1px 0px;
     padding: 0.5em 1.5em;
     //margin:0em 1.75em;
-    background-color: #255A5F;
+    background-color: #CB004E;
 
     p {
       color: white;
@@ -607,9 +607,9 @@ form.bp {
     text-shadow: white 1px 1px 0px;
     padding:1.5em;
     margin:0em 1.75em;
-    border-left: 1px solid #c7d8d8;
-    border-right: 1px solid #c7d8d8;
-    background: url("../images/sidebar_bkg_elephant.png") no-repeat 0px 0px #d4e5e5;
+    border-left: 1px solid #E8C7CE;
+    border-right: 1px solid #E8C7CE;
+    background: url("../images/sidebar_bkg_elephant.png") no-repeat 0px 0px #ffe7ec;
     
     h3 {
       font-size: 16px;
@@ -633,7 +633,7 @@ form.bp {
     //text-shadow: #656565 1px 1px 0px;
     padding:1.5em;
     margin:0em 1.75em;
-    background-color: #121f1f;
+    background-color: #CB004E;
     color: white;
     text-style:normal;
     
