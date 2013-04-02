@@ -40,7 +40,7 @@ contained within another declaration or a statement.
 #### Top-level declarations
 
 A *top level* declaration is contained directly in a
-[compilation units](../compilation_unit) and not contained within any other
+[compilation unit](../compilation-unit) and not contained within any other
 declaration. In other words a top level declaration is not 
 a [local](#local_declarations) declaration.
 
