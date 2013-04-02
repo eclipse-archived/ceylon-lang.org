@@ -22,6 +22,9 @@ stuff.
 As we [just saw](../#a_really_simple_program), a _string literal_ is text 
 enclosed in double-quotes:
 
+<!-- try-post:
+    hello();
+-->
     void hello() {
         print("Hello, World!");
     }
