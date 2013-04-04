@@ -89,16 +89,21 @@ operators `+` (unary plus), `-` (unary minus), `+` (sum), `-` (difference),
         
     }
     
-    Complex i = Complex(0.0, 1.0);
-    Complex a = Complex(1.0, 2.0); // 1 + 2i
-    Complex b = Complex(4.0, 2.0); // 4 + 2i
-    Complex d = a * b + i;
-    if (d == z) {
-        print("``d`` == ``z``");
+    void compare(Complex z) {
+        value a = Complex(1.0, 2.0); // 1 + 2i
+        value b = Complex(4.0, 2.0); // 4 + 2i
+        value c = Complex(0.0, 1.0); // i
+        value d = a * b + c;
+        if (d == z) {
+            print("``d`` == ``z``");
+        } 
+        else {
+            print("``d`` != ``z``");
+        }
     }
-    else {
-        print("``d`` != ``z``");
-    }
+    
+    compare(Complex(2.0, 5.0));
+    compare(Complex(0.0, 11.0));
 
 ### Identities
 
