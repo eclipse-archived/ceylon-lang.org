@@ -30,6 +30,13 @@ No known issue.
 <div class="workaround">None</div>
 </div>
 
+<div class="known-issue">
+<a class="see" href="https://github.com/ceylon/ceylon-compiler/issues/1123">See issue</a>
+<div class="title">Interop: setter methods not visible if a Java Field is found with no getter method</div>
+<b>Workaround:</b>
+<div class="workaround">Either follow the JavaBean specification and add a getter method, or call the setter method from a Java class.</div>
+</div>
+
 ## JavaScript Compiler (<code>ceylon compile-js</code>)
 
 No known issue.
