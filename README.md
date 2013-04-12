@@ -21,32 +21,37 @@ point. [Emmanuel's blog](http://in.relation.to/Bloggers/HibernateMovesToGitGitTi
 on Git tips and tricks is useful too.
 
 If you run the latest Ruby (1.9), install Awestruct, a Ruby based site generator
-as followed:
+as follows:
 
+<!-- lang: bash -->
     gem install awestruct 
     #or
     sudo gem install awestruct
 
 The Awestruct version known to work for Ruby 1.9 is 0.4.6
 
+<!-- lang: bash -->
     sudo gem install awestruct --version 0.4.6
 
 The Awestruct version known to work for Ruby 1.8 is 0.2.13
 
 Also install the htmlentities gem
 
+<!-- lang: bash -->
     gem install htmlentities
     #or
     sudo gem install htmlentities
 
 Also install the therubyracer gem
 
+<!-- lang: bash -->
     gem install therubyracer
     #or
     sudo gem install therubyracer
 
 Get the website source from GitHub.
 
+<!-- lang: bash -->
     git clone git@github.com:ceylon/ceylon-lang.org.git
 
 ## Serve the site locally
@@ -66,6 +71,7 @@ into `_tmp` and build the appropriate artifacts before pushing them to the site.
 If you have already run `./build-site.sh` and don't wish to rebuild the spec and ceylondoc,
 use 
 
+<!-- lang: bash -->
     ./build-site.sh --light
 
 to simply copy them to the website structure. This is much faster.
@@ -75,6 +81,7 @@ to simply copy them to the website structure. This is much faster.
 If for whatever reason you make some changes which don't show up, you can
 completely regenerate the site:
 
+<!-- lang: bash -->
     awestruct -d --force
 
 ### If serving the site is slow...
