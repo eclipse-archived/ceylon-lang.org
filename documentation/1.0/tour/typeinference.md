@@ -4,6 +4,7 @@ title: Tour of Ceylon&#58; Type aliases and type inference
 tab: documentation
 unique_id: docspage
 author: Gavin King
+doc_root: ../..
 ---
 
 # #{page.title}

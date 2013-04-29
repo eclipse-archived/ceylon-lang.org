@@ -4,6 +4,7 @@ title: Tour of Ceylon&#58; Initialization
 tab: documentation
 unique_id: docspage
 author: Gavin King
+doc_root: ../..
 ---
 
 # #{page.title}
@@ -21,7 +22,7 @@ object.
 ## Self references and outer instance references
 
 Ceylon features the keywords `this` and `super`, which refer to the current 
-instance of a class — the receiving instance of an operation (method 
+instance of a class ��� the receiving instance of an operation (method 
 invocation, member class instantiation, or attribute evaluation/assignment), 
 within the body of the definition of the operation. The semantics are exactly 
 the same as what you're used to in Java. In particular, a reference to a member 
@@ -326,7 +327,7 @@ According to the language spec:
 
 Note that the rules governing the declaration section of a class body are 
 essentially the same rules governing the body of an interface. That makes 
-sense, because interfaces don't have initialization logic — what interfaces 
+sense, because interfaces don't have initialization logic ��� what interfaces 
 and declaration sections have in common is _statelessness_.
 
 

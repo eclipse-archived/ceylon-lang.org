@@ -4,6 +4,7 @@ title: Tour of Ceylon&#58; Named arguments
 tab: documentation
 unique_id: docspage
 author: Gavin King
+doc_root: ../..
 ---
 
 # #{page.title}
@@ -181,11 +182,11 @@ inside a named argument list.
 
 It's legal to include the following constructs in a named argument list:
 
-* function declarations — specify the argument of a parameter that accepts a 
+* function declarations ��� specify the argument of a parameter that accepts a 
   function,
-* `object` (anonymous class) declarations — are most useful for specifying 
+* `object` (anonymous class) declarations ��� are most useful for specifying 
   the value of a parameter whose type is an interface or abstract class, and
-* getter declarations — lets us compute the value of an argument inline.
+* getter declarations ��� lets us compute the value of an argument inline.
 
 This helps explain why named argument lists are delimited by braces: the 
 fully general syntax for a named argument list is very, very close to the 

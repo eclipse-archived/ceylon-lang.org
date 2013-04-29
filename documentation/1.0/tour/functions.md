@@ -4,6 +4,7 @@ title: Tour of Ceylon&#58; Functions
 tab: documentation
 unique_id: docspage
 author: Gavin King
+doc_root: ../..
 ---
 
 # #{page.title}
@@ -20,7 +21,7 @@ can have *side effects*. But one thing Ceylon has in common with functional
 programming languages is that it lets you treat functions as values, which in 
 some people's eyes makes the language a kind of hybrid. In truth, there's 
 nothing remotely new about having functions-as-values in an object oriented 
-language — for example, Smalltalk, one of the first and still one of the 
+language ��� for example, Smalltalk, one of the first and still one of the 
 cleanest object oriented languages, was built around this idea. Anyway, Ceylon, 
 like Smalltalk and a number of other object oriented languages, lets you treat 
 a function as an object and pass it around the system.
@@ -627,7 +628,7 @@ In case you're wondering, the type of the function `addObserver()` is
 
 Notice that the anonymous function is able to use the parameter `observe` of 
 `addObserver()`. We say that the inner method receives a *closure* of the 
-non-`variable` locals and parameters of the outer method — just like a method 
+non-`variable` locals and parameters of the outer method ��� just like a method 
 of a class receives a closure of the class initialization parameters and locals 
 of the class initializer. In general, any inner class, method, or attribute 
 declaration always receives the closure of the members of the class, method, or 
@@ -657,7 +658,7 @@ line of code simply invokes the returned reference to `cancel()`.
 <!--
 We've already seen how an attribute can be defined using a block of code. Now 
 we see that a method can be defined using a specifier. So, if you like, you 
-can start thinking of a method as an attribute of type `Callable` — an 
+can start thinking of a method as an attribute of type `Callable` ��� an 
 attribute with parameters. Or if you prefer, you can think of an attribute as 
 a member with zero parameter lists, and of a method as a member with one or 
 more parameter lists. Either kind of member can be defined by reference, using 

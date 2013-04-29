@@ -4,6 +4,7 @@ title: Tour of Ceylon&#58; Anonymous and member classes
 tab: documentation
 unique_id: docspage
 author: Emmanuel Bernard
+doc_root: ../..
 ---
 
 # #{page.title}
@@ -130,7 +131,7 @@ However, an `object` may not itself be declared `formal` or `default`.
 
 ## Member classes and member class refinement
 
-You're probably used to the idea of an "inner" class in Java — a class 
+You're probably used to the idea of an "inner" class in Java ��� a class 
 declaration nested inside another class or method. Since Ceylon is a 
 language with a recursive block structure, the idea of a nested class is 
 more than natural. But in Ceylon, a non-abstract nested class is actually 

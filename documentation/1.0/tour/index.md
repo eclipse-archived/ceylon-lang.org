@@ -4,9 +4,8 @@ title: Tour of Ceylon
 tab: documentation
 unique_id: docspage
 author: Emmanuel Bernard
+doc _root: ..
 ---
-
-
 
 # Tour of Ceylon
 
