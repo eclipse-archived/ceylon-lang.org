@@ -159,7 +159,7 @@ defined by `java.lang.Object`.
 Just like in Java, you can refine this default implementation in your own 
 classes. This is the normal way to get a customized behavior for the `==` 
 operator, the only constraint being, that for subtypes of `Identifiable`, 
-`x===y` should imply `x==y`��� equality should be consistent with identity.
+`x===y` should imply `x==y`— equality should be consistent with identity.
 
 By default, a user-written class extends the class 
 [`Basic`](#{site.urls.apidoc_current}/class_Basic.html), 

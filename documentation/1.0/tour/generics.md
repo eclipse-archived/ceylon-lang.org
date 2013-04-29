@@ -162,12 +162,12 @@ compile:
     Collection<Person> people = geeks;    //compiler error
     people.add( Person("Fonzie") );
 
-We can't let that code by — Fonzie isn't a `Geek`!
+We can't let that code by—Fonzie isn't a `Geek`!
 
 Using big words, we say that `Collection` is *invariant* in `Element`. Or, 
 when we're not trying to impress people with opaque terminology, we say that 
-`Collection` both produces — via the `iterator()` method — and consumes — 
-via the `add()` method — the type `Element`.
+`Collection` both produces—via the `iterator()` method—and consumes—
+via the `add()` method—the type `Element`.
 
 Here's where Java goes off and dives down a rabbit hole, successfully using 
 wildcards to wrangle a covariant or contravariant type out of an invariant 
@@ -244,7 +244,7 @@ The following code also compiles:
     Consumer<Geek> geekConsumer = people;
     geekConsumer.add( Geek("James") );
 
-Which is also intuitively correct — `James` is most certainly a `Person`!
+Which is also intuitively correct—`James` is most certainly a `Person`!
 
 There's two additional things that follow from the definition of covariance 
 and contravariance:
@@ -360,7 +360,7 @@ certain instance of `Element` is contained in the `Set`. Since `==` is
 defined for expressions of type 
 [`Object`](#{site.urls.apidoc_current}/class_Object.html),
 we need some way to assert that `Element` is a subtype of `Object`. This is 
-an example of a *type constraint* — in fact, it's an example of the most 
+an example of a *type constraint*—in fact, it's an example of the most 
 common kind of type constraint, an *upper bound*.
 
 <!-- try: -->
