@@ -163,10 +163,15 @@ directory might be layed out like this:
 
 <!-- lang: none -->
     README
-    source/net/example/foo/Foo.ceylon
-                           FooService.ceylon
-                           module.ceylon
-    documentation/manual.html
+    source/
+      net/
+        example/
+          foo/
+            Foo.ceylon
+            FooService.ceylon
+            module.ceylon
+    documentation/
+      manual.html
 
 Here, the source code is in a directory called `source` (which is the default and 
 saves us having to pass a `--src` command line option to 
@@ -184,14 +189,24 @@ directory looks something like this:
 
 <!-- lang: none -->
     README
-    source/net/example/foo/Foo.ceylon
-                           FooService.ceylon
-                           module.ceylon
-    modules/net/example/foo/1.0/net.example.foo-1.0.car
-                                net.example.foo-1.0.car.sha1
-                                net.example.foo-1.0.src
-                                net.example.foo-1.0.src.sha1
-    documentation/manual.html
+    source/
+      net/
+        example/
+          foo/
+            Foo.ceylon
+            FooService.ceylon
+            module.ceylon
+    modules/
+      net/
+        example/
+          foo/
+            1.0/
+              net.example.foo-1.0.car
+              net.example.foo-1.0.car.sha1
+              net.example.foo-1.0.src
+              net.example.foo-1.0.src.sha1
+    documentation/
+      manual.html
 
 The `.src` is file is the source archive 
 which can be used by tools such as the IDE, for source code browsing. The 
