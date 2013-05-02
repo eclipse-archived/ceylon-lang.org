@@ -174,7 +174,7 @@ saves us having to pass a `--src` command line option to
 project directory (the directory which contains the `source` directory) 
 you can compile using the command
     
-<!-- lang: none -->
+<!-- lang: bash -->
     ceylon compile net.example.foo
     
 This command will compile the source code files (`Foo.ceylon` and `FooService.ceylon`)
@@ -202,12 +202,12 @@ You can generate API documentation using
 [`ceylon doc`](../../reference/tool/ceylon/subcommands/ceylon-doc.html) 
 like this:
 
-<!-- lang: none -->
+<!-- lang: bash -->
     ceylon doc net.example.foo
     
 This will create a
 
-<!-- lang: none -->
+<!-- lang: bash -->
     modules/net/example/foo/1.0/module-doc/
     
 directory containing the documentation.
@@ -221,7 +221,7 @@ One possibility is that you already have a repository containing `com.example.ba
 repository (`~/.ceylon/repo`) then you don't need to do anything, the same 
 commands will work:
 
-<!-- lang: none -->
+<!-- lang: bash -->
     ceylon compile net.example.foo
 
 Alternatively if you have some other local repository you can specify it 
@@ -233,7 +233,7 @@ the Herd is one of the default repositories `ceylon compile` knows about. So if
 `com.example.bar/3.1.4` is in the Herd then the command to compile 
 `net.example.foo` would remain pleasingly short
 
-<!-- lang: none -->
+<!-- lang: bash -->
     ceylon compile net.example.foo
 
 (that's right, it's the same as before). By the way, you can disable the default 
@@ -242,7 +242,7 @@ repositories with the `--d` option if you want to.
 If `com.example.bar/3.1.4` were in *another* repository, say `http://repo.example.com`,
 then the command would become
 
-<!-- lang: none -->
+<!-- lang: bash -->
     ceylon compile
       --rep http://repo.example.com 
       net.example.foo
@@ -255,7 +255,7 @@ When you are ready, you can publish the module somewhere other people can use
 it. Let's say that you want to publish to `http://ceylon.example.net/repo`. 
 You can just compile again, this time specifying an `--out` option
 
-<!-- lang: none -->
+<!-- lang: bash -->
     ceylon compile
       --rep http://repo.example.com 
       --out http://ceylon.example.net/repo
@@ -286,7 +286,7 @@ If the dependencies (`com.example.bar/3.1.4` from before) can be
 found in the default repositories the 
 [`ceylon run`](../../reference/tool/ceylon/subcommands/ceylon-run.html) command is:
 
-<!-- lang: none -->
+<!-- lang: bash -->
     ceylon run
       --rep http://ceylon.example.net/repo
       net.example.foo/1.0
@@ -294,7 +294,7 @@ found in the default repositories the
 You can pass options too (which are available to the program via the 
 top level `process` object):
 
-<!-- lang: none -->
+<!-- lang: bash -->
     ceylon run
       --rep http://ceylon.example.net/repo
       net.example.foo/1.0
@@ -303,7 +303,7 @@ top level `process` object):
 If one of the dependencies isn't available from a default repository you will 
 need to specify a repository that contains it using another `-rep`:
 
-<!-- lang: none -->
+<!-- lang: bash -->
     ceylon run
       --rep http://ceylon.example.net/repo
       --rep http://repo.example.com
@@ -313,7 +313,7 @@ need to specify a repository that contains it using another `-rep`:
 The easiest case though, is where the module and its dependencies are all in one 
 (or more) of the default repositories (such as the Herd or `~/.ceylon/repo`):
 
-<!-- lang: none -->
+<!-- lang: bash -->
     ceylon run net.example.foo/1.0
 
 
@@ -322,7 +322,7 @@ The easiest case though, is where the module and its dependencies are all in one
 One of the nice advantages of this architecture is that it's possible to run a 
 module "straight off the internet", just by typing, for example:
 
-<!-- lang:none -->
+<!-- lang: bash -->
     ceylon run --rep http://jboss.org/ceylon/modules org.jboss.ceylon.demo/1.0
 
 And all required dependencies get automatically downloaded as needed.
