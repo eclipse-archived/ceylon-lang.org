@@ -156,8 +156,12 @@ In addition, we map the following Java types to certain Ceylon types:
       <td><code>ceylon.language.Character</code><a href="#note4"><sup>4</sup></a></td>
     </tr>
     <tr>
+      <td><code>boolean[], byte[], short[], int[], long[], float[], double[], char[]</code></td>
+      <td><code>java.lang.BooleanArray, java.lang.ByteArray, java.lang.ShortArray, java.lang.IntArray, java.lang.LongArray, java.lang.FloatArray, java.lang.DoubleArray, java.lang.CharArray</code><a href="#note5"><sup>5</sup></a></td>
+    </tr>
+    <tr>
       <td><code>T[]</code></td>
-      <td><code>ceylon.language.Array&lt;T&gt;</code></td>
+      <td><code>java.lang.ObjectArray&lt;T&gt;</code><a href="#note5"><sup>5</sup></a></td>
     </tr>
     <tr>
       <td><code>java.lang.Object</code></td>
@@ -184,6 +188,10 @@ Notes:
     <tr>
       <td><a name="note4"><sup>4</sup></a></td>
       <td>Java characters can only represent the first half of a Unicode code-point (16 bits).</td>
+    </tr>
+    <tr>
+      <td><a name="note5"><sup>5</sup></a></td>
+      <td>See more info on <a href="../java-from-ceylon#java_array_types_milestone_5">Java arrays</a>.</td>
     </tr>
   </tbody>
 </table>
