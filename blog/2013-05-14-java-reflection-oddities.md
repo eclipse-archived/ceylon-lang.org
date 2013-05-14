@@ -139,7 +139,7 @@ constructor, and how they differ depending on the Java compiler used:
  </tr>
  <tr>
   <td><tt>getParameterAnnotations()<br/> .length</tt></td>
-  <td>2</td>
+  <td>1</td>
   <td>2</td>
   <td>1</td>
  </tr>
