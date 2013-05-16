@@ -1,11 +1,13 @@
 ---
-title: Java Reflection oddities with inner class constructor parameters
+title: Java Reflection oddities with inner and enum class constructor parameters
 author: St&#233;phane &#201;pardaud
 layout: blog
 unique_id: blogpage
 tab: blog
 tags: [java, code]
 ---
+
+**Note: edited on 16/5/2013 to add info about enum constructors as well.**
 
 # About Java inner classes
 
@@ -85,19 +87,99 @@ variables will be inlined and not generate extra synthetic constructor parameter
         }
     }
 
+# Another example: Java enum classes
+
+Java allows you to create enumeration classes, which is essentially little more than syntactic sugar to
+help you define a list of singleton values of a given type.
+
+The following Java code:
+
+<!-- try: -->
+<!-- lang: java -->
+    enum Colours {
+        RED, BLUE;
+    }
+
+Is essentially equivalent to:
+
+<!-- try: -->
+<!-- lang: java -->
+    final class Colours extends java.lang.Enum {
+        public final static Colours RED = new Colours("RED", 0);
+        public final static Colours BLUE = new Colours("BLUE", 1);
+        
+        private final static values = new Colours[]{ RED, BLUE };
+        
+        private Colours(String name, int sequence){
+            super(name, sequence);
+        }
+        
+        public static Colours[] values(){
+            return values;
+        }
+        
+        public static Colours valueOf(String name){
+            return (Colours)java.lang.Enum.valueOf(Colours.class, name);
+        }
+    }
+
+As you can see, it saves quite some code, but also adds _synthetic_ fields, methods and constructor parameters. If you
+had defined your own constructor, with its own set of parameters, like this:
+
+<!-- try: -->
+<!-- lang: java -->
+    enum Colours {
+        RED("rouge"), BLUE("bleu");
+        
+        public final String french;
+        
+        Colours(String french){
+            this.french = french;
+        }
+    }
+
+You would have gotten the following Java code generated:
+
+<!-- try: -->
+<!-- lang: java -->
+    final class Colours extends java.lang.Enum {
+        public final static Colours RED = new Colours("RED", 0, "rouge");
+        public final static Colours BLUE = new Colours("BLUE", 1, "bleu");
+        
+        private final static values = new Colours[]{ RED, BLUE };
+        
+        public final String french;
+        
+        private Colours(String name, int sequence, String french){
+            super(name, sequence);
+            this.french = french;
+        }
+        
+        public static Colours[] values(){
+            return values;
+        }
+        
+        public static Colours valueOf(String name){
+            return (Colours)java.lang.Enum.valueOf(Colours.class, name);
+        }
+    }
+
+Luckily, enums can’t be inner classes, so they will not have an extra synthetic parameter inserted for
+the container instance to add to those two.
+
 # OK, but why should I care?
 
-In most cases you don’t care, other than for your own curiosity. But if you’re doing Java reflection with inner classes,
+In most cases you don’t care, other than for your own curiosity. But if you’re doing Java reflection with inner or enum classes,
 there are a few things you should know, and because I haven’t found them listed or specified online, I thought it would
 be important to make a list of things to help others figure it out, because different compilers will produce different
 results in the Java reflection API.
 
-The question is what happens when you use Java reflection to get a `java.lang.reflect.Constructor` instance for inner
+The question is what happens when you use Java reflection to get a `java.lang.reflect.Constructor` instance for inner or enum
 class constructors? In particular, what happens with the methods that allow you to access the parameter types (pre-generics:
 `getParameterTypes()`), the generic parameter types (post-generics: `getGenericParameterTypes()`) and annotations 
 (`getParameterAnnotations()`), and the answer is: _it depends_.
 
-Suppose the following Java class:
+Suppose the following Java classes:
 
 <!-- try: -->
 <!-- lang: java -->
@@ -107,6 +189,12 @@ Suppose the following Java class:
             Inner(String param){}
             Inner(@Deprecated Integer param){}
         }
+    }
+    enum class Enum {
+        ;// yes this is required
+        Enum(){}
+        Enum(String param){}
+        Enum(@Deprecated Integer param){}
     }
 
 Here are the size of the arrays returned by these three reflection methods, on each of our
@@ -141,6 +229,41 @@ constructor, and how they differ depending on the Java compiler used:
   <td><tt>getParameterAnnotations()<br/> .length</tt></td>
   <td>1</td>
   <td>2</td>
+  <td>1</td>
+ </tr>
+</table>
+
+And the results are consistent for our enum class:
+
+<table style="font-size: smaller;">
+ <tr>
+  <th></th>
+  <th><tt>Enum.class<br/> .getDeclaredConstructor()</tt></th>
+  <th><tt>Enum.class<br/> .getDeclaredConstructor(<br/>  String.class)</tt></th>
+  <th><tt>Enum.class<br/> .getDeclaredConstructor(<br/>  Integer.class)</tt></th>
+ </tr>
+ <tr>
+  <td><tt>getParameterTypes()<br/> .length</tt></td>
+  <td>2</td>
+  <td>3</td>
+  <td>3</td>
+ </tr>
+ <tr>
+  <td><tt>getGenericParameterTypes()<br/> .length</tt> compiled with Eclipse</td>
+  <td>2</td>
+  <td>3</td>
+  <td>3</td>
+ </tr>
+ <tr>
+  <td><tt>getGenericParameterTypes()<br/> .length</tt> compiled with Javac</td>
+  <td>0</td>
+  <td>1</td>
+  <td>1</td>
+ </tr>
+ <tr>
+  <td><tt>getParameterAnnotations()<br/> .length</tt></td>
+  <td>2</td>
+  <td>3</td>
   <td>1</td>
  </tr>
 </table>
