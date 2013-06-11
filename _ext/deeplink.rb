@@ -1,4 +1,6 @@
-require 'rexml/document'
+require 'nokogiri'
+require 'unicode'
+
 
 module Awestruct
   module Extensions
@@ -10,8 +12,11 @@ module Awestruct
       
       class ElementVisitor
         def visit(node)
-          if node.kind_of?(REXML::Element)
+          if node.element?
             visitElement(node)
+          end
+          node.children.each do |child|
+            child.accept(self)
           end
         end
       end
@@ -28,11 +33,11 @@ module Awestruct
         end
       
         def visitElement(node)
-          if node.attributes["id"]
-            @existing_ids[node.attributes["id"]] = node
+          if node["id"]
+            @existing_ids[node["id"]] = node
           end
-          if node.attributes["name"]
-            @existing_ids[node.attributes["name"]] = node
+          if node["name"]
+            @existing_ids[node["name"]] = node
           end
         end
       end # IdCollector
@@ -47,10 +52,10 @@ module Awestruct
         end
         
         def visitElement(node)
-          if !node.attributes["id"] and 
-                !node.attributes["name"] and
-                @id_generators.has_key?(node.name)
-            id_generator = @id_generators[node.name]
+          if !node["id"] and 
+                !node["name"] and
+                @id_generators.has_key?(node.node_name)
+            id_generator = @id_generators[node.node_name]
             id = id_generator.generate_id(node)
             if !id.nil?
               ids = [id]
@@ -64,7 +69,7 @@ module Awestruct
                 ids << id
               end
               if !id.nil?
-                node.attributes["id"] = ids.last
+                node["id"] = ids.last
                 @generated_ids[ids.last] = node
               end
             end
@@ -75,26 +80,11 @@ module Awestruct
       # Normalizes the given text into lowercase letters and numbers, words 
       # separated by underscores.
       def DeepLink.normalize(text)
-        result = text.strip.downcase
+        result = Unicode::downcase(text.strip)
         result = result.gsub(/\s+/, "_")
         result = result.gsub(/(\w)-(\w)/, "\\1_\\2") # e.g. foo-style -> foo_style
         result = result.gsub(/(\w)'(\w)/, "\\1\\2") # e.g. don't -> dont
         result = result.gsub(/[\]\!\"\#\$\%\&\'\(\)\*\+\,\.\/:;<=>?@\[\\^`{|}~-]/, "")
-      end
-      
-      def DeepLink.text_content(element)
-        # It seems *unbelievable* that REXML doesn't have a method to get the 
-        # full text content of an element (rather than just the first text node)
-        # So we have this rigmarole
-        result = ""
-        element.children.each do |child|
-          if child.kind_of?(REXML::Element)
-            result << DeepLink.text_content(child)
-          elsif child.kind_of?(REXML::Text) or child.kind_of?(REXML::CData)
-            result << child.value
-          end
-        end
-        result
       end
       
       # Id generator which uses the normalized text content of the element to
@@ -102,7 +92,7 @@ module Awestruct
       # (<h1> etc) because the text content of those elements tends to be short
       class ContentIdGenerator
         def generate_id(node)
-          DeepLink.normalize(DeepLink.text_content(node))
+          DeepLink.normalize(node.content)
         end
         
         def disambiguate(node, generated_ids, conflicting_element)
@@ -122,7 +112,7 @@ module Awestruct
         end
         
         def first_words_normalized(node, num_words)
-          words = DeepLink.normalize(DeepLink.text_content(node)).split(/_/)
+          words = DeepLink.normalize(node.content).split(/_/)
           result = words[0..(num_words-1)].join("_")
           if words.length > num_words
             result += "..."
@@ -153,8 +143,7 @@ module Awestruct
         if id_generators.nil?
           normalized_content = ContentIdGenerator.new
           normalized_first_sentence = FirstWordsIdGenerator.new
-          @id_generators = { 
-              "h1" => normalized_content,
+          @id_generators = { "h1" => normalized_content,
               "h2" => normalized_content,
               "h3" => normalized_content,
               "h4" => normalized_content,
@@ -165,47 +154,26 @@ module Awestruct
           @id_generators = id_generators
         end
       end
-      
-      class Formatter < REXML::Formatters::Default
-        def write_element( node, output )
-          elements = ["h1", "h2", "h3", "h4", "h5", "h6", "p", "script"]
-          if elements.include?(node.expanded_name)
-            output << "<#{node.expanded_name}"
 
-            node.attributes.to_a.sort_by {|attr| attr.name}.each do |attr|
-              output << " "
-              attr.write( output )
-            end unless node.attributes.empty?
-            output << ">"
-            
-            node.children.each { |child|
-              write( child, output )
-            }
-            output << "</#{node.expanded_name}>"
-          else
-            super( node, output )
-          end
-        end
-      end
+      # TODO Make a static method of Deeplink
+      #def normalize(text)
+      #  result = text.strip.downcase
+      #  result = result.gsub(/\s+/, "_")
+      #  result = result.gsub(/(\w)-(\w)/, "\\1_\\2") # e.g. foo-style -> foo_style
+      #  result = result.gsub(/(\w)'(\w)/, "\\1\\2") # e.g. don't -> dont
+      #  result = result.gsub(/[\]\!\"\#\$\%\&\'\(\)\*\+\,\.\/:;<=>?@\[\\^`{|}~-]/, "")
+      #end
       
       # Transformer entry point
       def transform(site, page, rendered)
-        result = rendered
         if page.output_path.end_with?(".html") 
-          doc = REXML::Document.new(rendered)
+          doc = Nokogiri::HTML(rendered)
           collector = IdCollectingVisitor.new
-          doc.root.each_recursive do |elem|
-            collector.visit(elem)
-          end
-          generator = IdGeneratingVisitor.new(collector.existing_ids, @id_generators)
-          doc.root.each_recursive do |elem|
-            generator.visit(elem)
-          end
-          result = ""
-          formatter = Formatter.new
-          formatter.write(doc, result)
+          doc.accept(collector)
+          doc.accept(IdGeneratingVisitor.new(collector.existing_ids, @id_generators))
+          rendered = doc.serialize()
         end
-        result
+        rendered
       end
     end
   end
