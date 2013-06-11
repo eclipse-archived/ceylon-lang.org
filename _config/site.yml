@@ -1,5 +1,8 @@
 title: Ceylon
 
+haml|html:
+  :format: :xhtml
+
 profiles:
   development:
     disqus_developer: true

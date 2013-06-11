@@ -18,11 +18,14 @@ if [ "$HELP" = "true" ]; then
 	exit 0;
 fi
 
-#move to root
-cd ..
+SCRIPT_DIR=`dirname $0`
+
+cd $SCRIPT_DIR/..
 
 # Build site
 awestruct --profile production
+# or use the rake build (supports use of Bundler)
+#rake gen[production]
 
 # Update the repos
 REPOS="_tmp/repos"

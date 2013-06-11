@@ -20,10 +20,20 @@ class TOC
           toc = parse_textile_headers(page.raw_page_content)
         end
       rescue NameError
-        if page.is_a?(Awestruct::Handlers::MarkdownHandler)
-          toc = parse_markdown_headers(page.raw_page_content)
-        elsif page.is_a?(Awestruct::Handlers::TextileHandler)
-          toc = parse_textile_headers(page.raw_page_content)
+        begin
+          if page.is_a?(Awestruct::Handlers::MarkdownHandler)
+            toc = parse_markdown_headers(page.raw_page_content)
+          elsif page.is_a?(Awestruct::Handlers::TextileHandler)
+            toc = parse_textile_headers(page.raw_page_content)
+          end
+        rescue NameError
+          if page.relative_source_path.end_with? '.md'
+            toc = parse_markdown_headers(page.raw_content)
+          elsif page.relative_source_path.end_with? '.textile'
+            toc = parse_textile_headers(page.raw_content)
+          else
+            puts page.relative_source_path
+          end
         end
       end
 
