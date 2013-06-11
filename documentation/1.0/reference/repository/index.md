@@ -83,8 +83,9 @@ The Ceylon tools use a number of standard repositories:
 - The **central repository**, which is going to be located at `http://modules.ceylon-lang.org/repo`
   and will contain every published Ceylon module.
 
-When looking for a Ceylon module, the tools will use these standard repositories
-in the order they are listed above.
+Normally, when looking for a Ceylon module, the tools will use these standard repositories
+in the order they are listed above. The exact order of lookup and the way you can change it
+is described in the section on [tool configuration](../tool/config).
 
 ## Legacy repositories
 
