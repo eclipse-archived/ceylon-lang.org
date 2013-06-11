@@ -304,6 +304,8 @@ project folder.
 The user repository is where a user can store modules that will be available to them
 for execution regardless of the current folder the user runs the program. By default
 it is located in the `.ceylon/repo` folder located in the user's home directory.
+This can be overridden by setting the `ceylon.config` system property to point to
+the file that should be used.
 
     [repository "USER"]
     url=~/.ceylon/repo
