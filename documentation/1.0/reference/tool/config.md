@@ -93,6 +93,7 @@ Within sections we can define key/value pairs, each on their own line:
     [examplesection]
     some-setting=300
     
+
 ### More about keys
 
 Key names can only contain letters, digits and dashes. To unambiguously refer
@@ -179,6 +180,7 @@ is assumed)
 * `offline` - when set to `yes` (or `true`) will prevent the tool chains from
 trying to download modules from remote repositories (defaults to `no` (`false`).
 
+
 ### `[repositories]` section
 
 Ceylon uses a set of local and remote repositories for its modules. The order and
@@ -228,6 +230,7 @@ only need to override it if for some reason you do *not* want the default behavi
 The `remote` entry doesn't have any default value, so it can be easily used without having
 to worry about pre-existing values. It's specifically meant to add extra (normally remote)
 respositories that will be tried after all other options have been exhausted.
+
 
 ### `[repository]` sections
 
@@ -281,6 +284,7 @@ example the compiler and language module. By default it is located in the
     [repository "SYSTEM"]
     url=CEYLON_HOME/repo
     
+
 #### `CACHE` repository
 
 The cache repository contains all modules fetched from remote repositories, 
@@ -290,6 +294,7 @@ located in the `.ceylon/cache` folder located in the user's home directory.
     [repository "CACHE"]
     url=~/.ceylon/cache
 
+
 #### `LOCAL` repository
 
 The local repository is where modules are stored that are created by compiling local
@@ -298,6 +303,7 @@ project folder.
 
     [repository "LOCAL"]
     url=./modules
+
 
 #### `USER` repository
 
@@ -310,6 +316,7 @@ the file that should be used.
     [repository "USER"]
     url=~/.ceylon/repo
 
+
 #### `REMOTE` repository
 
 The remote repository points to the official Ceylon module repository ("The Herd")
@@ -318,6 +325,7 @@ that contains all the official Ceylon SDK modules and all other freely available
 
     [repository "REMOTE"]
     url=http://modules.ceylon-lang.org
+
 
 #### The `[repositories]` section revisited
 
@@ -339,6 +347,7 @@ This also means that if you define your own `[repository]` section with one of t
 above pre-defined names you will *override* the default location for that repository.
 (So in fact there are two ways of overriding pre-defined repositories)
 
+
 ### `[keystore]` section
 
 Although the config file supports specifying passwords in plain text, it also 
@@ -351,6 +360,7 @@ Supported properties include:
 * `file` the name of a keystore file, for those keystores which are file based.
 * `store-type` - the `KeyStore` type. Default: `jceks`.
 * `store-provider` - the `KeyStore` provider. Default: `SunJCE`.
+
 
 ### `[proxy]` section
 
