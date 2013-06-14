@@ -10,53 +10,50 @@ author: Emmanuel Bernard
 
 A bit of Git, a bit a Ruby and you will get your local version of [ceylon-lang.org](/) served.
 
-## Infrastructure
+## Installation
 
 * get Git
-* get Ruby 1.8 or 1.9
+* get Ruby 1.9
 * if on Mac OS, get XCode (needed for native gems)
 
 Install Git to your system. [GitHub's help page](http://help.github.com/) is a good starting
 point. [Emmanuel's blog](http://in.relation.to/Bloggers/HibernateMovesToGitGitTipsAndTricks)
 on Git tips and tricks is useful too.
 
-If you run the latest Ruby (1.9), install Awestruct, a Ruby based site generator
-as follows:
+Ruby like many other platforms has its dependency hell. We do recommend you use RVM to
+isolate your dependencies. The RVM steps are optional though.
 
-<!-- lang: bash -->
-    gem install awestruct 
-    #or
-    sudo gem install awestruct
+Install [RVM](https://rvm.io).
 
-The Awestruct version known to work for Ruby 1.9 is 0.4.6
+Then set up the isolated environment
 
-<!-- lang: bash -->
-    sudo gem install awestruct --version 0.4.6
+    rvm install 1.9.3
+    rvm use 1.9.3
+    rvm gemset create awestruct
 
-The Awestruct version known to work for Ruby 1.8 is 0.2.13
+Next, let's retrieve the website.
 
-Also install the htmlentities gem
-
-<!-- lang: bash -->
-    gem install htmlentities
-    #or
-    sudo gem install htmlentities
-
-Also install the therubyracer gem
-
-<!-- lang: bash -->
-    gem install therubyracer
-    #or
-    sudo gem install therubyracer
-
-Get the website source from GitHub.
 
 <!-- lang: bash -->
     git clone git@github.com:ceylon/ceylon-lang.org.git
+    cd ceylon-lang.org
+
+If you use RVM, add a `.rvmrc` file in the directory containing
+
+    rvm ruby-1.9.3@awestruct
+
+This will set up the right environment when you enter the directory.
+The first time, leave and reenter the directory `cd ..;cd ceylon-lang.org`.
+
+Finally, let's install Awestruct
+
+<!-- lang: bash -->
+    gem install bundler
+    # or sudo gem install bundler on Mac OS X if you don't use RVM
+    bundle install
 
 ## Serve the site locally
 
-* Go in your `~/ceylon-lang.org` directory.  
 * Run  `awestruct -d`
 * Open your browser to <http://localhost:4242>
 
