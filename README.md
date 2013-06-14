@@ -13,7 +13,7 @@ A bit of Git, a bit a Ruby and you will get your local version of [ceylon-lang.o
 ## Installation
 
 * get Git
-* get Ruby 1.9
+* get Ruby 1.9 (part of the RVM install if you follow that path - see below)
 * if on Mac OS, get XCode (needed for native gems)
 
 Install Git to your system. [GitHub's help page](http://help.github.com/) is a good starting
@@ -51,6 +51,9 @@ Finally, let's install Awestruct
     gem install bundler
     # or sudo gem install bundler on Mac OS X if you don't use RVM
     bundle install
+
+Note that if someone updates Awestruct or any dependent gem via the `Gemfile` dependency
+management, you need to rerun `bundle install`.
 
 ## Serve the site locally
 
