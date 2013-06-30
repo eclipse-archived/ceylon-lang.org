@@ -285,6 +285,7 @@ changes, HTTP server, dates and times.*
 
 ### Expressions:
 * metamodel references
+* "static" method references
 
 ### Misc:
 * annotation constraints
