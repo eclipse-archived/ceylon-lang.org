@@ -1,0 +1,19 @@
+---
+title: Companies that contribute to Ceylon
+layout: community
+unique_id: communitypage
+tab: community
+author: Emmanuel Bernard
+---
+%h1 #{page.title}
+
+- members = site.companies.values.sort_by{|a| [a.level, a.name]}
+- for member in members
+  %h2 #{member.name}
+  .teammember
+    .teammemberphoto
+      %a{:href=>member.homepage, :title=>member.name}
+        %img{:src=>member.photo, :width=>"200px"}
+    .teammemberbio
+      #{member.content}
+    
