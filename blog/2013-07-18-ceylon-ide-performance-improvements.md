@@ -37,7 +37,7 @@ Here are the major points David will be working on for the IDE:
 
 We believe that with David's availability and experience, all of these issues will be obliterated
 and we will have an incredibly fast Ceylon IDE even for large projects, at the latest for January
-2013. The good news is that David will start this performance run as early as next week, and we
+2014. The good news is that David will start this performance run as early as next week, and we
 will release new versions of the Ceylon IDE as soon as each improvement is stable enough to ship,
 so we can expect faster releases really soon.
 
