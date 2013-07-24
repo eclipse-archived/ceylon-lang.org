@@ -41,7 +41,7 @@ ambiguously inherited from more than one supertype), in
 which case we can use the widening `of` operator to 
 eliminate the ambiguity:
 
-    (super as List<T>).equals(that)
+    (super of List<T>).equals(that)
 
 (We now treat `super` as a value whose type is the 
 intersection of all immediate supertypes of the current 
