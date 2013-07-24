@@ -30,15 +30,22 @@ Invoking super-interface members
 --------------------------------
 
 Previously, we were using a rather ugly and arbitrary 
-syntax, for example, `List::equals(that)` to invoke an 
+syntax, for example, `List::equals(that)`, to invoke an 
 overridden member of a superinterface. Now we can just
-write `super.equals(that)`, except in cases where this
-is ambiguous (the member is ambiguously inherited from 
-more than one supertype), in which case you can use the
-widening `of` operator `(super as List<T>).equals(that)`.
-(We now treat `super` essentially as a value whose type 
-is the intersection of all immediate supertypes of the
-current type.)
+write: 
+
+    super.equals(that)
+
+except in cases where this is ambiguous (the member is 
+ambiguously inherited from more than one supertype), in 
+which case we can use the widening `of` operator to 
+eliminate the ambiguity:
+
+    (super as List<T>).equals(that)
+
+(We now treat `super` as a value whose type is the 
+intersection of all immediate supertypes of the current 
+type.)
 
 Nonempty variadic parameters
 ----------------------------
@@ -57,13 +64,15 @@ least one argument, for example:
     }
 
 The type of such a function is written `String(String+)`,
-meaning, of course, `Callable<String,[String+]>.
+meaning, of course, `Callable<String,[String+]>`.
 
 `try` with resources
 --------------------
 
-The `try (Transaction()) { ... }` construct works almost 
-exactly like in Java.
+This constuct works almost exactly like in Java. For 
+example:
+
+    try (Transaction()) { ... }
 
 Scaling multiplication operator
 -------------------------------
@@ -126,7 +135,7 @@ A metamodel expression is enclosed in backticks:
 
 We can use a metamodel to obtain the name and annotations
 of a declaration, or to query a type for members by their
-type, parameter types, annotations, etc.
+return type, parameter types, annotations, etc.
 
 It's taking us a bit of work to get the metamodel just 
 right, and that's the main thing that has been holding 
@@ -135,6 +144,6 @@ up the M6 release.
 Annotations
 -----------
 
-Annotations are discussed (here)(/documentation/1.0/tour/annotations/).
+Annotations are discussed [here](/documentation/1.0/tour/annotations/).
 The basic concept hasn't changed much in our initial
-implementation.
+implementation, but work is ongoing.
