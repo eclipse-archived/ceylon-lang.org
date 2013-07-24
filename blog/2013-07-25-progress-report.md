@@ -18,6 +18,7 @@ headline changes:
 - new syntax for invoking super-interface members,
 - nonempty variadic parameters
 - `try` with resources,
+- the `**` scaling multiplication operator,
 - "static" member references,
 - metamodel and metamodel expressions, and
 - annotations.
@@ -63,6 +64,16 @@ meaning, of course, `Callable<String,[String+]>.
 
 The `try (Transaction()) { ... }` construct works almost 
 exactly like in Java.
+
+Scaling multiplication operator
+-------------------------------
+
+A top user request was support for "scaling" multiplication
+for vectors, matrices, durations, etc. We've introduced the
+interface `Scalable` and the `**` operation to let you write
+things like:
+
+    Vector scaled = 2 ** vector;
 
 Static member references
 ------------------------
