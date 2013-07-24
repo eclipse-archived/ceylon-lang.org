@@ -34,6 +34,7 @@ syntax, for example, `List::equals(that)`, to invoke an
 overridden member of a superinterface. Now we can just
 write: 
 
+<!-- try: -->
     super.equals(that)
 
 except in cases where this is ambiguous (the member is 
@@ -41,6 +42,7 @@ ambiguously inherited from more than one supertype), in
 which case we can use the widening `of` operator to 
 eliminate the ambiguity:
 
+<!-- try: -->
     (super of List<T>).equals(that)
 
 (We now treat `super` as a value whose type is the 
@@ -53,6 +55,7 @@ Nonempty variadic parameters
 You may now define a variadic function that requires at
 least one argument, for example:
 
+<!-- try: -->
     String max(String+ strings) {
         value max = strings.first;
         for (string in strings.rest) {
@@ -72,6 +75,7 @@ meaning, of course, `Callable<String,[String+]>`.
 This constuct works almost exactly like in Java. For 
 example:
 
+<!-- try: -->
     try (Transaction()) { ... }
 
 Scaling multiplication operator
@@ -82,6 +86,7 @@ for vectors, matrices, durations, etc. We've introduced the
 interface `Scalable` and the `**` operation to let you write
 things like:
 
+<!-- try: -->
     Vector scaled = 2 ** vector;
 
 Static member references
@@ -106,6 +111,7 @@ the type that declares the member.
 Static attribute references are especially useful, since
 we can pass them directly to `map()`:
 
+<!-- try: -->
     Person[] people = .... ;
     {String*} names = people.map(Person.name);
 
@@ -119,6 +125,7 @@ functions, classes, methods, and attributes are typed
 values. For example, the class `Person` is a value of 
 type `Person(Name)`:
 
+<!-- try: -->
     Person(Name) createPerson = Person;
     Person person = createPerson(Name("Gavin", "King"));
 
@@ -129,6 +136,7 @@ providing a typesafe _metamodel_.
 
 A metamodel expression is enclosed in backticks:
 
+<!-- try: -->
     Class<Person,[Name]> personClass = `Person`;
     Attribute<Person,Name> nameAttribute = `Person.name`;
     Method<Object,Boolean(Object)> equalsMethod = `Object.equals`;
