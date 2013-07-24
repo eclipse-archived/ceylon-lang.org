@@ -139,7 +139,7 @@ A metamodel expression is enclosed in backticks:
 <!-- try: -->
     Class<Person,[Name]> personClass = `Person`;
     Attribute<Person,Name> nameAttribute = `Person.name`;
-    Method<Object,Boolean(Object)> equalsMethod = `Object.equals`;
+    Method<Object,Boolean,[Object]> equalsMethod = `Object.equals`;
 
 We can use a metamodel to obtain the name and annotations
 of a declaration, or to query a type for members by their
