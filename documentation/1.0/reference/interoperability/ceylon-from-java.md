@@ -26,6 +26,7 @@ The situation is more complicated for inner interfaces. The compiler always
 generates a top level interface, using the containing type name(s) separated with a dollar (`$`) and then the interface name, again separated with a dollar. For 
 example this Ceylon:
 
+<!-- try: -->
     class C() {
         interface I {
         }
@@ -47,6 +48,7 @@ constructor for each defaulted parameter.
 
 For example suppose you have the following Ceylon class:
 
+<!-- try: -->
     shared class Foo(Integer n = 5, Integer m = n + 1) {
     }
 
@@ -81,6 +83,7 @@ corresponding `static` setter method.
 
 Toplevel attributes like the following:
 
+<!-- try: -->
     shared variable Boolean bool = true;
 
 Are accessed and set using the following Java code:
@@ -107,6 +110,7 @@ toplevel method.
 
 Toplevel methods like the following:
 
+<!-- try: -->
     shared Boolean foo(Boolean b){
         return b;
     }
@@ -123,6 +127,7 @@ Ceylon methods can have default parameter values. There will be an overloaded me
 
 For example suppose you have the following Ceylon class:
 
+<!-- try: -->
     shared class Foo() {
         shared void foo(Integer n = 5, Integer m = n + 1) {}
     }

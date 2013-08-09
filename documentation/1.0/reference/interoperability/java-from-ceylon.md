@@ -60,6 +60,7 @@ You can access static methods or fields without having an instance of the contai
 type by importing them from their containing type, which makes them toplevel attributes
 or methods:
 
+<!-- try: -->
     import java.io { File { separator, createTempFile } }
     
     void m(){
@@ -69,6 +70,7 @@ or methods:
 
 Note that you can alias them too like other imports:
 
+<!-- try: -->
     import java.io { JFile = File { sep = separator, roots = listRoots } }
     import java.lang { ObjectArray }
     
@@ -141,7 +143,7 @@ three types, you have to make it explicit:
 
 And:
 
-<!-- check:none -->
+<!-- try: -->
     import java.lang { JavaShort = Short }
     
     void m(){
@@ -252,7 +254,7 @@ See how to use Java arrays:
 
 And:
 
-<!-- check:none -->
+<!-- try: -->
     JavaType t = JavaType();
     ObjectArray<String> array = t.giveMeAnArray();
     String first = array.get(0);
@@ -356,7 +358,7 @@ You can create Java arrays in Ceylon:
 
 And:
 
-<!-- check:none -->
+<!-- try: -->
     JavaType t = JavaType();
     ObjectArray<String> a = arrays.toJavaStringArray{"One", "Two", "Three"}; 
     t.takeThisArray(a);
@@ -381,7 +383,7 @@ they were toplevel objects:
 
 And:
 
-<!-- check:none -->
+<!-- try: -->
     import com.foo { JavaEnum { one = \iONE, two = \iTWO } }
 
     void enums(){

@@ -12,6 +12,7 @@ author: Tom Bentley
 Ceylon uses Java annotations in compiled `.class` files to store information 
 about Ceylon types. For example, consider the Ceylon method:
 
+<!-- try: -->
     Object? m() {
         // ...
     }
