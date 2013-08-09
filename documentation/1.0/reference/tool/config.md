@@ -290,6 +290,7 @@ a compiled module to the secure company repository:
 
 There are a few built-in repository names, as follows:
 
+
 #### `SYSTEM` repository
 
 The system repository holds the modules necessary to use the ceylon tools, for 
@@ -299,6 +300,7 @@ example the compiler and language module. By default it is located in the
 <!-- lang:none -->
     [repository "SYSTEM"]
     url=CEYLON_HOME/repo
+
 
 #### `CACHE` repository
 
@@ -310,6 +312,7 @@ located in the `.ceylon/cache` folder located in the user's home directory.
     [repository "CACHE"]
     url=~/.ceylon/cache
 
+
 #### `LOCAL` repository
 
 The local repository is where modules are stored that are created by compiling local
@@ -319,6 +322,7 @@ project folder.
 <!-- lang:none -->
     [repository "LOCAL"]
     url=./modules
+
 
 #### `USER` repository
 
@@ -332,6 +336,7 @@ the file that should be used.
      [repository "USER"]
     url=~/.ceylon/repo
 
+
 #### `REMOTE` repository
 
 The remote repository points to the official Ceylon module repository ("The Herd")
@@ -341,6 +346,7 @@ that contains all the official Ceylon SDK modules and all other freely available
 <!-- lang:none -->
     [repository "REMOTE"]
     url=http://modules.ceylon-lang.org
+
 
 #### The `[repositories]` section revisited
 
