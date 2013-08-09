@@ -215,6 +215,7 @@ Java arrays are supported and mapped to _virtual_ objects in the `java.lang` pac
 These virtual types must be imported from the `java.base/7` module, as the rest of the core of the JDK, and
 their definition is as follows, for example for `BooleanArray`:
 
+<!-- try: -->
     shared class BooleanArray(Integer size, Boolean element = false){
         
         doc "Gets the item at the specified index"
@@ -241,6 +242,7 @@ Ceylon `Array`.
 Note that the `IntArray` type has an extra method to convert an array of Unicode Code Points to a Ceylon
 `Array` of `Character`:
 
+<!-- try: -->
         doc "Get a Ceylon Array that is a view backed by this array"
         shared Array<Character> codePointArray;
 
@@ -270,6 +272,7 @@ to help converting arrays of Java `String` and Ceylon `String` values.
 
 It has the following signature:
 
+<!-- try: -->
     shared object arrays {
     
         doc "Converts an `Iterable` of `Integer` to a Java `byte` array"
