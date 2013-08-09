@@ -15,6 +15,7 @@ configuring their behaviour.
 
 ## Example configuration file 
 
+<!-- lang:none -->
     # Put the cache on the huge disk
     [repository "CACHE"]
     url=/huge-disk/tom/ceylon/repocache
@@ -78,6 +79,7 @@ configuration options for a group of projects.
 A configuration file consists of *sections* with *key/value pairs* and *comments*.
 A *section* consists of a name surrounded by square brackets:
 
+<!-- lang:none -->
     [examplesection]
     
 These names must start with a letter and for the rest can only contain letters and
@@ -85,11 +87,13 @@ digits (and periods as we'll see later, but they are not part of the name).
 
 We can also add comments, either on their own line or at the end of an existing line:
 
+<!-- lang:none -->
     # A comment on its own line
     [examplesection] # Another comment
 
 Within sections we can define key/value pairs, each on their own line:
 
+<!-- lang:none -->
     [examplesection]
     some-setting=300
     
@@ -102,13 +106,15 @@ for the above setting is `example-section.some-setting`. Its value is `300`.
 In this form all leading and trailing spaces and tabs are ignored (as are comments),
 so the following is exactly the same as the above:
 
-      [ example-section ]
+<!-- lang:none -->
+    [ example-section ]
     some-setting  =  300 # Some comment
 
 Key names and main section names can never contain spaces or tabs, but values can.
 In those cases that you need to specify leading or trailing spaces and tabs as part
 of the value you need to *quote* the value like this:
 
+<!-- lang:none -->
     [example-section]
     text=" An example text "
 
@@ -118,6 +124,7 @@ them are ignored.
 Sometimes it is necessary to specify values that span multiple lines, the easiest way
 to do that is like this:
 
+<!-- lang:none -->
     [lines]
     long-text-unquoted=A very\
     very\
@@ -129,6 +136,7 @@ to do that is like this:
 And the final item on the topic of values are *escapes*, sometimes it's necessary to
 be able to specify special character that cannot (easily) be entered in another way:
 
+<!-- lang:none -->
     [escapes]
     escape1=\t # A single TAB character
     escape2=\n # A single NEWLINE character
@@ -137,6 +145,7 @@ be able to specify special character that cannot (easily) be entered in another 
     
 NB: using escapes the above `[lines]` example could be rewritten like:
 
+<!-- lang:none -->
     [lines]
     long-text-unquoted=A very\nvery\nlong line.
     long-text-quoted= "Another very\nvery\nlong line."
@@ -149,15 +158,19 @@ Now back to sections. For complex configurations it is possible to divide sectio
 into sub-sections (and sub-sub-sections or sub-sub-sub-etc if necessary).
 This can be done in two different ways, either quoted or unquoted:
 
+<!-- lang:none -->
     [examplesection "Sub section 1"]
     some-setting=300
     
+<!-- lang:none -->
     [examplesection "Sub section 2"]
     some-setting=400
 
+<!-- lang:none -->
     [examplesection.subsection1]
     some-setting=100
     
+<!-- lang:none -->
     [examplesection.subsection2]
     some-setting=200
     
@@ -243,6 +256,7 @@ allowed to push anything to that server.
 For that porpose we can create a `[repository]` definition. Because all respository definitions
 are actually sub-sections of `[repository]` they require a name. An example could be:
 
+<!-- lang:none -->
     [repository "CompanyRepo"]
     url=http://ceylon.example.com
     user=fubar
@@ -263,6 +277,7 @@ or relative to the project folder like `modules` or `./my-modules`. This propert
 Using `[repository]` definitions like the above you can now refer to it from within the
 `[repositories]` section like this (pay attention to the `+` sign which is required):
 
+<!-- lang:none -->
     [repositories]
     remote=+CompanyRepo
 
@@ -281,7 +296,7 @@ The system repository holds the modules necessary to use the ceylon tools, for
 example the compiler and language module. By default it is located in the 
 `repo` directory of the ceylon installation.
 
-```
+```none
 [repository "SYSTEM"]
 url=CEYLON_HOME/repo
 ```    
@@ -292,7 +307,7 @@ The cache repository contains all modules fetched from remote repositories,
 so they don't have to be downloaded each time they're needed. By deault it is
 located in the `.ceylon/cache` folder located in the user's home directory.
 
-```
+```none
 [repository "CACHE"]
 url=~/.ceylon/cache
 ```
@@ -303,7 +318,7 @@ The local repository is where modules are stored that are created by compiling l
 projects. By default it is specified as the folder `modules` relative to the current
 project folder.
 
-```
+```none
 [repository "LOCAL"]
 url=./modules
 ```
@@ -316,7 +331,7 @@ it is located in the `.ceylon/repo` folder located in the user's home directory.
 This can be overridden by setting the `ceylon.config` system property to point to
 the file that should be used.
 
-```
+```none
 [repository "USER"]
 url=~/.ceylon/repo
 ```
@@ -327,7 +342,7 @@ The remote repository points to the official Ceylon module repository ("The Herd
 that contains all the official Ceylon SDK modules and all other freely available
 3rd party modules. By default this is `http://modules.ceylon-lang.org`.
 
-```
+```none
 [repository "REMOTE"]
 url=http://modules.ceylon-lang.org
 ```
@@ -340,6 +355,7 @@ with the Ceylon tool chain, but it might be interesting for completeness sake.*
 Looking at the above list we now have sufficient information to be able to know what
 the default `[repositories]` section would look like:
 
+<!-- lang:none -->
     [repositories]
     system=+SYSTEM
     cache=+CACHE
