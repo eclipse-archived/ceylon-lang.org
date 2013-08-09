@@ -210,6 +210,7 @@ The `[repositories]` section can be used to override the default values for thos
 entries thereby changing or extending the lookup order. Take a look at the following
 example:
 
+<!-- lang:none -->
     [repositories]
     output=./output # Store new modules in the local `output` folder
     cache=/huge-disk/tom/ceylon/repocache # Store the cached modules on a bigger disk
@@ -284,9 +285,8 @@ Using `[repository]` definitions like the above you can now refer to it from wit
 You can now also refer to this repository from the command line, for example when pushing
 a compiled module to the secure company repository:
 
-```bash
-$ ceylon compile --out +CompanyRepo com.example.mymodule
-```
+<!-- lang:bash -->
+    $ ceylon compile --out +CompanyRepo com.example.mymodule
 
 There are a few built-in repository names, as follows:
 
@@ -296,10 +296,9 @@ The system repository holds the modules necessary to use the ceylon tools, for
 example the compiler and language module. By default it is located in the 
 `repo` directory of the ceylon installation.
 
-```none
-[repository "SYSTEM"]
-url=CEYLON_HOME/repo
-```    
+<!-- lang:none -->
+    [repository "SYSTEM"]
+    url=CEYLON_HOME/repo
 
 #### `CACHE` repository
 
@@ -307,10 +306,9 @@ The cache repository contains all modules fetched from remote repositories,
 so they don't have to be downloaded each time they're needed. By deault it is
 located in the `.ceylon/cache` folder located in the user's home directory.
 
-```none
-[repository "CACHE"]
-url=~/.ceylon/cache
-```
+<!-- lang:none -->
+    [repository "CACHE"]
+    url=~/.ceylon/cache
 
 #### `LOCAL` repository
 
@@ -318,10 +316,9 @@ The local repository is where modules are stored that are created by compiling l
 projects. By default it is specified as the folder `modules` relative to the current
 project folder.
 
-```none
-[repository "LOCAL"]
-url=./modules
-```
+<!-- lang:none -->
+    [repository "LOCAL"]
+    url=./modules
 
 #### `USER` repository
 
@@ -331,10 +328,9 @@ it is located in the `.ceylon/repo` folder located in the user's home directory.
 This can be overridden by setting the `ceylon.config` system property to point to
 the file that should be used.
 
-```none
-[repository "USER"]
-url=~/.ceylon/repo
-```
+<!-- lang:none -->
+     [repository "USER"]
+    url=~/.ceylon/repo
 
 #### `REMOTE` repository
 
@@ -342,10 +338,9 @@ The remote repository points to the official Ceylon module repository ("The Herd
 that contains all the official Ceylon SDK modules and all other freely available
 3rd party modules. By default this is `http://modules.ceylon-lang.org`.
 
-```none
-[repository "REMOTE"]
-url=http://modules.ceylon-lang.org
-```
+<!-- lang:none -->
+    [repository "REMOTE"]
+    url=http://modules.ceylon-lang.org
 
 #### The `[repositories]` section revisited
 
