@@ -131,8 +131,8 @@ The API documentation for [`ceylon.language`](#{site.urls.apidoc_current}).
 
 ## Interoperability
 
-* ['Calling' Ceylon from Java](interoperability/ceylon-from-java)
-* ['Calling' Java from Ceylon](interoperability/java-from-ceylon)
+* [Calling Ceylon from Java](interoperability/ceylon-from-java)
+* [Calling Java from Ceylon](interoperability/java-from-ceylon)
 * [Type mapping](interoperability/type-mapping)
 
 ## Module repositories

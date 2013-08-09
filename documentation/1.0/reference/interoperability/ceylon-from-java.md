@@ -12,7 +12,7 @@ author: Tom Bentley
 ## Description
 
 Although titled '*Calling* Ceylon from Java', this page covers all access to 
-Ceylon types from Java, not just method calls.
+Ceylon declarations from Java, not just method calls.
 
 **Important Note: Everything documented here is subject to change until 
 Ceylon 1.0 and has changed in M3.**
