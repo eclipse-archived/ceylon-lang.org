@@ -134,6 +134,7 @@ The API documentation for [`ceylon.language`](#{site.urls.apidoc_current}).
 * [Calling Ceylon from Java](interoperability/ceylon-from-java)
 * [Calling Java from Ceylon](interoperability/java-from-ceylon)
 * [Type mapping](interoperability/type-mapping)
+* [The JavaScript compiler](interoperability/js)
 
 ## Module repositories
 
