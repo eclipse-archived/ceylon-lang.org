@@ -55,6 +55,6 @@ statement and not an operator it cannot be used within expressions:
 
 ## See also
 
-* The [`=` (assignment) *operator*](../../operator/assignment/), used for 
+* The [`=` (assignment) *operator*](../../operator/assign/), used for 
   assigning a value to `variable` locals or attributes.
 
