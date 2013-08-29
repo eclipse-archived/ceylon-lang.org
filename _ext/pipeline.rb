@@ -73,6 +73,9 @@ Awestruct::Extensions::Pipeline.new do
     /<pre><code>(.*?)<\/code><\/pre>/, 
     "<pre class=\"brush: ceylon\">\\1</pre>")
   transformer Awestruct::Extensions::Gsub.new(
+    /\<title\>(.*?)\&amp\;\#58\;(.*?)\<\/title\>/,
+    "<title>\\1:\\2</title>")
+  transformer Awestruct::Extensions::Gsub.new(
     /\<!--\s*m1\s*--\>\s*/, 
     "<span class='milestone'><a href='/documentation/1.0/roadmap/#milestone_1_done' title='Support for this feature was introduced in Milestone 1'>Milestone 1</a></span>")
   transformer Awestruct::Extensions::Gsub.new(
