@@ -16,6 +16,8 @@ subtyping, and type parameterization (generics). If you
 already know a language like Java, C#, or C++, you already
 have all the background you need.
 
+### What if I don't know Java?
+
 _If you're new to object-oriented programming,_ you'll still
 be able to learn Ceylon. These concepts aren't difficult to
 pick up! But you might find some chapters of the tour pretty
@@ -33,12 +35,6 @@ Ruby, or Smalltalk. But we promise that the benefits are worth
 it in the end, especially once you learn to use the IDE 
 effectively. Tooling for dynamic languages simply can't reason
 about your code like Ceylon IDE can! 
-
-### implementation note <!-- m5 -->
-
-Not every language feature described here has been implemented 
-in M5. Where this is the case, you'll see an "implementation note", 
-explaining when you can expect to be able to use the feature.
 
 ### Help us improve!
 
@@ -113,22 +109,22 @@ Let's try it out. Save the above code in the file `./source/hello.ceylon`
 and then run the following commands:
 
 <!-- lang: bash -->
-    ceylon-0.5/bin/ceylon compile source/hello.ceylon
-    ceylon-0.5/bin/ceylon run --run hello default
+    ceylon-0.6/bin/ceylon compile source/hello.ceylon
+    ceylon-0.6/bin/ceylon run --run hello default
 
-where `ceylon-0.5` is the path to your Ceylon install directory. You should
+where `ceylon-0.6` is the path to your Ceylon install directory. You should
 see the message `Hello, World!`. You will find the compiled module archive 
 `default.car` in the directory `./modules/default`.
 
 A very useful trick is:
 
 <!-- lang: bash -->
-    ceylon-0.5/bin/ceylon help compile
+    ceylon-0.6/bin/ceylon help compile
 
 And:
 
 <!-- lang: bash -->
-    ceylon-0.5/bin/ceylon help run
+    ceylon-0.6/bin/ceylon help run
 
 The command
 [ceylon help](../../reference/tool/ceylon/subcommands/ceylon-help.html) 
@@ -177,11 +173,15 @@ encoding on the command line like this:
 ## Running the program from the IDE
 
 To run the program in [Ceylon IDE](#{page.doc_root}/ide), go to the Ceylon 
-perspective, create a new project using `File > New > Ceylon Project`, then 
-create a new `.ceylon` file using `File > New > Ceylon Source File`. Paste 
-the definition of `hello()` in this new file, then select the file and run 
-it using `Run > Run As > Ceylon Application`. This executes the program on 
-the JVM.
+perspective, then:
+
+1. create a new project using `File > New > Ceylon Project`, 
+2. create a new `.ceylon` file inside the project using 
+   `File > New > Ceylon Source File`,
+3. paste the definition of `hello()` in this new file, and then 
+4. select the file and run it using `Run > Run As > Ceylon Application`.
+
+This executes the program on the JVM.
 
 If you have `node.js` installed, you can go to `Project > Properties`, select 
 the `Ceylon` section, enable `Compile project to JavaScript`, then click `OK`, 
@@ -201,7 +201,7 @@ change the version of Java. You might need to edit `eclipse.ini`.
 
 You need to make sure that your project is configured to compile using the Java 
 7 compiler. Go to `Project > Properties`, select the `Java Compiler` section,
-and make sure that the project is configures to use the Java 7 compiler.
+and make sure that the project is configured to use the Java 7 compiler.
 
 ### Setting the character encoding
 
