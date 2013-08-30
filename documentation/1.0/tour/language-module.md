@@ -35,7 +35,7 @@ Just like Java, Ceylon has a class named
 <!-- check:none:decl from ceylon.language -->
     "The abstract supertype of all types representing 
      definite values..."
-    see (Basic)
+    see (`class Basic`, `class Null`)
     shared abstract class Object() 
             extends Anything() {
         
@@ -47,9 +47,8 @@ Just like Java, Ceylon has a class named
         
         "A developer-friendly string representing the 
          instance..."
-        shared default String string {
-            return className(this) + "@" + hash.string;
-        }
+        shared default String string =>
+                className(this) + "@" + hash.string;
         
     }
 
@@ -128,8 +127,8 @@ interface, but most classes do.
 <!-- check:none:decl from ceylon.language -->
     "The abstract supertype of all types with a well-defined
      notion of identity. Values of type `Identifiable` may 
-     be compared to determine if they are references to the 
-     same object instance."
+     be compared using the `==` operator to determine if 
+     they are references to the same object instance..."
     shared interface Identifiable {
         
         "Identity equality comparing the identity of the two 
@@ -145,10 +144,8 @@ interface, but most classes do.
         
         "The system-defined identity hash value of the 
          instance..."
-        see (identityHash)
-        shared default actual Integer hash {
-            return identityHash(this);
-        }
+        see (`function identityHash`)
+        shared default actual Integer hash => identityHash(this);
         
     }
 

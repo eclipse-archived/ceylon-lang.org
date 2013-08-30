@@ -119,8 +119,8 @@ declarations.
 <!-- id: hello -->
 	doc ("The classic Hello World program")
 	by ("Gavin")
-	see (goodbye)
-	throws (IOException)
+	see (`function goodbye`)
+	throws (`class IOException`)
 	void hello() {
 	    print("Hello, World!");
 	}
@@ -168,8 +168,8 @@ program element:
 <!-- id: hello -->
     "The classic Hello World program"
     by ("Gavin")
-    see (goodbye)
-    throws (IOException)
+    see (`function goodbye`)
+    throws (`class IOException`)
     void hello() {
         print("Hello, World!");
     }

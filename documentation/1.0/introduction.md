@@ -718,9 +718,9 @@ documentation compiler:
 <!-- try: -->
     "The user login action"
     by ("Gavin King")
-    throws (DatabaseException,
+    throws (`class DatabaseException`,
             "if database access fails")
-    see (LogoutAction.logout)
+    see (`function LogoutAction.logout`)
     scope (session)
     action { description="Log In"; url="/login"; }
     shared deprecated
