@@ -808,7 +808,7 @@ if an `Integer` represents a prime number:
     Boolean prime(Integer n) {
         "`n` must be greater than 1"
         assert (n>1);
-        else if (n<=3) {
+        if (n<=3) {
             return true;
         }
         else if (n%2==0 || n%3==0) {
@@ -837,7 +837,7 @@ Try it, by running the following function:
     Boolean prime(Integer n) {
         "`n` must be greater than 1"
         assert (n>1);
-        else if (n<=3) {
+        if (n<=3) {
             return true;
         }
         else if (n%2==0 || n%3==0) {
