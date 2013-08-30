@@ -93,9 +93,6 @@ We can make the package shared by providing a package descriptor:
 A `shared` package defines part of the "public" API of the module. Other modules 
 can directly access shared declarations in a `shared` package.
 
-At runtime the package is represented by a top level 
-[`Package`](#{site.urls.apidoc_current}/descriptor/class_Package.html) 
-attribute called `package`.
 
 ## Module descriptors
 
@@ -111,9 +108,9 @@ This is accomplished via a module descriptor:
         import java.sql '4.0';
     }
 
-At runtime a module is represented by a top level
-[`Module`](#{site.urls.apidoc_current}/descriptor/class_Module.html) 
-attribute called `module`.
+An module `import` annotated `shared` is implicitly inherited by every
+module which imports the module with the `shared` module `import`.
+
 
 <!--
 A module may be *runnable*. A runnable module must specify a `run()` method in 

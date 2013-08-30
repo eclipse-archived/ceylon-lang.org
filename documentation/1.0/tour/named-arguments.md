@@ -373,7 +373,7 @@ something like this:
 Even though this looks like some kind of templating language, it's just an 
 ordinary expression.
 
-### implementation note <!-- m5 -->
+### implementation note <!-- m6 -->
 
 This library does not yet exist! Why not [get involved](/community) in 
 developing the Ceylon platform?

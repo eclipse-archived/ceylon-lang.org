@@ -282,8 +282,10 @@ following terminology:
 > Within a class initializer, a *self reference* to the instance being 
 > initialized is either:
 >
-> * the expression `this`, unless contained in a nested class declaration, or
-> * the expression `outer`, contained in a directly nested class declaration.
+> * any occurrence of the expression `this` or `super`, unless it also occurs 
+>   in the body of a nested class or interface declaration, or
+> * any occurrence of the expression `outer` in the body of a class or interface 
+>   declaration immediately contained by the class.
 
 Now, according to the language spec:
 
@@ -303,7 +305,11 @@ Now, according to the language spec:
 > * pass a self reference to the instance being initialized as an argument of 
 >   an instantiation, method invocation, or `extends` clause expression or as 
 >   the value of an attribute assignment or specification, 
-> * `return` a self reference to the instance being initialized.
+> * use a self reference to the instance being initialized as an operand of 
+>   any operator except the member selection operator, or the of operator,
+> * return a self reference to the instance being initialized, or
+> * attempt to narrow the type of a self reference to the instance being 
+>   initialized using the `if (is ...)` construct or case `(is ...)`.
 
 (The spec mentions a couple of other restrictions that we'll gloss over here.)
 
@@ -319,8 +325,8 @@ According to the language spec:
 > [unless nested inside member body]:
 > 
 > * a statement or control structure,
-> * a method or attribute declaration with a specifier or initializer,
-> a forward-declared method or attribute declaration not annotated `late`,
+> * a reference declaration,
+> * a forward-declared method or attribute declaration not annotated `late`,
 > * an `object` declaration with a non-empty initializer section, or
 > * an `object` declaration that directly extends a class other than 
 >   `Object` or `IdentifiableObject`...

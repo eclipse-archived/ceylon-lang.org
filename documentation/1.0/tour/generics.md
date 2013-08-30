@@ -533,9 +533,9 @@ Now of course, generic type arguments aren't checked for typesafety by the
 underlying virtual machine at runtime, but that's not really strictly 
 necessary since the compiler has already checked the soundness of the code.
 
-### implementation note <!-- m5 -->
+### implementation note <!-- m6 -->
 
-In the M5 release we have not had time to implement certain important
+In the M6 release we have not had time to implement certain important
 optimizations related to reified generics. Therefore, you'll likely run into
 some performance problems when using generic types in this release. Don't
 worry, we're confident that we can resolve these issues by the time Ceylon
