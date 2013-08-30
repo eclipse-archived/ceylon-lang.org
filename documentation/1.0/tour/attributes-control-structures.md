@@ -286,8 +286,8 @@ behavior and irregular syntax:
     case (larger) { print("larger"); }
 <!-- cat: } -->
 
-The type of the `switch`ed expression _must_ be an enumerated type. You
-can't `switch` on a `String` or `Integer`. (Use `if` instead.)
+The type of the `switch`ed expression may be an enumerated type, `String`,
+`Character`, or `Integer`.
 
 We'll have much more to say about `switch` when we discuss 
 [enumerated types](../types/#enumerated_types).
@@ -472,7 +472,8 @@ defined in `ceylon.language`. If we don't explicitly specify a type,
 
 There is no way to handle exceptions of type of `java.lang.Error`.
 
-Eventually `try` will support a "resource" expression similar to Java 7.
+The `try` statement may optionally specify a "resource" expression, just
+like in Java.
 
 <!-- try: -->
 <!-- cat-id:tx -->
@@ -485,10 +486,6 @@ Eventually `try` will support a "resource" expression similar to Java 7.
 
 There are no Java-style checked exceptions in Ceylon.
 
-
-### implementation note <!-- m5 -->
-
-Resource expressions are not yet implemented.
 
 ## Condition lists
 
