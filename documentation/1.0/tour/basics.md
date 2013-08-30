@@ -253,7 +253,7 @@ Even better, you can identity a Unicode character by its name.
      ratio of the circumference of a circle to its diameter."
     Float pi=calculatePi();
     
-    "The mathematical constant \{#MATHEMATICAL ITALIC SMALL E},
+    "The mathematical constant \{MATHEMATICAL ITALIC SMALL E},
      the base of the natural logarithm."
     Float e=calculateE();
 
@@ -333,13 +333,13 @@ following does not compile:
 
 ## Dealing with objects that aren't there
 
-Let's take a name as input from the command line. We have to account for the 
-case where nothing was specified at the command line, which gives us an 
-opportunity to explore how `null` values are treated in Ceylon, which is 
-quite different to what you're probably used to in Java or C#.
+Let's take a name as input from the command line. We have to account for 
+the case where nothing was specified at the command line, which gives us 
+an opportunity to explore how `null` values are treated in Ceylon, which 
+is quite different to what you're probably used to in Java or C#.
 
-Let's consider an overly-verbose example to start with. (We'll work our way 
-up to a more convenient form.)
+Let's consider an overly-verbose example to start with. (We'll work our 
+way up to a more convenient form.)
 
 <!-- try-post:
     hello();
@@ -383,7 +383,7 @@ This is the preferred style most of the time, since we can't actually use
 
 ## Optional types
 
-Unlike Java, locals, parameters, and attributes that may contain `null` values 
+Local variables, parameters, and attributes that may contain `null` values 
 must be explicitly declared as being of optional type (the `T?` syntax). 
 There's simply no way to assign `null` to a local that isn't of optional type. 
 The compiler won't let you. This is an error:
@@ -482,6 +482,7 @@ The `then` operator produces
 
 You can chain an `else` after a `then` to reproduce the behavior of C's
 ternary `?:` operator:
+
 <!-- try-pre:
     String arg = "hello";
 -->
@@ -507,10 +508,11 @@ Finally, the `?.` operator lets us call operations on optional types:
 If `name` is null, `name?.uppercased` evaluates to `null`. Otherwise, the
 `uppercased` attribute of `String` is evaluated. 
 -->
+
 If we need to squeeze a whole chain of `then`s/`else`s into a single 
 expression, we can use the "poorman's switch" idiom:
 
-    String sign = (int>1P then "extremely damn positive")
+    String sign = (int>1P then "enormous")
              else (int<0 then "negative")
              else (int>0 then "positive")
              else "zero";
@@ -537,11 +539,11 @@ an initial value has been assigned. Therefore, we use the word _value_ to
 talk about "variables" collectively, and reserve the word _variable_ to 
 mean a value which is explicitly defined to be reassignable.
 
-    String bye = "Adios"; //a value
-    variable Integer count = 0; //a variable
+    String bye = "Adios";        //a value
+    variable Integer count = 0;  //a variable
     
-    bye = "Adeu"; //compile error
-    count = 1; //allowed
+    bye = "Adeu";  //compile error
+    count = 1;     //allowed
 
 Note that even a value which isn't a variable in this sense, may still be
 "variable" in the sense that its value varies between different runs of
@@ -645,7 +647,7 @@ arguments.
     }
 
 A _nonempty_ variadic parameter is declared using a postfix plus sign,
-for example, `String+`. In this case, the called must supply at least
+for example, `String+`. In this case, the caller must supply at least
 one argument.
 
 <!-- try-post:
@@ -697,7 +699,7 @@ such function and value definitions using a "fat arrow", `=>`. For example:
 -->
     String name => firstName + " " + lastName;
 
-<br/>
+Or:
 
 <!-- try-post:
     print(sqr(3.5));

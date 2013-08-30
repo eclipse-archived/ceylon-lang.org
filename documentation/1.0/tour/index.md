@@ -9,12 +9,13 @@ doc _root: ..
 
 # Tour of Ceylon
 
-This tour introduces the Ceylon language to developers with
-some experience in object-oriented programming. It assumes
-familiarity with concepts like static typing, inheritance, 
-subtyping, and type parameterization (generics). If you 
-already know a language like Java, C#, or C++, you already
-have all the background you need.
+This tour of the Ceylon language is primarily intended for 
+developers with some experience in object-oriented 
+programming. It assumes basic familiarity with concepts like 
+static typing, inheritance, subtyping, and type 
+parameterization (generics). If you already know a language 
+like Java, C#, or C++, you already have all the background 
+you need.
 
 ### What if I don't know Java?
 
@@ -26,15 +27,16 @@ experiment with the language using [Ceylon IDE](../ide), and
 gradually get a feel for how these things work and how they 
 are useful. None of us learned to program from books or 
 tutorials or from other people telling us how to do it. We 
-learned by playing and experimenting.
+learned by playing and experimenting and working with other
+people's code.
 
 _If you're completely new to static typing,_ you'll probably
-find Ceylon a bit fussy and complicated at first. There's a
-lot more rules to know about than in a language like Python,
-Ruby, or Smalltalk. But we promise that the benefits are worth 
-it in the end, especially once you learn to use the IDE 
-effectively. Tooling for dynamic languages simply can't reason
-about your code like Ceylon IDE can! 
+find Ceylon very fussy and even a bit complicated at first. 
+There's a lot more rules to know about than in a language like 
+Python, Ruby, or Smalltalk. But we promise that the benefits 
+make it worthwhile in the end, especially once you learn to 
+use the IDE effectively. Tools for a dynamic language simply 
+can't reason about your code like Ceylon IDE can! 
 
 ### Help us improve!
 
