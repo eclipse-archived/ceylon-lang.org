@@ -233,12 +233,27 @@ Unicode characters in your text.
     Float calculatePi() => 3.14;
     
 -->
-    "The mathematical constant \{#03C0}, the 
-     ratio of the circumference of a circle 
+    "The mathematical constant \{#03C0}, the
+     ratio of the circumference of a circle
      to its diameter."
     Float pi=calculatePi();
     
-    "The mathematical constant \{#0001D452}, 
+    "The mathematical constant \{#0001D452},
+     the base of the natural logarithm."
+    Float e=calculateE();
+
+Even better, you can identity a Unicode character by its name.
+
+<!-- try-pre:
+    Float calculateE() => 2.72;
+    Float calculatePi() => 3.14;
+    
+-->
+    "The mathematical constant \{GREEK SMALL LETTER PI}, the 
+     ratio of the circumference of a circle to its diameter."
+    Float pi=calculatePi();
+    
+    "The mathematical constant \{#MATHEMATICAL ITALIC SMALL E},
      the base of the natural logarithm."
     Float e=calculateE();
 
@@ -278,7 +293,7 @@ Notice how our message contains interpolated expressions, delimited using
 On my machine, this program results in the following output:
 
 <!-- lang: none -->
-    Hello, this is Ceylon 0.5 
+    Hello, this is Ceylon 0.6
     running on Java 1.7!
     
     You ran me at 1362763185067 ms,
@@ -311,7 +326,7 @@ following does not compile:
 <!-- check:none:Demoing error -->
     print("Hello, this is Ceylon " + language.version +  
           "running on Java " + process.vmVersion + "!\n" +
-          "You ran me at " + process.milliseconds +    //compile error!
+          "You ran me at " + process.milliseconds +  //compile error!
           " ms, with " + process.arguments.size +    //compile error!
           " arguments.");
 
@@ -323,8 +338,8 @@ case where nothing was specified at the command line, which gives us an
 opportunity to explore how `null` values are treated in Ceylon, which is 
 quite different to what you're probably used to in Java or C#.
 
-Let's consider an overly-verbose example to start with. (We'll get to a more 
-convenient form in a moment.)
+Let's consider an overly-verbose example to start with. (We'll work our way 
+up to a more convenient form.)
 
 <!-- try-post:
     hello();
@@ -492,6 +507,14 @@ Finally, the `?.` operator lets us call operations on optional types:
 If `name` is null, `name?.uppercased` evaluates to `null`. Otherwise, the
 `uppercased` attribute of `String` is evaluated. 
 -->
+If we need to squeeze a whole chain of `then`s/`else`s into a single 
+expression, we can use the "poorman's switch" idiom:
+
+    String sign = (int>1P then "extremely damn positive")
+             else (int<0 then "negative")
+             else (int>0 then "positive")
+             else "zero";
+
 Using `else`, we can finally simplify our example to something reasonable:
 
 <!-- try-post:
@@ -547,11 +570,15 @@ upon the arguments to its parameters.
 -->
     Float sqr(Float x) { return x*x; }
 
-In Ceylon, a value or function declaration can occur almost anywhere: as
-a _toplevel_, belonging directly to a package, as an _attribute_ or _method_ 
-of a class, or as a _block-local_ declaration inside a different value or 
-function body. Indeed, as we'll see later, a value or function declaration
-may even occur _inside an expression_ in some cases.
+In Ceylon, a value or function declaration can occur almost anywhere: 
+
+- as a _toplevel_, belonging directly to a package, 
+- as an _attribute_ or _method_ of a class, or 
+- as a _block-local_ declaration inside a different value or function 
+  body.
+
+Indeed, as we'll see later, a value or function declaration may even 
+occur _inside an expression_ in some cases.
 
 Functions declarations look pretty similar to what you're probably already
 used to from other C-like languages, with two exceptions. Ceylon has:
@@ -609,7 +636,6 @@ can iterate the parameter using a `for` loop to get at the individual
 arguments.
 
 <!-- try-post:
-
     helloEveryone("world", "mars", "saturn");
 -->
     void helloEveryone(String* names) {
@@ -618,7 +644,20 @@ arguments.
         }
     }
 
-To pass an argument to a sequenced parameter we have three choices. We
+A _nonempty_ variadic parameter is declared using a postfix plus sign,
+for example, `String+`. In this case, the called must supply at least
+one argument.
+
+<!-- try-post:
+    helloEveryone("world", "mars", "saturn");
+-->
+    void helloEveryone(String+ names) {
+        for (name in names) {
+            hello(name);
+        }
+    }
+
+To pass an argument to a variadic parameter we have three choices. We
 could:
 
 - provide a an explicit list of enumerated arguments,
@@ -717,11 +756,6 @@ allowed in Ceylon. So we can write:
 
 But Ceylon even lets us do this with fat arrows:
 
-### _Note <!-- m5 -->_
-
-_Oops! Due to a bug in M5, the following example currently does not compile for 
-the JVM._
-
 <!-- try-pre:
     value firstName = "Walter";
     value lastName = "Kovacs";
@@ -770,11 +804,10 @@ if an `Integer` represents a prime number:
     print(prime(17));
 -->
     "Determine if `n` is a prime number."
-    throws (Exception, "if `n<2`")
+    throws (`class AssertionException`, "if `n<2`")
     Boolean prime(Integer n) {
-        if (n<2) {
-            throw Exception("illegal argument ``n``<2");
-        }
+        "`n` must be greater than 1"
+        assert (n>1);
         else if (n<=3) {
             return true;
         }
@@ -800,11 +833,10 @@ Try it, by running the following function:
 
 <!-- try-pre:
     "Determine if `n` is a prime number."
-    throws (Exception, "if `n<2`")
+    throws (`class AssertionException`, "if `n<2`")
     Boolean prime(Integer n) {
-        if (n<2) {
-            throw Exception("illegal argument ``n``<2");
-        }
+        "`n` must be greater than 1"
+        assert (n>1);
         else if (n<=3) {
             return true;
         }
@@ -830,9 +862,8 @@ Try it, by running the following function:
     findPrimes();
 -->
     "Print a list of all two-digit prime numbers."
-    void findPrimes() {
-        print([ for (i in 2..99) if (prime(i)) i ]);
-    }
+    void findPrimes()
+        => printAll { for (i in 2..99) if (prime(i)) i };
 
 Heh, this was just a little teaser to keep you interested. We'll explain 
 the syntax we're using here a bit [later in the tour](../comprehensions).
