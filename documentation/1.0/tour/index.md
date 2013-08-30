@@ -16,7 +16,7 @@ subtyping, and type parameterization (generics). If you
 already know a language like Java, C#, or C++, you already
 have all the background you need.
 
-If you're new to object-oriented programming, you'll still
+_If you're new to object-oriented programming,_ you'll still
 be able to learn Ceylon. These concepts aren't difficult to
 pick up! But you might find some chapters of the tour pretty
 hard going first time through. If so, take it slowly: 
@@ -26,7 +26,7 @@ are useful. None of us learned to program from books or
 tutorials or from other people telling us how to do it. We 
 learned by playing and experimenting.
 
-If you're completely new to static typing, you'll probably
+_If you're completely new to static typing,_ you'll probably
 find Ceylon a bit fussy and complicated at first. There's a
 lot more rules to know about than in a language like Python,
 Ruby, or Smalltalk. But we promise that the benefits are worth 
