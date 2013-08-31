@@ -443,15 +443,18 @@ the benefits of static typing. For example, I can write a generic function
 like the following:
 
 <!-- try: -->
-    T createTriple<T,E>(Class<T,[E,E,E]> c, Function<E,[]> e)
-            => c(e(),e(),e()); 
+    T createTriple<T,E>(Class<T,[E,E,E]> c, Function<E,[Integer]> e)
+            => c(e(0),e(1),e(2)); 
 
 And use it like this:
 
 <!-- try: -->
-    Triple<Integer> triple = createTriple(`Triple<Integer>`, `nextInt`)
+    Integer isqr(Integer i) => i*i;
+    class Triple<T>(T t0, T t1, T t2) {}
+    
+    Triple<Integer> triple = createTriple(`Triple<Integer>`, `sqr`)
 
-OK, sure, that's a very contrived example, and doesn't really demonstrate
+OK, sure, that's a very contrived example, and doesn't demonstrate
 anything that we couldn't do more efficiently with function references.
 Runtime metaprogramming is primarily intended to ease the development of
 frameworks and libraries for Ceylon, and therefore further discussion of
