@@ -1,6 +1,6 @@
 ---
 layout: tour
-title: Tour of Ceylon&#58; Annotations
+title: Tour of Ceylon&#58; Annotations and the metamodel
 tab: documentation
 unique_id: docspage
 author: Gavin King
@@ -28,7 +28,7 @@ We call the function an _annotation constructor_.
 
 ## Annotation constructors
 
-Here's the definition of a some of our old friends:
+Here's the definition of a some of our old friends, `doc`:
 
 <!-- try: -->
 <!-- cat: shared class Deprecated(String? desc=null) {} -->
@@ -38,6 +38,9 @@ Here's the definition of a some of our old friends:
      element." 
     shared annotation Doc doc(String description) => Doc(description);
 
+And `by`:
+
+<!-- try: -->
     "Annotation to specify API authors."
     shared annotation Authors by(String* authors) => Authors(*authors);
 
@@ -46,6 +49,10 @@ Of course, we can define our own annotations. (That's the whole point!)
 <!-- try: -->
 <!-- check:none:Annotations M5 -->
     shared annotation Scope scope(ScopeType s) => Scope(s);
+
+Or:
+
+<!-- try: -->
     shared annotation Todo todo(String text) => Todo(text);
 
 Since annotation constructors are functions, annotation names always begin 
@@ -65,7 +72,7 @@ positional argument list or a named argument list. We could write:
     doc ("The Hello World program")
 <!-- cat: void m() {} -->
 
-or:
+Or:
 
 <!-- try-post:
     void test() { }
@@ -81,7 +88,7 @@ Likewise, we could write:
     by ("Gavin", "Stephane", "Emmanuel", "Tom", "Tako")
 <!-- cat: void m() {} -->
 
-or:
+Or:
 
 <!-- try-post:
     void test() { }
@@ -97,22 +104,31 @@ and leave it at that. We do this all the time with annotations like `shared`,
 ## Annotation types
 
 The return type of an annotation constructor is called the *annotation type*.
+The `doc` annotation produces a `Doc`:
 
+<!-- try: -->
     "The annotation class for the [[doc]] annotation."
     shared final annotation class Doc(shared String description)
             satisfies OptionalAnnotation<Doc, Annotated> {}
 
+The `by` annotation produces `Authors`:
+
+<!-- try: -->
     "The annotation class for [[by]]."
     shared final annotation class Authors(shared String* authors)
             satisfies OptionalAnnotation<Authors, Annotated> {}
 
 Naturally, we can define our own annotation types:
 
+<!-- try: -->
     shared final annotation class Todo(String text)
             satisfies SequencedAnnotation<Todo> {
         string => text;
     }
-    
+
+Or:
+
+<!-- try: -->
     shared final annotation class Scope(shared ScopeType scope)
             satisfies OptionalAnnotation<Scope,ClassOrInterfaceDeclaration> {
         string => (scope==request then "request")
@@ -273,6 +289,8 @@ Here are two more examples, to make sure you get the idea:
 <!-- try: -->
 <!-- check:none:Annotations M5 -->
     Scope scope = annotations(`Scope`, `class Person`) else request;
+
+<!-- try: -->
     Todo[] todos = annotations(`Todo`, `function method`);
 
 Everything's set up so that `annotations()` returns `Scope?` for the 

@@ -214,24 +214,3 @@ To set the source file character encoding in Eclipse, go to
 ## Continue the tour
 
 We'll begin with the [Basics](basics). 
-
-<!--
-## Tour legs:
-
-1. [Basics](basics)
-1. [Classes](classes)
-1. [Attributes and variables, control structures](attributes-control-structures)
-1. [Inheritance, refinement, and interfaces](inheritance)
-1. [Anonymous and member classes](anonymous-member-classes)
-1. [Sequences](sequences)
-1. [Types](types)
-1. [Generics](generics)
-1. [Packages and modules](modules)
-1. [Functions](functions)
-1. [Sequenced parameters and named arguments](named-arguments)
-1. [Comprehensions](comprehensions)
-1. [Language module](language-module)
-1. [Initialization](initialization)
-1. [Annotations](annotations)
-1. [Interceptors](interceptors)
--->
