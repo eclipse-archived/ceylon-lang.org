@@ -26,7 +26,7 @@ function that returns a subtype of
 [`ConstrainedAnnotation`](#{site.urls.apidoc_current}/metamodel/interface_ConstrainedAnnotation.html).
 We call the function an _annotation constructor_.
 
-### Annotation constructors
+## Annotation constructors
 
 Here's the definition of a some of our old friends:
 
@@ -190,6 +190,43 @@ The argument to `ProgramElement` must be a metamodel type. So the argument
 elements that declare a subtype of `Number`. The argument 
 `Attribute<Nothing,String>` would constrain the annotation to occur only 
 at program elements that declare an attribute of type `String`.
+
+
+## Restrictions on annotation parameters and annotation arguments
+
+The specification defines a number of restrictions on annotation parameter
+types:
+
+> Each parameter of an annotation constructor [or initializer parameter of an 
+> annotation type] must have one of the following types:
+>
+> - `Integer`, `Float`, `Character`, or `String`,
+> - an enumerated type whose cases are all anonymous classes, such as `Boolean`,
+> - a subtype of `Declaration` in `ceylon.language.model.declaration`,
+> -  an annotation type,
+> - `{T*}` or `[T*]` where `T` is a legal annotation constructor parameter type, 
+>   or
+> - any tuple type whose element types are legal annotation constructor parameter 
+>   types.
+
+Furthermore: 
+
+- an annotation type can't contain initialization logic or reference declarations
+  (it must have an empty initializer section), and 
+- an annotation constructor can't contain multiple statements (it must simply 
+  instantiate and return an annotation type).
+
+Finally, an annotation argument may contain only:
+
+- literal strings, characters, integers, and floats, 
+- references to toplevel anonymous classes (for example, `true`), 
+- program element reference expressions (for example, `` `interface List` ``, or 
+  `` `function sum` ``), and
+- iterable and tuple enumerations (`{ ... }` and `[ ... ]`) containing legal 
+  annotation arguments.  
+
+Some of these restrictions will likely be relaxed in future versions of the 
+language.
 
 
 ## Reading annotation values at runtime
