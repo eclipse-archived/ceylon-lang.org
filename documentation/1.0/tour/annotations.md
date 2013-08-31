@@ -252,17 +252,10 @@ write:
     String? description = annotations(`Description`, 
                 `class Person`)?.description;
 
-Note that this expression:
-
-    `Description` 
-
-returns the metamodel object for the type `Description`, an instance of 
-`Class<Description,[]>`. This expression:
-
-    `class Person` 
-
-returns the reference object for the program element `Person`, a
-`ClassDeclaration`.
+Note that the expression `` `Description` `` returns the metamodel object 
+for the type `Description`, an instance of `Class<Description,[]>`. The 
+expression `` `class Person` `` returns the reference object for the program 
+element `Person`, a `ClassDeclaration`.
 
 To determine if the method `stop()` of a class named `Thread` is deprecated, 
 we can write:
@@ -272,12 +265,8 @@ we can write:
     Boolean deprecated = exists annotations(`Deprecated`, 
                 `function Thread.stop`);
 
-Note that this expression:
-
-    `function Thread.stop` 
-
-returns the reference object for the method `stop()` of `Thread`, an 
-instance of `FunctionDeclaration`.
+Note that the expression `` `function Thread.stop` `` returns the reference 
+object for the method `stop()` of `Thread`, an instance of `FunctionDeclaration`.
 
 Here are two more examples, to make sure you get the idea:
 
