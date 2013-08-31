@@ -173,14 +173,14 @@ these two interfaces:
 
 * If an annotation type is a subtype of 
   [`OptionalAnnotation`](#{site.urls.apidoc_current}/metamodel/interface_OptionalAnnotation.html), 
-  at most one annotation of a given program element may be of this annotation type, or, 
-  otherwise
+  at most one annotation of a given program element may be of this annotation 
+  type, or, otherwise
 * if an annotation type is a subtype of 
   [`SequencedAnnotation`](#{site.urls.apidoc_current}/metamodel/interface_SequencedAnnotation.html),
-  more than one
-  annotation of a given program element may be of this annotation type.
+  more than one annotation of a given program element may be of this annotation 
+  type.
 
-<!-- this comment is working around a bug in rdiscount -->
+Where `OptionalAnnotation` is defined in the language module:
 
 <!-- try: -->
 <!-- check:none:Annotations M5 -->
@@ -193,6 +193,10 @@ these two interfaces:
             given Value satisfies Annotation<Value>
             given ProgramElement satisfies Annotated {}
 
+Along with `SequencedAnnotation`:
+
+<!-- try: -->
+<!-- check:none:Annotations M5 -->
     "An annotation that may occur multiple times
      at a single program element."
     shared interface SequencedAnnotation<out Value, 
