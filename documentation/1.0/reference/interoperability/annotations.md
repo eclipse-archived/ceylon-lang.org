@@ -3,7 +3,6 @@ layout: reference
 title: Type mapping annotations
 tab: documentation
 unique_id: docspage
-milestone: Milestone 2
 author: Tom Bentley
 ---
 

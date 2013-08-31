@@ -4,7 +4,6 @@ title: Type Parameters
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
-milestone: Milestone 1
 ---
 
 # #{page.title}

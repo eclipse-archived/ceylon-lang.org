@@ -7,7 +7,7 @@ author: Emmanuel Bernard
 ---
 # #{page.title}
 
-[Ceylon M5][M5] _&ldquo;Nesa Pong&rdquo;_ is now available for download! 
+[Ceylon M6][M6] _&ldquo;Nesa Pong&rdquo;_ is now available for download! 
 This is the latest release of the language, command line tools and IDE.
 
 ## Command line tools
@@ -16,62 +16,62 @@ This package contains the Ceylon command line compiler for Java and
 JavaScript virtual machines, the documentation compiler, the language 
 module, and the module runtime.
 
-[M5]: /blog/2013/03/14/ceylon-m5-nesa-pong?utm_source=download&utm_medium=web&utm_content=blog&utm_campaign=latestrelease
+[M6]: /blog/2013/03/14/ceylon-m5-nesa-pong?utm_source=download&utm_medium=web&utm_content=blog&utm_campaign=latestrelease
 
 <table>
     <tr>
         <td>
-        <a href="/download/dist/1_0_Milestone5" 
+        <a href="/download/dist/1_0_Milestone6" 
            title='Download the Zip archive'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone5?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone6?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
            <img src="/images/download/package-zip.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
         </a>
         </td>
         <td>Zip archive</td>
         <td>All Operating Systems</td>
         <td>
-        <a href="/download/dist/1_0_Milestone5" 
+        <a href="/download/dist/1_0_Milestone6" 
            title='Download the Zip archive'
            class='bubble-button'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone5?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone6?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
            download
         </a>
         </td>
     </tr>
     <tr>
         <td>
-        <a href="/download/dist/1_0_Milestone5_rpm" 
+        <a href="/download/dist/1_0_Milestone6_rpm" 
            title='Download the RPM'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone5_rpm?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone6_rpm?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
            <img src="/images/download/package-fedora.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
         </a>
         </td>
         <td>RPM</td>
         <td>Fedora/Red Hat</td>
         <td>
-        <a href="/download/dist/1_0_Milestone5_rpm" 
+        <a href="/download/dist/1_0_Milestone6_rpm" 
            title='Download the RPM'
            class='bubble-button'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone5_rpm?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone6_rpm?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
            download
         </a>
         </td>
     </tr>
     <tr>
         <td>
-        <a href="/download/dist/1_0_Milestone5_deb" 
+        <a href="/download/dist/1_0_Milestone6_deb" 
            title='Download the Debian package'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone5_deb?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone6_deb?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
            <img src="/images/download/package-debian.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
         </a>
         </td>
         <td>DEB</td>
         <td>Debian/Ubuntu</td>
         <td>
-        <a href="/download/dist/1_0_Milestone5_deb" 
+        <a href="/download/dist/1_0_Milestone6_deb" 
            title='Download the Debian package'
            class='bubble-button'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone5_deb?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Milestone6_deb?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
            download
         </a>
         </td>
@@ -87,7 +87,7 @@ Mac OS X users running the [Homebrew package manager](http://mxcl.github.com/hom
 Instructions for getting started are contained in the file
 `README.md` in the root directory of the distribution, or
 [right here in GitHub][ceylon-dist readme]. To know what's 
-precisely in the release, read our [announcement][M5].
+precisely in the release, read our [announcement][M6].
 
 [ceylon-dist readme]: https://github.com/ceylon/ceylon-dist/blob/master/README.md 
 
@@ -110,7 +110,7 @@ from our [update site][update site].
         </a>
         </td>
         <td>Ceylon IDE</td>
-        <td>Eclipse Juno/Indigo (Juno required for Mac OS X)</td>
+        <td>Eclipse Kepler/Juno</td>
         <td>
         <a href="/documentation/current/ide/install" 
            title='Install the IDE'

@@ -29,7 +29,7 @@ _This page is very incomplete. Want to help? [See how](/code/website)._
 * [`object`s](structure/object)
 * [Methods](structure/method)
 * [Attributes](structure/attribute)
-* [Annotations](structure/annotation) <!-- m6 -->
+* [Annotations](structure/annotation)
 
 ## Statements
 

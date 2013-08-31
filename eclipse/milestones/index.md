@@ -9,7 +9,7 @@ author: Max Rydahl Andersen
 
 To install the Milestone versions of the Ceylon tooling into your Eclipse do the following:
 
-1. Run [Eclipse 3.7/Indigo](http://eclipse.org/downloads)
+1. Run [Eclipse 4.2 Juno](http://eclipse.org/downloads)
 2. Go to *Help > Install Software...*
 3. Type in `http://ceylon-lang.org/eclipse/milestones` to the "Work With" field and Hit Enter.
 4. Eclipse will load the updatesite and when it finish, select the plugin

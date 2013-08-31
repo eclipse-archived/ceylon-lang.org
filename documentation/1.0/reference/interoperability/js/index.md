@@ -3,7 +3,6 @@ layout: reference
 title: The JavaScript compiler
 tab: documentation
 unique_id: docspage
-milestone: Milestone 6
 author: Enrique Zamudio
 ---
 

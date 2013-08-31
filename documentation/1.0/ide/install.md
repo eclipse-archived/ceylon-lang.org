@@ -20,12 +20,12 @@ is not executing on a Java 7 VM._ (see information about [eclipse.ini][eclipsein
 
 Here's what you need to do to install the IDE:
 
-1.  Start with a clean install of [Eclipse 3.7 Indigo][eclipse] or 
+1.  Start with a clean install of [Eclipse 4.3 Kepler][eclipse] or 
     of [Eclipse 4.2 Juno][juno] running on Java 7. Mac OS users 
-    _must_ install Juno and make Java 7 the default virtual machine 
-    using the `Java Preferences` application located in 
-    `/Applications/Utilities`. Other OSes can follow the information
-    about selecting the JVM in the [eclipse.ini][eclipseini] if needed.
+    _must_ make Java 7 the default virtual machine using the 
+    `Java Preferences` application located in `/Applications/Utilities`. 
+    Other OSes can follow the information about selecting the JVM in 
+    the [eclipse.ini][eclipseini] file if needed.
 2.  Go to `Help > Install New Software ...`.
 3.  Enter the URL <http://ceylon-lang.org/eclipse/updatesite/>
     in the `Work With` field and hit Enter.<br/>

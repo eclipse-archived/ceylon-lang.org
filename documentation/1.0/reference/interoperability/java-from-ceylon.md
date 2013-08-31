@@ -3,7 +3,6 @@ layout: reference
 title: Using Java from Ceylon
 tab: documentation
 unique_id: docspage
-milestone: Milestone 2
 author: Tom Bentley
 ---
 

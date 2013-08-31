@@ -65,13 +65,12 @@ Check out the [screenshots](screenshots)!
 
 ## Running the IDE
 
-You need a clean install of [Eclipse 3.7 Indigo][eclipse] or of 
+You need a clean install of [Eclipse 4.3 Kepler][eclipse] or of 
 [Eclipse 4.2 Juno][juno] running on Java 7. 
 
-- Mac OS users _must_ install Juno and make Java 7 the default 
-  virtual machine using the `Java Preferences` application located 
-  in `/Applications/Utilities`. It is not easy to convince Eclipse
-  Indigo to run under Java 7 on Mac OS.
+- Mac OS users _must_ make Java 7 the default virtual machine using 
+  the `Java Preferences` application located in 
+  `/Applications/Utilities`.
 
 _You cannot run Ceylon IDE on Java 6._
 

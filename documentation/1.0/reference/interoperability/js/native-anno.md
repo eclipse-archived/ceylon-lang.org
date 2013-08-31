@@ -3,7 +3,6 @@ layout: reference
 title: Extending types with native JavaScript
 tab: documentation
 unique_id: docspage
-milestone: Milestone 6
 author: Enrique Zamudio
 ---
 

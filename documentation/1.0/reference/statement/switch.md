@@ -4,7 +4,6 @@ title: '`switch` statement'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
-milestone: Milestone 2
 doc_root: ../../..
 ---
 
