@@ -375,14 +375,95 @@ interceptors to methods and attributes.
 
 ## The metamodel
 
-TODO!
+The Ceylon metamodel is an API that allows a program to interact with its
+own program elements and the types they define at runtime. This capability
+is commonly called _reflection_ or _introspection_ in other languages.
+Reflection makes possible _runtime metaprogramming_.
+
+_Note: Ceylon does not support any form of compile-time metaprogramming._
+
+In fact, the Ceylon metamodel is divided into two separate APIs:
+
+- `ceylon.language.model.declaration` defines a _detyped_ model of 
+  declarations, packages, and modules, while 
+- `ceylon.language.model` defines a statically typed model of types and
+  typed declarations.
+
+The language provides a built-in syntax for obtaining the metamodel for
+a program element. All metamodel expressions are enclosed in backticks.
+
+A program element reference expression specifies the fully-qualified name 
+of the program element, and a keyword indicating the kind of program 
+element it is. We've already seen a few examples of this syntax in `see` 
+and `throws` annotations:
+
+<!-- try: -->
+    `class Singleton`
+    `interface List`
+    `function Iterable.map`
+    `function sum`
+    `alias Number`
+    `value Iterable.size`
+    `given Element`
+    `module ceylon.language`
+    `package ceylon.language.model`
+
+Reference expressions produce an instance of a subtype of `Declaration`,
+for example, a reference to a `class` is of type `ClassDeclaration`, and
+a reference to a `function` is of type `FunctionDeclaration`. They're
+especially useful for defining cross-references between program elements
+in annotations.
+
+A typed metamodel expression specifies a type or fully-typed function or
+value. No keyword is necessary. By "fully-typed", I mean that type 
+arguments must be provided to all type parameters of a generic type or 
+function. For example:
+
+<!-- try: -->
+    `Singleton<String>`
+    `List<Float|Integer>`
+    `{Object+}`
+    `{Anything*}.map<String>`
+    `sum<Float>`
+    `{String*}.size`
+    `[Float,Float,String]`
+    `Float|Integer`
+    `Element`
+
+A typed metamodel expression evaluates to a metamodel object whose static
+type captures the type of the referenced program element. For example:
+
+- `Singleton<String>` is of type `Class<Singleton<String>,[String]>`,
+- `{Anything*}.map<String>` is of type 
+  `Method<{Anything*},{String*},[String(Anything)]>`, and
+- `Float|Integer` is of type `UnionType<Float|Integer>`.
+
+Thus, we can interact with our program at the meta level without losing
+the benefits of static typing. For example, I can write a generic function
+like the following:
+
+<!-- try: -->
+    T createTriple<T,E>(Class<T,[E,E,E]> c, Function<E,[]> e)
+            => c(e(),e(),e()); 
+
+And use it like this:
+
+<!-- try: -->
+    Triple<Integer> triple = createTriple(`Triple<Integer>`, `nextInt`)
+
+OK, sure, that's a very contrived example, and doesn't really demonstrate
+anything that we couldn't do more efficiently with function references.
+Runtime metaprogramming is primarily intended to ease the development of
+frameworks and libraries for Ceylon, and therefore further discussion of
+the topic is outside of the scope of this tour.
+
 
 ## There's more ...
 
 Well actually, we've finished the tour! Of course, there's still plenty of 
 scope for you to explore Ceylon on your own. You should now know enough to 
-start writing Ceylon code for yourself, and start getting to know the platform 
-modules.
+start writing Ceylon code for yourself, and start getting to know the 
+platform modules.
 
 Alternatively, if you want to keep reading you can browse the 
 [reference documentation](#{page.doc_root}/reference) or (if you're sitting 
