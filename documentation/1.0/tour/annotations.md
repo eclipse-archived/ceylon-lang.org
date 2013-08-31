@@ -130,7 +130,7 @@ Or:
 
 <!-- try: -->
     shared final annotation class Scope(shared ScopeType scope)
-            satisfies OptionalAnnotation<Scope,ClassOrInterfaceDeclaration> {
+            satisfies OptionalAnnotation<Scope,ClassDeclaration> {
         string => (scope==request then "request")
              else (scope==session then "session")
              else (scope==application then "application")
@@ -144,7 +144,8 @@ annotation type must be a subtype of `ConstrainedAnnotation`:
 <!-- check:none:Annotations M6 -->
     "An annotation. This interface encodes constraints upon 
      the annotation in its type arguments."
-    shared interface ConstrainedAnnotation<out Value, out Values, in ProgramElement> 
+    shared interface ConstrainedAnnotation<out Value, out Values, 
+                    in ProgramElement> 
             of Value
             satisfies Annotation<Value>
             given Value satisfies Annotation<Value>
@@ -185,7 +186,8 @@ these two interfaces:
 <!-- check:none:Annotations M5 -->
     "An annotation that may occur at most once
      at a single program element."
-    shared interface OptionalAnnotation<out Value, in ProgramElement=Annotated>
+    shared interface OptionalAnnotation<out Value, 
+                    in ProgramElement=Annotated>
             of Value
             satisfies ConstrainedAnnotation<Value,Value?,ProgramElement>
             given Value satisfies Annotation<Value>
@@ -193,7 +195,8 @@ these two interfaces:
 
     "An annotation that may occur multiple times
      at a single program element."
-    shared interface SequencedAnnotation<out Value, in ProgramElement=Annotated>
+    shared interface SequencedAnnotation<out Value, 
+                    in ProgramElement=Annotated>
             of Value
             satisfies ConstrainedAnnotation<Value,Value[],ProgramElement>
             given Value satisfies Annotation<Value>
@@ -202,10 +205,9 @@ these two interfaces:
 Finally, the third type parameter, `ProgramElement`, of `ConstrainedAnnotation`
 constrains the kinds of program elements at which the annotation can occur. 
 The argument to `ProgramElement` must be a metamodel type. So the argument 
-`Type<Number>` would constrain the annotation to occur only at program 
-elements that declare a subtype of `Number`. The argument 
-`Attribute<Nothing,String>` would constrain the annotation to occur only 
-at program elements that declare an attribute of type `String`.
+`InterfaceDeclaration|AliasDeclaration` would constrain the annotation to occur 
+only at interface and `alias` declarations. The argument `ValueDeclaration` would 
+constrain the annotation to occur only value or attribute declarations.
 
 
 ## Restrictions on annotation parameters and annotation arguments
@@ -366,6 +368,10 @@ Alternatively, we could use a named argument list:
 We won't need to use reflection in our example, since Ceylon's module 
 architecture includes special built-in support for using annotations to add
 interceptors to methods and attributes.
+
+## The metamodel
+
+TODO!
 
 ## There's more ...
 
