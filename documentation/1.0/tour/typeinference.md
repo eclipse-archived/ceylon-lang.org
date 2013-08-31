@@ -41,6 +41,9 @@ use the `alias` keyword:
 <!-- try: -->
     alias Num => Float|Integer;
 
+Note: we can extend or satisfy a class or interface alias, but we can't
+inherit from a type alias declared using the `alias` keyword.
+
 A type alias may be parameterized, and have type constraints, which we'll
 [learn about later](../generics/#generic_type_constraints):
 
@@ -61,6 +64,49 @@ be `shared`.
 
 <!-- try: -->
     shared interface People => Set<Person>;
+
+## Member class aliases and class alias refinement
+
+When it comes to class aliases, Ceylon has one more trick up its sleeves. 
+Cast your mind back to what we learned about member classes in the
+[fifth leg of the tour]
+(../anonymous-member-classes#member_classes_and_member_class_refinement).
+What we saw there with ordinary classes also applies to class aliases.
+
+A type alias may be nested inside a class or interface. In the case of a 
+class alias, it is considered a member of the class or interface:
+
+    class BufferedReader(Reader reader)
+            satisfies Reader {
+        shared default class Buffer()
+            => MutableList<Character>();
+        ...
+    }
+
+Now, if the class alias is annotated `default`, it may be refined, either
+by an inner alias of a subclass of the original aliased class: 
+    
+    class BufferedFileReader(File file)
+            extends BufferedReader(FileReader(file)) {
+        shared actual class Buffer()
+            => MutableLinkedList<Character>();
+        ...
+    }
+
+Or by an inner subclass of the original aliased class:
+
+    class BufferedFileReader(File file)
+            extends BufferedReader(FileReader(file)) {
+        shared actual class Buffer()
+                extends super.Buffer() {  
+            ...
+        }
+        ...
+    }
+
+(Alternatively, we could have written `extends MutableList<Character>()`
+instead of `extends super.Buffer()`, since both expression refer to the
+same class type.)
 
 
 ## Type inference
