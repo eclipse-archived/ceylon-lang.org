@@ -213,7 +213,7 @@ This version is also slightly more readable, so it's the preferred syntax.
 When a name of a function appears without any arguments, like `printNum` does 
 above, it's called a *function reference*. A function reference is the thing 
 that really has the type `Callable`. In this case, `printNum` has the type 
-`Callable<Anything,Integer>`.
+`Callable<Anything,[Integer]>`, or simply `Anything(Integer)`.
 
 Now, remember how we said that `Anything` is both the return type of a `void` 
 function, and also the logical root of the type hierarchy? Well that's useful 
@@ -296,10 +296,73 @@ Here the expression `Hello("Gavin").say` has the same type as `print` above.
 It is of type `Anything(Integer)`.
 
 
+## Static method and attribute references
+
+A static method reference is a reference to a method, qualified by the type
+which declares the method.
+
+    value say = Hello.say;
+
+In a static method reference, there's no receiving instance of the type! We
+have not provided any instance of `Hello` in this snippet. What we just wrote
+is quite different to this:
+
+    value say = Hello("Gavin").say;
+
+So for a static method reference, to invoke the method, we must provide two 
+items of information:
+
+- first, an instance of the type, and
+- then, the arguments of the function.
+
+We provide these two items in distinct argument lists:
+
+    value say = Hello.say;
+    value sayHello = say(Hello("World"));
+    sayHello(3);
+
+Or, simply:
+
+    value say = Hello.say;
+    say(Hello("World"))(3);
+
+Let's fill in the types, to see what's really going on here:
+
+    Anything(Integer)(Hello) say = Hello.say;
+    Anything(Integer) sayHello = say(Hello("World"));
+    sayHello(3);
+
+That is, a static function reference is a function that returns a
+function.
+
+A static attribute reference is a reference to an attribute, qualified by
+the type which declares the attribute.
+
+    Polar coord = .... ;
+    value angle = Polar.angle;
+    value radius = Polar.angle;
+    Float a = angle(coord);
+    Float radius = radius(coord);
+
+Just to be sure, let's fill in the types:
+
+    Polar coord = .... ;
+    Float(Polar) angle = Polar.angle;
+    Float(Polar) radius = Polar.angle;
+    Float a = angle(coord);
+    Float radius = radius(coord);
+
+Static attribute references work especially well with the 
+[`map()`](#{site.urls.apidoc_current}/interface_Iterable.html#map) 
+method of `Iterable`:
+
+    {String*} names = people.map(Person.name); 
+
+
 ## Curried functions
 
-A method or function may be declared in _curried_ form, allowing the method or
-function to be partially applied to its arguments. A curried function has
+A method or function may be declared in _curried_ form, allowing the method 
+or function to be partially applied to its arguments. A curried function has
 multiple lists of parameters:
 
 <!-- try-post:
