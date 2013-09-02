@@ -176,14 +176,14 @@ subclasses *must* (because we used `formal`) provide an `actual Buffer`
 inner class.
 
     shared abstract class Reader() {
-        shared formal class Buffer(Character... chars) 
+        shared formal class Buffer(Character* chars)
                 satisfies Sequence<Character> {}
         // ...
     }
 
     shared class FileReader(File file) 
             extends Reader() {
-        shared actual class Buffer(Character... chars) 
+        shared actual class Buffer(Character* chars)
                 extends Reader::Buffer(chars) {
             // ...
         }
