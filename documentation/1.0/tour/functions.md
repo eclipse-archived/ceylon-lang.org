@@ -124,8 +124,8 @@ metamodel representable within the type system. For example, we could represent
 the type of a method like this:
 -->
 <!-- check:none --><!--
-    shared interface Method<out Result, in Instance, Argument...>
-        satisfies Callable<Callable<Result,Argument...>, Instance> {}
+    shared interface Method<out Result, in Instance, Argument*>
+        satisfies Callable<Callable<Result,Argument*>, Instance> {}
 
 Where `Instance` is the type that declares the method. So the type of the 
 method` iterator()` of `Iterable<String>` would be:
@@ -819,7 +819,7 @@ But there's another way. Instead, we're going to use a really cool higher-order
 function that will be part of the Ceylon language module. It's just two lines 
 of code, so I'm sure you'll immediately understand it:
 
-    R uncurry<R,T,P...>(R curried(T t)(P... p))(T receiver, P... args) {
+    R uncurry<R,T,P*>(R curried(T t)(P* p))(T receiver, P* args) {
         return curried(receiver)(args);
     }
 
@@ -832,7 +832,7 @@ Well, let's try to unwind this:
 * The first parameter list contains a single argument which also has two 
   parameter lists, so the argument `curried()()` is also a function that 
   returns a function.
-* `curried()()` has an argument of form `P...`, a sequenced type parameter, 
+* `curried()()` has an argument of form `P*`, a sequenced type parameter,
   so we know that `curried()()` is somehow abstracted over functions with 
   arbitrary lists of parameters.
 * The second parameter list contains two arguments, of the same types as the 
@@ -851,7 +851,7 @@ following:
 
 Other kinds of operations on functions can be represented in a similar way. Consider:
 
-    R curry<R,T,P...>(R uncurried(T t, P... p))(T receiver)(P... args) {
+    R curry<R,T,P*>(R uncurried(T t, P* p))(T receiver)(P* args) {
         return uncurried(receiver,args);
     }
 
@@ -864,7 +864,7 @@ parameter list, allowing the argument function to be partially applied:
 
 Now consider:
 
-    R compose<R,S,P...>(R f (S s), S g(P... p))(P... args) {
+    R compose<R,S,P*>(R f (S s), S g(P* p))(P* args) {
         return f(g(args));
     }
 

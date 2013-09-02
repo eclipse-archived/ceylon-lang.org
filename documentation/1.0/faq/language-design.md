@@ -614,7 +614,7 @@ we would support _metatype constraints_ of form `T is Metatype`,
 for example:
 
 <!-- try: -->
-    Num sum<Num>(Num... numbers) 
+    Num sum<Num>(Num* numbers)
             given Num is Number {
         variable Num total=Num.zero;
         for (num in numbers) {
