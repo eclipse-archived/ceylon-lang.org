@@ -383,7 +383,7 @@ common kind of type constraint, an *upper bound*.
 A type argument to `Element` must be a subtype of `Object`.
 
 <!-- try-pre:
-    class Set<out Element>(Element... elements)
+    class Set<out Element>(Element* elements)
             given Element satisfies Object { }
 
 -->
@@ -448,7 +448,7 @@ this is useful. Consider adding a `union()` operation to our `Set` interface.
 We might try the following:
 -->
 <!-- check:none --><!--
-    shared class Set<out Element>(Element... elements)
+    shared class Set<out Element>(Element* elements)
             given Element satisfies Object {
         ...
          
@@ -463,7 +463,7 @@ in the type declaration of a method parameter. The following declaration
 would compile:
 -->
 <!-- check:none --><!--
-    shared class Set<out Element>(Element... elements)
+    shared class Set<out Element>(Element* elements)
             given Element satisfies Object {
         ...
          
@@ -477,7 +477,7 @@ But, unfortunately, we get back a `Set<Object>` no matter what kind of
 set we pass in. A lower bound is the solution to our dilemma:
 -->
 <!-- check:none --><!--
-    shared class Set<out Element>(Element... elements)
+    shared class Set<out Element>(Element* elements)
             given Element satisfies Object {
         ...
          

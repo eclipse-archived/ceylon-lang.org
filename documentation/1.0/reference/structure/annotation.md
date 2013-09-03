@@ -22,7 +22,7 @@ Some example annotation declarations:
     shared Description doc(String description) {
         return Description(description.normalized);
     }
-    shared Authors by(String... authors) {
+    shared Authors by(String* authors) {
         return Authors { for (name in authors) name.normalized };
     }
 
