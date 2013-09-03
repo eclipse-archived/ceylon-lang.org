@@ -115,47 +115,6 @@ We can abbreviate `Callable` types with a little syntax sugar:
    and, likewise,
 - `Anything(String)` means `Callable<Anything,[String]>`.
 
-<!--
-## Representing the type of a method
-
-Here we've been discussing first class functions. But in Ceylon all named 
-declarations are "first class". That is to say, they all have a reified 
-metamodel representable within the type system. For example, we could represent 
-the type of a method like this:
--->
-<!-- check:none --><!--
-    shared interface Method<out Result, in Instance, Argument*>
-        satisfies Callable<Callable<Result,Argument*>, Instance> {}
-
-Where `Instance` is the type that declares the method. So the type of the 
-method` iterator()` of `Iterable<String>` would be:
--->
-<!-- check:none --><!--
-    Method<Iterator<String>, Iterable<String>>
-
-And the type of the method `compare()` of `Comparable<Integer>` would be:
--->
-<!-- check:none --><!--
-    Method<Comparison,Comparable<Integer>,Integer>
-
-Notice that we've declared a method to be a function that accepts a 
-receiver object and returns a function. As a consequence of this, an 
-alternative method invocation protocol is the following:
--->
-<!-- check:none:direct invocation of Callable objects not yet supported -->
-<!-- cat: 
-    void m() {
-    String[] strings = {};
-    Integer num = 0; --><!--
-    Iterable<String>.iterator(strings)();
-    Comparable<Integer>.compare(0)(num);-->
-<!-- cat: } -->
-<!--
-Don't worry if you can't make sense of that right now. A few details 
-are being glossed over here, that's not quite *exactly* how `Method` is 
-defined. But we'll come back to this in a future installment. Let's get 
-back to the current topic.
--->
 
 ## Defining higher order functions
 
