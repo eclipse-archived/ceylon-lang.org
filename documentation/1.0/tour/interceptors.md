@@ -38,9 +38,10 @@ All we need to do is have our `Transactional` class implement the interfaces
         doc "This method is called whenever Ceylon loads a class with a method
              annotated |transactional|. It registers a transaction management
              interceptor for the method."
-        shared actual void onDefineMethod<Instance,Result,Argument*>(OpenMethod<Instance,Result,Argument*> method) {
+        shared actual void onDefineMethod<Instance,Result,Arguments>(Method<Instance,Result,Arguments> method) 
+                given Arguments satisfies Anything[] {
             method.intercept {
-                function onInvoke(Instance instance, Result proceed(Argument* args), Argument* args) {
+                function onInvoke(Instance instance, Callable<Result,Arguments> proceed, Arguments args) {
                     if (currentTransaction.inProcess || !requiresNew) {
                         return proceed(args);
                     }
