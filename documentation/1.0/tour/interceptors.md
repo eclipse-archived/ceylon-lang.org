@@ -30,8 +30,7 @@ All we need to do is have our `Transactional` class implement the interfaces
 <!-- try: -->
 <!-- check:none: Not supported yet -->
     shared class Transactional(Boolean requiresNew)
-            satisfies OptionalAnnotation<Transactional,Member<Nothing,Anything>> &
-                      MethodAnnotation & AttributeAnnotation {
+            satisfies OptionalAnnotation<Transactional,MethodDeclaration|AttributeDeclaration> {
              
         shared Boolean requiresNew = requiresNew;
          
@@ -64,7 +63,7 @@ All we need to do is have our `Transactional` class implement the interfaces
         doc "This method is called whenever Ceylon loads a class with an attribute
              annotated |transactional|. It registers a transaction management
              interceptor for the attribute."
-        shared actual void onDefineAttribute<Instance,Result>(OpenAttribute<Instance,Result> attribute) {
+        shared actual void onDefineAttribute<Instance,Result>(Attribute<Instance,Result> attribute) {
             attribute.intercept {
                 function onGet(Instance instance, Result proceed()) {
                     if (currentTransaction.inProcess || !requiresNew) {
