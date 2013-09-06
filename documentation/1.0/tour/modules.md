@@ -103,9 +103,9 @@ This is accomplished via a module descriptor:
 <!-- check:none-->
     "The best-ever ORM solution!"
     license "http://www.gnu.org/licenses/lgpl.html"
-    module org.hibernate '3.0.0.beta' {
-        shared import ceylon.language '1.0.1';
-        import java.sql '4.0';
+    module org.hibernate "3.0.0.beta" {
+        shared import ceylon.language "1.0.1";
+        import java.sql "4.0";
     }
 
 An module `import` annotated `shared` is implicitly inherited by every
@@ -119,8 +119,8 @@ the module descriptor:
 --><!-- check:none:Quoted--><!--
     doc "The test suite for Hibernate"
     license "http://www.gnu.org/licenses/lgpl.html";
-    module org.hibernate.test '3.0.0.beta' {
-        import org.hibernate '3.0.0.beta';
+    module org.hibernate.test "3.0.0.beta" {
+        import org.hibernate "3.0.0.beta";
         void run() {
             TestSuite().run();
         }
@@ -172,8 +172,8 @@ directory might be layed out like this:
 
 Here, the source code is in a directory called `source` (which is the default and 
 saves us having to pass a `--src` command line option to 
-[`ceylon compile`](../../reference/tool/ceylon/subcommands/ceylon-compile.html)). From the 
-project directory (the directory which contains the `source` directory) 
+[`ceylon compile`](../../reference/tool/ceylon/subcommands/ceylon-compile.html)). 
+From the project directory (the directory which contains the `source` directory) 
 you can compile using the command
     
 <!-- lang: bash -->

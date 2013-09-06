@@ -126,7 +126,7 @@ expressing everything from build scripts to test suites:
             void run() {
                 assert(sqrt(1)==1);
                 assert(sqrt(4)==2);
-                assert(sort(9)==3);
+                assert(sqrt(9)==3);
             }
         },
         Test {
@@ -701,13 +701,12 @@ the interface `Numeric`, and so on.
 
 ## Typesafe metaprogramming and annotations
 
-Ceylon provides sophisticated support for meta-programming, including a typesafe 
-metamodel and events. Generic code may invoke members reflectively and intercept 
-member invocations. This facility is more powerful, and much more typesafe, than 
-reflection in Java.
+Ceylon provides sophisticated support for meta-programming, including a unique
+typesafe metamodel. Generic code may invoke members reflectively without the
+need for unsafe typecasts and string passing.
 
 <!-- try: -->
-    Class<Person,[Name]> personClass = Person;
+    Class<Person,[Name]> personClass = `Person`;
     Person gavin = personClass(Name("Gavin", "King"));
 
 Ceylon supports program element annotations, with a streamlined syntax. Indeed,
@@ -746,9 +745,9 @@ the module descriptor:
      [Herd]: http://modules.ceylon-lang.org
      
      Happy Herding!"
-    module org.jboss.example '1.0.0' {         
-        import ceylon.math '0.3.0';
-        import ceylon.file '0.3.1';
+    module org.jboss.example "1.0.0" {         
+        import ceylon.math "0.3.0";
+        import ceylon.file "0.3.1";
     }
 
 For execution on the Java Virtual Machine, the Ceylon compiler directly produces 
@@ -786,7 +785,7 @@ We can even call untyped native JavaScript APIs, inside a `dynamic` block:
 
 <!-- try: -->
     dynamic {
-        value req = XMLHttpRequest();
+        dynamic req = XMLHttpRequest();
         req.onreadystatechange = void () {
             if (req.readyState==4) {
                 document.getElementById("greeting")
