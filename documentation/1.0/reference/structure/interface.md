@@ -99,5 +99,7 @@ declares an interface in terms of a type expression:
 <!-- cat: interface I2{} -->
     interface I => I2;
 
+Unlike a [type alias](../type-alias), an interface alias is reified. 
+
 ## See also
 

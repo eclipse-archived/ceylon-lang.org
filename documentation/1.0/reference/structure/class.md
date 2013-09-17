@@ -162,6 +162,8 @@ class in terms of a type expression:
 
 <!-- cat: class B() {} -->
     class C() => B();
+    
+Unlike a [type alias](../type-alias), a class alias is reified. 
 
 
 ### Member class refinement
