@@ -20,8 +20,8 @@ Usage depends on the keyword in question.
 
 The following are reserved worlds:
 
+* `assembly` (currently unused)
 * `abstracts` (currently unused)
-* `adapts` (currently unused)
 * [`alias`](../type-alias)
 * [`assert`](../../statement/assert)
 * [`assign`](../attribute#attribute_setters)
