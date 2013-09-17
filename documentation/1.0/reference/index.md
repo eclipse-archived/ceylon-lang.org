@@ -12,7 +12,7 @@ doc_root: ..
 This page lists concepts and links to their descriptions. The complete 
 [language specification](#{page.doc_root}/spec) is also available.
 
-_This page is very incomplete. Want to help? [See how](/code/website)._
+_This page is incomplete. Want to help? [See how](/code/website)._
 
 
 ## Structure and Declarations
