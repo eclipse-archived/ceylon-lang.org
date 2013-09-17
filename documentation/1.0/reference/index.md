@@ -140,3 +140,6 @@ The API documentation for [`ceylon.language`](#{site.urls.apidoc_current}).
 
 * [Module repositories](repository)
 * [`modules.ceylon-lang.org` aka Ceylon Herd](repository/modules.ceylon-lang.org)
+* The [ceylon SDK](https://modules.ceylon-lang.org/categories/SDK)
+
+
