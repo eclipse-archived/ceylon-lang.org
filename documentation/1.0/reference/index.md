@@ -65,6 +65,7 @@ _This page is incomplete. Want to help? [See how](/code/website)._
 * [`()`  (invoke)](operator/invoke)
 * [`()`  (null-safe invoke)](operator/nullsafe-invoke)
 * [`*`   (product)](operator/product)
+* [`**`  (scale)](operator/scale)
 * [`*=`  (multiply assign)](operator/multiply-assign)
 * [`+`   (sum)](operator/sum)
 * [`+`   (unary plus)](operator/unary_plus)
