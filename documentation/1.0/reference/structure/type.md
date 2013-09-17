@@ -31,6 +31,12 @@ In Ceylon, a *type declaration* is one of:
 * An [`object` declaration](../object)
 * An [`interface` declaration](../interface)
 
+#### Member declarations
+
+A declaration that is contained directly in a type declaration is called a 
+*member declaration*. Member [values](../value/) are called 
+*attributes*. Member [functions](../function/) are called *methods*.
+
 #### Local declarations
 
 A *local* (or *nested*) declaration is a declaration that is 
@@ -40,8 +46,8 @@ contained within another declaration or a statement.
 
 A *top level* declaration is contained directly in a
 [compilation unit](../compilation-unit) and not contained within any other
-declaration. In other words a top level declaration is not 
-a [local](#local_declarations) declaration.
+declaration. In other words a top level declaration is neither
+a [member](#member_declarations) nor a [local](#local_declarations) declaration.
 
 ### Union types
 

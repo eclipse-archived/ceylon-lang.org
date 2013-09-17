@@ -37,12 +37,13 @@ from context we try to be explicit.
 
 ### Method receiver
 
-[Methods](../type#top_level_and_local_declarations) have a 
+Methods have a 
 'receiver', which is the type instance the method is called on. Within the method
 [*block*](#method_blocks) [this](../../expression/self-reference) refers to 
 the receiving instance.
 
-[Top level](../type#top_level_and_local_declarations) and local functions
+[Top level](../type#top_level_declarations) and 
+[local](../type#local_declarations) functions
 do not have a *reciever*.
 
 ### Return type
