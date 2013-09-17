@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: Methods
+title: Functions and methods
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
@@ -8,56 +8,62 @@ author: Tom Bentley
 
 # #{page.title}
 
-A method is a callable block of code.
+A function is a callable block of code. When it is a member of a 
+type is it called a method.
 
 ## Usage 
 
-A trivial method declaration using a [*block*](#method_blocks) (or *body*) 
+A trivial function declaration using a [*block*](#function_blocks) (or *body*) 
 looks like this:
 
     void m() {
         /* method block: statements */
     }
     
-Alternatively it is possible to declare a method using 
-[*fat arrow* (`=>`)](#method_specifiers), like this:
+Alternatively it is possible to declare a function using 
+[*fat arrow* (`=>`)](#function_specifiers), like this:
 
 <!-- cat: void anotherMethod(){} -->
     void m() => anotherMethod();
 
 ## Description
 
-### Local methods
+### Methods
 
-[Local](../type#top_level_and_local_declarations) methods have a 
-'receiver', which is the object the method is call on. Within the method
+A *method* is a function which is a *member* of a type. 
+The term *function* can be used to mean all functions (including methods), or
+just top-level and local functions (excluding methods). If it is not obvious 
+from context we try to be explicit.
+
+### Method receiver
+
+[Methods](../type#top_level_and_local_declarations) have a 
+'receiver', which is the type instance the method is called on. Within the method
 [*block*](#method_blocks) [this](../../expression/self-reference) refers to 
-the method receiver.
+the receiving instance.
 
-### Top level methods
-
-[Top level](../type#top_level_and_local_declarations) methods 
-(or *functions*) do not have a *reciever*.
+[Top level](../type#top_level_and_local_declarations) and local functions
+do not have a *reciever*.
 
 ### Return type
 
-A method declaration always specifies the *return type* of the method, or the 
-keyword `void` if the method has no return value.
+A function declaration always specifies the *return type* of the function, or the 
+keyword `void` if the function has no return value.
 
-The type system considers a `void` method identically to a method declared to 
-return `Anything`. In particular a `void` member method can actually 
+The type system considers a `void` function identically to a function declared to 
+return `Anything`. In particular a `void` method can actually 
 be refined by a subtype to return a more specific type. The value actually 
-returned from an unrefined `void` method is always `null`.
+returned from an unrefined `void` function is always `null`.
 
-Method declarations often don't need to explictly declare a type, but can instead use 
+Function declarations often don't need to explictly declare a type, but can instead use 
 [type inference](../type-inference) via the `function` keyword.
 
 ### Type parameters
 
-A method declaration lists [type parameters](../type-parameters) with angle brackets (`<` and `>`) 
-after the method name.
+A function declaration lists [type parameters](../type-parameters) with angle brackets (`<` and `>`) 
+after the function name.
 
-    void m<Z>(){
+    void f<Z>(){
         /* method block: statements 
            type parameter Z treated as a type */
     }
@@ -99,23 +105,23 @@ TODO
 
 TODO
 
-### Method blocks
+### Function blocks
 
-The body of a method is composed of [statements](../../#statement) in a 
+The body of a function is composed of [statements](../../#statement) in a 
 brace-delimited *block*.
 
-The body of a non-`void` method must *definitely return*.
+The body of a non-`void` function must *definitely return*.
 
-### Method specifiers
+### Function specifiers
 
 An alternative to providing a method block is to use *fat arrow* (`=>`) syntax 
 and provide a single expression:
 
-<!-- cat: void anotherMethod(){} -->
+<!-- cat: void anotherFunction(){} -->
     Integer zero() => 0
-    void callAnother() => anotherMethod();
+    void callAnother() => anotherFunction();
 
-Note that you can use this to *partially apply* a method:
+Note that you can use this to *partially apply* a function (or any `Callable`):
 
     function zeroTo(Integer n) => Range(0, n);
 
@@ -127,10 +133,6 @@ if the keyword `function` is given in place of a type.
 ### Invocation
 
 See separate page on [method invocation](../../expression/invocation).
-
-### Interception
-
-TODO
 
 ## See also
 

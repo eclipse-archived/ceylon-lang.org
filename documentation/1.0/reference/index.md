@@ -27,8 +27,8 @@ _This page is incomplete. Want to help? [See how](/code/website)._
 * [Classes](structure/class)
 * [Interfaces](structure/class)
 * [`object`s](structure/object)
-* [Methods](structure/method)
-* [Attributes](structure/attribute)
+* [Values](structure/value)
+* [Functions](structure/function)
 * [Annotations](structure/annotation)
 
 ## Statements
