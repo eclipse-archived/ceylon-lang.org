@@ -32,7 +32,7 @@ languages.
 
 ## Description
 
-### As functors
+### Type constructors
 
 Conceptually a parameterized class or interface declaration is a 
 *type constructor* which is a function that produces a type 
@@ -144,13 +144,6 @@ defaulted type parameter and uses alises:
     alias PossiblyEmpty<T> => Iterable<String, Null>
     alias NonEmpty<T> => Iterable<String, Nothing>
 
-### Parameterized type parameters
-
-Parameterized type parameters are currently only a proposal in the Ceylon 
-specification. 
-
-Parameterized type parameters permit a type constraints of form `given X<T>` 
-where `X` itself is a type parameter.
 
 ## See also
 
