@@ -22,9 +22,13 @@ for example:
 
 ### Unicode characters
 
-You can use unicode escapes within character literals, like this:
+You can use Unicode escapes within character literals, like this:
 
     Character therefore = `\{#2234}`; // an escaped Unicode 'therefore' symbol
+    
+Alternatively you can use the Unicode character name:
+
+    Character because = `\{BECAUSE}`; // an escaped Unicode 'because' symbol
 
 ### Escaping
 
