@@ -37,7 +37,7 @@ in its [compliation unit(s)](../compilation-unit).
 ### Descriptor
 
 The 
-[package descriptor](\#{site.urls.apidoc_current}/descriptor/class_Package.html) 
+package descriptor
 holds metadata about the package and is declared in a source 
 file called `package.ceylon` in the package being described. 
 Here's an example:
@@ -50,11 +50,11 @@ Here's an example:
 The `package` declaration may be preceeded by [annotations](../annotation), 
 including:
 
-* [`shared`](#{site.urls.apidoc_current}/#shared) to allow the 
+* [`shared`](#{site.urls.apidoc_current}/index.html#shared) to allow the 
   package to be visible outside its containing module,
-* [`doc`](#{site.urls.apidoc_current}/#doc) 
+* [`doc`](#{site.urls.apidoc_current}/index.html#doc) 
   to let you to specify package-level documentation,
-* [`by`](#{site.urls.apidoc_current}/#by) 
+* [`by`](#{site.urls.apidoc_current}/index.html#by) 
   to document the package's author or authors. 
 
 The package declaration consists of the `package` keyword 

@@ -64,20 +64,31 @@ for the parameter `i`, like this:
 To avoid ambiguity, defaulted parameters are only permitted after all the 
 non-defaulted parameters in the parameter list.
 
-#### Variadic methods and  ('varargs')
+#### Variadic methods and ('varargs')
 
 **Note:** In Ceylon methods which accept an `Iterable` parameter are 
 generally preferred over variadic methods.
 
 A *variadic method* has a *variadic parameter* (or *sequenced parameter*) 
-as the last parameter 
-in the parameter list. This allows the method to be 
-[invoked](../../expression/invocation) with the caller specifying zero or 
-more arguments after the next-to-last argument.
+as the last parameter in the parameter list. 
 
-Syntactically, variadic parameters are declared as a type name followed by 
-star (`*`) (for a possibly empty `Sequential`) or plus (`+`) (for a non-empty 
-`Sequence`) followed by the parameter name.
+There are two different kinds of variadic parameter:
+
+* Possibly-empty variadic parameters allow the method to be 
+  [invoked](../../expression/invocation) with the caller specifying zero or 
+  more arguments for that parameter. Syntactically, possibly-empty 
+  variadic parameters are declared as a type name followed by 
+  star (`*`) followed by the parameter name.
+  From within the method or class the parameter has the type [`T[]`](../type#Sequential).
+  A possibly-empty variadic parameter's defaulted value is implictly empty.
+* Non-empty variadic parameters allow the method to be  
+  [invoked](../../expression/invocation) with the caller specifying one or 
+  more arguments for that parameter.  Syntactically, non-empty 
+  variadic parameters are declared as a type name followed by 
+  plus (`+`) followed by the parameter name.
+  From within the method or class the parameter has the type [`Sequence<T>`](../type#Sequence).
+  A non-empty variadic parameter doesn't have a defaulted value, and none of 
+  the preceding parameters may be defaulted.
 
 For example, a variadic method `variadic` declared like this
 
@@ -93,10 +104,6 @@ expressions for `i`, like this:
     variadic("hello", 1);
     variadic("hello", 1, 2);
     variadic("hello", 1, 2, 3);
-
-Within the method block a sequenced parameter declared as `T*` has 
-type [`T[]`](../type#Sequence) and one declared `T+` has 
-type [`Sequence<T>`](../type#Sequence).
 
 #### Multiple parameter lists
 

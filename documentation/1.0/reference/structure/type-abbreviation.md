@@ -13,6 +13,7 @@ abbreviations for them.
 
 ## Usage 
 
+<!-- try: - -->
     T?        // same as T|Null
     T[]       // same as Sequential[T]
     {T*}      // Iterable<T,Null>
@@ -23,10 +24,19 @@ abbreviations for them.
     [T+]      // The +-tuple Tuple<T, T, Sequence<T>>
     R(P1,P2)  // Callable<R,[P1,P2]>
     
-
 ## Description
 
 The above abbreviations can be used anywhere a type is expected. 
+
+### Variadic parameters
+
+Although not an abbrevious like the above, in a [parameter list](../parameter-list/)
+*variadic* parameters use a syntax that looks similar `Iterable` and `Tuple`
+abbreviations above:
+
+<!-- check:none -->
+    T*        // a possibly empty variadic parameter
+    T+        // a non-empty variadic parameter
 
 ## See Also
 

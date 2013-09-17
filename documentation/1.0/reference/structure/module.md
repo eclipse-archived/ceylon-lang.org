@@ -55,11 +55,11 @@ example:
 The `module` declaration may be preceeded by [annotations](../annotation), 
 including:
 
-* [`doc`](#{site.urls.apidoc_current}/#doc) 
+* [`doc`](#{site.urls.apidoc_current}/index.html#doc) 
   to let you to specify module-level documentation,
-* [`license`](#{site.urls.apidoc_current}/#license) 
+* [`license`](#{site.urls.apidoc_current}/index.html#license) 
   to let you specify the module's license,
-* [`by`](#{site.urls.apidoc_current}/#by) 
+* [`by`](#{site.urls.apidoc_current}/index.html#by) 
   to document the module's author or authors. 
 
 The module declaration itself starts with the `module` keyword 
@@ -70,16 +70,19 @@ Each dependency of the module must be declared with an `import`
 declaration specifying the module name of the dependency and 
 its version. 
 
-The `import` declarations can also be annotated. Two annotations 
+The `import` declarations can also be annotated. Annotations 
 particularly worth noting are:
 
-* [`shared`](#{site.urls.apidoc_current}/#shared) to mark the 
+* [`shared`](#{site.urls.apidoc_current}/index.html#shared) to mark the 
   imported module as also being exported to clients of this 
   module. If your module uses types from an imported module in 
   its API then the `import` for that module must be annotated 
   `shared` in the module descriptor.
-* [`optional`](#{site.urls.apidoc_current}/#optional) to mark
+* [`optional`](#{site.urls.apidoc_current}/index.html#optional) to mark
   the imported module as being an optional dependency.
+* `doc`, if there is something about the dependency which is 
+  worthy of documentation.
+
 
 ### Distribution
 
