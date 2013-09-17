@@ -75,9 +75,9 @@ later in the list, allowing you to write:
         }
     }
 
-### Unsupported features
+### Notes
 
-In Ceylon there is no `do`/`while` statement.
+* In Ceylon there is no `do`/`while` statement as there is in other C-like languages.
 
 ## See also
 

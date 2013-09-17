@@ -8,8 +8,8 @@ author: Tom Bentley
 
 # #{page.title}
 
-The specification statement is used to define the value of a non-`variable`
-local, attribute or method argument.
+The specification statement is used to define the value of a reference 
+or the implementation of a getter or function.
 
 ## Usage 
 
@@ -18,7 +18,7 @@ The general form of the specification statement is
 <!-- check:none -->
     T t = ... /* some expression of type T */
 
-Where is it permitted, the declaration of the attribute or local may be 
+Where is it permitted, the declaration of the value may be 
 separate from its specification:
 
 <!-- check:none -->
@@ -27,19 +27,15 @@ separate from its specification:
 
 ## Description
 
-Ceylon makes a distinction between assigning mutable state (the `=` *operator*) 
-and specifying immutable state (the `=` *statement*). 
+There is an ambiguity between the assignment operator (the `=` *operator*) 
+and the specification statement (the `=` *statement*). The spec says that, 
+where it is possible, the ambiguity is resolved in favour of the 
+specification statement.
 
 ### Execution
 
-After the specification statement and for the rest of the scope of the local 
-or attribute that member will have the specified value.
-
-### Assignment
-
-If an attribute (or a parameter default) is `variable` then it cannot be 
-specified. Instead it is [assigned](../../operator/assign) using an 
-operator;
+After the specification statement and for the rest of the scope of the reference it 
+will have the specified value.
 
 ### Not an operator
 

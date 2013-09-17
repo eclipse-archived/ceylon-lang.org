@@ -28,11 +28,11 @@ Within a `for` or `while` statement the `break` directive can be used to exit
 the block early without waiting for the `for` iterator to be exhausted or the 
 `while` condition to become `false`.
 
-### Unsupported features
+### Notes
 
-Java's 'labelled' `break` directive is not supported. The 
-`break`directive operates on the directly enclosing `for` or 
-`while` statement.
+* Java's 'labelled' `break` directive is not supported. The 
+  `break` directive operates on the directly enclosing `for` or 
+  `while` statement.
 
 ## See also
 

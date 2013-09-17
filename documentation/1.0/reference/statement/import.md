@@ -12,32 +12,24 @@ doc_root: ../../..
 The `import` statement is used to express a dependency on a type defined in 
 another package.
 
+**Note:** This page is **not** about the `import` declarations in 
+a [module descriptor](../../structure/module#descriptor)
+
 ## Usage 
 
-The import statement has several variations. 
-
-Importing a single class:
+The import statement has several variations:
 
 <!-- check:none -->
-    import com.example.metasyntax {Foo}
-    import math { sqr, sqrt, e, pi }
-
-Importing several classes:
-
-<!-- check:none -->
-    import com.example.metasyntax {Foo, Bar}
-    
-Importing several all classes in a package (a *wildcard* `import`):
-
-<!-- check:none -->
+    // importing a list of declarations
+    import math { sqrt, pi, Complex }
+    // importing all declarations in a package
+    // (a 'wildcard' import)
     import com.example.metasyntax {...}
-    
-Assigning a different name to an imported type (to avoid a name conflict):
+    // assigning a different name to an imported declaration
+    // (an 'import alias'), e.g. to avoid a name conflict
+    import org.example.metasyntax { ExampleFoo=>Foo, Bar}
 
-<!-- check:none -->
-    import com.example.metasyntax { ExampleFoo=>Foo, Bar}
 
-**Note:** Import statements should not end with a semicolon.
 
 ## Description
 
@@ -54,9 +46,14 @@ Import statements do not affect execution.
 
 ### Advice
 
-Use of wildcard `import`s (`import com.example.metasyntax {...}`) is 
-discouraged, since it makes it harder to determine which package a particular
-type name in the source code is referring to.
+Use of wildcard `import`s (e.g. `import com.example.metasyntax {...}`) is 
+discouraged, since:
+
+* when reading, it makes it harder to determine which package a particular 
+  type name in the source code is referring to,
+* as the declarations in imported packages change over time, there's the 
+  possibility of name collisions, even though none existed at the time 
+  the code was written
 
 ## See also
 

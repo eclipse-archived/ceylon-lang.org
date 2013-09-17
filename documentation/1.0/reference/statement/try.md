@@ -15,15 +15,23 @@ to be executed in all circumstances.
 
 ## Usage 
 
+An example of a basic try/catch/finally construct:
+
 <!-- check:none -->
     try {
         // some code
-    } catch (ExceptionType e) {
+    } catch (ReadException e) {
         // clean up code
-    } catch (OtherExceptionType|ThirdException e) {
+    } catch (WriteException e) {
         // clean up code
     } finally {
         // clean up code
+    }
+    
+Or, with a *resource expression*:
+
+    try (Reader input = open('/etc/passwd')) {
+        // ...
     }
 
 ## Description
@@ -31,32 +39,60 @@ to be executed in all circumstances.
 The `try` statment is used to handle exceptions thrown by the 
 [`throw`](../throw) statement.
 
+The `try` clause may optionally have a list of one or more `Closeable`-typed 
+*resource expressions*. If it does then both `catch` and `finally` clauses 
+are optional, otherwise at least one other of those clauses is required.
+
+The [`catch` clause](../catch) specifies the [type](../../structure/type) 
+of exception (which must be a subtype of `Exception`) to be handled 
+by the associated block. The block is executed only if an exception 
+assignable to that type propogates out of the `try` block and the exception 
+was not assignable to the type of any preceeding `catch` clause.
+
+The [`finally` clause](../finally) specifies a block to be executed whether or not 
+an exception propogated out of the `try` block, and whether or not any matching 
+`catch` clause was found.
+
 ### Execution
 
-The mandatory `try` block is code to be executed which is anticipated to 
-throw some kind of exception. 
+1. If there are any resource expressions they are evaluated and `open()` is invoked.
+2. Each of the statements in the `try` block is executed
+3. `close()` is invoked on each of the resources acquired in 1
+4. If an exception propogates out of the `try` block, each of the
+   `catch` clauses is considered in turn:
+    1. If the propgated exception is a subtype of the exception type of 
+        the `catch` clause the corresponding block is executed.
+5. If there is a `finally` block, it is executed. 
 
-Any number of `catch` blocks may be specified. If the code in the `try` block 
-throws an exception then each of the catch blocks is examined in order. If the 
-exception instance can be assigned to the type of the given catch block the 
-execution proceeds with that block. If that block is executed without itself 
-throwing an exception execution proceeds with the `finally` block if any). 
-In other words it is only the first matching `catch` block which is executed 
-later matching blocks will be ignored.
+If invoking `close()` causes a new exception to be thrown: TODO
 
-A `finally` block may optionally be given. The code in this block is executed
-whether or not an exception was thrown by the code in the `try` block (and 
-assuming any `catch` block doesn't raise an exception). 
+If an exception propogates out of a `catch` block the `finally` block is executed and the exception
+
+If an exception propogates out of the finally block it is suppressed and the exception which 
+propogated out of the `try` block is propogated out of the `try`/`catch`/`finally` construct. 
+
+### The `finally` guarantee
+
+It's worth bearing in mind that the virtual machine could do things
+which prevent a `finally` clause from executing, or from executing 
+in a timely fashion, even though the application may continues to 
+execute. Such things may include:
+
+* Virtual machine exit
+* Termination or interruption of the application thread exeucting the 
+  finally block
+* Non-terminating ("infinite loop") code while evaluating a `close()` or 
+  executing a statement in a `catch` block.
 
 ### Advice
 
-Note that [intersection types] _doc coming soon_ can and should be used to avoid using 
-multiple `catch` blocks which use the same logic to handle disparate 
-exception types.
+Note that [union types](../../structure/type#union_types) can 
+and should be used to avoid using multiple `catch` blocks which use the 
+same logic to handle disparate exception types:
 
-### `try` with resources
-
-`try` with resources will be implemented in  <!-- m6 -->
+    catch (ReadException|WriteException e) {
+        // ...
+    }
 
 ## See also
 

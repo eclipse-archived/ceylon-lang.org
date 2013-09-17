@@ -31,7 +31,7 @@ apply to `while` and `assert` statements.
 
 ### `if (is ...)`
 
-`if (is X x)` is a condition that tests whether a value or variable `x` is 
+`if (is X x)` is a condition that tests whether a value `x` is 
 assignable to the type `X`. Within the associated block `x` will have the 
 type `X`.
 
@@ -47,8 +47,8 @@ Here's a simple example
         return 0;
     } 
 
-It is also possible to introduce a new local attribute in the condition, in 
-which case it is the new local attribute that has the narrowed type:
+It is also possible to introduce a new local value in the condition, in 
+which case it is the new local value that has the narrowed type:
 
     Integer plusOneIfInteger(Object x) {
         if (is Integer y=x) {
@@ -59,14 +59,20 @@ which case it is the new local attribute that has the narrowed type:
         return 0;
     } 
 
+When using `if (...)` with a `variable` value you are *required*
+to use this form which creates a new local value. On a platform that 
+supports concurrency this protects you from another thread changing 
+the value while the block protected by the `if` is being exeucted 
+(and thus potentially violating the semantics of the `if` statement).
+
 `if (is ...)` is more sophistocated than a Java `instanceof` though, 
 because it inderstand parameterized types: You can say 
 `if (is List<Integer> list)` to distinguish a `List<Integer>` from a 
 `List<String>`.
 
 **Note**: Do not confuse the `is` *condition* described here and which takes 
-the form `is Type attribute` with the [`is` *operator*](../../operator/is) which 
-takes form `attribute is Type`.
+the form `is Type t` with the [`is` *operator*](../../operator/is) which 
+takes form `t is Type`.
 
 
 ### `if (exists ...)`
@@ -87,8 +93,9 @@ Here's an example
         return 0;
     } 
 
-It is also possible to introduce a new local attribute in the condition, in 
-which case it is the new local attribute that has the narrowed type:
+As with `if (is ...)`, it is also possible to introduce a new local 
+value in the condition, in  which case it is the new local 
+value that has the narrowed type:
 
     Integer plusOneIfExists(Integer? x) {
         if (exists y=x) {
@@ -99,9 +106,9 @@ which case it is the new local attribute that has the narrowed type:
     } 
 
 **Note**: Do not confuse the `exists` *condition* described here 
-and which takes the form `exists attribute` with the 
+and which takes the form `exists t` with the 
 [`exists` *operator*](../../operator/exists) which 
-takes form `attribute exists`.
+takes form `t exists`.
 
 ### `if (nonempty ...)`
 
@@ -120,8 +127,9 @@ Here's an example
         return 0;
     } 
 
-It is also possible to introduce a new local attribute in the condition, in 
-which case it is the new local attribute that has the narrowed type:
+As with `if (is ...)`, it is also possible to introduce a new local 
+value in the condition, in which case it is the new local value
+that has the narrowed type:
 
     Integer firstPlusOne(Integer[] x) {
         if (nonempty y=x) {
@@ -132,9 +140,9 @@ which case it is the new local attribute that has the narrowed type:
     } 
 
 **Note**: Do not confuse the `nonempty` *condition* described here 
-and which takes the form `nonempty attribute` with the 
+and which takes the form `nonempty t` with the 
 [`nonempty` *operator*](../../operator/nonempty) which 
-takes form `attribute nonempty`.
+takes form `t nonempty`.
 
 ### `if (satisfies ...)`
 

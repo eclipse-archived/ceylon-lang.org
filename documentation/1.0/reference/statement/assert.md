@@ -27,7 +27,7 @@ The general form of the `assert` statement is
 
 The condition (or conditions) in the assert statement are evaluated. If they 
 evaluate as `true` then execution proceeds with the statement following the 
-`assert`. Otherwise an exception is thrown.
+`assert`. Otherwise an `AssertionException` is thrown.
 
 ### Purpose
 
@@ -81,11 +81,10 @@ later in the list, allowing you to write:
         assert (is Integer x, x < 10);
     }
     
-<!--
-### Exception message
+### Implementation notes
 
-TODO
--->
+* Unlike the `assert` statement in the Java programming language, `assert` in 
+  Ceylon cannot be disabled at runtime: The conditions are always evaluated. 
 
 ## See also
 

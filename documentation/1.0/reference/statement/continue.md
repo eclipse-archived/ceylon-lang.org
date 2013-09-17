@@ -28,11 +28,11 @@ Within a `for` or `while` statement the `continue` directive can be used to
 skip to the next iteration of the enclosing `for` or `while` statement without 
 executing the rest of the block.
 
-### Unsupported features
+### Notes
 
-Java's 'labelled' `continue` directive is not supported. The 
-`continue`directive operates on the directly enclosing `for` or 
-`while` statement.
+* Java's 'labelled' `continue` directive is not supported. The 
+  `continue` directive operates on the directly enclosing `for` or 
+  `while` statement.
 
 ## See also
 

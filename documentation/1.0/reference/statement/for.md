@@ -21,10 +21,8 @@ The general form of the `for` statement is
     } else {
         /* code executed if iteration doesn't exit early */
     }
-    /* code after for statement */
 
 The `else` clause is optional.
-
 
 ## Description
 
@@ -74,12 +72,12 @@ not been found:
     }
 <!-- cat: } -->
 
-### Unsupported features
+### Notes
 
-Ceylon not support the C-style `for` statement, with an initialising statement,
-iteration statement and termination condition. 
-This isn't a problem in practice; see 
-[what the Tour has to say](#{page.doc_root}/tour/sequences#iterating_sequences).
+* Ceylon not support the C-style `for` statement, with an initialising statement,
+  iteration statement and termination condition. 
+  This isn't a problem in practice; see 
+  [what the Tour has to say](#{page.doc_root}/tour/sequences#iterating_sequences).
 
 ## See also
 

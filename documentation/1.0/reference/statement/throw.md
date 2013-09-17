@@ -31,12 +31,15 @@ created at the point the `throw` statement is used:
 
 ### Execution
 
-The `throw` statement causes the enclosing method, attribute accessor or 
-initializer to return *abnormally*, signifying an exceptional circumstance 
-which prevents normal completion. Instead of returning to the caller, the
+The `throw` statement starts the propogation of an exception. The
 call stack is searched for the nearest [`try`](../try) statement 
 with a matching `catch` clause, and execution resumes at the start of that
-`catch` block (possibly after [resource cleanup] _doc coming soon_.
+`catch` block (possibly after [resource cleanup](../try).
+
+A method, getter, setter or 
+initializer, is said to *return abnormally* if an exception propgates beyond its scope. 
+This signifies an exceptional circumstance which prevents normal completion of the 
+method, getter, setter or initializer. 
 
 An expression may be supplied with the `throw` statement. If no expression is 
 given a new messageless and causeless 
@@ -44,20 +47,20 @@ given a new messageless and causeless
 created automatically. If an expression is given is must be of a type which is
 assignable to `ceylon.language.Exception`.
 
-### Checked exceptions
+### Notes
 
-Ceylon does not support 'checked' exceptions. Any kind of exception may be 
-thrown without it having to be declared by a 
-[`throws` annotation]  _doc coming soon at_ (../../ceylon.language/throws) in the relevant declaration. 
-This includes Ceylon code throwing what in Java would 
-be considered to be *checked exceptions* (such as `java.lang.Exception`). In 
-other words the following is perfectly acceptable to the Ceylon compiler:
+* Ceylon does not support 'checked' exceptions. Any kind of exception may be 
+  thrown without it having to be declared by a 
+  [`throws` annotation](TODO) in the relevant declaration. 
+  This includes Ceylon code throwing what in Java would 
+  be considered to be *checked exceptions* (such as `java.lang.Exception`). In 
+  other words the following is perfectly acceptable to the Ceylon compiler:
 
-    import java.lang {CheckedException=Exception}
+      import java.lang {CheckedException=Exception}
     
-    void m() {
-        throw CheckedException();
-    }
+      void m() {
+          throw CheckedException();
+      }
 
 ### Advice
 
@@ -68,5 +71,7 @@ logic.
 
 * [`try` statement](../try)
 * [`ceylon.language.Exception`](#{site.urls.apidoc_current}/interface_Exception.html)
+* The [`throws`](#{site.urls.apidoc_current}/TODO) annotation provides a way to document the 
+  exceptions which may be thrown from a method, getter, setter or class initializer.
 * [`throw` in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#trycatchfinally)
 

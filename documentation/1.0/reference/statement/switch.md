@@ -34,40 +34,6 @@ There can be one or more *disjoint* `case` clauses.
 The `else` clause is required if (and only if) the switch is not 
 [*exhaustive*](#exhaustivity_and_else).
 
-A specific example switching on an optional `Boolean` expression
-(this is easily generalized to any [enumerated type](../../type/#enumerated_types)):
-
-    void m(Boolean? b) {
-        switch(b)
-        case (true) {
-            print("yes");
-        }
-        case (false) {
-            print("no");
-        }
-        case (null) {
-            print("Who cares");
-        }
-    }
-
-Another example, using the `case(is...)` special form and a union type:
-
-    class Foo(){}
-    class Bar(){}
-    class Baz(){}
-    void m3(Foo|Bar|Baz var) {
-        switch(var)
-        case (is Foo) {
-            print("FOO");
-        }
-        case (is Bar) {
-            print("BAR");
-        }
-        case (is Baz) {
-            print("BAZ");
-        }
-    }
-
 ## Description
 
 ### Execution
@@ -92,6 +58,22 @@ If the `switch` expression is of an
 then the 
 `case`s may be of the form `case (x)` where `x` is one of the cases 
   of `U` (a list of cases `case(x, y, z)` is also permitted).
+  
+A specific example switching on an optional `Boolean` expression
+(this is easily generalized to any [enumerated type](../../type/#enumerated_types)):
+
+    void m(Boolean? b) {
+        switch(b)
+        case (true) {
+            print("yes");
+        }
+        case (false) {
+            print("no");
+        }
+        case (null) {
+            print("Who cares");
+        }
+    }
 
 ### `case(is...)` (assignability condition)
   
@@ -105,6 +87,48 @@ Note that because Ceylon supports reified generics V may be a
 parameterized type, for example you can write a case such as
 `case (is List<Integer>)`
 
+Another example, using the `case(is...)` special form and a union type:
+
+    class Foo(){}
+    class Bar(){}
+    class Baz(){}
+    void m3(Foo|Bar|Baz var) {
+        switch(var)
+        case (is Foo) {
+            print("FOO");
+        }
+        case (is Bar) {
+            print("BAR");
+        }
+        case (is Baz) {
+            print("BAZ");
+        }
+    }
+
+### `case(...)` with literals
+
+If the `switch` expression is of `Integer`, `Character` or `String` type
+then the `case`s may be literal values of the appropriate type.
+
+    void f(Integer i) {
+        switch (i)
+        case (0) {
+            print("zero"); 
+        }
+        case (1) {
+            print("one");
+        }
+        case (2) {
+            print("two");
+        }
+        else { 
+            print("lots"); 
+        }
+    }
+
+Since it's difficult to enumerate every value of any of these types, the `else` 
+clause is required.
+
 ### `case(satisfies...)` (subtype conditions)
 
 <!-- m-later -->
@@ -117,6 +141,7 @@ then the `case` must be of the form `case (satisfies V)` where
 Note that because Ceylon supports reified generics V may be a 
 parameterized type, for example you can write a case such as
 `case (satisfies List<Integer>)`
+
 
 ## See also
 
