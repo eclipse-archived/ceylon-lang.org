@@ -60,10 +60,18 @@ Outer instance reference:
 <!-- try: -->
     outer
     
-Superclass reference
+Supertype reference
 
 <!-- try: -->
     super
+
+The type of `super` is the union of the direct superclass and superinterfaces 
+of the class or interface. Most of the time this is unambiguous and super 
+"just works". The typechecker will detect cases where multiple inheritance 
+causes an ambiguity and you have to use `of` to specify the required supertype:
+
+<!-- try: -->
+    super of Foo
     
 Containing package qualifier:
 
@@ -75,11 +83,27 @@ used to qualify a reference.
 
 ### References
 
+These are all `Callable` expressions
+
 <!-- try: -->
     print
     String
     String.size
     String.initial
+
+### `Declaration` references
+
+These evaluate to values of various subtypes of `Declaration`:
+
+<!-- try: -->
+    `class String`
+    `interface Sequential`
+    `function sum`
+    `value true`
+    `value List.size`
+    `package ceylon.language`
+    `module ceylon.language`
+
 
 ### Invocation
 
