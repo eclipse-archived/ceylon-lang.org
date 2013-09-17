@@ -93,13 +93,7 @@ Note that an interface cannot have an [`object`](../object) member.
 
 ### Aliases
 
-An *interface alias* is a kind of [type alias](../type-alias) that 
-declares an interface in terms of a type expression:
-
-<!-- cat: interface I2{} -->
-    interface I => I2;
-
-Unlike a [type alias](../type-alias), an interface alias is reified. 
+An *interface alias* is a kind of [alias](../alias#interface_aliases).
 
 ## See also
 

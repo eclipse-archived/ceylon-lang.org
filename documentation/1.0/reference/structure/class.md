@@ -157,13 +157,7 @@ and [`object`s](../object).
 
 ### Aliases
 
-A *class alias* is a kind of [type alias](../type-alias) that declares a 
-class in terms of a type expression:
-
-<!-- cat: class B() {} -->
-    class C() => B();
-    
-Unlike a [type alias](../type-alias), a class alias is reified. 
+A *class alias* is a kind of [alias](../alias#class_aliases).
 
 
 ### Member class refinement

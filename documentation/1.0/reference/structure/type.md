@@ -74,16 +74,11 @@ a list of their permitted subtypes.
 
 ### Type aliases
 
-You can define an alias for a type using the `alias` keyword:
+To avoid having to repeat long type expressions, you can define a 
+[type alias](../alias#type_alises) for a type using the `alias` keyword:
 
     alias BasicType = String|Character|Integer|Float|Boolean;
     
-It is also possible to define [class aliases](../class#aliases)
- and [interface aliases](../interface#aliases) 
- using an assignment, for example:
-
-    interface Strings = Collection<String>;
-
     
 ### `Null`
 

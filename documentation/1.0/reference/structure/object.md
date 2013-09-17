@@ -10,7 +10,8 @@ author: Tom Bentley
 
 An `object` declaration is an anonymous [class](../class) that is 
 implicitly [instantiated](../../expression/class-instantiation)
-exactly once at the place it is defined, and nowhere else.
+exactly once at the place it is defined, and nowhere else. As such it 
+functions as a [value](../value).
 
 ## Usage 
 
@@ -37,13 +38,14 @@ referred to as an object (in the usual font).
 ### Parent declaraions
 
 `object` declarations are not permitted as members of 
-[interfaces](../interface).
+[interfaces](../interface), since `objects` are implicitly stateful 
+(the state being the instance).
 
 ### Shared `object`s
 
 Because an `object` declaration is simultaneously defining and instantiating an 
 anonymous class it can have the same annotations as an 
-[attribute](../attribute).
+[value](../value).
 
 ### Members
 

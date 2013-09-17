@@ -22,7 +22,7 @@ The following are reserved worlds:
 
 * `assembly` (currently unused)
 * `abstracts` (currently unused)
-* [`alias`](../type-alias)
+* [`alias`](../alias#type_alises)
 * [`assert`](../../statement/assert)
 * [`assign`](../attribute#attribute_setters)
 * [`break`](../../statement/break)
