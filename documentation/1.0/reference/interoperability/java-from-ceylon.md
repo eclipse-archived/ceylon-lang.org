@@ -419,6 +419,48 @@ When implementing a Java interface or class in Ceylon, you can decide to make th
 parameters and return values optional or not. The same is true when implementing JavaBean
 properties (as Ceylon attributes). 
 
+## Using Java annotations on Ceylon declarations
+
+Ceylon annotations differ from Java annotations in an important respect: 
+Ceylon requires an annotation constructor to be invoked at the 
+declaration being annotated. 
+Java doesn't have the concept of an annotation constructor, so for 
+each Java annotation type we pretend there's a corresponding annotation 
+constructor (whose name is the same as the annotation type name, 
+but with a lower cased initial letter), which can be `import`ed:
+
+    import javax.annotation{generated, 
+        postConstruct, 
+        preDestroy, 
+        resource,
+        Resource {
+            AuthenticationType{
+                application=\iAPPLICATION
+            }
+        }
+    }
+
+These annotation constructors can then be used in the same way as normal 
+Ceylon annotation constructors
+
+    class Foo() {
+        postConstruct
+        shared void afterConstrution() {}
+    }
+
+Invocations of these synthetic annotation constructors support Java enumeration 
+elements and class literals (using `Declaration` reference expressions):
+
+    class Bar() {
+        resource{
+            name="tom";
+            authenticationType=application;
+            type=`AnnotationInterop`;
+        }
+        annotationTakingClass(`class Bar`)
+        shared variable String tom = "";
+    }
+
 ## Importing JDK modules <!-- m4 -->
 
 The Java JDK is not imported by default anymore since Milestone 4, which means you need to import
