@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: Calling Ceylon from Java
+title: Using Ceylon from Java
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
@@ -10,8 +10,7 @@ author: Tom Bentley
 
 ## Description
 
-Although titled '*Calling* Ceylon from Java', this page covers all access to 
-Ceylon declarations from Java, not just method calls.
+This page covers how you can use Ceylon classes, interfaces etc from Java.
 
 **Important Note: Everything documented here is subject to change until 
 Ceylon 1.0 and has changed in M3.**
@@ -248,6 +247,61 @@ methods.
         <td><code>s.toString()</code></td>
     </tr>
 </table>
+
+## Annotating Java declarations with Ceylon annotations
+
+Ceylon annotation classes are compiled into Java annotation types (`@interface`s). 
+Each annotation class parameter is mapped to an annotation type member. 
+This means it's mostly a matter of adding the Ceylon annotation types 
+to your Java declarations.
+
+* The name of the annotation type is the name of the annotation class 
+  with `$annotation` appended
+* Annotation classes that subclass `SequencedAnnotation` have an extra 
+  wrapper annotation type, which holds an array of the individual 
+  annotations. The name of this wrapper annotation type is the 
+  name of the annotation class with `$annotations` appended.
+* Annotation classes that subclass `ConstrainedAnnotation` have their 
+  program element constraints transformed into a 
+  `@Target` constaint. However, due to the differing semantics for 
+  constraining annotations it's not a bijective mapping.
+* Due to the constraints placed on annotation types by the Java language 
+  and virtual machine to type mapping differs
+    * `Iterable`, `Sequence` and `Tuple`-typed parameters are 
+    all mapped to a Java array of the relevant type.
+    * Declaration references are mapped to `java.lang.String` using a special syntax 
+      detailed below.
+    * `object`s of enumerated types mapped to the `java.lang.Class`
+      for the anonymous class.
+
+The grammar for the Declaration reference syntax is as follows:
+
+    ref              ::= version? module ;
+                         // note: version is optional to support looking up the
+                         // runtime version of a package, once we support this
+    version          ::= ':' SENTINEL ANYCHAR* SENTINEL ;
+    module           ::= dottedIdent package? ;
+    dottedIdent      ::= ident ('.' ident)* ;
+    package          ::= ':' ( relativePackage | absolutePackage ) ? ( ':' declaration ) ? ;
+                         // note: if no absolute or relative package given, it's the 
+                         // root package of the module
+    relativePackage  ::= dottedIdent ;
+    absolutePackage  ::= '.' dottedIdent ;
+                         // note: to suport package names which don't start 
+                         // with the module name
+    declaration      ::= type | function | value ;
+    type             ::= class | interface ;
+    class            ::= 'C' ident ( '.' member )?
+    interface        ::= 'I' ident ( '.' member )?
+    member           ::= declaration ;
+    function         ::= 'F' ident ;
+    value            ::= 'V' ident ;
+
+For example the `ClassDeclaration` for `ceylon.language::String` in ceylon.language 
+version 0.6 would be `::0.6:ceylon.language::CString`, and for the value `true` 
+it would be `::0.6:ceylon.language::Vtrue`.
+
+
 
 ## See also
 
