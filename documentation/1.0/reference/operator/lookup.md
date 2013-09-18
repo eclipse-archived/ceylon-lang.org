@@ -45,14 +45,14 @@ more details.
 
 The `[]` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `[]` depends on the 
-[`Correspondence`](#{site.urls.apidoc_current}/interface_Correspondence.html) 
+[`Correspondence`](#{site.urls.apidoc_current}/Correspondence.type.html) 
 interface.
 
 ## See also
 
 * [`?[]` (nullsafe lookup)](../nullsafe-lookup) operator used for accessesing 
   a `Correspondence?`
-* API documentation for [`Correspondence`](#{site.urls.apidoc_current}/interface_Correspondence.html) 
+* API documentation for [`Correspondence`](#{site.urls.apidoc_current}/Correspondence.type.html) 
 * [sequence operators](#{site.urls.spec_current}#listmap) in the 
   language specification
 * [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 

@@ -30,7 +30,7 @@ See the [language specification](#{site.urls.spec_current}#arithmetic) for more 
 
 The unary `-` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `-` depends on 
-[`Invertable`](#{site.urls.apidoc_current}/interface_Invertable.html) interface
+[`Invertable`](#{site.urls.apidoc_current}/Invertable.type.html) interface
 
 ### Meaning of unary minus for built-in types
 
@@ -43,7 +43,7 @@ just changes the sign.
 
 * [`+` (unary plus)](../unary_plus) which does not change the sign of its 
   operand
-* API documentation for [`Invertable`](#{site.urls.apidoc_current}/interface_Invertable.html)
+* API documentation for [`Invertable`](#{site.urls.apidoc_current}/Invertable.type.html)
 * [arithmetic operators](#{site.urls.spec_current}#arithmetic) in the 
   language specification
 * [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 

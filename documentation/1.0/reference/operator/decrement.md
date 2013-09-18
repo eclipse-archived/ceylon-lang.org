@@ -53,8 +53,8 @@ See the [language specification](#{site.urls.spec_current}#arithmetic) for more 
 
 The `--` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `--` depends on the 
-[`Ordinal`](#{site.urls.apidoc_current}/interface_Ordinal.html) and
-[`Settable`](#{site.urls.apidoc_current}/interface_Settable.html) interfaces.
+[`Ordinal`](#{site.urls.apidoc_current}/Ordinal.type.html) and
+[`Settable`](#{site.urls.apidoc_current}/Settable.type.html) interfaces.
 
 ## See also
 

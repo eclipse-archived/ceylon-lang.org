@@ -35,7 +35,7 @@ See the [language specification](#{site.urls.spec_current}#listmap) for more det
 
 The `**` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `**` depends on the 
-[`Scalable`](#{site.urls.apidoc_current}/interface_Scalable.html) interface.
+[`Scalable`](#{site.urls.apidoc_current}/Scalable.type.html) interface.
 
 ### Meaning of scale for built-in types
 
@@ -43,7 +43,7 @@ No types in the language module satisfy `Scalable`.
 
 ## See also
 
-* API documentation for [`Scalable`](#{site.urls.apidoc_current}/interface_Scalable.html)
+* API documentation for [`Scalable`](#{site.urls.apidoc_current}/Scalable.type.html)
 * [scalable operators](#{site.urls.spec_current}#listmap) in the 
   language specification
 * [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 

@@ -93,19 +93,19 @@ Annotation classes must be a subclass of `Annotation`.
 
 * Using `Annotation` as the superclass means the annotation class can be used on any 
   program element that supports annotations. The annotation may appear at most once. 
-* `Annotation` has a subclass, [`ConstrainedAnnotation`](#{site.urls.apidoc_current}/metamodel/interface_ConstrainedAnnotation.html),
+* `Annotation` has a subclass, [`ConstrainedAnnotation`](#{site.urls.apidoc_current}/metamodel/ConstrainedAnnotation.type.html),
   which allows more fine-grained control over where and how the annotation may be used. 
   Its enumerated subclasses are:
-    * [`OptionalAnnotation`](#{site.urls.apidoc_current}/metamodel/interface_OptionalAnnotation.html) 
+    * [`OptionalAnnotation`](#{site.urls.apidoc_current}/metamodel/OptionalAnnotation.type.html) 
       for annotations which occur at most once on a given program element, and
-    * [`SequencedAnnotation`](#{site.urls.apidoc_current}/metamodel/interface_SequencedAnnotation.html)
+    * [`SequencedAnnotation`](#{site.urls.apidoc_current}/metamodel/SequencedAnnotation.type.html)
       which can occur more than once on a given program element.
 
 ### Program Elements
 
 A `ConstrainedAnnotation` may constrain the program elements where it is allowed to 
 be used to any of the types satisfying 
-[`Annotated`](#{site.urls.apidoc_current}/metamodel/interface_Annotated.html), which are
+[`Annotated`](#{site.urls.apidoc_current}/metamodel/Annotated.type.html), which are
 
 * [Class declarations](../class), [class aliases](../class#alises) and their [parameters](../parameter-list),
 * [Interface declarations](../interface) and [interface alises](../interface#aliases)

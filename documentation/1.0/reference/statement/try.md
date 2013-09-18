@@ -97,6 +97,6 @@ same logic to handle disparate exception types:
 ## See also
 
 * [`throw`](../throw)
-* [`Exception`](#{site.urls.apidoc_current}/interface_Exception.html)
+* [`Exception`](#{site.urls.apidoc_current}/Exception.type.html)
 * [`try` in the language specification](#{site.urls.spec_current}#trycatchfinally)
 

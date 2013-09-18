@@ -36,12 +36,12 @@ more details.
 The `&=` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 
 The `&` in the definition is the [intersect operator](../intersect) which 
-depends on the [`Set`](#{site.urls.apidoc_current}/interface_Set.html) interface.
+depends on the [`Set`](#{site.urls.apidoc_current}/Set.type.html) interface.
 
 ## See also
 
 * [`&` (intersect)](../intersect) operator
-* API documentation for [`Set`](#{site.urls.apidoc_current}/interface_Set.html)
+* API documentation for [`Set`](#{site.urls.apidoc_current}/Set.type.html)
 * [set operators](#{site.urls.spec_current}#sets) in the 
   language specification
 * [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 

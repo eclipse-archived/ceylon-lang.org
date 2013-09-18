@@ -34,13 +34,13 @@ more details.
 
 The `x[y..z]` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `lhs[from..to]` depends on the 
-[`Ranged`](#{site.urls.apidoc_current}/interface_Ranged.html) 
+[`Ranged`](#{site.urls.apidoc_current}/Ranged.type.html) 
 interface.
 
 ## See also
 
 * [`x[y...]` (upper span)](../upper-span) operator used for obtaining a tail of a `Ranged`.
-* API documentation for [`Ranged`](#{site.urls.apidoc_current}/interface_Ranged.html)
+* API documentation for [`Ranged`](#{site.urls.apidoc_current}/Ranged.type.html)
 * [sequence operators](#{site.urls.spec_current}#listmap) in the 
   language specification
 * [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 

@@ -31,7 +31,7 @@ See the [language specification](#{site.urls.spec_current}#arithmetic) for more 
 
 The `^` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `^` depends on the 
-[`Exponentiable`](#{site.urls.apidoc_current}/interface_Exponentiable.html) interface.
+[`Exponentiable`](#{site.urls.apidoc_current}/Exponentiable.type.html) interface.
 
 ### Meaning of power for built-in types
 
@@ -43,7 +43,7 @@ of the relevant type.
 
 ## See also
 
-* API documentation for [`Exponentiable`](#{site.urls.apidoc_current}/interface_Exponentiable.html)
+* API documentation for [`Exponentiable`](#{site.urls.apidoc_current}/Exponentiable.type.html)
 * [arithmetic operators](#{site.urls.spec_current}#arithmetic) in the 
   language specification
 * [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 

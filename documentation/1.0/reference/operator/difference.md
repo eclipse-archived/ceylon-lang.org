@@ -31,7 +31,7 @@ See the [language specification](#{site.urls.spec_current}#arithmetic) for more 
 
 The `-` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `-` depends on the 
-[`Numeric`](#{site.urls.apidoc_current}/interface_Numeric.html) interface.
+[`Numeric`](#{site.urls.apidoc_current}/Numeric.type.html) interface.
 
 ### Meaning of *difference* for built-in types
 
@@ -42,7 +42,7 @@ of the relevant type.
 
 ## See also
 
-* API documentation for [`Numeric`](#{site.urls.apidoc_current}/interface_Numeric.html)
+* API documentation for [`Numeric`](#{site.urls.apidoc_current}/Numeric.type.html)
 * [difference in the language specification](#{site.urls.spec_current}#arithmetic)
 * [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 
   language specification

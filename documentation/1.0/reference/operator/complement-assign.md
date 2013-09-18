@@ -40,12 +40,12 @@ more details.
 The `~=` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism).
 
 The `~` in the definition is the [complement](../complement) operator 
-which depends on the [`Set`](#{site.urls.apidoc_current}/interface_Set.html) interface.
+which depends on the [`Set`](#{site.urls.apidoc_current}/Set.type.html) interface.
 
 ## See also
 
 * [`~`](../complement) (complement) operator
-* [`Set`](#{site.urls.apidoc_current}/interface_Set.html)
+* [`Set`](#{site.urls.apidoc_current}/Set.type.html)
 * [set operators](#{site.urls.spec_current}#sets) in the 
   language specification
 * [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 

@@ -38,12 +38,12 @@ more details.
 
 The `|=` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 Tge `|` in its definition is the [union operator](../union) which depends on the 
-[`Set`](#{site.urls.apidoc_current}/interface_Set.html) interface.
+[`Set`](#{site.urls.apidoc_current}/Set.type.html) interface.
 
 ## See also
 
 * [`|` (union)](../union) operator
-* API documentation for [`Set`](#{site.urls.apidoc_current}/interface_Set.html)
+* API documentation for [`Set`](#{site.urls.apidoc_current}/Set.type.html)
 * [set operators](#{site.urls.spec_current}#sets) in the 
   language specification
 * [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 

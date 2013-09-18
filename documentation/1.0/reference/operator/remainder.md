@@ -31,7 +31,7 @@ See the [language specification](#{site.urls.spec_current}#arithmetic) for more 
 
 The `%` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `%` depends on the 
-[`Integral`](#{site.urls.apidoc_current}/interface_Integral.html) interface. 
+[`Integral`](#{site.urls.apidoc_current}/Integral.type.html) interface. 
 
 ### Meaning of remainder for built-in types
 
@@ -43,7 +43,7 @@ remainder operator cannot be used on them.
 
 ## See also
 
-* API documentation for [`Integral`](#{site.urls.apidoc_current}/interface_Integral.html)
+* API documentation for [`Integral`](#{site.urls.apidoc_current}/Integral.type.html)
 * [arithmetic operators](#{site.urls.spec_current}#arithmetic) in the 
   language specification
 * [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 

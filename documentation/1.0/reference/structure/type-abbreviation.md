@@ -41,9 +41,9 @@ abbreviations above:
 ## See Also
 
 * [`Null`](#{site.urls.apidoc_current}/class_Null.html)
-* [`Sequential`](#{site.urls.apidoc_current}/interface_Sequential.html)
-* [`Sequence`](#{site.urls.apidoc_current}/interface_Sequence.html)
+* [`Sequential`](#{site.urls.apidoc_current}/Sequential.type.html)
+* [`Sequence`](#{site.urls.apidoc_current}/Sequence.type.html)
 * [`Empty`](#{site.urls.apidoc_current}/class_Empty.html)
-* [`Iterable`](#{site.urls.apidoc_current}/interface_Iterable.html)
+* [`Iterable`](#{site.urls.apidoc_current}/Iterable.type.html)
 * [`Tuple`](#{site.urls.apidoc_current}/class_Tuple.html)
-* [`Callable`](#{site.urls.apidoc_current}/interface_Callable.html)
+* [`Callable`](#{site.urls.apidoc_current}/Callable.type.html)

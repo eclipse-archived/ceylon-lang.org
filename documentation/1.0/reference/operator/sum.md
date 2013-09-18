@@ -31,7 +31,7 @@ See the [language specification](#{site.urls.spec_current}#arithmetic) for more 
 
 The `+` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `+` depends on the 
-[`Summable`](#{site.urls.apidoc_current}/interface_Summable.html) interface.
+[`Summable`](#{site.urls.apidoc_current}/Summable.type.html) interface.
 
 ### Meaning of `+` for built-in types
 
@@ -45,7 +45,7 @@ For [`String`](#{site.urls.apidoc_current}/class_String.html), `+` performs conc
 
 ## See also
 
-* API documentation for [`Summable`](#{site.urls.apidoc_current}/interface_Summable.html)
+* API documentation for [`Summable`](#{site.urls.apidoc_current}/Summable.type.html)
 * [arithmetic operators](#{site.urls.spec_current}#arithmetic) in the 
   language specification
 * [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 

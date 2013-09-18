@@ -43,7 +43,7 @@ method, getter, setter or initializer.
 
 An expression may be supplied with the `throw` statement. If no expression is 
 given a new messageless and causeless 
-[`ceylon.language.Exception`](#{site.urls.apidoc_current}/interface_Exception.html) instance is 
+[`ceylon.language.Exception`](#{site.urls.apidoc_current}/Exception.type.html) instance is 
 created automatically. If an expression is given is must be of a type which is
 assignable to `ceylon.language.Exception`.
 
@@ -70,7 +70,7 @@ logic.
 ## See also
 
 * [`try` statement](../try)
-* [`ceylon.language.Exception`](#{site.urls.apidoc_current}/interface_Exception.html)
+* [`ceylon.language.Exception`](#{site.urls.apidoc_current}/Exception.type.html)
 * The [`throws`](#{site.urls.apidoc_current}/TODO) annotation provides a way to document the 
   exceptions which may be thrown from a method, getter, setter or class initializer.
 * [`throw` in the language specification](#{site.urls.spec_current}#trycatchfinally)

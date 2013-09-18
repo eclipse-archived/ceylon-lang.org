@@ -35,13 +35,13 @@ See the [language specification](#{site.urls.spec_current}#equalitycomparison) f
 
 The `extends` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `extends` depends on the 
-[`Class`](#{site.urls.apidoc_current}/metamodel/interface_Class.html) class and 
-[`Type`](#{site.urls.apidoc_current}/metamodel/interface_Type.html) interface.
+[`Class`](#{site.urls.apidoc_current}/metamodel/Class.type.html) class and 
+[`Type`](#{site.urls.apidoc_current}/metamodel/Type.type.html) interface.
 
 ## See also
 
-* API documentation for [`Class`] _doc coming soon at_ (#{site.urls.apidoc_current}/metamodel/interface_Class.html)
-* API documentation for [`Type`](#{site.urls.apidoc_current}/metamodel/interface_Type.html)
+* API documentation for [`Class`] _doc coming soon at_ (#{site.urls.apidoc_current}/metamodel/Class.type.html)
+* API documentation for [`Type`](#{site.urls.apidoc_current}/metamodel/Type.type.html)
 * [`extends` in the language specification](#{site.urls.spec_current}#equalitycomparison)
 * [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 
   language specification

@@ -40,7 +40,7 @@ See the [language specification](#{site.urls.spec_current}#arithmetic) for more 
 The `+=` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism).
 
 The definition of the `+=` operator depends 
-on the [`Summable`](#{site.urls.apidoc_current}/interface_Summable.html)
+on the [`Summable`](#{site.urls.apidoc_current}/Summable.type.html)
 interface.
 
 ## See also
