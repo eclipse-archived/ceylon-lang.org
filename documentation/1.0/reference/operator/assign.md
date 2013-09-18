@@ -37,6 +37,6 @@ The `=` operator is not [polymorphic](#{page.doc_root}/tour/language-module/#ope
 
 ## See also
 
-* [`variable`] annotation _doc coming soon_ (../../ceylon.language/variable) 
+* [`variable`](#{site.urls.apidoc_current}/index.html#variable) annotation
 * [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 
   language specification
