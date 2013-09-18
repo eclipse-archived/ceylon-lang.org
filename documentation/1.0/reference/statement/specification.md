@@ -16,12 +16,14 @@ or the implementation of a getter or function.
 The general form of the specification statement is
 
 <!-- check:none -->
+<!-- try: -->
     T t = ... /* some expression of type T */
 
 Where is it permitted, the declaration of the value may be 
 separate from its specification:
 
 <!-- check:none -->
+<!-- try: -->
     T t;
     t = ... /* some expression of type T */
 
@@ -43,6 +45,7 @@ Because specification is a
 statement and not an operator it cannot be used within expressions:
 
 <!-- check:none -->
+<!-- try: -->
     Boolean isEmpty;
     if (isEmpty = sequence.size == 0) { // compilation error
         // ...

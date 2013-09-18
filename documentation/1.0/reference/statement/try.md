@@ -18,6 +18,7 @@ to be executed in all circumstances.
 An example of a basic try/catch/finally construct:
 
 <!-- check:none -->
+<!-- try: -->
     try {
         // some code
     } catch (ReadException e) {
@@ -30,6 +31,7 @@ An example of a basic try/catch/finally construct:
     
 Or, with a *resource expression*:
 
+<!-- try: -->
     try (Reader input = open('/etc/passwd')) {
         // ...
     }
@@ -93,6 +95,7 @@ Note that [union types](../../structure/type#union_types) can
 and should be used to avoid using multiple `catch` blocks which use the 
 same logic to handle disparate exception types:
 
+<!-- try: -->
     catch (ReadException|WriteException e) {
         // ...
     }

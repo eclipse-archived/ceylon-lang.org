@@ -16,6 +16,7 @@ The `if` statement allows a block of code to be executed conditionally.
 The general form of the `if` statement is
 
 <!-- check:none -->
+<!-- try: -->
     if ( /* some conditions */ ) {
         /* code executed if some conditions are true */
     } else if (/* other conditions */ ) {
@@ -78,6 +79,7 @@ condition list and a single `Boolean` condition constructed using the
 is that the typecasting of conditions in the list take effect for conditions 
 later in the list, allowing you to write:
 
+<!-- try: -->
     void m(Object x) {
         if (is Integer x, x < 10) {
             // ...

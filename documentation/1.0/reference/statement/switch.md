@@ -17,6 +17,7 @@ list of cases.
 The general form of the `switch` statement is
 
 <!-- check:none -->
+<!-- try: -->
     switch ( /* switch expression */ ) {
         case ( /* case expression */) {
             /* case block */
@@ -62,6 +63,7 @@ then the
 A specific example switching on an optional `Boolean` expression
 (this is easily generalized to any [enumerated type](../../type/#enumerated_types)):
 
+<!-- try: -->
     void m(Boolean? b) {
         switch(b)
         case (true) {
@@ -89,6 +91,7 @@ parameterized type, for example you can write a case such as
 
 Another example, using the `case(is...)` special form and a union type:
 
+<!-- try: -->
     class Foo(){}
     class Bar(){}
     class Baz(){}
@@ -112,6 +115,7 @@ If the `switch` expression is of [`Integer`](#{site.urls.apidoc_current}/Integer
 [`String`](#{site.urls.apidoc_current}/String.type.html) type
 then the `case`s may be literal values of the appropriate type.
 
+<!-- try: -->
     void f(Integer i) {
         switch (i)
         case (0) {

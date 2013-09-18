@@ -39,6 +39,7 @@ In other words, `if (is ...)` is similar Java's `instanceof` operator
 with a suitable typecast occurring automatically within the block. 
 Here's a simple example
 
+<!-- try: -->
     Integer plusOneIfInteger(Object x) {
         if (is Integer x) {
             // x of type Integer here
@@ -50,6 +51,7 @@ Here's a simple example
 It is also possible to introduce a new local value in the condition, in 
 which case it is the new local value that has the narrowed type:
 
+<!-- try: -->
     Integer plusOneIfInteger(Object x) {
         if (is Integer y=x) {
             // x still of type Object here
@@ -85,6 +87,7 @@ Java.
 
 Here's an example
 
+<!-- try: -->
     Integer plusOneIfExists(Integer? x) {
         if (exists x) {
             // x of type Integer here
@@ -97,6 +100,7 @@ As with `if (is ...)`, it is also possible to introduce a new local
 value in the condition, in  which case it is the new local 
 value that has the narrowed type:
 
+<!-- try: -->
     Integer plusOneIfExists(Integer? x) {
         if (exists y=x) {
             // x still of type Integer? here
@@ -119,6 +123,7 @@ the associated block `x` will have the type `E`
 
 Here's an example
 
+<!-- try: -->
     Integer firstPlusOne(Integer[] x) {
         if (nonempty x) {
             // x of type Integer[] here
@@ -131,6 +136,7 @@ As with `if (is ...)`, it is also possible to introduce a new local
 value in the condition, in which case it is the new local value
 that has the narrowed type:
 
+<!-- try: -->
     Integer firstPlusOne(Integer[] x) {
         if (nonempty y=x) {
             // x still of type Integer[] here
@@ -164,6 +170,7 @@ condition list and a single `Boolean` condition constructed using the
 is that any special form conditions in the list take effect for conditions 
 later in the list, allowing you to write:
 
+<!-- try: -->
     Integer m(Object x) {
         if (is Integer x, x < 10) {
             // x is of type Integer here

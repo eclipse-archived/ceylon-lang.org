@@ -20,6 +20,7 @@ a [module descriptor](../../structure/module#descriptor)
 The import statement has several variations:
 
 <!-- check:none -->
+<!-- try: -->
     // importing a list of declarations
     import math { sqrt, pi, Complex }
     // importing all declarations in a package

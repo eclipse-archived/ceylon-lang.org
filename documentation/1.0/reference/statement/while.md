@@ -16,6 +16,7 @@ The `while` statement supports iteration.
 The general form of the `while` statement is
 
 <!-- check:none -->
+<!-- try: -->
     while ( /* condition */ ) {
         /* while block */
     }
@@ -66,6 +67,7 @@ condition list and a single `Boolean` condition constructed using the
 is that the typecasting of conditions in the list take effect for conditions 
 later in the list, allowing you to write:
 
+<!-- try: -->
     Object takeNext() {
         // ...
     }

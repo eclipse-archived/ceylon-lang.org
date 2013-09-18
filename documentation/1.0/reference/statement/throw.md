@@ -17,6 +17,7 @@ flow of control has occurred.
 A bare `throw` doesn't supply an exception instance:
 
 <!-- cat: void m() { -->
+<!-- try: -->
     throw;
 <!-- cat: } -->
 
@@ -24,6 +25,7 @@ Otherwise an exception instance may be specified; commonly a new instance is
 created at the point the `throw` statement is used:
 
 <!-- cat: void m() { -->
+<!-- try: -->
     throw Exception();
 <!-- cat: } -->
 
@@ -56,6 +58,7 @@ assignable to `ceylon.language.Exception`.
   be considered to be *checked exceptions* (such as `java.lang.Exception`). In 
   other words the following is perfectly acceptable to the Ceylon compiler:
 
+<!-- try: -->
       import java.lang {CheckedException=Exception}
     
       void m() {

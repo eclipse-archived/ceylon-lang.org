@@ -16,12 +16,14 @@ to the caller of the value getter or function.
 The general form of the `return` statement is
 
 <!-- check:none -->
+<!-- try: -->
     // ...within a value getter or function
     return resultExpression;
 
 For `void` functions no result expression is given:
 
 <!-- check:none -->
+<!-- try: -->
     // ...within an void method or function
     return;
 

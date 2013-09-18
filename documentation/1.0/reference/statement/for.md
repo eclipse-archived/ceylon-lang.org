@@ -16,6 +16,7 @@ The `for` statement supports iteration.
 The general form of the `for` statement is
 
 <!-- check:none -->
+<!-- try: -->
     for ( /* variable declaration and expression */ ) {
         /* for block */
     } else {
@@ -61,6 +62,7 @@ not been found:
 
 <!-- cat: class Person() {shared Integer age = 0;} -->
 <!-- cat: void m(Person[] people) { -->
+<!-- try: -->
     variable Boolean minors;
     for (p in people) {
         if (p.age<18) {

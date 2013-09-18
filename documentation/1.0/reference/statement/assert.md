@@ -17,7 +17,7 @@ The `assert` statement throws an exception if a condition is not
 The general form of the `assert` statement is
 
 <!-- check:none -->
-    
+<!-- try: -->
     assert ( /* some conditions */ );
 
 
@@ -43,6 +43,7 @@ method from `ceylon.language`
 which returns `Integer?` so as to force you to handle the possibility that 
 the argument was not `String` representing a number:
 
+<!-- try: -->
     value num = parseInteger("1");
     // before the assert statement num is of type Integer?
     assert (exists num);
@@ -82,6 +83,7 @@ condition list and a single `Boolean` condition constructed using the
 is that the typecasting of conditions in the list take effect for conditions 
 later in the list, allowing you to write:
 
+<!-- try: -->
     void m(Object x) {
         assert (is Integer x, x < 10);
     }
