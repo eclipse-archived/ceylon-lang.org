@@ -43,7 +43,9 @@ A given annotation class can have zero, one or many annotation constructors.
 An annotation class must be a toplevel class 
 annotated with the `final` and `annotation` annotations 
 and it must be a direct subclass of either 
-`Annotation`, `OptionalAnnotation` or `SequencedAnnotation`.
+[`Annotation`](#{site.urls.apidoc_current}/Annotation.type.html),
+[`OptionalAnnotation`](#{site.urls.apidoc_current}/OptionalAnnotation.type.html) or 
+[`SequencedAnnotation`](#{site.urls.apidoc_current}/SequencedAnnotation.type.html).
 
     final annotation class Example(shared String description) extends Annotation() {
     }
