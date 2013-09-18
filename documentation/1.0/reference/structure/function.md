@@ -141,6 +141,15 @@ if the keyword `function` is given in place of a type:
 
 See separate page on [method invocation](../../expression/invocation).
 
+### Metamodel
+
+Function declarations can be manipulated at runtime via their representation as
+[`FunctionDeclaration`](#{site.urls.apidoc_current}/meta/declaration/FunctionDeclaration.type.html) 
+instances. An *applied function* (i.e. with all type parameters specified) corresponds to 
+either a 
+[`Function`](#{site.urls.apidoc_current}/meta/model/Function.type.html) or 
+[`Method`](#{site.urls.apidoc_current}/meta/model/Method.type.html) model instance.
+
 ## See also
 
 * [Compilation unit](../compilation-unit)

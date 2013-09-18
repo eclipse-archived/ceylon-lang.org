@@ -95,5 +95,14 @@ Note that an interface cannot have an [`object`](../object) member.
 
 An *interface alias* is a kind of [alias](../alias#interface_aliases).
 
+### Metamodel
+
+Interface declarations can be manipulated at runtime via their representation as
+[`InterfaceDeclaration`](#{site.urls.apidoc_current}/meta/declaration/InterfaceDeclaration.type.html) 
+instances. An *applied interface* (i.e. with all type parameters specified) corresponds to 
+either an 
+[`Interface`](#{site.urls.apidoc_current}/meta/model/Interface.type.html) or 
+[`MemberInterface`](#{site.urls.apidoc_current}/meta/model/MemberInterface.type.html) model instance.
+
 ## See also
 

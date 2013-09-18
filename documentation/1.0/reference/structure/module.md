@@ -96,7 +96,7 @@ list of module repositories to use is passed to
 [`ceylon run`](##{site.urls.ceylon_tool_current}/ceylon-run.html), 
 and [other tools](#{page.doc_root}/reference/#tools).
 
-## Metamodel
+### Metamodel
 
 Modules can be manipulated at runtime via their representation as
 [`Module`](#{site.urls.apidoc_current}/meta/declaration/Module.type.html) instances. 

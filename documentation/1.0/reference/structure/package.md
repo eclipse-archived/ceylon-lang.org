@@ -63,7 +63,7 @@ followed by the package name.
 It is common not to have a package descriptor if the package 
 is not `shared`.
 
-## Metamodel
+### Metamodel
 
 Packages can be manipulated at runtime via their representation as
 [`Package`](#{site.urls.apidoc_current}/meta/declaration/Package.type.html) instances. 

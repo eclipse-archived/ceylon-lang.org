@@ -119,6 +119,15 @@ This is intended to permit cyclic references between values, for example:
 Only simple values may be annotated `late` 
 (it doesn't make sense for value getters). 
 
+### Metamodel
+
+Value declarations can be manipulated at runtime via their representation as
+[`ValueDeclaration`](#{site.urls.apidoc_current}/meta/declaration/ValueDeclaration.type.html) 
+instances. An *applied function* (i.e. with all type parameters specified) corresponds to 
+either a 
+[`Value`](#{site.urls.apidoc_current}/meta/model/Value.type.html) or 
+[`Attribute`](#{site.urls.apidoc_current}/meta/model/Attribute.type.html) model instance.
+
 ## See also
 
 * [Compilation unit](../compilation-unit)

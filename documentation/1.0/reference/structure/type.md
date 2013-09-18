@@ -144,6 +144,10 @@ positional argument list and parameter lists.
 Unabreviated tuple types are extremely verbose, and therefore the abbreviated 
 form is strongly preferred. 
 
+### Metamodel
+
+TODO
+
 ## See also
 
 * Top level types are contained in [compilation units](../compilation-unit)

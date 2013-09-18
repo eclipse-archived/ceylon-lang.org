@@ -213,6 +213,15 @@ In a subtype of the type declaring the member class the member class
 Refined member types are similar to, but not the same as virtual types, which 
 Ceylon does not support.
 
+### Metamodel
+
+Class declarations can be manipulated at runtime via their representation as
+[`ClassDeclaration`](#{site.urls.apidoc_current}/meta/declaration/ClassDeclaration.type.html) 
+instances. An *applied class* (i.e. with all type parameters specified) corresponds to 
+either a 
+[`Class`](#{site.urls.apidoc_current}/meta/model/Class.type.html) or 
+[`MemberClass`](#{site.urls.apidoc_current}/meta/model/MemberClass.type.html) model instance.
+
 ## See also
 
 * [Member class refinement](#{site.urls.spec_current}#refiningmemberclasses) in the Ceylon spec

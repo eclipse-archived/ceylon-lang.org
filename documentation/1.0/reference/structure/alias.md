@@ -49,6 +49,14 @@ so they can be imported from other modules, and exist in the metamodel.
 
 You cannot use `class` alias for a `interface`: It must be aliasing a `class`.
 
+### Metamodel
+
+Type aliases can be manipulated at runtime via their representation as
+[`AliasDeclaration`](#{site.urls.apidoc_current}/meta/declaration/AliasDeclaration.type.html) 
+instances. There is no corresponding model interface.
+
+Class and interface aliases TODO
+
 ## See also
 
 * [type aliases](#typealiaselimination) in the spec.
