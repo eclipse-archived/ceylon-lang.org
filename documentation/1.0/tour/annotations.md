@@ -23,7 +23,7 @@ yet really explored what an annotation *is*.
 
 Let's finally rectify that. The answer is simple: an annotation is a toplevel 
 function that returns a subtype of 
-[`ConstrainedAnnotation`](#{site.urls.apidoc_current}/metamodel/ConstrainedAnnotation.type.html).
+[`ConstrainedAnnotation`](#{site.urls.apidoc_current}/ConstrainedAnnotation.type.html).
 We call the function an _annotation constructor_.
 
 ## Annotation constructors
@@ -172,11 +172,11 @@ two direct subtypes. So any annotation type must be a subtype of one of
 these two interfaces:
 
 * If an annotation type is a subtype of 
-  [`OptionalAnnotation`](#{site.urls.apidoc_current}/metamodel/OptionalAnnotation.type.html), 
+  [`OptionalAnnotation`](#{site.urls.apidoc_current}/OptionalAnnotation.type.html), 
   at most one annotation of a given program element may be of this annotation 
   type, or, otherwise
 * if an annotation type is a subtype of 
-  [`SequencedAnnotation`](#{site.urls.apidoc_current}/metamodel/SequencedAnnotation.type.html),
+  [`SequencedAnnotation`](#{site.urls.apidoc_current}/SequencedAnnotation.type.html),
   more than one annotation of a given program element may be of this annotation 
   type.
 
@@ -254,7 +254,7 @@ language.
 ## Reading annotation values at runtime
 
 Annotation values may be obtained by calling the toplevel method 
-[`annotations()`](#{site.urls.apidoc_current}/metamodel/#annotations) defined in the language module.
+[`annotations()`](#{site.urls.apidoc_current}/meta/#annotations) defined in the language module.
 
 <!-- try: -->
 <!-- check:none:Annotations M5 -->
@@ -470,4 +470,4 @@ platform modules.
 
 Alternatively, if you want to keep reading you can browse the 
 [reference documentation](#{page.doc_root}/reference) or (if you're sitting 
-comfortably) read the [specification](#{page.doc_root}/#{site.urls.spec_relative}).
+comfortably) read the [specification](#{site.urls.spec_current}).

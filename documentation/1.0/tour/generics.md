@@ -100,7 +100,7 @@ arguments.
     value things = entries(strings); // type Iterable<Entry<Integer,String>>
 
 The generic type argument inference algorithm is slightly involved, so you
-should refer to the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#typeargumentinference) 
+should refer to the [language specification](#{site.urls.spec_current}#typeargumentinference) 
 for a complete definition. But essentially what happens is that Ceylon 
 infers a type argument by combining the types of corresponding arguments 
 using union in the case of a covariant type parameter, or intersection

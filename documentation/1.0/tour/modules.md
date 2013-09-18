@@ -172,7 +172,7 @@ directory might be layed out like this:
 
 Here, the source code is in a directory called `source` (which is the default and 
 saves us having to pass a `--src` command line option to 
-[`ceylon compile`](../../reference/tool/ceylon/subcommands/ceylon-compile.html)). 
+[`ceylon compile`](#{site.urls.ceylon_tool_current}/ceylon-compile.html)). 
 From the project directory (the directory which contains the `source` directory) 
 you can compile using the command
     
@@ -211,7 +211,7 @@ which can be used by tools such as the IDE, for source code browsing. The
 be used to detect corrupted archives.
 
 You can generate API documentation using 
-[`ceylon doc`](../../reference/tool/ceylon/subcommands/ceylon-doc.html) 
+[`ceylon doc`](#{site.urls.ceylon_tool_current}/ceylon-doc.html) 
 like this:
 
 <!-- lang: bash -->
@@ -296,7 +296,7 @@ the module (possibly from another computer).
 
 If the dependencies (`com.example.bar/3.1.4` from before) can be 
 found in the default repositories the 
-[`ceylon run`](../../reference/tool/ceylon/subcommands/ceylon-run.html) command is:
+[`ceylon run`](#{site.urls.ceylon_tool_current}/ceylon-run.html) command is:
 
 <!-- lang: bash -->
     ceylon run

@@ -629,7 +629,7 @@ the reified type of `Num`, not by `Num` itself.
 You'll find some further discussion of this issue in 
 [Chapter 3 of the language specification][metatypes].
 
-[metatypes]:#{page.doc_root}/#{site.urls.spec_relative}#metatypes
+[metatypes]:#{site.urls.spec_current}#metatypes
 
 ### Type constructor parameterization
 
@@ -669,7 +669,7 @@ We have not yet decided if Ceylon needs this feature. It is
 mentioned as a proposal in [Chapter 3 of the language 
 specification][type constructor parameterization].
 
-[type constructor parameterization]: #{page.doc_root}/#{site.urls.spec_relative}#parameterizedtypeparameters
+[type constructor parameterization]: #{site.urls.spec_current}#parameterizedtypeparameters
 
 ### Generalized algebraic types
 
@@ -698,7 +698,7 @@ GADTs that we havn't begun to tackle yet.
 You'll find some further discussion of this issue in 
 [Chapter 3 of the language specification][gadts].
 
-[gadts]:#{page.doc_root}/#{site.urls.spec_relative}#d0e2399
+[gadts]:#{site.urls.spec_current}#d0e2399
 
 ### Type families
 

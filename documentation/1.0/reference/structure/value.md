@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: Attributes
+title: Values and attributes
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
@@ -121,6 +121,6 @@ Only simple values may be annotated `late`
 ## See also
 
 * [Compilation unit](../compilation-unit)
-* [`class` declaration](../../type/class)
-* [`interface` declaration](../../type/interface)
-* [`object` declaration](../../type/object)
+* [`class` declaration](../class)
+* [`interface` declaration](../interface)
+* [`object` declaration](../object)

@@ -117,7 +117,7 @@ There's more info in the [README](https://github.com/ceylon/ceylon-runtime/blob/
 
 This is where you'll find code that is commonly used by the other projects. It handles configuration files, repositories, authentication, proxies and more things.
 
-There's more info in the [README](https://github.com/ceylon/ceylon-common/blob/master/README).
+There's more info in the [README](https://github.com/ceylon/ceylon-common/blob/master/README.md).
 
 ### Packaging and distribution
 
@@ -130,7 +130,7 @@ This is the project that pulls together all the distributable files from the oth
 that can be distributed publicly. It also serves as the base directory from which to work when as a developer you don't have an
 official Ceylon installation on your system (you might be working on several different versiosn afterall).
 
-There's more info in the [README](https://github.com/ceylon/ceylon-dist/blob/master/README).
+There's more info in the [README](https://github.com/ceylon/ceylon-dist/blob/master/README.md).
 
 ### Ceylon Eclipse IDE plugin
 

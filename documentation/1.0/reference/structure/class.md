@@ -42,7 +42,7 @@ keyword like this:
     }
 
 If a class is declared without using the `extends` keywords it is a subclass of
-[`IdentifiableObject`](#{site.urls.apidoc_current}/IdentifiableObject.type.html).
+[`Basic`](#{site.urls.apidoc_current}/Basic.type.html).
 
 Note that the arguments to the superclasses [initializer](#initializer) are 
 specified in parenthesis after the name of the superclass in the `extends` 
@@ -151,8 +151,8 @@ A `default` inner class may be subject to
 
 The permitted members of classes are [classes](../class), 
 [interfaces](../interface), 
-[methods](../method), 
-[attributes](../attribute)
+[methods](../function), 
+[attributes](../value)
 and [`object`s](../object).
 
 ### Aliases
@@ -206,7 +206,7 @@ In a subtype of the type declaring the member class the member class
   the example),
 * have a parameter list with a compatible signature and,
 * extend the member class (you'll need to use 
-  [`super`](../../expression/super) or [`::`](../../expression/supertype-access) 
+  [`super`](../../expression/index.html#supertype_reference)
   in the `extends` clause).
 
 Refined member types are similar to, but not the same as virtual types, which 

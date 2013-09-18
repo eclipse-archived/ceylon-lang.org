@@ -126,7 +126,7 @@ The API documentation for [`ceylon.language`](#{site.urls.apidoc_current}).
 ## Tools
 
 * The `ceylon` command, [`ceylon`](tool/ceylon)
-* An index of [`ceylon` subcommands](tool/ceylon/subcommands)
+* An index of [`ceylon` subcommands](#{site.urls.ceylon_tool_current})
 * The Ceylon [`Ant` tasks](tool/ant)
 * The [configuration file format](tool/config)
 

@@ -177,7 +177,7 @@ later in the list, allowing you to write:
 * [`if` statement](../if), 
 * [`while` statement](../while), 
 * [`assert` statement](../assert) 
-* [`if` comprehensions](../../epxression/comprehension)
+* [`if` comprehensions](../../expression/comprehension)
 <!-- TODO 
 * [condition lists](#{site.urls.spec_current}#TODO) 
 in the Ceylon spec 

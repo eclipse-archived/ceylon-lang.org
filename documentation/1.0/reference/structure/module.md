@@ -92,14 +92,14 @@ Modules are distributed in `.car` files, which are essentially
 
 Modules are kept in a [module repository](../../repository). The 
 list of module repositories to use is passed to 
-[`ceylon compile`](#{page.doc_root}/reference/tool/ceylon/subcommands/ceylon-compile.html), 
-[`ceylon run`](#{page.doc_root}/reference/tool/ceylon/subcommands/ceylon-run.html), 
+[`ceylon compile`](#{site.urls.ceylon_tool_current}/ceylon-compile.html), 
+[`ceylon run`](##{site.urls.ceylon_tool_current}/ceylon-run.html), 
 and [other tools](#{page.doc_root}/reference/#tools).
 
 ## See also
 
 * Modules contain [packages](../package)
 * [Module repositories](../../repository)
-* [Module system](/documentation/1.0/spec/html_single/index.html#modulesystem)
+* [Module system](#{site.urls.spec_current}#modulesystem)
   in the Ceylon specification
 * [Packages and modules](/documentation/1.0/tour/modules/) in the tour

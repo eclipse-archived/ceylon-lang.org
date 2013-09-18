@@ -131,7 +131,7 @@ declarations.
 
 The `doc`, `by`, `see`, `throws`, and `tagged` annotations contain documentation 
 that is included in the output of the Ceylon documentation compiler, 
-[`ceylon doc`](../../reference/tool/ceylon/subcommands/ceylon-doc.html).
+[`ceylon doc`](#{site.urls.ceylon_tool_current}/ceylon-doc.html).
 
 <!--
 Notice that when an annotation argument is a literal, it doesn't need to be 

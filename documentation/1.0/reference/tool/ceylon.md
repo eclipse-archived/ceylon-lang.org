@@ -20,33 +20,33 @@ The `ceylon` command provides access to the Ceylon command line toolset.
 ## Description
  
 The top level `ceylon` command is the entry point for a particular subcommand. 
-There is a [list of the available subcommands](subcommands).
+There is a [list of the available subcommands](#{site.urls.ceylon_tool_current}).
 
 The rest of this page will highlight particular tools
 
 ### Backend-agnostic commands
 
-* [`ceylon help`](subcommands/ceylon-help.html)
+* [`ceylon help`](#{site.urls.ceylon_tool_current}/ceylon-help.html)
   provides interactive help about other `ceylon` commands.
-* [`ceylon doc`](subcommands/ceylon-doc.html)
+* [`ceylon doc`](#{site.urls.ceylon_tool_current}/ceylon-doc.html)
   is the command line interface to the Ceylon documentation compiler
-* [`ceylon new`](subcommands/ceylon-new.html)
+* [`ceylon new`](#{site.urls.ceylon_tool_current}/ceylon-new.html)
   generates Ceylon projects from templates
 
 ### JVM-specific commands
 
-* [`ceylon compile`](subcommands/ceylon-compile.html) 
+* [`ceylon compile`](#{site.urls.ceylon_tool_current}/ceylon-compile.html) 
   is the command line interface to the Ceylon compiler
-* [`ceylon run`](subcommands/ceylon-run.html)
+* [`ceylon run`](#{site.urls.ceylon_tool_current}/ceylon-run.html)
   is the command line interface for launching a Celyon program on the JVM
-* [`ceylon import-jar`](subcommands/ceylon-import-jar.html)
+* [`ceylon import-jar`](#{site.urls.ceylon_tool_current}/ceylon-import-jar.html)
   is the command line interface for launching a Celyon program on the JVM
   
 ### JavaScript-specific commands
 
-* [`ceylon compile-js`](subcommands/ceylon-compile-js.html)
+* [`ceylon compile-js`](#{site.urls.ceylon_tool_current}/ceylon-compile-js.html)
   is the command line interface to the Ceylon compiler for JavaScript
-* [`ceylon run-js`](subcommands/ceylon-run-js.html)
+* [`ceylon run-js`](#{site.urls.ceylon_tool_current}/ceylon-run-js.html)
   is the command line interface for launching a Celyon program on the node.js
  
 

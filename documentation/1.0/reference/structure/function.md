@@ -128,8 +128,13 @@ Note that you can use this to *partially apply* a function (or any `Callable`):
 
 ### Type inference
 
-The type of a [block local](TODO) method will be inferred by the compiler
-if the keyword `function` is given in place of a type. 
+The type of a local method will be inferred by the compiler
+if the keyword `function` is given in place of a type:
+
+    void f() {
+        function inferred() => "";
+        // The return type of inferred is String
+    }
 
 ### Invocation
 
@@ -138,6 +143,6 @@ See separate page on [method invocation](../../expression/invocation).
 ## See also
 
 * [Compilation unit](../compilation-unit)
-* [`class` declaration](../../type/class)
-* [`interface` declaration](../../type/interface)
-* [`object` declaration](../../type/object)
+* [`class` declaration](../class)
+* [`interface` declaration](../interface)
+* [`object` declaration](../object)

@@ -18,7 +18,7 @@ other languages).
 Inheritance is one of two ways Ceylon lets us abstract over types. (The
 other is [generics](../generics), which we'll get to later in this tour.)
 Ceylon features a flavor of multiple inheritance called 
-["mixin" inheritance](interfaces_and_mixin_inheritance). You might have
+["mixin" inheritance](#interfaces_and_mixin_inheritance). You might have
 heard or experienced that multiple inheritance is scary and complicated
 and, indeed, that's kinda true of multiple inheritance in C++. But mixin
 inheritance in Ceylon comes with certain restrictions that strike a

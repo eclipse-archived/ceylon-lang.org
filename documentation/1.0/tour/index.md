@@ -129,9 +129,9 @@ And:
     ceylon-0.6/bin/ceylon help run
 
 The command
-[ceylon help](../../reference/tool/ceylon/subcommands/ceylon-help.html) 
+[ceylon help](#{site.urls.ceylon_tool_current}/ceylon-help.html) 
 outputs usage information about any of the 
-[`ceylon` subcommands](../../reference/tool/ceylon/subcommands/index.html).
+[`ceylon` subcommands](#{site.urls.ceylon_tool_current}/index.html).
 
 *If you're still having trouble getting started with the command line tools, 
 try [compiling and running the samples](#before_you_start) if you haven't 
