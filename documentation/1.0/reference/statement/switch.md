@@ -107,7 +107,9 @@ Another example, using the `case(is...)` special form and a union type:
 
 ### `case(...)` with literals
 
-If the `switch` expression is of `Integer`, `Character` or `String` type
+If the `switch` expression is of [`Integer`](#{site.urls.apidoc_current}/Integer.type.html), 
+[`Character`](#{site.urls.apidoc_current}/Character.type.html) or 
+[`String`](#{site.urls.apidoc_current}/String.type.html) type
 then the `case`s may be literal values of the appropriate type.
 
     void f(Integer i) {

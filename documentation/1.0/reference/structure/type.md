@@ -82,36 +82,43 @@ To avoid having to repeat long type expressions, you can define a
     
 ### `Null`
 
-`Null` is the type of `null`. If an expression permits `null` then it
+[`Null`](#{site.urls.apidoc_current}/Null.type.html) is the type of 
+[`null`](#{site.urls.apidoc_current}/index.html#null). 
+If an expression permits `null` then it
 needs `Null` as a supertype. This is usually expressed as using a 
 [union type](#union_types) such as `T|Null`, which can be abbreviated 
 as `T?`.
 
 ### `Nothing`
 
-`Nothing` is the intersection of *all* types. It is equivalent to the empty set.
+[`Nothing`](#{site.urls.apidoc_current}/Nothing.type.html) 
+is the intersection of *all* types. It is equivalent to the empty set.
 Because `Nothing` is the intersection of all types it is assignable to 
 all types. Similarly because it is the intersection of all types it can have 
 no instances.
 
 ### `Sequential`
 
-`Sequential` is an enumerated type with subtypes `Sequence` and `Empty`
+[`Sequential`](#{site.urls.apidoc_current}/Sequential.type.html) 
+is an enumerated type with subtypes 
+[`Sequence`](#{site.urls.apidoc_current}/Sequence.type.html) and 
+[`Empty`](#{site.urls.apidoc_current}/Empty.type.html). 
 `Sequential<T>` is usually abbreviated to `T[]`.
 
 ### `Empty`
 
-`Empty` is the type of the 
+[`Empty`](#{site.urls.apidoc_current}/Empty.type.html) is the type of the 
 [expression `[]`](../../expression/sequence-instantiation). 
 
 ### `Sequence`
 
-`Sequence` is the type of non-empty 
-[sequences](../../expression/sequence-instantiation).
+[`Sequence`](#{site.urls.apidoc_current}/Sequence.type.html) 
+is the type of non-empty [sequences](../../expression/sequence-instantiation).
 
 ### `Tuple`
 
-`Tuple` is a subclass of `Sequence` (and thus cannot be empty). It differs from 
+[`Tuple`](#{site.urls.apidoc_current}/Tuple.type.html) is a subclass of 
+`Sequence` (and thus cannot be empty). It differs from 
 `Sequence` in that the typechecker knows types of each of its elements 
 individually.
 

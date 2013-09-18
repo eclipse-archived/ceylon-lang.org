@@ -80,8 +80,8 @@ particularly worth noting are:
   `shared` in the module descriptor.
 * [`optional`](#{site.urls.apidoc_current}/index.html#optional) to mark
   the imported module as being an optional dependency.
-* `doc`, if there is something about the dependency which is 
-  worthy of documentation.
+* [`doc`](#{site.urls.apidoc_current}/index.html#doc), 
+  if there is something about the dependency which is worthy of documentation.
 
 
 ### Distribution
@@ -95,6 +95,15 @@ list of module repositories to use is passed to
 [`ceylon compile`](#{site.urls.ceylon_tool_current}/ceylon-compile.html), 
 [`ceylon run`](##{site.urls.ceylon_tool_current}/ceylon-run.html), 
 and [other tools](#{page.doc_root}/reference/#tools).
+
+## Metamodel
+
+Modules can be manipulated at runtime via their representation as
+[`Module`](#{site.urls.apidoc_current}/meta/declaration/Module.type.html) instances. 
+A module's `import` declarations are represented as
+[`Import`](#{site.urls.apidoc_current}/meta/declaration/Import.type.html) instances.
+The [`modules`](#{site.urls.apidoc_current}/meta/modules.object.html) object can be 
+used to list the modules currently loaded in the virtual machine.
 
 ## See also
 

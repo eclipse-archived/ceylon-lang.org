@@ -40,7 +40,8 @@ the remainder of the block and proceed with the execution of the block.
 
 ### `Boolean` conditions
 
-Any `Boolean` expression can be used as a condition in an `while` statement.
+Any [`Boolean`](#{site.urls.apidoc_current}/Boolean.type.html) 
+expression can be used as a condition in an `while` statement.
 
 ### 'Special' conditions
 

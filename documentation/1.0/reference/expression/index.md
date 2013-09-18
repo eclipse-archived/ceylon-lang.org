@@ -21,22 +21,22 @@ Expressions are built using the following constructs.
 
 ### Literals
 
-String literals:
+[`String`](#{site.urls.apidoc_current}/String.type.html) literals:
 
 <!-- try: -->
     "hello, world"
 
-Character literals:
+[`Character`](#{site.urls.apidoc_current}/Character.type.html) literals:
 
 <!-- try: -->
     'a'
 
-Integer number literals:
+['Integer'](#{site.urls.apidoc_current}/Integer.type.html) number literals:
 
 <!-- try: -->
     1
 
-Floating point number literals:
+[Floating point number](#{site.urls.apidoc_current}/Float.type.html) literals:
 
 <!-- try: -->
     3.0
@@ -83,7 +83,7 @@ used to qualify a reference.
 
 ### References
 
-These are all `Callable` expressions
+These are all [`Callable`](#{site.urls.apidoc_current}/Callable.type.html) expressions
 
 <!-- try: -->
     print
@@ -93,7 +93,8 @@ These are all `Callable` expressions
 
 ### `Declaration` references
 
-These evaluate to values of various subtypes of `Declaration`:
+These evaluate to values of various subtypes of 
+[`Declaration`](#{site.urls.apidoc_current}/meta/declaration/Declaration.type.html):
 
 <!-- try: -->
     `class String`
@@ -114,12 +115,12 @@ These evaluate to values of various subtypes of `Declaration`:
     
 ### Iterable and tuple enumeration
 
-Iterable enumeration:
+[`Iterable`](#{site.urls.apidoc_current}/Iterable.type.html) enumeration:
 
 <!-- try: -->
     {1, 2}
     
-Tuple enumeration:
+[`Tuple`](#{site.urls.apidoc_current}/Tuple.type.html) enumeration:
 
 <!-- try: -->
     [1, 2]

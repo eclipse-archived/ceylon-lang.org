@@ -100,7 +100,7 @@ A class that can be [instantiated](../../expression/class-instantiation) is
 
 ### Abstract classes
 
-A class declaration may be annotated `abstract`, like this:
+A class declaration may be annotated [`abstract`](#{site.urls.apidoc_current}/index.html#abstract), like this:
 
     abstract class C() {
         /* declarations of class members */
@@ -112,7 +112,7 @@ Abstract classes may have `formal` members.
 
 ### Shared classes
 
-A class declaration may be annotated `shared`,like this:
+A class declaration may be annotated [`shared`](#{site.urls.apidoc_current}/index.html#shared),like this:
 
     shared class C() {
         /* declarations of class members */
@@ -126,7 +126,7 @@ contains it is visible.
 
 ### Formal classes
 
-Toplevel classes may not be annotated `formal`.
+Toplevel classes may not be annotated [`formal`](#{site.urls.apidoc_current}/index.html#formal).
 
 Formal classes cannot be [instantiated](../../expression/class-instantiation).
 
@@ -139,7 +139,8 @@ A `formal` inner class may be subject to
 
 ### Default classes
 
-A class may be annotated `default` if it is contained in a concrete `shared` 
+A class may be annotated [`default`](#{site.urls.apidoc_current}/index.html#default)
+if it is contained in a concrete `shared` 
 class or interface. 
 
 A block local class may not be annotated `formal`.

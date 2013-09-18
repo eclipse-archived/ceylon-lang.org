@@ -55,7 +55,7 @@ Any class parameters must be of one of the allowed types:
 * `Integer`, `Character`, `Float`, `String`
 * [Enumerated types](../type/#enumerated_types) where all the cases are `object` declarations
   (which includes `Boolean`).
-* A subtype of `Declaration`
+* A subtype of [`Declaration`](#{site.urls.apidoc_current}/meta/declaration/Declaration.type.html)
 * Another annotation class.
 * `Iterable`s, `Sequence`s or `Tuple`s of the above.
 

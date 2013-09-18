@@ -39,12 +39,14 @@ Or, with a *resource expression*:
 The `try` statment is used to handle exceptions thrown by the 
 [`throw`](../throw) statement.
 
-The `try` clause may optionally have a list of one or more `Closeable`-typed 
+The `try` clause may optionally have a list of one or more 
+[`Closeable`](#{site.urls.apidoc_current}/Closeable.type.html)-typed 
 *resource expressions*. If it does then both `catch` and `finally` clauses 
 are optional, otherwise at least one other of those clauses is required.
 
 The [`catch` clause](../catch) specifies the [type](../../structure/type) 
-of exception (which must be a subtype of `Exception`) to be handled 
+of exception (which must be a subtype of 
+[`Exception`](#{site.urls.apidoc_current}/Exception.type.html)) to be handled 
 by the associated block. The block is executed only if an exception 
 assignable to that type propogates out of the `try` block and the exception 
 was not assignable to the type of any preceeding `catch` clause.
@@ -55,9 +57,10 @@ an exception propogated out of the `try` block, and whether or not any matching
 
 ### Execution
 
-1. If there are any resource expressions they are evaluated and `open()` is invoked.
+1. If there are any resource expressions they are evaluated and [`open()`](#{site.urls.apidoc_current}/Closeable.type.html#open) is invoked.
 2. Each of the statements in the `try` block is executed
-3. `close()` is invoked on each of the resources acquired in 1
+3. [`close()`](#{site.urls.apidoc_current}/Closeable.type.html#close) 
+   is invoked on each of the resources acquired in 1
 4. If an exception propogates out of the `try` block, each of the
    `catch` clauses is considered in turn:
     1. If the propgated exception is a subtype of the exception type of 

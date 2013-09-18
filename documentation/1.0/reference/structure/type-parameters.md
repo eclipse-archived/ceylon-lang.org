@@ -81,9 +81,15 @@ The constraints are:
 
 #### Examples
 
-The default supertype of a type parameter is `Anything`, so it's common to 
-see type constraints which use `Object` as an upper bound if the declaration 
-doesn't support `Null`. An example of this is `Set` from the language module:
+The default supertype of a type parameter is 
+[`Anything`](#{site.urls.apidoc_current}/Anything.type.html), 
+so it's common to 
+see type constraints which use [`Object`](#{site.urls.apidoc_current}/Object.type.html) 
+as an upper bound if the declaration 
+doesn't support 
+[`Null`](#{site.urls.apidoc_current}/Null.type.html). 
+An example of this is [`Set`](#{site.urls.apidoc_current}/Set.type.html) 
+from the language module:
 
     shared interface Set<out Element>
             satisfies Collection<Element> &
@@ -96,7 +102,8 @@ Given this declaration it's not allowed to have a `Set<String?>`, because
 `String?` means `String|Null` and although `String` satisfies `Object`, 
 `Null` does not.
 
-Another example from the language module is `Comparable`, declared like this:
+Another example from the language module is [`Comparable`](#{site.urls.apidoc_current}/Comparable.type.html), 
+declared like this:
 
     shared interface Comparable<in Other> of Other 
             given Other satisfies Comparable<Other> {
@@ -111,7 +118,8 @@ in the type instantiation `Comparable<Integer>`, `Other` has the
 type `Integer`.
 
 A final example is the language module's
-`sort()` function which constrains the type parameter `Element` so that 
+[`sort()`](#{site.urls.apidoc_current}/index.html#sort) 
+function which constrains the type parameter `Element` so that 
 it can only be called with `Comparable` Elements
 
     shared Element[] sort<Element>({Element*} elements) 
@@ -128,7 +136,8 @@ can define defaulted type parameters. Here's an example from the language module
 
     Iterable<out Element, out Absent=Null>
     
-This means we can apply the type constructor `Iterable` using either one 
+This means we can apply the type constructor 
+[`Iterable`](#{site.urls.apidoc_current}/Iterable.type.html) using either one 
 or two type arguments. If we supply only one type argument, the default 
 type (in this case `Null`) is used:
 

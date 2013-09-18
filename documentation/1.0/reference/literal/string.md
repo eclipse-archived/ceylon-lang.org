@@ -11,7 +11,7 @@ doc_root: ../../..
 
 ## Usage 
 
-A `String` literal is enclosed between double quotes (`"`)
+A [`String`](#{site.urls.apidoc_current}/String.type.html) literal is enclosed between double quotes (`"`)
 
     String example = "This is a trivial example";
     String escaping = "\"Escaping\" with a backslash";

@@ -11,7 +11,7 @@ doc_root: ../../..
 
 ## Usage 
 
-An `Integer` literal can be written an a variety of ways
+An [`Integer`](#{site.urls.apidoc_current}/Integer.type.html) literal can be written an a variety of ways
 
 <!-- cat: void m() { -->
     Integer one = 1;

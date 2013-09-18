@@ -27,7 +27,9 @@ The general form of the `assert` statement is
 
 The condition (or conditions) in the assert statement are evaluated. If they 
 evaluate as `true` then execution proceeds with the statement following the 
-`assert`. Otherwise an `AssertionException` is thrown.
+`assert`. Otherwise an 
+[`AssertionException`](#{site.urls.apidoc_current}/AssertionException.type.html) 
+is thrown.
 
 ### Purpose
 
@@ -35,7 +37,9 @@ evaluate as `true` then execution proceeds with the statement following the
 the programmer *knows* are true, but which cannot be proved 
 to be true within the type system. 
 
-Here's an example using the `parseInteger()` method from `ceylon.language` 
+Here's an example using the 
+[`parseInteger()`](#{site.urls.apidoc_current}/index.html#parseInteger) 
+method from `ceylon.language` 
 which returns `Integer?` so as to force you to handle the possibility that 
 the argument was not `String` representing a number:
 
@@ -52,7 +56,8 @@ because it can only reason about types, not about what the
 
 ### `Boolean` conditions
 
-Any `Boolean` expression can be used as a condition in an `assert` statement.
+Any [`Boolean`](#{site.urls.apidoc_current}/Boolean.type.html) 
+expression can be used as a condition in an `assert` statement.
 
 ### 'Special' conditions
 

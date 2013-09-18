@@ -28,8 +28,9 @@ The `else` clause is optional.
 
 ### Execution
 
-A `for` statement works with `Iterable`s. Before the `for` block an iteration 
-variable (assignable to `Iterator<T>`, for some `T`) is declared, and an
+A `for` statement works with [`Iterable`](#{site.urls.apidoc_current}/Iterable.type.html)s. 
+Before the `for` block an iteration 
+variable (assignable to [`Iterator<T>`](#{site.urls.apidoc_current}/Iterator.type.html), for some `T`) is declared, and an
 `Iterable`-typed expression is given. The 
 `for` block is executed with the declared variable taking the value of successive 
 items returned from the `Iterator` obtained from the `Iterable`. Execution 

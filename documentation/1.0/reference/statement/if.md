@@ -49,7 +49,7 @@ with the `else` block, followed by the code after the `if` statement.
 
 ### `Boolean` conditions
 
-Any `Boolean` expression can be used as a condition in an `if` statement.
+Any [`Boolean`](#{site.urls.apidoc_current}/Boolean.type.html) expression can be used as a condition in an `if` statement.
 
 ### 'Special' conditions
 

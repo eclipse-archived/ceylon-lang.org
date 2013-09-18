@@ -10,7 +10,7 @@ doc_root: ../../..
 
 ## Usage 
 
-A `Float` literal can be written in a variety of ways:
+A [`Float`](#{site.urls.apidoc_current}/Float.type.html) literal can be written in a variety of ways:
 
 <!-- cat: void m() { -->
     variable Float one = 1.0;

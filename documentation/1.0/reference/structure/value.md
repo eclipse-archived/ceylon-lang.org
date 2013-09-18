@@ -60,9 +60,9 @@ class body represents state associated with an instance of the class. A local
 value (that is, an attribute within a block) represents state associated 
 with execution of that block.
 
-If the value is annotated `variable` it can be 
+If the value is annotated [`variable`](#{site.urls.apidoc_current}/index.html#variable) it can be 
 [assigned](#{page.doc_root}/reference/operator/assign) more than once.
-Otherwise it must be [specified](#{page.doc_root}/reference/statement/specification) 
+Otherwise it must be [specified](../../statement/specification) 
 exactly once, moreover the specification must occur before its first use.
 
 ### Getters (derived values)
@@ -97,7 +97,8 @@ but can instead use
 
 ### `late` values
 
-A value can be declared `late` in which case the typechecker's
+A value can be declared [`late`](#{site.urls.apidoc_current}/index.html#late) 
+in which case the typechecker's
 definite specification checks are not performed. Instead code is generated 
 which performs a runtime check for accessing the value when it hasn't 
 been initialized (and re-initializing a

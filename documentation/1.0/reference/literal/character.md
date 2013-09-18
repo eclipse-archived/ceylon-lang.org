@@ -11,7 +11,8 @@ doc_root: ../../..
 
 ## Usage 
 
-A `Character` literal is a single character enclosed between single quotes (`'`), 
+A [`Character`](#{site.urls.apidoc_current}/Character.type.html) literal is a 
+single character enclosed between single quotes (`'`), 
 for example:
 
 

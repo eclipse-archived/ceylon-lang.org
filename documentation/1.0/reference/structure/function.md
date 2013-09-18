@@ -52,7 +52,8 @@ A function declaration always specifies the *return type* of the function, or th
 keyword `void` if the function has no return value.
 
 The type system considers a `void` function identically to a function declared to 
-return `Anything`. In particular a `void` method can actually 
+return [`Anything`](#{site.urls.apidoc_current}/Anything.type.html). 
+In particular a `void` method can actually 
 be refined by a subtype to return a more specific type. The value actually 
 returned from an unrefined `void` function is always `null`.
 
