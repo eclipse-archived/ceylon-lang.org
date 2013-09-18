@@ -14,7 +14,7 @@ are *identical*
 
 ## Usage 
 
-    void m(IdentifiableObject x, IdentifiableObject y) {
+    void m(Identifiable x, Identifiable y) {
         Boolean identical = x === y;
     }
 
@@ -33,7 +33,7 @@ See the [language specification](#{site.urls.spec_current}#equalitycomparison) f
 
 The `===` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `===` depends on the 
-[`IdentifiableObject`](#{site.urls.apidoc_current}/IdentifiableObject.type.html) interface
+[`Identifiable`](#{site.urls.apidoc_current}/Identifiable.type.html) interface
 
 ### Meaning of *identical* for built-in types
 
@@ -42,7 +42,7 @@ TODO
 ## See also
 
 * [`==` (equal)](../equal) operator
-* API documentation for [`IdentifiableObject`](#{site.urls.apidoc_current}/IdentifiableObject.type.html)
+* API documentation for [`Identifiable`](#{site.urls.apidoc_current}/Identifiable.type.html)
 * [identical in the language specification](#{site.urls.spec_current}#equalitycomparison)
 * [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 
   language specification

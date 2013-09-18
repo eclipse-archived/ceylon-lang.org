@@ -329,7 +329,7 @@ According to the language spec:
 > * a forward-declared method or attribute declaration not annotated `late`,
 > * an `object` declaration with a non-empty initializer section, or
 > * an `object` declaration that directly extends a class other than 
->   `Object` or `IdentifiableObject`...
+>   `Object` or `Basic`...
 
 Note that the rules governing the declaration section of a class body are 
 essentially the same rules governing the body of an interface. That makes 

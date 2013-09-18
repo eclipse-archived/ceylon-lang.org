@@ -103,7 +103,7 @@ JavaBean property defined in Java is mapped to a Ceylon instance attribute.
    respective Ceylon instance attributes `string` and `hash`, and as such are
    not visible as instance methods.
 1. The `java.lang.Object` type is mapped to the Ceylon type 
-   `ceylon.language.IdentifiableObject` as defined in [type mapping](../type-mapping),
+   `ceylon.language.Basic` as defined in [type mapping](../type-mapping),
    therefore the fields and methods defined in `java.lang.Object` are not visible
    in Ceylon (we might change this in the future).
 
