@@ -214,4 +214,4 @@ Ceylon does not support.
 
 ## See also
 
-* [Member class refinement](#{page.doc_root}/#{site.urls.spec_relative}#refiningmemberclasses) in the Ceylon spec
+* [Member class refinement](#{site.urls.spec_current}#refiningmemberclasses) in the Ceylon spec

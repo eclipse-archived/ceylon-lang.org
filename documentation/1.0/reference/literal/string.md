@@ -81,6 +81,6 @@ Strings containing two backticks (` `` `) are not plain `String` literals, but
 
 * [`String` literals](#{page.doc_root}/tour/basics/#strings_and_string_interpolation) 
   in the Tour of Ceylon 
-* [`String` literals in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#stringliterals)
+* [`String` literals in the language specification](#{site.urls.spec_current}#stringliterals)
 * [`String` templates](../../expression/string-template)
 

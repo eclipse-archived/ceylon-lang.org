@@ -25,7 +25,7 @@ The `->` operator is defined as follows:
 <!-- check:none -->
     Entry(lhs, rhs)
 
-See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#constructors) for 
+See the [language specification](#{site.urls.spec_current}#constructors) for 
 more details.
 
 ### Polymorphism
@@ -34,9 +34,9 @@ The `->` operator is not [polymorphic](#{page.doc_root}/reference/operator/opera
 
 ## See also
 
-* [object creation operators](#{page.doc_root}/#{site.urls.spec_relative}#constructors) in the 
+* [object creation operators](#{site.urls.spec_current}#constructors) in the 
   language specification
-* [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 
+* [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 
   language specification
 * [Operator polymorphism](#{page.doc_root}/tour/language-module/#operator_polymorphism) 
   in the Tour of Ceylon

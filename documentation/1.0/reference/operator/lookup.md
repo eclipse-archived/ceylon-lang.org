@@ -38,7 +38,7 @@ The `[]` operator is defined as follows:
 <!-- check:none -->
     lhs.item(index)
 
-See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#listmap) for 
+See the [language specification](#{site.urls.spec_current}#listmap) for 
 more details.
 
 ### Polymorphism
@@ -53,9 +53,9 @@ interface.
 * [`?[]` (nullsafe lookup)](../nullsafe-lookup) operator used for accessesing 
   a `Correspondence?`
 * API documentation for [`Correspondence`](#{site.urls.apidoc_current}/interface_Correspondence.html) 
-* [sequence operators](#{page.doc_root}/#{site.urls.spec_relative}#listmap) in the 
+* [sequence operators](#{site.urls.spec_current}#listmap) in the 
   language specification
-* [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 
+* [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 
   language specification
 * [Operator polymorphism](#{page.doc_root}/tour/language-module/#operator_polymorphism) 
   in the Tour of Ceylon

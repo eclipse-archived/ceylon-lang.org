@@ -98,6 +98,6 @@ keywords but [annotations](../annotation).
 
 ## See also
 
-* [Identifiers and keywords](#{page.doc_root}/#{site.urls.spec_relative}#identifiersandkeywords)
+* [Identifiers and keywords](#{site.urls.spec_current}#identifiersandkeywords)
   in the Ceylon specification
 

@@ -30,5 +30,5 @@ The `.` operator is not [polymorphic](#{page.doc_root}/tour/language-module/#ope
 
 ## See also
 
-* [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 
+* [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 
   language specification

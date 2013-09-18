@@ -52,5 +52,5 @@ decided yet.
 
 ## See also
 
-* [Single quoted literals in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#singlequotedliterals)
+* [Single quoted literals in the language specification](#{site.urls.spec_current}#singlequotedliterals)
 

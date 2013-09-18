@@ -66,5 +66,5 @@ Invoking `Float` members directly on `Float` literals is permitted:
 
 * [Numeric literals](#{page.doc_root}/tour/language-module/#numeric_literals) 
   in the Tour of Ceylon 
-* [Numeric literals in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#numericliterals)
+* [Numeric literals in the language specification](#{site.urls.spec_current}#numericliterals)
 

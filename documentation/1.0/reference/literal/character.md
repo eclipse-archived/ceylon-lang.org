@@ -49,5 +49,5 @@ In addition, the following may be escaped with a backslash:
 
 ## See also
 
-* [Character literals in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#characterliterals)
+* [Character literals in the language specification](#{site.urls.spec_current}#characterliterals)
 

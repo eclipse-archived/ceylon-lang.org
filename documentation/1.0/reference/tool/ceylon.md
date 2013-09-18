@@ -52,5 +52,5 @@ The rest of this page will highlight particular tools
 
 ## See also
 
-* [`ceylon`](#{page.doc_root}/#{site.urls.spec_relative}#vmfrontent) in the language specification
+* [`ceylon`](#{site.urls.spec_current}#vmfrontent) in the language specification
 

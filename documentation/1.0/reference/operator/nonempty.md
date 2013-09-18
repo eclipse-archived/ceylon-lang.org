@@ -27,7 +27,7 @@ The meaning of `exists` is defined as follows:
 <!-- check:none -->
     if (nonempty lhs) true else false
 
-See the [`language specification`](#{page.doc_root}/#{site.urls.spec_relative}#nullvalues) for more details.
+See the [`language specification`](#{site.urls.spec_current}#nullvalues) for more details.
 
 ### Polymorphism
 
@@ -43,6 +43,6 @@ takes form `attribute nonempty` with the
 
 ## See also
 
-* [`nonempty`](#{page.doc_root}/#{site.urls.spec_relative}#nullvalues) in the language specification.
-* [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 
+* [`nonempty`](#{site.urls.spec_current}#nullvalues) in the language specification.
+* [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 
   language specification

@@ -41,6 +41,6 @@ takes form `attribute exists` with the
 
 ## See also
 
-* [`exists`](#{page.doc_root}/#{site.urls.spec_relative}#nullvalues) in the language specification.
-* [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 
+* [`exists`](#{site.urls.spec_current}#nullvalues) in the language specification.
+* [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 
   language specification

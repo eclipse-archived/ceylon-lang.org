@@ -46,7 +46,7 @@ takes form `attribute is Type` with the
 
 * [`extends` operator](../extends)
 * [`satisfies` operator](../satisfies)
-* [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 
+* [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 
   language specification
 * [`if (is ...)` special form](../../statement/if#special_conditions)
 * [`case (is ...)` special form](../../statement/switch#polymorphism)

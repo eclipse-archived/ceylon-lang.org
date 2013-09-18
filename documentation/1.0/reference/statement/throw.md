@@ -73,5 +73,5 @@ logic.
 * [`ceylon.language.Exception`](#{site.urls.apidoc_current}/interface_Exception.html)
 * The [`throws`](#{site.urls.apidoc_current}/TODO) annotation provides a way to document the 
   exceptions which may be thrown from a method, getter, setter or class initializer.
-* [`throw` in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#trycatchfinally)
+* [`throw` in the language specification](#{site.urls.spec_current}#trycatchfinally)
 

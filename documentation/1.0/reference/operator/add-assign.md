@@ -33,7 +33,7 @@ The operator is defined as:
 
 except that `lhs` is evaluated only once.
 
-See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#arithmetic) for more details.
+See the [language specification](#{site.urls.spec_current}#arithmetic) for more details.
 
 ### Polymorphism
 
@@ -45,9 +45,9 @@ interface.
 
 ## See also
 
-* [arithmetic operators](#{page.doc_root}/#{site.urls.spec_relative}#arithmetic) in the 
+* [arithmetic operators](#{site.urls.spec_current}#arithmetic) in the 
   language specification
-* [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 
+* [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 
   language specification
 * [Operator polymorphism](#{page.doc_root}/tour/language-module/#operator_polymorphism) 
   and 

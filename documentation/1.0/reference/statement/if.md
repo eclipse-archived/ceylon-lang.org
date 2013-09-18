@@ -91,9 +91,9 @@ later in the list, allowing you to write:
   better suited to handling exhaustive lists of cases
 * The [`assert` statement](../assert) is an alternative control structure
   better suited to expressing invariants.
-* [`if` in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#ifelse)
-* [`if (is ...)` in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#assignabilityexistencenonemptinessconditions)
-* [`if (exists ...)` in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#assignabilityexistencenonemptinessconditions)
-* [`if (nonempty ...)` in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#assignabilityexistencenonemptinessconditions)
-* [`if (satisfies ...)` in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#subtypeconditions)
+* [`if` in the language specification](#{site.urls.spec_current}#ifelse)
+* [`if (is ...)` in the language specification](#{site.urls.spec_current}#assignabilityexistencenonemptinessconditions)
+* [`if (exists ...)` in the language specification](#{site.urls.spec_current}#assignabilityexistencenonemptinessconditions)
+* [`if (nonempty ...)` in the language specification](#{site.urls.spec_current}#assignabilityexistencenonemptinessconditions)
+* [`if (satisfies ...)` in the language specification](#{site.urls.spec_current}#subtypeconditions)
 

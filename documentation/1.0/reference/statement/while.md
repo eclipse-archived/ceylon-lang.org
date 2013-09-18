@@ -86,5 +86,5 @@ later in the list, allowing you to write:
 * The [`for` statement](../for)
 * The [`while` statement](#{page.doc_root}/tour/attributes-control-structures#control_structures) 
   in the Tour of Ceylon
-* The [`while` statement](#{page.doc_root}/#{site.urls.spec_relative}#while) 
+* The [`while` statement](#{site.urls.spec_current}#while) 
   in the language specification

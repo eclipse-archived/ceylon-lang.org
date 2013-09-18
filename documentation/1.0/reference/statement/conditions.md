@@ -179,6 +179,6 @@ later in the list, allowing you to write:
 * [`assert` statement](../assert) 
 * [`if` comprehensions](../../epxression/comprehension)
 <!-- TODO 
-* [condition lists](#{page.doc_root}/#{site.urls.spec_relative}#TODO) 
+* [condition lists](#{site.urls.spec_current}#TODO) 
 in the Ceylon spec 
 -->

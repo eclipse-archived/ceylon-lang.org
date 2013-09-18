@@ -88,5 +88,5 @@ not been found:
 * The [`for` statement](#{page.doc_root}/tour/attributes-control-structures#control_structures) 
   and [Iterating Sequences](#{page.doc_root}/tour/sequences#iterating_sequences)
   in the Tour of Ceylon
-* The [`for` statement](#{page.doc_root}/#{site.urls.spec_relative}#forelse) 
+* The [`for` statement](#{site.urls.spec_current}#forelse) 
   in the language specification

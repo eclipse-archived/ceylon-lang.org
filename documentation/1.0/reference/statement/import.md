@@ -57,4 +57,4 @@ discouraged, since:
 
 ## See also
 
-* [`import` in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#imports)
+* [`import` in the language specification](#{site.urls.spec_current}#imports)

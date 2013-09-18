@@ -29,7 +29,7 @@ You can also spread method references:
     
 ### Definition
 
-See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#listmap) for 
+See the [language specification](#{site.urls.spec_current}#listmap) for 
 more details.
 
 ### Polymorphism
@@ -40,9 +40,9 @@ The `*.` operator is not [polymorphic](#{page.doc_root}/reference/operator/opera
 
 * [`*.` (spread attribute)](../spread-attribute) operator, the equivalent of the 
   spread method operator but for attributes;
-* [sequence operators](#{page.doc_root}/#{site.urls.spec_relative}#listmap) in the 
+* [sequence operators](#{site.urls.spec_current}#listmap) in the 
   language specification
-* [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 
+* [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 
   language specification
 * [Operator polymorphism](#{page.doc_root}/tour/language-module/#operator_polymorphism) 
   in the Tour of Ceylon

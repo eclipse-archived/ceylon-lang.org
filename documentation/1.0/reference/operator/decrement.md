@@ -47,7 +47,7 @@ The postfix `--` is defined as:
 <!-- check:none -->
     (--lhs).successor
 
-See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#arithmetic) for more details.
+See the [language specification](#{site.urls.spec_current}#arithmetic) for more details.
 
 ### Polymorphism
 
@@ -59,9 +59,9 @@ The meaning of `--` depends on the
 ## See also
 
 * [++ (increment)](../increment) operator
-* [arithmetic operators](#{page.doc_root}/#{site.urls.spec_relative}#arithmetic) in the 
+* [arithmetic operators](#{site.urls.spec_current}#arithmetic) in the 
   language specification
-* [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 
+* [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 
   language specification
 * [Operator polymorphism](#{page.doc_root}/tour/language-module/#operator_polymorphism) 
   and 

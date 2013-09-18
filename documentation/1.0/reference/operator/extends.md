@@ -29,7 +29,7 @@ The `extends` operator is defined as follows:
 <!-- check:none -->
     lhs.extendsType(rhs);
 
-See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#equalitycomparison) for more details.
+See the [language specification](#{site.urls.spec_current}#equalitycomparison) for more details.
 
 ### Polymorphism
 
@@ -42,8 +42,8 @@ The meaning of `extends` depends on the
 
 * API documentation for [`Class`] _doc coming soon at_ (#{site.urls.apidoc_current}/metamodel/interface_Class.html)
 * API documentation for [`Type`](#{site.urls.apidoc_current}/metamodel/interface_Type.html)
-* [`extends` in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#equalitycomparison)
-* [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 
+* [`extends` in the language specification](#{site.urls.spec_current}#equalitycomparison)
+* [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 
   language specification
 * [Operator polymorphism](#{page.doc_root}/tour/language-module/#operator_polymorphism) 
   in the Tour of Ceylon

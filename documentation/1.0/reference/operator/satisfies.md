@@ -29,7 +29,7 @@ The `satisfies` operator is defined as follows:
 <!-- check:none -->
     lhs.satisfiesType(rhs);
 
-See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#equalitycomparison) 
+See the [language specification](#{site.urls.spec_current}#equalitycomparison) 
 for more details.
 
 ### Polymorphism
@@ -41,8 +41,8 @@ The meaning of `satisfies` depends on the
 ## See also
 
 * API documentation for [`Type`](#{site.urls.apidoc_current}/metamodel/interface_Type.html)
-* [`is` in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#equalitycomparison)
-* [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 
+* [`is` in the language specification](#{site.urls.spec_current}#equalitycomparison)
+* [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 
   language specification
 * [Operator polymorphism](#{page.doc_root}/tour/language-module/#operator_polymorphism) 
   in the Tour of Ceylon

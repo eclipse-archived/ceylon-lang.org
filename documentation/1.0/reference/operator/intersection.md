@@ -34,7 +34,7 @@ The `&` operator is defined as follows:
 <!-- check:none -->
     lhs.intersection(rhs)
 
-See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#sets) for 
+See the [language specification](#{site.urls.spec_current}#sets) for 
 more details.
 
 ### Polymorphism
@@ -46,9 +46,9 @@ The meaning of `&` depends on the
 ## See also
 
 * API documentation for [`Set`](#{site.urls.apidoc_current}/interface_Set.html)
-* [set operators](#{page.doc_root}/#{site.urls.spec_relative}#sets) in the 
+* [set operators](#{site.urls.spec_current}#sets) in the 
   language specification
-* [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 
+* [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 
   language specification
 * [Operator polymorphism](#{page.doc_root}/tour/language-module/#operator_polymorphism) 
 

@@ -25,7 +25,7 @@ The `&&` operator is defined as:
 <!-- check:none -->
     if (lhs) rhs else false
 
-See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#logical) for 
+See the [language specification](#{site.urls.spec_current}#logical) for 
 more details.
 
 ### Polymorphism
@@ -34,8 +34,8 @@ The `&&` operator is not [polymorphic](#{page.doc_root}/reference/operator/opera
 
 ## See also
 
-* [logical operators](#{page.doc_root}/#{site.urls.spec_relative}#logical) in the 
+* [logical operators](#{site.urls.spec_current}#logical) in the 
   language specification
-* [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 
+* [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 
   language specification
 

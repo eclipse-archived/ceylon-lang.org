@@ -34,6 +34,6 @@ The `?.` operator is not [polymorphic](#{page.doc_root}/reference/operator/opera
 ## See also
 
 * [`?` (default)](../default) operator
-* [`?.`](#{page.doc_root}/#{site.urls.spec_relative}#nullvalues) in the language specification.
-* [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 
+* [`?.`](#{site.urls.spec_current}#nullvalues) in the language specification.
+* [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 
   language specification

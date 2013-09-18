@@ -91,7 +91,7 @@ later in the list, allowing you to write:
 * The [`if` statement](../if) statement and the [`throw` statement](../throw)
   statement can be used together to achieve similar effects.
 <!-- TODO 
-* [`assert` in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#TODO)
+* [`assert` in the language specification](#{site.urls.spec_current}#TODO)
 -->
 
 

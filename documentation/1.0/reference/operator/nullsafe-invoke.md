@@ -42,5 +42,5 @@ This operator is not [polymorphic](#{page.doc_root}/reference/operator/operator-
 ## See also
 
 * Ordinary [`()` and `{}` (invoke)](../invoke) operator
-* [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 
+* [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 
   language specification

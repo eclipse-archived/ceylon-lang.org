@@ -25,7 +25,7 @@ The `-` operator is defined as
 <!-- check:none -->
     lhs.minus(rhs);
 
-See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#arithmetic) for more details.
+See the [language specification](#{site.urls.spec_current}#arithmetic) for more details.
 
 ### Polymorphism
 
@@ -43,8 +43,8 @@ of the relevant type.
 ## See also
 
 * API documentation for [`Numeric`](#{site.urls.apidoc_current}/interface_Numeric.html)
-* [difference in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#arithmetic)
-* [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 
+* [difference in the language specification](#{site.urls.spec_current}#arithmetic)
+* [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 
   language specification
 * [Operator polymorphism](#{page.doc_root}/tour/language-module/#operator_polymorphism) 
   and 

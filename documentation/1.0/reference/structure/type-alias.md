@@ -49,4 +49,4 @@ similar way.
 
 ## See also
 
-* [type aliases in the language specification](#{page.doc_root}/#{site.urls.spec_relative}#typealiasedeclarations)
+* [type aliases in the language specification](#{site.urls.spec_current}#typealiasedeclarations)

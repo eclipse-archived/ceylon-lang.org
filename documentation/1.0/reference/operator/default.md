@@ -26,7 +26,7 @@ The meaning of `?` is defined as follows:
 <!-- check:none -->
     if (exists lhs) lhs else rhs
 
-See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#nullvalues) for more details.
+See the [language specification](#{site.urls.spec_current}#nullvalues) for more details.
 
 ### Polymorphism
 
@@ -34,6 +34,6 @@ The `?` operator is not [polymorphic](#{page.doc_root}/reference/operator/operat
 
 ## See also
 
-* [`?`](#{page.doc_root}/#{site.urls.spec_relative}#nullvalues) in the language specification.
-* [operator precedence](#{page.doc_root}/#{site.urls.spec_relative}#operatorprecedence) in the 
+* [`?`](#{site.urls.spec_current}#nullvalues) in the language specification.
+* [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 
   language specification

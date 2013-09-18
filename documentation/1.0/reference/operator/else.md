@@ -25,7 +25,7 @@ The `else` operator is defined as follows
 <!-- check:none -->
     if (exists lhs) then lhs else rhs
 
-See the [language specification](#{page.doc_root}/#{site.urls.spec_relative}#conditionals) for more details.
+See the [language specification](#{site.urls.spec_current}#conditionals) for more details.
 
 The `then` operator is often used with the `else` operator to emulate
 C's ternary operator ` cond ? when-true-expr : when-false-expr`, like so
