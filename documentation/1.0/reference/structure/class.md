@@ -42,7 +42,7 @@ keyword like this:
     }
 
 If a class is declared without using the `extends` keywords it is a subclass of
-[`IdentifiableObject`](#{site.urls.apidoc_current}/class_IdentifiableObject.html).
+[`IdentifiableObject`](#{site.urls.apidoc_current}/IdentifiableObject.type.html).
 
 Note that the arguments to the superclasses [initializer](#initializer) are 
 specified in parenthesis after the name of the superclass in the `extends` 

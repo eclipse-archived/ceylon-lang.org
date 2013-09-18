@@ -35,8 +35,8 @@ The meaning of `*` depends on the
 
 ### Meaning of product for built-in types
 
-For the built-in numeric types ([`Integer`](#{site.urls.apidoc_current}/class_Integer.html) and 
-[`Float`](#{site.urls.apidoc_current}/class_Float.html),
+For the built-in numeric types ([`Integer`](#{site.urls.apidoc_current}/Integer.type.html) and 
+[`Float`](#{site.urls.apidoc_current}/Float.type.html),
 `*` performs normal mathematical multiplication, subject to the limitations
 of the relevant type.
 

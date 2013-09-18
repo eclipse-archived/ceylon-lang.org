@@ -35,8 +35,8 @@ The meaning of `-` depends on
 ### Meaning of unary minus for built-in types
 
 For the built in numeric types
-[`Integer`](#{site.urls.apidoc_current}/class_Integer.html) and
-[`Float`](#{site.urls.apidoc_current}/class_Float.html), `-` 
+[`Integer`](#{site.urls.apidoc_current}/Integer.type.html) and
+[`Float`](#{site.urls.apidoc_current}/Float.type.html), `-` 
 just changes the sign.
 
 ## See also

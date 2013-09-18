@@ -23,7 +23,7 @@ yet really explored what an annotation *is*.
 
 Let's finally rectify that. The answer is simple: an annotation is a toplevel 
 function that returns a subtype of 
-[`ConstrainedAnnotation`](#{site.urls.apidoc_current}/metamodel/interface_ConstrainedAnnotation.html).
+[`ConstrainedAnnotation`](#{site.urls.apidoc_current}/metamodel/ConstrainedAnnotation.type.html).
 We call the function an _annotation constructor_.
 
 ## Annotation constructors
@@ -172,11 +172,11 @@ two direct subtypes. So any annotation type must be a subtype of one of
 these two interfaces:
 
 * If an annotation type is a subtype of 
-  [`OptionalAnnotation`](#{site.urls.apidoc_current}/metamodel/interface_OptionalAnnotation.html), 
+  [`OptionalAnnotation`](#{site.urls.apidoc_current}/metamodel/OptionalAnnotation.type.html), 
   at most one annotation of a given program element may be of this annotation 
   type, or, otherwise
 * if an annotation type is a subtype of 
-  [`SequencedAnnotation`](#{site.urls.apidoc_current}/metamodel/interface_SequencedAnnotation.html),
+  [`SequencedAnnotation`](#{site.urls.apidoc_current}/metamodel/SequencedAnnotation.type.html),
   more than one annotation of a given program element may be of this annotation 
   type.
 

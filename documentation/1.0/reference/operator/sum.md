@@ -35,12 +35,12 @@ The meaning of `+` depends on the
 
 ### Meaning of `+` for built-in types
 
-For the built-in numeric types ([`Integer`](#{site.urls.apidoc_current}/class_Integer.html) and
-[`Float`](#{site.urls.apidoc_current}/class_Float.html),
+For the built-in numeric types ([`Integer`](#{site.urls.apidoc_current}/Integer.type.html) and
+[`Float`](#{site.urls.apidoc_current}/Float.type.html),
 `+` performs normal mathematical addition, subject to the limitations
 of the relevant type.
 
-For [`String`](#{site.urls.apidoc_current}/class_String.html), `+` performs concatenation.
+For [`String`](#{site.urls.apidoc_current}/String.type.html), `+` performs concatenation.
 
 
 ## See also

@@ -35,7 +35,7 @@ The meaning of `%` depends on the
 
 ### Meaning of remainder for built-in types
 
-For the built-in numeric type ([`Intege`](#{site.urls.apidoc_current}/class_Integer.html) 
+For the built-in numeric type ([`Intege`](#{site.urls.apidoc_current}/Integer.type.html) 
 `%` computes normal mathematical remainder.
 
 Since the other built-in numeric types do not satisfy `Integral`, the
