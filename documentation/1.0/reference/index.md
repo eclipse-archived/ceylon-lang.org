@@ -36,7 +36,7 @@ _This page is incomplete. Want to help? [See how](/code/website)._
 * [`assert` statements](statement/assert) 
 * [`break` statements](statement/break)
 * [`continue` statements](statement/continue)
-* [expression statements](expression)
+* [expression statements](statement/expression)
 * [`for` statements](statement/for)
 * [`if` statements](statement/if)
 * [`import` statements](statement/import)
@@ -126,7 +126,7 @@ The API documentation for [`ceylon.language`](#{site.urls.apidoc_current}).
 ## Tools
 
 * The `ceylon` command, [`ceylon`](tool/ceylon)
-* An index of [`ceylon` subcommands](#{site.urls.ceylon_tool_current})
+* An index of [`ceylon` subcommands](#{site.urls.ceylon_tool_current}/index.html)
 * The Ceylon [`Ant` tasks](tool/ant)
 * The [configuration file format](tool/config)
 

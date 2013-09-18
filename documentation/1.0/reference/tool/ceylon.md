@@ -20,7 +20,7 @@ The `ceylon` command provides access to the Ceylon command line toolset.
 ## Description
  
 The top level `ceylon` command is the entry point for a particular subcommand. 
-There is a [list of the available subcommands](#{site.urls.ceylon_tool_current}).
+There is a [list of the available subcommands](#{site.urls.ceylon_tool_current}/index.html).
 
 The rest of this page will highlight particular tools
 
