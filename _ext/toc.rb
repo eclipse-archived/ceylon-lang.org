@@ -49,7 +49,7 @@ class TOC
   def parse_markdown_headers(content)
     toc = ""
     last_depth = 0
-    content.gsub!(/^(\#{1,6})[ ]+(.+?)[ ]*\#*\n+/) do |match|
+    content.gsub!(/^(\#{2,6})[ ]+(.+?)[ ]*\#*\n+/) do |match|
       number = $1.size.to_i
       name = $2.strip
       header = titleable(name)
