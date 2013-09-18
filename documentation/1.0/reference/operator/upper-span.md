@@ -14,6 +14,7 @@ as specified by its right-hand operand.
 
 ## Usage 
 
+<!-- try: -->
     String[] names = {"foo", "bar", "baz"};
     String[] secondAndThird = names[1...];
     String[] third = names[2...];
@@ -26,6 +27,7 @@ as specified by its right-hand operand.
 The `lhs[rhs...]` operator is defined as follows:
 
 <!-- check:none -->
+<!-- try: -->
     lhs.spanFrom(rhs)
 
 See the [language specification](#{site.urls.spec_current}#listmap) for 

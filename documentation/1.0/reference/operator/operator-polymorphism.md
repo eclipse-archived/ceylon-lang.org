@@ -40,6 +40,7 @@ A simple example might be writing a complex number class which implements
 operators `+` (unary plus), `-` (unary minus), `+` (sum), `-` (difference), 
 `*` (product), `/` (quotient), and `^` (power). For example:
 
+<!-- try: -->
     class Complex(shared Float re, shared Float im) 
             satisfies Exponentiable<Complex,Integer> {
         

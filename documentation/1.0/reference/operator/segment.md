@@ -15,6 +15,7 @@ its right-hand operand.
 
 ## Usage 
 
+<!-- try: -->
     String[] names = {"foo", "bar", "baz"};
     String[] foo = names[0:1];
     String[] barBaz = names[1:2];
@@ -27,6 +28,7 @@ its right-hand operand.
 The `lhs[from:length]` operator is defined as follows:
 
 <!-- check:none -->
+<!-- try: -->
     lhs.segment(from,length)
 
 See the [language specification](#{site.urls.spec_current}#listmap) for 

@@ -15,6 +15,7 @@ by the amount given by its right-hand operand.
 ## Usage 
 
 <!-- cat: void m() { -->
+<!-- try: -->
     variable Integer num = 1;
     num += 1; // increment num by 1
     num += num; // increment num by 2
@@ -28,6 +29,7 @@ by the amount given by its right-hand operand.
 The operator is defined as: 
 
 <!-- cat: void m<N>(N lhs1, N rhs) given N satisfies Summable<N> { variable Summable<N> lhs = lhs1; -->
+<!-- try: -->
     lhs = lhs.plus(rhs)
 <!-- cat: ;} -->
 

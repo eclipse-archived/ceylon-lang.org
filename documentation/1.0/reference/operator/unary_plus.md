@@ -14,12 +14,14 @@ of its operand.
 
 ## Usage 
 
+<!-- try: -->
     Integer one = +1;
 
 ## Description
 
 Note that `+` does not change the sign of a negative number:
 
+<!-- try: -->
     Integer minusOne = +(-1);
 
 ### Definition 
@@ -27,6 +29,7 @@ Note that `+` does not change the sign of a negative number:
 The `+` operator is defined as follows:
 
 <!-- check:none -->
+<!-- try: -->
     rhs.positiveValue;
 
 See the [language specification](#{site.urls.spec_current}#arithmetic) for more details.

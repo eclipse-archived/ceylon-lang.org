@@ -14,6 +14,7 @@ logical *and* of two operands
 
 ## Usage 
 
+<!-- try: -->
     Boolean false_ = true && false;
 
 ## Description
@@ -23,6 +24,7 @@ logical *and* of two operands
 The `&&` operator is defined as:
 
 <!-- check:none -->
+<!-- try: -->
     if (lhs) rhs else false
 
 See the [language specification](#{site.urls.spec_current}#logical) for 

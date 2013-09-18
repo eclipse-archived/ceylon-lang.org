@@ -16,6 +16,7 @@ left-hand operand.
 ## Usage 
 
 <!-- cat: void m() { -->
+<!-- try: -->
     variable Integer num = 1;
     num *= 2; // double num 
     num *= num; // square num
@@ -28,6 +29,7 @@ left-hand operand.
 
 The `*=` operator is defined as follows:
 
+<!-- try: -->
     lhs = lhs.times(rhs)
 
 except that `lhs` is evaluated only once.

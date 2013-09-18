@@ -15,6 +15,7 @@ each method invocation.
 
 ## Usage 
 
+<!-- try: -->
     {String+} names = {"foo", "bar", "baz"};
     {String+} initials = names*.initial(1);
 
@@ -25,6 +26,7 @@ each method invocation.
 You can also spread method references:
 
 <!-- check:none -->
+<!-- try: -->
     Callable<String[], [Integer]> ref = names*.initial;
     
 ### Definition

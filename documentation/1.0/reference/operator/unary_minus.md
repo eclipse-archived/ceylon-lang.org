@@ -13,6 +13,7 @@ The right-associative, unary `-` operator is used to invert the sign of its oper
 
 ## Usage 
 
+<!-- try: -->
     Integer minusOne = -1;
 
 ## Description
@@ -22,6 +23,7 @@ The right-associative, unary `-` operator is used to invert the sign of its oper
 The `-` operator is defined as follows:
 
 <!-- check:none -->
+<!-- try: -->
     rhs.negativeValue;
 
 See the [language specification](#{site.urls.spec_current}#arithmetic) for more details.

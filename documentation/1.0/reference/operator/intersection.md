@@ -17,6 +17,7 @@ The left-associative, binary `&` operator is used to compute the
 Intersection on values:
 
 <!-- check:none -->
+<!-- try: -->
     void m(Set<Integer> primes, Set<Integer> evens) {
         Set<Integer> two = primes & evens;
     }
@@ -32,6 +33,7 @@ This page is about using the `&` operator on *values*.
 The `&` operator is defined as follows:
 
 <!-- check:none -->
+<!-- try: -->
     lhs.intersection(rhs)
 
 See the [language specification](#{site.urls.spec_current}#sets) for 

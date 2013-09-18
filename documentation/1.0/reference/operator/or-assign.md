@@ -15,6 +15,7 @@ logical *or* of two operands, assigning the result to the left-hand operand.
 ## Usage 
 
 <!-- cat: void m() { -->
+<!-- try: -->
     variable Boolean a = false;
     Boolean b = true;
     a ||= b; // a becomes true
@@ -27,6 +28,7 @@ logical *or* of two operands, assigning the result to the left-hand operand.
 The `||=` operator is defined as:
 
 <!-- check:none -->
+<!-- try: -->
     if (lhs) true else lhs = rhs
 
 See the [language specification](#{site.urls.spec_current}#logical) for 

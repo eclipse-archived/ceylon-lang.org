@@ -13,6 +13,7 @@ The left-associative, binary `+` operator is used to *sum* two operands.
 
 ## Usage 
 
+<!-- try: -->
     Integer three = 1 + 2;
     String concatenated = "foo" + "bar";
 
@@ -23,6 +24,7 @@ The left-associative, binary `+` operator is used to *sum* two operands.
 The `+` operator is defined as follows:
 
 <!-- check:none -->
+<!-- try: -->
     lhs.plus(rhs);
 
 See the [language specification](#{site.urls.spec_current}#arithmetic) for more details.

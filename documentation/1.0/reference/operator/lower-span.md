@@ -15,6 +15,7 @@ right-hand operand.
 
 ## Usage 
 
+<!-- try: -->
     String[] names = {"foo", "bar", "baz"};
     String[] foo = names[...0];
     String[] foobar = names[...1];
@@ -27,6 +28,7 @@ right-hand operand.
 The `lhs[...rhs]` operator is defined as follows:
 
 <!-- check:none -->
+<!-- try: -->
     lhs.spanTo(rhs)
 
 See the [language specification](#{site.urls.spec_current}#listmap) for 

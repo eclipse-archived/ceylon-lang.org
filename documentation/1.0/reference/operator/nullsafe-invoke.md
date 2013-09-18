@@ -15,6 +15,7 @@ primaries.
 
 ## Usage 
 
+<!-- try: -->
     void m(Integer? num){
         Integer? int = num?.positiveValue;
     }
@@ -30,6 +31,7 @@ types of their operands.
 The meaning of null-safe `()` invoke is defined as follows:
 
 <!-- check:none -->
+<!-- try: -->
     if (exists lhs) lhs(x,y,z) else null
 
 With the named-argument version entirely analogous only using `{}` in the 

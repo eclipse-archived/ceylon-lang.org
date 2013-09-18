@@ -14,6 +14,7 @@ when it's left operand is `true`, otherwise it evaluates as `null`.
 
 ## Usage 
 
+<!-- try: -->
     void m(String s) {
         String s2 = s.empty then "hello";
     }
@@ -23,6 +24,7 @@ when it's left operand is `true`, otherwise it evaluates as `null`.
 The `then` operator is defined as follows
 
 <!-- check:none -->
+<!-- try: -->
     if (lhs) then rhs else null
 
 See the [language specification](#{site.urls.spec_current}#conditionals) for more details.

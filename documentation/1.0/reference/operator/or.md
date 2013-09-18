@@ -14,6 +14,7 @@ logical *or* of two operands.
 
 ## Usage 
 
+<!-- try: -->
     Boolean true_ = true || false;
 
 ## Description
@@ -23,6 +24,7 @@ logical *or* of two operands.
 The `||` operator is defined as:
 
 <!-- check:none -->
+<!-- try: -->
     if (lhs) true else rhs
 
 See the [language specification](#{site.urls.spec_current}#logical) for 

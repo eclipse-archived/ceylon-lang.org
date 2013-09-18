@@ -16,6 +16,7 @@ left-hand  operand is *satisfies* its right-hand operand.
 ## Usage 
 
 <!-- check:none -->
+<!-- try: -->
     void m(Type<Anything> x) {
         Boolean satisfaction = satisfies String Iterator;
     }
@@ -27,6 +28,7 @@ left-hand  operand is *satisfies* its right-hand operand.
 The `satisfies` operator is defined as follows:
 
 <!-- check:none -->
+<!-- try: -->
     lhs.satisfiesType(rhs);
 
 See the [language specification](#{site.urls.spec_current}#equalitycomparison) 

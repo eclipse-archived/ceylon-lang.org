@@ -14,6 +14,7 @@ when it's left operand is `null`.
 
 ## Usage 
 
+<!-- try: -->
     void m(String? s) {
         String s2 = s else "";
     }
@@ -23,6 +24,7 @@ when it's left operand is `null`.
 The `else` operator is defined as follows
 
 <!-- check:none -->
+<!-- try: -->
     if (exists lhs) then lhs else rhs
 
 See the [language specification](#{site.urls.spec_current}#conditionals) for more details.

@@ -14,6 +14,7 @@ emptiness.
 
 ## Usage 
 
+<!-- try: -->
     void m(Integer[] nums) {
         Boolean haveNums = nums nonempty;
     }
@@ -25,6 +26,7 @@ emptiness.
 The meaning of `exists` is defined as follows:
 
 <!-- check:none -->
+<!-- try: -->
     if (nonempty lhs) true else false
 
 See the [`language specification`](#{site.urls.spec_current}#nullvalues) for more details.

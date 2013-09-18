@@ -14,6 +14,7 @@ integer division.
 
 ## Usage 
 
+<!-- try: -->
     Integer two = 5 % 3;
 
 ## Description
@@ -23,6 +24,7 @@ integer division.
 The `%` operator is defined as follows:
 
 <!-- check:none -->
+<!-- try: -->
     lhs.remainder(rhs);
 
 See the [language specification](#{site.urls.spec_current}#arithmetic) for more details.

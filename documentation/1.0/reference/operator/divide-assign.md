@@ -15,6 +15,7 @@ the amount given by its right-hand operand.
 ## Usage 
 
 <!-- cat: void m() { -->
+<!-- try: -->
     variable Float num = 1.0;
     num /= 2.0; // half num 
 <!-- cat: } -->
@@ -26,6 +27,7 @@ the amount given by its right-hand operand.
 
 The `/=` operator is defined as follows
 
+<!-- try: -->
     lhs = lhs.divided(rhs)
 
 except that `lhs` is evaluated only once.

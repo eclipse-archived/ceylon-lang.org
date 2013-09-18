@@ -14,6 +14,7 @@ logical *not* of its operand.
 
 ## Usage 
 
+<!-- try: -->
     Boolean true_ = !false;
 
 ## Description
@@ -23,6 +24,7 @@ logical *not* of its operand.
 The `!` operator is defined as:
 
 <!-- check:none -->
+<!-- try: -->
     if (rhs) false else true
 
 See the [language specification](#{site.urls.spec_current}#logical) for 

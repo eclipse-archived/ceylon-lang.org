@@ -13,6 +13,7 @@ The *entry* operator creates an `Entry` from its key and value.
 
 ## Usage 
 
+<!-- try: -->
     Entry<Integer, String> intName = 1 -> "One";
 
 ## Description
@@ -23,6 +24,7 @@ The *entry* operator creates an `Entry` from its key and value.
 The `->` operator is defined as follows:
 
 <!-- check:none -->
+<!-- try: -->
     Entry(lhs, rhs)
 
 See the [language specification](#{site.urls.spec_current}#constructors) for 

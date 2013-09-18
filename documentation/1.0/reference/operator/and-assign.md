@@ -15,6 +15,7 @@ logical *and* of two operands, assigning the result to the left-hand operand.
 ## Usage 
 
 <!-- cat: void m() { -->
+<!-- try: -->
     variable Boolean a = true;
     Boolean b = false;
     a &&= b; // a becomes false
@@ -27,6 +28,7 @@ logical *and* of two operands, assigning the result to the left-hand operand.
 The `&&=` operator is defined as:
 
 <!-- check:none -->
+<!-- try: -->
     if (lhs) lhs =rhs else false
 
 See the [language specification](#{site.urls.spec_current}#logical) for 

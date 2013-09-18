@@ -16,6 +16,7 @@ left-hand operand is *extends* its right-hand operand
 ## Usage 
 
 <!-- check:none -->
+<!-- try: -->
     void m(Type<Anything> x) {
         Boolean extension = x extends Class<Anything>;
     }
@@ -27,6 +28,7 @@ left-hand operand is *extends* its right-hand operand
 The `extends` operator is defined as follows:
 
 <!-- check:none -->
+<!-- try: -->
     lhs.extendsType(rhs);
 
 See the [language specification](#{site.urls.spec_current}#equalitycomparison) for more details.

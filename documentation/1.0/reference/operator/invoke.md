@@ -16,6 +16,7 @@ and instantiate classes
 
 <!-- cat: class MyClass() {} -->
 <!-- cat: void m() { -->
+<!-- try: -->
     print("hello, world!");       // positional style
     print{                        // named-arguments style
         line="hello, world";

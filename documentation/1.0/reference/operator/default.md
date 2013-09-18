@@ -13,6 +13,7 @@ The right-associative, binary `?` operator is used to specify a *default* value.
 
 ## Usage 
 
+<!-- try: -->
     void m(Integer? num) {
         Integer numOrDefault = num ? 0;
     }
@@ -24,6 +25,7 @@ The right-associative, binary `?` operator is used to specify a *default* value.
 The meaning of `?` is defined as follows:
 
 <!-- check:none -->
+<!-- try: -->
     if (exists lhs) lhs else rhs
 
 See the [language specification](#{site.urls.spec_current}#nullvalues) for more details.

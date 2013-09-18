@@ -14,6 +14,7 @@ operand is *contained in* its right-hand operand
 
 ## Usage 
 
+<!-- try: -->
     void m(Object x, Category y) {
         Boolean contained = x in y;
     }
@@ -24,6 +25,7 @@ operand is *contained in* its right-hand operand
 The `in` operator is defined as follows:
 
 <!-- check:none -->
+<!-- try: -->
     lhs.contained(rhs);
 
 See the [language specification](#{site.urls.spec_current}#equalitycomparison) for more details.

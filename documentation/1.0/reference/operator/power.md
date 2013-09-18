@@ -14,6 +14,7 @@ operand *raised to the power* of its right-hand operand.
 
 ## Usage 
 
+<!-- try: -->
     Integer eight = 2 ^ 3;
 
 ## Description
@@ -23,6 +24,7 @@ operand *raised to the power* of its right-hand operand.
 The `^` operator is defined as follows:
 
 <!-- check:none -->
+<!-- try: -->
     lhs.power(rhs);
 
 See the [language specification](#{site.urls.spec_current}#arithmetic) for more details.

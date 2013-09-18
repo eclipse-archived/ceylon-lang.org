@@ -14,6 +14,7 @@ operand is *less than or equal to* its right-hand operand.
 
 ## Usage 
 
+<!-- try: -->
     void m<T>(T x, T y) 
       given T satisfies Comparable<T> {
         Boolean lessOrEqual = x <= y;
@@ -26,6 +27,7 @@ operand is *less than or equal to* its right-hand operand.
 The `<=` operator is defined as follows:
 
 <!-- check:none -->
+<!-- try: -->
     lhs.compare(rhs)!=larger;
 
 See the [language specification](#{site.urls.spec_current}#equalitycomparison) for more details.

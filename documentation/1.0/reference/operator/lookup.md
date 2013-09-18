@@ -13,6 +13,7 @@ The *lookup* operator accesses a particular item in a `Correspondence`.
 
 ## Usage 
 
+<!-- try: -->
     void m(Integer[] seq) {
         Integer? first = seq[0];
     }
@@ -25,17 +26,12 @@ possibility that seq doesn't have a value for the given key.
 The lookup operator gets an item from a 
 `Correspondence` according to its key.
 
-### Implementation Note
-
-<!-- M3 -->
-Setting an item in an `OpenCorrespondence` may be implemented in Milestone 2,
-or possibly Milestone 3.
-
 ### Definition
 
 The `[]` operator is defined as follows:
 
 <!-- check:none -->
+<!-- try: -->
     lhs.item(index)
 
 See the [language specification](#{site.urls.spec_current}#listmap) for 

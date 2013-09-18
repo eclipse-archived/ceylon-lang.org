@@ -15,6 +15,7 @@ by the amount given by its right-hand operand.
 ## Usage 
 
 <!-- cat: void m() { -->
+<!-- try: -->
     variable Integer num = 4;
     num -= 1; // decrement num by 1
     num -= num; // decrement num by 3
@@ -27,6 +28,7 @@ by the amount given by its right-hand operand.
 
 The `-=` operator is defined as follows:
 
+<!-- try: -->
     lhs = lhs.minus(rhs)
 
 except that `lhs` is evaluated only once.

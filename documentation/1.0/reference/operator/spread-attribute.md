@@ -14,6 +14,7 @@ attribute, resulting in a iterable of the attribute values.
 
 ## Usage 
 
+<!-- try: -->
     {String+} names = {"foo", "bar", "baz"};
     {Integer+} sizes = names*.size;
 
@@ -24,6 +25,7 @@ attribute, resulting in a iterable of the attribute values.
 The `*.` operator is defined by the iterable comprehension:
 
 <!-- check:none -->
+<!-- try: -->
     { for (X x in lhs) x.member }
 
 See the [language specification](#{site.urls.spec_current}#listmap) for 

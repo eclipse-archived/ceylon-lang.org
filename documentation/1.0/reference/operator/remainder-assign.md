@@ -16,6 +16,7 @@ the left-hand operand with the result.
 ## Usage 
 
 <!-- cat: void m() { -->
+<!-- try: -->
     variable Integer num = 10;
     num %= 2; // half num 
 <!-- cat: } -->
@@ -27,6 +28,7 @@ the left-hand operand with the result.
 
 The `%=` operator is defined as follows:
 
+<!-- try: -->
     lhs = lhs.remainder(rhs)
 
 except that `lhs` is evaluated only once.

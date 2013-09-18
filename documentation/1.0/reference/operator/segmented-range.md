@@ -13,6 +13,7 @@ The *segmented range* operator creates a `Range` from its endpoints.
 
 ## Usage 
 
+<!-- try: -->
     Range<Integer> ten = 1:10;
 
 ## Description
@@ -23,6 +24,7 @@ The *segmented range* operator creates a `Range` from its endpoints.
 The `lhs:rhs` operator is defined in pseudocode as:
 
 <!-- check:none -->
+<!-- try: -->
     rhs <=0 then [] else Range(lhs, {lhs++ rhs times} )
 
 See the [language specification](#{site.urls.spec_current}#constructors) for 

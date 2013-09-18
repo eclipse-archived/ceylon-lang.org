@@ -14,6 +14,7 @@ nullness.
 
 ## Usage 
 
+<!-- try: -->
     void m(Integer? num) {
         Boolean haveNum = num exists;
     }
@@ -25,6 +26,7 @@ nullness.
 The meaning of `exists` is defined as follows:
 
 <!-- check:none -->
+<!-- try: -->
     if (exists lhs) true else false
 
 ### Polymorphism

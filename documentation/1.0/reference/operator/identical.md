@@ -14,6 +14,7 @@ are *identical*
 
 ## Usage 
 
+<!-- try: -->
     void m(Identifiable x, Identifiable y) {
         Boolean identical = x === y;
     }
@@ -25,6 +26,7 @@ are *identical*
 The `===` operator is defined as follows:
 
 <!-- check:none -->
+<!-- try: -->
     lhs.identical(rhs);
 
 See the [language specification](#{site.urls.spec_current}#equalitycomparison) for more details.

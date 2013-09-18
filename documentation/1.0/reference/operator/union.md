@@ -17,6 +17,7 @@ The left-associative, binary `|` operator is used to compute the
 Union on values:
 
 <!-- check:none -->
+<!-- try: -->
     void m(Set<Integer> odds, Set<Integer> evens) {
         Set<Integer> ints = odds | evens;
     }
@@ -32,6 +33,7 @@ This page is about using the `|` operator on values.
 The `|` operator is defined as follows:
 
 <!-- check:none -->
+<!-- try: -->
     lhs.union(rhs)
 
 See the [language specification](#{site.urls.spec_current}#slotwise) for 

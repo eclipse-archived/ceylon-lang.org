@@ -14,6 +14,7 @@ two operands.
 
 ## Usage 
 
+<!-- try: -->
     Integer three = 6 / 2;
 
 ## Description
@@ -23,6 +24,7 @@ two operands.
 The `/` operator it defined as follows:
 
 <!-- check:none -->
+<!-- try: -->
     lhs.divided(rhs);
 
 See the [language specification](#{site.urls.spec_current}#arithmetic) for more details.

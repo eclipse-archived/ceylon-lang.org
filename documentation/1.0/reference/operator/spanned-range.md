@@ -13,6 +13,7 @@ The *spanned range* operator creates a `Range` from its endpoints.
 
 ## Usage 
 
+<!-- try: -->
     Range<Integer> ten = 1..10;
 
 ## Description
@@ -23,6 +24,7 @@ The *spanned range* operator creates a `Range` from its endpoints.
 The `..` operator is defined as follows:
 
 <!-- check:none -->
+<!-- try: -->
     Range(lhs, rhs)
 
 See the [language specification](#{site.urls.spec_current}#constructors) for 

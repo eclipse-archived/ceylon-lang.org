@@ -29,7 +29,7 @@ String literal and then discarding it, so the statement is pointless.
 Only the following expressions may be used as statements:
 
 * [assignment](../../operator/assign/),
-* prefix or postfix increment or decrement,
+* prefix or postfix [increment](../../operator/increment) or [decrement](../../operator/decrement),
 * invocation of a method,
 * instantiation of a class.
 

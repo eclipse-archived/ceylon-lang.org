@@ -17,6 +17,7 @@ differ in whether the result is assigned before or after the increment.
 Postfix unary `++` operator has the operator after the operand:
 
 <!-- cat: void m() { -->
+<!-- try: -->
     variable Integer num = 1;
     num++;
 <!-- cat: } -->
@@ -24,6 +25,7 @@ Postfix unary `++` operator has the operator after the operand:
 Prefix unary `++` operator  puts the operator before the operand:
 
 <!-- cat: void m() { -->
+<!-- try: -->
     variable Integer num = 1;
     ++num;
 <!-- cat: } -->
@@ -40,11 +42,13 @@ value of the operand *before* the increment.
 The prefix `++` is defined as:
 
 <!-- check:none -->
+<!-- try: -->
     rhs = rhs.successor
     
 The postfix `++` is defined as:
 
 <!-- check:none -->
+<!-- try: -->
     (++lhs).predecessor
 
 See the [language specification](#{site.urls.spec_current}#arithmetic) for more details.

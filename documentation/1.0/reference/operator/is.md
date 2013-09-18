@@ -14,6 +14,7 @@ variable.
 
 ## Usage 
 
+<!-- try: -->
     void m(Object? obj) {
         Boolean isNumber = obj is Number;
         Boolean isNull = obj is Null;
@@ -28,6 +29,7 @@ The `is` operator is primitive.
 Note that because Ceylon supports reified generics you may use `is` with a
 parameterized type, for example you can write
 
+<!-- try: -->
     Boolean intList = obj is List<Integer>;
 
 ### Polymorphism

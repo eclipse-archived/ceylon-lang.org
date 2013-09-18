@@ -14,6 +14,7 @@ are *equal*.
 
 ## Usage 
 
+<!-- try: -->
     void m(Object x, Object y) {
         Boolean identical = x == y;
     }
@@ -25,6 +26,7 @@ are *equal*.
 The `==` operator is defined as follows:
 
 <!-- check:none -->
+<!-- try: -->
     lhs.equals(rhs);
 
 See the [language specification](#{site.urls.spec_current}#equalitycomparison) for more details.

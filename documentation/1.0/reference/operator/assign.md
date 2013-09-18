@@ -14,6 +14,7 @@ The right-associative, binary `=` operator is used to *assign* a value to a `var
 ## Usage 
 
 <!-- cat: void m() { -->
+<!-- try: -->
     variable Integer num = 1; // assign
     num = 2; //assign
     Integer three = 3 // specify

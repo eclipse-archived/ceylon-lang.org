@@ -14,6 +14,7 @@ two operands.
 
 ## Usage 
 
+<!-- try: -->
     Integer one = 3 - 2;
 
 ## Description
@@ -23,6 +24,7 @@ two operands.
 The `-` operator is defined as 
 
 <!-- check:none -->
+<!-- try: -->
     lhs.minus(rhs);
 
 See the [language specification](#{site.urls.spec_current}#arithmetic) for more details.

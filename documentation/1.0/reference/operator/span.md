@@ -14,6 +14,7 @@ indexed by its centre and right-hand operands.
 
 ## Usage 
 
+<!-- try: -->
     String[] names = {"foo", "bar", "baz"};
     String[] firstAndSecond = names[0..1];
     String[] secondAndThird = names[1..2];
@@ -25,6 +26,7 @@ indexed by its centre and right-hand operands.
 The `lhs[from..to]` operator is defined as follows:
 
 <!-- check:none -->
+<!-- try: -->
     lhs.span(from,to)
 
 See the [language specification](#{site.urls.spec_current}#listmap) for 
