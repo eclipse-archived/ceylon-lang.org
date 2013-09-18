@@ -4,6 +4,7 @@ title: Compilation Units
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
+toc: true
 ---
 
 # #{page.title}
@@ -11,12 +12,15 @@ author: Tom Bentley
 A *compilation unit* is a text file with the filename extension 
 `.ceylon`, containing one or more toplevel [declarations](#declarations).
 
+#{page.table_of_contents}
+
 ## Usage 
 
 Here's an example compilation unit in the package `com.example.foo` 
 containing three toplevel declarations:
 
 <!-- check:none -->
+<!-- try: -->
     import com.example.baz { Baz }
 
     shared interface Foo {

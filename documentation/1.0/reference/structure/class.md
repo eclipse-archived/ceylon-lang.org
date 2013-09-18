@@ -5,6 +5,7 @@ tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
+toc: true
 ---
 
 # #{page.title}
@@ -12,11 +13,14 @@ doc_root: ../../..
 A class is a stateful type that can be 
 [instantiated](../../expression/class-instantiation).
 
+#{page.table_of_contents}
+
 ## Usage 
 
 A trivial class declaration looks like this:
 
 <!-- id:c -->
+<!-- try: -->
     class C() {
         /* declarations of class members */
     }
@@ -37,6 +41,7 @@ A class `S` is declared as a subclass of another class `C` using the `extends`
 keyword like this:
 
 <!-- cat-id:c -->
+<!-- try: -->
     class S() extends C() {
         /* declarations of class members */
     }
@@ -55,6 +60,7 @@ A class can satisfy zero or more [interfaces](../interface) using the
 declaration looks like this:
 
 <!-- cat: interface I1 {} interface I2 {} -->
+<!-- try: -->
     class C() satisfies I1 & I2 {
         /* declarations of class members */
     }
@@ -70,6 +76,7 @@ classes or toplevel anonymous classes using the `of` clause.
 If the class `C` is permitted only two direct 
 subclasses `S1` and `S2` its declaration would look like this:
 
+<!-- try: -->
     abstract class C() of S1 | S2 {
         /* declarations of class members */
     }
@@ -81,6 +88,7 @@ subclasses `S1` and `S2` its declaration would look like this:
 A class declaration lists [type parameters](../type-parameters) with angle brackets (`<` and `>`) 
 after the class name. 
 
+<!-- try: -->
     class C<Z>() {
         /* declarations of class members 
            type parameter Z treated as a type */
@@ -102,6 +110,7 @@ A class that can be [instantiated](../../expression/class-instantiation) is
 
 A class declaration may be annotated [`abstract`](#{site.urls.apidoc_current}/index.html#abstract), like this:
 
+<!-- try: -->
     abstract class C() {
         /* declarations of class members */
     }
@@ -114,6 +123,7 @@ Abstract classes may have `formal` members.
 
 A class declaration may be annotated [`shared`](#{site.urls.apidoc_current}/index.html#shared),like this:
 
+<!-- try: -->
     shared class C() {
         /* declarations of class members */
     }
@@ -171,6 +181,7 @@ Here's an example where a `Reader` class declares that concrete
 subclasses *must* (because we used `formal`) provide an `actual Buffer` 
 inner class.
 
+<!-- try: -->
     shared abstract class Reader() {
         shared formal class Buffer(Character* chars)
                 satisfies Sequence<Character> {}

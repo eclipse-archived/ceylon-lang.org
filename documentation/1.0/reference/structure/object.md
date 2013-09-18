@@ -4,6 +4,7 @@ title: object
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
+toc: true
 ---
 
 # #{page.title}
@@ -13,10 +14,13 @@ implicitly [instantiated](../../expression/class-instantiation)
 exactly once at the place it is defined, and nowhere else. As such it 
 functions as a [value](../value).
 
+#{page.table_of_contents}
+
 ## Usage 
 
 A trivial `object` declaration looks like this:
 
+<!-- try: -->
     object o {
         /* declarations of object members */
     }

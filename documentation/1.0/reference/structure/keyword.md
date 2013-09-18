@@ -5,12 +5,15 @@ tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
+toc: true
 ---
 
 # #{page.title}
 
 Keywords are reserved tokens whose role in the language is defined in the 
 language specification. They may not be used as identifiers.
+
+#{page.table_of_contents}
 
 ## Usage 
 

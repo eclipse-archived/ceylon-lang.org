@@ -4,9 +4,12 @@ title: Parameter lists
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
+toc: true
 ---
 
 # #{page.title}
+
+#{page.table_of_contents}
 
 ### Parameter lists
 
@@ -26,6 +29,7 @@ type expression and a name.
 For example a method taking an Integer parameter `i` and a parameter `b` 
 whose type is a type parameter `<Z>` looks like this:
 
+<!-- try: -->
     void m<Z>(Integer i, Z b) {
         /* method body: statements */
     }
@@ -49,6 +53,7 @@ parameter name with the equals specifier. The expression may be called the
 For example a method `defaulted` declared like this
 
 <!-- id:defaulted -->
+<!-- try: -->
     void defaulted(Integer i = 0) {
         /* method body: statements */
     }
@@ -58,6 +63,7 @@ for the parameter `i`, like this:
 
 <!-- cat-id:defaulted -->
 <!-- cat: void m2() { -->
+<!-- try: -->
     defaulted();
 <!-- cat: } -->
 
@@ -92,6 +98,7 @@ There are two different kinds of variadic parameter:
 
 For example, a variadic method `variadic` declared like this
 
+<!-- try: -->
     void variadic(String s, Integer* i) {
         /* method body: statements 
            parameter i treated as an Integer[] */
@@ -100,6 +107,7 @@ For example, a variadic method `variadic` declared like this
 can be [invoked](../../expression/invocation) supplying a zero or more 
 expressions for `i`, like this:
 
+<!-- try: -->
     variadic("hello");
     variadic("hello", 1);
     variadic("hello", 1, 2);
@@ -109,6 +117,7 @@ expressions for `i`, like this:
 
 Methods can be declared with multiple parameter lists. Here's an example:
 
+<!-- try: -->
     String name(String firstName)(String secondName) {
         return firstName + " " + secondName;
     }

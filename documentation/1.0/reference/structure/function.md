@@ -4,6 +4,7 @@ title: Functions and methods
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
+toc: true
 ---
 
 # #{page.title}
@@ -11,11 +12,14 @@ author: Tom Bentley
 A function is a callable block of code. When it is a member of a 
 type is it called a method.
 
+#{page.table_of_contents}
+
 ## Usage 
 
 A trivial function declaration using a [*block*](#function_blocks) (or *body*) 
 looks like this:
 
+<!-- try: -->
     void m() {
         /* method block: statements */
     }
@@ -24,6 +28,7 @@ Alternatively it is possible to declare a function using
 [*fat arrow* (`=>`)](#function_specifiers), like this:
 
 <!-- cat: void anotherMethod(){} -->
+<!-- try: -->
     void m() => anotherMethod();
 
 ## Description
@@ -65,6 +70,7 @@ Function declarations often don't need to explictly declare a type, but can inst
 A function declaration lists [type parameters](../type-parameters) with angle brackets (`<` and `>`) 
 after the function name.
 
+<!-- try: -->
     void f<Z>(){
         /* method block: statements 
            type parameter Z treated as a type */
@@ -73,6 +79,7 @@ after the function name.
 Of course, methods may be members of types which themselves have
 [type parameters](../type-parameters):
 
+<!-- try: -->
     class C<Z>() {
         void m(Z z) {
         }
@@ -120,6 +127,7 @@ An alternative to providing a method block is to use *fat arrow* (`=>`) syntax
 and provide a single expression:
 
 <!-- cat: void anotherFunction(){} -->
+<!-- try: -->
     Integer zero() => 0
     void callAnother() => anotherFunction();
 
@@ -132,6 +140,7 @@ Note that you can use this to *partially apply* a function (or any `Callable`):
 The type of a local method will be inferred by the compiler
 if the keyword `function` is given in place of a type:
 
+<!-- try: -->
     void f() {
         function inferred() => "";
         // The return type of inferred is String

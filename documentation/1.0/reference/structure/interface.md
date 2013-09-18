@@ -4,6 +4,7 @@ title: Interfaces
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
+toc: true
 ---
 
 # #{page.title}
@@ -11,10 +12,13 @@ author: Tom Bentley
 An interface is a stateless type that cannot be 
 [instantiated](../../expression/class-instantiation) directly.
 
+#{page.table_of_contents}
+
 ## Usage 
 
 A trivial interface declaration looks like this:
 
+<!-- try: -->
     interface I {
         /* declarations of interface members */
     }
@@ -32,6 +36,7 @@ An interface can satisfy zero or more other interfaces using the
 declaration looks like this:
 
 <!-- cat: interface I1{} interface I2{} -->
+<!-- try: -->
     interface I satisfies I1 & I2 {
         /* declarations of interface members */
     }
@@ -52,6 +57,7 @@ If the interface `I` is permitted only two direct
 subtypes `I1` and `C1` its declaration would look like this:
 
 <!-- cat: interface I1 satisfies I {} class C1() satisfies I {} -->
+<!-- try: -->
     interface I of I1 | C1 {
         /* declarations of interface members */
     }
@@ -61,6 +67,7 @@ subtypes `I1` and `C1` its declaration would look like this:
 An interface declaration lists [type parameters](../type-parameters) with angle brackets (`<` and `>`) 
 after the interface name. 
 
+<!-- try: -->
     interface I<Z> {
         /* declarations of interface members 
            type parameter Z treated as a type */

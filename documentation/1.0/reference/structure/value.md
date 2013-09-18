@@ -5,6 +5,7 @@ tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
+toc: true
 ---
 
 # #{page.title}
@@ -12,11 +13,14 @@ doc_root: ../../..
 A value can hold state. When it is a member of a 
 type is it called an attribute.
 
+#{page.table_of_contents}
+
 ## Usage 
 
 A `variable` value declaration:
 
 <!-- id:attr -->
+<!-- try: -->
     variable String? firstName = "John";
     variable String? lastName = "Smith";
 
@@ -24,6 +28,7 @@ A value getter:
 
 <!-- id:attr2 -->
 <!-- cat-id: attr -->
+<!-- try: -->
     // A getter with a block:
     shared String name {
         return (firstName ? "") + " " + (lastName ? "");
@@ -36,6 +41,7 @@ A value setter:
 <!-- cat-id: attr -->
 <!-- cat-id: attr2 -->
 <!-- cat: String[] parseName(String? name) { throw; } -->
+<!-- try: -->
     assign name {
         value parts = parseName(name);
         firstName = parts[0];
@@ -106,6 +112,7 @@ non-`variable` value that has already been initialized).
 
 This is intended to permit cyclic references between values, for example:
 
+<!-- try: -->
     class Child() {
         shared late Parent parent;
     }

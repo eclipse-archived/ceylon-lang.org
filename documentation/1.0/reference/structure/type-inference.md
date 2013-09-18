@@ -4,6 +4,7 @@ title: Type inference
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
+toc: true
 ---
 
 # #{page.title}
@@ -11,8 +12,11 @@ author: Tom Bentley
 Local declarations can often let the 
 compiler infer the type. 
 
+#{page.table_of_contents}
+
 ## Usage 
 
+<!-- try: -->
     value i = 1;      // infers Integer i
     value b = true;   // infers Boolean
     value tuple = ["", 1] // infers [String, Integer]

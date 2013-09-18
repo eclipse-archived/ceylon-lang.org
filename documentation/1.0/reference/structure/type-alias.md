@@ -4,14 +4,18 @@ title: Type aliases
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
+toc: true
 ---
 
 # #{page.title}
 
 A type alias declaration assigns a name to an arbitrary type expression.
 
+#{page.table_of_contents}
+
 ## Usage 
 
+<!-- try: -->
     shared alias Number => Integer|Float|Decimal|Whole;
     alias BinaryOp<X,Y> => Boolean(X,Y);
     interface Dictionary => Correspondence<String,String>;

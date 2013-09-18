@@ -5,17 +5,21 @@ tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
+toc: true
 ---
 
 # #{page.title}
 
 An annotation encodes metadata about a [program element](#program_elements).
 
+#{page.table_of_contents}
+
 ## Usage 
 
 Some example annotation declarations:
 
 <!-- check:none -->
+<!-- try: -->
     shared Deprecated deprecated() {
         return Deprecated();
     }
@@ -47,7 +51,9 @@ and it must be a direct subclass of either
 [`OptionalAnnotation`](#{site.urls.apidoc_current}/OptionalAnnotation.type.html) or 
 [`SequencedAnnotation`](#{site.urls.apidoc_current}/SequencedAnnotation.type.html).
 
-    final annotation class Example(shared String description) extends Annotation() {
+<!-- try: -->
+    final annotation class Example(shared String description) 
+            extends Annotation() {
     }
     
 Any class parameters must be of one of the allowed types:
@@ -67,8 +73,10 @@ In particular the class parameters may be `shared` or not.
 An annotation constructor must be a [top-level](../type#top_level_declarations) [function](../function/) 
 annotated with `annotation`, with a return type that is an [annotation class](#annotation_class_declaration). 
 
+<!-- try: -->
     annotation Example eg() => Example("");
-    annotation Example example(String description="") => Example(description);
+    annotation Example example(String description="") 
+        => Example(description);
 
 Any parameters must be of one of the permitted types for an annotation class (see above list).
 
@@ -118,6 +126,7 @@ be used to any of the types satisfying
 
 To use an annotation you preceed the program element with an invocation of the annotation constructor:
 
+<!-- try: -->
     example()
     class AnnotatedExample() {
         // ...
@@ -135,6 +144,7 @@ it extra easy to write such documentation, annotating
 program elements with a `String` literal is a shortcut syntax for 
 annotating the element with the `doc` annotation.
 
+<!-- try: -->
     "Some documentation about [[DocExample]]"
     class DocExample() {
         // ...

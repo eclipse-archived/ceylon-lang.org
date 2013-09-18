@@ -4,22 +4,28 @@ title: aliases
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
+toc: true
 ---
 
 # #{page.title}
+
+#{page.table_of_contents}
 
 ## Usage 
 
 A type alias:
 
+<!-- try: -->
     alias BasicType = String|Character|Integer|Float|Boolean;
     
 An `interface` alias:
 
+<!-- try: -->
     interface Strings => Collection<String>;
     
 A `class` alias:
 
+<!-- try: -->
     class Identifier({Character*} characters) => String(characters);
 
 ## Description

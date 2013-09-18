@@ -4,6 +4,7 @@ title: Type Parameters
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
+toc: true
 ---
 
 # #{page.title}
@@ -11,16 +12,20 @@ author: Tom Bentley
 [Class](../class), [interface](../interface) and [method](../method) 
 declarations may be one or more type parameters.
 
+#{page.table_of_contents}
+
 ## Usage 
 
 A simple type-parameterized (or *generic*) class might look like this:
 
+<!-- try: -->
     class C<X>() {
         /* declarations of class members */
     }
     
 A simple type-parameterised (or *generic*) method might look like this:
 
+<!-- try: -->
     void m<X,Y>(X x, Y y) {
 
     }
@@ -91,6 +96,7 @@ doesn't support
 An example of this is [`Set`](#{site.urls.apidoc_current}/Set.type.html) 
 from the language module:
 
+<!-- try: -->
     shared interface Set<out Element>
             satisfies Collection<Element> &
                       Cloneable<Set<Element>>
@@ -105,6 +111,7 @@ Given this declaration it's not allowed to have a `Set<String?>`, because
 Another example from the language module is [`Comparable`](#{site.urls.apidoc_current}/Comparable.type.html), 
 declared like this:
 
+<!-- try: -->
     shared interface Comparable<in Other> of Other 
             given Other satisfies Comparable<Other> {
         // ...
@@ -122,6 +129,7 @@ A final example is the language module's
 function which constrains the type parameter `Element` so that 
 it can only be called with `Comparable` Elements
 
+<!-- try: -->
     shared Element[] sort<Element>({Element*} elements) 
             given Element satisfies Comparable<Element>
 
@@ -134,6 +142,7 @@ which cannot be compared.
 Just as a parameter list can define defaulted parameters, a type argument list
 can define defaulted type parameters. Here's an example from the language module:
 
+<!-- try: -->
     Iterable<out Element, out Absent=Null>
     
 This means we can apply the type constructor 
@@ -141,6 +150,7 @@ This means we can apply the type constructor
 or two type arguments. If we supply only one type argument, the default 
 type (in this case `Null`) is used:
 
+<!-- try: -->
     // same as Iterable<String, Null>
     Iterable<String> zeroOrMore; 
 
@@ -150,6 +160,7 @@ Using a defaulted type parameter can be used as an alternative to
 a [type `alias`](../type-alias): We could have declared `Iterable` without a
 defaulted type parameter and uses alises:
 
+<!-- try: -->
     alias PossiblyEmpty<T> => Iterable<String, Null>
     alias NonEmpty<T> => Iterable<String, Nothing>
 
