@@ -156,8 +156,8 @@ type (in this case `Null`) is used:
 
     Iterable<String, Nothing> oneOrMore;
     
-Using a defaulted type parameter can be used as an alternative to 
-a [type `alias`](../type-alias): We could have declared `Iterable` without a
+Using a defaulted type parameter can be used as a more flexible alternative to 
+a [type `alias`](../alias#type_aliases). We could have declared `Iterable` without a
 defaulted type parameter and uses alises:
 
 <!-- try: -->
