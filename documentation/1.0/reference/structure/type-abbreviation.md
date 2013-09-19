@@ -31,6 +31,39 @@ abbreviations for them.
 
 The above abbreviations can be used anywhere a type is expected. 
 
+### Callable
+
+The type abbtreviation `R(P1,P2)` is the same as `Callable<R,[P1,P2]>`, 
+which is the type of a function which takes parameters of types `P1` and `P2` 
+and returns an `R`. `R(P1,P2)` may also be the type of the class `R` 
+if its initializer takes parameters of types `P1` and `P2`.
+
+For higher order Callables, there is the potential for some confusion.
+Consider the following abbreviated Callable type:
+
+<!-- try: -->
+     Bar(String)(Foo)
+
+This is the type of the function:
+
+<!-- try: -->
+    Bar higher(Foo)(String) {
+        // ...
+    }
+
+Notice how the `String` and `Foo` swapped places?
+
+If you think about it, `higher` could be declared like this:
+
+<!-- try: -->
+    Bar(String) higher2(Foo) {
+        // ...
+    }
+
+And when you write it that way, it's not really surprising that `higher2` itself has
+type `Bar(String)(Foo)`.
+
+
 ### Variadic parameters
 
 Although not an abbrevious like the above, in a [parameter list](../parameter-list/)

@@ -9,63 +9,52 @@ toc: true
 
 # #{page.title}
 
-#{page.table_of_contents}
-
-### Parameter lists
-
 Methods and class initializers have a *parameter list* to declare what parameters they take. 
 A parameter list consists of zero or more *parameters*.
 
-when the method is 
-[invoked](../../expression/invocation) or the class is instantiated, the caller 
-supplies an *argument list* which has to match the parameter list according to 
-certain rules.
+#{page.table_of_contents}
+
+## Usage
+
+<!-- try: -->
+
+    class Example(Integer value, String name) {
+    }
+    
+    void example(Integer value, String name) {
+    }
+
+## Description
+
+### Parameter lists
 
 Syntactically, a parameter list is
 a comma separated list enclosed in parentheses following
-the [type parameters](#type_parameters). Each parameter is composed of a 
+the [type parameter list](../type-parameters). Each parameter is composed of a 
 type expression and a name. 
-
-For example a method taking an Integer parameter `i` and a parameter `b` 
-whose type is a type parameter `<Z>` looks like this:
-
-<!-- try: -->
-    void m<Z>(Integer i, Z b) {
-        /* method body: statements */
-    }
-
 
 #### Defaulted parameters
 
-A default value for a parameter may be specified. This allows the method to 
-be [invoked](../../expression/invocation) or the class instantiated 
-without passing an argument for 
-that parameter. Parameters with default values may be called 
-*optional parameters* or *defaulted parameters*. 
-Parameters without default values may be called
-*required parameters*.
+A default value for a parameter may be specified. 
+The default expression following the parameter name, separated with an equals sign:
 
-Syntactically default values are [expressions](../../#expression) separated from the 
-parameter name with the equals specifier. The expression may be called the 
-*default argument*, or the *default parameter* 
-(though this confuses the distinction between 'parameter' and 'argument').
-
-For example a method `defaulted` declared like this
-
-<!-- id:defaulted -->
 <!-- try: -->
-    void defaulted(Integer i = 0) {
-        /* method body: statements */
+    void example(Integer value, 
+            String name = value == 0 then "zero" else "") {
     }
 
-can be [invoked](../../expression/invocation) without supplying an argument 
-for the parameter `i`, like this:
+A defaulted parameter allows the method or class to 
+be [invoked](../../expression/invocation)
+without an expression being given for 
+that parameter. 
 
-<!-- cat-id:defaulted -->
-<!-- cat: void m2() { -->
-<!-- try: -->
-    defaulted();
-<!-- cat: } -->
+Parameters with default values may be called 
+*optional parameters* or *defaulted parameters*. 
+Parameters without default values may be called
+*required parameters*. The defaulted 
+parameter expression may be called the 
+*default argument*, or the *default parameter* 
+(though this confuses the distinction between 'parameter' and 'argument').
 
 To avoid ambiguity, defaulted parameters are only permitted after all the 
 non-defaulted parameters in the parameter list.
@@ -87,16 +76,16 @@ There are two different kinds of variadic parameter:
   star (`*`) followed by the parameter name.
   From within the method or class the parameter has the type [`T[]`](../type#Sequential).
   A possibly-empty variadic parameter's defaulted value is implictly empty.
-* Non-empty variadic parameters allow the method to be  
+* Non-empty variadic parameters allow the method to be
   [invoked](../../expression/invocation) with the caller specifying one or 
   more arguments for that parameter.  Syntactically, non-empty 
   variadic parameters are declared as a type name followed by 
   plus (`+`) followed by the parameter name.
   From within the method or class the parameter has the type [`Sequence<T>`](../type#Sequence).
   A non-empty variadic parameter doesn't have a defaulted value, and none of 
-  the preceding parameters may be defaulted.
+  the preceding parameters may be [defaulted](#defaulted_parameters).
 
-For example, a variadic method `variadic` declared like this
+For example
 
 <!-- try: -->
     void variadic(String s, Integer* i) {
@@ -104,14 +93,13 @@ For example, a variadic method `variadic` declared like this
            parameter i treated as an Integer[] */
     }
 
-can be [invoked](../../expression/invocation) supplying a zero or more 
-expressions for `i`, like this:
+### Invocation
 
-<!-- try: -->
-    variadic("hello");
-    variadic("hello", 1);
-    variadic("hello", 1, 2);
-    variadic("hello", 1, 2, 3);
+When the method or class is the primary in an
+[invocation](../../expression/invocation), the caller 
+supplies an [argument list](../../expression/argument-list) 
+whose [Tuple](#{site.urls.apidoc_current}/Tuple.type.html) 
+type must be a subtype of the Tuple type of the parameter list.
 
 #### Multiple parameter lists
 
@@ -127,5 +115,8 @@ that is a method which returns (when invoked with
 a single argument list) a `String(String)` callable reference which can be 
 invoked again to produce a `String`. 
 
-**Note**: Classes cannot be declared with multiple parameter lists.
+**Note**: Classes cannot be declared with multiple parameter lists: That 
+wouldn't make sense.
+
+## See also
 
