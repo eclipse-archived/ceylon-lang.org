@@ -155,24 +155,26 @@ annotating the element with the `doc` annotation.
 
 There is specific documentation on each of the language module annotations
 
-* [`abstract`](../../annotation/abstract/)
-* [`actual`](../../annotation/actual/)
-* [`annotation`](../../annotation/annotation/)
-* [`default`](../../annotation/default/)
-* [`deprecated`](../../annotation/deprecated/)
-* [`doc`](../../annotation/doc/)
-* [`by`](../../annotation/by/)
-* [`formal`](../../annotation/formal/)
-* [`final`](../../annotation/final/)
-* [`late`](../../annotation/late/)
-* [`license`](../../annotation/license/)
-* [`native`](../../annotation/native/)
-* [`optional`](../../annotation/optional/)
-* [`see`](../../annotation/see/)
-* [`shared`](../../annotation/shared/)
-* [`throws`](../../annotation/throws/)
-* [`tagged`](../../annotation/tagged/)
-* [`variable`](../../annotation/variable/)
+<ul class="linear">
+  <li><a href="../../annotation/abstract/"><code>abstract</code></a></li>
+  <li><a href="../../annotation/actual/"><code>actual</code></a></li>
+  <li><a href="../../annotation/annotation/"><code>annotation</code></a></li>
+  <li><a href="../../annotation/default/"><code>default</code></a></li>
+  <li><a href="../../annotation/deprecated/"><code>deprecated</code></a></li>
+  <li><a href="../../annotation/doc/"><code>doc</code></a></li>
+  <li><a href="../../annotation/by/"><code>by</code></a></li>
+  <li><a href="../../annotation/formal/"><code>formal</code></a></li>
+  <li><a href="../../annotation/final/"><code>final</code></a></li>
+  <li><a href="../../annotation/late/"><code>late</code></a></li>
+  <li><a href="../../annotation/license/"><code>license</code></a></li>
+  <li><a href="../../annotation/native/"><code>native</code></a></li>
+  <li><a href="../../annotation/optional/"><code>optional</code></a></li>
+  <li><a href="../../annotation/see/"><code>see</code></a></li>
+  <li><a href="../../annotation/shared/"><code>shared</code></a></li>
+  <li><a href="../../annotation/throws/"><code>throws</code></a></li>
+  <li><a href="../../annotation/tagged/"><code>tagged</code></a></li>
+  <li><a href="../../annotation/variable/"><code>variable</code></a></li>
+</ul>
 
 ## See also
 

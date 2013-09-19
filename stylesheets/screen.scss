@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 // This import applies a global reset to any page that imports this stylesheet.
 @import "blueprint/reset";
 
@@ -1155,4 +1157,14 @@ p.screenshot {
       padding: 10px 15px;
       border-radius: 6px;
     }
+}
+
+// a "horizontal bulleted list", as used on the reference
+ul.linear li { 
+    display: inline-block; 
+}
+ul.linear li:before { 
+    content: " • ";
+    font-size: large;
+    white-space: pre;
 }
