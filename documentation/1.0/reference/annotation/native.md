@@ -26,5 +26,6 @@ the language module and dedicated interoperability modules.
 
 ## See also
 
-* [`native`](#{site.urls.apidoc_current}/#native)
+* [`native`](#{site.urls.apidoc_current}/index.html#native)
+* Reference for [annotations in general](../../structure/annotation/)
 

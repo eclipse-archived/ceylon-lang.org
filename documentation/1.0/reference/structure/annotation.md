@@ -153,24 +153,26 @@ annotating the element with the `doc` annotation.
 
 ### Language module annotations
 
-* [`abstract`](#{site.urls.apidoc_current}/#abstract)
-* [`actual`](#{site.urls.apidoc_current}/#actual)
-* [`annotation`](#{site.urls.apidoc_current}/#annotation)
-* [`default`](#{site.urls.apidoc_current}/#default)
-* [`deprecated`](#{site.urls.apidoc_current}/#deprecated)
-* [`doc`](#{site.urls.apidoc_current}/#doc)
-* [`by`](#{site.urls.apidoc_current}/#by)
-* [`formal`](#{site.urls.apidoc_current}/#formal)
-* [`final`](#{site.urls.apidoc_current}/#final)
-* [`late`](#{site.urls.apidoc_current}/#late)
-* [`license`](#{site.urls.apidoc_current}/#license)
-* [`native`](#{site.urls.apidoc_current}/#native)
-* [`optional`](#{site.urls.apidoc_current}/#optional)
-* [`see`](#{site.urls.apidoc_current}/#see)
-* [`shared`](#{site.urls.apidoc_current}/#shared)
-* [`throws`](#{site.urls.apidoc_current}/#throws)
-* [`tagged`](#{site.urls.apidoc_current}/#tagged)
-* [`variable`](#{site.urls.apidoc_current}/#variable)
+There is specific documentation on each of the language module annotations
+
+* [`abstract`](../../annotation/abstract/)
+* [`actual`](../../annotation/actual/)
+* [`annotation`](../../annotation/annotation/)
+* [`default`](../../annotation/default/)
+* [`deprecated`](../../annotation/deprecated/)
+* [`doc`](../../annotation/doc/)
+* [`by`](../../annotation/by/)
+* [`formal`](../../annotation/formal/)
+* [`final`](../../annotation/final/)
+* [`late`](../../annotation/late/)
+* [`license`](../../annotation/license/)
+* [`native`](../../annotation/native/)
+* [`optional`](../../annotation/optional/)
+* [`see`](../../annotation/see/)
+* [`shared`](../../annotation/shared/)
+* [`throws`](../../annotation/throws/)
+* [`tagged`](../../annotation/tagged/)
+* [`variable`](../../annotation/variable/)
 
 ## See also
 

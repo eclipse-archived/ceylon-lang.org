@@ -34,5 +34,6 @@ On a module import:
 
 ## See also
 
-* [`shared`](#{site.urls.apidoc_current}/#shared)
+* [`shared`](#{site.urls.apidoc_current}/index.html#shared)
+* Reference for [annotations in general](../../structure/annotation/)
 

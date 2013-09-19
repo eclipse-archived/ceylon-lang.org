@@ -28,5 +28,6 @@ scope of the type its defined in a `default` member is necessarily
 
 ## See also
 
-* [`default`](#{site.urls.apidoc_current}/#default)
+* [`default`](#{site.urls.apidoc_current}/index.html#default)
+* Reference for [annotations in general](../../structure/annotation/)
 

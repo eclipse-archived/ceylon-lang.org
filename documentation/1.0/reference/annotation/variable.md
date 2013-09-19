@@ -25,4 +25,5 @@ The `variable` annotation marks a value that may be [assigned](../../operator/as
 
 ## See also
 
-* [`variable`](#{site.urls.apidoc_current}/#variable)
+* [`variable`](#{site.urls.apidoc_current}/index.html#variable)
+* Reference for [annotations in general](../../structure/annotation/)

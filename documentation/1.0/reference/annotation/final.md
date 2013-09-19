@@ -13,7 +13,7 @@ The `final` annotation marks a class as not allowing subclasses
 
 ## Usage
 
-<!-- try -->
+<!-- try: -->
     final class Example() {
     }
 
@@ -31,5 +31,6 @@ refine those members it is permitted to refine.
 
 ## See also
 
-* [`final`](#{site.urls.apidoc_current}/#final)
+* [`final`](#{site.urls.apidoc_current}/index.html#final)
+* Reference for [annotations in general](../../structure/annotation/)
 

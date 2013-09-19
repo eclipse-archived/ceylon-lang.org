@@ -17,11 +17,15 @@ The `throws` annotation documents a exception that can be thrown by some code.
     throws(`class AssertionException`, "If i < 0")
     void example(Integer i)
 
+
 ## Description
 
-The `throws` annotation is processed by the `ceylon doc` tool.
+The `throws` annotation is processed by the 
+[`ceylon doc`](#{site.urls.ceylon_tool_current}/ceylon-doc.html) tool. 
+Its `description` is assumed to  contain [Markdown formatted](../markdown/) text.
 
 ## See also
 
-* [`throws`](#{site.urls.apidoc_current}/#throws)
+* [`throws`](#{site.urls.apidoc_current}/index.html#throws)
+* Reference for [annotations in general](../../structure/annotation/)
 

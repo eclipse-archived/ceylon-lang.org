@@ -33,5 +33,6 @@ scope of the type its defined in an `actual` member is necessarily
 
 ## See also
 
-* [`actual`](#{site.urls.apidoc_current}/#actual)
+* API documentation for [`actual`](#{site.urls.apidoc_current}/index.html#actual)
+* Reference for [annotations in general](../../structure/annotation/)
 

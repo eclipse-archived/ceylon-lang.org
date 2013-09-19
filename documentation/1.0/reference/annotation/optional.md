@@ -23,5 +23,6 @@ not strictly required by the module.
 
 ## See also
 
-* [`optional`](#{site.urls.apidoc_current}/#optional)
+* [`optional`](#{site.urls.apidoc_current}/index.html#optional)
+* Reference for [annotations in general](../../structure/annotation/)
 

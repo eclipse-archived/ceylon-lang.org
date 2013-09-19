@@ -24,7 +24,9 @@ It is considered good practice to use the description
 argument to record why the declaration has been 
 deprecated and any alternatives to it that may exist.
 
-The `deprecated` annotation is processed by the `ceylon doc` tool.
+The `deprecated` annotation is processed by the 
+[`ceylon doc`](#{site.urls.ceylon_tool_current}/ceylon-doc.html) tool, 
+which assumes it contains [Markdown formatted](../markdown/) text.
 
 ### Note
 
@@ -35,5 +37,6 @@ declaration is to be avoided.
 
 ## See also
 
-* [`deprecated`](#{site.urls.apidoc_current}/#deprecated)
+* [`deprecated`](#{site.urls.apidoc_current}/index.html#deprecated)
+* Reference for [annotations in general](../../structure/annotation/)
 

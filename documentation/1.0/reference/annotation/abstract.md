@@ -21,7 +21,10 @@ The annotation is applied to the class definition:
 
 ## Description
 
+`abstract` classes may have [`formal`](../formal/) members.
+
 ## See also
 
-* [`abstract`](#{site.urls.apidoc_current}/#abstract)
+* API documentation for [`abstract`](#{site.urls.apidoc_current}/index.html#abstract)
+* Reference for [annotations in general](../../structure/annotation/)
 

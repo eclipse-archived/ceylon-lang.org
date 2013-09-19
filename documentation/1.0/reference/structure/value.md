@@ -71,7 +71,7 @@ If the value is annotated [`variable`](#{site.urls.apidoc_current}/index.html#va
 Otherwise it must be [specified](../../statement/specification) 
 exactly once, moreover the specification must occur before its first use.
 
-### Getters (derived values)
+### Getters
 
 A value getter is a value that is calculated when needed, rather than retrieved from memory.
 
@@ -82,7 +82,7 @@ refine a simple attribute with a getter, or vice versa.
 Like functions, you can either use a block of statements or the *fat arrow*
 (`=>`) syntax if the value can be computed from a single expression.
 
-### Attribute Setters
+### Setters
 
 A value setter defines what to do when a `variable` value is assigned.
 
@@ -103,28 +103,9 @@ but can instead use
 
 ### `late` values
 
-A value can be declared [`late`](#{site.urls.apidoc_current}/index.html#late) 
+A value can be declared [`late`](../../annotation/late/) 
 in which case the typechecker's
-definite specification checks are not performed. Instead code is generated 
-which performs a runtime check for accessing the value when it hasn't 
-been initialized (and re-initializing a
-non-`variable` value that has already been initialized). 
-
-This is intended to permit cyclic references between values, for example:
-
-<!-- try: -->
-    class Child() {
-        shared late Parent parent;
-    }
-    class Parent(children) {
-        shared Child* children;
-        for (child in children) {
-            child.parent = this;
-        }
-    }
-
-Only simple values may be annotated `late` 
-(it doesn't make sense for value getters). 
+[definite specification](../../annotation/late/#description) checks are not performed. 
 
 ### Metamodel
 

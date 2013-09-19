@@ -30,9 +30,11 @@ Or to the function definition:
 
 ## Description
 
-When applied to a class, the `final` annotation is also required.
+When applied to a class, the `final` annotation is also required and the class 
+must satisfy [`Annotation`](#{site.urls.apidoc_current}/Annotation.type.html)
 
 ## See also
 
-* [`annotation`](#{site.urls.apidoc_current}/#annotation)
+* API documentation for [`annotation`](#{site.urls.apidoc_current}/index.html#annotation)
+* Reference for [annotations in general](../../structure/annotation/)
 

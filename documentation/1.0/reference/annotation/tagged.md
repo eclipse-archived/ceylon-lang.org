@@ -24,11 +24,13 @@ Marks a declaration with an arbitrary tag.
 
 ## Description
 
-Its content should be a short keyword or identifier.
+The `tagged` annotation is processed by the `ceylon doc` tool.
 
-The `tagged` annotation is processed by the `ceylon doc` tool. 
+Its content should be a short keyword or identifier, and
+*not* [Markdown formatted](../markdown/) text.
 
 ## See also
 
-* [`tagged`](#{site.urls.apidoc_current}/#tagged)
+* [`tagged`](#{site.urls.apidoc_current}/index.html#tagged)
+* Reference for [annotations in general](../../structure/annotation/)
 

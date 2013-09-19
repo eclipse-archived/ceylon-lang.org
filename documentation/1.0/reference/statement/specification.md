@@ -34,6 +34,15 @@ and the specification statement (the `=` *statement*). The spec says that,
 where it is possible, the ambiguity is resolved in favour of the 
 specification statement.
 
+### Definite specification
+
+The Ceylon typechecker ensures that values are *definitely specified* 
+(e.g. that they are specified before they are used, and that they are 
+not respecified). 
+
+These checks can be disabled using the [`late`](../../annotation/late/)
+annotation.
+
 ### Execution
 
 After the specification statement and for the rest of the scope of the reference it 

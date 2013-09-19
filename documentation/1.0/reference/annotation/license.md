@@ -20,6 +20,10 @@ The `license` annotation is applied to a module to record its license.
 
 ## Description
 
+The `license` annotation is processed by the 
+[`ceylon doc`](#{site.urls.ceylon_tool_current}/ceylon-doc.html) tool, 
+which assumes it contains [Markdown formatted](../markdown/) text.
+
 It is strongly recommended that the argument to 
 license is an `http:` 
 URL to a license document, rather than a license name 
@@ -28,5 +32,6 @@ or the full license test.
 
 ## See also
 
-* [`license`](#{site.urls.apidoc_current}/#license)
+* [`license`](#{site.urls.apidoc_current}/index.html#license)
+* Reference for [annotations in general](../../structure/annotation/)
 
