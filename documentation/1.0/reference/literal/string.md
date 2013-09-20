@@ -10,7 +10,7 @@ toc: true
 
 # #{page.title}
 
-A literal notation for an 
+A literal notation for a 
 [`String`](#{site.urls.apidoc_current}/String.type.html) value.
 
 #{page.table_of_contents}
@@ -27,6 +27,7 @@ A `String` literal is enclosed between double quotes (`"`)
     
 A verbatim `String` literal is enclosed between three double quotes (`"""`)
 
+<!-- try: -->
     String verbatim = """<p>"Almost, but not quite, entirely unlike tea."</p>"""
 
 ## Description
