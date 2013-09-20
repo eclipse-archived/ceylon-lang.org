@@ -26,13 +26,13 @@ _Some of these pages are incomplete. Want to help? [See how](/code/website)._
   <li><a href="structure/compilation-unit/">Compilation units</a></li>
   <li><a href="structure/type/">Types</a></li>
   <li><a href="structure/type-abbreviation/">Type abbreviations</a></li>
-  <li><a href="structure/type-parameters/">Type parameters</a></li>
   <li><a href="structure/class/">Classes</a></li>
   <li><a href="structure/class/">Interfaces</a></li>
+  <li><a href="structure/type-parameters/">Type parameters</a></li>
   <li><a href="structure/alias/">Aliases</a></li>
-  <li><a href="structure/object/"><code>object</code>s</a></li>
   <li><a href="structure/value/">Values</a></li>
   <li><a href="structure/function/">Functions</a></li>
+  <li><a href="structure/object/"><code>object</code>s</a></li>
   <li><a href="structure/annotation/">Annotations</a></li>
 </ul>
 
@@ -87,17 +87,17 @@ _Some of these pages are incomplete. Want to help? [See how](/code/website)._
 
 <ul class="linear">
   <li><a href="expression/invocation/">Invocation</a></li>
+  <li><a href="expression/tuple/">tuple enumeration</a></li>
+  <li><a href="expression/iterable/">iterable enumeration</a></li>
   <li><a href="expression/string-template/">String template</a></li>
   <li><a href="expression/this/"><code>this</code></a></li>
   <li><a href="expression/outer/"><code>outer</code></a></li>
   <li><a href="expression/super/"><code>super</code></a></li>
-  <li><a href="expression/package/"><code>package</code></a></li>
+  <li><a href="expression/package/"><code>package</code> qualifier</a></li>
   <li><a href="expression/anonymous-function/">anonymous functions</a></li>
   <li><a href="expression/callable-reference/"><code>Callable</code> references</a></li>
   <li><a href="expression/static-reference/">static references</a></li>
   <li><a href="expression/meta-reference/">meta references</a></li>
-  <li><a href="expression/tuple/">tuple enumeration</a></li>
-  <li><a href="expression/iterable/">iterable enumeration</a></li>
 </ul>
 
 Also see [operators](#operators) and [literals](#literals) below.
