@@ -56,14 +56,38 @@ code blocks is just to indent the code using 4 (or more) spaces:
     void method() {}
 
 A fenced code block doesn't require the indentation, but surrounds the
-code block with a line starting with three or more backticks `\``:
+code block with a line starting with three or more
+tildes (`~`):
+
+<!-- try: -->
+    """You can call this method like this:
+       ```
+       Anything result = method();
+       ```
+    """
+    void method() {}
+
+You can also use three or more backticks (`` ` ``), however 
+backticks require quoting if used within a single quoted string
+to avoid interpretation of the String as a 
+[String template](../../epxression/string-template/):
 
 <!-- try: -->
     "You can call this method like this:
-     ```
+     \`\``
      Anything result = method();
-     ```
+     \`\``
     "
+    void method() {}
+
+Alternatively use a triple-quoted string literal:
+
+<!-- try: -->
+    """You can call this method like this:
+       ```
+       Anything result = method();
+       ```
+    """
     void method() {}
 
 You can state the syntax being used in the code block by following the 
@@ -106,11 +130,12 @@ The link text will be the name of the linked-to declaration, output
 using `<code>` tags (therefore rendered by the browser in a 
 monospaced typeface).
 
-You can specify different link text by following the name of the linked-to 
-declaration with a pipe `|`:
+You can specify different link text by including it before 
+the name of the linked-to 
+declaration, separating the two with a pipe `|`:
 
 <!-- try: -->
-    "This method returns a [[Integer|number]]."
+    "This method returns a [[number|Integer]]."
     Integer method() {}
 
 In this case the link text will not be output using `<code>` tags.
