@@ -180,7 +180,7 @@ The API documentation for [`ceylon.language`](#{site.urls.apidoc_current}/index.
 
 <ul class="linear">
   <li>The <code>ceylon</code> command, <a href="tool/ceylon/"><code>ceylon</code></a></li>
-  <li>An index of <a href="file:///home/tom/ceylon/ceylon-dist/dist/doc/en/toolset/index.html"><code>ceylon</code> subcommands</a></li>
+  <li>An index of <a href="#{site.urls.ceylon_tool_current}/index.html"><code>ceylon</code> subcommands</a></li>
   <li>The Ceylon <a href="tool/ant/"><code>Ant</code> tasks</a></li>
   <li>The <a href="tool/config/">configuration file format</a></li>
 </ul>
