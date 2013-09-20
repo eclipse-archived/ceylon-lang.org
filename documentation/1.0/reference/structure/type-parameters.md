@@ -9,8 +9,8 @@ toc: true
 
 # #{page.title}
 
-[Class](../class), [interface](../interface) and [method](../method) 
-declarations may be one or more type parameters.
+[Class](../class/), [interface](../interface/) and [function](../function/) 
+declarations may have one or more type parameters.
 
 #{page.table_of_contents}
 
@@ -32,7 +32,7 @@ A simple type-parameterised (or *generic*) method might look like this:
 
 **Note**: By convention type parameters are given meaningful names rather than
 single letter names, such as `T`, `U`, `V` etc as is common in some other 
-languages.
+languages. This reference currently breaks that convention.
 
 
 ## Description
