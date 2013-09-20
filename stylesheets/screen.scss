@@ -1168,3 +1168,16 @@ ul.linear li:before {
     font-size: large;
     white-space: pre;
 }
+
+// Contents boxes, in the reference
+div.toc {
+    border-radius: 10px 10px 10px 10px;
+    border: 1px solid #456B6E;
+    display: table;
+    font-size: 90%;
+}
+div.toc h2#contents {
+    margin: 0px;
+    text-align: center;
+}
+
