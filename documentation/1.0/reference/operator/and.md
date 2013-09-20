@@ -36,7 +36,7 @@ The `&&` operator is not [polymorphic](#{page.doc_root}/reference/operator/opera
 
 ### Type
 
-The result type of the `&&` operator is `Boolean`.
+The result type of the `&&` operator is [`Boolean`](#{site.urls.apidoc_current}/Boolean.type.html).
 
 ## See also
 
