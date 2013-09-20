@@ -22,6 +22,7 @@ An expression statement is just the expression followed by a semicolon (`;`).
 
 No all expressions can be treated as statements in this way, for example
 
+<!-- try: -->
     "";
     
 is not allowed. This is because there are no side-effects from evaluating the 
