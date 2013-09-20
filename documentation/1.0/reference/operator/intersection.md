@@ -47,7 +47,7 @@ The meaning of `&` depends on the
 
 ### Type
 
-The type of `|` is a [`Set`](#{site.urls.apidoc_current}/Set.type.html) whose element type is the intersection of the 
+The result type of the `|` operator is a [`Set`](#{site.urls.apidoc_current}/Set.type.html) whose element type is the intersection of the 
 element types of its operands.
 
 ## See also

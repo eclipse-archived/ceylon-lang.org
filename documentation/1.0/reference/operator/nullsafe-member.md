@@ -35,7 +35,7 @@ The `?.` operator is not [polymorphic](#{page.doc_root}/reference/operator/opera
 
 ### Type
 
-The type of `lhs?.rhs` is the optional type of the right hand operand.
+The result type of the `lhs?.rhs` operator is the optional type of the right hand operand.
 
 ## See also
 

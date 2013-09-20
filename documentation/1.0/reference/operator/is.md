@@ -38,7 +38,7 @@ The `is` operator is not [polymorphic](#{page.doc_root}/tour/language-module/#op
 
 ### Type
 
-The type of `is` is [`Boolean`](#{site.urls.apidoc_current}/Boolean.type.html).
+The result type of the `is` operator is [`Boolean`](#{site.urls.apidoc_current}/Boolean.type.html).
 
 ### Note
 

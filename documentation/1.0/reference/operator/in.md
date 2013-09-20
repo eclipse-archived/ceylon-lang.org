@@ -38,7 +38,7 @@ The meaning of `in` depends on the
 
 ### Type
 
-The type of `in` is [`Boolean`](#{site.urls.apidoc_current}/Boolean.type.html).
+The result type of the `in` operator is [`Boolean`](#{site.urls.apidoc_current}/Boolean.type.html).
 
 ## See also
 

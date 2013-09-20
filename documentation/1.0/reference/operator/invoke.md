@@ -40,7 +40,7 @@ The `()` and `{}` operators are not [polymorphic](#{page.doc_root}/reference/ope
 
 ### Type
 
-The type of invocation expressions is the return type of the callable type of the left hand operand.
+The result type of the invocation operator expressions is the return type of the callable type of the left hand operand.
 
 ## See also
 

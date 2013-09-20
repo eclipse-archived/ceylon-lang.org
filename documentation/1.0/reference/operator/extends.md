@@ -42,7 +42,7 @@ The meaning of `extends` depends on the
 
 ### Type
 
-The type of `entends` is `Boolean`.
+The result type of the `entends` operator is `Boolean`.
 
 ## See also
 

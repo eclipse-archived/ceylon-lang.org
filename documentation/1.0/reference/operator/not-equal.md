@@ -39,7 +39,7 @@ The meaning of `!=` depends on the
 
 ### Type
 
-The type of `!=` is `Boolean`.
+The result type of the `!=` operator is `Boolean`.
 
 ## See also
 

@@ -36,7 +36,7 @@ C's ternary operator ` cond ? when-true-expr : when-false-expr`, like so
 
 ### Type
 
-The type of `else` is given by the type expression `Lhs&Object|Rhs`, wher 
+The result type of the `else` operator is given by the type expression `Lhs&Object|Rhs`, wher 
 `Lhs` is the type of the left hand operand and 
 `Rhs` is the type of the left hand operand.
 

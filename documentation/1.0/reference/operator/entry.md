@@ -36,7 +36,7 @@ The `->` operator is not [polymorphic](#{page.doc_root}/reference/operator/opera
 
 ### Type
 
-The type of `lhs->rhs` is `Entry<Lhs,Rhs>` where `Lhs` is the type of `lhs` and `Rhs` is the type of `rhs`.
+The result type of the `lhs->rhs` operator is `Entry<Lhs,Rhs>` where `Lhs` is the type of `lhs` and `Rhs` is the type of `rhs`.
 
 ## See also
 

@@ -42,7 +42,7 @@ depends on the [`Set`](#{site.urls.apidoc_current}/Set.type.html) interface.
 
 ### Type
 
-The type of `&=` is a [`Set`](#{site.urls.apidoc_current}/Set.type.html) with the same element type as 
+The result type of the `&=` operator is a [`Set`](#{site.urls.apidoc_current}/Set.type.html) with the same element type as 
 the left hand operand's element type.
 
 ## See also

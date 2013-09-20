@@ -38,7 +38,7 @@ The `=` operator is not [polymorphic](#{page.doc_root}/tour/language-module/#ope
 
 ### Type
 
-The type of `=` is the type of the right hand operand.
+The result type of the `=` operator is the type of the right hand operand.
 
 ## See also
 

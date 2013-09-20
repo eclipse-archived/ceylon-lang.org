@@ -37,7 +37,7 @@ The `nonempty` operator is not [polymorphic](#{page.doc_root}/reference/operator
 
 ### Type
 
-The type of `nonempty` is [`Boolean`](#{site.urls.apidoc_current}/Boolean.type.html).
+The result type of the `nonempty` operator is [`Boolean`](#{site.urls.apidoc_current}/Boolean.type.html).
 
 ### Note
 

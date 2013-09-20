@@ -35,7 +35,7 @@ The `exists` operator is not [polymorphic](#{page.doc_root}/reference/operator/o
 
 ### Type
 
-The type of `exists` is [`Boolean`](#{site.urls.apidoc_current}/Boolean.type.html).
+The result type of the `exists` operator is [`Boolean`](#{site.urls.apidoc_current}/Boolean.type.html).
 
 ### Note
 

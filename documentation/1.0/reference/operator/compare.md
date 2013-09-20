@@ -39,7 +39,7 @@ The meaning of `<=>` depends on the
 
 ### Type
 
-The type of `<=>` is [`Comparison`](#{site.urls.apidoc_current}/Comparison.type.html).
+The result type of the `<=>` operator is [`Comparison`](#{site.urls.apidoc_current}/Comparison.type.html).
 
 ## See also
 

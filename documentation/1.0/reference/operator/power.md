@@ -37,7 +37,7 @@ The meaning of `^` depends on the
 
 ### Type
 
-The type of `^` is the same as the type of the `This` type argument of its left hand 
+The result type of the `^` operator is the same as the type of the `This` type argument of its left hand 
 `Exponentiable<This, Other>` operand.
 
 ### Meaning of power for built-in types

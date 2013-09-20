@@ -40,7 +40,7 @@ The `&&` operator is not [polymorphic](#{page.doc_root}/reference/operator/opera
 
 ### Type
 
-The type of `&&=` is `Boolean`.
+The result type of the `&&=` operator is `Boolean`.
 
 ## See also
 

@@ -44,7 +44,7 @@ Tge `|` in its definition is the [union operator](../union) which depends on the
 
 ### Type
 
-The type of `&` is a [`Set`](#{site.urls.apidoc_current}/Set.type.html) with the same element type as 
+The result type of the `&` operator is a [`Set`](#{site.urls.apidoc_current}/Set.type.html) with the same element type as 
 the left hand operand's element type.
 
 ## See also

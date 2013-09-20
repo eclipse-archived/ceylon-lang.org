@@ -61,7 +61,7 @@ The meaning of `++` depends on the
 
 ### Type
 
-The type of `++` is the same as the `Ordinal` type of its operand.
+The result type of the `++` operator is the same as the `Ordinal` type of its operand.
 
 ## See also
 

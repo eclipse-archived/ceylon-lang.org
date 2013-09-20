@@ -39,7 +39,7 @@ class.
 
 ### Type
 
-The type of `lhs..rhs` is `Range<Lhs>` where `Lhs` is the type of `lhs`.
+The result type of the `lhs..rhs` operator is `Range<Lhs>` where `Lhs` is the type of `lhs`.
 
 ## See also
 

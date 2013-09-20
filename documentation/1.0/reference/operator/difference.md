@@ -37,7 +37,7 @@ The meaning of `-` depends on the
 
 ### Type
 
-The type of `-` is the same as the type of its right hand operand.
+The result type of the `-` operator is the same as the type of its right hand operand.
 
 ### Meaning of *difference* for built-in types
 

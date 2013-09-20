@@ -36,7 +36,7 @@ The meaning of `-` depends on
 
 ### Type
 
-The type of `-` is the same as the `Invertable` type of its operand.
+The result type of the `-` operator is the same as the `Invertable` type of its operand.
 
 ### Meaning of unary minus for built-in types
 

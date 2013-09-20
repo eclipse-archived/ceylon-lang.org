@@ -36,7 +36,7 @@ C's ternary operator ` cond ? when-true-expr : when-false-expr`, like so
 
 ### Type
 
-The type of `then` is the optional type of the right hand operand;
+The result type of the `then` operator is the optional type of the right hand operand;
 
 ## See also
 

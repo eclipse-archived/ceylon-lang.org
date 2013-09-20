@@ -46,7 +46,7 @@ interface.
 
 ### Type
 
-The type of `lhs[index]` is the element type of the `Correspondence` `lhs`.
+The result type of the `lhs[index]` operator is the element type of the `Correspondence` `lhs`.
 
 ## See also
 

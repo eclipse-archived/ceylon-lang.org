@@ -43,7 +43,7 @@ interface.
 
 ### Type
 
-The type of `lhs[from:length]` is the element type of the `Ranged` `lhs`.
+The result type of the `lhs[from:length]` operator is the element type of the `Ranged` `lhs`.
 
 ## See also
 

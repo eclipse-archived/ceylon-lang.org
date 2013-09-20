@@ -43,7 +43,7 @@ interface.
 
 ### Type
 
-The type of `/=` is the same as the type of its right hand operand.
+The result type of the `/=` operator is the same as the type of its right hand operand.
 
 ## See also
 

@@ -42,7 +42,7 @@ The meaning of `satisfies` depends on the
 
 ### Type
 
-The type of `satisfies` is `Boolean`.
+The result type of the `satisfies` operator is `Boolean`.
 
 ## See also
 
