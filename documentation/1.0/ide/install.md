@@ -9,7 +9,7 @@ author: Gavin King
 
 The M5 release of the Ceylon IDE is available from our Eclipse plugin 
 update site. Note that the version of the Ceylon compiler embedded in 
-this release is compatible with the Ceylon M5 _&ldquo;Nesa Pong&rdquo;_ 
+this release is compatible with the Ceylon M6 _&ldquo;Nesa Pong&rdquo;_ 
 command line tools.
 
 Please [report any issue in our issue tracker][issues]. _Note that if
