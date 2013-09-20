@@ -12,7 +12,8 @@ doc_root: ../../..
 The [`ceylon doc`](#{site.urls.ceylon_tool_current}/ceylon-doc.html) 
 tool assumes the
 arguments of the 
-[`doc`](../doc/), [`throws`](../throws/) and [`license` ](../license/)
+[`doc`](../doc/), [`deprecated`](../deprecated/), 
+[`throws`](../throws/) and [`license` ](../license/)
 annotations are formatted using 
 [Markdown](http://daringfireball.net/projects/markdown/) syntax.
 
