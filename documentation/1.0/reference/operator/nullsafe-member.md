@@ -33,6 +33,10 @@ The meaning of `?.` is defined as follows:
 
 The `?.` operator is not [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 
+### Type
+
+The type of `lhs?.rhs` is the optional type of the right hand operand.
+
 ## See also
 
 * [`?` (default)](../default) operator

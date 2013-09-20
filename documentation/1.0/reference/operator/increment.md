@@ -59,6 +59,10 @@ The `++` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-
 The meaning of `++` depends on the 
 [`Ordinal`](#{site.urls.apidoc_current}/Ordinal.type.html).
 
+### Type
+
+The type of `++` is the same as the `Ordinal` type of its operand.
+
 ## See also
 
 * * [-- (decrement)](../decrement) operator

@@ -9,7 +9,7 @@ doc_root: ../../..
 
 # #{page.title}
 
-The non-associating, binary `<` operator is used to test whether its left-hand 
+The non-associating, binary infix `<` operator is used to test whether its left-hand 
 operand is *less than* its right-hand operand.
 
 ## Usage 
@@ -37,6 +37,10 @@ See the [language specification](#{site.urls.spec_current}#equalitycomparison) f
 The `<` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `<` depends on the 
 [`Comparable`](#{site.urls.apidoc_current}/Comparable.type.html) interface. 
+
+### Type
+
+The type of `<` is [`Boolean`](#{site.urls.apidoc_current}/Boolean.type.html).
 
 ## See also
 

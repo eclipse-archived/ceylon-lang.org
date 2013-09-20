@@ -9,7 +9,7 @@ doc_root: ../../..
 
 # #{page.title}
 
-The *entry* operator creates an `Entry` from its key and value.
+The infix *entry* operator creates an `Entry` from its key and value.
 
 ## Usage 
 
@@ -33,6 +33,10 @@ more details.
 ### Polymorphism
 
 The `->` operator is not [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
+
+### Type
+
+The type of `lhs->rhs` is `Entry<Lhs,Rhs>` where `Lhs` is the type of `lhs` and `Rhs` is the type of `rhs`.
 
 ## See also
 

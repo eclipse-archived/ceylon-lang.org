@@ -9,7 +9,7 @@ doc_root: ../../..
 
 # #{page.title}
 
-The non-associating, binary `==` operator is used to test whether its operands 
+The non-associating, binary infix `==` operator is used to test whether its operands 
 are *equal*.
 
 ## Usage 
@@ -36,6 +36,10 @@ See the [language specification](#{site.urls.spec_current}#equalitycomparison) f
 The `==` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `==` depends on the 
 [`Object`](#{site.urls.apidoc_current}/Object.type.html) class.
+
+### Type
+
+The type of `==` is `Boolean`.
 
 ### Meaning of *identical* for built-in types
 

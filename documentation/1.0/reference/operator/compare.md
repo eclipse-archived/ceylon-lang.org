@@ -9,7 +9,7 @@ doc_root: ../../..
 
 # #{page.title}
 
-The non-associating, binary `<=>` operator is used to *compare* the order of 
+The non-associating, binary infix `<=>` operator is used to *compare* the order of 
 its operands.
 
 ## Usage 
@@ -36,6 +36,10 @@ See the [language specification](#{site.urls.spec_current}#equalitycomparison) f
 The `<=>` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `<=>` depends on the 
 [`Comparable`](#{site.urls.apidoc_current}/Comparable.type.html) interface 
+
+### Type
+
+The type of `<=>` is [`Comparison`](#{site.urls.apidoc_current}/Comparison.type.html).
 
 ## See also
 

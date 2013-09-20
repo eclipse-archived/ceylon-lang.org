@@ -9,7 +9,7 @@ doc_root: ../../..
 
 # #{page.title}
 
-The left-associative, binary `.` operator is used to  access the member 
+The left-associative, binary infix `.` operator is used to  access the member 
 named by the right-hand operand from left-hand operand.
 
 ## Usage 
@@ -28,6 +28,10 @@ The `.` operator is primitive.
 ### Polymorphism
 
 The `.` operator is not [polymorphic](#{page.doc_root}/tour/language-module/#operator_polymorphism). 
+
+### Type
+
+The type of `.` is the type of its right hand operand.
 
 ## See also
 

@@ -38,6 +38,10 @@ The `()` and `{}` operators are primitive.
 
 The `()` and `{}` operators are not [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 
+### Type
+
+The type of invocation expressions is the return type of the callable type of the left hand operand.
+
 ## See also
 
 * [null-safe version](../nullsafe-invoke) of invoke.

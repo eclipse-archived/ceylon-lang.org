@@ -9,7 +9,7 @@ doc_root: ../../..
 
 # #{page.title}
 
-The left-associative, binary `+` operator is used to *sum* two operands.
+The left-associative, binary infix `+` operator is used to *sum* two operands.
 
 ## Usage 
 
@@ -34,6 +34,10 @@ See the [language specification](#{site.urls.spec_current}#arithmetic) for more 
 The `+` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `+` depends on the 
 [`Summable`](#{site.urls.apidoc_current}/Summable.type.html) interface.
+
+### Type
+
+The type of `+` is the same as the type of its right hand operand.
 
 ### Meaning of `+` for built-in types
 

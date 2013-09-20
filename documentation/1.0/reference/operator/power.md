@@ -9,7 +9,7 @@ doc_root: ../../..
 
 # #{page.title}
 
-The right-associative, binary `^` operator is used to compute its left-hand 
+The right-associative, binary infix `^` operator is used to compute its left-hand 
 operand *raised to the power* of its right-hand operand.
 
 ## Usage 
@@ -34,6 +34,11 @@ See the [language specification](#{site.urls.spec_current}#arithmetic) for more 
 The `^` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `^` depends on the 
 [`Exponentiable`](#{site.urls.apidoc_current}/Exponentiable.type.html) interface.
+
+### Type
+
+The type of `^` is the same as the type of the `This` type argument of its left hand 
+`Exponentiable<This, Other>` operand.
 
 ### Meaning of power for built-in types
 

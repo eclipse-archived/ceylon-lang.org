@@ -9,7 +9,7 @@ doc_root: ../../..
 
 # #{page.title}
 
-The right-associative, binary `*=` operator multiplies it's left-hand operand 
+The right-associative, binary infix `*=` operator multiplies it's left-hand operand 
 by the amount given by its right-hand operand and assigns the result to the 
 left-hand operand.
 
@@ -41,6 +41,10 @@ See the [language specification](#{site.urls.spec_current}#arithmetic) for more 
 The `*=` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism).
 The definition of the `*=` operator depends 
 on the [`Numeric`](#{site.urls.apidoc_current}/Numeric.type.html) interface.
+
+### Type
+
+The type of `*=` is the same as the type of its right hand operand.
 
 ## See also
 

@@ -9,7 +9,7 @@ doc_root: ../../..
 
 # #{page.title}
 
-The left-associative, binary `*` operator is used to compute the *product* of 
+The left-associative, binary infix `*` operator is used to compute the *product* of 
 two operands.
 
 ## Usage 
@@ -34,6 +34,10 @@ See the [language specification](#{site.urls.spec_current}#arithmetic) for more 
 The `*` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `*` depends on the 
 [`Numeric`](#{site.urls.apidoc_current}/Numeric.type.html) interface.
+
+### Type
+
+The type of `*` is the same as the type of its right hand operand.
 
 ### Meaning of product for built-in types
 

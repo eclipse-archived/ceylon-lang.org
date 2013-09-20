@@ -9,7 +9,7 @@ doc_root: ../../..
 
 # #{page.title}
 
-The right-associative, binary `=` operator is used to *assign* a value to a `variable`-annotated attribute
+The right-associative, binary infix `=` operator is used to *assign* a value to a `variable`-annotated attribute
 
 ## Usage 
 
@@ -35,6 +35,10 @@ The `=` operator is primitive.
 ### Polymorphism
 
 The `=` operator is not [polymorphic](#{page.doc_root}/tour/language-module/#operator_polymorphism). 
+
+### Type
+
+The type of `=` is the type of the right hand operand.
 
 ## See also
 

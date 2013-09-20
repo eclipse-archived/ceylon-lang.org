@@ -9,7 +9,7 @@ doc_root: ../../..
 
 # #{page.title}
 
-The binary, left-associative `%` operator is used to get the remainder of an
+The binary, left-associative infix `%` operator is used to get the remainder of an
 integer division.
 
 ## Usage 
@@ -34,6 +34,10 @@ See the [language specification](#{site.urls.spec_current}#arithmetic) for more 
 The `%` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `%` depends on the 
 [`Integral`](#{site.urls.apidoc_current}/Integral.type.html) interface. 
+
+### Type
+
+The type of `%` is the same as the type of its right hand operand.
 
 ### Meaning of remainder for built-in types
 

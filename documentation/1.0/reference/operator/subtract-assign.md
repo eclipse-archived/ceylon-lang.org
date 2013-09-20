@@ -9,7 +9,7 @@ doc_root: ../../..
 
 # #{page.title}
 
-The right-associative, binary `-=` operator decrements it's left-hand operand 
+The right-associative, binary infix `-=` operator decrements it's left-hand operand 
 by the amount given by its right-hand operand. 
 
 ## Usage 
@@ -40,6 +40,10 @@ See the [language specification](#{site.urls.spec_current}#arithmetic) for more 
 The `-=` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism).
 The definition of the `-=` operator depends 
 on the [`Numeric`](#{site.urls.apidoc_current}/Numeric.type.html) interface.
+
+### Type
+
+The type of `-=` is the same as the type of its right hand operand.
 
 ## See also
 

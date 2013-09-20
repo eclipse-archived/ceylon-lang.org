@@ -41,6 +41,10 @@ The meaning of `x[...z]` depends on the
 [`Ranged`](#{site.urls.apidoc_current}/Ranged.type.html) 
 interface.
 
+### Type
+
+The type of `lhs[..to]` is the element type of the `Ranged` `lhs`.
+
 ## See also
 
 * [`x[y..z]` (span)](../span) operator used for obtaining a span of a `Ranged`.

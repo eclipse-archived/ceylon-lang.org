@@ -9,7 +9,7 @@ doc_root: ../../..
 
 # #{page.title}
 
-The right-associative, binary `**` operator is used to scale an instance of `Scalable` but an amount.
+The right-associative, binary infix `**` operator is used to scale an instance of `Scalable` but an amount.
 
 ## Usage 
 
@@ -36,6 +36,10 @@ See the [language specification](#{site.urls.spec_current}#listmap) for more det
 The `**` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `**` depends on the 
 [`Scalable`](#{site.urls.apidoc_current}/Scalable.type.html) interface.
+
+### Type
+
+The type of `**` is the type of its right hand operand.
 
 ### Meaning of scale for built-in types
 

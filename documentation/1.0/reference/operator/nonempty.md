@@ -9,7 +9,7 @@ doc_root: ../../..
 
 # #{page.title}
 
-The non-associating, unary `nonempty` operator is used to test its operand for 
+The non-associating, unary postfix `nonempty` operator is used to test its operand for 
 emptiness.
 
 ## Usage 
@@ -35,12 +35,16 @@ See the [`language specification`](#{site.urls.spec_current}#nullvalues) for mor
 
 The `nonempty` operator is not [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 
+### Type
+
+The type of `nonempty` is [`Boolean`](#{site.urls.apidoc_current}/Boolean.type.html).
+
 ### Note
 
 Do not to confuse the `nonempty` *operator* described here and which 
-takes form `attribute nonempty` with the 
+takes postfix form `attribute nonempty` with the 
 [`nonempty` *condition*](../../statement/conditions) used in `if`, `assert` and 
-`while` statements and which takes the form 
+`while` statements and which takes the prefix form 
 `nonempty attribute`.
 
 ## See also

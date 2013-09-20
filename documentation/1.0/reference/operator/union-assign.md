@@ -9,7 +9,7 @@ doc_root: ../../..
 
 # #{page.title}
 
-The right-associative, binary `|=` operator is used to compute the 
+The right-associative, binary infix `|=` operator is used to compute the 
 *union* of two operands, assigning the result to the left-hand 
 operand.
 
@@ -41,6 +41,11 @@ more details.
 The `|=` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 Tge `|` in its definition is the [union operator](../union) which depends on the 
 [`Set`](#{site.urls.apidoc_current}/Set.type.html) interface.
+
+### Type
+
+The type of `&` is a [`Set`](#{site.urls.apidoc_current}/Set.type.html) with the same element type as 
+the left hand operand's element type.
 
 ## See also
 

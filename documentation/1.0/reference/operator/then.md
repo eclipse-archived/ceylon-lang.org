@@ -34,6 +34,9 @@ C's ternary operator ` cond ? when-true-expr : when-false-expr`, like so
 
     T|F result = cond then whenTrueExpr else whenFalseExpr;
 
+### Type
+
+The type of `then` is the optional type of the right hand operand;
 
 ## See also
 

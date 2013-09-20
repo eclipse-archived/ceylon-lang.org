@@ -9,7 +9,7 @@ doc_root: ../../..
 
 # #{page.title}
 
-The right-associative, unary `-` operator is used to invert the sign of its operand
+The right-associative, unary prefix `-` operator is used to invert the sign of its operand
 
 ## Usage 
 
@@ -33,6 +33,10 @@ See the [language specification](#{site.urls.spec_current}#arithmetic) for more 
 The unary `-` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `-` depends on 
 [`Invertable`](#{site.urls.apidoc_current}/Invertable.type.html) interface
+
+### Type
+
+The type of `-` is the same as the `Invertable` type of its operand.
 
 ### Meaning of unary minus for built-in types
 

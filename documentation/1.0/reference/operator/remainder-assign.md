@@ -9,7 +9,7 @@ doc_root: ../../..
 
 # #{page.title}
 
-The right-associative, binary `%=` operator takes the remainder of it's 
+The right-associative, binary infix `%=` operator takes the remainder of it's 
 left-hand operand with respect to its right-hand operand and updates 
 the left-hand operand with the result.
 
@@ -41,6 +41,9 @@ The `%=` operator is polymorphic. The definition of the `%=` operator depends
 on the [`Integral`](#{site.urls.apidoc_current}/Integral.type.html) 
 interface.
 
+### Type
+
+The type of `%=` is the same as the type of its right hand operand.
 
 ## See also
 

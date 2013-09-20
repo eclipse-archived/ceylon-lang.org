@@ -9,7 +9,7 @@ doc_root: ../../..
 
 # #{page.title}
 
-The non-associating, binary `is` operator is used to test the type of a 
+The non-associating, binary infix `is` operator is used to test the type of a 
 variable.
 
 ## Usage 
@@ -36,12 +36,16 @@ parameterized type, for example you can write
 
 The `is` operator is not [polymorphic](#{page.doc_root}/tour/language-module/#operator_polymorphism). 
 
+### Type
+
+The type of `is` is [`Boolean`](#{site.urls.apidoc_current}/Boolean.type.html).
+
 ### Note
 
 Do not to confuse the `is` *operator* described here and which 
-takes form `attribute is Type` with the 
+takes the infix form `attribute is Type` with the
 [`is` *condition*](../../statement/conditions) used in `if`, `assert` and 
-`while` statements and which takes the form 
+`while` statements and which takes the prefix form 
 `is Type attribute`.
 
 ## See also

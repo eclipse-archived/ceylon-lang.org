@@ -39,6 +39,10 @@ The meaning of `lhs[from..to]` depends on the
 [`Ranged`](#{site.urls.apidoc_current}/Ranged.type.html) 
 interface.
 
+### Type
+
+The type of `lhs[from..to]` is the element type of the `Ranged` `lhs`.
+
 ## See also
 
 * [`x[y...]` (upper span)](../upper-span) operator used for obtaining a tail of a `Ranged`.

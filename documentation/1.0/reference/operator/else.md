@@ -34,6 +34,12 @@ C's ternary operator ` cond ? when-true-expr : when-false-expr`, like so
 
     T|F result = cond then whenTrueExpr else whenFalseExpr;
 
+### Type
+
+The type of `else` is given by the type expression `Lhs&Object|Rhs`, wher 
+`Lhs` is the type of the left hand operand and 
+`Rhs` is the type of the left hand operand.
+
 
 ## See also
 

@@ -10,7 +10,7 @@ doc_root: ../../..
 
 # #{page.title}
 
-The non-associating, binary `satisfies` operator is used to test whether its 
+The non-associating, binary prefix `satisfies` operator is used to test whether its 
 left-hand  operand is *satisfies* its right-hand operand.
 
 ## Usage 
@@ -39,6 +39,10 @@ for more details.
 TODO The `satisfies` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `satisfies` depends on the 
 [`Type`](#{site.urls.apidoc_current}/metamodel/Type.type.html) interface.
+
+### Type
+
+The type of `satisfies` is `Boolean`.
 
 ## See also
 

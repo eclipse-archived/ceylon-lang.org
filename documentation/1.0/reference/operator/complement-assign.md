@@ -9,7 +9,7 @@ doc_root: ../../..
 
 # #{page.title}
 
-The right-associative, binary `~=` operator is used to compute the 
+The right-associative, binary infix `~=` operator is used to compute the 
 *complement* of its left-hand operand in its right-hand operand, assigning the 
 result to the left-hand operand. 
 
@@ -43,6 +43,11 @@ The `~=` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-
 
 The `~` in the definition is the [complement](../complement) operator 
 which depends on the [`Set`](#{site.urls.apidoc_current}/Set.type.html) interface.
+
+### Type
+
+The type of `~=` is a [`Set`](#{site.urls.apidoc_current}/Set.type.html) with the same element type as 
+the left hand operand's element type.
 
 ## See also
 

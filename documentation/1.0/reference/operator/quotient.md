@@ -9,7 +9,7 @@ doc_root: ../../..
 
 # #{page.title}
 
-The left-associative, binary `/` operator is used to compute the *quotient* of 
+The left-associative, binary infix `/` operator is used to compute the *quotient* of 
 two operands.
 
 ## Usage 
@@ -35,6 +35,9 @@ The `/` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-p
 The meaning of `/` depends on the 
 [`Numeric`](#{site.urls.apidoc_current}/Numeric.type.html) interface.
 
+### Type
+
+The type of `/` is the same as the type of its right hand operand.
 
 ### Meaning of quotient for built-in types
 

@@ -44,6 +44,10 @@ The meaning of `[]` depends on the
 [`Correspondence`](#{site.urls.apidoc_current}/Correspondence.type.html) 
 interface.
 
+### Type
+
+The type of `lhs[index]` is the element type of the `Correspondence` `lhs`.
+
 ## See also
 
 * [`?[]` (nullsafe lookup)](../nullsafe-lookup) operator used for accessesing 

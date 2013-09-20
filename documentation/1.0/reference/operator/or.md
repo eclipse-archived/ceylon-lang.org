@@ -9,7 +9,7 @@ doc_root: ../../..
 
 # #{page.title}
 
-The left-associative, binary `||` operator is used to compute the 
+The left-associative, binary infix `||` operator is used to compute the 
 logical *or* of two operands.
 
 ## Usage 
@@ -33,6 +33,10 @@ more details.
 ### Polymorphism
 
 The `||` operator is not [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
+
+### Type
+
+The type of `||` is `Boolean`.
 
 ## See also
 

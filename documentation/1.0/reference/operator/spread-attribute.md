@@ -35,6 +35,10 @@ more details.
 
 The `*.` operator is not [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 
+### Type
+
+The type of `lhs*.rhs` is the sequential type of the type of the right hand operand.
+
 ## See also
 
 * [`*.` (spread invoke)](../spread-invoke) operator, the equivalent of the 

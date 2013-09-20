@@ -9,7 +9,7 @@ doc_root: ../../..
 
 # #{page.title}
 
-The non-associating, unary `exists` operator is used to test its operand for 
+The non-associating, unary postfix `exists` operator is used to test its operand for 
 nullness.
 
 ## Usage 
@@ -33,12 +33,16 @@ The meaning of `exists` is defined as follows:
 
 The `exists` operator is not [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 
+### Type
+
+The type of `exists` is [`Boolean`](#{site.urls.apidoc_current}/Boolean.type.html).
+
 ### Note
 
 Do not to confuse the `exists` *operator* described here and which 
-takes form `attribute exists` with the 
+takes postfix form `attribute exists` with the 
 [`exists` *condition*](../../statement/conditions) used in `if`, `assert` and 
-`while` statements and which takes the form 
+`while` statements and which takes the prefix form 
 `exists attribute`.
 
 ## See also

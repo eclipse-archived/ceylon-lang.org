@@ -10,7 +10,7 @@ doc_root: ../../..
 
 # #{page.title}
 
-The non-associating, binary `extends` operator is used to test whether its 
+The non-associating, binary prefix `extends` operator is used to test whether its 
 left-hand operand is *extends* its right-hand operand
 
 ## Usage 
@@ -39,6 +39,10 @@ The `extends` operator is [polymorphic](#{page.doc_root}/reference/operator/oper
 The meaning of `extends` depends on the 
 [`Class`](#{site.urls.apidoc_current}/metamodel/Class.type.html) class and 
 [`Type`](#{site.urls.apidoc_current}/metamodel/Type.type.html) interface.
+
+### Type
+
+The type of `entends` is `Boolean`.
 
 ## See also
 

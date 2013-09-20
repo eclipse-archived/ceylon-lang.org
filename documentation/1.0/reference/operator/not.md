@@ -34,6 +34,10 @@ more details.
 
 The `!` operator is not [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 
+### Type
+
+The type of `!` is `Boolean`.
+
 ## See also
 
 * [logical operators](#{site.urls.spec_current}#logical) in the 

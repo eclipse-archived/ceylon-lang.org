@@ -41,6 +41,10 @@ The meaning of `x[y:n]` depends on the
 [`Ranged`](#{site.urls.apidoc_current}/Ranged.type.html) 
 interface.
 
+### Type
+
+The type of `lhs[from:length]` is the element type of the `Ranged` `lhs`.
+
 ## See also
 
 * [`x[y...z]` (span)](../span) operator used for obtaining a subrange from a `Ranged`.

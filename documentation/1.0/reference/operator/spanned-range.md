@@ -37,6 +37,10 @@ The meaning of `..` depends on the
 [`Range`](#{site.urls.apidoc_current}/Range.type.html) 
 class.
 
+### Type
+
+The type of `lhs..rhs` is `Range<Lhs>` where `Lhs` is the type of `lhs`.
+
 ## See also
 
 * [`:` (segmented range)](../segmented-range)

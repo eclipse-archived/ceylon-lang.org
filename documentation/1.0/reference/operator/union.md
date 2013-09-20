@@ -9,7 +9,7 @@ doc_root: ../../..
 
 # #{page.title}
 
-The left-associative, binary `|` operator is used to compute the 
+The left-associative, binary infix `|` operator is used to compute the 
 *union* of two operands.
 
 ## Usage 
@@ -44,6 +44,11 @@ more details.
 The `|` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `|` depends on the 
 [`Set`](#{site.urls.apidoc_current}/Set.type.html) interface 
+
+### Type
+
+The type of `|` is a [`Set`](#{site.urls.apidoc_current}/Set.type.html) whose element type is the union of the 
+element types of its operands.
 
 ## See also
 

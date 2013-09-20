@@ -9,7 +9,7 @@ doc_root: ../../..
 
 # #{page.title}
 
-The non-associating, binary `in` operator is used to test whether its left-hand 
+The non-associating, binary infix `in` operator is used to test whether its left-hand 
 operand is *contained in* its right-hand operand
 
 ## Usage 
@@ -35,6 +35,10 @@ See the [language specification](#{site.urls.spec_current}#equalitycomparison) f
 The `in` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `in` depends on the 
 [`Category`](#{site.urls.apidoc_current}/Category.type.html) interface
+
+### Type
+
+The type of `in` is [`Boolean`](#{site.urls.apidoc_current}/Boolean.type.html).
 
 ## See also
 

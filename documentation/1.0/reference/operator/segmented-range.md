@@ -37,6 +37,10 @@ The meaning of `:` depends on the
 [`Range`](#{site.urls.apidoc_current}/Range.type.html) 
 class.
 
+### Type
+
+The type of `lhs:rhs` is `Lhs[]` where `Lhs` is the type of `lhs`.
+
 ## See also
 
 * [`..` (spanned range)](../spanned-range)

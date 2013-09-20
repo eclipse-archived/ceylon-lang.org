@@ -9,7 +9,7 @@ doc_root: ../../..
 
 # #{page.title}
 
-The right-associative, binary `+=` operator increments it's left-hand operand 
+The right-associative, binary infix `+=` operator increments it's left-hand operand 
 by the amount given by its right-hand operand. 
 
 ## Usage 
@@ -44,6 +44,10 @@ The `+=` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-
 The definition of the `+=` operator depends 
 on the [`Summable`](#{site.urls.apidoc_current}/Summable.type.html)
 interface.
+
+### Type
+
+The type of `+=` is the same as the type of its right hand operand.
 
 ## See also
 
