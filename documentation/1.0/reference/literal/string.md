@@ -5,13 +5,19 @@ tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
+toc: true
 ---
 
 # #{page.title}
 
+A literal notation for an 
+[`String`](#{site.urls.apidoc_current}/String.type.html) value.
+
+#{page.table_of_contents}
+
 ## Usage 
 
-A [`String`](#{site.urls.apidoc_current}/String.type.html) literal is enclosed between double quotes (`"`)
+A `String` literal is enclosed between double quotes (`"`)
 
 <!-- try: -->
     String example = "This is a trivial example";

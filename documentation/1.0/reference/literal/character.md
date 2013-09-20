@@ -5,9 +5,15 @@ tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
+toc: true
 ---
 
 # #{page.title}
+
+A literal notation for an 
+[`Character`](#{site.urls.apidoc_current}/Character.type.html) value.
+
+#{page.table_of_contents}
 
 ## Usage 
 

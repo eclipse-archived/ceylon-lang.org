@@ -5,12 +5,18 @@ tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
+toc: true
 ---
 # #{page.title}
 
+A literal notation for a 
+[`Float`](#{site.urls.apidoc_current}/Float.type.html) value.
+
+#{page.table_of_contents}
+
 ## Usage 
 
-A [`Float`](#{site.urls.apidoc_current}/Float.type.html) literal can be written in a variety of ways:
+A `Float` literal can be written in a variety of ways:
 
 <!-- cat: void m() { -->
 <!-- try: -->
@@ -32,13 +38,17 @@ A [`Float`](#{site.urls.apidoc_current}/Float.type.html) literal can be written 
 
 ## Description
 
-`Float` literals usually use a decimal point (`.`) to separate the fractional 
-part from the whole number part. Like [`Number` literals](../number) use of an 
-underscore (`_`) to separate groups of three digits in the integer part of the 
-number is supported (it is not permitted in the fractional part).
+### Decimal magnitude suffices
 
-The one exception to the *always-has-a-decimal* rule is when one of the 
-following metric magnitudes is used as a suffix:
+The following magnitudes are also supported:
+
+* `k` (kilo), 10<sup>3</sup>
+* `M` (mega), 10<sup>6</sup>
+* `G` (giga), 10<sup>9</sup>
+* `T` (tera), 10<sup>12</sup>
+* `P` (peta), 10<sup>15</sup>:
+
+and the "fractional" magnitudes:
 
 * `m` (milli), 10<sup>-3</sup>
 * `u` (micro), 10<sup>-6</sup> (strictly this should be mu (μ), but that's too 
@@ -47,17 +57,37 @@ following metric magnitudes is used as a suffix:
 * `p` (pico), 10<sup>-12</sup>
 * `f` (femto), 10<sup>-15</sup>
 
-As well as the above magnitudes, the following magnitudes are also 
-supported, but require a fractional part to the number before the suffix:
+For example:
 
-* `k` (kilo), 10<sup>3</sup>
-* `M` (mega), 10<sup>6</sup>
-* `G` (giga), 10<sup>9</sup>
-* `T` (tera), 10<sup>12</sup>
-* `P` (peta), 10<sup>15</sup>:
+<!-- try: -->
+    Float thousand = 1.0k;
+    Float millionth = 1u;
+
+### Decimal point
+
+`Float` literals usually use a decimal point (`.`) to separate the fractional 
+part from the whole number part. The exception to this rule are 
+`Float` literals with a one of the "fractional" magnitude suffices 
+(`m`, `u`, `n`, `p`, `f`).
+
+### Grouping digits
+
+Like [`Integer` literals](../integer/) use of an 
+underscore (`_`) to separate groups of three digits in the integer part of the 
+number is supported (it is not permitted in the fractional part).
+
+<!-- try: -->
+    Float million = 1_000_000.0;
+
+### Exponential notation
 
 Exponential notation is supported using `e` or `E` to separate the mantissa 
 (before the `E`) from the scale (after the `E`). 
+
+<!-- try: -->
+    Float twoMillion = 2.0e6;
+
+### As a primary
 
 Invoking `Float` members directly on `Float` literals is permitted:
 

@@ -5,13 +5,19 @@ tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
+toc: true
 ---
 
 # #{page.title}
 
+A literal notation for an 
+[`Integer`](#{site.urls.apidoc_current}/Integer.type.html) value.
+
+#{page.table_of_contents}
+
 ## Usage 
 
-An [`Integer`](#{site.urls.apidoc_current}/Integer.type.html) literal can be written an a variety of ways
+An `Integer` literal can be written an a variety of ways
 
 <!-- cat: void m() { -->
 <!-- try: -->
@@ -60,7 +66,7 @@ For example
 
     Integer oneThousand = 1k;
     
-### Binary literals <!-- m5 -->
+### Binary literals
 
 A binary integer can be written within `\{$` and `}` delimiters, and again 
 supports `_` to group digits, only binary digits are in groups of 4. 
@@ -69,13 +75,21 @@ For example:
 <!-- try: -->
     Integer eight = \{$100}; // binary literal
 
-### Hex literals <!-- m5 -->
+### Hex literals
 
 A hexadecimal integer can be written within `\{#` and `}` delimiters. Using
 `_` to group digits is supported, only hex digits are in groups of 2 or 4.
 
 <!-- try: -->
     Integer red = \{#ff0000}; // hex literal
+
+### As a primary
+
+Invoking `Integer` members directly on `Integer` literals is permitted:
+
+<!-- try: -->
+    Integer minusFive = 5.negativeValue;
+
 
 ## See also
 
