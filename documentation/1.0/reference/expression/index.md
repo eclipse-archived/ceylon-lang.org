@@ -21,46 +21,46 @@ Expressions are built using the following constructs.
 
 ### Literals
 
-[`String`](#{site.urls.apidoc_current}/String.type.html) literals:
+[`String` literals](../literal/string/):
 
 <!-- try: -->
     "hello, world"
 
-[`Character`](#{site.urls.apidoc_current}/Character.type.html) literals:
+[String templates](string-template):
+
+<!-- try: -->
+    "Hello ``name``, good ``timeOfDay(now)``!";
+
+[`Character` literals](../literal/character/):
 
 <!-- try: -->
     'a'
 
-['Integer'](#{site.urls.apidoc_current}/Integer.type.html) number literals:
+[`Integer` literals](../literal/integer/):
 
 <!-- try: -->
     1
 
-[Floating point number](#{site.urls.apidoc_current}/Float.type.html) literals:
+[Floating point literals](../literal/float/):
 
 <!-- try: -->
     3.0
-    
-[Further information.](../#literals)
 
-### String templates
 
-<!-- try: -->
-    "Hello ``name``, good ``timeOfDay(now)``!";
     
 ### Self and outer references 
 
-Current instance reference:
+Current instance reference ([`this`](this/)):
 
 <!-- try: -->
     this
     
-Outer instance reference:
+Outer instance reference ([`outer`](outer/)):
 
 <!-- try: -->
     outer
     
-Supertype reference
+Supertype reference ([`super`](super/)):
 
 <!-- try: -->
     super
@@ -73,28 +73,38 @@ causes an ambiguity and you have to use `of` to specify the required supertype:
 <!-- try: -->
     super of Foo
     
-Containing package qualifier:
+Containing [package qualifier](package/):
 
 <!-- try: -->
     package
 
-Note: `package` by itself is not an expression, but may be
-used to qualify a reference.
-
 ### References
 
-These are all [`Callable`](#{site.urls.apidoc_current}/Callable.type.html) expressions
+These are [callable references](callable-reference) references
 
 <!-- try: -->
     print
     String
+    
+These are [static references](static-reference)
+    
     String.size
     String.initial
 
-### `Declaration` references
+### Model references
 
-These evaluate to values of various subtypes of 
-[`Declaration`](#{site.urls.apidoc_current}/meta/declaration/Declaration.type.html):
+These are [model references](meta-reference):
+
+<!-- try: -->
+    `String`
+    `Sequential<String>`
+    `max<Integer, Null>`
+    `true`
+    `List<Integer>.size`
+
+### Declaration references
+
+These are [declaration references](meta-reference):
 
 <!-- try: -->
     `class String`
@@ -108,19 +118,35 @@ These evaluate to values of various subtypes of
 
 ### Invocation
 
+[Positional invocations](invocation):
+
 <!-- try: -->
     print("Hello");
     "hello world".initial(5)
     Entry("one", 1)
     
+[Named argument invocations](invocation):
+
+<!-- try: -->
+    print{
+        val = "Hello";
+    };
+    "hello, world".initial{
+        length = 2;
+    };
+    Entry{
+        item = 1;
+        key = "one";
+    };
+    
 ### Iterable and tuple enumeration
 
-[`Iterable`](#{site.urls.apidoc_current}/Iterable.type.html) enumeration:
+[`Iterable` enumeration](iterable):
 
 <!-- try: -->
     {1, 2}
     
-[`Tuple`](#{site.urls.apidoc_current}/Tuple.type.html) enumeration:
+[`Tuple` enumeration](tuple):
 
 <!-- try: -->
     [1, 2]
