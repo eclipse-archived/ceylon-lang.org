@@ -15,20 +15,22 @@ A [`Character`](#{site.urls.apidoc_current}/Character.type.html) literal is a
 single character enclosed between single quotes (`'`), 
 for example:
 
-
+<!-- try: -->
     Character x = 'x';
     Character quote = '\'';
 
 ## Description
 
-### Unicode characters
+### Unicode Escapes
 
 You can use Unicode escapes within character literals, like this:
 
+<!-- try: -->
     Character therefore = `\{#2234}`; // an escaped Unicode 'therefore' symbol
     
 Alternatively you can use the Unicode character name:
 
+<!-- try: -->
     Character because = `\{BECAUSE}`; // an escaped Unicode 'because' symbol
 
 ### Escaping

@@ -13,6 +13,7 @@ doc_root: ../../..
 
 A [`String`](#{site.urls.apidoc_current}/String.type.html) literal is enclosed between double quotes (`"`)
 
+<!-- try: -->
     String example = "This is a trivial example";
     String escaping = "\"Escaping\" with a backslash";
     String multiline = "Strings may
@@ -20,15 +21,17 @@ A [`String`](#{site.urls.apidoc_current}/String.type.html) literal is enclosed b
     
 A verbatim `String` literal is enclosed between three double quotes (`"""`)
 
-    String verbatim = """<p>"Almost but not quite entirely unlike tea."</p>"""
+    String verbatim = """<p>"Almost, but not quite, entirely unlike tea."</p>"""
 
 ## Description
 
 ### Unicode characters
 
-You can use unicode escapes within string literals, like this:
+You can use the same [unicode escapes](../character/#unicode_escapes) within string literals
+as you use in `Character` literals. For example:
 
-    String quotation = "I think \{#2234} I am"; // an escaped Unicode therefore symbol
+<!-- try: -->
+    String quotation = "I think, \{#2234} I am"; // an escaped Unicode therefore symbol
 
 ### Escaping
 
@@ -72,10 +75,12 @@ following the line containing the opening `"` character is removed.
 The whitespace trimming algorithm understands the usual conventions for 
 spaces and tabs in indentation.
 
-### Interpolation ###
+### Interpolation
 
 Strings containing two backticks (` `` `) are not plain `String` literals, but 
-[`String` templates](../../expression/string-template)
+[`String` templates](../../expression/string-template). Such interpolation only
+occurs with single-quoted strings (not within triple-quoted strings).
+
 
 ## See also
 

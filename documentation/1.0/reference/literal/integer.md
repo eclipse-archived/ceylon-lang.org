@@ -14,6 +14,7 @@ doc_root: ../../..
 An [`Integer`](#{site.urls.apidoc_current}/Integer.type.html) literal can be written an a variety of ways
 
 <!-- cat: void m() { -->
+<!-- try: -->
     Integer one = 1;
     variable Integer oneMillion = 1000000;
     oneMillion = 1_000_000;
@@ -30,6 +31,7 @@ When a negative number
 is required, the [unary minus](../../operator/unary_minus) operator can be used 
 in the  declaration of the `Integer`, like this:
 
+<!-- try: -->
     Integer minusTwo = -2;
 
 ### Leading zeros
@@ -64,6 +66,7 @@ A binary integer can be written within `\{$` and `}` delimiters, and again
 supports `_` to group digits, only binary digits are in groups of 4. 
 For example:
 
+<!-- try: -->
     Integer eight = \{$100}; // binary literal
 
 ### Hex literals <!-- m5 -->
@@ -71,6 +74,7 @@ For example:
 A hexadecimal integer can be written within `\{#` and `}` delimiters. Using
 `_` to group digits is supported, only hex digits are in groups of 2 or 4.
 
+<!-- try: -->
     Integer red = \{#ff0000}; // hex literal
 
 ## See also

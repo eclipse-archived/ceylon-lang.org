@@ -13,6 +13,7 @@ doc_root: ../../..
 A [`Float`](#{site.urls.apidoc_current}/Float.type.html) literal can be written in a variety of ways:
 
 <!-- cat: void m() { -->
+<!-- try: -->
     variable Float one = 1.0;
     one = 1.0000;
     
@@ -60,6 +61,7 @@ Exponential notation is supported using `e` or `E` to separate the mantissa
 
 Invoking `Float` members directly on `Float` literals is permitted:
 
+<!-- try: -->
     Float minusOneHalf = 0.5.negativeValue;
 
 ## See also
