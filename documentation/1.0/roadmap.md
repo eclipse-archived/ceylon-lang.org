@@ -299,7 +299,9 @@ changes, HTTP server, dates and times.*
 
 ## 1.0 final
 
+### Misc:
 * serialization
+* interop with Java annotations
 
 ### Modules:
 
