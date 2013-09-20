@@ -4,7 +4,6 @@ title: Packages
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
-toc: true
 ---
 
 # #{page.title}
@@ -14,8 +13,6 @@ in one or more [compilation units](../compilation-unit) together
 with an optional [package descriptor](#descriptor).
 
 A package may belong to a [module](../module).
-
-#{page.table_of_contents}
 
 ## Usage 
 

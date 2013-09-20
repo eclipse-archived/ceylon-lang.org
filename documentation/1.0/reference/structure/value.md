@@ -5,15 +5,12 @@ tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
-toc: true
 ---
 
 # #{page.title}
 
 A value can hold state. When it is a member of a 
 type is it called an attribute.
-
-#{page.table_of_contents}
 
 ## Usage 
 

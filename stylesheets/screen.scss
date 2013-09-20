@@ -1169,7 +1169,7 @@ ul.linear li:before {
     white-space: pre;
 }
 
-// Contents boxes, in the reference
+// Contents boxes, when used outside the reference (e.g. faq)
 div.toc {
     border-radius: 10px 10px 10px 10px;
     border: 1px solid #456B6E;
@@ -1179,5 +1179,14 @@ div.toc {
 div.toc h2#contents {
     margin: 0px;
     text-align: center;
+}
+
+// Contents boxes, when used in the sidebar (in the reference)
+.sidebar-dark div.toc {
+    border: none;
+    font-size: inherit;
+}
+.sidebar-dark div.toc h2#contents {
+    display: none;
 }
 

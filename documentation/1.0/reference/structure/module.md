@@ -5,7 +5,6 @@ tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
-toc: true
 ---
 
 # #{page.title}
@@ -13,8 +12,6 @@ toc: true
 A *module* is a set of [packages](../package) together with a 
 [module descriptor](#descriptor). A module is packaged as a 
 *module archive*, which serves as a unit of distribution.
-
-#{page.table_of_contents}
 
 ## Usage 
 

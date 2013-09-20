@@ -4,15 +4,12 @@ title: Type abbreviations
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
-toc: true
 ---
 
 # #{page.title}
 
 Some types are so commonly used in Ceylon that there are special 
 abbreviations for them. 
-
-#{page.table_of_contents}
 
 ## Usage 
 

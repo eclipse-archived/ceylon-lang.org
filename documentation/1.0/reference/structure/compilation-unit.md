@@ -4,15 +4,12 @@ title: Compilation Units
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
-toc: true
 ---
 
 # #{page.title}
 
 A *compilation unit* is a text file with the filename extension 
 `.ceylon`, containing one or more toplevel [declarations](#declarations).
-
-#{page.table_of_contents}
 
 ## Usage 
 

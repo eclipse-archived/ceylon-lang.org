@@ -4,15 +4,12 @@ title: Type Parameters
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
-toc: true
 ---
 
 # #{page.title}
 
 [Class](../class/), [interface](../interface/) and [function](../function/) 
 declarations may have one or more type parameters.
-
-#{page.table_of_contents}
 
 ## Usage 
 

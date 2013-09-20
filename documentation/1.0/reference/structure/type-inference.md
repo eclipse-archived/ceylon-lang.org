@@ -4,15 +4,12 @@ title: Type inference
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
-toc: true
 ---
 
 # #{page.title}
 
 Local declarations can often let the 
 compiler infer the type. 
-
-#{page.table_of_contents}
 
 ## Usage 
 

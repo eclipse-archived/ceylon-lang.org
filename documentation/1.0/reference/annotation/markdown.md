@@ -5,7 +5,6 @@ tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
-toc: true
 ---
 
 # #{page.title}
@@ -17,8 +16,6 @@ arguments of the
 [`throws`](../throws/) and [`license` ](../license/)
 annotations are formatted using 
 [Markdown](http://daringfireball.net/projects/markdown/) syntax.
-
-#{page.table_of_contents}
 
 ## Usage
 

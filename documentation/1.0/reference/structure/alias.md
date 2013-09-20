@@ -4,12 +4,9 @@ title: aliases
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
-toc: true
 ---
 
 # #{page.title}
-
-#{page.table_of_contents}
 
 ## Usage 
 

@@ -5,15 +5,12 @@ tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
-toc: true
 ---
 
 # #{page.title}
 
 A class is a stateful type that can be 
 [instantiated](../../expression/class-instantiation).
-
-#{page.table_of_contents}
 
 ## Usage 
 

@@ -4,15 +4,12 @@ title: Parameter lists
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
-toc: true
 ---
 
 # #{page.title}
 
 Methods and class initializers have a *parameter list* to declare what parameters they take. 
 A parameter list consists of zero or more *parameters*.
-
-#{page.table_of_contents}
 
 ## Usage
 

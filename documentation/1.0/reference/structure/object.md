@@ -4,7 +4,6 @@ title: object
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
-toc: true
 ---
 
 # #{page.title}
@@ -13,8 +12,6 @@ An `object` declaration is an anonymous [class](../class) that is
 implicitly [instantiated](../../expression/class-instantiation)
 exactly once at the place it is defined, and nowhere else. As such it 
 functions as a [value](../value).
-
-#{page.table_of_contents}
 
 ## Usage 
 

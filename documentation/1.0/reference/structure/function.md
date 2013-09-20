@@ -4,15 +4,12 @@ title: Functions and methods
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
-toc: true
 ---
 
 # #{page.title}
 
 A function is a callable block of code. When it is a member of a 
 type is it called a method.
-
-#{page.table_of_contents}
 
 ## Usage 
 

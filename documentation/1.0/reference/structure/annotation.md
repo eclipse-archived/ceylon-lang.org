@@ -5,14 +5,11 @@ tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
-toc: true
 ---
 
 # #{page.title}
 
 An annotation encodes metadata about a [program element](#program_elements).
-
-#{page.table_of_contents}
 
 ## Usage 
 

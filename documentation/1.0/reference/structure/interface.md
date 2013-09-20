@@ -4,15 +4,12 @@ title: Interfaces
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
-toc: true
 ---
 
 # #{page.title}
 
 An interface is a stateless type that cannot be 
 [instantiated](../../expression/class-instantiation) directly.
-
-#{page.table_of_contents}
 
 ## Usage 
 
