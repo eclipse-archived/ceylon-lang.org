@@ -65,17 +65,11 @@ Check out the [screenshots](screenshots)!
 
 ## Running the IDE
 
-You need a clean install of [Eclipse 4.3 Kepler][eclipse] or of 
+You'll need a clean install of [Eclipse 4.3 Kepler][eclipse] or of 
 [Eclipse 4.2 Juno][juno] running on Java 7. 
 
-- Mac OS users _must_ make Java 7 the default virtual machine using 
-  the `Java Preferences` application located in 
-  `/Applications/Utilities`.
-
-_You cannot run Ceylon IDE on Java 6._
-
-You can install Ceylon IDE (which includes the Ceylon compiler)
-from our [Eclipse plugin update site](install).
+Install Ceylon IDE (which includes the Ceylon compiler) from our 
+[Eclipse plugin update site](install).
 
 <!--
 You can install Ceylon IDE (which includes the Ceylon compiler) either:
@@ -89,12 +83,4 @@ You can install Ceylon IDE (which includes the Ceylon compiler) either:
   </a>
 -->
 
-You can get started using the [welcome page](screenshots#welcome_page) and 
-[cheat sheets](screenshots#cheat_sheets). After installing, go straight to 
-`Help > Welcome to Ceylon`.
-
-## Installing the latest development (unstable) IDE
-
-If you want to try the latest build of the IDE before it is released, you
-have to use the _development_ [update site](install#installing_from_the_development_unstable_update_site). 
-Beware that this is an unstable and unfinished version.
+After installing the plugin, go straight to `Help > Welcome to Ceylon`.
