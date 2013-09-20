@@ -58,6 +58,7 @@ Given type expressions `X` and `Y`, Ceylon lets you express the union of
 instances of those types using the notation `X|Y`. For example:
 
 <!-- cat: void m() { -->
+<!-- try: -->
     variable String|Integer x = "";
     x = 0;
 <!-- cat: } -->
@@ -80,6 +81,7 @@ a list of their permitted subtypes.
 To avoid having to repeat long type expressions, you can define a 
 [type alias](../alias#type_alises) for a type using the `alias` keyword:
 
+<!-- try: -->
     alias BasicType = String|Character|Integer|Float|Boolean;
     
     
@@ -125,6 +127,7 @@ is the type of non-empty [sequences](../../expression/sequence-instantiation).
 `Sequence` in that the typechecker knows types of each of its elements 
 individually.
 
+<!-- try: -->
     [Integer, Boolean, String] t = [1, true, ""];
     Integer first = t[0];
     Boolean second = t[1];
@@ -132,6 +135,7 @@ individually.
 
 Tuples also have a notion of 'variadicity':
 
+<!-- try: -->
     // A tuple of at least two elements
     // the first is an Integer and 
     // the rest are Boolean
