@@ -47,6 +47,7 @@ As an extension to the basic Markdown syntax, `ceylon doc` supports
 Github-style "fenced code blocks". The normal Markdown syntax for 
 code blocks is just to indent the code using 4 (or more) spaces:
 
+<!-- try: -->
     "You can call this method like this:
          
          Anything result = method();
@@ -56,6 +57,7 @@ code blocks is just to indent the code using 4 (or more) spaces:
 A fenced code block doesn't require the indentation, but surrounds the
 code block with a line starting with three or more backticks `\``:
 
+<!-- try: -->
     "You can call this method like this:
      ```
      Anything result = method();
@@ -66,6 +68,7 @@ code block with a line starting with three or more backticks `\``:
 You can state the syntax being used in the code block by following the 
 backticks with the name
 
+<!-- try: -->
     "You can call this method like this:
      ```xml
      <p>If I never see another angle-bracket again,
@@ -91,6 +94,7 @@ As an extension to the basic Markdown syntax, `ceylon doc` supports
 declarations. These links are enclosed within double square brackets,
 `[[` and `]]`:
 
+<!-- try: -->
     "This method returns [[Anything]]."
     Anything method() {}
     
@@ -104,6 +108,7 @@ monospaced typeface).
 You can specify different link text by following the name of the linked-to 
 declaration with a pipe `|`:
 
+<!-- try: -->
     "This method returns a [[Integer|number]]."
     Integer method() {}
 
@@ -114,6 +119,7 @@ part of the fully qualified name from the declaration part.
 This is useful when you need to refer to a declaration which has not been
 `import`ed (and, apart from the documentation, does not need to be). 
 
+<!-- try: -->
     "This method actually returns a [[com.example.foo::Foo]]"
     Anything method() => foo();
 
