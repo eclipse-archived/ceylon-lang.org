@@ -5,6 +5,7 @@ tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ..
+toc: true
 ---
 
 # #{page.title}
@@ -12,8 +13,9 @@ doc_root: ..
 This page lists concepts and links to their descriptions. The complete 
 [language specification](#{page.doc_root}/spec) is also available.
 
-_This page is incomplete. Want to help? [See how](/code/website)._
+_Some of these pages are incomplete. Want to help? [See how](/code/website)._
 
+#{page.table_of_contents}
 
 ## Structure and Declarations
 
