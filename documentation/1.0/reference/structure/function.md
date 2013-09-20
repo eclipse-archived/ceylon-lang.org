@@ -65,6 +65,33 @@ returned from an unrefined `void` function is always `null`.
 Function declarations often don't need to explictly declare a type, but can instead use 
 [type inference](../type-inference) via the `function` keyword.
 
+### Callable type
+
+The *callable type* of a function expresses, in terms of the 
+[`Callable`](#{site.urls.apidoc_current}/Anything.type.html) 
+interface, the function's return type and parameter types.
+For example the callable type of 
+
+<!-- try: -->
+    String stringExample(Integer i, Boolean b) => "";
+    
+is `Callable<String, [Integer, Boolean]>` and the callable type of:
+
+<!-- try: -->
+    void voidExample() {}
+    
+is `Callable<Anything, []>`.
+
+Notice how a [`Tuple`](#{site.urls.apidoc_current}/Tuple.type.html) 
+type is used at the type of the parameter list. The 
+way `Tuple` types can be subtypes of other `Tuple` types
+(for example `[String]` is a subtype of `[String*]`) 
+affects how one callable type can be a subtype of another 
+callable type.
+
+Class also have a [callable type](../class/#callable_type), 
+which can be the same as a functions callable type.
+
 ### Type parameters
 
 A function declaration lists [type parameters](../type-parameters) with angle brackets (`<` and `>`) 

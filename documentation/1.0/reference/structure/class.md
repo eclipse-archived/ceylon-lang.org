@@ -101,6 +101,28 @@ to [constraint the permitted type argument](../type-parameters#constraints).
 
 A class declaration requires a [parameter list](../parameter-list)
 
+### Callable type
+
+The *callable type* of a class expresses, in terms of the 
+[`Callable`](#{site.urls.apidoc_current}/Anything.type.html) 
+interface, the classes type and parameter types.
+For example the callable type of 
+
+<!-- try: -->
+    class StringExample(Integer i, Boolean b) => "";
+    
+is `Callable<StringExample, [Integer, Boolean]>`
+
+Notice how a [`Tuple`](#{site.urls.apidoc_current}/Tuple.type.html) 
+type is used at the type of the parameter list. The 
+way `Tuple` types can be subtypes of other `Tuple` types
+(for example `[String]` is a subtype of `[String*]`) 
+affects how one callable type can be a subtype of another 
+callable type.
+
+Functions also have a [callable type](../function/#callable_type), 
+which can be the same as a classes callable type.
+
 ### Concrete classes
 
 A class that can be [instantiated](../../expression/class-instantiation) is 

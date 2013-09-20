@@ -101,7 +101,7 @@ supplies an [argument list](../../expression/argument-list)
 whose [Tuple](#{site.urls.apidoc_current}/Tuple.type.html) 
 type must be a subtype of the Tuple type of the parameter list.
 
-#### Multiple parameter lists
+### Multiple parameter lists
 
 Methods can be declared with multiple parameter lists. Here's an example:
 
