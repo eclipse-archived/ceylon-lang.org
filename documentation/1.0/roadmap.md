@@ -7,8 +7,9 @@ author: Emmanuel Bernard
 ---
 # #{page.title}
 
-Milestone 6 of Ceylon [has been released](/download) and we are working on a final 
-release of Ceylon 1.0 at the moment.
+Ceylon 1.0 beta [has been released](/download) and we are
+already working on a final production-ready release of the 
+language, toolset, and IDE.
 
 <!--
 However, our roadmap is quite well-defined:
@@ -272,7 +273,7 @@ changes, HTTP server, dates and times.*
 * `ceylon.time` platform module (date/time types)
 * `ceylon.net.httpd` package (HTTP server)
 
-## Milestone 6 _DONE_
+## Milestone 6 (1.0 beta) _DONE_
 
 *Annotations, metamodel, and serialization.*
 
@@ -288,16 +289,22 @@ changes, HTTP server, dates and times.*
 
 ### Misc:
 * annotation constraints
-* serialization
 
 ### Modularity
 * repository replicator
 
 ### Modules:
 * `ceylon.language.model` language metamodel
+* `ceylon.unicode`
+
+## 1.0 final
+
+* serialization
+
+### Modules:
+
+* `ceylon.transaction` platform module (support for distributed
+  transaction processing)
 * `ceylon.local` platform module (basic support for localization)
 * `ceylon.format` platform module (text formatting for numbers and 
    dates/times)
-* `ceylon.transaction` platform module (support for distributed
-  transaction processing)
-
