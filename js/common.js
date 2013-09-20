@@ -205,7 +205,7 @@ jQuery(function (){
 		var $elem = jQuery(elem);
         var title = $elem.attr("data-title");
 		var url = $elem.attr("data-milestone");
-		makeMilestoneDiv($elem, title, 100, 0, "M5");
+		makeMilestoneDiv($elem, title, 100, 0, "M6");
 		jQuery.getJSON(url, function(json){
 		    open_total += json.data.open_issues;
 		    closed_total += json.data.closed_issues;

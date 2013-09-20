@@ -1,5 +1,5 @@
 ---
-title: Known issues in M5
+title: Known issues in M6
 layout: known-issues
 toc: true
 tab: documentation
