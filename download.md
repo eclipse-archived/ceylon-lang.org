@@ -7,7 +7,7 @@ author: Emmanuel Bernard
 ---
 # #{page.title}
 
-[Ceylon M6][M6] _&ldquo;Nesa Pong&rdquo;_ is now available for download! 
+[Ceylon M6][M6] _&ldquo;Virtual Boy&rdquo;_ is now available for download! 
 This is the latest release of the language, command line tools and IDE.
 
 ## Command line tools
