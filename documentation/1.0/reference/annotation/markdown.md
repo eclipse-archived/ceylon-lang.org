@@ -60,11 +60,11 @@ code block with a line starting with three or more
 tildes (`~`):
 
 <!-- try: -->
-    """You can call this method like this:
-       ```
-       Anything result = method();
-       ```
-    """
+    "You can call this method like this:
+     ~~~
+     Anything result = method();
+     ~~~
+    "
     void method() {}
 
 You can also use three or more backticks (`` ` ``), however 
