@@ -1,5 +1,5 @@
 spec_current: /documentation/current/spec/html_single/index.html
 spec_relative: spec/html_single/index.html
 apidoc_current: http://modules.ceylon-lang.org/test/ceylon/language/0.6/module-doc
-ceylon_tool_current: /documentation/current/reference/tool/ceylon/subcommands/
+ceylon_tool_current: /documentation/current/reference/tool/ceylon/subcommands
 
