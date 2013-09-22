@@ -59,6 +59,9 @@ Autocompletion will even find modules for you, in Herd, or elsewhere!</p>
 <p>With Find References, Find Assignments, Find Subtypes, and the Ceylon Search page,
 you shouldn't be short of ways to find stuff.</p>
 <div>
+<img src="/images/screenshots/m6/findmenu.png" style="box-shadow: 0 0 15px #888;"/>
+</div>
+<div>
 <img src="/images/screenshots/m6/find.png" style="box-shadow: 0 0 15px #888;"/>
 </div>
 </div>
