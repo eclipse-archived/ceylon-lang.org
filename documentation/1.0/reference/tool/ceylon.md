@@ -52,5 +52,4 @@ The rest of this page will highlight particular tools
 
 ## See also
 
-* [`ceylon`](#{site.urls.spec_current}#vmfrontent) in the language specification
-
+* The complete list of [subcommands](#{site.urls.ceylon_tool_current}/index.html).
