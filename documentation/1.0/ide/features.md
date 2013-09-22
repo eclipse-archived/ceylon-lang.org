@@ -75,7 +75,7 @@ quickest way to get to a toplevel declaration from wherever you are.</p>
 </div>
 <p>Hover puts the documentation for any program element right at your pointer.
 Hover over a declaration and see its API documentation, dynamically compiled.
-Hover over a `value` or `function` keyword, and see the inferred type.</p>
+Hover over a <code>value</code> or <code>function</code> keyword, and see the inferred type.</p>
 <div>
 <img src="/images/screenshots/m6/hover.png" style="box-shadow: 0 0 15px #888;"/>
 </div>
