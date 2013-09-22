@@ -13,8 +13,8 @@ in this release is compatible with the Ceylon 1.0 beta command line tools.
 
 ## Eclipse platform
 
-You'll need a clean installation of [Eclipse 4.3 Kepler][eclipse] or of 
-[Eclipse 4.2 Juno][juno].
+You'll need a clean installation of [Eclipse 4.3 (Kepler)][eclipse] or of 
+Eclipse 4.2 (Juno).
 
 ## Java 7 requirement
 
@@ -34,9 +34,9 @@ Preferences!_
 Here's what you need to do to install the IDE:
 
 1. Start Eclipse.
-2. Go to `Help > Install New Software ...`.
+2. Go to `Help > Install New Software...`.
 3. Enter the URL <http://ceylon-lang.org/eclipse/updatesite/>
-   in the `Work With` field and hit Enter.<br/>
+   in the `Work with` field and hit Enter.<br/>
    ![eclipseupdatesite](/images/eclipseupdatesite.png "Update Site")
 4. Click `Select All` and then `Finish`.
 5. Wait while Eclipse installs the Ceylon plugin, and then restart 
