@@ -21,6 +21,10 @@ Still interested? The [tour of Ceylon](tour) will guide you through the main
 features and syntax of Ceylon in some depth. Currently, this is the best way 
 to learn Ceylon.
 
+If you want to get your hands a little dirty, the [walkthrough](walkthrough) 
+is a guided set of exercises introducing many of the basic features of the 
+language.
+
 ## Reference
 
 Need to clarify some detail of the language, language module, or tooling? 
