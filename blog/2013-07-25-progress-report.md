@@ -4,7 +4,7 @@ author: Gavin King
 layout: blog
 unique_id: blogpage
 tab: blog
-tags: [progress]
+tags: [progress, M6]
 ---
 So it looks like it's time again for me to offer my usual 
 lame excuses for another late milestone release of Ceylon.
