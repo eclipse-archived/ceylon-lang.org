@@ -112,8 +112,13 @@ code.</p>
 <p> The compiler may be configured within the IDE via the project properties page, 
 or new project wizard.</p>
 <div>
-<img src="/images/screenshots/m6/project0.png" style="box-shadow: 0 0 15px #888;"/><br/>
-<img src="/images/screenshots/m6/project1.png" style="box-shadow: 0 0 15px #888;"/><br/>
+<img src="/images/screenshots/m6/project0.png" style="box-shadow: 0 0 15px #888;"/>
+</div>
+<p>The Module Repositories page lets us specify the module repositories where
+Ceylon will look for dependencies. The settings are persisted in a configuration
+file also understood by the command line toolset.</p>
+<div>
+<img src="/images/screenshots/m6/project1.png" style="box-shadow: 0 0 15px #888;"/>
 </div>
 </div>
 
