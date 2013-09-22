@@ -4,7 +4,7 @@ presentor: Emmanuel Bernard and St&#233;phane &#201;pardaud
 event: JavaOne 2013
 event_date: 23-30 September 2013
 event_url: https://oracleus.activeevents.com/2013/connect/search.ww?eventRef=javaone#loadSearch-event=null&searchPhrase=ceylon&searchType=session&tc=0&sortBy=&p=&i(11180)=20801
-location: San Fransisco, USA
+location: San Francisco, USA
 effective_date: 20130923
 ---
 We will be doing several Ceylon-related talks at JavaOne this year, including:
