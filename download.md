@@ -7,7 +7,7 @@ author: Emmanuel Bernard
 ---
 # #{page.title}
 
-[Ceylon 1.0 beta][1.0 beta] _&ldquo;Virtual Boy&rdquo;_ is now available for download! 
+[Ceylon M6][M6] _&ldquo;Virtual Boy&rdquo;_ is now available for download! 
 This is the latest release of the language, command line tools and IDE.
 
 ## Command line tools
@@ -16,7 +16,7 @@ This package contains the Ceylon command line compiler for Java and
 JavaScript virtual machines, the documentation compiler, the language 
 module, and the module runtime.
 
-[1.0 beta]: /blog/2013/03/14/ceylon-m5-nesa-pong?utm_source=download&utm_medium=web&utm_content=blog&utm_campaign=latestrelease
+[M6]: /blog/2013/03/14/ceylon-m5-nesa-pong?utm_source=download&utm_medium=web&utm_content=blog&utm_campaign=latestrelease
 
 <table>
     <tr>
@@ -87,7 +87,7 @@ Mac OS X users running the [Homebrew package manager](http://mxcl.github.com/hom
 Instructions for getting started are contained in the file
 `README.md` in the root directory of the distribution, or
 [right here in GitHub][ceylon-dist readme]. To know what's 
-precisely in the release, read our [announcement][1.0 beta].
+precisely in the release, read our [announcement][M6].
 
 [ceylon-dist readme]: https://github.com/ceylon/ceylon-dist/blob/master/README.md 
 
