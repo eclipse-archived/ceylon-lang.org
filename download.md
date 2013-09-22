@@ -16,7 +16,7 @@ This package contains the Ceylon command line compiler for Java and
 JavaScript virtual machines, the documentation compiler, the language 
 module, and the module runtime.
 
-[M6]: /blog/2013/03/14/ceylon-m5-nesa-pong?utm_source=download&utm_medium=web&utm_content=blog&utm_campaign=latestrelease
+[M6]: /blog/2013/07/25/progress-report
 
 <table>
     <tr>
