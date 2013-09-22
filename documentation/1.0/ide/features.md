@@ -132,6 +132,8 @@ source files. There's even a wizard for exporting a project module to a module
 repository.</p>
 <div>
 <img src="/images/screenshots/m6/newmodule.png" style="box-shadow: 0 0 15px #888;"/>
+</div>
+<div style="text-align:left">
 <img src="/images/screenshots/m6/newproject.png" style="box-shadow: 0 0 15px #888;"/>
 </div>
 </div>
