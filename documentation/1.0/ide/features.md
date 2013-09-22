@@ -95,8 +95,8 @@ with Eclipse's merge viewer for team-based development.</p>
 <img src="/images/screenshots/m6/compare.png" style="box-shadow: 0 0 15px #888;"/>
 </div>
 <p>Of course, we're skipping over so much that the editor has to offer: paste-with-imports,
-autoindentation, autoclosing, Clean Imports, the awesome Terminate Statement command,
-configurable keyboard accelerators, and much more!
+autoindentation, autoclosing, Clean Imports, Reveal Inferred Types, the awesome Terminate 
+Statement command, configurable keyboard accelerators, and much more!
 </div>
 
 <div class="feature">
