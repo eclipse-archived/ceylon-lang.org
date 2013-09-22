@@ -18,50 +18,13 @@ software company contributing to the Ceylon project.
 
 ## Features
 
-The plugin provides the following features, among others:
+You can find out what Ceylon IDE has to offer, together with screenshots,
+on the [IDE features page](features). Of course, the best way to learn
+what the IDE provides is to [install it](install).
 
-* Ceylon perspective with Ceylon Explorer view
-* Incremental compilation and interactive error reporting
-* Inter-compilation with Java
-* Optional compilation to JavaScript
-* [Run / Debug](screenshots#ceylon_launcher_dialog) to execute on JVM or Node.js
-* [Powerful test framework graphical support](test-plugin)
-* Customizable [syntax highlighting](screenshots#syntax_highlighting_and_outline_view)
-* [Outline view](screenshots#syntax_highlighting_and_outline_view) 
-  and popup outline
-* [Popup type hierarchy](screenshots#popup_type_hierarchy)
-* [Error reporting in Problems view
-  and error annotations in editor](screenshots#error_highlighting_error_annotations_and_problems_view)
-* Reporting of `//todo` and `//fix` in Tasks view
-  and task annotations in editor
-* [Intelligent proposals](screenshots#intelligent_autocompletion)
-* [Documentation hover](screenshots#hover_help)
-* [Hyperlink navigation](screenshots#hyperlink_navigation) to 
-  declarations in Ceylon and Java
-* Auto indentation and Correct Indentation
-* Ceylon Repository Explorer view
-* New wizards: [New Ceylon Source File](screenshots#new_ceylon_unit_wizard),
-  [New Ceylon Project](screenshots#new_ceylon_project_wizard),
-  [New Ceylon Module](screenshots#new_ceylon_module_wizard), and 
-  New Ceylon Package
-* [Cross-project dependencies](screenshots#cross_project_dependencies),
-  and support for external module repositories
-* Multi-project incremental build and cross-project search, 
-  navigation, and refactoring
-* Export Ceylon Module to Module Repository wizard
-* Export Java Archive to Module Repository wizard
-* Integration with Ceylon Herd
-* [Open Ceylon Declaration dialog](screenshots#open_ceylon_declaration_dialog)
-* [Ceylon Search dialog](screenshots#ceylon_search_dialog)
-* Find References, Find Refinements, Find Subtypes, and Find Assignments
-  [contextual search](screenshots#find_references_search_results)
-* Basic [refactoring](screenshots#rename_refactoring_preview): 
-  Rename, Inline, Extract Value, Extract Function, and Clean Imports
-* More than 30 [Quick Fixes](screenshots#quick_fixes) and Quick Assists!
-* Configurable keyboard accelerators
-* Code folding, structured compare, mark occurrences, and more...
+## License
 
-Check out the [screenshots](screenshots)!
+Like everything we produce, Ceylon IDE is [open source](/code/licenses).
 
 ## Running the IDE
 

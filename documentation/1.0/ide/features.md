@@ -139,8 +139,8 @@ version information.</p>
 
 <div style="text-align:right" class="feature">
 <h2>Run, test, and debug</h2>
-<p>You can run and debug your Ceylon projects on Ceylon's modular runtime directly from
-the IDE.</p>
+<p>You can run and debug your Ceylon projects on Ceylon's modular runtime for the JVM, or 
+on Node.js, directly from the IDE.</p>
 <div>
 <img src="/images/screenshots/m6/run.png" style="box-shadow: 0 0 15px #888;"/>
 </div>
