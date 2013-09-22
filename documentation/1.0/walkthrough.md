@@ -6,7 +6,6 @@ unique_id: walkthroughpage
 author: Gavin King
 doc_root: ..
 ---
-
 # #{page.title}
 
 The Ceylon Walkthrough is a set of exercises originally developed for 
