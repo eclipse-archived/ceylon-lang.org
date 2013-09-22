@@ -42,7 +42,7 @@ copying files, for renaming and copying packages, and for renaming Java program 
 
 <div class="feature">
 <h2>Autocompletion</h2>
-<p>We havn't forgotten everyone's favorite feature of an IDE: contextual autocompletion.
+<p>We haven't forgotten everyone's favorite feature of an IDE: contextual autocompletion.
 Autocompletion will even find modules for you, in Herd, or elsewhere!</p>
 <div>
 <img src="/images/screenshots/m6/autocomplete2.png" style="box-shadow: 0 0 15px #888;"/>
