@@ -275,10 +275,11 @@ changes, HTTP server, dates and times.*
 
 ## Milestone 6 (1.0 beta) _DONE_
 
-*Annotations, metamodel, and serialization.*
+*Annotations and metamodel.*
 
 ### Declarations:
 * annotations
+* interop with Java annotations
 
 ### Statements:
 * `try` with resources
@@ -290,9 +291,6 @@ changes, HTTP server, dates and times.*
 ### Misc:
 * annotation constraints
 
-### Modularity
-* repository replicator
-
 ### Modules:
 * `ceylon.language.model` language metamodel
 * `ceylon.unicode`
@@ -301,7 +299,9 @@ changes, HTTP server, dates and times.*
 
 ### Misc:
 * serialization
-* interop with Java annotations
+
+### Modularity
+* repository replicator
 
 ### Modules:
 
