@@ -7,7 +7,7 @@ author: Emmanuel Bernard
 ---
 # #{page.title}
 
-Ceylon M6 [has been released](/download) and we are
+Ceylon 1.0 beta [has been released](/download) and we are
 already working on a final production-ready release of the 
 language, toolset, and IDE.
 
