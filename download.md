@@ -78,11 +78,11 @@ module, and the module runtime.
     </tr>
 </table>
 
-Mac OS X users running the [Homebrew package manager](http://mxcl.github.com/homebrew/) can install Ceylon:
+Mac OS X users running the [Homebrew package manager](http://mxcl.github.com/homebrew/) 
+can easily install Ceylon:
 
-<!-- lang: bash -->
+<!-- lang: none -->
     brew install ceylon
-
 
 Instructions for getting started are contained in the file
 `README.md` in the root directory of the distribution, or
@@ -97,7 +97,7 @@ precisely in the release, read our [announcement][1.0 beta].
 [Ceylon IDE][ide] is a suite of plugins for Eclipse, available 
 from our [update site][update site].
 
-[ide]: /documentation/ide
+[ide]: /documentation/current/ide
 [update site]: /documentation/current/ide/install?utm_source=download&utm_medium=web&utm_content=ide-install&utm_campaign=IDE_latestrelease
 
 <table>
