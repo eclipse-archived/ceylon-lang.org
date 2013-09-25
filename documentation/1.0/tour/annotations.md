@@ -93,7 +93,7 @@ Or:
 <!-- try-post:
     void test() { }
 -->
-    by { "Gavin", "Stephane", "Emmanuel", "Tom", "Tako" }
+    by { authors=["Gavin", "Stephane", "Emmanuel", "Tom", "Tako"]; }
 <!-- cat: void m() {} -->
 
 If an annotation has no arguments, we can just write the annotation name 
