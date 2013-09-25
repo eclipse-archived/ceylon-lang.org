@@ -369,9 +369,9 @@ Alternatively, we could use a named argument list:
     shared transactional { requiresNew=true; }
     void createOrder(Order order) { ... }
 
-We won't need to use reflection in our example, since Ceylon's module 
+<!--We won't need to use reflection in our example, since Ceylon's module 
 architecture includes special built-in support for using annotations to add
-interceptors to methods and attributes.
+interceptors to methods and attributes.-->
 
 ## The metamodel
 
