@@ -109,7 +109,7 @@ This is accomplished via a module descriptor:
         shared import java.jdbc "7";
     }
 
-An module `import` annotated `shared` is implicitly inherited by every
+A module `import` annotated `shared` is implicitly inherited by every
 module which imports the module with the `shared` module `import`.
 
 
