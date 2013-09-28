@@ -114,7 +114,7 @@ project may be configured to build for the JVM, for JavaScript, or both. The IDE
 even supports cross-project builds and inter-compilation with native Java code.</p>
 
 <p> The compiler may be configured within the IDE via the project properties page, 
-or New Ceylon Project wizard.</p>
+or new project wizard.</p>
 <div>
 <img src="/images/screenshots/m6/project0.png" style="box-shadow: 0 0 15px #888;"/>
 </div>
