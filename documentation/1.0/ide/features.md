@@ -71,8 +71,10 @@ you shouldn't be short of ways to find stuff.</p>
 <p>To understand and maintain a large codebase, there's nothing more important than
 easy navigation between code, and easy access to its API documentation. Ceylon IDE
 provides hyperlink-style "go to" navigation to any referenced declaration, package,
-or module, including Java declarations. The Open Ceylon Declaration dialog is the 
-quickest way to get to a toplevel declaration from wherever you are.</p>
+or module, including Java declarations.</p>
+
+<p>The Open Ceylon Declaration dialog is the quickest way to get to a toplevel 
+declaration from wherever you are.</p>
 <div style="text-align:center">
 <img src="/images/screenshots/m6/open.png" style="box-shadow: 0 0 15px #888;"/>
 </div>
@@ -107,13 +109,12 @@ Statement command, configurable keyboard accelerators, and much more!
 <div class="feature">
 <h2>Incremental compilation and interactive error reporting</h2>
 <p>Ceylon IDE typechecks your code as you type, immediately highlighting any
-errors in your code, and incrementally compiles your changes when you save a file. 
-A Ceylon project may be configured to build for the JVM, for JavaScript, or both.
-The IDE even supports cross-project builds and inter-compilation with native Java 
-code.</p>
+errors, and incrementally compiles your changes when you save a file. A Ceylon 
+project may be configured to build for the JVM, for JavaScript, or both. The IDE 
+even supports cross-project builds and inter-compilation with native Java code.</p>
 
 <p> The compiler may be configured within the IDE via the project properties page, 
-or new project wizard.</p>
+or New Ceylon Project wizard.</p>
 <div>
 <img src="/images/screenshots/m6/project0.png" style="box-shadow: 0 0 15px #888;"/>
 </div>
