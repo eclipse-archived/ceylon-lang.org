@@ -22,13 +22,18 @@ Comprehensions act upon, and produce, instances of
 [`Iterable`](#{site.urls.apidoc_current}/Iterable.type.html).
 A comprehension may appear:
 
-- inside brackets, producing a sequence,
-- inside braces, producing an iterable, or
-- inside a named argument list. 
+- inside braces, producing an iterable,
+- inside brackets, producing a sequence, 
+- inside a positional argument list, as an argument to a 
+  [variadic parameter](../basics/#variadic_parameters), or
+- inside a named argument list, as an 
+  [iterable argument](../named-arguments/#iterable_arguments). 
 
-The syntax for instantiating a sequence, [that we met earlier](../sequences#sequence_syntax_sugar)
-is considered to have a parameter of type `Iterable`, so we can use a 
-comprehension to build a sequence:
+### Comprehensions in iterable and sequence instantiation expressions
+
+The brace syntax for [instantiating an iterable](../sequences#iterables)
+accepts a comprehension, so we can use a comprehension to transform any
+iterable:
 
 <!-- try-pre:
     class Person(shared String name) {}
@@ -39,15 +44,93 @@ comprehension to build a sequence:
 
     print(names);
 -->
-    String[] names = [ for (p in people) p.name ]; 
+    {String*} names = { for (p in people) p.name };
 
-But comprehensions aren't just useful for building sequences! Suppose 
-we had a class `HashMap`, with the following signature:
+Executing the above line of code doesn't actually _do_ very much. In 
+particular it doesn't actually iterate the collection `people`, or 
+evaluate the `name` attribute. That's because elements of the resulting 
+`Iterable` are evaluated _lazily_.
+
+The bracket syntax for [instantiating a sequence](../sequences#sequence_syntax_sugar)
+also accepts a comprehension, so we can use a comprehension to build a sequence:
+
+<!-- try-pre:
+    class Person(shared String name) {}
+    value people = { Person("Gavin"), Person("Stephane"), Person("Tom"), Person("Tako") };
+
+-->
+<!-- try-post:
+
+    print(names);
+-->
+    String[] names = [ for (p in people) p.name ];
+
+Since sequences are by nature immutable, executing the previous 
+statement _does_ iterate the `people` and evaluate their 
+`name`s. But it's best to think of that as the effect of the
+bracket syntax, not of the comprehension itself.
+
+Now, comprehensions aren't only useful for building iterables and 
+sequences! They're a significantly more general purpose construct. 
+The idea is that you can write a comprehension anywhere the language 
+syntax accepts multiple values. That is to say, anywhere you could 
+write a list of comma-separated expressions, or spread an iterable 
+using `*`.
+
+(Aside: actually, we sometimes prefer think of the iterable 
+instantiation syntax and sequence instantiation syntax as just a
+syntactic shorthand for an [ordinary named argument instantiation 
+expression](../named-arguments/#iterable_arguments). That's not 
+_precisely_ how the language specification defines these constructs, 
+but it's a useful mental model to keep handy. So the idea is that 
+anything we can write inside braces or brackets should also be 
+syntactically legal inside a named argument list.)
+
+### Comprehensions as variadic arguments
+
+One place where the language "accepts multiple values" is in the
+positional argument list for a function with a variadic parameter.
+
+<!-- try-pre:
+    class Person(shared String name) {}
+    value people = { Person("Gavin"), Person("Stephane"), Person("Tom"), Person("Tako") };
+
+-->
+    void printNames(String* names) => printAll(names, " and ");
+    
+    printNames(for (p in people) p.name);
+
+Arguments to variadic parameters are packaged into a sequence, so
+the comprehension is iterated _eagerly_, before the result is passed 
+to the receiving function. Therefore, we don't usually use variadic
+parameters for processing streams in Ceylon. That's OK, because we
+have an alternative option that is designed precisely with stream
+processing in mind.
+
+### Comprehensions in named argument lists
+
+Now let's see what makes comprehensions really useful.
+
+Suppose we had a class `HashMap`, with the following signature:
 
 <!-- try: -->
     class HashMap<Key,Item>({Key->Item*} entries) { ... }
 
-Then we could construct a `HashMap<String,Person>` like this:
+According to the [previous chapter](../named-arguments/#iterable_arguments), 
+we can pass multiple values to this parameter using a named argument
+list:
+
+<!-- try: -->
+    value numbersByName = HashMap { "one"->1, "two"->2, "three"->3 };
+
+If multiple values are acceptable, so is a comprehension:
+
+<!-- try: -->
+    value numNames = ["one", "two", "three"];
+    value numbersByName = HashMap { for (i->w in numNames.indexed) w->i };
+
+Going back to our previous example, we could construct a `HashMap<String,Person>` 
+like this:
 
 <!-- try: -->
     value peopleByName = HashMap { for (p in people) p.name->p };
@@ -74,9 +157,16 @@ The function `every()` (in `ceylon.language`) accepts a stream of
 `Boolean` values, and stops iterating the stream as soon as it 
 encounters `false` in the stream.
 
-If we just need to store the iterable stream somewhere, without 
-evaluating any of its elements, we can use an iterable constructor 
-expression, like this:
+### The fine print
+
+Now for a tiny _gotcha_.
+
+A comprehension produces multiple value, not a single value.
+_Therefore a comprehension is not considered an expression and we
+can't directly assign a comprehension to a value reference!_ If we 
+just need to store the iterable stream somewhere, without evaluating 
+any of its elements, we can use an iterable instantiation expression, 
+like we saw above:
 
 <!-- try-pre:
     class Person(shared String name) {}
