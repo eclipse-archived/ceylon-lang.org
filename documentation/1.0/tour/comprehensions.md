@@ -236,15 +236,15 @@ You can even use [multiple `if` conditions](../attributes-control-structures#con
 
 <!-- try: -->
     for (p in people) 
-            if (exists s=p.spouse, 
-                nonempty inlaws=s.parents) 
+        if (exists s=p.spouse, 
+            nonempty inlaws=s.parents) 
                     p->inlaws
 
 ## Products and joins
 
 A comprehension may have more than one `for` clause. This allows us
-to combine two streams to obtain a stream of values of their cartesian 
-product:
+to combine two streams to obtain a stream of the values in their 
+cartesian product:
 
 <!-- try:
     class Node(Integer x, Integer y) { 
