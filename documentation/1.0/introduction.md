@@ -615,17 +615,17 @@ perfectly ordinary generic class `Tuple`.
 Filtering and transforming streams of values is one of the main things 
 computers are good at. Therefore, Ceylon provides a special syntax which makes 
 these operations especially convenient. Anywhere you could provide a list of 
-expressions (a sequence instantiation, or a "vararg"), Ceylon lets you write a 
-comprehension instead. For example, the following expression instantiates a 
-sequence of names:
+expressions (for example, a sequence instantiation, or a "vararg"), Ceylon 
+lets you write a comprehension instead. For example, the following expression 
+instantiates a sequence of names:
 
 <!-- try: -->
-    { for (p in people) p.firstName + " " + p.lastName }
+    [ for (p in people) p.firstName + " " + p.lastName ]
 
 This expression gives us a sequence of adults:
 
 <!-- try: -->
-    { for (p in people) if (p.age>=18) p }
+    [ for (p in people) if (p.age>=18) p ]
 
 This expression produces a `Map` of name to `Person`:
 
