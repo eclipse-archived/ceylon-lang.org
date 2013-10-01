@@ -562,43 +562,10 @@ adapt a function to a singe-method interface type, nor is there a profusion
 of function types `F`, `F1`, `F2`, etc, with some arbitrary limit of 24 
 parameters or whatever. Nor are Ceylon's function types defined primitively. 
 Instead, `Callable` accepts a tuple type argument that captures the parameter 
-types of the function. Of course, there's also a single interface `Tuple` 
-that abstracts over all tuple types! This means that it's possible to write 
+types of the function. Of course, there's also a single class `Tuple` that 
+abstracts over all tuple types! This means that it's possible to write 
 higher-order functions that abstract over functions with parameter lists of 
 differing lengths.
-
-## Comprehensions
-
-Filtering and transforming streams of values is one of the main things 
-computers are good at. Therefore, Ceylon provides a special syntax which makes 
-these operations especially convenient. Anywhere you could provide a list of 
-expressions (a sequence instantiation, or a "vararg"), Ceylon lets you write a 
-comprehension instead. For example, the following expression instantiates a 
-sequence of names:
-
-<!-- try: -->
-    { for (p in people) p.firstName + " " + p.lastName }
-
-This expression gives us a sequence of adults:
-
-<!-- try: -->
-    { for (p in people) if (p.age>=18) p }
-
-This expression produces a `Map` of name to `Person`:
-
-<!-- try: -->
-    HashMap { for (p in people) p.firstName + " " + p.lastName -> p }
-
-This expression creates a set of employers:
-
-<!-- try: -->
-    HashSet { for (p in people) for (j in p.jobs) j.organization }
-
-Here, we're using a comprehension as a function argument to format and print 
-the names:
-
-<!-- try: -->
-    print(", ".join { for (p in people) p.firstName + " " + p.lastName });
 
 ## Tuples
 
@@ -642,6 +609,39 @@ Then we can print the date like this:
 
 Of course, Ceylon's support for tuples is just some syntax sugar over the
 perfectly ordinary generic class `Tuple`.
+
+## Comprehensions
+
+Filtering and transforming streams of values is one of the main things 
+computers are good at. Therefore, Ceylon provides a special syntax which makes 
+these operations especially convenient. Anywhere you could provide a list of 
+expressions (a sequence instantiation, or a "vararg"), Ceylon lets you write a 
+comprehension instead. For example, the following expression instantiates a 
+sequence of names:
+
+<!-- try: -->
+    { for (p in people) p.firstName + " " + p.lastName }
+
+This expression gives us a sequence of adults:
+
+<!-- try: -->
+    { for (p in people) if (p.age>=18) p }
+
+This expression produces a `Map` of name to `Person`:
+
+<!-- try: -->
+    HashMap { for (p in people) p.firstName + " " + p.lastName -> p }
+
+This expression creates a set of employers:
+
+<!-- try: -->
+    HashSet { for (p in people) for (j in p.jobs) j.organization }
+
+Here, we're using a comprehension as a function argument to format and print 
+the names:
+
+<!-- try: -->
+    print(", ".join { for (p in people) p.firstName + " " + p.lastName });
 
 ## Simplified generics with fully-reified types
 
