@@ -587,7 +587,7 @@ Tuples aren't something we intend for you to use every day. But they are
 occasionally useful as a convenience, and they really come into play if you
 want to take advantage of Ceylon's support for typesafe metaprogramming. For
 example, you can take a tuple, and "spread" it across the parameters of a
-function:
+function.
 
 Suppose we have a nice function for formatting dates:
 
