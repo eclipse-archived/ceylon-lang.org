@@ -149,7 +149,8 @@ get this, and more, for free.
 Ceylon's conventional-looking syntax hides a powerful type system that is 
 able to express things that other static type systems simply can't. All
 types in Ceylon can, at least in principle, be expressed within the type
-system itself. There are no primitive types, arrays, or anything similar. 
+system itself. There are no primitive types, arrays, or anything similar.
+Even `Null` is a class. 
 
 The type system is based on analysis of "best" or *principal* types. For 
 every expression, a unique, most specific type may be determined, without 
@@ -158,7 +159,8 @@ types used internally by the compiler are *denotable* - that is, they can be
 expressed within the language itself. What this means in practice is that 
 the compiler always produces errors that humans can understand, even when 
 working with complex generic types. The Ceylon compiler *never* produces 
-error messages with mystifying non-denotable types like Java's `List<capture#3-of ?>`.
+error messages involving mystifying non-denotable types like Java's 
+`List<capture#3-of ?>`.
 
 An integral part of this system of denotable principal types is first-class
 support for union and intersection types. A *union type* is a type which
@@ -299,8 +301,8 @@ Or it might be a getter/setter pair:
     }
 
 In Ceylon, we don't need to write trival getters or setters which merely 
-mediate access to a field. The
-state of a class is always [completely abstracted](../tour/classes/#abstracting_state_using_attributes) 
+mediate access to a field. The state of a class is always 
+[completely abstracted](../tour/classes/#abstracting_state_using_attributes) 
 from clients of the class: We can change a reference attribute to a getter/setter 
 pair without breaking clients.
 
@@ -547,12 +549,23 @@ Or, using a named argument invocation, like this:
     };
 <!-- cat: } -->
 
-It's even possible to pass a member method or attribute reference to a higher
-order function:
+It's even possible to pass a member method or attribute reference to a 
+higher-order function:
 
 <!-- try: -->
     String[] names = { "Gavin", "Stef", "Tom", "Tako" };
     String[] uppercaseNames = names.map(String.uppercased);
+
+Unlike other statically-typed languages with higher-order functions, Ceylon
+has a single function type, the interface `Callable`. There's no need to
+adapt a function to a singe-method interface type, nor is there a profusion
+of function types `F`, `F1`, `F2`, etc, with some arbitrary limit of 24 
+parameters or whatever. Nor are Ceylon's function types defined primitively. 
+Instead, `Callable` accepts a tuple type argument that captures the parameter 
+types of the function. Of course, there's also a single interface `Tuple` 
+that abstracts over all tuple types! This means that it's possible to write 
+higher-order functions that abstract over functions with parameter lists of 
+differing lengths.
 
 ## Comprehensions
 
