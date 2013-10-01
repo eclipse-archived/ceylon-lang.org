@@ -70,8 +70,8 @@ and <a href="/documentation/current/introduction/#type_aliases_and_type_inferenc
 
 <div style="text-align:right" class="feature">
 <h2>Object-oriented programming</h2>
-<p>Programming with objects is a breeze. Everything is an object, even a function or 
-class. Handle collections with 
+<p>Programming with objects is a breeze. Everything is an object, even numeric values,
+even the null value, even a function or class. Handle collections with 
 <a href="/documentation/current/introduction/#higher_order_functions">higher-order functions</a> 
 and <a href="/documentation/current/introduction/#comprehensions">comprehensions</a>. 
 Model difficult relationships with 
@@ -103,7 +103,13 @@ principal instantiation inheritance.</p>
 <img src="/images/features/generics.png" style="vertical-align:top;box-shadow: 0 0 15px #888;"/>
 </div>
 
-<!-- TODO: typesafe metamodel -->
+<div class="feature">
+<h2>Typesafe metaprogramming</h2>
+<p><a href="/documentation/current/annotations/#annotations">Annotations</a>, a 
+<a href="/documentation/current/annotations/#the_metamodel">typesafe metamodel</a>,
+and reified generics are the foundation of Ceylon's unique approach to typesafe 
+runtime metaprogramming, which makes framework development a pleasure.</p>
+</div>
 
 <!-- TODO: named args + tree structures -->
 
