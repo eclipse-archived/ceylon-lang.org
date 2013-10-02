@@ -9,11 +9,11 @@ doc_root: ../../..
 
 # #{page.title}
 
-The shared annotation marks a declaration as being visible outside the scope in 
-which it is defined.
+The `shared` annotation marks a declaration as being visible outside 
+the scope in which it is defined.
 
-It is also applied to module imports which are visible in the API of the module, 
-and therefore must be exported to clients of the module.
+It is also applied to module imports which are visible in the API of 
+the module, and therefore must be exported to clients of the module.
 
 ## Usage
 
@@ -34,6 +34,7 @@ On a module import:
 
 ## See also
 
-* [`shared`](#{site.urls.apidoc_current}/index.html#shared)
+* API documentation for [`shared`](#{site.urls.apidoc_current}/index.html#shared)
 * Reference for [annotations in general](../../structure/annotation/)
-
+* [Visibility](#{site.urls.spec_current}#visibility) in the Ceylon 
+  language spec

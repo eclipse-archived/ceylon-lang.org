@@ -9,8 +9,8 @@ doc_root: ../../..
 
 # #{page.title}
 
-The `variable` annotation marks a value that may be [assigned](../../operator/assign)
-(as opposed to [specified](../../statement/specification).
+The `variable` annotation marks a reference that may be 
+[assigned](../../operator/assign) more than once.
 
 ## Usage
 
@@ -22,6 +22,13 @@ The `variable` annotation marks a value that may be [assigned](../../operator/as
     }
 
 ## Description
+
+By default, references are _immutable_. They are assigned
+a value once, and may not be reassigned. The Ceylon compiler
+statically verifies that a reference not declared `variable` 
+is never assigned more than once. The `variable` annotation
+disables this verification, allowing a reference to be
+assigned multiple times.
 
 ## See also
 

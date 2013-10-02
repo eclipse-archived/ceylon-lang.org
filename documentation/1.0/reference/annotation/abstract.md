@@ -9,7 +9,7 @@ doc_root: ../../..
 
 # #{page.title}
 
-The `abstract` annotation marks a class as not be instantiable.
+The `abstract` annotation marks a class as not being instantiable.
 
 ## Usage
 

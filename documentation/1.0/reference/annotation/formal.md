@@ -23,10 +23,10 @@ one must be provided by subtypes.
 
 ## Description
 
-Methods, attributes, member classes and member interfaces may be annotated `formal`.
+Methods, attributes, and member classes may be annotated `formal`.
 
 Because a member that is refinable must be visible outside the 
-scope of the type its defined in a `default` member is necessarily
+scope of the type it's defined in, a `default` member is necessarily
 `shared`.
 
 Only `abstract` classes and interfaces are permitted to have `formal` members.
@@ -35,6 +35,6 @@ Only `abstract` classes and interfaces are permitted to have `formal` members.
 
 ## See also
 
-* [`formal`](#{site.urls.apidoc_current}/index.html#formal)
+* API documentation for [`formal`](#{site.urls.apidoc_current}/index.html#formal)
 * Reference for [annotations in general](../../structure/annotation/)
 

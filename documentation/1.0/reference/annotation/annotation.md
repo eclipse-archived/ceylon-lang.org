@@ -10,19 +10,19 @@ doc_root: ../../..
 # #{page.title}
 
 The `annotation` annotation marks a class as being an 
-[annotation class](../../structure/annotation/#annotation_class), 
+[annotation type](../../structure/annotation/#annotation_class), 
 or a function as being an 
 [annotation constructor](../../structure/annotation/#annotation_constructor).
 
 ## Usage
 
-The annotation is applied to the class defintion:
+The annotation is applied to the annotation type class defintion:
 
 <!-- try: -->
     final annotation class Example() 
             satisfies OptionalAnnotation<Example, ClassDecaration>
 
-Or to the function definition:
+Or to the annotation constructor function definition:
 
 <!-- try: -->
     annotation class Example example() 
@@ -37,4 +37,4 @@ must satisfy [`Annotation`](#{site.urls.apidoc_current}/Annotation.type.html)
 
 * API documentation for [`annotation`](#{site.urls.apidoc_current}/index.html#annotation)
 * Reference for [annotations in general](../../structure/annotation/)
-
+* [Annotations](#{site.urls.spec_current}#annotations) in the Ceylon language spec

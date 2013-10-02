@@ -11,7 +11,7 @@ doc_root: ../../..
 
 The `late` annotation prevents the typechecker from performing 
 [definite specification](../../statement/specification) checks on a 
-[simple value](../../structure/value#simple_values).
+[reference](../../structure/value#simple_values).
 
 ## Usage
 
@@ -28,20 +28,20 @@ The `late` annotation prevents the typechecker from performing
 
 ## Description
 
-Using the `late` annotation on a simple value prevents the typechecked from
-performing definite specification checks. 
-Instead code is generated 
-which performs a runtime check for accessing the value when it hasn't 
-been initialized (and re-initializing a
-non-`variable` value that has already been initialized). 
+Using the `late` annotation on a reference prevents the typechecked 
+from performing definite specification checks. Instead, code is 
+generated which performs a runtime check and throws an exception if 
+the reference:
 
-This is intended to permit cyclic references between values
+- is accessed when it hasn't been initialized, or 
+- is reinitialized and not annotated `variable`. 
 
-Only simple values may be annotated `late` 
-(it doesn't make sense for [value getters](../../structure/value#getters). 
+This is intended to permit cyclic references between objects.
+
+Only references may be annotated `late` (it doesn't make sense for 
+[getters](../../structure/value#getters). 
 
 ## See also
 
-* [`late`](#{site.urls.apidoc_current}/index.html#late)
+* API documentation for [`late`](#{site.urls.apidoc_current}/index.html#late)
 * Reference for [annotations in general](../../structure/annotation/)
-

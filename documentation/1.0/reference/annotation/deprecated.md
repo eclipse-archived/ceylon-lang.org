@@ -20,9 +20,9 @@ Marks a declaration which should no longer be used.
 
 ## Description
 
-It is considered good practice to use the description 
-argument to record why the declaration has been 
-deprecated and any alternatives to it that may exist.
+It is considered good practice to use the description argument to 
+record why the declaration has been deprecated and any alternatives 
+to it that may exist.
 
 The `deprecated` annotation is processed by the 
 [`ceylon doc`](#{site.urls.ceylon_tool_current}/ceylon-doc.html) tool, 
@@ -31,12 +31,11 @@ which assumes it contains [Markdown formatted](../markdown/) text.
 ### Note
 
 The JVM compiler will add a JVM-level `@Deprecated` annotation
-to declarations marked `deprecated`, so it is clear to 
-people dependent on Ceylon-compiled code that the 
-declaration is to be avoided.
+to declarations marked `deprecated`, so it is clear to people dependent 
+on Ceylon-compiled code that the declaration is to be avoided.
 
 ## See also
 
-* [`deprecated`](#{site.urls.apidoc_current}/index.html#deprecated)
+* API documentation for [`deprecated`](#{site.urls.apidoc_current}/index.html#deprecated)
 * Reference for [annotations in general](../../structure/annotation/)
 
