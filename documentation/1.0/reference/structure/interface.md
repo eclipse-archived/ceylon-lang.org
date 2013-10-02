@@ -120,4 +120,7 @@ either an
 
 ## See also
 
-* [classes](../class)
+* [Classes](../class)
+* [Interfaces](#{site.urls.spec_current}#interfaces) in the Ceylon 
+  language spec
+

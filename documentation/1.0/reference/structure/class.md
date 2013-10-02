@@ -105,7 +105,7 @@ A class declaration with type parameters may have a `given` clause
 for each declared type parameter to 
 [constrain the argument types](../type-parameters#constraints).
 
-### Parameter list
+### Initializer parameters
 
 Every class declaration has a [parameter list](../parameter-list).
 
@@ -265,6 +265,5 @@ model instance.
 
 ## See also
 
-* [interfaces](../interface)
-* [Member class refinement](#{site.urls.spec_current}#classrefinement) in 
-  the Ceylon language spec
+* [Interfaces](../interface)
+* [Classes](#{site.urls.spec_current}#classes) in the Ceylon language spec

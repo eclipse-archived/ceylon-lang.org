@@ -164,3 +164,6 @@ an anonymous function:
 * [Type parameters](../type-parameters)
 * [`class` declaration](../../type/class)
 * [`function` declaration](../function/) 
+* [Parameters](#{site.urls.spec_current}#parameters) in the Ceylon 
+  language spec
+
