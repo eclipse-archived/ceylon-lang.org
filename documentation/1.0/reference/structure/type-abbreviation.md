@@ -13,17 +13,38 @@ abbreviations for them.
 
 ## Usage 
 
-<!-- try: - -->
-    T?        // same as T|Null
-    T[]       // same as Sequential[T]
-    {T*}      // Iterable<T,Null>
-    {T+}      // Iterable<T,Nothing>, has at least one element
-    [T]       // The 1-tuple Tuple<T, T, Empty>
-    [X,Y]     // The 2-tuple Tuple<X|Y, X, Tuple<Y, Y, Empty>>
-    [T*]      // The *-tuple Tuple<T, T, Sequential<T>>
-    [T+]      // The +-tuple Tuple<T, T, Sequence<T>>
-    R(P1,P2)  // Callable<R,[P1,P2]>
-    
+Here are some examples:
+
+<!-- try: -->
+    T?          // T|Null
+    {T*}        // Iterable<T,Null>
+    {T+}        // Iterable<T,Nothing>, has at least one element
+    [T*] or T[] // Sequential<T>
+    []          // Empty
+    [T+]        // Sequence<T>
+    X->Y        // Entry<X,Y>
+
+Certain abbreviations have a 
+[recursive definition](/documentation/1.0/spec/html_single/#typenameabbreviations),
+so we can't enumerate all the possibilities here.
+
+There are abbreviations for tuple types:
+
+<!-- try: -->
+    [T]         // The 1-tuple Tuple<T, T, Empty>
+    [X,Y]       // The 2-tuple Tuple<X|Y, X, Tuple<Y, Y, Empty>>
+    [X,Y*]      // The *-tuple Tuple<X|Y, X, Sequential<Y>>
+    [X,Y+]      // The +-tuple Tuple<X|Y, X, Sequence<Y>>
+
+And for function types:
+
+<!-- try: -->
+    R()         // Callable<R,[]>, function with no parameters
+    R(P1,P2)    // Callable<R,[P1,P2]>, function with two parameters
+    R(P1,P2=)   // Callable<R,[P1]|[P1,P2]>, function with defaulted param
+    R(P*)       // Callable<R,[P1*]>, variadic function
+    R(P+)       // Callable<R,[P1+]>, nonempty variadic function
+
 ## Description
 
 The above abbreviations can be used anywhere a type is expected. 
@@ -35,8 +56,8 @@ which is the type of a function which takes parameters of types `P1` and `P2`
 and returns an `R`. `R(P1,P2)` may also be the type of the class `R` 
 if its initializer takes parameters of types `P1` and `P2`.
 
-For higher order Callables, there is the potential for some confusion.
-Consider the following abbreviated Callable type:
+For higher order `Callable`s, there is the potential for some confusion.
+Consider the following abbreviated `Callable` type:
 
 <!-- try: -->
      Bar(String)(Foo)
@@ -57,19 +78,23 @@ If you think about it, `higher` could be declared like this:
         // ...
     }
 
-And when you write it that way, it's not really surprising that `higher2` itself has
-type `Bar(String)(Foo)`.
+And when you write it that way, it's not really surprising that `higher2` 
+itself has type `Bar(String)(Foo)`.
 
 
 ### Variadic parameters
 
-Although not an abbrevious like the above, in a [parameter list](../parameter-list/)
-*variadic* parameters use a syntax that looks similar `Iterable` and `Tuple`
-abbreviations above:
+Although not technically a type abbreviation, 
+[variadic parameters](../parameter-list/) are declared using a syntax that 
+looks similar to the `Callable`, `Iterable`, and `Tuple` abbreviations above:
 
+<!-- try: -->
 <!-- check:none -->
     T*        // a possibly empty variadic parameter
     T+        // a non-empty variadic parameter
+
+Of course, it's no coincidence that the function `Float sum(Float+ floats)`
+has the function type `Float(Float+)`.
 
 ## See Also
 
