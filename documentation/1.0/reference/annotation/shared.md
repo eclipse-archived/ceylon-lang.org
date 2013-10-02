@@ -32,6 +32,16 @@ On a module import:
 
 ## Description
 
+_Visibility_ is a critical concern when building modular systems.
+Clients of a module should not be able to come to 'accidently' 
+depend upon details of the module which are not considered part
+of its well-defined API. Therefore, Ceylon requires that exported 
+program elements be _explicitly_ marked as such.
+
+By default, a declaration may not be referred to outside the scope 
+in which it is declared. The `shared` annotation makes a declaration
+visible to any client of the package or type to which it belongs.
+
 ## See also
 
 * API documentation for [`shared`](#{site.urls.apidoc_current}/index.html#shared)
