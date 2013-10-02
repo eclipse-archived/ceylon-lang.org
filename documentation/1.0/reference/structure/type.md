@@ -176,8 +176,8 @@ Tuples also have a notion of 'variadicity':
 `Tuple` types may thus be used to represent the type of an argument or
 parameter list, and are therefore used to encode function types.
 
-Unabreviated tuple types are extremely verbose, and therefore the 
-abbreviated form is strongly preferred. 
+Unabbreviated tuple types are extremely verbose, and therefore the 
+abbreviated form is always used. 
 
 ### Metamodel
 
