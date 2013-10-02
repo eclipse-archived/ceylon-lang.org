@@ -25,6 +25,7 @@ _Some of these pages are incomplete. Want to help? [See how](/code/website)._
   <li><a href="structure/type-abbreviation/">Type abbreviations</a></li>
   <li><a href="structure/class/">Classes</a></li>
   <li><a href="structure/class/">Interfaces</a></li>
+  <li><a href="structure/parameter-list/">Parameters</a></li>
   <li><a href="structure/type-parameters/">Type parameters</a></li>
   <li><a href="structure/alias/">Aliases</a></li>
   <li><a href="structure/value/">Values</a></li>

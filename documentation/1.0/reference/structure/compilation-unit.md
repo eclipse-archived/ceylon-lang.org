@@ -35,20 +35,24 @@ containing three toplevel declarations:
 
 ## Description
 
-Compilation units are a compile-time concept and have no representation or 
-role at runtime.
+Compilation units are a compile-time concept and have no representation 
+or role at runtime.
 
 ### Declarations
 
-A compilation unit must contain one or more declarations:
+A compilation unit may contain one or more declarations:
 
 * [type declarations](../type) ([class](../class), 
-  [interface](../interface) or [`object`](../object)), 
+  [interface](../interface), or [`object`](../object)), 
 * [function declarations](../method), and/or
 * [value declarations](../attribute).
 
-Ceylon does not have Java's restriction on `public` (`shared`) classes having 
-to be declared in a source file named after the class name.
+[Module descriptors](../module/#descriptor) and 
+[package descriptors](../package/#descriptor) are special-purpose 
+compilation units and may not contain declarations.
+
+**Note:** Ceylon does not have Java's restriction on `public` (`shared`) 
+classes having to be declared in a source file named after the class name.
 
 ### Source Location
 

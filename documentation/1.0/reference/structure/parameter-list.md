@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: Parameter lists
+title: Parameters
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
