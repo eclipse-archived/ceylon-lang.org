@@ -8,8 +8,15 @@ author: Tom Bentley
 
 # #{page.title}
 
-An interface is a stateless type that cannot be 
-[instantiated](../../expression/class-instantiation) directly.
+An interface is a stateless type that, unlike a [class](../class):
+
+- may not hold references to other objects,
+- does not define initialization logic, and 
+- cannot be directly [instantiated](../../expression/class-instantiation).
+
+Interfaces support a more flexible inheritance model: _multiple inheritance_.
+"Diamond" inheritance is not a problem for interfaces, because interfaces 
+don't have state or logic to initialize that state.
 
 ## Usage 
 
@@ -20,17 +27,15 @@ A trivial interface declaration looks like this:
         /* declarations of interface members */
     }
 
-Note that because interfaces are stateless they do not have 
-initializers and so there's no parameter list after 
-the interface name as there is with [class declarations](../class).
+Since interfaces don't contain initialization logic, there's no parameter 
+list after the interface name as there would be in a [class declaration](../class).
 
 ## Description
 
 ### Satisfying interfaces
 
-An interface can satisfy zero or more other interfaces using the 
-`satisfies` keyword. If the class `I` is to satisfy interfaces `I1` and `I2` the 
-declaration looks like this:
+The `satisfies` keyword specifies the interfaces inherited by an 
+interface:
 
 <!-- cat: interface I1{} interface I2{} -->
 <!-- try: -->
@@ -38,20 +43,22 @@ declaration looks like this:
         /* declarations of interface members */
     }
 
-`&` is used as the separator between satisfied interfaces because `I` is 
-satisfying a type, the 
+If an interface is declared without using the `satisfies` keyword, 
+it does not directly inherit any interfaces. However, _all_ 
+interfaces are considered to inherit the class
+[`Object`](#{site.urls.apidoc_current}/Object.type.html).
+
+`&` is used as the separator between satisfied interfaces because 
+`I` is being defined as a subtype of the 
 [intersection type](../type#intersection_types) `I1&I2`.
 
-An interface inherits all members (methods, attributes and member types) 
-of every supertype.
+### Enumerated interfaces
 
-### Enumerated subtypes
-
-The subtypes of an interface can be constrained to a list of named 
-interfaces, classes, or toplevel anonymous classes using the `of` clause. 
-
-If the interface `I` is permitted only two direct 
-subtypes `I1` and `C1` its declaration would look like this:
+The subclasses of an enumerated interface can be constrained to a 
+list of named interfaces, classes, or toplevel anonymous classes 
+using the `of` clause. If the interface `I` is permitted only two 
+direct subtypes, the interface `I1`, and the class `C1`, its 
+declaration would look like this:
 
 <!-- cat: interface I1 satisfies I {} class C1() satisfies I {} -->
 <!-- try: -->
@@ -59,10 +66,10 @@ subtypes `I1` and `C1` its declaration would look like this:
         /* declarations of interface members */
     }
 
-### Type parameters
+### Generic interfaces
 
-An interface declaration lists [type parameters](../type-parameters) with angle brackets (`<` and `>`) 
-after the interface name. 
+An _generic_ interface declaration lists [type parameters](../type-parameters) 
+in angle brackets (`<` and `>`) after the interface name. 
 
 <!-- try: -->
     interface I<Z> {
@@ -70,28 +77,31 @@ after the interface name.
            type parameter Z treated as a type */
     }
 
-An interface declaration with type parameters may have a `given` clause for 
-each declared type parameter to 
-[constraint the permitted type argument](../type-parameters#constraints).
+An interface declaration with type parameters may have a `given` 
+clause for each declared type parameter to 
+[constrain the argument types](../type-parameters#constraints).
 
 ### Shared interfaces
 
-TODO
+A toplevel interface declaration, or an interface declaration nested 
+inside the body of a containing class or interface, may be annotated 
+[`shared`](../../annotation/shared):
 
-### Formal interfaces
+<!-- try: -->
+    shared class C() {
+        /* declarations of class members */
+    }
 
-TODO
-
-### Default interfaces
-
-TODO
+- A toplevel `shared` interface is visible wherever the package that 
+  contains it is visible.
+- A `shared` interface nested inside a class or interface is visible 
+  wherever the containing class or interface is visible.
 
 ### Members
 
-The permitted members of interaces are [classes](../class), 
-[interfaces](../interface), 
-[methods](../method), 
-and [attributes](../attribute).
+The permitted members of interfaces are [classes](../class), 
+[interfaces](../interface), [methods](../method), and 
+[attributes](../attribute).
 
 Note that an interface cannot have an [`object`](../object) member.
 
@@ -110,3 +120,4 @@ either an
 
 ## See also
 
+* [classes](../class)

@@ -90,10 +90,10 @@ its declaration would look like this:
 <!-- cat: class S1() extends C() {} -->
 <!-- cat: class S2() extends C() {} -->
 
-### Type parameters
+### Generic classes
 
 A _generic_ class declaration lists [type parameters](../type-parameters) 
-with angle brackets (`<` and `>`) after the class name. 
+in angle brackets (`<` and `>`) after the class name. 
 
 <!-- try: -->
     class C<Z>() {
@@ -193,9 +193,7 @@ inherit the containing class or interface.
 ### Members
 
 The permitted members of classes are [classes](../class), 
-[interfaces](../interface), 
-[methods](../function), 
-[attributes](../value),
+[interfaces](../interface), [methods](../function), [attributes](../value),
 and [`object`s](../object).
 
 ### Aliases
@@ -267,5 +265,6 @@ model instance.
 
 ## See also
 
+* [interfaces](../interface)
 * [Member class refinement](#{site.urls.spec_current}#classrefinement) in 
   the Ceylon language spec
