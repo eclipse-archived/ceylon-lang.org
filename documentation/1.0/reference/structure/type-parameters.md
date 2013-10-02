@@ -16,70 +16,73 @@ declarations may have one or more type parameters.
 A simple type-parameterized (or *generic*) class might look like this:
 
 <!-- try: -->
-    class C<X>() {
+    class Class<out Element>(Element* elements) {
         /* declarations of class members */
     }
     
-A simple type-parameterised (or *generic*) method might look like this:
+A simple type-parameterised (or *generic*) function might look like this:
 
 <!-- try: -->
-    void m<X,Y>(X x, Y y) {
+    void fun<First,Second>(First first, Second second) {
 
     }
 
-**Note**: By convention type parameters are given meaningful names rather than
-single letter names, such as `T`, `U`, `V` etc as is common in some other 
-languages. This reference currently breaks that convention.
+**Note**: By convention, type parameters are given meaningful names rather 
+than single letter names, such as `T`, `U`, `V`, etc, as is common in many 
+other languages.
 
 
 ## Description
 
 ### Type constructors
 
-Conceptually a parameterized class or interface declaration is a 
-*type constructor* which is a function that produces a type 
+Conceptually, a parameterized class or interface declaration is a *type 
+constructor*, that is, a function from types to types. It produces a type 
 given a tuple of compatible type arguments.
 
-Conceptually a parameterized class or method declaration 
-defines a function that produces the signature of an 
-invokable operation given a tuple of compatible type arguments.
+Conceptually, a parameterized class or function declaration defines a 
+function that produces the signature of an invokable operation given a 
+tuple of compatible type arguments.
 
-These 'functions operating on types' are sometimes known as *functors*.
+**Note**: we often view the definition of a generic class or function as
+a _template_ for producing a class or function. However, this is a 
+slightly misleading mental model. Generics in Ceylon are very different
+to C++-style templates, and are ultimately derived from the approach taken
+in languages like ML.
 
 ### Type parameter lists
 
-Type parameter lists are a comma separated list of types or type parameters 
-enclosed in angle brackets (`<` and `>`). The type 
-parameter list occurs directly after the class, interface or method name 
-in the declaration and before the [parameter list](../parameter-list).
+A type parameter list is a comma separated list of type names enclosed 
+in angle brackets (`<` and `>`). The type parameter list occurs directly 
+after the class, interface, or function name, and before any 
+[value parameter list](../parameter-list).
 
 #### Variance
 
-The type names in the type parameter list of a class or interface 
-may optionally be preceeded with the variance modifier
+The type names in the type parameter list of a class, interface, or 
+function may optionally be preceded by a variance modifier
 `in` (indicating a *contravariant* type parameter) or 
 `out` (indicating a *covariant* type parameter). Type parameters without 
 either modifier are *invariant*.
 
-Method type parameters are not allowed the `in` or `out` modifiers.
-
-Contravariant and covariant type parameters are only permitted in certain 
-places within the type-parameterised declaration. For example a covariant 
-type parameter of a method is not permitted in the method's parameter list 
-and a contravariant type parameter is not permitted as the method's 
+References to contravariant and covariant type parameters are only 
+permitted in certain locations within the type-parameterised declaration. 
+For example a covariant type parameter of a class is not permitted to
+occur in the parameter list of a method of the class. Likewise, a 
+contravariant type parameter of the class is not permitted as the method's 
 return type.
 
 ### Constraints
 
-Type-parameterized declarations may have a `given` clause for each 
-declared type parameter to constrain the permitted type argument.
+Type-parameterized declarations may have a `given` clause for each declared 
+type parameter to constrain the permitted type argument.
 
 The constraints are:
 
-* Upper bound: `given X satisfies T` constrains `X` to be a subtype of `T`
-* Enumerated bound: `given X of T|U|V` constraints `X` to be one of the 
-  enumerated types, `T`, `U` or `V`.
-* Combinations of the above using `&`.
+* An _upper bound_, `given X satisfies T`, constrains arguments of `X` to 
+  subtypes of `T`.
+* An _enumerated bound_, `given X of T|U|V`, constrains arguments of `X` to 
+  be one of the enumerated types, `T`, `U`, or `V`.
 
 #### Examples
 
@@ -116,15 +119,15 @@ declared like this:
 
 This is an example of a *self type* bound: The type parameter `Other` is 
 constrained to itself be `Comparable<Other>`, loosely meaning that once the 
-type `Comparable<Other>` is instantiated, `Other` will be the 
-same type as type as the type instantiating it. Concretely, 
-in the type instantiation `Comparable<Integer>`, `Other` has the 
-type `Integer`.
+type `Comparable<Other>` is instantiated, `Other` will be the same type as 
+the type instantiated type. Concretely, in the type instantiation 
+`Comparable<Integer>`, `Other` has the type `Integer`, and is thus a subtype 
+of `Comparable<Integer>`.
 
 A final example is the language module's
-[`sort()`](#{site.urls.apidoc_current}/index.html#sort) 
-function which constrains the type parameter `Element` so that 
-it can only be called with `Comparable` Elements
+[`sort()`](#{site.urls.apidoc_current}/index.html#sort) function, which 
+constrains the type parameter `Element` so that it can only be called 
+with a `Comparable` type argument:
 
 <!-- try: -->
     shared Element[] sort<Element>({Element*} elements) 
@@ -144,8 +147,8 @@ can define defaulted type parameters. Here's an example from the language module
     
 This means we can apply the type constructor 
 [`Iterable`](#{site.urls.apidoc_current}/Iterable.type.html) using either one 
-or two type arguments. If we supply only one type argument, the default 
-type (in this case `Null`) is used:
+or two type arguments. If we supply only one type argument, the default type 
+(in this case `Null`) is used:
 
 <!-- try: -->
     // same as Iterable<String, Null>
@@ -154,17 +157,19 @@ type (in this case `Null`) is used:
     Iterable<String, Nothing> oneOrMore;
     
 Using a defaulted type parameter can be used as a more flexible alternative to 
-a [type `alias`](../alias#type_aliases). We could have declared `Iterable` without a
-defaulted type parameter and uses alises:
+a [type `alias`](../alias#type_aliases). We could have declared `Iterable` 
+without a defaulted type parameter and used alises:
 
 <!-- try: -->
     alias PossiblyEmpty<T> => Iterable<String, Null>
     alias NonEmpty<T> => Iterable<String, Nothing>
 
+(In fact, we don't need the aliases because Ceylon has built-in syntax sugar
+for `PossiblyEmpty<T>` and `NonEmpty<T>`, the type abbreviations `{T*}` and 
+`{T+}`.)
 
 ## See also
 
-* Top level types are contained in [compilation units](../compilation-unit)
 * [`class` declaration](../../type/class)
 * [`interface` declaration](../../type/interface)
-* [`object` declaration](../../type/object)
+* [`function` declaration](../function/) 
