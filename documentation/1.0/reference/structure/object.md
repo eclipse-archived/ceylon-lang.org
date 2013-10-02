@@ -35,11 +35,11 @@ This reference uses `object` (in a monospaced font) when discussing an
 may be referred to as an object (in the usual font). In other contexts we 
 often use the term _anonymous class_.
 
-### toplevel `object`s
+### Toplevel objects
 
 A toplevel object is a _singleton_.
 
-### Nested `object`s
+### Nested objects
 
 An `object` declaration may occur inside the body of a class, function, 
 or value declaration. In this case, a new instance of the `object` is
@@ -49,12 +49,12 @@ An `object` declaration may not occur in the body of an
 [interface](../interface), since `object`s are implicitly stateful (the 
 state being the reference to the instance itself).
 
-### Shared `object`s 
+### Shared objects 
 
 An object may be annotated [`shared`](../../annotation/shared), meaning
 it is visible outside the scope in which its declaration occurs.
 
-### Actual `object`s
+### Actual objects
 
 An object may be annotated [`actual`](../../annotation/actual), meaning 
 that it refines an attribute of a supertype of the class or interface
