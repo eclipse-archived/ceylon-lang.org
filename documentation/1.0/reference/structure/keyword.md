@@ -18,7 +18,7 @@ Usage depends on the keyword in question.
 
 ## Description
 
-The following are reserved worlds:
+The following are reserved keywords:
 
 * `assembly` (currently unused)
 * `abstracts` (currently unused)
@@ -84,12 +84,12 @@ The following are reserved worlds:
 
 ### Quoting
 
-It is possible to *quote* keywords, creating an identifier which would 
-otherwise be treated as keyword by the lexer. For example `\iout` creates an 
-identifier called `out`. The intended purpose of quoting for interoperability 
-with other platforms/languages. For example it may be necessary to invoke or 
-override a method called `out` on a class written in 
-Java (where `out` is not a keyword).
+It is possible to *quote* keywords, creating an identifier from a character
+sequence which would otherwise be treated as keyword by the lexer. For example 
+`\iout` creates an identifier called `out`. The intended purpose of quoting is
+interoperation with other languages. For example, it may be necessary to invoke 
+or refine a method named `out` on a class written in Java (where `out` is not a 
+keyword).
 
 ### Annotations
 
