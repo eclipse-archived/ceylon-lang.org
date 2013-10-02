@@ -172,4 +172,6 @@ for `PossiblyEmpty<T>` and `NonEmpty<T>`, the type abbreviations `{T*}` and
 
 * [`class` declaration](../../type/class)
 * [`interface` declaration](../../type/interface)
-* [`function` declaration](../function/) 
+* [`function` declaration](../function/)
+* [Generic type parameters](#{site.urls.spec_current}#generictypeparameters) 
+  in the Ceylon language spec
