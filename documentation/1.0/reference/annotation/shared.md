@@ -10,7 +10,8 @@ doc_root: ../../..
 # #{page.title}
 
 The `shared` annotation marks a declaration as being visible outside 
-the scope in which it is defined.
+the scope in which it is defined, or a package as being visible 
+outside the module to which it belongs.
 
 It is also applied to module imports which are visible in the API of 
 the module, and therefore must be exported to clients of the module.
@@ -22,6 +23,11 @@ On a declaration:
 <!-- try: -->
     shared void method() {
     }
+
+On a package:
+
+<!-- try: -->
+    shared package org.example.bar;
 
 On a module import:
 
