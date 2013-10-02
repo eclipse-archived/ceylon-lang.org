@@ -9,8 +9,17 @@ doc_root: ../../..
 
 # #{page.title}
 
-A class is a stateful type that can be 
-[instantiated](../../expression/class-instantiation).
+A class is a stateful type that:
+
+- may hold references to other objects,
+- may define initialization logic and initialization parameters, and
+- except in the case of an `abstract` class, may be 
+  [instantiated](../../expression/class-instantiation).
+
+A class may inherit another class, but classes are restricted to a
+_single inheritance_ model. That is, a class inherits exactly _one_
+other class. Since single inheritance is quite often too restrictive,
+a class may also satisfy an arbitrary number of [interfaces](../interface).
 
 ## Usage 
 
@@ -34,8 +43,10 @@ name of the class in the `class` declaration.
 
 ### Extending classes
 
-A class `S` is declared as a subclass of another class `C` using the `extends` 
-keyword like this:
+The `extends` clause specifies the superclass of a class, and arguments 
+of the initializer parameters of the superclass. The arguments to the 
+superclass [initializer](#initializer) are specified in parentheses after 
+the name of the superclass:
 
 <!-- cat-id:c -->
 <!-- try: -->
@@ -43,18 +54,13 @@ keyword like this:
         /* declarations of class members */
     }
 
-If a class is declared without using the `extends` keywords it is a subclass of
-[`Basic`](#{site.urls.apidoc_current}/Basic.type.html).
-
-Note that the arguments to the superclasses [initializer](#initializer) are 
-specified in parenthesis after the name of the superclass in the `extends` 
-clause. 
+If a class is declared without using the `extends` keywords, it is a 
+subclass of [`Basic`](#{site.urls.apidoc_current}/Basic.type.html).
 
 ### Satisfying interfaces
 
-A class can satisfy zero or more [interfaces](../interface) using the 
-`satisfies` keyword. If the class `C` is to satisfy interfaces `I1` and `I2` the 
-declaration looks like this:
+The `satisfies` keyword specifies the [interfaces](../interface) 
+inherited by a class:
 
 <!-- cat: interface I1 {} interface I2 {} -->
 <!-- try: -->
@@ -62,16 +68,20 @@ declaration looks like this:
         /* declarations of class members */
     }
 
-`&` is used as the separator between satisfied interfaces because `C` is 
-satisfying a type, the 
+If a class is declared without using the `satisfies` keyword, it does
+not _directly_ inherit any interfaces. However, it may indirectly 
+inherit interfaces via its superclass.
+
+`&` is used as the separator between satisfied interfaces because `C` 
+is being defined as a subtype of the 
 [intersection type](../type#intersection_types) `I1&I2`.
 
 ### Enumerated classes
 
-The subclasses of an `abstract` class can be constrained to a list of named 
-classes or toplevel anonymous classes using the `of` clause. 
-If the class `C` is permitted only two direct 
-subclasses `S1` and `S2` its declaration would look like this:
+The subclasses of an `abstract` class can be constrained to a list of 
+named classes or toplevel anonymous classes using the `of` clause. 
+If the class `C` is permitted only two direct subclasses, `S1` and `S2`, 
+its declaration would look like this:
 
 <!-- try: -->
     abstract class C() of S1 | S2 {
@@ -82,8 +92,8 @@ subclasses `S1` and `S2` its declaration would look like this:
 
 ### Type parameters
 
-A class declaration lists [type parameters](../type-parameters) with angle brackets (`<` and `>`) 
-after the class name. 
+A _generic_ class declaration lists [type parameters](../type-parameters) 
+with angle brackets (`<` and `>`) after the class name. 
 
 <!-- try: -->
     class C<Z>() {
@@ -91,34 +101,29 @@ after the class name.
            type parameter Z treated as a type */
     }
 
-A class declaration with type parameters may have a `given` clause for each declared type parameter 
-to [constraint the permitted type argument](../type-parameters#constraints).
+A class declaration with type parameters may have a `given` clause 
+for each declared type parameter to 
+[constrain the argument types](../type-parameters#constraints).
 
 ### Parameter list
 
-A class declaration requires a [parameter list](../parameter-list)
+Every class declaration has a [parameter list](../parameter-list).
 
 ### Callable type
 
-The *callable type* of a class expresses, in terms of the 
-[`Callable`](#{site.urls.apidoc_current}/Anything.type.html) 
-interface, the classes type and parameter types.
+A class may be viewed as a function that produces new instances of
+the class. The *callable type* of a class expresses, in terms of 
+the interface [`Callable`](#{site.urls.apidoc_current}/Callable.type.html), 
+the type of this function.
+
 For example the callable type of 
 
 <!-- try: -->
-    class StringExample(Integer i, Boolean b) => "";
+    class Example(Integer int, Boolean bool) => "";
     
-is `Callable<StringExample, [Integer, Boolean]>`
+is `Example(Integer, Boolean)`.
 
-Notice how a [`Tuple`](#{site.urls.apidoc_current}/Tuple.type.html) 
-type is used at the type of the parameter list. The 
-way `Tuple` types can be subtypes of other `Tuple` types
-(for example `[String]` is a subtype of `[String*]`) 
-affects how one callable type can be a subtype of another 
-callable type.
-
-Functions also have a [callable type](../function/#callable_type), 
-which can be the same as a classes callable type.
+(Regular functions also have a [callable type](../function/#callable_type).)
 
 ### Concrete classes
 
@@ -127,68 +132,75 @@ A class that can be [instantiated](../../expression/class-instantiation) is
 
 ### Abstract classes
 
-A class declaration may be annotated [`abstract`](#{site.urls.apidoc_current}/index.html#abstract), like this:
+An _abstract class_ is a class that may not be instantiated. Abstract classes
+may declare [`formal`](../../annotation/formal) members. An abstract class 
+declaration must be annotated [`abstract`](../../annotation/abstract):
 
 <!-- try: -->
     abstract class C() {
         /* declarations of class members */
     }
 
-Abstract classes cannot be [instantiated](../../expression/class-instantiation).
+Naturally, abstract classes compete with interfaces, since both an abstract 
+class and an interface may contain a mix of concrete and formal members. The
+crucial difference is:
 
-Abstract classes may have `formal` members. 
+- an abstract class may contain or inherit state and initialization logic, 
+  whereas
+- interfaces support a full multiple inheritance model.
+
+Nevertheless, it is often unclear whether a certain situation calls for an
+interface or an abstract class. Our advice is to incline in favor of using
+an interface, where reasonable.
 
 ### Shared classes
 
-A class declaration may be annotated [`shared`](#{site.urls.apidoc_current}/index.html#shared),like this:
+A toplevel class declaration, or a class declaration nested inside the body 
+of a containing class or interface, may be annotated 
+[`shared`](../../annotation/shared):
 
 <!-- try: -->
     shared class C() {
         /* declarations of class members */
     }
 
-A top-level `shared` class is visible wherever the package that contains it is 
-visible.
-
-A member `shared` class is visible wherever the class or interface that 
-contains it is visible.
+- A toplevel `shared` class is visible wherever the package that contains it 
+  is visible.
+- A `shared` class nested inside a class or interface is visible wherever the 
+  containing class or interface is visible.
 
 ### Formal classes
 
-Toplevel classes may not be annotated [`formal`](#{site.urls.apidoc_current}/index.html#formal).
+A class declaration nested inside the body of a containing class or interface
+may be annotated [`formal`](../../annotation/formal). A formal class must 
+also be annotated `shared`.
 
-Formal classes cannot be [instantiated](../../expression/class-instantiation).
+Like abstract classes, formal classes may have formal members. Unlike abstract
+classes, formal classes may be [instantiated](../../expression/class-instantiation).
 
-A `formal` class may have `formal` members.
-
-A block local class may not be annotated `formal`.
-
-A `formal` inner class may be subject to 
-[member class refinement](#member_class_refinement). 
+A `formal` class must be [refined](#member_class_refinement) by concrete 
+subclasses of the containing class or interface. 
 
 ### Default classes
 
-A class may be annotated [`default`](#{site.urls.apidoc_current}/index.html#default)
-if it is contained in a concrete `shared` 
-class or interface. 
+A class declaration nested inside the body of a containing class or interface
+may be annotated [`default`](../../annotation/default). A default class must 
+also be annotated `shared`.
 
-A block local class may not be annotated `formal`.
-
-A `default` inner class may be subject to 
-[member class refinement](#member_class_refinement). 
+A `formal` class may be [refined](#member_class_refinement) by types which
+inherit the containing class or interface. 
 
 ### Members
 
 The permitted members of classes are [classes](../class), 
 [interfaces](../interface), 
 [methods](../function), 
-[attributes](../value)
+[attributes](../value),
 and [`object`s](../object).
 
 ### Aliases
 
 A *class alias* is a kind of [alias](../alias#class_aliases).
-
 
 ### Member class refinement
 
@@ -225,33 +237,35 @@ other object-oriented languages, but it's a lot less verbose.
 
 Only `formal` and `default` member classes are subject to member class 
 refinement. A `formal` member class *must* be refined by concrete subtypes 
-of the type declaring the member class&mdash;just like a `formal` method or 
-attribute. A `default` member class *may* be refined&mdash;just like
+of the type declaring the member class&mdash;just like a `formal` method 
+or attribute. A `default` member class *may* be refined&mdash;just like
 a `default` method or attribute.
 
-In a subtype of the type declaring the member class the member class 
+In a subtype of the type declaring the member class, the member class 
 (i.e. in `FileReader.Buffer` from the example above) must:
 
 * be declared `actual`,
-* have the same name as the member class in the declaring type (`Buffer` in 
-  the example),
+* have the same name as the member class in the declaring type (`Buffer` 
+  in the example),
 * have a parameter list with a compatible signature and,
 * extend the member class (you'll need to use 
   [`super`](../../expression/index.html#supertype_reference)
   in the `extends` clause).
 
-Refined member types are similar to, but not the same as virtual types, which 
-Ceylon does not support.
+Refined member types are similar to, but not the same as, _virtual types_, 
+which Ceylon does not support.
 
 ### Metamodel
 
 Class declarations can be manipulated at runtime via their representation as
 [`ClassDeclaration`](#{site.urls.apidoc_current}/meta/declaration/ClassDeclaration.type.html) 
-instances. An *applied class* (i.e. with all type parameters specified) corresponds to 
-either a 
+instances. An *applied class* (i.e. with all type parameters specified) 
+corresponds to either a 
 [`Class`](#{site.urls.apidoc_current}/meta/model/Class.type.html) or 
-[`MemberClass`](#{site.urls.apidoc_current}/meta/model/MemberClass.type.html) model instance.
+[`MemberClass`](#{site.urls.apidoc_current}/meta/model/MemberClass.type.html) 
+model instance.
 
 ## See also
 
-* [Member class refinement](#{site.urls.spec_current}#refiningmemberclasses) in the Ceylon spec
+* [Member class refinement](#{site.urls.spec_current}#classrefinement) in 
+  the Ceylon language spec
