@@ -8,51 +8,56 @@ author: Tom Bentley
 
 # #{page.title}
 
-An anonymous function is a function with no name that's defined within an expression.
+An anonymous function is a function with no name, defined within 
+an expression.
 
 ## Usage
 
 <!-- try: -->
-    // Specify a Callable value using an anonymous function
-    value doubler = function (Float x) => 2*x;
+    // verbose
+    function (Float x) => 2*x
+    
+    // less verbose
+    (Float x) => 2*x 
 
+    // void
+    void (String name) => print("hello " + name)
+    
+    // with a block
+    (String name) {
+        String greeting = "hello " + name;
+        print(greeting);
+        return greeting;
+    }
+    
 
 ## Description
 
 ### Type
 
-The type of an anonymous function is simply the callable type of the 
+The type of an anonymous function is simply the 
+[callable type](../../structure/function/#callable_type) of the
 function.
 
 ### Function and void keywords
 
-The above [example](#usage) shows an anonymous function declared using 
-the `function` keyword (you can use `void` instead of `function` if 
-the anonymous function doesn't return anything). 
+The keyword `function` is optional for an anonymous function that
+returns a value. The keyword `void` is required for an anonymous
+function that doesn't return a value, for example, if it calls a 
+`void` method or function, or performs an assignment.
 
-However, the `function` or `void` keyword is optional in this context. 
-You don't have to use `=>` either, you can also use a 
-[block](../../statement/block/). 
-So you could also write:
+### Higher-order anonymous functions
 
-<!-- try: -->
-    value tripler = (Float x) {
-        return 3*x;
-    };
-
-### Higher-order functions
-
-Anonymous functions can, be higher order too. Here's one using 
+Anonymous functions can, be higher order too. Here's one with 
 [multiple parameter lists](../../structure/parameter-list/#multiple_parameter_lists):
 
 <!-- try: -->
-    value multiplier = (Float x)(Float y) 
-        => x*y;
+    value multiplier = (Float x)(Float y) => x*y;
 
 ### Advice
 
-Try to avoid using anonymous functions as function results. 
-The preferred form is to use a function with multiple parameter lists:
+Try to avoid using anonymous functions as function results. The 
+preferred form is to use a function with multiple parameter lists:
 
 <!-- try: -->
     // A function f which returns an anonymous function
@@ -62,7 +67,18 @@ The preferred form is to use a function with multiple parameter lists:
     // A function f with multiple parameters
     // (preferred)
     Float f(Float x)(Float y) => x*y;
-    
+
+Anonymous functions with blocks are rare. If your anonymous 
+function doesn't fit in a single expression, consider refactoring:
+
+- turn the anonymous function into an ordinary named function,
+- use Extract Function to pull some of the functionality out
+  of the anonymous function, or
+- use a named argument list instead.
 
 ## See also
+
+* [Functions and methods](../../structure/function)
+* [Anonymous functions](#{site.urls.spec_current}#anonymousfunctions) 
+  in the Ceylon language specification
 

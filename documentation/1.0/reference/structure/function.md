@@ -185,3 +185,5 @@ either a
 * [`class` declaration](../class)
 * [`interface` declaration](../interface)
 * [`object` declaration](../object)
+* [Functions](#{site.urls.spec_current}#classes) in the Ceylon language spec
+

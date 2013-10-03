@@ -161,3 +161,5 @@ either a
 * [`class` declaration](../class)
 * [`interface` declaration](../interface)
 * [`object` declaration](../object)
+* [Values](#{site.urls.spec_current}#values) in the Ceylon language spec
+
