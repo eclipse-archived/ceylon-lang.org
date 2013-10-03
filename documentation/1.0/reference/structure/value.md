@@ -63,6 +63,8 @@ class body represents state associated with an instance of the class. A local
 reference (that is, a reference declared within a block) represents state 
 associated with execution of that block.
 
+### `variable` values
+
 If a reference is annotated [`variable`](#{site.urls.apidoc_current}/index.html#variable), 
 it can be [assigned](#{page.doc_root}/reference/operator/assign) more than once.
 Otherwise it must be [specified](../../statement/specification) exactly once. 
@@ -119,6 +121,30 @@ keyword.
 A value can be declared [`late`](../../annotation/late/) in which case the 
 typechecker's [definite specification](../../annotation/late/#description) 
 checks are not performed. 
+
+### `formal` and `default` attributes
+
+An attribute declaration may be annotated [`formal`](../../annotation/formal)
+or [`default`](../../annotation/default). A formal or default attribute must 
+also be annotated `shared`.
+
+A formal attribute does not specify an implementation. A formal attribute 
+must be refined by concrete classes which inherit the containing class or 
+interface. 
+
+A `default` attribute may be refined by types which inherit the containing 
+class or interface. 
+
+### `shared` values
+
+A toplevel value declaration, or a value declaration nested inside the 
+body of a containing class or interface, may be annotated 
+[`shared`](../../annotation/shared).
+
+- A toplevel `shared` value is visible wherever the package that contains it 
+  is visible.
+- A `shared` value nested inside a class or interface is visible wherever the 
+  containing class or interface is visible.
 
 ### Metamodel
 

@@ -105,7 +105,7 @@ what exceptions a method can [throw](../../statement/throw).
 The [`throws` annotation](../../annotation/throws) may be used to *document* 
 thrown exceptions.
 
-### Formal and default methods
+### `formal` and `default` methods
 
 A method declaration may be annotated [`formal`](../../annotation/formal)
 or [`default`](../../annotation/default). A formal or default method must 
@@ -118,16 +118,16 @@ interface.
 A `default` method may be refined by types which inherit the containing 
 class or interface. 
 
-### Shared methods
+### `shared` functions
 
 A toplevel function declaration, or a function declaration nested inside the 
 body of a containing class or interface, may be annotated 
 [`shared`](../../annotation/shared).
 
-- A toplevel `shared` class is visible wherever the package that contains it 
-  is visible.
-- A `shared` class nested inside a class or interface is visible wherever the 
-  containing class or interface is visible.
+- A toplevel `shared` function is visible wherever the package that contains 
+  it is visible.
+- A `shared` function nested inside a class or interface is visible wherever 
+  the containing class or interface is visible.
 
 ### Function blocks
 

@@ -163,7 +163,7 @@ Nevertheless, it is often unclear whether a certain situation calls for an
 interface or an abstract class. Our advice is to incline in favor of using
 an interface, where reasonable.
 
-### Shared classes
+### `shared` classes
 
 A toplevel class declaration, or a class declaration nested inside the body 
 of a containing class or interface, may be annotated 
@@ -179,7 +179,7 @@ of a containing class or interface, may be annotated
 - A `shared` class nested inside a class or interface is visible wherever the 
   containing class or interface is visible.
 
-### Formal classes
+### `formal` classes
 
 A class declaration nested inside the body of a containing class or interface
 may be annotated [`formal`](../../annotation/formal). A formal class must 
@@ -191,7 +191,7 @@ classes, formal classes may be [instantiated](../../expression/class-instantiati
 A `formal` class must be [refined](#member_class_refinement) by concrete 
 subclasses of the containing class or interface. 
 
-### Default classes
+### `default` classes
 
 A class declaration nested inside the body of a containing class or interface
 may be annotated [`default`](../../annotation/default). A default class must 
@@ -235,7 +235,7 @@ inner class.
         }
         // ...
     }
-    
+
 Within `Reader` (and elsewhere) we can instantiate the relevant kind of 
 `Buffer` with a normal instantiation, `Buffer(chars)`. This allows each 
 subclass of `Reader` to implement an appropriate kind of `Buffer`.

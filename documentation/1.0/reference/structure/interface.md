@@ -81,7 +81,7 @@ An interface declaration with type parameters may have a `given`
 clause for each declared type parameter to 
 [constrain the argument types](../type-parameters#constraints).
 
-### Shared interfaces
+### `shared` interfaces
 
 A toplevel interface declaration, or an interface declaration nested 
 inside the body of a containing class or interface, may be annotated 
