@@ -13,55 +13,55 @@ or the implementation of a getter or function.
 
 ## Usage 
 
-The general form of the specification statement is
-
-<!-- check:none -->
-<!-- try: -->
-    T t = ... /* some expression of type T */
-
-Where is it permitted, the declaration of the value may be 
-separate from its specification:
+A specification statement for a reference uses the assignment symbol, 
+`=`:
 
 <!-- check:none -->
 <!-- try: -->
     T t;
     t = ... /* some expression of type T */
 
-## Description
-
-There is an ambiguity between the assignment operator (the `=` *operator*) 
-and the specification statement (the `=` *statement*). The spec says that, 
-where it is possible, the ambiguity is resolved in favour of the 
-specification statement.
-
-### Definite specification
-
-The Ceylon typechecker ensures that values are *definitely specified* 
-(e.g. that they are specified before they are used, and that they are 
-not respecified). 
-
-These checks can be disabled using the [`late`](../../annotation/late/)
-annotation.
-
-### Execution
-
-After the specification statement and for the rest of the scope of the reference it 
-will have the specified value.
-
-### Not an operator
-
-Because specification is a 
-statement and not an operator it cannot be used within expressions:
+A specification statement for a getter of function uses the fat arrow 
+symbol, `=>`:
 
 <!-- check:none -->
 <!-- try: -->
-    Boolean isEmpty;
-    if (isEmpty = sequence.size == 0) { // compilation error
-        // ...
-    }
+    T f(Float float);
+    f(Float float) = ... /* some expression of type T */
+
+The same syntax may be used within a value or function declaration, but
+in this case it is not, strictly speaking, a specifiction statement:
+
+<!-- check:none -->
+<!-- try: -->
+    T t = ... /* some expression of type T */
+
+<!-- check:none -->
+<!-- try: -->
+    T f(Float float) => ... /* some expression of type T */
+
+## Description
+
+There is, in principle, an ambiguity between the assignment operator 
+(the `=` *operator*) and the specification statement (the `=` *statement*). 
+The specification says that the ambiguity is always resolved in favour of
+interpreting the statement as a specification statement. In practice, the
+only real semantic difference between these constructs is how they affect
+definite specifiction analysis.
+
+### Definite specification
+
+The Ceylon typechecker ensures that references are *definitely specified*
+before they are used. Unlike in Java, references are never automatically
+initialized to zero or the null value.
+
+These checks can be disabled using the [`late`](../../annotation/late/)
+annotation.
 
 ## See also
 
 * The [`=` (assignment) *operator*](../../operator/assign/), used for 
   assigning a value to `variable` locals or attributes.
-
+* [Specification statements](#{site.urls.spec_current}#specificationstatements) 
+  in the Ceylon language specification
+  

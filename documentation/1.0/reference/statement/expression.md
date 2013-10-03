@@ -39,3 +39,6 @@ On execution, the expression's value is discarded.
 ## See also
 
 * The reference on [expressions](../../expression/)
+* [Expression statements](#{site.urls.spec_current}#expressionstatements) 
+  in the Ceylon language specification
+
