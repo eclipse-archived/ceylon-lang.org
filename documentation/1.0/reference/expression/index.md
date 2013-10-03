@@ -64,6 +64,7 @@ Expressions are built using the following constructs.
 
 <!-- try: -->
     super
+    
     // or sometimes
     super of Foo
     
@@ -78,23 +79,28 @@ Expressions are built using the following constructs.
 [Positional invocations](invocation):
 
 <!-- try: -->
-    print("Hello");
+    print("Hello")
+    
     "hello world".initial(5)
+    
     Entry("one", 1)
     
 [Named argument invocations](invocation):
 
 <!-- try: -->
-    print{
+    print {
         val = "Hello";
-    };
-    "hello, world".initial{
+    }
+    
+    "hello, world".initial {
         length = 2;
-    };
-    Entry{
+    }
+    
+    Entry {
         item = 1;
         key = "one";
-    };
+    }
+    
     
 ### Iterable and tuple enumeration
 
@@ -112,25 +118,31 @@ Expressions are built using the following constructs.
 
 <!-- try: -->
     x = 1
+    
     2 + 2
+    
     "hello world"[6..11]
+    
     0<=x<10
+    
     names.empty || !enabled
 
 [Further information.](../#operators)
 
 ### References
 
-These are [callable references](callable-reference) references
+These are [callable references](callable-reference)
 
 <!-- try: -->
     print
+    
     String
     
 These are [static references](static-reference)
     
 <!-- try: -->
     String.size
+    
     String.initial
 
 ### Model references
@@ -139,9 +151,13 @@ These are [model references](meta-reference):
 
 <!-- try: -->
     `String`
+    
     `Sequential<String>`
+    
     `max<Integer, Null>`
+    
     `true`
+    
     `List<Integer>.size`
 
 ### Declaration references
@@ -150,13 +166,18 @@ These are [declaration references](meta-reference):
 
 <!-- try: -->
     `class String`
+    
     `interface Sequential`
+    
     `function sum`
+    
     `value true`
+    
     `value List.size`
+    
     `package ceylon.language`
+    
     `module ceylon.language`
-
 
 
 ## Description
@@ -165,3 +186,5 @@ The Ceylon compiler checks expressions for type safey at compile time.
 
 ## See also
 
+* [Expressions](#{site.urls.spec_current}#expressions) in the Ceylon 
+  language specification
