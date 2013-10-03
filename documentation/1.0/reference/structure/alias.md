@@ -46,8 +46,8 @@ affecting where the alias can appear:
 
 - an interface alias may appear anywhere an interface type may appear,
 - a class alias may appear anywhere a class type may appear, and
-- a generic type alias may only appear where an arbitrary type expression
-  may appear.
+- a type alias declared using the keyword `alias` may only appear where 
+  an arbitrary type expression may appear.
 
 ### Metamodel
 
