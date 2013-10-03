@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: aliases
+title: Type aliases
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
@@ -8,13 +8,20 @@ author: Tom Bentley
 
 # #{page.title}
 
+A type alias assigns a name to a type expression. 
+
 ## Usage 
 
 A type alias:
 
 <!-- try: -->
     alias BasicType = String|Character|Integer|Float|Boolean;
-    
+
+A generic type alias:
+
+<!-- try: -->
+    alias ListOrMap<Element> => List<Element>|Map<Integer,Element>;
+
 An `interface` alias:
 
 <!-- try: -->
@@ -27,30 +34,20 @@ A `class` alias:
 
 ## Description
 
-Aliases provide a way giving another name to a type or declaration. The different kinds of alias have different semantics.
+Type aliases allow us to avoid having to repeat long or complex type 
+expressions. 
 
-### Type alises
+Type aliases are not type declarations as such, and are not reified at 
+runtime. Instead, a type alias is replaced (recursively) by its definition 
+as part of the compilation process. 
 
-A type alias is simply another name for a given type. 
-Type alias are usually used to avoid having to repeat long or complex type expressions. 
-They are not declarations, as such, and are not reified, so you cannot import a type alises from another module, for example. 
-Instead the aliases are simply resolved recursively at compile time. 
+The different kinds of alias declaration have slightly different semantics, 
+affecting where the alias can appear:
 
-### Interface aliases
-
-Unlike [type aliases](#type_alias), `interface` interfaces *are* declarations and are reified, 
-so they can be imported from other modules, and exist in the metamodel.
-
-You cannot use `interface` alias for a `class`: It must be aliasing an `interface`. 
-
-### Class aliases
-
-Class aliases are similar to [interface aliases](#interface_aliases), can but also be used in [instantiation](../../expression/instantiation) expressions. 
-
-Unlike [type aliases](#type_alias), `class` interfaces *are* declarations and are reified, 
-so they can be imported from other modules, and exist in the metamodel.
-
-You cannot use `class` alias for a `interface`: It must be aliasing a `class`.
+- an interface alias may appear anywhere an interface type may appear,
+- a class alias may appear anywhere a class type may appear, and
+- a generic type alias may only appear where an arbitrary type expression
+  may appear.
 
 ### Metamodel
 

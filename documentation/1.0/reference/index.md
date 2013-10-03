@@ -27,7 +27,7 @@ _Some of these pages are incomplete. Want to help? [See how](/code/website)._
   <li><a href="structure/interface/">Interfaces</a></li>
   <li><a href="structure/parameter-list/">Parameters</a></li>
   <li><a href="structure/type-parameters/">Type parameters</a></li>
-  <li><a href="structure/alias/">Aliases</a></li>
+  <li><a href="structure/alias/">Type aliases</a></li>
   <li><a href="structure/value/">Values</a></li>
   <li><a href="structure/function/">Functions</a></li>
   <li><a href="structure/object/"><code>object</code>s</a></li>
