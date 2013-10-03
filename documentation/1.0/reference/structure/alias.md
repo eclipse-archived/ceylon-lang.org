@@ -56,7 +56,7 @@ Type aliases can be manipulated at runtime via their representation as
 instances. There is no corresponding model interface.
 
 Class and interface aliases are treated as normal classes and interfaces,
-there for their declarations are
+therefore their declarations are
 [`ClassDeclaration`](#{site.urls.apidoc_current}/meta/declaration/ClassDeclaration.type.html)
 and
 [`InterfaceDeclaration`](#{site.urls.apidoc_current}/meta/declaration/InterfaceDeclaration.type.html).
