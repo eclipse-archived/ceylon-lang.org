@@ -21,6 +21,9 @@ not strictly required by the module.
 
 ## Description
 
+An `optional` dependency will be loaded by the module runtime if it
+is available, but no error will occur if it is not available.
+
 ## See also
 
 * [`optional`](#{site.urls.apidoc_current}/index.html#optional)

@@ -9,8 +9,8 @@ doc_root: ../../..
 
 # #{page.title}
 
-The `native` annotation marks a declaration that is not implemented in the Ceylon
-programming language.
+The `native` annotation marks a declaration that is not implemented 
+in the Ceylon programming language.
 
 ## Usage
 
@@ -21,8 +21,10 @@ programming language.
 ## Description
 
 Currently Ceylon does not offer a well defined "native interface", 
-and therefore this annotation is intended to be used only by 
-the language module and dedicated interoperability modules.
+and therefore this annotation is intended to be used only by the 
+language module and dedicated interoperability modules. In a future
+version of the language, this annotation will be available for
+general use.
 
 ## See also
 
