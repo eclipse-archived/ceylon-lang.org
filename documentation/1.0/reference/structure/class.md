@@ -41,6 +41,16 @@ The class *initializer* executes when instances of the class are created
 The parameters to the initializer are specified in parenthesis after the 
 name of the class in the `class` declaration.
 
+The body of a class must *definitely initialize* every member of the class. 
+The following code will be rejected by the compiler:
+
+    class C(Boolean bool) {
+        shared String greeting;
+        if (bool) {
+            greeting = "hello";
+        }
+    }
+
 ### Extending classes
 
 The `extends` clause specifies the superclass of a class, and arguments 
@@ -187,7 +197,7 @@ A class declaration nested inside the body of a containing class or interface
 may be annotated [`default`](../../annotation/default). A default class must 
 also be annotated `shared`.
 
-A `formal` class may be [refined](#member_class_refinement) by types which
+A `default` class may be [refined](#member_class_refinement) by types which
 inherit the containing class or interface. 
 
 ### Members

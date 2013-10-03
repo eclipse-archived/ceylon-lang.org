@@ -8,12 +8,13 @@ author: Tom Bentley
 
 # #{page.title}
 
-A function is a callable block of code. When it is a member of a 
-type is it called a method.
+A _function_ accepts _arguments_ and returns a value.
+
+When a function is a member of a type is it called a _method_.
 
 ## Usage 
 
-A trivial function declaration using a [*block*](#function_blocks) (or *body*) 
+A trivial function declaration using a [block](#function_blocks) 
 looks like this:
 
 <!-- try: -->
@@ -21,8 +22,8 @@ looks like this:
         /* method block: statements */
     }
     
-Alternatively it is possible to declare a function using 
-[*fat arrow* (`=>`)](#function_specifiers), like this:
+Alternatively it's possible to declare a function using 
+[fat arrow](#function_specifiers), `=>`, like this:
 
 <!-- cat: void anotherMethod(){} -->
 <!-- try: -->
@@ -30,69 +31,47 @@ Alternatively it is possible to declare a function using
 
 ## Description
 
-### Methods
-
-A *method* is a function which is a *member* of a type. 
-The term *function* can be used to mean all functions (including methods), or
-just top-level and local functions (excluding methods). If it is not obvious 
-from context we try to be explicit.
-
 ### Method receiver
 
-Methods have a 
-'receiver', which is the type instance the method is called on. Within the method
-[*block*](#method_blocks) [this](../../expression/self-reference) refers to 
-the receiving instance.
+Method invocations have a 'receiver', an instance of the type that declares 
+the method. Within the method [body](#method_blocks), the expression 
+[`this`](../../expression/self-reference) refers to this receiving instance.
 
-[Top level](../type#top_level_declarations) and 
-[local](../type#local_declarations) functions
-do not have a *reciever*.
+A [top level](../type#top_level_declarations) function does not have a 
+receiver. 
 
 ### Return type
 
-A function declaration always specifies the *return type* of the function, or the 
-keyword `void` if the function has no return value.
+A function declaration always specifies the *return type* of the function, 
+or the keyword `void` if the function has no specific return value.
 
-The type system considers a `void` function identically to a function declared to 
-return [`Anything`](#{site.urls.apidoc_current}/Anything.type.html). 
-In particular a `void` method can actually 
-be refined by a subtype to return a more specific type. The value actually 
-returned from an unrefined `void` function is always `null`.
-
-Function declarations often don't need to explictly declare a type, but can instead use 
-[type inference](../type-inference) via the `function` keyword.
+The type system considers a `void` function identical to a function declared 
+to return [`Anything`](#{site.urls.apidoc_current}/Anything.type.html). 
+In particular, a `void` method may be refined by a subtype to return a more 
+specific type. The value actually returned from an unrefined `void` function 
+is always `null`.
 
 ### Callable type
 
 The *callable type* of a function expresses, in terms of the 
-[`Callable`](#{site.urls.apidoc_current}/Anything.type.html) 
-interface, the function's return type and parameter types.
-For example the callable type of 
+[`Callable`](#{site.urls.apidoc_current}/Anything.type.html) interface, the 
+function's return type and parameter types. For example, the callable type 
+of:
 
 <!-- try: -->
     String stringExample(Integer i, Boolean b) => "";
     
-is `Callable<String, [Integer, Boolean]>` and the callable type of:
+is `String(Integer, Boolean)`, and the callable type of:
 
 <!-- try: -->
     void voidExample() {}
     
-is `Callable<Anything, []>`.
-
-Notice how a [`Tuple`](#{site.urls.apidoc_current}/Tuple.type.html) 
-type is used at the type of the parameter list. The 
-way `Tuple` types can be subtypes of other `Tuple` types
-(for example `[String]` is a subtype of `[String*]`) 
-affects how one callable type can be a subtype of another 
-callable type.
-
-Class also have a [callable type](../class/#callable_type), 
-which can be the same as a functions callable type.
+is `Anything()`.
 
 ### Type parameters
 
-A function declaration lists [type parameters](../type-parameters) with angle brackets (`<` and `>`) 
-after the function name.
+A _generic_ function declaration lists [type parameters](../type-parameters) 
+in angle brackets (`<` and `>`) after the function name.
 
 <!-- try: -->
     void f<Z>(){
@@ -109,46 +88,66 @@ Of course, methods may be members of types which themselves have
         }
     }
 
-### Generic constraints
-
-A method declaration may have a `given` clause for each declared type parameter 
-to [constraint the permitted type argument](../type-parameters#constraints).
+A function declaration with type parameters may have a `given` clause 
+for each declared type parameter to 
+[constrain the argument types](../type-parameters#constraints).
 
 ### Parameter list
 
-A method declaration requires a [parameter list](../parameter-list)
-
+A function declaration must have one or more 
+[parameter lists](../parameter-list).
 
 ### Exceptions
 
-Celyon doesn't have 'checked' exceptions, so it is not necessary to declare 
+Ceylon doesn't have _checked exceptions_, so it's never necessary to declare 
 what exceptions a method can [throw](../../statement/throw).
 
-The `throws` annotation may be used to *document* thrown exceptions.
-
-### Abstract methods
-
-TODO
-
-### Shared methods
-
-TODO
+The [`throws` annotation](../../annotation/throws) may be used to *document* 
+thrown exceptions.
 
 ### Formal and default methods
 
-TODO
+A method declaration may be annotated [`formal`](../../annotation/formal)
+or [`default`](../../annotation/default). A formal or default method must 
+also be annotated `shared`.
+
+A formal method does not specify an implementation. A formal method must
+be refined by concrete classes which inherit the containing class or 
+interface. 
+
+A `default` method may be refined by types which inherit the containing 
+class or interface. 
+
+### Shared methods
+
+A toplevel function declaration, or a function declaration nested inside the 
+body of a containing class or interface, may be annotated 
+[`shared`](../../annotation/shared).
+
+- A toplevel `shared` class is visible wherever the package that contains it 
+  is visible.
+- A `shared` class nested inside a class or interface is visible wherever the 
+  containing class or interface is visible.
 
 ### Function blocks
 
-The body of a function is composed of [statements](../../#statement) in a 
+The body of a function may be composed of [statements](../../#statement) in a 
 brace-delimited *block*.
 
-The body of a non-`void` function must *definitely return*.
+The body of a non-`void` function must *definitely return* a value. The 
+following code will be rejected by the compiler:
+
+    String fun(Boolean bool) {
+        if (bool) {
+            return "hello";
+        }
+    }
 
 ### Function specifiers
 
-An alternative to providing a method block is to use *fat arrow* (`=>`) syntax 
-and provide a single expression:
+A block with a return statement is unnecessarily verbose for a function that
+just evaluates an expression. In this case, we prefer to use the *fat arrow* 
+(`=>`) syntax:
 
 <!-- cat: void anotherFunction(){} -->
 <!-- try: -->
@@ -161,18 +160,14 @@ Note that you can use this to *partially apply* a function (or any `Callable`):
 
 ### Type inference
 
-The type of a local method will be inferred by the compiler
-if the keyword `function` is given in place of a type:
+Local function declarations often don't need to explictly declare a type, 
+but can instead use [type inference](../type-inference) via the `function` 
+keyword.
 
 <!-- try: -->
-    void f() {
-        function inferred() => "";
-        // The return type of inferred is String
+    class C() {
+        function f() => 0; //inferred type Integer
     }
-
-### Invocation
-
-See separate page on [method invocation](../../expression/invocation).
 
 ### Metamodel
 
@@ -185,6 +180,7 @@ either a
 
 ## See also
 
+* [Method invocation](../../expression/invocation)
 * [Compilation unit](../compilation-unit)
 * [`class` declaration](../class)
 * [`interface` declaration](../interface)
