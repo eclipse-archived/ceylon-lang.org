@@ -13,24 +13,23 @@ or the implementation of a getter or function.
 
 ## Usage 
 
-A specification statement for a reference uses the assignment symbol, 
-`=`:
+A specification statement for a reference uses the `=` assignment symbol:
 
 <!-- check:none -->
 <!-- try: -->
     T t;
     t = ... /* some expression of type T */
 
-A specification statement for a getter of function uses the fat arrow 
-symbol, `=>`:
+A specification statement for a getter of function uses the `=>` fat 
+arrow symbol:
 
 <!-- check:none -->
 <!-- try: -->
     T f(Float float);
-    f(Float float) = ... /* some expression of type T */
+    f(Float float) => ... /* some expression of type T */
 
 The same syntax may be used within a value or function declaration, but
-in this case it is not, strictly speaking, a specifiction statement:
+in this case it is not, strictly speaking, a specification statement:
 
 <!-- check:none -->
 <!-- try: -->
