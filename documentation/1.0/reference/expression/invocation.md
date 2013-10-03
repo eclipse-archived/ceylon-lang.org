@@ -12,37 +12,37 @@ Invocation is the act of calling something that is [`Callable`](#{site.urls.apid
 
 ## Usage 
 
-Invocation using a *positional argument list*, using parentheses:
+Invocation using a *positional argument list*, in parentheses:
 
 <!-- try: -->
-    method(1, "one");
+    put(1, "one")
     
-Invocation using a *named argument list*, using braces:
+Invocation using a *named argument list*, in braces:
 
 <!-- try: -->
-    method{
+    put {
         integer=1;
         name="one;
-    };
+    }
 
 ## Description
 
 The thing that is being invoked is called the *primary* of the invocation. 
 It is followed by an [argument list](../argument-list/).
 
-The type of an invocation expression is the return type of 
-the [callable type](../../structure/function#callable_type) of the primary, for example the 
-type a function is declared to return 
-or the type of the class being invoked.
+The type of an invocation expression is the return type of the 
+[callable type](../../structure/function#callable_type) of the primary. 
+For example, the return type of a function being invoked, or the type of 
+a class being instantiated.
 
 ### Function and method invocation
 
-Function and method invocation is a *direct* invocation, and therefore supports 
-named argument lists.
+Function and method invocation is *direct* invocation, and therefore 
+supports named argument lists.
 
 ### Class invocation
 
-Invoking a class (*instantiating* it) creates a new instance of that class.
+Invoking a class (*instantiating* it) creates a new instance of the class.
 
 Class invocation is a *direct* invocation, and therefore supports 
 named argument lists.
@@ -88,9 +88,10 @@ invocation is an [indirect invocation](#indirect_invocation).
 
 ### Tuple and Iterable enumeration
 
-Technically [tuple](../tuple) and [iterable](../iterable/) 
+Technically, [tuple](../tuple) and [iterable](../iterable/) 
 enumerations are also invocations. 
 
 ## See also
 
-* [Iterable enumeration](#{site.urls.spec_current}#enumeration) in the spec
+* [Invocation expressions](#{site.urls.spec_current}#invocationexpressions) in 
+  the Ceylon language specification

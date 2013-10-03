@@ -8,77 +8,79 @@ author: Tom Bentley
 
 # #{page.title}
 
-An argument list is not an expression itself, but is used in the 
-formation of a 
-[positional invocation expressions](../invocation/) and 
-[tuple](../tuple/) and 
+An argument list is not an expression itself, but is used in the formation of 
+[positional invocation expressions](../invocation/) and [tuple](../tuple/) and 
 [iterable](../iterable/) enumerations.
 
 ## Usage 
 
-A *positional argument list* is simply a series of expressions, separated by commas, 
-shown here as a positional invocation of an `example` function using 
+A *positional argument list* is simply a series of expressions, separated by 
+commas, shown here as a positional invocation of a `put` function using 
 [listed arguments](#listed_arguments):
 
 <!-- try: -->
-    example(1, "one");
+    put(1, "one")
 
 A *named argument list* is a series of "named arguments" enclosed in braces. 
-This example of an invocation of an `example` function uses 
+This example of an invocation of a `put` function uses 
 [specified arguments](#specified_arguments).
 
 <!-- try: -->
-    method{
+    put {
         integer=1;
-        name="one;
-    };
+        name="one";
+    }
 
 ## Description
 
-The type of a parameter list is the 
-[`Tuple`](#{site.urls.apidoc_current}/Tuple.type.html)
-type of the types of the expressions in the list. 
+The type of a parameter list is a 
+[`Tuple`](#{site.urls.apidoc_current}/Tuple.type.html) type formed from the 
+types of the argument expressions in the list. 
 
 ### Listed arguments
 
-Listed arguments are just vanilla arguments in a positional 
-invocation, as shown in the example in the [Usage](#usage). 
-They are just an expression which is evaluated to give the 
-argument to the corresponding formal parameter.
+Listed arguments are just vanilla arguments in a positional invocation, as 
+shown in the example in [Usage](#usage). They are just an expressions which 
+are evaluated to give the argument to the corresponding formal parameter.
 
 TODO discuss listed arguments with variadic parameters
 
 ### Spread arguments
 
-Spread arguments allow an iterables or tuples elements to be 
-assigned as arguments to one or more (possibly variadic) parameters.
+A spread argument assigns the elements of an iterable object or tuple to 
+one or more (possibly variadic) parameters.
 
-You can spread any 
-[`Iterable`](#{site.urls.apidoc_current}/Iterable.type.html) over a variadic parameter:
+You can spread any [`Iterable`](#{site.urls.apidoc_current}/Iterable.type.html) 
+over a variadic parameter:
 
 <!-- try: -->
     void spreadIterable(String* names) {}
-    {String*} names = {"Tom", "Gavin"};
+    
+    {String*} names = { "Tom", "Gavin" };
+    
     // A spread iterable
     spreadIterable(*names);
 
-You can also spread a
-[`Tuple`](#{site.urls.apidoc_current}/Tuple.type.html) 
-over *more than one* parameter. In other words a 
-single tuple can be used to provide the argument of 
-more than one parameter:
+You can also spread a [`Tuple`](#{site.urls.apidoc_current}/Tuple.type.html) 
+over *more than one* parameter. In other words a single tuple can be used to 
+provide the arguments of more than one parameter:
 
 <!-- try: -->
     void spreadTuple(String name, Integer* numbers) {}
-    [String, Integer] names = ["Tom", 1234];
+    
+    [String, Integer] tup = ["Tom", 1234];
+    
     // A spread tuple
-    spreadTuple(*names);
+    spreadTuple(*tup);
+    
+    // Variations
     spreadTuple(*["Dick"]);
     spreadTuple(*["Harry", 123, 466]);
     spreadTuple(*["Alice"]);
     spreadTuple("Eve", *[123, 466]);
 
-Obviously the tuple type has to match the parameter list types.
+Of course, the tuple type has to match the type of the parameter list, since
+the invocation is checked for typesafety by the compiler.
 
 ### Comprehension arguments
 
