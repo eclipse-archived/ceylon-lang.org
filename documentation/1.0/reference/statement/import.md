@@ -10,7 +10,8 @@ doc_root: ../../..
 # #{page.title}
 
 The `import` statement is used to express a dependency on a type defined 
-in another package.
+in another package. All `import` statements for a compilation unit must
+occur in a list at the top of the file.
 
 **Note:** This page is *not* about module `import` statements occurring 
 in a [module descriptor](../../structure/module#descriptor).
