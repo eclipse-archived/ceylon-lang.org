@@ -11,7 +11,7 @@ author: Tom Bentley
 Meta references are a way to obtain models from 
 [`ceylon.language.meta.model`](#{site.urls.apidoc_current}/meta/model/index.html)
 and declarations from 
-[`ceylon.language.meta.declaration`](#{site.urls.apidoc_current}/meta/declaration/index.html)
+[`ceylon.language.meta.declaration`](#{site.urls.apidoc_current}/meta/declaration/index.html).
 
 ## Usage 
 
@@ -19,25 +19,38 @@ Obtaining models:
 
 <!-- try: -->
     Class<String, [{Character*}]> cls = `String`;
+    
     Interface<{String*}> iface = `Iterable<String, Null>`;
+    
     Function<Integer?, [{Integer*}]> func = `max<Integer, Null>`;
+    
     Method<Integer, Integer, [Integer]> meth = `Integer.plus`;
+    
     Value<Basic> val = `process`;
+    
     Attribute<String, String> attr = `String.string`;
     
     UnionType<String|Integer> union = `String|Integer`;
+    
     Type<Nothing(String)> intersection = `String(String)&Integer(String)`;
 
 Obtaining declarations:
 
 <!-- try: -->
     ClassDeclaration c = `class String`;
+    
     InterfaceDeclaration i = `interface Iterable`;
+    
     FunctionDeclaration f = `function max`;
+    
     FunctionDeclaration iterator = `function Iterable.iterator`;
+    
     ValueDeclaration vm = `value process`;
+    
     ValueDeclaration str = `value String.string`;
+    
     Module m = `module ceylon.language`;
+    
     Package p = `package ceylon.language`;
     
     class TypeParameterExample<Other>() {
@@ -67,6 +80,7 @@ being referred to, as detailed in
 
 ## See also
 
-* [model expressions](#{site.urls.spec_current}#metamodelexpressions) in the spec
-* [declaration expressions](#{site.urls.spec_current}#referenceexpressions) in the spec
+* [Metamodel expressions](#{site.urls.spec_current}#metamodelexpressions) and
+  [Reference expressions](#{site.urls.spec_current}#referenceexpressions) in 
+  the Ceylon language specification
 

@@ -65,13 +65,13 @@ _Some of these pages are incomplete. Want to help? [See how](/code/website)._
   <li><a href="statement/assert/"><code>assert</code></a></li>
   <li><a href="statement/break/"><code>break</code></a></li>
   <li><a href="statement/continue/"><code>continue</code></a></li>
-  <li><a href="statement/conditions/">condition lists</a></li>
-  <li><a href="statement/expression/">expression statements</a></li>
+  <li><a href="statement/conditions/">Condition lists</a></li>
+  <li><a href="statement/expression/">Expression statements</a></li>
   <li><a href="statement/for/"><code>for</code></a></li>
   <li><a href="statement/if/"><code>if</code></a></li>
   <li><a href="statement/import/"><code>import</code></a></li>
   <li><a href="statement/return/"><code>return</code></a></li>
-  <li><a href="statement/specification/"><code>=</code> (specification) statement</a></li>
+  <li><a href="statement/specification/">Specification statements</a></li>
   <li><a href="statement/switch/"><code>switch</code></a></li>
   <li><a href="statement/throw/"><code>throw</code></a></li>
   <li><a href="statement/try/"><code>try</code></a></li>
@@ -86,20 +86,20 @@ _Some of these pages are incomplete. Want to help? [See how](/code/website)._
 
 <ul class="linear">
   <li><a href="expression/invocation/">Invocation</a></li>
-  <li><a href="expression/tuple/">tuple enumeration</a></li>
-  <li><a href="expression/iterable/">iterable enumeration</a></li>
-  <li><a href="expression/string-template/">String template</a></li>
+  <li><a href="expression/tuple/">Tuple enumeration</a></li>
+  <li><a href="expression/iterable/">Iterable enumeration</a></li>
+  <li><a href="expression/string-template/">String templates</a></li>
   <li><a href="expression/this/"><code>this</code></a></li>
   <li><a href="expression/outer/"><code>outer</code></a></li>
   <li><a href="expression/super/"><code>super</code></a></li>
   <li><a href="expression/package/"><code>package</code> qualifier</a></li>
-  <li><a href="expression/anonymous-function/">anonymous functions</a></li>
-  <li><a href="expression/callable-reference/"><code>Callable</code> references</a></li>
-  <li><a href="expression/static-reference/">static references</a></li>
-  <li><a href="expression/meta-reference/">meta references</a></li>
+  <li><a href="expression/anonymous-function/">Anonymous functions</a></li>
+  <li><a href="expression/callable-reference/">Callable references</a></li>
+  <li><a href="expression/static-reference/">Static references</a></li>
+  <li><a href="expression/meta-reference/">Meta references</a></li>
 </ul>
 
-Also see [operators](#operators) and [literals](#literals) below.
+Also see [operators](#operators) and [literals](#literals) below
 
 ## Operators
 
