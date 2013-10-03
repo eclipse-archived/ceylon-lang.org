@@ -9,13 +9,12 @@ doc_root: ../../..
 
 # #{page.title}
 
-A literal notation for a
-[`Character`](#{site.urls.apidoc_current}/Character.type.html) value.
+A literal notation for a [`Character`](#{site.urls.apidoc_current}/Character.type.html) 
+value.
 
 ## Usage 
 
-A [`Character`](#{site.urls.apidoc_current}/Character.type.html) literal is a 
-single character enclosed between single quotes (`'`), 
+A `Character` literal is a single character enclosed in paired single quotes, 
 for example:
 
 <!-- try: -->
@@ -24,34 +23,46 @@ for example:
 
 ## Description
 
-### Unicode Escapes
-
-You can use Unicode escapes within character literals, like this:
-
-<!-- try: -->
-    Character therefore = `\{#2234}`; // an escaped Unicode 'therefore' symbol
-    
-Alternatively you can use the Unicode character name:
-
-<!-- try: -->
-    Character because = `\{BECAUSE}`; // an escaped Unicode 'because' symbol
-
 ### Escaping
 
-Backslash is used as an escape character. The following characters must be 
-escaped when they're used in a `Character` literal:
+A character literals may contain an _escape sequences_. Backslash is used 
+as an escape character. The following characters *must* be escaped when 
+they're used within a plain `String` literal:
 
-* single quote ('), escaped as `\'`
-* backslash (`\`), escaped as `\\`
-* tab, escaped as `\t`
-* formfeed, escaped as `\f`
-* newline, escaped as `\n`
-* return, escaped as `\r`
-* backspace, escaped as `\b`
+* backslash, `\`, must be written as `\\`
+* single quote, `'`, must be written as `\'`
+* backtick, `` \` ``, must be written as `` \` ``
 
-In addition, the following may be escaped with a backslash:
+The following traditional C-style escape sequences are also supported:
 
-* double quote (`"`), escaped as `\"`
+* tab, `\t`
+* newline, `\n`
+* return, `\r`
+* form feed, `\f`
+* backspace, `\b`
+* double quote, `\"`
+
+### Unicode Escapes
+
+You can use Unicode escapes within character literals. Like this, identifying
+a Unicode character using a hexadecimal code:
+
+<!-- try: -->
+    Character therefore = '\{#2234}'; // Unicode therefore symbol
+    
+Or, alternatively, using the Unicode character name:
+
+<!-- try: -->
+    Character therefore = '\{THEREFORE}';
+
+Of course, you can directly embed a Unicode character in a `Character`
+literal:
+
+<!-- try: -->
+    Character therefore = '∴';
+
+But this is highly discouraged, since it causes problems when sharing source
+code across operating systems with different default character encodings.
 
 ## See also
 

@@ -8,8 +8,8 @@ doc_root: ../../..
 ---
 # #{page.title}
 
-A literal notation for a 
-[`Float`](#{site.urls.apidoc_current}/Float.type.html) value.
+A literal notation for a [`Float`](#{site.urls.apidoc_current}/Float.type.html) 
+value.
 
 ## Usage 
 
@@ -35,9 +35,20 @@ A `Float` literal can be written in a variety of ways:
 
 ## Description
 
+### Decimal point
+
+`Float` literals almost always contain a decimal point, `.`, which:
+
+- separates the fractional part from the whole number part, and 
+- syntactically distinguishes a `Float` literal from an `Integer` 
+  literal.
+
+The exception to this rule is any `Float` literal with a one of the 
+"fractional" magnitude suffices (`m`, `u`, `n`, `p`, `f`).
+
 ### Decimal magnitude suffices
 
-The following magnitudes are also supported:
+A `Float` literal may be written with a magnitude, a whole magnitude:
 
 * `k` (kilo), 10<sup>3</sup>
 * `M` (mega), 10<sup>6</sup>
@@ -45,11 +56,11 @@ The following magnitudes are also supported:
 * `T` (tera), 10<sup>12</sup>
 * `P` (peta), 10<sup>15</sup>:
 
-and the "fractional" magnitudes:
+Or a fractional magnitude:
 
 * `m` (milli), 10<sup>-3</sup>
-* `u` (micro), 10<sup>-6</sup> (strictly this should be mu (μ), but that's too 
-  hard to type on most keyboards)
+* `u` (micro), 10<sup>-6</sup> (strictly this should be mu (μ), but that
+  would be too hard to type on most keyboards)
 * `n` (nano), 10<sup>-9</sup>
 * `p` (pico), 10<sup>-12</sup>
 * `f` (femto), 10<sup>-15</sup>
@@ -57,24 +68,17 @@ and the "fractional" magnitudes:
 For example:
 
 <!-- try: -->
-    Float thousand = 1.0k;
+    Float million = 1.0M;
     Float millionth = 1u;
-
-### Decimal point
-
-`Float` literals usually use a decimal point (`.`) to separate the fractional 
-part from the whole number part. The exception to this rule are 
-`Float` literals with a one of the "fractional" magnitude suffices 
-(`m`, `u`, `n`, `p`, `f`).
 
 ### Grouping digits
 
-Like [`Integer` literals](../integer/) use of an 
-underscore (`_`) to separate groups of three digits in the integer part of the 
-number is supported (it is not permitted in the fractional part).
+An underscore, `_`, may be used to separate groups of three digits in the 
+integer or fractional part of the literal.
 
 <!-- try: -->
     Float million = 1_000_000.0;
+    Float millionth = 0.000_000_1;
 
 ### Exponential notation
 
@@ -82,11 +86,12 @@ Exponential notation is supported using `e` or `E` to separate the mantissa
 (before the `E`) from the scale (after the `E`). 
 
 <!-- try: -->
-    Float twoMillion = 2.0e6;
+    Float million = 2.0e6;
+    Float millionth = 2.0e-6;
 
 ### As a primary
 
-Invoking `Float` members directly on `Float` literals is permitted:
+Invoking members of the class `Float` directly on a literal is permitted:
 
 <!-- try: -->
     Float minusOneHalf = 0.5.negativeValue;

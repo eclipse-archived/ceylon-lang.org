@@ -9,12 +9,12 @@ doc_root: ../../..
 
 # #{page.title}
 
-A literal notation for a 
-[`String`](#{site.urls.apidoc_current}/String.type.html) value.
+A literal notation for a [`String`](#{site.urls.apidoc_current}/String.type.html) 
+value.
 
 ## Usage 
 
-A `String` literal is enclosed between double quotes (`"`)
+A `String` literal is written between paired double quotes:
 
 <!-- try: -->
     String example = "This is a trivial example";
@@ -22,69 +22,95 @@ A `String` literal is enclosed between double quotes (`"`)
     String multiline = "Strings may
                         span lines";// note indentation, see below
     
-A verbatim `String` literal is enclosed between three double quotes (`"""`)
+A verbatim `String` literal is written between paired triple-double quotes:
 
 <!-- try: -->
     String verbatim = """<p>"Almost, but not quite, entirely unlike tea."</p>"""
 
 ## Description
 
-### Unicode characters
-
-You can use the same [unicode escapes](../character/#unicode_escapes) within string literals
-as you use in `Character` literals. For example:
-
-<!-- try: -->
-    String quotation = "I think, \{#2234} I am"; // an escaped Unicode therefore symbol
-
 ### Escaping
 
-Backslash is used as an escape character. The following characters **must** be 
-escaped when they're used in a plain `String` literal:
+Plain string literals may contain _escape sequences_. Backslash is used as an 
+escape character. The following characters *must* be escaped when they're 
+used within a plain `String` literal:
 
-* backslash (`\`)
-* double quote (`"`)
+* backslash, `\`, must be written as `\\`
+* double quote, `"`, must be written as `\"`
+* backtick, `` \` ``, must be written as `` \` ``
 
-In addition the following *may* be escaped with a backslash in a plain `String` literal.
+In a plain `String` literal, the following traditional C-style escape sequences 
+are also supported:
 
-* tab, escaped as `\t`
-* newline, escaped as `\n`
-* return (`\r`)
-* form feed (`\f`)
-* backspace (`\b`)
-* backtick (`\``)
-* single quote (`'`)
+* tab, `\t`
+* newline, `\n`
+* return, `\r`
+* form feed, `\f`
+* backspace, `\b`
+* single quote, `\'`
 
-In contrast, verbatim `String` literals do not support *any* escaping, so 
-you can use characters like `"` freely. This means a vebatim String literal 
-cannot end with a `"`.
+In contrast, verbatim `String` literals do not support *any* escaping, so you 
+can use characters like `"`, `\`, and `` ` `` freely, with their literal 
+interpretation.
+
+### Unicode characters
+
+You can use the same [unicode escapes](../character/#unicode_escapes) within 
+plain string literals as in `Character` literals. Like this:
+
+<!-- try: -->
+    String quotation = "I think, \{#2234} I am"; // Unicode therefore symbol
+
+Or using the Unicode character name:
+
+<!-- try: -->
+    String quotation = "I think, \{THEREFORE} I am";
+
+Of course, you can also directly embed a Unicode character in a `String`
+literal:
+
+<!-- try: -->
+    String quotation = "I think, ∴ I am";
+
+But this is highly discouraged, since it causes problems when sharing source
+code across operating systems with different default character encodings.
 
 ### Line spanning
 
-String literals may span lines. If they do then the newline line separator is 
-used ('UN*X convention'), irrespective of the platform-specific character 
-used to encode the end of line in the source file. 
+String literals may span lines. A line break in a string literal _always_
+results in a (Unix-style) newline character in the resulting `String`, 
+irrespective of the platform-specific character used to encode the end 
+of line in the source file itself. 
 
-For example, a multi-line string in a source file which uses `\r\n` as line 
-separator (the 'Windows convention') will be compiled to a string which uses 
+For example, a multiline string in a source file which uses `\r\n` as line 
+separator (the Windows convention) will be compiled to a string which uses 
 `\n` as line separator.
 
-If having a different convention is really required use [escaping](#escaping) 
+If a different convention is really required, use [escaping](#escaping) 
 instead of line spanning literals.
 
-### Initial whitespace
+Every line of a string literal spanning multiple lines is understood to
+begin at the same column. Leading whitespace is automatically stripped
+from the resulting `String`. For example:
 
-So that you can indent multi-line `String` literals, initial whitspace one lines
-following the line containing the opening `"` character is removed. 
-The whitespace trimming algorithm understands the usual conventions for 
-spaces and tabs in indentation.
+    String greeting = "Hello
+                       World";
+
+And:
+
+    String greeting = """Hello
+                         World""";
+
+Are both exactly equivalent to:
+
+    String greeting = "Hello\nWorld";
 
 ### Interpolation
 
-Strings containing two backticks (` `` `) are not plain `String` literals, but 
-[`String` templates](../../expression/string-template). Such interpolation only
-occurs with single-quoted strings (not within triple-quoted strings).
+Plain strings containing two backticks, ` `` `, are not considered
+literal strings, but [string templates](../../expression/string-template). 
 
+Verbatim strings do not support interpolation.
 
 ## See also
 
