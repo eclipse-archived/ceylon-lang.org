@@ -20,7 +20,7 @@ Those operators which do not have such a definition are called
 
 * `.` (member), 
 * `=` (assignment), 
-* `==` (identity), 
+* `===` (identity), 
 * `is`, 
 * `of`, 
 * `()` (positional invocation),
@@ -30,8 +30,8 @@ Many non-primitive operators are *polymorphic*, which means that it
 is possible to specify the behaviour of operators in a type-specific 
 way by satisfying the interface(s) used in the operator's definition.
 
-Not every non-primitive operators are polymorphic. Some are defined 
-only in terms of the primitive operators, for example.
+However, not every non-primitive operator is polymorphic. Some are 
+defined only in terms of the primitive operators, for example.
 
 ### Simple Example
 
