@@ -10,7 +10,7 @@ doc_root: ../../..
 # #{page.title}
 
 The *spread attribute* operator maps an iterable of instances through an 
-attribute, resulting in a iterable of the attribute values.
+attribute, resulting in a sequence of the attribute values.
 
 ## Usage 
 
@@ -22,11 +22,11 @@ attribute, resulting in a iterable of the attribute values.
 
 ### Definition
 
-The `*.` operator is defined by the iterable comprehension:
+The `*.` operator is defined by the comprehension:
 
 <!-- check:none -->
 <!-- try: -->
-    { for (X x in lhs) x.member }
+    [ for (X x in lhs) x.member ]
 
 See the [language specification](#{site.urls.spec_current}#listmap) for 
 more details.

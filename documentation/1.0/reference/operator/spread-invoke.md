@@ -10,7 +10,7 @@ doc_root: ../../..
 # #{page.title}
 
 The *spread method* operator maps an iterable of instances through a 
-method, resulting in a new iterable containing the return values of
+method, resulting in a new sequence containing the return values of
 each method invocation.
 
 ## Usage 
