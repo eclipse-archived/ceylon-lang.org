@@ -38,6 +38,11 @@ The `!` operator is not [polymorphic](#{page.doc_root}/reference/operator/operat
 
 The result type of the `!` operator is [`Boolean`](#{site.urls.apidoc_current}/Boolean.type.html).
 
+### Notes
+
+* The `!` operator has a _much_ lower precedence than other C-like
+  languages!
+
 ## See also
 
 * [logical operators](#{site.urls.spec_current}#logical) in the 

@@ -113,7 +113,6 @@ Also see [operators](#operators) and [literals](#literals) below
   <li><a href="operator/and-assign/"><code>&amp;&amp;=</code> (and assign)</a></li>
   <li><a href="operator/intersect-assign/"><code>&amp;=</code>  (Set intersect assign)</a></li>
   <li><a href="operator/invoke/"><code>()</code>  (invoke)</a></li>
-  <li><a href="operator/nullsafe-invoke/"><code>()</code>  (null-safe invoke)</a></li>
   <li><a href="operator/product/"><code>*</code>   (product)</a></li>
   <li><a href="operator/scale/"><code>**</code>  (scale)</a></li>
   <li><a href="operator/multiply-assign/"><code>*=</code>  (multiply assign)</a></li>
@@ -139,6 +138,7 @@ Also see [operators](#operators) and [literals](#literals) below
   <li><a href="operator/identical/"><code>===</code> (identical)</a></li>
   <li><a href="operator/greater-than/"><code>&gt;</code>   (greater than)</a></li>
   <li><a href="operator/greater-than-or-equal/"><code>&gt;=</code>  (greater than or equal)</a></li>
+  <li><a href="operator/nullsafe-member/"><code>?.</code>   (null-safe member)</a></li>
   <li><a href="operator/lookup/"><code>[]</code>  (lookup)</a></li>
   <li><a href="operator/spread-attribute/"><code>*.</code> (spread attribute)</a></li>
   <li><a href="operator/spread-invoke/"><code>*.</code> (spread invoke)</a></li>
@@ -147,21 +147,23 @@ Also see [operators](#operators) and [literals](#literals) below
   <li><a href="operator/lower-span/"><code>x[...z]</code> (lower span)</a></li>
   <li><a href="operator/segment/"><code>x[y:n]</code>  (segment)</a></li>
   <li><a href="operator/power/"><code>^</code>   (power)</a></li>
-  <li><a href="operator/in/"><code>in</code>  (in)</a></li>
-  <li><a href="operator/is/"><code>is</code>  (is)</a></li>
   <li><a href="operator/union/"><code>|</code>   (Set union)</a></li>
   <li><a href="operator/union-assign/"><code>|=</code>  (Set union assign)</a></li>
   <li><a href="operator/or/"><code>||</code>  (or)</a></li>
   <li><a href="operator/or-assign/"><code>||=</code> (or assign)</a></li>
   <li><a href="operator/invoke/"><code>{}</code>  (invoke)</a></li>
-  <li><a href="operator/nullsafe-invoke/"><code>{}</code>  (null-safe invoke)</a></li>
   <li><a href="operator/complement/"><code>~</code>   (Set complement)</a></li>
   <li><a href="operator/complement-assign/"><code>~=</code>  (Set complement assign)</a></li>
   <li><a href="operator/else/"><code>else</code></a></li>
+  <li><a href="operator/exists/"><code>exists</code></a></li>
+  <li><a href="operator/in/"><code>in</code></a></li>
+  <li><a href="operator/is/"><code>is</code></a></li>
+  <li><a href="operator/nonempty/"><code>nonempty</code></a></li>
+  <li><a href="operator/of/"><code>of</code></a></li>
   <li><a href="operator/then/"><code>then</code></a></li>
 </ul>
 
-<p><a href="operator/operator-polymorphism/">operator polymorphism</a></p>
+<p><a href="operator/operator-polymorphism/">Operator polymorphism</a></p>
 
 
 ## Literals

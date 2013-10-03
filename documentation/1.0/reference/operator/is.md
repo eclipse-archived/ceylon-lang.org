@@ -9,8 +9,8 @@ doc_root: ../../..
 
 # #{page.title}
 
-The non-associating, binary infix `is` operator is used to test the type of a 
-variable.
+The non-associating, binary infix `is` operator is used to test the type of an 
+expression.
 
 ## Usage 
 
