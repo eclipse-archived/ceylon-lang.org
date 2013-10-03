@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: '`?.` (null-safe attribute) operator'
+title: '`?.` (null-safe method) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
@@ -9,25 +9,22 @@ doc_root: ../../..
 
 # #{page.title}
 
-The left-associative, binary `?.` operator is used to access an attribute 
+The left-associative, binary `?.` operator is used to invoke a method 
 as if its right-hand operand were not `null`.
 
 ## Usage 
 
 <!-- try: -->
     void m(Integer? num) {
-        Integer? int = num?.positiveValue;
+        Integer?(Integer) plus = num?.plus;
     }
 
 ## Description
 
 ### Definition
 
-The meaning of `?.` is defined as follows:
-
-<!-- check:none -->
-<!-- try: -->
-    if (exists lhs) lhs.member else null	
+See the [language specification](#{site.urls.spec_current}#nullvalues) for 
+more details.
 
 ### Polymorphism
 
@@ -35,8 +32,8 @@ The `?.` operator is not [polymorphic](#{page.doc_root}/reference/operator/opera
 
 ### Type
 
-The result type of the `lhs?.rhs` operator is the optional type of the right 
-hand operand.
+The result type of the `lhs?.rhs` operator is the callable type of the right 
+hand operand, with the return type replaced by its corresponding optional type.
 
 ## See also
 

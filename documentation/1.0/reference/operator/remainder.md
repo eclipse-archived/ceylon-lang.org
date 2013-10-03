@@ -41,7 +41,7 @@ The result type of the `%` operator is the same as the type of its right hand op
 
 ### Meaning of remainder for built-in types
 
-For the built-in numeric type ([`Intege`](#{site.urls.apidoc_current}/Integer.type.html) 
+For the built-in numeric type [`Integer`](#{site.urls.apidoc_current}/Integer.type.html), 
 `%` computes normal mathematical remainder.
 
 Since the other built-in numeric types do not satisfy `Integral`, the

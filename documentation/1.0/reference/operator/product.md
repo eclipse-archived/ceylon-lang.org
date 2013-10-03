@@ -41,7 +41,7 @@ The result type of the `*` operator is the same as the type of its right hand op
 
 ### Meaning of product for built-in types
 
-For the built-in numeric types ([`Integer`](#{site.urls.apidoc_current}/Integer.type.html) and 
+For the built-in numeric types [`Integer`](#{site.urls.apidoc_current}/Integer.type.html) and 
 [`Float`](#{site.urls.apidoc_current}/Float.type.html),
 `*` performs normal mathematical multiplication, subject to the limitations
 of the relevant type.

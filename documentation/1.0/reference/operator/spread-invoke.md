@@ -19,10 +19,6 @@ each method invocation.
     {String+} names = {"foo", "bar", "baz"};
     {String+} initials = names*.initial(1);
 
-## Description
-
-### Implementation
-
 You can also spread method references:
 
 <!-- check:none -->
@@ -37,6 +33,12 @@ more details.
 ### Polymorphism
 
 The `*.` operator is not [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
+
+### Type
+
+The result type of the `lhs*.rhs` operator is the callable type of the 
+type of the right hand operand, with the return type replaced by its
+corresponding sequential type.
 
 
 ## See also

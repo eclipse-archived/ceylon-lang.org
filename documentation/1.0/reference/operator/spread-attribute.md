@@ -37,7 +37,8 @@ The `*.` operator is not [polymorphic](#{page.doc_root}/reference/operator/opera
 
 ### Type
 
-The result type of the `lhs*.rhs` operator is the sequential type of the type of the right hand operand.
+The result type of the `lhs*.rhs` operator is the sequential type of the 
+type of the right hand operand.
 
 ## See also
 

@@ -138,10 +138,11 @@ Also see [operators](#operators) and [literals](#literals) below
   <li><a href="operator/identical/"><code>===</code> (identical)</a></li>
   <li><a href="operator/greater-than/"><code>&gt;</code>   (greater than)</a></li>
   <li><a href="operator/greater-than-or-equal/"><code>&gt;=</code>  (greater than or equal)</a></li>
-  <li><a href="operator/nullsafe-member/"><code>?.</code>   (null-safe member)</a></li>
+  <li><a href="operator/nullsafe-member/"><code>?.</code>   (null-safe attribute)</a></li>
+  <li><a href="operator/nullsafe-method/"><code>?.</code>   (null-safe method)</a></li>
   <li><a href="operator/lookup/"><code>[]</code>  (lookup)</a></li>
   <li><a href="operator/spread-attribute/"><code>*.</code> (spread attribute)</a></li>
-  <li><a href="operator/spread-invoke/"><code>*.</code> (spread invoke)</a></li>
+  <li><a href="operator/spread-invoke/"><code>*.</code> (spread method)</a></li>
   <li><a href="operator/span/"><code>x[y..z]</code> (span)</a></li>
   <li><a href="operator/upper-span/"><code>x[y...]</code> (upper span)</a></li>
   <li><a href="operator/lower-span/"><code>x[...z]</code> (lower span)</a></li>

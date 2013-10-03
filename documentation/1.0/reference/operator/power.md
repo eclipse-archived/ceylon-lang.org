@@ -42,9 +42,9 @@ The result type of the `^` operator is the same as the type of the `This` type a
 
 ### Meaning of power for built-in types
 
-For the built-in numeric types ([`Integer`](#{site.urls.apidoc_current}/Integer.type.html) and
-[`Float`](#{site.urls.apidoc_current}/Float.type.html), `**` 
-`**` performs normal mathematical exponentiation, subject to the limitations
+For the built-in numeric types [`Integer`](#{site.urls.apidoc_current}/Integer.type.html) and
+[`Float`](#{site.urls.apidoc_current}/Float.type.html), `^` 
+performs normal mathematical exponentiation, subject to the limitations
 of the relevant type.
 
 
