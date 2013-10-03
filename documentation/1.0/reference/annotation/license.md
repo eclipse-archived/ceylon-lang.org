@@ -14,7 +14,7 @@ The `license` annotation is applied to a module to record its license.
 ## Usage
 
 <!-- try: -->
-    license("http://www.apache.org/licenses/LICENSE-2.0.html")
+    license("[ASL 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)")
     module com.example.foo "1.0" {
     }
 
@@ -24,11 +24,9 @@ The `license` annotation is processed by the
 [`ceylon doc`](#{site.urls.ceylon_tool_current}/ceylon-doc.html) tool, 
 which assumes it contains [Markdown formatted](../markdown/) text.
 
-It is strongly recommended that the argument to 
-license is an `http:` 
-URL to a license document, rather than a license name 
-(which could be ambiguous or unknown to the reader), 
-or the full license test.
+It is strongly recommended that the argument to license contain a 
+link to a license document, or the full text of the license, rather 
+than a license name (which might be ambiguous or unknown to the reader).
 
 ## See also
 

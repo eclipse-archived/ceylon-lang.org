@@ -9,17 +9,21 @@ doc_root: ../../..
 
 # #{page.title}
 
-The `see` annotation documents some other declaration which 
-is relevant to the declaration it is applied to.
+The `see` annotation documents some other program element which is 
+relevant to the annotated program element.
 
 ## Usage
 
+The annotation accepts one or more [program element reference 
+expressions](/documentation/current/tour/annotations/#the_metamodel).
+
 <!-- try: -->
-    see(`class Foo`)
+    see (`class Foo`)
     void example() {
     }
     
-    see(`function example`)
+    see (`function example`, 
+         `package com.example.examples`)
     class Foo() {
     }
 
@@ -31,4 +35,3 @@ The `see` annotation is processed by the `ceylon doc` tool.
 
 * [`see`](#{site.urls.apidoc_current}/index.html#see)
 * Reference for [annotations in general](../../structure/annotation/)
-

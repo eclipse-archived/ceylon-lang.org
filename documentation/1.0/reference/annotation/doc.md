@@ -9,14 +9,14 @@ doc_root: ../../..
 
 # #{page.title}
 
-The `doc` annotation adds documentation to a declaration.
+The `doc` annotation adds freeform API documentation to a declaration.
 
 ## Usage
 
 Explict `doc` annotation:
 
 <!-- try: -->
-    doc("Some documentation")
+    doc ("Some documentation")
     void example(){
     }
 
@@ -35,13 +35,13 @@ which assumes it contains [Markdown formatted](../markdown/) text.
 
 ### Anonymous annotation
 
-As shown above, the annotation can be used in two forms, 
+As shown above, the annotation can be used in two forms, either
 
-* explicit invocation of `doc`, or
-* as a string literal, when it is the first annotation 
-  in the list of annotations of the declaration
+* using explicit invocation of `doc`, or
+* as a string literal, when it is the first annotation in the list of 
+  annotations of the declaration
 
-The anonymous form is preferred.
+The anonymous form is very strongly preferred.
 
 ## See also
 
