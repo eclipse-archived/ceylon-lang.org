@@ -8,8 +8,8 @@ author: Tom Bentley
 
 # #{page.title}
 
-The `break` statement is a control directive that terminates a `for` or 
-`while` iteration early.
+The `break` statement is a control directive that causes immediately 
+termination of a `for` or `while` loop.
 
 ## Usage 
 
@@ -31,13 +31,13 @@ the block early without waiting for the `for` iterator to be exhausted or the
 
 ### Notes
 
-* Java's 'labelled' `break` directive is not supported. The 
-  `break` directive operates on the directly enclosing `for` or 
-  `while` statement.
+* Java's 'labelled' `break` directive is not supported. The `break` directive 
+  operates on the directly enclosing `for` or `while` statement.
 
 ## See also
 
 * The [`continue` statement](../continue/)
 * The [`for` statement](../for/)
 * The [`while` statement](../while/)
-
+* [Control directives](#{site.urls.spec_current}#controldirectives) in the 
+  Ceylon language specification

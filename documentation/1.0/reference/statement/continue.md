@@ -8,8 +8,8 @@ author: Tom Bentley
 
 # #{page.title}
 
-The `break` statement is a control directive that skips the remainder of the 
-current iteration and proceeds with the next iteration.
+The `continue` statement is a control directive that causes immediate execution 
+of the next iteration of a `for` or `while` loop.
 
 ## Usage 
 
@@ -27,17 +27,17 @@ The general form of the `continue` statement is
 
 Within a `for` or `while` statement the `continue` directive can be used to 
 skip to the next iteration of the enclosing `for` or `while` statement without 
-executing the rest of the block.
+executing the rest of the current block.
 
 ### Notes
 
-* Java's 'labelled' `continue` directive is not supported. The 
-  `continue` directive operates on the directly enclosing `for` or 
-  `while` statement.
+* Java's 'labelled' `continue` directive is not supported. The `continue` 
+  directive operates on the directly enclosing `for` or `while` statement.
 
 ## See also
 
 * The [`break` statement](../break/)
 * The [`for` statement](../for/)
 * The [`while` statement](../while/)
-
+* [Control directives](#{site.urls.spec_current}#controldirectives) in the 
+  Ceylon language specification

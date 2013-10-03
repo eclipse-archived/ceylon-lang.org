@@ -9,7 +9,7 @@ doc_root: ../../..
 
 # #{page.title}
 
-An expression statement just treats an [expression](../../expression/) as a statement. 
+An expression statement simply evaluates an [expression](../../expression/). 
 
 ## Usage 
 
@@ -20,21 +20,21 @@ An expression statement is just the expression followed by a semicolon (`;`).
 
 ## Description
 
-No all expressions can be treated as statements in this way, for example
+No all expressions can be treated as statements in this way. For example:
 
 <!-- try: -->
     "";
-    
-is not allowed. This is because there are no side-effects from evaluating the 
-String literal and then discarding it, so the statement is pointless. 
-Only the following expressions may be used as statements:
 
-* [assignment](../../operator/assign/),
+is not a legal expression statement. Since no side-effects result from 
+evaluating a `String` literal and then discarding it, the statement is 
+useless. Only the following expressions may be used as statements:
+
+* [assignment](../../operator/assign/) or compound assignment,
 * prefix or postfix [increment](../../operator/increment) or [decrement](../../operator/decrement),
-* invocation of a method,
+* invocation of a method, or
 * instantiation of a class.
 
-On execution, the expression's result is discarded.
+On execution, the expression's value is discarded.
 
 ## See also
 

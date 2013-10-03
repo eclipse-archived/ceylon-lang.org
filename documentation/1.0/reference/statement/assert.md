@@ -9,8 +9,9 @@ doc_root: ../../..
 
 # #{page.title}
 
-The `assert` statement throws an exception if a condition is not 
-`true`, and can narrow the type of attributes in the statements following it.
+The `assert` statement validates a given condition, throwing an `AssertionException` 
+if the condition is not satisfied. An assertion may narrow the type of values as 
+seen by subsequent statements.
 
 ## Usage 
 
@@ -20,28 +21,37 @@ The general form of the `assert` statement is
 <!-- try: -->
     assert ( /* some conditions */ );
 
-
 ## Description
+
+Unlike the `assert` statement in the Java programming language, `assert` in 
+Ceylon cannot be disabled at runtime. It's important to know about bugs that
+occur in running production systems, and assertions help us find out about
+them.
 
 ### Execution
 
-The condition (or conditions) in the assert statement are evaluated. If they 
-evaluate as `true` then execution proceeds with the statement following the 
-`assert`. Otherwise an 
+The condition (or conditions) in the `assert` statement are evaluated in the
+order the occur. If they are all satisfied, then execution continues with the 
+statement immediately following the `assert`. Otherwise, an 
 [`AssertionException`](#{site.urls.apidoc_current}/AssertionException.type.html) 
-is thrown.
+is thrown with information about the condition that was violated.
 
 ### Purpose
 
-`assert` is usually used to make assertions about a program which 
-the programmer *knows* are true, but which cannot be proved 
-to be true within the type system. 
+`assert` is used to make assertions:
+
+- regarding program invariants which the programmer *knows* to be true, but 
+  which cannot be proved to be true within the type system, or
+- about preconditions required by an API, which cannot be enforced within
+  the type system.
+
+Failure of an assertion represents a bug in the program or misuse of the API.
 
 Here's an example using the 
 [`parseInteger()`](#{site.urls.apidoc_current}/index.html#parseInteger) 
-method from `ceylon.language` 
-which returns `Integer?` so as to force you to handle the possibility that 
-the argument was not `String` representing a number:
+function from `ceylon.language` which returns `Integer?`, forcing the caller 
+to handle the possibility that the argument was not `String` representing 
+a number:
 
 <!-- try: -->
     value num = parseInteger("1");
@@ -50,55 +60,49 @@ the argument was not `String` representing a number:
     // after the assert statement num is of type Integer
     value plusOne = num + 1;
     
-In thise case `parseInteger()` is being called with a `String` *literal* which 
-we *know* is a valid number. The type checker cannot know this, however, 
-because it can only reason about types, not about what the 
-`parseInteger()` method does for a particular input. 
+Here, `parseInteger()` is being called with a `String` literal which we 
+*know* is a valid number. The type checker cannot know this, however, 
+because it can only reason about types, not about what the `parseInteger()` 
+function does for a particular input value. 
 
-### `Boolean` conditions
-
-Any [`Boolean`](#{site.urls.apidoc_current}/Boolean.type.html) 
-expression can be used as a condition in an `assert` statement.
-
-### 'Special' conditions
-
-The `assert` statement also supports the use of certain special form conditions:
-
-* [`assert (is ...)`](../conditions/#if_is_), 
-* [`assert (exists ...)`](../conditions/#if_exists_), 
-* [`assert (nonempty ...)`](../conditions/#if_nonempty_), 
-* [`assert (satisfies ...)`](../conditions/#if_satisfies_).
-
-these narrow the type of a reference in the statements following the `assert`.
-
-
-### Condition lists
-
-The condition in an `assert` statement can also be a
-[condition list](../conditions#condition_lists).
-
-The difference between a 
-condition list and a single `Boolean` condition constructed using the 
-[`&&` operator](../../operator/and/)
-is that the typecasting of conditions in the list take effect for conditions 
-later in the list, allowing you to write:
+Here's a different example, from the internal implementation of that
+function:
 
 <!-- try: -->
-    void m(Object x) {
-        assert (is Integer x, x < 10);
+    shared Integer? parseInteger(String string, Integer radix = 10) {
+        assert (radix >= minRadix, radix <= maxRadix);
+        ...
     }
-    
-### Implementation notes
 
-* Unlike the `assert` statement in the Java programming language, `assert` in 
-  Ceylon cannot be disabled at runtime: The conditions are always evaluated. 
+Here, the assertion imposes a constraint upon the argument `radix`. If
+a client calls `parseInteger()` with an illegal value for `radix`, then
+the `AssertionException` will indicate this.
+
+### Conditions
+
+The condition in an `assert` statement is a
+[condition list](../conditions#condition_lists).
+
+Any expression of type [`Boolean`](#{site.urls.apidoc_current}/Boolean.type.html) 
+may be occur in the condition list of an `assert` statement. The `assert` 
+statement also supports the use of typing conditions:
+
+* [`assert (is ...)`](../conditions/#if_is_), 
+* [`assert (exists ...)`](../conditions/#if_exists_), and
+* [`assert (nonempty ...)`](../conditions/#if_nonempty_).
+
+These conditions narrow the type of a reference in the statements following 
+the `assert`, and in later conditions in the condition list.
+
+<!-- try: -->
+    void printSqrt(Object x) {
+        assert (is Float x, x >= 0.0);
+        print(x^0.5);
+    }
 
 ## See also
 
 * The [`if` statement](../if) statement and the [`throw` statement](../throw)
-  statement can be used together to achieve similar effects.
-<!-- TODO 
-* [`assert` in the language specification](#{site.urls.spec_current}#TODO)
--->
-
-
+  statement can be used together to achieve a similar effect.
+* [Assertions](#{site.urls.spec_current}#assertions) in the Ceylon language 
+  specification

@@ -9,33 +9,37 @@ author: Tom Bentley
 # #{page.title}
 
 The `return` statement is a control directive that returns control normally 
-to the caller of the value getter or function.
+to the caller of a function, class, getter, or setter. In the case of a
+getter or non-`void` function, it also specifies the return value.
 
 ## Usage 
 
-The general form of the `return` statement is
+For getters or non-`void` functions, a `return` statement specifies a 
+a result expression:
 
 <!-- check:none -->
 <!-- try: -->
-    // ...within a value getter or function
+    // ...within a getter or function
     return resultExpression;
 
-For `void` functions no result expression is given:
+For `void` functions, classes, or setters, no result expression is given:
 
 <!-- check:none -->
 <!-- try: -->
-    // ...within an void method or function
+    // ...within a void function, class, or setter
     return;
 
 ## Description
 
 ### Execution
 
-The `return` statement causes execution to resume with the caller of the
-value getter or function.
+The result expression, if any, is evaluated, and then execution resumes 
+with the caller of the value getter or function.
 
 ## See also
 
 * The [`throw` statement](../throw/), used for abnormal return from an 
   value getter, method or function
+* [Control directives](#{site.urls.spec_current}#controldirectives) in the 
+  Ceylon language specification
 

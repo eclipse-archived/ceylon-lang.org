@@ -9,8 +9,7 @@ doc_root: ../../..
 
 # #{page.title}
 
-The `throw` statement is used to indicate that an exception to the normal 
-flow of control has occurred.
+The `throw` statement is used to raise an exception
 
 ## Usage 
 
@@ -21,8 +20,8 @@ A bare `throw` doesn't supply an exception instance:
     throw;
 <!-- cat: } -->
 
-Otherwise an exception instance may be specified; commonly a new instance is 
-created at the point the `throw` statement is used:
+Otherwise an exception instance may be specified. Most commonly a new 
+exception is instantiated:
 
 <!-- cat: void m() { -->
 <!-- try: -->
@@ -33,34 +32,33 @@ created at the point the `throw` statement is used:
 
 ### Execution
 
-The `throw` statement starts the propogation of an exception. The
-call stack is searched for the nearest [`try`](../try) statement 
-with a matching `catch` clause, and execution resumes at the start of that
-`catch` block (possibly after [resource cleanup](../try).
+The `throw` statement initiates the propogation of an exception, unwinding
+the call stack. The call stack is searched for the nearest [`try`](../try) 
+statement with a matching `catch` clause, and execution resumes at the start 
+of that `catch` block (possibly after [resource cleanup](../try).
 
-A method, getter, setter or 
-initializer, is said to *return abnormally* if an exception propgates beyond its scope. 
-This signifies an exceptional circumstance which prevents normal completion of the 
-method, getter, setter or initializer. 
+A method, getter, setter, or initializer, is said to *return abnormally* if 
+an exception propgates beyond its scope. This signifies an exceptional 
+circumstance which prevents normal completion of the method, getter, setter 
+or initializer. 
 
-An expression may be supplied with the `throw` statement. If no expression is 
-given a new messageless and causeless 
-[`ceylon.language.Exception`](#{site.urls.apidoc_current}/Exception.type.html) instance is 
-created automatically. If an expression is given is must be of a type which is
-assignable to `ceylon.language.Exception`.
+An expression may be given. If no expression is given a new messageless and 
+causeless instance of [`Exception`](#{site.urls.apidoc_current}/Exception.type.html) 
+is created automatically. If an expression is given is must be assignable to 
+`Exception`.
 
 ### Notes
 
 * Ceylon does not support 'checked' exceptions. Any kind of exception may be 
   thrown without it having to be declared by a 
-  [`throws` annotation](TODO) in the relevant declaration. 
-  This includes Ceylon code throwing what in Java would 
-  be considered to be *checked exceptions* (such as `java.lang.Exception`). In 
-  other words the following is perfectly acceptable to the Ceylon compiler:
+  [`throws` annotation](../../annotation/throws). This is even the case when 
+  Ceylon code throws what in Java would be considered a *checked exception* 
+  (such as `java.lang.Exception`). In other words the following is perfectly 
+  acceptable to the Ceylon compiler:
 
 <!-- try: -->
-      import java.lang {CheckedException=Exception}
-    
+      import java.lang { CheckedException=Exception }
+      
       void m() {
           throw CheckedException();
       }
@@ -74,7 +72,9 @@ logic.
 
 * [`try` statement](../try)
 * [`ceylon.language.Exception`](#{site.urls.apidoc_current}/Exception.type.html)
-* The [`throws`](#{site.urls.apidoc_current}/TODO) annotation provides a way to document the 
-  exceptions which may be thrown from a method, getter, setter or class initializer.
-* [`throw` in the language specification](#{site.urls.spec_current}#trycatchfinally)
+* The [`throws`](#{site.urls.apidoc_current}/../../annotation/throws) annotation 
+  provides a way to document the exceptions which may be thrown from a method, 
+  getter, setter or class initializer.
+* [Control directives](#{site.urls.spec_current}#controldirectives) in the 
+  Ceylon language specification
 
