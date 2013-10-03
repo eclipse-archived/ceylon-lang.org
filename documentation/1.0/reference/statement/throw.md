@@ -63,14 +63,16 @@ is created automatically. If an expression is given is must be assignable to
           throw CheckedException();
       }
 
-### Notes
+### Advice
 
-* Exceptions are used somewhat less in Ceylon than in other languages, since
-  `null` or `[]` may be used to indicate certain kinds of problems in a more
-  typesafe way. For example, `list[-1]` evaluates to `null` in Ceylon, instead
-  of throwing an exception.
-* It is possible, though not recommended, to use `throw` to implement control 
-  logic.
+Exceptions are used somewhat less in Ceylon than in other languages, since
+`null` or `[]` may be used to indicate certain kinds of problems in a more
+typesafe way. For example, `list[-1]` evaluates to `null` in Ceylon, instead
+of throwing an exception.
+
+It is possible, though not usually recommended, to use `throw` to implement 
+control logic. Used in this manner, `throw` is a sort of poor-man's 
+[`goto`](../goto).
 
 ## See also
 

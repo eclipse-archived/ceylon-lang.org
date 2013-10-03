@@ -65,6 +65,7 @@ _Some of these pages are incomplete. Want to help? [See how](/code/website)._
   <li><a href="statement/assert/"><code>assert</code></a></li>
   <li><a href="statement/break/"><code>break</code></a></li>
   <li><a href="statement/continue/"><code>continue</code></a></li>
+  <li><a href="statement/conditions/">condition lists</a></li>
   <li><a href="statement/expression/">expression statements</a></li>
   <li><a href="statement/for/"><code>for</code></a></li>
   <li><a href="statement/if/"><code>if</code></a></li>

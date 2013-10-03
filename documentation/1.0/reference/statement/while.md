@@ -49,9 +49,9 @@ Any expression of type [`Boolean`](#{site.urls.apidoc_current}/Boolean.type.html
 may be occur in the condition list of a `while` statement. The 
 `while` statement also supports the use of typing conditions:
 
-* [`if (is ...)`](../conditions/#if_is_), 
-* [`if (exists ...)`](../conditions/#if_exists_), and
-* [`if (nonempty ...)`](../conditions/#if_nonempty_).
+* [`is` conditions](../conditions/#is_conditions), 
+* [`exists` conditions](../conditions/#exists_conditions), and
+* [`nonempty` conditions](../conditions/#nonempty_conditions).
 
 These conditions narrow the type of a reference within the `while` 
 block, and in later conditions in the condition list.

@@ -90,7 +90,7 @@ of `Entry`.
 
 ### Notes
 
-* Ceylon not support the C-style `for` statement, with an initialising statement,
+* Ceylon does not support the C-style `for` statement, with an initialising statement,
   iteration statement and termination condition. This isn't a problem in practice; 
   see [what the Tour has to say](#{page.doc_root}/tour/sequences#iterating_sequences).
 

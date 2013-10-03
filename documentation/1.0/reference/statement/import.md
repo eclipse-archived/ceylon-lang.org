@@ -9,53 +9,52 @@ doc_root: ../../..
 
 # #{page.title}
 
-The `import` statement is used to express a dependency on a type defined in 
-another package.
+The `import` statement is used to express a dependency on a type defined 
+in another package.
 
-**Note:** This page is **not** about the `import` declarations in 
-a [module descriptor](../../structure/module#descriptor)
+**Note:** This page is *not* about module `import` statements occurring 
+in a [module descriptor](../../structure/module#descriptor).
 
 ## Usage 
 
-The import statement has several variations:
+The `import` statement has several variations:
 
 <!-- check:none -->
 <!-- try: -->
     // importing a list of declarations
     import math { sqrt, pi, Complex }
+    
     // importing all declarations in a package
     // (a 'wildcard' import)
-    import com.example.metasyntax {...}
+    import com.example.metasyntax { ... }
+    
     // assigning a different name to an imported declaration
-    // (an 'import alias'), e.g. to avoid a name conflict
-    import org.example.metasyntax { ExampleFoo=>Foo, Bar}
+    // (an 'alias' import)
+    import org.example.metasyntax { ExampleFoo=>Foo, Bar }
 
-
+    // assigning a different name to a member of an imported type
+    import org.example.metasyntax { Foo { b=bar } }
 
 ## Description
 
-### Modules and versions
-
-The `import` declarations in the 
-[module descriptor](../module#descriptor) 
-are used to determine which version of which module is required for 
-compilation and execution.
-
-### Execution
-
-Import statements do not affect execution. 
+Since Ceylon does not support the use of fully-qualified names in code,
+name conflicts between declarations imported from different packages 
+must be resolved by assigning a unique name to at least one of the 
+declaration in the `import` statement. This new name is called an
+_import alias_.
 
 ### Advice
 
-Use of wildcard `import`s (e.g. `import com.example.metasyntax {...}`) is 
-discouraged, since:
+Use of wildcard `import`s (e.g. `import com.example.metasyntax { ... }`) 
+is discouraged, since:
 
 * when reading, it makes it harder to determine which package a particular 
-  type name in the source code is referring to,
+  type name in the source code is referring to, and
 * as the declarations in imported packages change over time, there's the 
   possibility of name collisions, even though none existed at the time 
-  the code was written
+  the code was written.
 
 ## See also
 
-* [`import` in the language specification](#{site.urls.spec_current}#imports)
+* [Imports](#{site.urls.spec_current}#imports) in the Ceylon language 
+  specification
