@@ -13,7 +13,7 @@ The `if` statement allows a block of code to be executed conditionally.
 
 ## Usage 
 
-The general form of the `if` statement is
+The general form of the `if` statement is:
 
 <!-- check:none -->
 <!-- try: -->
@@ -35,57 +35,46 @@ using a C-like language.
 
 ### Execution
 
-The 'if condition' is evaluated first, and if it evaluates as `true` then 
-execution proceeds with the followin block of code and after that 
+The `if` condition is evaluated first, and if it is satisfied then 
+execution proceeds with the following block of code, and after that 
 with the code after the `if` statement. 
 
-If the 'if condition' evaluated false, then the first `else if` condition 
-(if any) is evaluated and if that condition is true then it's associated 
-block is executed, followed by the 
-code after the `if` statement. If the 'else if condition' evaluated as 
-`false` then subsequent `else if` clauses (if any) treated in the same way.
+Otherwise, if the `if` condition is not satisfied, then the first 
+`else if` condition, if any, is evaluated and if that condition 
+satisfied then its associated block is executed, followed by the code 
+after the `if` statement. If the `else if` condition is not satisfied, 
+then subsequent `else if` clauses, if any, are treated in the same way.
 
-Finally, if none of the conditions evaluated as `true` the execution proceeds 
-with the `else` block, followed by the code after the `if` statement.
+Finally, if none of the conditions are satisfied, the `else` block, if
+any, is executed, followed by the code after the `if` statement.
 
-### `Boolean` conditions
+### Conditions
 
-Any [`Boolean`](#{site.urls.apidoc_current}/Boolean.type.html) expression can be used as a condition in an `if` statement.
+The conditions in an `if` statement occur in
+[condition lists](../conditions#condition_lists).
 
-### 'Special' conditions
-
-The `if` statement also supports the use of certain special form conditions:
+Any expression of type [`Boolean`](#{site.urls.apidoc_current}/Boolean.type.html) 
+may be occur in the condition list of an `if` statement. The `if` 
+statement also supports the use of typing conditions:
 
 * [`if (is ...)`](../conditions/#if_is_), 
-* [`if (exists ...)`](../conditions/#if_exists_), 
-* [`if (nonempty ...)`](../conditions/#if_nonempty_), 
-* [`if (satisfies ...)`](../conditions/#if_satisfies_).
+* [`if (exists ...)`](../conditions/#if_exists_), and
+* [`if (nonempty ...)`](../conditions/#if_nonempty_).
 
-these narrow the type of a reference within the associated block.
+These conditions narrow the type of a reference within the associated block, 
+and in later conditions in the condition list.
+
+<!-- try: -->
+    void printSqrt(Object x) {
+        if (is Float x, x >= 0.0) {
+            print(x^0.5);
+        }
+    }
 
 By not separating the operation that checks the safety of the typecast from 
 the operation used to actually perform the typecast Ceylon eliminates the 
 possibility that the programmer might forget to do the test before attempting 
-the typecast.
-
-### Condition lists
-
-The condition in an `if` statement can also be a
-[condition list](../conditions#condition_lists).
-
-The difference between a 
-condition list and a single `Boolean` condition constructed using the 
-[`&&` operator](../../operator/and/)
-is that the typecasting of conditions in the list take effect for conditions 
-later in the list, allowing you to write:
-
-<!-- try: -->
-    void m(Object x) {
-        if (is Integer x, x < 10) {
-            // ...
-        }
-    }
-
+the typecast, and eliminates repetition of the narrower type.
 
 ## See also
 
@@ -97,5 +86,4 @@ later in the list, allowing you to write:
 * [`if (is ...)` in the language specification](#{site.urls.spec_current}#assignabilityexistencenonemptinessconditions)
 * [`if (exists ...)` in the language specification](#{site.urls.spec_current}#assignabilityexistencenonemptinessconditions)
 * [`if (nonempty ...)` in the language specification](#{site.urls.spec_current}#assignabilityexistencenonemptinessconditions)
-* [`if (satisfies ...)` in the language specification](#{site.urls.spec_current}#subtypeconditions)
 

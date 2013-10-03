@@ -9,17 +9,18 @@ doc_root: ../../..
 
 # #{page.title}
 
-The `for` statement supports iteration.
+The `for` statement iterates the elements produced by an iterable object.
 
 ## Usage 
 
-The general form of the `for` statement is
+The general form of the `for` statement is:
 
 <!-- check:none -->
 <!-- try: -->
-    for ( /* variable declaration and expression */ ) {
+    for ( /* variable declaration */ in /* iterable expression */ ) {
         /* for block */
-    } else {
+    }
+    else {
         /* code executed if iteration doesn't exit early */
     }
 
@@ -29,32 +30,35 @@ The `else` clause is optional.
 
 ### Execution
 
-A `for` statement works with [`Iterable`](#{site.urls.apidoc_current}/Iterable.type.html)s. 
-Before the `for` block an iteration 
-variable (assignable to [`Iterator<T>`](#{site.urls.apidoc_current}/Iterator.type.html), for some `T`) is declared, and an
-`Iterable`-typed expression is given. The 
-`for` block is executed with the declared variable taking the value of successive 
-items returned from the `Iterator` obtained from the `Iterable`. Execution 
-proceeds until the `Iterator` is exhausted or an ['early exit'](#early_exit) occurs.
+A `for` statement accepts an expression of type 
+[`Iterable`](#{site.urls.apidoc_current}/Iterable.type.html), which is evaluated
+to produce and iterable object, and in _iteration variable_. 
 
+The `for` block is executed repeatedly, with the iteration variable taking the 
+value of each successive item produced by an `Iterator` obtained from the iterable 
+object. Iteration of the loop terminated when the `Iterator` is exhausted or an 
+[early exit](#early_exit) occurs.
+
+If an early exit does not terminate iteration of the loop, the `else` block is
+executed. 
 
 ### `break` and `continue`
 
 Within the `for` block the [`break` directive](../break/) can be used to exit 
-the block early without iterating over the remaining items in the `Iterator`. This is 
-one form of ['early exit'](#early_exit).
+the block early without iterating over the remaining items in the `Iterator`. 
+This is one form of [early exit](#early_exit).
 
-The [`continue` directive](../continue) can be used to skip execution of
-the remainder of the block and proceed with the next item from the `Iterator`.
+The [`continue` directive](../continue) can be used to skip execution of the 
+remainder of the block and proceed with the next item produced by the `Iterator`.
 
 ### Early Exit
 
-If the `for` block ends with a [`return`](../return/), 
-[`break`](../break/), or [`throw`](../throw/) directive the 
-iteration is said to have *exited early*. In the `return` and `throw` cases
-control is returned directly to the caller; in the `break` case execution 
-proceeds with the code following the `else` clause. Therefore, in all cases of 
-early exit the `else` block is not executed.
+If the `for` block ends with a [`return`](../return/), [`break`](../break/), 
+or [`throw`](../throw/) directive, the iteration is said to have *exited early*. 
+In the case of `return` or `throw`, control is returned directly to the caller. 
+In the case of a `break` statement, execution continues with the statement
+immediately following the `for` statement. Therefore, the `else` block is never 
+executed in any case of early exit.
 
 The `else` clause is ideally suited to situations where the `for` statement 
 is being used to find something in a sequence or list, and the sought item has 
@@ -75,12 +79,20 @@ not been found:
     }
 <!-- cat: } -->
 
+### Iterating entries
+
+A special syntactic form of the `for` statement is provided for iterating instances
+of `Entry`.
+
+    for (key->item in map) {
+        //...
+    }
+
 ### Notes
 
 * Ceylon not support the C-style `for` statement, with an initialising statement,
-  iteration statement and termination condition. 
-  This isn't a problem in practice; see 
-  [what the Tour has to say](#{page.doc_root}/tour/sequences#iterating_sequences).
+  iteration statement and termination condition. This isn't a problem in practice; 
+  see [what the Tour has to say](#{page.doc_root}/tour/sequences#iterating_sequences).
 
 ## See also
 
@@ -91,5 +103,5 @@ not been found:
 * The [`for` statement](#{page.doc_root}/tour/attributes-control-structures#control_structures) 
   and [Iterating Sequences](#{page.doc_root}/tour/sequences#iterating_sequences)
   in the Tour of Ceylon
-* The [`for` statement](#{site.urls.spec_current}#forelse) 
-  in the language specification
+* The [`for` statement](#{site.urls.spec_current}#forelse) in the Ceylon language 
+  specification

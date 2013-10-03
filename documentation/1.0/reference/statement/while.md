@@ -9,11 +9,11 @@ doc_root: ../../..
 
 # #{page.title}
 
-The `while` statement supports iteration.
+The `while` statement executes a block of code repeatedly.
 
 ## Usage 
 
-The general form of the `while` statement is
+The general form of the `while` statement is:
 
 <!-- check:none -->
 <!-- try: -->
@@ -28,50 +28,39 @@ The general form of the `while` statement is
 ### Execution
 
 A `while` statement executes a block of code repeatedly until the 
-*while condition* evaluates as `false` (or the block it exited via a 
-`return`, `throw` or `break` directive).
+`while` condition evaluates to `false` (or the block is exited via 
+a `return`, `throw` or `break` directive).
 
 ### `break` and `continue`
 
-Within the `while` block the [`break` directive](../break/) can be used to 
-exit the block early without waiting for the condition to become `false`.
+Within the `while` block the [`break` directive](../break/) can be 
+used to exit the block early without waiting for the condition to 
+become `false`.
 
-The [`continue` directive](../continue/) can be used to skip execution of
-the remainder of the block and proceed with the execution of the block.
+The [`continue` directive](../continue/) can be used to skip 
+execution of the remainder of the block.
 
-### `Boolean` conditions
+### Conditions
 
-Any [`Boolean`](#{site.urls.apidoc_current}/Boolean.type.html) 
-expression can be used as a condition in an `while` statement.
-
-### 'Special' conditions
-
-The `while` statement also supports the use of certain special form conditions:
-
-* [`while (is ...)`](../conditions/#if_is_), 
-* [`while (exists ...)`](../conditions/#if_exists_), 
-* [`while (nonempty ...)`](../conditions/#if_nonempty_), 
-* [`while (satisfies ...)`](../conditions/#if_satisfies_).
-
-these narrow the type of a reference within the associated block.
-
-
-### Condition lists
-
-The condition in a `while` statement can also be a
+The conditions in a `while` statement form a
 [condition list](../conditions#condition_lists).
 
-The difference between a 
-condition list and a single `Boolean` condition constructed using the 
-[`&&` operator](../../operator/and/)
-is that the typecasting of conditions in the list take effect for conditions 
-later in the list, allowing you to write:
+Any expression of type [`Boolean`](#{site.urls.apidoc_current}/Boolean.type.html) 
+may be occur in the condition list of a `while` statement. The 
+`while` statement also supports the use of typing conditions:
+
+* [`if (is ...)`](../conditions/#if_is_), 
+* [`if (exists ...)`](../conditions/#if_exists_), and
+* [`if (nonempty ...)`](../conditions/#if_nonempty_).
+
+These conditions narrow the type of a reference within the `while` 
+block, and in later conditions in the condition list.
 
 <!-- try: -->
     Object takeNext() {
         // ...
     }
-
+    
     void takeSmallIntegers() {
         while (is Integer x=takeNext(), x < 10) {
             // ...
@@ -80,7 +69,8 @@ later in the list, allowing you to write:
 
 ### Notes
 
-* In Ceylon there is no `do`/`while` statement as there is in other C-like languages.
+* Ceylon has no `do`/`while` statement as seen in other C-like 
+  languages.
 
 ## See also
 

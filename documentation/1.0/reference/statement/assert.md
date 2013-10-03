@@ -80,7 +80,7 @@ the `AssertionException` will indicate this.
 
 ### Conditions
 
-The condition in an `assert` statement is a
+The conditions in an `assert` statement form a
 [condition list](../conditions#condition_lists).
 
 Any expression of type [`Boolean`](#{site.urls.apidoc_current}/Boolean.type.html) 
