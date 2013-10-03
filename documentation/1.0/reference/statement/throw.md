@@ -13,14 +13,14 @@ The `throw` statement is used to raise an exception
 
 ## Usage 
 
-A bare `throw` doesn't supply an exception instance:
+A bare `throw` doesn't need to supply an exception instance:
 
 <!-- cat: void m() { -->
 <!-- try: -->
     throw;
 <!-- cat: } -->
 
-Otherwise an exception instance may be specified. Most commonly a new 
+An exception instance may be explicitly specified. Usually, a new 
 exception is instantiated:
 
 <!-- cat: void m() { -->
