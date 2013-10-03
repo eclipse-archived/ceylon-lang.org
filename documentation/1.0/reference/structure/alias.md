@@ -70,9 +70,11 @@ and
 
 ## See also
 
-* [Type alias elimination](#{site.urls.spec_current}#typealiaselimination) in the spec.
-* [Interface aliases](#{site.urls.spec_current}#interfacealiases) in the spec.
-* [Class aliases](#{site.urls.spec_current}#classaliases) in the spec.
+* [Type alias elimination](#{site.urls.spec_current}#typealiaselimination),
+  [Type aliases](#{site.urls.spec_current}#typealiases),
+  [Interface aliases](#{site.urls.spec_current}#interfacealiases), and
+  [Class aliases](#{site.urls.spec_current}#classaliases) in the Ceylon
+  language specification
 * [`import`](../../statement/import) statements allow the imported 
   declaration to be renamed within the compilation unit. This is 
   usually called an *import alias*.
