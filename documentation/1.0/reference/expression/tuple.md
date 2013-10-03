@@ -8,8 +8,8 @@ author: Tom Bentley
 
 # #{page.title}
 
-A tuple enumeration is a notation for 
-[`Tuple`](#{site.urls.apidoc_current}/Tuple.type.html) instances.
+_Tuple enumeration_ is a notation for creating instances of
+[`Tuple`](#{site.urls.apidoc_current}/Tuple.type.html).
 
 ## Usage 
 
@@ -21,7 +21,7 @@ A tuple enumeration is a notation for
 ### Syntax
 
 Syntactically a tuple enumeration is an 
-[argument list](../../structure/argument-list/) enclosed 
+[argument list](../argument-list/) enclosed 
 within square brackets `[` and `]`.
 
 The empty tuple, `[]`, has the value 
@@ -29,8 +29,9 @@ The empty tuple, `[]`, has the value
 
 ### Type
 
-The type of a tuple enumeration is the type of the list 
-of arguments it contains.
+The type of a tuple enumeration is the 
+[`Tuple`](#{site.urls.apidoc_current}/Tuple.type.html) 
+type of the list of arguments it contains.
 
 As well as the [example above](#usage), consider
 the tuple constructed using a [
@@ -42,4 +43,5 @@ spread argument](../argument-list#spread_argument):
 
 ## See also
 
-* [Tuple enumeration](#{site.urls.spec_current}#enumeration) in the spec
+* [Iterable and tuple enumeration](#{site.urls.spec_current}#enumeration) 
+  in the Ceylon language specification

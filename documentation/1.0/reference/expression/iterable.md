@@ -8,20 +8,20 @@ author: Tom Bentley
 
 # #{page.title}
 
-An iterable enumeration is a notation for creating an
-[`Iterable`](#{site.urls.apidoc_current}/Iterable.type.html) instance.
+_Iterable enumeration_ is a notation for creating instances of
+[`Iterable`](#{site.urls.apidoc_current}/Iterable.type.html).
 
 ## Usage 
 
 <!-- try: -->
-    Iterable[Integer|Float|String] tuple = {1, 2.0, "three"};
+    {Integer|Float|String+} tuple = {1, 2.0, "three"};
 
 ## Description
 
 ### Syntax
 
 Syntactically an iterable enumeration is an 
-[argument list](../../structure/argument-list/) enclosed 
+[argument list](../argument-list/) enclosed 
 within braces `{` and `}`.
 
 The empty iteratable, `{}`, has the value 
@@ -36,4 +36,5 @@ type of the union of the types of the elements in the expression.
 
 ## See also
 
-* [Iterable enumeration](#{site.urls.spec_current}#enumeration) in the spec
+* [Iterable and tuple enumeration](#{site.urls.spec_current}#enumeration) 
+  in the Ceylon language specification

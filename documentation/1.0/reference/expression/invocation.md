@@ -8,7 +8,8 @@ author: Tom Bentley
 
 # #{page.title}
 
-Invocation is the act of calling something that is [`Callable`](#{site.urls.apidoc_current}/Callable.type.html).
+Invocation is the act of calling something that is 
+[`Callable`](#{site.urls.apidoc_current}/Callable.type.html).
 
 ## Usage 
 
