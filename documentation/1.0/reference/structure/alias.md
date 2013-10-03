@@ -70,8 +70,9 @@ and
 
 ## See also
 
-* [type aliases](#typealiaselimination) in the spec.
-* [`interface` aliases](#interfacealiases) in the spec.
-* [`class` aliases](#classaliases) in the spec.
-* [`import`](../statement/import) statements allow the imported declaration to be renamed within 
-  the compilation unit. This is usually called an *import alias*.
+* [Type alias elimination](#{site.urls.spec_current}#typealiaselimination) in the spec.
+* [Interface aliases](#{site.urls.spec_current}#interfacealiases) in the spec.
+* [Class aliases](#{site.urls.spec_current}#classaliases) in the spec.
+* [`import`](../../statement/import) statements allow the imported 
+  declaration to be renamed within the compilation unit. This is 
+  usually called an *import alias*.
