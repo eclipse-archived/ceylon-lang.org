@@ -18,50 +18,46 @@ The general form of the `switch` statement is
 
 <!-- check:none -->
 <!-- try: -->
-    switch ( /* switch expression */ ) {
-        case ( /* case expression */) {
-            /* case block */
-        }
-        case ( /* case expression */) {
-            /* case block */
-        }
-        else {
-            /* else block */
-        }
+    switch ( /* switch expression */ )
+    case ( /* case */) {
+        /* case block */
+    }
+    case ( /* case */) {
+        /* case block */
+    }
+    else {
+        /* else block */
     }
     /* code after switch statement */
 
-There can be one or more *disjoint* `case` clauses. 
-The `else` clause is required if (and only if) the switch is not 
-[*exhaustive*](#exhaustivity_and_else).
+There can be one or more *disjoint* `case` clauses. The `else` clause is required 
+if (and only if) the cases are not [*exhaustive*](#exhaustivity_and_else).
 
 ## Description
 
 ### Execution
 
 The `switch` expression is evaluated and then each of the `case`s is considered. 
-The matching `case` has its block executed, and then execution 
-continues with the code after the `switch` statement. 
-If none of the given `case`s match and an `else` clause is given then the 
-`else` block is executed, and then execution 
-continues with the code after the `switch` statement. 
+The matching `case` has its block executed, and then execution continues with the 
+code after the `switch` statement. If none of the given `case`s match and an `else` 
+clause is given, then the `else` block is executed, and then execution continues 
+with the code after the `switch` statement. 
 
 ### Exhaustivity and `else`
 
 If the `case`s cover every possible case of the `switch` expression then the 
-switch is said to be *exhaustive*, and the `else` clause is prohibited. 
+`switch` is said to be *exhaustive*, and the `else` clause is prohibited. 
 Otherwise the `else` clause is required.
 
 ### `case` with an enumerated type (value reference)
 
 If the `switch` expression is of an 
-[enumerated type](../../structure/type#enumerated_types) `U` 
-then the 
-`case`s may be of the form `case (x)` where `x` is one of the cases 
-  of `U` (a list of cases `case(x, y, z)` is also permitted).
+[enumerated type](../../structure/type#enumerated_types) `U` then a `case` may 
+be of the form `case (x)` where `x` is one of the cases of `U`. A list of cases, 
+`case(x, y, z)`, is also permitted.
   
-A specific example switching on an optional `Boolean` expression
-(this is easily generalized to any [enumerated type](../../type/#enumerated_types)):
+Since `Boolean` and `Null` are both enumerated types, we can use their enumerated
+values in a `switch`:
 
 <!-- try: -->
     void m(Boolean? b) {
@@ -79,22 +75,11 @@ A specific example switching on an optional `Boolean` expression
 
 ### `case(is...)` (assignability condition)
   
-If the `switch` expression is of an 
-[enumerated type](../../structure/type#enumerated_types) `U` 
-then the 
-`case`s may be of the form `case (is V)` where `V` is a case 
-of the type `U`.
-
-Note that because Ceylon supports reified generics V may be a 
-parameterized type, for example you can write a case such as
-`case (is List<Integer>)`
-
-Another example, using the `case(is...)` special form and a union type:
+If the `switch` expression type `U` is a union of disjoint types, or an 
+[enumerated type](../../structure/type#enumerated_types), then a `case` 
+may be of the form `case (is V)` where `V` is a case of the type `U`.
 
 <!-- try: -->
-    class Foo(){}
-    class Bar(){}
-    class Baz(){}
     void m3(Foo|Bar|Baz var) {
         switch(var)
         case (is Foo) {
@@ -110,10 +95,10 @@ Another example, using the `case(is...)` special form and a union type:
 
 ### `case(...)` with literals
 
-If the `switch` expression is of [`Integer`](#{site.urls.apidoc_current}/Integer.type.html), 
-[`Character`](#{site.urls.apidoc_current}/Character.type.html) or 
-[`String`](#{site.urls.apidoc_current}/String.type.html) type
-then the `case`s may be literal values of the appropriate type.
+If the `switch` expression is of type [`Integer`](#{site.urls.apidoc_current}/Integer.type.html), 
+[`Character`](#{site.urls.apidoc_current}/Character.type.html), or 
+[`String`](#{site.urls.apidoc_current}/String.type.html) then the 
+`case`s may be literal values.
 
 <!-- try: -->
     void f(Integer i) {
@@ -132,22 +117,8 @@ then the `case`s may be literal values of the appropriate type.
         }
     }
 
-Since it's difficult to enumerate every value of any of these types, the `else` 
+Since it's impossible to enumerate every value of any of these types, the `else` 
 clause is required.
-
-### `case(satisfies...)` (subtype conditions)
-
-<!-- m-later -->
-
-If the switch expression is of type `Type<U>` for some 
-[enumerated type](../../structure/type#enumerated_types) `U` 
-then the `case` must be of the form `case (satisfies V)` where 
-`V` is a case of the type `U`.
-
-Note that because Ceylon supports reified generics V may be a 
-parameterized type, for example you can write a case such as
-`case (satisfies List<Integer>)`
-
 
 ## See also
 

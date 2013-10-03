@@ -9,9 +9,10 @@ doc_root: ../../..
 
 # #{page.title}
 
-The `try` statement is used to execute a block of code providing other 
-blocks to handle exceptional circumstances, and, optionally, another block
-to be executed in all circumstances.
+The `try` statement is used to execute a block of code that may result 
+in an exception, providing additional blocks to handle the exceptional 
+circumstances, and, optionally, another block to be executed in all 
+circumstances.
 
 ## Usage 
 
@@ -50,31 +51,26 @@ The [`catch` clause](../catch) specifies the [type](../../structure/type)
 of exception (which must be a subtype of 
 [`Exception`](#{site.urls.apidoc_current}/Exception.type.html)) to be handled 
 by the associated block. The block is executed only if an exception 
-assignable to that type propogates out of the `try` block and the exception 
-was not assignable to the type of any preceeding `catch` clause.
+assignable to that type propagates out of the `try` block and the exception 
+was not assignable to the type of any earlier `catch` clause.
 
-The [`finally` clause](../finally) specifies a block to be executed whether or not 
-an exception propogated out of the `try` block, and whether or not any matching 
-`catch` clause was found.
+The [`finally` clause](../finally) specifies a block to be executed whether 
+or not an exception propogated out of the `try` block, and whether or not any 
+matching `catch` clause was found.
 
 ### Execution
 
-1. If there are any resource expressions they are evaluated and [`open()`](#{site.urls.apidoc_current}/Closeable.type.html#open) is invoked.
+1. If there are any resource expressions they are evaluated and 
+   [`open()`](#{site.urls.apidoc_current}/Closeable.type.html#open) is 
+   invoked.
 2. Each of the statements in the `try` block is executed
 3. [`close()`](#{site.urls.apidoc_current}/Closeable.type.html#close) 
-   is invoked on each of the resources acquired in 1
+   is invoked on each of the resources acquired in 1.
 4. If an exception propogates out of the `try` block, each of the
    `catch` clauses is considered in turn:
     1. If the propgated exception is a subtype of the exception type of 
         the `catch` clause the corresponding block is executed.
 5. If there is a `finally` block, it is executed. 
-
-If invoking `close()` causes a new exception to be thrown: TODO
-
-If an exception propogates out of a `catch` block the `finally` block is executed and the exception
-
-If an exception propogates out of the finally block it is suppressed and the exception which 
-propogated out of the `try` block is propogated out of the `try`/`catch`/`finally` construct. 
 
 ### The `finally` guarantee
 
@@ -84,16 +80,16 @@ in a timely fashion, even though the application may continues to
 execute. Such things may include:
 
 * Virtual machine exit
-* Termination or interruption of the application thread exeucting the 
+* Termination or interruption of the application thread executing the 
   finally block
 * Non-terminating ("infinite loop") code while evaluating a `close()` or 
   executing a statement in a `catch` block.
 
 ### Advice
 
-Note that [union types](../../structure/type#union_types) can 
-and should be used to avoid using multiple `catch` blocks which use the 
-same logic to handle disparate exception types:
+Note that [union types](../../structure/type#union_types) can and should 
+be used to avoid writing multiple `catch` blocks with the same logic to 
+handle disparate exception types:
 
 <!-- try: -->
     catch (ReadException|WriteException e) {
