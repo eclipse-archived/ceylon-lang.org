@@ -35,6 +35,10 @@ if (and only if) the cases are not [*exhaustive*](#exhaustivity_and_else).
 
 ## Description
 
+Unlike most other programming languages, a `switch` statement in Ceylon must be
+_exhaustive_, covering all possible values of the `switch` expression, and its
+cases must be _disjoint_, having no value in common.
+
 ### Execution
 
 The `switch` expression is evaluated and then each of the `case`s is considered. 
