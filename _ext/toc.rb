@@ -1,3 +1,5 @@
+require 'rdiscount'
+
 class TOC
   def initialize(options = {})
     @options = {
@@ -53,7 +55,7 @@ class TOC
       number = $1.size.to_i
       name = $2.strip
       header = titleable(name)
-
+      htmlHeader = RDiscount.new(match).to_html.gsub(/<[Hh][1-6]>/, "").gsub(/<\/[Hh][1-6]>/, "")
       if ( number > last_depth ) 
         last_depth.upto( number -1) do |e|
           toc << "<ul>"
@@ -64,13 +66,13 @@ class TOC
         end
       end
 
-      toc << "<li><a href='##{header}'>#{name}</a></li>" 
+      toc << "<li><a href='##{header}'>#{htmlHeader}</a></li>" 
 
 
 
       last_depth = number
 
-      "<h#{number} id=\"#{header}\">#{name}</h#{number}>\n\n"
+      "<h#{number} id=\"#{header}\">#{htmlHeader}</h#{number}>\n\n"
     end
 
     number = 1
