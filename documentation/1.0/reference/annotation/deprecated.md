@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`deprecated` annotation'
+title_md: '`deprecated` annotation'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 Marks a declaration which should no longer be used.
 

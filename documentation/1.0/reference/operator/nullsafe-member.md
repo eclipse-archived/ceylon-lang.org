@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`?.` (null-safe attribute) operator'
+title_md: '`?.` (null-safe attribute) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The left-associative, binary `?.` operator is used to access an attribute 
 as if its right-hand operand were not `null`.

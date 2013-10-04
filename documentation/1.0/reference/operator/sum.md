@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`+` (sum) operator'
+title_md: '`+` (sum) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The left-associative, binary infix `+` operator is used to *sum* two operands.
 

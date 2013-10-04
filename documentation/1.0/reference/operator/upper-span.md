@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`x[y...]` (upper span) operator'
+title_md: '`x[y...]` (upper span) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The *upper span* operator returns the tail of its left-hand `Ranged` operand
 as specified by its right-hand operand.

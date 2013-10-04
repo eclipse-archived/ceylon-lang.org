@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`of` operator'
+title_md: '`of` operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The non-associating, binary infix `of` operator is used to cast 
 the type of an expression, when this can be statically proven to 

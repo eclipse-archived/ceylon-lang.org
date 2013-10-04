@@ -1,12 +1,12 @@
 ---
 layout: reference
-title: 'Meta references'
+title_md: 'Meta references'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 Meta references are a way to obtain models from 
 [`ceylon.language.meta.model`](#{site.urls.apidoc_current}/meta/model/index.html)

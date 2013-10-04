@@ -1,12 +1,12 @@
 ---
 layout: reference
-title: 'Argument lists'
+title_md: 'Argument lists'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 An argument list is not an expression itself, but is used in the formation of 
 [positional invocation expressions](../invocation/) and [tuple](../tuple/) and 

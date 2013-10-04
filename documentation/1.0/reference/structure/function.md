@@ -1,12 +1,12 @@
 ---
 layout: reference
-title: Functions and methods
+title_md: Functions and methods
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 A _function_ accepts _arguments_ and returns a value.
 

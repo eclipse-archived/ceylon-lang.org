@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: Keywords
+title_md: Keywords
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 Keywords are reserved tokens whose role in the language is defined in the 
 language specification. They may not be used as identifiers.

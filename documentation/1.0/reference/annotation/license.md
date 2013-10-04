@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`license` annotation'
+title_md: '`license` annotation'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The `license` annotation is applied to a module to record its license.
 

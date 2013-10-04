@@ -1,12 +1,12 @@
 ---
 layout: reference
-title: Callable references
+title_md: Callable references
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 A _callable reference_ is an expression that references something 
 (a function, method, or class) that can be invoked by specifying 

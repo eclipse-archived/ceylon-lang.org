@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`x[...z]` (lower span) operator'
+title_md: '`x[...z]` (lower span) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The *lower span* operator returns the elements of its left-hand `Ranged` 
 operand upto and including the element whose key is specified by its 

@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`->` (entry) operator'
+title_md: '`->` (entry) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The infix *entry* operator creates an `Entry` from its key and value.
 

@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`<=` (less than or equal) operator'
+title_md: '`<=` (less than or equal) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The non-associating, binary infix `<=` operator is used to test whether its left-hand 
 operand is *less than or equal to* its right-hand operand.

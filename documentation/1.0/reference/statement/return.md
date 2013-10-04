@@ -1,12 +1,12 @@
 ---
 layout: reference
-title: '`return` statement'
+title_md: '`return` statement'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The `return` statement is a control directive that returns control normally 
 to the caller of a function, class, getter, or setter. In the case of a

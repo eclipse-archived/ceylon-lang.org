@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`native` annotation'
+title_md: '`native` annotation'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The `native` annotation marks a declaration that is not implemented 
 in the Ceylon programming language.

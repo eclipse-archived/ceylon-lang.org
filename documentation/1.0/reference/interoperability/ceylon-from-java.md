@@ -1,12 +1,12 @@
 ---
 layout: reference
-title: Using Ceylon from Java
+title_md: Using Ceylon from Java
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 ## Description
 

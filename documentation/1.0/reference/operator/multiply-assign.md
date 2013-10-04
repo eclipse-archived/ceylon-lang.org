@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`*=` (multiply assign) operator'
+title_md: '`*=` (multiply assign) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The right-associative, binary infix `*=` operator multiplies it's left-hand operand 
 by the amount given by its right-hand operand and assigns the result to the 

@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`throws` annotation'
+title_md: '`throws` annotation'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The `throws` annotation documents an exception that can be thrown by a
 function, value, or class. 

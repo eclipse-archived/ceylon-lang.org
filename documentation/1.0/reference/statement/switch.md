@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`switch` statement'
+title_md: '`switch` statement'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The `switch` statement executes code conditionally according to an enumerated 
 list of cases.

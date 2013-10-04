@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`*.` (spread attribute) operator'
+title_md: '`*.` (spread attribute) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The *spread attribute* operator maps an iterable of instances through an 
 attribute, resulting in a sequence of the attribute values.

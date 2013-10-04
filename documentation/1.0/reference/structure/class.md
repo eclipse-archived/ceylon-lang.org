@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: Class
+title_md: Class
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 A class is a stateful type that:
 

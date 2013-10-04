@@ -1,12 +1,12 @@
 ---
 layout: reference
-title: Type inference
+title_md: Type inference
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 Local declarations can often let the 
 compiler infer the type. 

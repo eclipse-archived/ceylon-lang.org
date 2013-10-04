@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`else` operator'
+title_md: '`else` operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The left-associative, binary `else` operator is used to provide a default value
 when it's left operand is `null`.

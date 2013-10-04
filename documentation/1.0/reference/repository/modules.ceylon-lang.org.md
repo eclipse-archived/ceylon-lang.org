@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`modules.ceylon-lang.org` aka Ceylon Herd'
+title_md: '`modules.ceylon-lang.org` aka Ceylon Herd'
 tab: documentation
 unique_id: docspage
 author: Stef Epardaud
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 [![Ceylon Herd](/images/herd-200.png "Ceylon Herd")](http://modules.ceylon-lang.org)
 

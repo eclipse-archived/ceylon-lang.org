@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`final` annotation'
+title_md: '`final` annotation'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The `final` annotation marks a class as not having subclasses.
 

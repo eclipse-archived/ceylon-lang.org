@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`..` (spanned range) operator'
+title_md: '`..` (spanned range) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The *spanned range* operator creates a `Range` from its endpoints.
 

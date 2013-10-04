@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`assert` statement'
+title_md: '`assert` statement'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The `assert` statement validates a given condition, throwing an `AssertionException` 
 if the condition is not satisfied. An assertion may narrow the type of values as 

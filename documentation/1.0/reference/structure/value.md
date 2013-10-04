@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: Values and attributes
+title_md: Values and attributes
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 There are two kind of _value_:
 

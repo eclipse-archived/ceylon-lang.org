@@ -1,12 +1,12 @@
 ---
 layout: reference
-title: '`this`'
+title_md: '`this`'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 `this` refers to the current instance of the immediately containing class or interface.
 

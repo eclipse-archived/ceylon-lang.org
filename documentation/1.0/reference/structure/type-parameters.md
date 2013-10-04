@@ -1,12 +1,12 @@
 ---
 layout: reference
-title: Type Parameters
+title_md: Type Parameters
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 [Class](../class/), [interface](../interface/) and [function](../function/) 
 declarations may have one or more type parameters.

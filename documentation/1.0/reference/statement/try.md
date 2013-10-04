@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`try` statement'
+title_md: '`try` statement'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The `try` statement is used to execute a block of code that may result 
 in an exception, providing additional blocks to handle the exceptional 

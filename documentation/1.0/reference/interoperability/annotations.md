@@ -1,12 +1,12 @@
 ---
 layout: reference
-title: Type mapping annotations
+title_md: Type mapping annotations
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 Ceylon uses Java annotations in compiled `.class` files to store information 
 about Ceylon types. For example, consider the Ceylon method:

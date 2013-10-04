@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`-` (difference) operator'
+title_md: '`-` (difference) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The left-associative, binary infix `-` operator is used to take the *difference* of 
 two operands.

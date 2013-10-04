@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`<ceylon-run>` Ant task'
+title_md: '`<ceylon-run>` Ant task'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 ## Usage 
 

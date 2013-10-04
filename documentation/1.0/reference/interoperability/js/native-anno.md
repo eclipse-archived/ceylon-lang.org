@@ -1,12 +1,12 @@
 ---
 layout: reference
-title: Extending types with native JavaScript
+title_md: Extending types with native JavaScript
 tab: documentation
 unique_id: docspage
 author: Enrique Zamudio
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 When a class which is annotated `native` is compiled to JavaScript, you can include
 two functions which will be called when creating new instances of that class: one

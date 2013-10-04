@@ -1,12 +1,12 @@
 ---
 layout: reference
-title: Packages
+title_md: Packages
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 A *package* is a collection of toplevel declarations contained 
 in one or more [compilation units](../compilation-unit) together 

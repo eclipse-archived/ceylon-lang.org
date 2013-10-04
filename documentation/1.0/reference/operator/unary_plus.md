@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`+` (unary plus) operator'
+title_md: '`+` (unary plus) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The right-associative, unary prefix `+` operator is used to clarify the positive value 
 of its operand.

@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`if` statement'
+title_md: '`if` statement'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The `if` statement allows a block of code to be executed conditionally.
 

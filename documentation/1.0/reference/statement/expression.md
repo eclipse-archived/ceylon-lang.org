@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: 'Expression statements'
+title_md: 'Expression statements'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 An expression statement simply evaluates an [expression](../../expression/). 
 

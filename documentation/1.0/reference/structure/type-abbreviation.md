@@ -1,12 +1,12 @@
 ---
 layout: reference
-title: Type abbreviations
+title_md: Type abbreviations
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 Some types are so commonly used in Ceylon that there are special 
 abbreviations for them. 

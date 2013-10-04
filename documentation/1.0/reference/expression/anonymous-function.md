@@ -1,12 +1,12 @@
 ---
 layout: reference
-title: 'Anonymous functions'
+title_md: 'Anonymous functions'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 An anonymous function is a function with no name, defined within 
 an expression.

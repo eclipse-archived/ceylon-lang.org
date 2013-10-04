@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`by` annotation'
+title_md: '`by` annotation'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The `by` annotation records an author or contributor to a piece of source code.
 

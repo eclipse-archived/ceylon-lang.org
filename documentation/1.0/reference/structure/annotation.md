@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: Annotations
+title_md: Annotations
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 An annotation encodes metadata about a [program element](#program_elements).
 

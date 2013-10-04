@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`>` (greater than) operator'
+title_md: '`>` (greater than) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The non-associating, binary infix `>` operator is used to test whether its left-hand 
 operand is *greater than* its right-hand operand

@@ -1,12 +1,12 @@
 ---
 layout: reference
-title: Type aliases
+title_md: Type aliases
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 A type alias assigns a name to a type expression. 
 

@@ -1,12 +1,12 @@
 ---
 layout: reference
-title: 'Tuple enumeration'
+title_md: 'Tuple enumeration'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 _Tuple enumeration_ is a notation for creating instances of
 [`Tuple`](#{site.urls.apidoc_current}/Tuple.type.html).

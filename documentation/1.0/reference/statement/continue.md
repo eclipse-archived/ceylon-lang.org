@@ -1,12 +1,12 @@
 ---
 layout: reference
-title: '`continue` statement'
+title_md: '`continue` statement'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The `continue` statement is a control directive that causes immediate execution 
 of the next iteration of a `for` or `while` loop.

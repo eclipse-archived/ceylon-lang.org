@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`!=` (not equal) operator'
+title_md: '`!=` (not equal) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The non-associating, binary infix `!=` operator is used to test whether its operands 
 are *not equal*.

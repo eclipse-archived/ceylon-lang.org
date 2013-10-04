@@ -1,12 +1,12 @@
 ---
 layout: reference
-title: '`super`'
+title_md: '`super`'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 `super` refers to the current instance of the class or interface that immediately contains the 
 immediately containing class or interface (like [`this`](../this/), but as if it 

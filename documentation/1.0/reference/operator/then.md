@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`then` operator'
+title_md: '`then` operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The left-associative, binary `then` operator evaluates its right operand only 
 when it's left operand is `true`, otherwise it evaluates as `null`.

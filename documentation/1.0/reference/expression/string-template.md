@@ -1,12 +1,12 @@
 ---
 layout: reference
-title: 'String templates'
+title_md: 'String templates'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 A String template is a easy was to concatenate text and the `string` value of 
 other expressions.

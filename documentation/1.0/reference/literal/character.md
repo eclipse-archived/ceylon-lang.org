@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`Character` literals'
+title_md: '`Character` literals'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 A literal notation for a [`Character`](#{site.urls.apidoc_current}/Character.type.html) 
 value.

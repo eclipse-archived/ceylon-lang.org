@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`*` (product) operator'
+title_md: '`*` (product) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The left-associative, binary infix `*` operator is used to compute the *product* of 
 two operands.

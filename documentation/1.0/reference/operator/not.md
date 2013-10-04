@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`!` (not) operator'
+title_md: '`!` (not) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The right-associative, unary `||` operator is used to compute the 
 logical *not* of its operand.

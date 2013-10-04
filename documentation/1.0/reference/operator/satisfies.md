@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: '`satisfies` operator'
+title_md: '`satisfies` operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
@@ -8,7 +8,7 @@ milestone: Later
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The non-associating, binary prefix `satisfies` operator is used to test whether its 
 left-hand  operand is *satisfies* its right-hand operand.

@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`%` (remainder) operator'
+title_md: '`%` (remainder) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The binary, left-associative infix `%` operator is used to get the remainder of an
 integer division.

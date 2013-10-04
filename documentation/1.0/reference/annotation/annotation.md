@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`annotation` annotation'
+title_md: '`annotation` annotation'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The `annotation` annotation marks a class as being an 
 [annotation type](../../structure/annotation/#annotation_class), 

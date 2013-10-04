@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`doc` annotation'
+title_md: '`doc` annotation'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The `doc` annotation adds freeform API documentation to a declaration.
 

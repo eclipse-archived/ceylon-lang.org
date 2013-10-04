@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: Expressions
+title_md: Expressions
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 An expression produces a value when evaulated. Complex expressions
 may be constructed by recursively applying operators to simpler

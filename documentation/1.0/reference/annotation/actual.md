@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`actual` annotation'
+title_md: '`actual` annotation'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The `actual` annotation marks a member as refining an inherited member.
 

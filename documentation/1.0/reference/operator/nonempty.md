@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`nonempty` operator'
+title_md: '`nonempty` operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The non-associating, unary postfix `nonempty` operator is used to test its operand for 
 emptiness.

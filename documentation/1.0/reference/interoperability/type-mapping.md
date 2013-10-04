@@ -1,12 +1,12 @@
 ---
 layout: reference
-title: Type mapping rules
+title_md: Type mapping rules
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 On this page we document how Ceylon types are mapped to Java types 
 on the JVM. The Ceylon 

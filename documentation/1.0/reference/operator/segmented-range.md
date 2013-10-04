@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`:` (segmented range) operator'
+title_md: '`:` (segmented range) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The *segmented range* operator creates a `Range` from its endpoints.
 

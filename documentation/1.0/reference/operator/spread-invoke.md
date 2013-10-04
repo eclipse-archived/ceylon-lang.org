@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`*.` (spread method) operator'
+title_md: '`*.` (spread method) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The *spread method* operator maps an iterable of instances through a 
 method, resulting in a new sequence containing the return values of

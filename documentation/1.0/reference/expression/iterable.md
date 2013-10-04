@@ -1,12 +1,12 @@
 ---
 layout: reference
-title: 'Iterable enumeration'
+title_md: 'Iterable enumeration'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 _Iterable enumeration_ is a notation for creating instances of
 [`Iterable`](#{site.urls.apidoc_current}/Iterable.type.html).

@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`optional` annotation'
+title_md: '`optional` annotation'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The `optional` annotation is applied to module imports which are 
 not strictly required by the module.

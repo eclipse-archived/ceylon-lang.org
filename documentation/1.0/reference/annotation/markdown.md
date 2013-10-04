@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: 'Markdown'
+title_md: 'Markdown'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The [`ceylon doc`](#{site.urls.ceylon_tool_current}/ceylon-doc.html) 
 tool assumes the arguments of the 

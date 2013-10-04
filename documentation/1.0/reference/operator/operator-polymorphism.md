@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: Operator Polymorphism
+title_md: Operator Polymorphism
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 ## Description
 

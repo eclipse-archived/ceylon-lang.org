@@ -1,12 +1,12 @@
 ---
 layout: reference
-title: Specification statements
+title_md: Specification statements
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The specification statement is used to define the value of a reference 
 or the implementation of a getter or function.

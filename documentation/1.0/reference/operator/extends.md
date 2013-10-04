@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: '`extends` operator'
+title_md: '`extends` operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
@@ -8,7 +8,7 @@ milestone: Later
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The non-associating, binary prefix `extends` operator is used to test whether its 
 left-hand operand is *extends* its right-hand operand

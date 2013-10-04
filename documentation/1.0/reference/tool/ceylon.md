@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`ceylon` - The Ceylon command'
+title_md: '`ceylon` - The Ceylon command'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The `ceylon` command provides access to the Ceylon command line toolset.
 

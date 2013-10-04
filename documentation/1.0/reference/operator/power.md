@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`^` (power) operator'
+title_md: '`^` (power) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The right-associative, binary infix `^` operator is used to compute its left-hand 
 operand *raised to the power* of its right-hand operand.

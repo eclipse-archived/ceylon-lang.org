@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`shared` annotation'
+title_md: '`shared` annotation'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The `shared` annotation marks a declaration as being visible outside 
 the scope in which it is defined, or a package as being visible 

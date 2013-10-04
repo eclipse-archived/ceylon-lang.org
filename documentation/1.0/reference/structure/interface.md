@@ -1,12 +1,12 @@
 ---
 layout: reference
-title: Interfaces
+title_md: Interfaces
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 An interface is a stateless type that, unlike a [class](../class):
 

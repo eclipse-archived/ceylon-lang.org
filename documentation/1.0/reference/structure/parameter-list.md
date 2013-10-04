@@ -1,12 +1,12 @@
 ---
 layout: reference
-title: Parameters
+title_md: Parameters
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 A function or class initializer has a *parameter list* declaring the parameters 
 of the function or class. A parameter list may declare zero or more *parameters*.

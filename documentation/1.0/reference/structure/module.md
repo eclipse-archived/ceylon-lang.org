@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: Modules
+title_md: Modules
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 A *module* is a set of [packages](../package) together with a 
 [module descriptor](#descriptor). A module is packaged as a 

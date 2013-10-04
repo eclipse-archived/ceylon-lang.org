@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`see` annotation'
+title_md: '`see` annotation'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The `see` annotation documents some other program element which is 
 relevant to the annotated program element.

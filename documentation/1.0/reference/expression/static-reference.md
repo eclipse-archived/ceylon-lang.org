@@ -1,12 +1,12 @@
 ---
 layout: reference
-title: Static references
+title_md: Static references
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 A _static reference_ is an "unbound" reference to an attribute, method, 
 or member class.

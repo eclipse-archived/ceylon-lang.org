@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`variable` annotation'
+title_md: '`variable` annotation'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The `variable` annotation marks a reference that may be 
 [assigned](../../operator/assign) more than once.

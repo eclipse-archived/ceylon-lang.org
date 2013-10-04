@@ -1,12 +1,12 @@
 ---
 layout: reference
-title: 'Invocation'
+title_md: 'Invocation'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 Invocation is the act of calling something that is 
 [`Callable`](#{site.urls.apidoc_current}/Callable.type.html).

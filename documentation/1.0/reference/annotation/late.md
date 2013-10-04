@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`late` annotation'
+title_md: '`late` annotation'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The `late` annotation prevents the typechecker from performing 
 [definite specification](../../statement/specification) checks on a 

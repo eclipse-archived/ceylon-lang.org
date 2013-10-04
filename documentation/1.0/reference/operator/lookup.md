@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`[]` (lookup) operator'
+title_md: '`[]` (lookup) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The *lookup* operator accesses a particular item in a `Correspondence`.
 

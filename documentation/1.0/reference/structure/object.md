@@ -1,12 +1,12 @@
 ---
 layout: reference
-title: object
+title_md: object
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 An `object` declaration is an anonymous [class](../class) that is 
 implicitly [instantiated](../../expression/class-instantiation)

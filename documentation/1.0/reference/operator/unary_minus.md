@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`-` (unary minus) operator'
+title_md: '`-` (unary minus) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The right-associative, unary prefix `-` operator is used to invert the sign of its operand
 

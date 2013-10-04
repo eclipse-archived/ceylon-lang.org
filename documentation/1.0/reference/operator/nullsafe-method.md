@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`?.` (null-safe method) operator'
+title_md: '`?.` (null-safe method) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The left-associative, binary `?.` operator is used to invoke a method 
 as if its right-hand operand were not `null`.

@@ -1,12 +1,12 @@
 ---
 layout: reference
-title: The JavaScript compiler
+title_md: The JavaScript compiler
 tab: documentation
 unique_id: docspage
 author: Enrique Zamudio
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 Ceylon code can be compiled to JavaScript. There are two styles that can be used:
 

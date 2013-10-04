@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`exists` operator'
+title_md: '`exists` operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The non-associating, unary postfix `exists` operator is used to test its operand for 
 nullness.

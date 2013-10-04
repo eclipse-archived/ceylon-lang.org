@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`&&` (and) operator'
+title_md: '`&&` (and) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The left-associative, binary infix `&&` operator is used to compute the 
 logical *and* of two operands

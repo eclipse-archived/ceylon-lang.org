@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`%=` (remainder assign) operator'
+title_md: '`%=` (remainder assign) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The right-associative, binary infix `%=` operator takes the remainder of it's 
 left-hand operand with respect to its right-hand operand and updates 

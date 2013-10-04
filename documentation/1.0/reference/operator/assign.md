@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`=` (assign) operator'
+title_md: '`=` (assign) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The right-associative, binary infix `=` operator is used to *assign* a value to a `variable`-annotated attribute
 

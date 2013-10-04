@@ -1,12 +1,12 @@
 ---
 layout: reference
-title: '`break` statement'
+title_md: '`break` statement'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The `break` statement is a control directive that causes immediately 
 termination of a `for` or `while` loop.

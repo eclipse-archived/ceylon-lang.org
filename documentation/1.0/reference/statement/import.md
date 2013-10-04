@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`import` statement'
+title_md: '`import` statement'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The `import` statement is used to express a dependency on a type defined 
 in another package. All `import` statements for a compilation unit must

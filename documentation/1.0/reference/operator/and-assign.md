@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`&&=` (and assign) operator'
+title_md: '`&&=` (and assign) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The right-associative, binary infix `&&=` operator is used to compute the 
 logical *and* of two operands, assigning the result to the left-hand operand. 

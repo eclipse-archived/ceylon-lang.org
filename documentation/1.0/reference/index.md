@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: Reference
+title_md: Reference
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 This page lists concepts and links to their descriptions. The complete 
 [language specification](#{page.doc_root}/spec) is also available.

@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`?` (default) operator'
+title_md: '`?` (default) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The right-associative, binary `?` operator is used to specify a *default* value.
 

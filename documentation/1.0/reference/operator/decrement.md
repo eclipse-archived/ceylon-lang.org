@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`--` (decrement) operator'
+title_md: '`--` (decrement) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The left-associative, unary `--` operators decrement their operand; they
 differ in whether the result is assigned before or after the decrement.

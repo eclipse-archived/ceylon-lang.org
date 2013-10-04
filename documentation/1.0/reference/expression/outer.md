@@ -1,12 +1,12 @@
 ---
 layout: reference
-title: '`outer`'
+title_md: '`outer`'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 `outer` refers to the current instance of the class or interface that immediately contains the 
 immediately containing class or interface.

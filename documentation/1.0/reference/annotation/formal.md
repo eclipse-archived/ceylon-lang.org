@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`formal` annotation'
+title_md: '`formal` annotation'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The `formal` annotation marks a member as not having a concrete implementation;
 one must be provided by subtypes.

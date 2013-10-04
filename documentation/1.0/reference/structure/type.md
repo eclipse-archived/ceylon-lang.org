@@ -1,12 +1,12 @@
 ---
 layout: reference
-title: Types and type declarations
+title_md: Types and type declarations
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 ## Usage 
 

@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`.` (member) operator'
+title_md: '`.` (member) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The left-associative, binary infix `.` operator is used to  access the member 
 named by the right-hand operand from left-hand operand.

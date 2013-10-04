@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`x[y..z]` (span) operator'
+title_md: '`x[y..z]` (span) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The *span* operator returns the subrange of its left-hand operand
 indexed by its centre and right-hand operands.

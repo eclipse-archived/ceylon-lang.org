@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`abstract` annotation'
+title_md: '`abstract` annotation'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The `abstract` annotation marks a class as not being instantiable.
 

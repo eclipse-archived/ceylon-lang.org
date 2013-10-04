@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`++` (increment) operator'
+title_md: '`++` (increment) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The left-associative, unary `++` operators increment their operand; they
 differ in whether the result is assigned before or after the increment.

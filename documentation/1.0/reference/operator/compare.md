@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`<=>` (compare) operator'
+title_md: '`<=>` (compare) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The non-associating, binary infix `<=>` operator is used to *compare* the order of 
 its operands.

@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`default` annotation'
+title_md: '`default` annotation'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The `default` annotation marks a member which has a default 
 implementation, but may be refined by subtypes.

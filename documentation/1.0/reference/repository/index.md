@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: Module repositories
+title_md: Module repositories
 tab: documentation
 unique_id: docspage
 author: Stéphane Épardaud
 doc_root: ../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 Ceylon supports modules natively. Ceylon Modules contain the following:
 

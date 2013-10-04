@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: 'Conditions and condition lists'
+title_md: 'Conditions and condition lists'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 Ceylon allows one or more _conditions_, which together form a _condition list_, 
 in the `if`, `while`, and `assert` statements and in `if` comprehension clauses. 

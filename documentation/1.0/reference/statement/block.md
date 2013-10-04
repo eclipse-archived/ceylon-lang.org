@@ -1,12 +1,12 @@
 ---
 layout: reference
-title: 'Statement blocks'
+title_md: 'Statement blocks'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 A block is a series of statements that are executed sequentially, in the order 
 they occur.

@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: '`()` and `{}` (invoke) operators'
+title_md: '`()` and `{}` (invoke) operators'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The left-associative, unary `()` and `{}` operators are used to invoke methods
 and instantiate classes

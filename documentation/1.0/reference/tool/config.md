@@ -1,13 +1,13 @@
 ---
 layout: reference
-title: Ceylon toolset configuration
+title_md: Ceylon toolset configuration
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
 doc_root: ../../..
 ---
 
-# #{page.title}
+# #{page.title_md}
 
 The ceylon tools use a `git`-like configuration file format for 
 configuring their behaviour.
