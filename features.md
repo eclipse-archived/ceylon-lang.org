@@ -105,8 +105,8 @@ principal instantiation inheritance.</p>
 
 <div class="feature">
 <h2>Typesafe metaprogramming</h2>
-<p><a href="/documentation/current/annotations/#annotations">Annotations</a>, a 
-<a href="/documentation/current/annotations/#the_metamodel">typesafe metamodel</a>,
+<p><a href="/documentation/current/tour/annotations/#annotations">Annotations</a>, a 
+<a href="/documentation/current/tour/annotations/#the_metamodel">typesafe metamodel</a>,
 and reified generics are the foundation of Ceylon's unique approach to typesafe 
 runtime metaprogramming, which makes framework development a pleasure.</p>
 </div>
