@@ -96,6 +96,20 @@ list of module repositories to use is passed to
 [`ceylon run`](##{site.urls.ceylon_tool_current}/ceylon-run.html), 
 and [other tools](#{page.doc_root}/reference/#tools).
 
+### Legacy modules
+
+For interoperability with Java it's possible to convert Java `.jar` files into Ceylon
+compatible modules. But for that they need a module descriptor telling Ceylon what it
+needs to know. There are two possible ways to do this:
+
+* Using a `module.properties` file whose format is explained [here](../module-properties)
+* Or using a JBoss Modules `module.xml` file whose detailed explanation can be found
+[here](https://docs.jboss.org/author/display/MODULES/Module+descriptors)
+
+In both cases the file must be placed in the same folder as the `.jar` file it belongs to.
+The name of the `.jar` file itself and the folder structure must adhere to the same rules
+as those for `.car` files.
+
 ### Metamodel
 
 Modules can be manipulated at runtime via their representation as
