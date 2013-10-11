@@ -34,7 +34,12 @@ Ceylon API documentation archives contain the API documentation in a `module-doc
 folder, which holds HTML documentation.
 
 Legacy Java archives contain the compiled code and are packaged in a `.jar`
-file using the ZIP file format in place of the corresponding `.car` archive.
+file using the ZIP file format just as they are for Java. They are used instead
+of the corresponding `.car` archive (you can have on or the other, not both).
+A legacy archive needs to follow the same naming rules and folder structure
+as defined for `.car` archives (see below). Also if the legacy archive has
+dependencies on other modules they can be defined using a `modules.xml` or
+`module.properties` file, see [here](../../structure/module#legacy_modules) for more information.
 
 ## Repository structure
 
@@ -59,6 +64,7 @@ Ceylon module repositories are organised using the following structure
                 bar/
                     0.1/
                         com.foo.bar-0.1.jar      -- Java legacy archive
+                        module.properties        -- Dependencies for legacy archive
 
 ## Supported repository types
 
