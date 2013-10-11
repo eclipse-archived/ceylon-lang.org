@@ -39,7 +39,7 @@ of the corresponding `.car` archive (you can have on or the other, not both).
 A legacy archive needs to follow the same naming rules and folder structure
 as defined for `.car` archives (see below). Also if the legacy archive has
 dependencies on other modules they can be defined using a `modules.xml` or
-`module.properties` file, see [here](../../structure/module#legacy_modules) for more information.
+`module.properties` file, see [here](../structure/module#legacy_modules) for more information.
 
 ## Repository structure
 
