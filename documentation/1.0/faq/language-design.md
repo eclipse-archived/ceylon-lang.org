@@ -104,7 +104,7 @@ interfaces or other treelike structures.
         }
     }
 
-We did originally investigae the `${...}` syntax, but it turns out 
+We did originally investigate the `${...}` syntax, but it turns out 
 that this requires a stateful lexer and is more fragile when editing
 code in an IDE. Anyway, some of us just don't love seeing dollar
 signs all over the place.
