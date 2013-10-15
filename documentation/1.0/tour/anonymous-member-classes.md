@@ -224,7 +224,7 @@ framework.
 Member classes and member class refinement allows Ceylon to support _type families_.
 We're not going to discuss type families in this tour.
 
-Next, we're going to meet [sequences](../sequences), Ceylon's take on the 
-"array" type.
+Next, we're going to meet [iterable objects](../sequences), along with sequences,
+Ceylon's take on the "array" type, and tuples.
 
 

@@ -187,11 +187,11 @@ What type is inferred for `coords`? You might answer:
 But that can't be right, since there might be more than one common 
 supertype.
 
-The correct answer is that the inferred type is `{X*}` where `X` is the 
+The correct answer is that the inferred type is `{X+}` where `X` is the 
 union of all the element expression types. In this case, the type is 
-`{Polar|Cartesian*}`. Now, this works out nicely, because 
-`Iterable<T>` is [covariant](../generics#covariance_and_contravariance) 
-in `T`. So the following code is well-typed:
+`{Polar|Cartesian+}`. Now, this works out nicely, because `Iterable<T>` 
+is [covariant](../generics#covariance_and_contravariance) in `T`. So 
+the following code is well-typed:
 
 <!-- try-pre:
     abstract class Point() of Polar | Cartesian { }
@@ -211,7 +211,7 @@ in `T`. So the following code is well-typed:
     value coords =
             { Polar(0.0, 0.0), 
               Cartesian(1.0, 2.0) }; //type {Polar|Cartesian+}
-    {Point*} points = coords;
+    {Point+} points = coords;
 <!-- cat: } -->
 
 As is the following code:
@@ -225,40 +225,38 @@ As is the following code:
 <!-- cat: } -->
 
 What about iterables that produce `null`s? Well, do you 
-[remember](../basics#dealing_with_objects_that_arent_there) the type of `null` 
-was [`Null`](#{site.urls.apidoc_current}/Nothing.type.html)?
+[remember](../basics#dealing_with_objects_that_arent_there) the type of 
+`null` was [`Null`](#{site.urls.apidoc_current}/Nothing.type.html)?
 
 <!-- try-post:
     print(str);
 -->
 <!-- cat: void m() { -->
-    value strings = { null, "Hello", "World" }; //type {String?+}
+    {String?*} strings = { null, "Hello", "World" };
     String? str = strings.first;
 <!-- cat: } -->
 
-The declared type of the attribute `first` of `Iterable<Element>` is 
-`Element?`. Here, we have an `Iterable<String?>` Substituting `String?` 
-for `Element`, we get the type `String??`, that is, `Null|Null|String`, 
-which is simply `Null|String`, written `String?`. Of course, the 
-compiler can figure out that kind of thing for us, we could have simply 
-written:
+The type of the attribute `first` of `Iterable<Element>` is `Element?`. 
+Here, we have an `Iterable<String?>` Substituting `String?` for `Element`, 
+we get the type `String??`, that is, `Null|Null|String`, which is simply 
+`Null|String`, written `String?`. Of course, the compiler can figure out 
+that kind of thing for us, we could have simply written:
 
 <!-- try-post:
     print(str);
 -->
 <!-- cat: void m() { -->
-    value strings = { null, "Hello", "World" }; //type {String?+}
+    value strings = { null, "Hello", "World" }; //type {Null|String|String+} i.e. {String?+}
     value str = strings.first; //type String?
 <!-- cat: } -->
 
 The same thing works out for sequences:
 
 <!-- try-post:
-    print(str else "null");
+    print(str);
 -->
 <!-- cat: void m() { -->
-    value tuple = [null, "Hello", "World"]; //type [Null,String,String]
-    String?[] strings = tuple;
+    value strings = [null, "Hello", "World"]; //type [Null,String,String]
     value str = strings[0]; //type String?
 <!-- cat: } -->
 
