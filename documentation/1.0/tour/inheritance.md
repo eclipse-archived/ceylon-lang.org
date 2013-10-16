@@ -173,6 +173,10 @@ Or assign a value to it using `=`, like this:
 You can refine any function or non-`variable` value using this streamlined
 syntax.
 
+Note that this shortcut syntax does not allow annotations. If you need to
+add documentation or other annotations to the refining member, you must
+use the more verbose syntax.
+
 ## Refining a member of `Object`
 
 Our `Polar` class is an implicit subtype of the class 
