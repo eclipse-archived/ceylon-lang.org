@@ -112,6 +112,22 @@ construction expression:
 
 Indeed, we can usually leave out the parameter names entirely.
 
+## Named arguments to variadic parameters
+
+To pass a named argument to a variadic parameter, just wrap the arguments in
+a sequence:
+
+    Float product(Float+ floats) {
+        variable value product = floats.first;
+        for (float in floats.rest) {
+            product*=float;
+        }
+        return product;
+    }
+    
+    print(product(2.0, 3.0, 4.0));              //positional args
+    print(product { floats=[2.0, 3.0, 4.0]; }); //same thing, with a named arg
+
 
 ## Leaving out the parameter names
 
