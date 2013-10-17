@@ -577,7 +577,7 @@ Oh, of course, the following is illegal:
 To fix this code, `name` must be declared `default` in both `User` 
 and `Party` and explicitly refined in `Customer`. We can delegate to
 one of the super-interface implementations using the syntax 
-`(super of User).name`.
+`(super of Party).name`.
 
 <!-- try-post:
     value c = Customer("Pietje Pluk", "piet.pluk@petteflet.example.org");
@@ -599,9 +599,9 @@ one of the super-interface implementations using the syntax
     
     class Customer(String customerName, String email)
             satisfies User & Party {
-        shared actual String legalName = customerName;
-        shared actual String userId = email;
-        shared actual String name => (super of User).name;
+        shared actual String legalName => customerName;
+        shared actual String userId => email;
+        shared actual String name => (super of Party).name;
     }
 
 The `of` operator is performs a _statically safe typecast_. That is, 
