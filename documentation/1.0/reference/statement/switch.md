@@ -64,7 +64,7 @@ Since `Boolean` and `Null` are both enumerated types, we can use their enumerate
 values in a `switch`:
 
 <!-- try: -->
-    void m(Boolean? b) {
+    void switchEnumValues(Boolean? b) {
         switch(b)
         case (true) {
             print("yes");
@@ -84,7 +84,7 @@ If the `switch` expression type `U` is a union of disjoint types, or an
 may be of the form `case (is V)` where `V` is a case of the type `U`.
 
 <!-- try: -->
-    void m3(Foo|Bar|Baz var) {
+    void switchOnEnumTypes(Foo|Bar|Baz var) {
         switch(var)
         case (is Foo) {
             print("FOO");
@@ -105,7 +105,7 @@ If the `switch` expression is of type [`Integer`](#{site.urls.apidoc_current}/In
 `case`s may be literal values.
 
 <!-- try: -->
-    void f(Integer i) {
+    void switchOnLiteralValues(Integer i) {
         switch (i)
         case (0) {
             print("zero"); 
