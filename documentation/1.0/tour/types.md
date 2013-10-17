@@ -602,7 +602,7 @@ The `of` clause of an enumerated type lets us define a relationship called
 _coverage_ between types. Coverage is related to, but not the same as, 
 subtyping. For example:
 
-- `X|Y` covers `X` for any type `Y`,
+- `X|Y` covers `X` for any type `Y`, and
 - if `T` has the enumerated cases `X`, `Y`, and `Z`, then `X|Y|Z` covers `T`.
 
 If the union of the types of all cases of a `switch` covers the `switch`ed
