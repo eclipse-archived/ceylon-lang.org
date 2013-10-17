@@ -577,7 +577,7 @@ language module.
 
 ## More about disjointness
 
-As we've seen, disjointess is a useful property for two types to have, since
+As we've seen, _disjointness_ is a useful property for two types to have, since
 it lets us uses them as cases of the same `switch` statement. Therefore, the
 compiler expends some effort to determine if two types are disjoint. For 
 example:
