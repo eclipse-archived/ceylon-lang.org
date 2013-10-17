@@ -492,7 +492,28 @@ and exhaustion. For example, this is acceptable:
     case (is File|Directory) { ... }
     case (is Link) { ... }
 
-As is this, assuming the above declaration of `Resource`:
+As is this:
+
+<!-- try:
+    interface Resource of File|Directory|Link { }
+    interface File satisfies Resource {}
+    interface Directory satisfies Resource {}
+    interface Link satisfies Resource {}
+    class SymLink() satisfies Link {}
+
+    Resource? resource = SymLink();
+    switch (resource) 
+    case (is File|Directory) { print("File or Directory"); }
+    case (is Link) { print("Link"); }
+    case (null) { print("null"); }
+-->
+    Resource? resource = ... ;
+    switch (resource) 
+    case (is File|Directory) { ... }
+    case (is Link) { ... }
+    case (null) { ... }
+
+As is this, still assuming the above declaration of `Resource`:
 
 <!-- try:
     interface Resource of File|Directory|Link { }
@@ -548,10 +569,61 @@ don't narrow the type of `suit`.
 Yes, this is a bit more verbose than a Java `enum`, but it's also somewhat 
 more flexible.
 
-For a more practical example, check out the definition of 
-[`Boolean`](#{site.urls.apidoc_current}/Boolean.type.html) 
-and [`Comparison`](#{site.urls.apidoc_current}/Comparison.type.html) 
-in the language module.
+For a couple of more practical examples, check out the definitions of 
+[`Boolean`](#{site.urls.apidoc_current}/Boolean.type.html) and 
+[`Comparison`](#{site.urls.apidoc_current}/Comparison.type.html) in the 
+language module.
+
+
+## More about disjointness
+
+As we've seen, disjointess is a useful property for two types to have, since
+it lets us uses them as cases of the same `switch` statement. Therefore, the
+compiler expends some effort to determine if two types are disjoint. For 
+example:
+
+- if `X` and `Y` are classes, `X` is not a subclass of `Y`, and `Y` is not a 
+  subclass of `X`, then `X` and `Y` are disjoint,
+- if `X` is a `final` class and `Y` is an interface not satisfied by `X`, then 
+  `X` and `Y` are disjoint, and
+- two instantiations of a generic type may be disjoint, for example, 
+  `MutableList<String>` and `MutableList<Integer>`.
+
+(There's much more information about disjointness in [the spec](../../spec).)
+
+When the compiler encounters an intersection type involving disjoint types,
+for example, `String&Integer`, it automatically simplifies this type to the
+bottom type `Nothing`.
+
+
+## Coverage and the `of` operator
+
+The `of` clause of an enumerated type lets us define a relationship called
+_coverage_ between types. Coverage is related to, but not the same as, 
+subtyping. For example:
+
+- `X|Y` covers `X` for any type `Y`,
+- if `T` has the enumerated cases `X`, `Y`, and `Z`, then `X|Y|Z` covers `T`.
+
+If the union of the types of all cases of a `switch` covers the `switch`ed
+expression type, then we know that the whole `switch` statement is exhaustive.
+
+(Again, there's much more information about coverage in [the spec](../../spec).)
+
+If a type covers another type, then we can use the `of` operator to safely 
+narrow from the second type to the first type, even if the second type is not
+strictly-speaking a subtype of the first type, according to Ceylon's type system.
+Going back to an earlier example, we could write:
+
+<!-- try: -->
+    Resource resource = ... ;
+    File|Directory|Link fileOrDirOrLink = resource of File|Directory|Link;
+
+This is more often useful for self types.
+
+<!-- try: -->
+    Comparable<Type> comparable = .... ;
+    Type type = comparable of Type;
 
 
 ## There's more...
