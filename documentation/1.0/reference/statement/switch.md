@@ -64,7 +64,7 @@ Since `Boolean` and `Null` are both enumerated types, we can use their enumerate
 values in a `switch`:
 
 <!-- try: -->
-    void switchEnumValues(Boolean? b) {
+    void switchOnEnumValues(Boolean? b) {
         switch(b)
         case (true) {
             print("yes");
