@@ -60,6 +60,26 @@ We can even rename members of type:
 <!-- check:none:pedagogical -->
     import com.redhat.polar.core { Polar { r=radius, theta=angle } }
 
+Now here's a big gotcha for folks new to Ceylon.
+
+### Gotcha!
+
+As we're about to see, importing a program element from a different module is 
+_always_ a two step process: 
+
+1. _import the module_ containing the program element in the module descriptor
+   of the module containing the source file, and then
+2. _import the program element_ in the source file.
+
+One `import` statement is not enough!
+
+In particular, this means that you _simply can't_ import a program element 
+defined in a module when you're playing around with code occurring outside
+a well-defined module (code in the "default" module).
+
+With that in mind, it's definitely time to learn how to define modules and
+dependencies between modules.
+
 
 ## Modules
 
