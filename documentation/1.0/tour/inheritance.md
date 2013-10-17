@@ -388,8 +388,8 @@ different return type:
         
     }
 
-There's no way to prevent other code from extending a class (there's 
-no equivalent of a `final` class in Java). Since only members explicitly 
+We usually don't try to prevent other code from extending a class (though
+there _is_ a `final` annotation like in Java). Since only members explicitly 
 declared as supporting refinement using either `formal` or `default` can be 
 refined, a subtype can never break the implementation of a supertype. Unless 
 the supertype was explicitly designed to be extended, a subtype can add 
@@ -484,11 +484,11 @@ Now let's define a concrete implementation of this interface.
 
 The `satisfies` keyword 
 ([not `implements` like Java](#{page.doc_root}/faq/language-design/#_implements_vs_satisfies))
-is used to specify that an interface extends 
-another interface or that a class implements an interface. 
-Unlike an `extends` declaration, a `satisfies` declaration does not specify 
-arguments, since interfaces do not have parameters or initialization logic. 
-Furthermore, the `satisfies` declaration can specify more than one interface.
+is used to specify that an interface extends another interface or that a class 
+implements an interface. Unlike an `extends` declaration, a `satisfies` 
+declaration does not specify arguments, since interfaces do not have parameters 
+or initialization logic. Furthermore, the `satisfies` declaration can specify 
+more than one interface.
 
 Ceylon's approach to interfaces eliminates a common pattern in Java 
 where a separate abstract class defines a default implementation of some 
@@ -575,8 +575,38 @@ Oh, of course, the following is illegal:
         shared actual String userId = email;
     }
 
-To fix this code, `name` must be declared `default` in both `User` and `Party` 
-and explicitly refined in `Customer`.
+To fix this code, `name` must be declared `default` in both `User` 
+and `Party` and explicitly refined in `Customer`. We can delegate to
+one of the super-interface implementations using the syntax 
+`(super of User).name`.
+
+    interface Named {
+        shared formal String name;
+    }
+    
+    interface Party satisfies Named {
+        shared formal String legalName;
+        shared actual default String name => legalName;
+    }
+    
+    interface User satisfies Named {
+        shared formal String userId;
+        shared actual default String name => userId;
+    }
+    
+    class Customer(String customerName, String email)
+            satisfies User & Party {
+        shared actual String legalName = customerName;
+        shared actual String userId = email;
+        shared actual String name => (super of User).name;
+    }
+
+The `of` operator is performs a _statically safe typecast_. That is, 
+a cast that is guaranteed to succeed at runtime. We'll meet other 
+uses for it later, but here you can think of it as widening the type 
+of the expression `super` from `User&Party` to `User`, thus resolving 
+the ambiguity as to which inherited definition of `name` should be
+called.
 
 
 ## There's more...
