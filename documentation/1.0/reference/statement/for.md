@@ -64,26 +64,27 @@ The `else` clause is ideally suited to situations where the `for` statement
 is being used to find something in a sequence or list, and the sought item has 
 not been found:
 
-<!-- cat: class Person() {shared Integer age = 0;} -->
-<!-- cat: void m(Person[] people) { -->
 <!-- try: -->
-    variable Boolean minors;
-    for (p in people) {
-        if (p.age<18) {
-            minors = true;
-            break;
+    Boolean definitelyInitialize(Person[] people) {
+        Boolean minors;
+        for (p in people) {
+            if (p.age<18) {
+                minors = true;
+                break;
+            }
         }
+        else {
+            minors = false;
+        }
+        return minors;
     }
-    else {
-        minors = false;
-    }
-<!-- cat: } -->
 
 ### Iterating entries
 
 A special syntactic form of the `for` statement is provided for iterating instances
 of `Entry`.
 
+<!-- try: -->
     for (key->item in map) {
         //...
     }
