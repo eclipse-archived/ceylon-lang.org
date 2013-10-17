@@ -530,7 +530,6 @@ To fix this code, we'll factor out a `formal` declaration of the attribute
     value c = Customer("Pietje Pluk", "piet.pluk@petteflet.example.org");
     print(c.name);
 -->
-<!-- check:none:concrete members of interfaces not yet supported -->
     interface Named {
         shared formal String name;
     }
@@ -580,6 +579,10 @@ and `Party` and explicitly refined in `Customer`. We can delegate to
 one of the super-interface implementations using the syntax 
 `(super of User).name`.
 
+<!-- try-post:
+    value c = Customer("Pietje Pluk", "piet.pluk@petteflet.example.org");
+    print(c.name);
+-->
     interface Named {
         shared formal String name;
     }
