@@ -8,6 +8,7 @@
 /_site
 /_tmp
 /.awestruct
+/Gemfile.lock
 
 #Editor
 *.tmproj
@@ -17,4 +18,4 @@
 /*.iml
 
 #RVM
-.rvmc
+/.rvmc
