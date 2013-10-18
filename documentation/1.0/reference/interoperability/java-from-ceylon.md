@@ -31,11 +31,15 @@ If you want to use a Java method or field with an initial uppercase letter, you 
 prefix its name with `\i` to let the Ceylon parser know that we're talking about
 an attribute/method name.
 
-#### Accessing Java methods or fields whose name is a Ceylon keyword
+#### Accessing Java declarations whose name is a Ceylon keyword
 
-Ceylon doesn't have many keywords, but if you need to access a Java method or field whose
-name, you have to prefix its name with `\i` to let the Ceylon parser know that we're 
-talking about an attribute/method name.
+If you need to access a Java method or field whose
+name is a Ceylon keyword (e.g. a method called `value()`), you have to prefix its name with `\i` 
+to let the Ceylon parser know that we're talking about an attribute/method name.
+
+If you need to access a Java class or interface whose
+name is a Ceylon keyword (e.g. a class called `value`), you have to prefix its name with `\I` 
+to let the Ceylon parser know that we're talking about a type name.
 
 ### Dealing with overloading
 
