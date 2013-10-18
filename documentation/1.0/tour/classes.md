@@ -352,12 +352,14 @@ In particular, if you're taking advantage of Ceylon's Java interop, you
 _cannot_ call a static member of a Java class using this syntax. This is
 simply wrong:
 
+<!-- try: -->
     import java.lang { Runtime }
     
     Integer procs = Runtime.runtime.availableProcessors();
 
 Instead, you must write the following:
 
+<!-- try: -->
     import java.lang { Runtime { runtime } }
     
     Integer procs = runtime.availableProcessors(); 
