@@ -45,19 +45,31 @@ to let the Ceylon parser know that we're talking about a type name.
 
 #### Calling overloaded constructors or methods
 
-This should work out of the box.
+No special syntax is required to call an overloaded constructor or method.
+
+Occasionally, as in Java, a typecast is required to distinguish the overloaded
+version. Ceylon doesn't have unsafe typecasts, is does have the `of` operator:
+
+<!-- try: -->
+    import java.lang { JException=Exception }
+    
+    ...
+    
+    throw JException(null of String?);
 
 #### Overriding overloaded methods
 
-This is not possible at the moment, because it would require nothing short of supporting
-overloading in Ceylon, [which is not something we want to do](../../../faq/language-design/#overloading).
+It's possible to refine one overloaded version of a method, but refining multiple
+overloaded versions is not allowed, because it would require nothing short of 
+supporting overloading in Ceylon, 
+[which is not something we want to do](../../../faq/language-design/#overloading).
 
 ### Dealing with static fields and methods
 
 Just like in Java, you can use static fields and methods as it they were instance
 fields or methods, so if you have an instance at hand, you're all set up.
 
-#### Accessing Static methods or fields
+#### Accessing static methods or fields
 
 You can access static methods or fields without having an instance of the container
 type by importing them from their containing type, which makes them toplevel attributes
@@ -166,7 +178,7 @@ type represents a certain Java primitive (though if you override a method or
 attribute, its primitive type will be respected). In the future we may implement
 this with a compiler annotation to specify the underlying primitive type to use.
 
-### Java array types <!-- m5 -->
+### Java array types
 
 Java arrays are supported and mapped to _virtual_ objects in the `java.lang` package:
 
@@ -399,7 +411,7 @@ And:
         e.method();
     }
 
-## Calling Java code with unsafe nulls <!-- m4 -->
+## Calling Java code with unsafe nulls
 
 Ceylon always knows whether a value can or not be `null`, but this is not the case in Java,
 so when calling Java code, we don't really know if a value, or a method's return value
@@ -417,7 +429,7 @@ We treat Java method parameters and writeable fields and JavaBean properties as 
 optional values if they are not Java primitives, thus allowing you to set them to `null`
 or to a value.
 
-## Implementing Java code with unsafe nulls <!-- m4 -->
+## Implementing Java code with unsafe nulls
 
 When implementing a Java interface or class in Ceylon, you can decide to make the method
 parameters and return values optional or not. The same is true when implementing JavaBean
@@ -465,7 +477,7 @@ elements and class literals (using `Declaration` reference expressions):
         shared variable String tom = "";
     }
 
-## Importing JDK modules <!-- m4 -->
+## Importing JDK modules
 
 The Java JDK is not imported by default anymore since Milestone 4, which means you need to import
 the JDK modules if you want to import JDK packages.
