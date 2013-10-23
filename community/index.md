@@ -18,6 +18,11 @@ our Google group [forum](http://groups.google.com/group/ceylon-users).
 You can follow and participate in the development of Ceylon by joining 
 our [development mailing list](http://groups.google.com/group/ceylon-dev).
 
+## IRC
+
+You can get in touch with our community directly through our IRC channel
+on FreeNode called [#ceylonlang](http://webchat.freenode.net?randomnick=1&channels=%23ceylonlang&prompt=1&uio=d4).
+
 ## Feedback requests
 
 We're using github's issue tracker to solicit feedback from the community
