@@ -21,7 +21,9 @@ our [development mailing list](http://groups.google.com/group/ceylon-dev).
 ## IRC
 
 You can get in touch with our community directly through our IRC channel
-on FreeNode called [#ceylonlang](https://webchat.freenode.net?randomnick=0&channels=%23ceylonlang&prompt=1&uio=d4).
+on [FreeNode] (https://webchat.freenode.net?randomnick=0&channels=%23ceylonlang&prompt=1&uio=d4)
+called [#ceylonlang](http://www.wsirc.com/?username=&server=irc.freenode.net%3A6667&channel=%23ceylonlang)
+(if you don't have an IRC client installed you can try either of the two previous links).
 
 ## Feedback requests
 
