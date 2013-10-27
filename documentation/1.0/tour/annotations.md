@@ -168,10 +168,9 @@ simply the annotation type itself.
 ## Annotation constraints
 
 The second type parameter, `Values`, governs how many different annotations 
-of given program element may return the annotation type. Notice that
-`ConstrainedAnnotation` has an `of` clause telling us that there are only 
-two direct subtypes. So any annotation type must be a subtype of one of 
-these two interfaces:
+of given program element may return the annotation type. Ceylon provides two 
+subtypes of `ConstrainedAnnotation` that will be useful for the most common 
+cases:
 
 * If an annotation type is a subtype of 
   [`OptionalAnnotation`](#{site.urls.apidoc_current}/OptionalAnnotation.type.html), 
