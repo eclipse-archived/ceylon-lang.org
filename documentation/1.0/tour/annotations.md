@@ -136,7 +136,7 @@ Or:
         string => (scope==request then "request")
              else (scope==session then "session")
              else (scope==application then "application")
-             else "";
+             else nothing;
     }
 
 Multiple annotation constructors may produce the same annotation type. An 
