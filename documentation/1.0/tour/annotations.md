@@ -36,24 +36,26 @@ Here's the definition of a some of our old friends, `doc`:
 <!-- cat: shared class Authors(String[] desc={}) {} -->
     "Annotation to specify API documentation of a program
      element." 
-    shared annotation Doc doc(String description) => Doc(description);
+    shared annotation DocAnnotation doc(String description) =>
+            DocAnnotation(description);
 
 And `by`:
 
 <!-- try: -->
     "Annotation to specify API authors."
-    shared annotation Authors by(String* authors) => Authors(*authors);
+    shared annotation AuthorsAnnotation by(String* authors) =>
+            AuthorsAnnotation(*authors);
 
 Of course, we can define our own annotations. (That's the whole point!)
 
 <!-- try: -->
 <!-- check:none:Annotations M5 -->
-    shared annotation Scope scope(ScopeType s) => Scope(s);
+    shared annotation ScopeAnnotation scope(ScopeType s) => ScopeAnnotation(s);
 
 Or:
 
 <!-- try: -->
-    shared annotation Todo todo(String text) => Todo(text);
+    shared annotation TodoAnnotation todo(String text) => TodoAnnotation(text);
 
 Since annotation constructors are functions, annotation names always begin 
 with a lowercase letter.
@@ -104,37 +106,37 @@ and leave it at that. We do this all the time with annotations like `shared`,
 ## Annotation types
 
 The return type of an annotation constructor is called the *annotation type*.
-The `doc` annotation produces a `Doc`:
+The `doc` annotation produces a `DocAnnotation`:
 
 <!-- try: -->
     "The annotation class for the [[doc]] annotation."
-    shared final annotation class Doc(shared String description)
-            satisfies OptionalAnnotation<Doc, Annotated> {}
+    shared final annotation class DocAnnotation(shared String description)
+            satisfies OptionalAnnotation<DocAnnotation, Annotated> {}
 
-The `by` annotation produces `Authors`:
+The `by` annotation produces `AuthorsAnnotation`:
 
 <!-- try: -->
     "The annotation class for [[by]]."
-    shared final annotation class Authors(shared String* authors)
-            satisfies OptionalAnnotation<Authors, Annotated> {}
+    shared final annotation class AuthorsAnnotation(shared String* authors)
+            satisfies OptionalAnnotation<AuthorsAnnotation, Annotated> {}
 
 Naturally, we can define our own annotation types:
 
 <!-- try: -->
-    shared final annotation class Todo(String text)
-            satisfies SequencedAnnotation<Todo> {
+    shared final annotation class TodoAnnotation(String text)
+            satisfies SequencedAnnotation<TodoAnnotation> {
         string => text;
     }
 
 Or:
 
 <!-- try: -->
-    shared final annotation class Scope(shared ScopeType scope)
-            satisfies OptionalAnnotation<Scope,ClassDeclaration> {
+    shared final annotation class ScopeAnnotation(shared Scope scope)
+            satisfies OptionalAnnotation<ScopeAnnotation, ClassDeclaration> {
         string => (scope==request then "request")
              else (scope==session then "session")
              else (scope==application then "application")
-             else nothing;
+             else "";
     }
 
 Multiple annotation constructors may produce the same annotation type. An 
@@ -271,21 +273,21 @@ write:
 
 <!-- try: -->
 <!-- check:none:Annotations M5 -->
-    String? description = annotations(`Description`, 
+    String? description = annotations(`DocAnnotation`, 
                 `class Person`)?.description;
 
-Note that the expression `` `Description` `` returns the metamodel object 
-for the type `Description`, an instance of `Class<Description,[]>`. The 
-expression `` `class Person` `` returns the reference object for the program 
-element `Person`, a `ClassDeclaration`.
+Note that the expression `` `DocAnnotation` `` returns the metamodel object 
+for the type `DocAnnotation`, an instance of `Class<DocAnnotation,[String]>`. 
+The expression `` `class Person` `` returns the reference object for the 
+program element `Person`, a `ClassDeclaration`.
 
 To determine if the method `stop()` of a class named `Thread` is deprecated, 
 we can write:
 
 <!-- try: -->
 <!-- check:none:Annotations M5 -->
-    Boolean deprecated = exists annotations(`Deprecated`, 
-                `function Thread.stop`);
+    Boolean deprecated = annotations(`DeprecationAnnotation`, 
+                `function Thread.stop`) exists;
 
 Note that the expression `` `function Thread.stop` `` returns the reference 
 object for the method `stop()` of `Thread`, an instance of `FunctionDeclaration`.
@@ -294,14 +296,14 @@ Here are two more examples, to make sure you get the idea:
 
 <!-- try: -->
 <!-- check:none:Annotations M5 -->
-    Scope scope = annotations(`Scope`, `class Person`) else request;
+    Scope scope = annotations(`ScopeAnnotation`, `class Person`)?.scope else request;
 
 <!-- try: -->
-    Todo[] todos = annotations(`Todo`, `function method`);
+    String[] todos = annotations(`TodoAnnotation`, `function method`)*.text;
 
-Everything's set up so that `annotations()` returns `Scope?` for the 
-optional annotation type `Scope`, and `Todo[]` for the sequenced annotation 
-type `Todo`.
+Everything's set up so that `annotations()` returns `ScopeAnnotation?` for the 
+optional annotation type `ScopeAnnotation`, and `TodoAnnotation[]` for the 
+sequenced annotation type `Todo`.
 
 <!--
 Of course, it's much more common to work with annotations in generic code, 
@@ -328,19 +330,19 @@ declarative transaction management in Ceylon.
 
 <!-- try: -->
 <!-- check:none:Annotations M5 -->
-    shared annotation Transactional transactional
+    shared annotation TransactionalAnnotation transactional
             (Boolean requiresNew = false)
-        => Transactional(requiresNew);
+        => TransactionalAnnotation(requiresNew);
 
-This method simply produces an instance of the class `Transactional` that 
-will be attached to the metamodel of an annotated method or attribute. 
+This method simply produces an instance of the class `TransactionalAnnotation` 
+that will be attached to the metamodel of an annotated method or attribute. 
 The meta-annotation specifies that the annotation may be applied to methods 
 and attributes, and may occur at most once on any member.
 
 <!-- try: -->
 <!-- check:none:Annotations M5 -->
-    shared final annotation class Transactional(requiresNew)
-            satisfies OptionalAnnotation<Transactional,
+    shared final annotation class TransactionalAnnotation(requiresNew)
+            satisfies OptionalAnnotation<TransactionalAnnotation,
                             FunctionDeclaration|ValueDeclaration> {
         shared Boolean requiresNew;
     }
