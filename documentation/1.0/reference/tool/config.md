@@ -195,18 +195,18 @@ trying to download modules from remote repositories (defaults to `no` (`false`).
 
 ### `[compiler]` section
 
-The `[compiler]` is mainly used to change the default behaviour of the compile tool.
+The `[compiler]` section is mainly used to change the default behaviour of the compile tool.
 The possible settings include:
 
 * `source` - This has the same effect as supplying `--source` on the command line.
 It takes a path to a folder containing sources. More than one can be specified.
 
 * `resource` - This has the same effect as supplying `--resource` on the command line.
-It takes a path to a folder containing sources. More than one can be specified.
+It takes a path to a folder containing resources. More than one can be specified.
 
 BTW: although it appears in the `[compiler]` section these settings actually affect
-any tools that take `--source` or `--resource` options. If a tool takes normally only
-a single of those options the first in the list will be used.
+any tools that take `--source` or `--resource` options. If a tool normally takes only
+a single of these options the first in the list will be used.
 
 
 ### `[repositories]` section
