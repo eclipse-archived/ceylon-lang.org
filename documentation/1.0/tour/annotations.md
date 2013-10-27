@@ -50,7 +50,7 @@ Of course, we can define our own annotations. (That's the whole point!)
 
 <!-- try: -->
 <!-- check:none:Annotations M5 -->
-    shared annotation ScopeAnnotation scope(ScopeType s) => ScopeAnnotation(s);
+    shared annotation ScopeAnnotation scope(Scope s) => ScopeAnnotation(s);
 
 Or:
 
