@@ -302,7 +302,7 @@ Here are two more examples, to make sure you get the idea:
 
 Everything's set up so that `annotations()` returns `ScopeAnnotation?` for the 
 optional annotation type `ScopeAnnotation`, and `TodoAnnotation[]` for the 
-sequenced annotation type `Todo`.
+sequenced annotation type `TodoAnnotation`.
 
 <!--
 Of course, it's much more common to work with annotations in generic code, 
