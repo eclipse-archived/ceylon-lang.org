@@ -23,7 +23,7 @@ emptiness.
 
 ### Definition
 
-The meaning of `exists` is defined as follows:
+The meaning of `nonempty` is defined as follows:
 
 <!-- check:none -->
 <!-- try: -->
