@@ -190,7 +190,7 @@ tool chain. The possible settings include:
 a default value, if not specified the default file encoding for the platform
 is assumed)
 * `offline` - when set to `yes` (or `true`) will prevent the tool chains from
-trying to download modules from remote repositories (defaults to `no` (`false`).
+trying to download modules from remote repositories (defaults to `no` (`false`)).
 
 
 ### `[compiler]` section
@@ -199,10 +199,10 @@ The `[compiler]` section is mainly used to change the default behaviour of the c
 The possible settings include:
 
 * `source` - This has the same effect as supplying `--source` on the command line.
-It takes a path to a folder containing sources. More than one can be specified.
+It takes a path to a folder containing sources. Can be specified multiple times.
 
 * `resource` - This has the same effect as supplying `--resource` on the command line.
-It takes a path to a folder containing resources. More than one can be specified.
+It takes a path to a folder containing resources. Can be specified multiple times.
 
 BTW: although it appears in the `[compiler]` section these settings actually affect
 any tools that take `--source` or `--resource` options. If a tool normally takes only
