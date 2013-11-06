@@ -22,6 +22,8 @@ author: Stephane Epardaud
 <!-- lang: bash -->
     $ cd ceylon-dist ; ant setup
 
+- Set the environment variable `CEYLON_HOME` to the full path of the (not yet existing) subdirectory `dist` within `ceylon-dist`.
+
 - Now to build the complete distribution run
 
 <!-- lang: bash -->
