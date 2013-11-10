@@ -243,8 +243,8 @@ Finally, an annotation argument may contain only:
 
 - literal strings, characters, integers, and floats, 
 - references to toplevel anonymous classes (for example, `true`), 
-- program element reference expressions (for example, `` `interface List` ``, or 
-  `` `function sum` ``), and
+- program element reference expressions (for example, `` `interface List` ``, 
+  or `` `function sum` ``), and
 - iterable and tuple enumerations (`{ ... }` and `[ ... ]`) containing legal 
   annotation arguments.  
 
@@ -255,7 +255,8 @@ language.
 ## Reading annotation values at runtime
 
 Annotation values may be obtained by calling the toplevel method 
-[`annotations()`](#{site.urls.apidoc_current}/meta/#annotations) defined in the language module.
+[`annotations()`](#{site.urls.apidoc_current}/meta/index.html#annotations) 
+defined in the language module.
 
 <!-- try: -->
 <!-- check:none:Annotations M5 -->
