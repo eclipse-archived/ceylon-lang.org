@@ -88,13 +88,13 @@ iterating [`Entry`s](#{site.urls.apidoc_current}/Entry.type.html):
         print("``i``: ``word``");
     }
 
-The [`entries()`](#{site.urls.apidoc_current}/#entries) 
+The [`entries()`](#{site.urls.apidoc_current}/index.html#entries) 
 function returns an instance of `Entry<Integer,String>[]` containing the 
 indexed elements of the sequence. (The `->` is syntax sugar for the class 
 `Entry`.)
 
 It's often useful to be able to iterate two sequences at once. The 
-[`zip()`](#{site.urls.apidoc_current}/#zip) 
+[`zip()`](#{site.urls.apidoc_current}/index.html#zip) 
 function comes in handy here:
 
 <!-- try-pre:
