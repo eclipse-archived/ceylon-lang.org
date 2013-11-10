@@ -82,7 +82,7 @@ There's more info in the [README](https://github.com/ceylon/ceylon-js/blob/maste
 This project contains the module `ceylon.language`, the core classes 
 mentioned in the language specification.
 
-See the [API documentation](#{site.urls.apidoc_current}/) for more information.
+See the [API documentation](#{site.urls.apidoc_current}/index.html) for more information.
 
 There's more info in the [README](https://github.com/ceylon/ceylon.language/blob/master/README.md).
 

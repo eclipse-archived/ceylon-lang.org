@@ -897,7 +897,7 @@ This function composes two functions:
 Fortunately, you won't need to be writing functions like 
 `curry()()`, `uncurry()()` and `compose()()` yourself. They're general 
 purpose tools that are packaged as part of the 
-[`ceylon.language`](#{site.urls.apidoc_current}/)
+[`ceylon.language`](#{site.urls.apidoc_current}/index.html)
 module. Nevertheless, it's nice to know that machinery like this is 
 expressible within the type system of Ceylon. 
 -->
