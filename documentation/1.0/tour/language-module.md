@@ -23,7 +23,7 @@ especially in [this chapter](../sequences).
 
 ## An overview of the language module
 
-The module [`ceylon.language`](#{site.urls.apidoc_current}/) 
+The module [`ceylon.language`](#{site.urls.apidoc_current}/index.html) 
 contains classes and interfaces that are referred to in the language 
 specification, other declarations *they* refer to, and a number of related 
 useful functions and types. Let's meet the main characters.
