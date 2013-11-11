@@ -7,8 +7,9 @@ author: Emmanuel Bernard
 ---
 # #{page.title}
 
-[Ceylon 1.0 beta][1.0 beta] _&ldquo;Virtual Boy&rdquo;_ is now available for download! 
-This is the latest release of the language, command line tools and IDE.
+[Ceylon 1.0.0][1.0.0] _&ldquo;No More Mr Nice Guy&rdquo;_ is now 
+available for download! This is the first production-ready release 
+of the language, command line tools, and IDE.
 
 ## Command line tools
 
@@ -16,7 +17,7 @@ This package contains the Ceylon command line compiler for Java and
 JavaScript virtual machines, the documentation compiler, the language 
 module, and the module runtime.
 
-[1.0 beta]:/blog/2013/09/22/ceylon-1
+[1.0.0]:/blog/2013/09/22/ceylon-1
 
 <table>
     <tr>
@@ -82,12 +83,19 @@ Mac OS X users running the [Homebrew package manager](http://mxcl.github.com/hom
 can easily install Ceylon:
 
 <!-- lang: none -->
+    brew update
     brew install ceylon
+
+To upgrade a previous `brew` installation:
+
+<!-- lang: none -->
+    brew update
+    brew upgrade ceylon
 
 Instructions for getting started are contained in the file
 `README.md` in the root directory of the distribution, or
 [right here in GitHub][ceylon-dist readme]. To know what's 
-precisely in the release, read our [announcement][1.0 beta].
+precisely in the release, read our [announcement][1.0.0].
 
 [ceylon-dist readme]: https://github.com/ceylon/ceylon-dist/blob/master/README.md 
 
@@ -145,6 +153,14 @@ from our [update site][update site].
 -->
 
 After installing, go to `Help > Welcome to Ceylon` to get started.
+
+## SDK
+
+The Ceylon Platform Modules that make up the Ceylon SDK may be 
+obtained from [Ceylon Herd](http://modules.ceylon-lang.org). 
+You don't need to download the modules yourself, since the
+compiler, IDE, or runtime will automatically fetch the modules 
+as needed.
 
 ## Source code
 

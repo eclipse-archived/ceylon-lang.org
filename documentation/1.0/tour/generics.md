@@ -533,13 +533,13 @@ Now of course, generic type arguments aren't checked for typesafety by the
 underlying virtual machine at runtime, but that's not really strictly 
 necessary since the compiler has already checked the soundness of the code.
 
-### implementation note <!-- m6 -->
+### implementation note <!-- 1.0 -->
 
-In the M6 release we have not had time to implement certain important
+In the 1.0 release we have not had time to implement certain important
 optimizations related to reified generics. Therefore, you'll likely run into
 some performance problems when using generic types in this release. Don't
-worry, we're confident that we can resolve these issues by the time Ceylon
-reaches its 1.0 release. (But please let us know your experiences!)
+worry, we're confident that we can resolve these issues for Ceylon 1.1. 
+(But please let us know your experiences!)
 
 
 ## There's more...

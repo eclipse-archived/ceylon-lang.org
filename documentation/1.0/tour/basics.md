@@ -282,8 +282,8 @@ Let's make our program tell us a little more about itself.
     "The Hello World program ... version 1.1!"
     void hello() {
         print("Hello, this is Ceylon ``language.version``  
-               running on Java ``process.vmVersion``!\n
-               You ran me at ``process.milliseconds`` ms, 
+               running on Java ``runtime.version``!\n
+               You ran me at ``system.milliseconds`` ms, 
                with ``process.arguments.size`` arguments.");
     }
 
@@ -293,7 +293,7 @@ Notice how our message contains interpolated expressions, delimited using
 On my machine, this program results in the following output:
 
 <!-- lang: none -->
-    Hello, this is Ceylon 0.6
+    Hello, this is Ceylon 1.0.0
     running on Java 1.7!
     
     You ran me at 1362763185067 ms,
