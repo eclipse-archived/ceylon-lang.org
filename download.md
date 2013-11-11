@@ -21,57 +21,57 @@ module, and the module runtime.
 <table>
     <tr>
         <td>
-        <a href="/download/dist/1_0_Beta" 
+        <a href="/download/dist/1_0_0" 
            title='Download the Zip archive'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Beta?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_0?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
            <img src="/images/download/package-zip.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
         </a>
         </td>
         <td>Zip archive</td>
         <td>All Operating Systems</td>
         <td>
-        <a href="/download/dist/1_0_Beta" 
+        <a href="/download/dist/1_0_0" 
            title='Download the Zip archive'
            class='bubble-button'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Beta?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_0?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
            download
         </a>
         </td>
     </tr>
     <tr>
         <td>
-        <a href="/download/dist/1_0_Beta_rpm" 
+        <a href="/download/dist/1_0_0_rpm" 
            title='Download the RPM'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Beta_rpm?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_0_rpm?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
            <img src="/images/download/package-fedora.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
         </a>
         </td>
         <td>RPM</td>
         <td>Fedora/Red Hat</td>
         <td>
-        <a href="/download/dist/1_0_Beta_rpm" 
+        <a href="/download/dist/1_0_0_rpm" 
            title='Download the RPM'
            class='bubble-button'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Beta_rpm?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_0_rpm?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
            download
         </a>
         </td>
     </tr>
     <tr>
         <td>
-        <a href="/download/dist/1_0_Beta_deb" 
+        <a href="/download/dist/1_0_0_deb" 
            title='Download the Debian package'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Beta_deb?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_0_deb?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
            <img src="/images/download/package-debian.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
         </a>
         </td>
         <td>DEB</td>
         <td>Debian/Ubuntu</td>
         <td>
-        <a href="/download/dist/1_0_Beta_deb" 
+        <a href="/download/dist/1_0_0_deb" 
            title='Download the Debian package'
            class='bubble-button'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_Beta_deb?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_0_deb?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
            download
         </a>
         </td>
