@@ -42,11 +42,10 @@ tab: to-be-defined
       %code
         :preserve
           <span class="code_type">Html</span> html = <span class="code_type">Html</span> {
-             <span class="code_type">Head</span> {
-                title = <span class="code_string">"Ceylon: home page"</span>;
-             };
+             doctype = html5;
+             <span class="code_type">Head</span> { title = <span class="code_string">"Ceylon: home page"</span>; };
              <span class="code_type">Body</span> {
-                <span class="code_type">H2</span> ( <span class="code_string">"Welcome to Ceylon, &#96;&#96;</span>user.name<span class="code_string">&#96;&#96;!"</span> ),
+                <span class="code_type">H2</span> ( <span class="code_string">"Welcome to Ceylon, &#96;&#96;</span><span class="code_interpolated">user.name</span><span class="code_string">&#96;&#96;!"</span> ),
                 <span class="code_type">P</span> ( <span class="code_string">"Now get your code on :)"</span> )
              };
           };

@@ -289,15 +289,19 @@ form.bp {
       padding: 0;
       code {
         font-family:'Courier New', Courier, monospace;
-        font-size: 15.5px;
+        font-size: 15px;
         font-weight: bold;
         text-shadow: none;
-        line-height: .99em;
+        line-height: .96em;
         .code_type {
           color: #D98BD6;
         }
         .code_string {
           color:#88AEFF;
+          //font-weight: normal;
+        }
+        .code_interpolated {
+          font-style: italic;
         }
       }
     }
