@@ -186,7 +186,7 @@ simple and straightforward in Ceylon. For example, consider the following:
     print(joinedStuff);
 -->
     value stuff = { "hello", "world", 1.0, -1 };
-    value joinedStuff = join({"hello", "world"}, {1.0, 2.0}, {});
+    value joinedStuff = concatenate({"hello", "world"}, {1.0, 2.0}, {});
 
 The compiler automatically infers the types: 
 
