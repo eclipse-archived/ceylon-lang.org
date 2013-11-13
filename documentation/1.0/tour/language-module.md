@@ -327,7 +327,7 @@ of `Character`s.
 
 A character literal is written between single quotes.
 
-    Character[] latinLetters = join('a'..'z', 'A'..'Z');
+    Character[] latinLetters = concatenate('a'..'z', 'A'..'Z');
     Character newline = '\n';
     Character pi = '\{#0001D452}';
 
