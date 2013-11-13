@@ -160,6 +160,6 @@ with a [`nonempty` *operator*](../../operator/nonempty) of form `xs nonempty`.
 * [`if` statement](../if), 
 * [`while` statement](../while), 
 * [`assert` statement](../assert) 
-* [`if` comprehensions](../../expression/comprehension)
+* [comprehensions](/documentation/current/tour/comprehensions)
 * [Control structure conditions](#{site.urls.spec_current}#controlstructureconditions) 
   in the Ceylon language spec 
