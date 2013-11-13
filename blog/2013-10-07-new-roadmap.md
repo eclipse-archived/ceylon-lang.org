@@ -6,7 +6,7 @@ unique_id: blogpage
 tab: blog
 tags: [progress, roadmap]
 ---
-With the release of [1.0 beta](/blog/2013/09/22/ceylon-1), we
+With the release of [1.0 beta](/blog/2013/11/12/ceylon-1), we
 reached the end of our previous [roadmap](/documentation/1.0/roadmap).
 This doesn't mean we've run out of work to do, so of course we needed
 a new one. Here's a sketch of our plan:

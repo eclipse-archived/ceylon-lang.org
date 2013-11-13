@@ -124,7 +124,7 @@ This is accomplished via a module descriptor:
     "The best-ever ORM solution!"
     license "http://www.gnu.org/licenses/lgpl.html"
     module org.hibernate "3.0.0.beta" {
-        import ceylon.collection "0.6.1";
+        import ceylon.collection "1.0.0";
         import java.base "7";
         shared import java.jdbc "7";
     }

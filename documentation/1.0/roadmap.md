@@ -7,9 +7,12 @@ author: Emmanuel Bernard
 ---
 # #{page.title}
 
-Ceylon 1.0 beta [has been released](/download) and we are
-already working on a final production-ready release of the 
-language, toolset, and IDE.
+Ceylon 1.0 [has been released](/download) and we're
+in the process of 
+[preparing a new roadmap](/blog/2013/10/07/new-roadmap/) 
+for Ceylon 1.1 (which will focus on performance and 
+interoperability enhancements) and Ceylon 1.2 (which 
+will add new language features). Stay tuned!
 
 <!--
 However, our roadmap is quite well-defined:
@@ -23,6 +26,7 @@ However, our roadmap is quite well-defined:
   - [Milestone 6](#milestone_6_done) (latest release)
 -->
 
+<!--
 ## Current progress for 1.0
 
 <div id="milestones-progress">
@@ -310,3 +314,4 @@ changes, HTTP server, dates and times.*
 * `ceylon.local` platform module (basic support for localization)
 * `ceylon.format` platform module (text formatting for numbers and 
    dates/times)
+-->
