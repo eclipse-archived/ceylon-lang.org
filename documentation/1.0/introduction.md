@@ -235,7 +235,7 @@ inheritance*.
         }
     }
 
-What really distinguished interfaces from classes in Ceylon is that 
+What really distinguishes interfaces from classes in Ceylon is that 
 interfaces are *stateless*. That is, an interface may not directly hold
 a reference to another object, it may not have initialization logic, and
 it may not be directly instantiated. Ceylon neatly avoids the need to
