@@ -363,36 +363,30 @@ function directly:
 
 ## Defining user interfaces
 
-One of the first modules we're going to create for Ceylon will be a library 
-for writing HTML templates in Ceylon. A fragment of static HTML would look 
-something like this:
+The platform module `ceylon.html` is a library for writing HTML templates in 
+Ceylon. A fragment of static HTML looks something like this:
 
 <!-- try: -->
 <!-- check:parse:Requires ceylon.html -->
     Html {
+        doctype = html5;
         Head {
-            title = "Hello World";
-            cssStyleSheet = 'hello.css';
+            title = "Ceylon: home page";
+            Link { 
+                rel = stylesheet; 
+                type = css; 
+                href = "/styles/screen.css"; 
+                id = "stylesheet"; 
+            }
         };
         Body {
-            Div {
-                cssClass = "greeting";
-                "Hello World"
-            },
-            Div {
-                cssClass = "footer";
-                "Powered by Ceylon"
-            }
+            H2 ( "Welcome to Ceylon ``language.version``!" ),
+            P ( "Now get your code on :)" )
         };
     }
 
 Even though this looks like some kind of templating language, it's just an 
 ordinary expression.
-
-### implementation note <!-- m6 -->
-
-This library does not yet exist! Why not [get involved](/community) in 
-developing the Ceylon platform?
 
 
 ## There's more...
