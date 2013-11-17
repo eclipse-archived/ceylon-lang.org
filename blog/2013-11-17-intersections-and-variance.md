@@ -7,6 +7,15 @@ tab: blog
 tags: [generics]
 ---
 
+_Warning: the following post is for people who enjoy
+thinking about types, and want to understand how the
+Ceylon compiler reasons about them. This post is partly 
+an attempt to demystify 
+[§3.7 of the spec](http://ceylon-lang.org/documentation/1.0/spec/html/typesystem.html#principalinstantiations). 
+To understand the following, you first need to understand 
+how [variance](/documentation/1.0/tour/generics/#covariance_and_contravariance) 
+works in Ceylon._
+
 ### Snap quiz!
 
 Consider:
@@ -18,15 +27,6 @@ Consider:
 2. What is the type of the parameter of `list.add()`?
 
 ### Background
-
-_Warning: the following post is for people who enjoy
-thinking about types, and want to understand how the
-Ceylon compiler reasons about them. This post is partly 
-an attempt to demystify 
-[§3.7 of the spec](http://ceylon-lang.org/documentation/1.0/spec/html/typesystem.html#principalinstantiations). 
-To understand the following, you first need to understand 
-how [variance](/documentation/1.0/tour/generics/#covariance_and_contravariance) 
-works in Ceylon._
 
 One of the key goals of Ceylon's type system is to make
 subtyping and generics play nicely together. Almost 
@@ -84,7 +84,7 @@ ourselves that they make sense:
 
 Satisfied? Good.
 
-### Generic supertypes and principal instantiation inheritance
+### Generic supertypes and principal instantiations
 
 So, how are these identities useful? Well, imagine that
 we have a type `T` whose supertypes include multiple 
@@ -114,6 +114,8 @@ intersection like `List<Queue>&List<Topic>`, or a union
 like `List<String>|List<Integer>`, but it also arises 
 through the use of inheritance.
 
+### Principal instantiation inheritance
+
 In Java, a type can only inherit a single instantiation
 of a supertype. A class can't inherit (either directly 
 or indirectly) both `List<Queue>` _and_ `List<Topic>` 
@@ -134,6 +136,8 @@ In which case, `Endpoints` is a subtype of
 identity 3 above to _automatically_ infer that
 `Endpoints` is a `List<Queue&Topic>`. Other languages
 can't do this.
+
+### Problem: invariant types
 
 Now notice something about the identities above: they
 don't say anything about _invariant_ types. If I have
