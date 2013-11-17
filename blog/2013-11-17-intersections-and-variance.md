@@ -7,6 +7,8 @@ tab: blog
 tags: [generics]
 ---
 
+### Snap quiz!
+
 Consider:
 
 <!-- try -->
@@ -14,6 +16,8 @@ Consider:
 
 1. What is the type of `list.first`?
 2. What is the type of the parameter of `list.add()`?
+
+### Background
 
 _Warning: the following post is for people who enjoy
 thinking about types, and want to understand how the
@@ -33,6 +37,8 @@ in my opinion, completely _nailing_ it. Ceylon's
 contribution, of course, is to introduce first-class union 
 and intersection types to the mix. In this post we'll see
 one of the ways in which they help.
+
+### Four useful identities
 
 To begin to fully understand how the Ceylon typechecker 
 reasons about generic types, you need to grasp the central 
@@ -77,6 +83,8 @@ ourselves that they make sense:
    know is either a `String` or an `Integer`.
 
 Satisfied? Good.
+
+### Generic supertypes and principal instantiation inheritance
 
 So, how are these identities useful? Well, imagine that
 we have a type `T` whose supertypes include multiple 
@@ -149,6 +157,8 @@ _would be a principal supertype for
 `MutableList<Queue>&MutableList<Topic>`. But who the
 hell wants to have to deal with nasty-looking types
 like that?_
+
+### Conclusion
 
 The significance of this is that we should, where 
 reasonable, be careful with how we use invariant types 
