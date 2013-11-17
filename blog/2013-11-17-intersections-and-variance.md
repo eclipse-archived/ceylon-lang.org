@@ -211,7 +211,9 @@ instantiation of the contravariant supertype is
 sound.
 
 <sup>1</sup>The notion of principal instantiation inheritance 
-is mainly based on Ross Tate's research.
+is mainly based on Ross Tate's research. As far as I know, the
+idea of combining principal instantiation inheritance with
+union and intersection types is original to Ceylon.
 
 <sup>2</sup>Thanks for Riener Zwitzerloot for this example and
 for inspiring this post.
