@@ -21,7 +21,7 @@ works in Ceylon._
 Consider:
 
 <!-- try: -->
-    MutableList<Topic> & MutableList<Queue> list;
+    MutableList<Topic> | MutableList<Queue> list;
 
 1. What is the type of `list.first`?
 2. What is the type of the parameter of `list.add()`?
