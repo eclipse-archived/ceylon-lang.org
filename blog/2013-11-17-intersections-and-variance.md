@@ -7,6 +7,14 @@ tab: blog
 tags: [generics]
 ---
 
+Consider:
+
+<!-- try -->
+    MutableList<Topic> & MutableList<Queue> list;
+
+1. What is the type of `list.first`?
+2. What is the type of the parameter of `list.add()`?
+
 _Warning: the following post is for people who enjoy
 thinking about types, and want to understand how the
 Ceylon compiler reasons about them. This post is partly 
