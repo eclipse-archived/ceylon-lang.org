@@ -49,7 +49,7 @@ importance of the following identities:
    `List<String|Integer>`.
 2. Given a contravariant type `ListMutator<Element>`, 
    the union `ListMutator<Queue>|ListMutator<Topic>` 
-   is a subtype of `ListListMutator<Queue&Topic>`.
+   is a subtype of `ListMutator<Queue&Topic>`.
 3. Given a covariant type `List<Element>`, the 
    intersection `List<Queue>&List<Topic>` is a subtype 
    of `List<Queue&Topic>`.
