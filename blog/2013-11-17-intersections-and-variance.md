@@ -140,13 +140,11 @@ can't do this.
 ### Problem: invariant types
 
 Now notice something about the identities above: they
-don't say anything about _invariant_ types. If I have
-`MutableList<Queue>&MutableList<Topic>`, I simply
-can't form a principal instantiation of `MutableList`
-that is a supertype of 
-`MutableList<Queue>&MutableList<Topic>`. Or at least
-I can't within Ceylon's type system as it exists
-today.
+don't say anything about _invariant_ types. Unfortunately, 
+I simply can't form a principal instantiation of 
+`MutableList` that is a supertype of 
+`MutableList<Queue>&MutableList<Topic>`. Or at least I 
+can't within Ceylon's type system as it exists today.
 
 _Caveat: I'm not a fan of use-site variance. I've been
 too burned by it in Java. However, if we do ever decide 
