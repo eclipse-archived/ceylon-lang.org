@@ -430,7 +430,7 @@ large programs.
 Well, overloading interacts with a number of other language 
 features though, in truth, the interactions could probably
 be controlled by sufficiently restricting the signature of
-overloaded declarations. And overloading also maps bady to
+overloaded declarations. And overloading also maps badly to
 the JVM because generic types are erased from signatures.
 But there are potential workarounds for this problem, too.
 
