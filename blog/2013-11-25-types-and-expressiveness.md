@@ -48,13 +48,15 @@ far more understandable:
     {String*} split(String string, {Character+} separators)
 
 What this means, of course, is that dynamic typing places
-a much higher burden on the programmer to _comment and 
-document things_. And to maintain that documentation. 
-On the other hand, static typing forces me to maintain the 
+a much higher burden on the programmer to conscientiously 
+_comment and document things_. And to maintain that 
+documentation.
+ 
+On the other hand, static typing _forces_ me to maintain the 
 correct type annotations on the `split()` function, even 
-when its implementation changes, and my IDE will even help 
-me automatically refactor them. No IDE on earth offers the 
-same kind of help maintaining comments!
+when its implementation changes, even when I'm in a hurry, 
+and my IDE will even help me automatically refactor them. No 
+IDE on Earth offers the same kind of help maintaining comments!
 
 Now consider what else this extra expressiveness buys me.
 Suppose that `Foo` and `Bar` share no interesting common
