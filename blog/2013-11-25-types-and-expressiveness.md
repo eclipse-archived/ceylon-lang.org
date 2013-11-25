@@ -14,11 +14,11 @@ characterization. By nature, a language with dynamic
 typing places fewer constraints on me, the programmer, and 
 lets me "express myself" more freely. I'm not going to,
 right now, re-argue the case for static typing, which is
-quite obvious to anyone who has ever written or maintained
-code using an IDE. However, I would like to point out a
-particular sense in which dynamic typing is much _less_ 
-expressive than static typing, and the consequences of 
-that.
+anyway quite clear to anyone who has ever written or 
+maintained a decent-sized chunk of code using an IDE. 
+However, I would like to point out a particular sense in 
+which dynamic typing is much _less_  expressive than static 
+typing, and the consequences of that.
 
 (Now, please bear with me for a bit, because I'm going to 
 take a rather scenic route to getting to my real point.)
@@ -38,27 +38,30 @@ _far less self-documenting_ than statically typed code.
 Quick, what can I pass to the following function? What
 do I get back from it?
 
+<!-- try: -->
     function split(string, separators)
 
 Translated to Ceylon, this function signature is immediately 
 far more understandable:
 
+<!-- try: -->
     {String*} split(String string, {Character+} separators)
 
 What this means, of course, is that dynamic typing places
 a much higher burden on the programmer to _comment and 
 document things_. And to maintain that documentation. 
-Ceylon forces me to maintain the correct type annotations
-on the `split()` function, even when its implementation
-chances, and my IDE will even help me automatically 
-refactor them. No IDE on earth offers the same kind of 
-help maintaining comments!
+On the other hand, static typing forces me to maintain the 
+correct type annotations on the `split()` function, even 
+when its implementation changes, and my IDE will even help 
+me automatically refactor them. No IDE on earth offers the 
+same kind of help maintaining comments!
 
 Now consider what else this extra expressiveness buys me.
 Suppose that `Foo` and `Bar` share no interesting common
 supertype. In any dynamic language on earth, I could write 
 the following code:
 
+<!-- try: -->
     class Super {
         function fun() { return Foo(); }
     }
@@ -78,6 +81,7 @@ always returns types closely related by inheritance.
 As a second example, consider a well-known hole in the
 typesystem of Java: `null`. In Java, I could write:
 
+<!-- try: -->
     class Super {
         public Foo fun() { return Foo(); }
     }
@@ -96,6 +100,7 @@ of returning null from a method belonging to a public API.
 
 Now let's consider Ceylon.
 
+<!-- try: -->
     class Super() {
         shared default Foo? fun() => Foo();
     }
@@ -120,6 +125,7 @@ Now, since a "nullable type" in Ceylon is just a special
 case of a union type, we can generalize this observation 
 to other union types. Consider:
 
+<!-- try: -->
     class Super() {
         shared default Foo|Bar fun() => Foo();
     }
