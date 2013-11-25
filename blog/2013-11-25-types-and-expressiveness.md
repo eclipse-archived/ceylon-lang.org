@@ -23,15 +23,15 @@ typing, and the consequences of that.
 (Now, please bear with me for a bit, because I'm going to 
 take a rather scenic route to getting to my real point.)
 
-In a nutshell, dynamic typing is less expressive than
-static typing in that _it doesn't fully express types_.
+In a nutshell, _dynamic typing is less expressive than
+static typing in that it doesn't fully express types_.
 
-Of course that's a rather silly tautology. But it matters
-because types matter. Even in a dynamically-typed language 
-like Python, Smalltalk, or Ruby, types still matter. To
-understand and maintain the code, _I still need to know
-the types of things_. Indeed, this is true even in 
-weakly-typed JavaScript!
+Of course that's a rather silly tautology. But it's still
+worth saying. Why? Because types matter. Even in a 
+dynamically-typed language like Python, Smalltalk, or Ruby, 
+types still matter. To understand and maintain the code, 
+_I still need to know the types of things_. Indeed, this 
+is true even in weakly-typed JavaScript!
 
 The consequence of this is that dynamically-typed code is
 _far less self-documenting_ than statically typed code.
@@ -96,7 +96,8 @@ signature of `fun()` that it may return `null`, and so
 the caller might just obliviously not handle that case,
 resulting in an NPE somewhere further down the track,
 it's often a good practice to throw an exception instead
-of returning null from a method belonging to a public API.
+of returning `null` from a method belonging to a public 
+API.
 
 Now let's consider Ceylon.
 
