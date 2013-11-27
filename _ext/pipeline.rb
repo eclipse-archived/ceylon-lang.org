@@ -78,22 +78,22 @@ Awestruct::Extensions::Pipeline.new do
     "<title>\\1:\\2</title>")
   transformer Awestruct::Extensions::Gsub.new(
     /\<!--\s*m1\s*--\>\s*/, 
-    "<span class='milestone'><a href='/documentation/1.0/roadmap/#milestone_1_done' title='Support for this feature was introduced in Milestone 1'>Milestone 1</a></span>")
+    "<span class='milestone' title='Support for this feature was introduced in Milestone 1'>Milestone 1</span>")
   transformer Awestruct::Extensions::Gsub.new(
     /\<!--\s*m2\s*--\>\s*/, 
-    "<span class='milestone'><a href='/documentation/1.0/roadmap/#milestone_2_done' title='Support for this feature was introduced in Milestone 2'>Milestone 2</a></span>")
+    "<span class='milestone' title='Support for this feature was introduced in Milestone 2'>Milestone 2</span>")
   transformer Awestruct::Extensions::Gsub.new(
     /\<!--\s*m3\s*--\>\s*/, 
-    "<span class='milestone'><a href='/documentation/1.0/roadmap/#milestone_3_done' title='Support for this feature was introduced in Milestone 3'>Milestone 3</a></span>")
+    "<span class='milestone' title='Support for this feature was introduced in Milestone 3'>Milestone 3</span>")
   transformer Awestruct::Extensions::Gsub.new(
     /\<!--\s*m4\s*--\>\s*/, 
-    "<span class='milestone'><a href='/documentation/1.0/roadmap/#milestone_4' title='Support for this feature was introduced in Milestone 4'>Milestone 4</a></span>")
+    "<span class='milestone' title='Support for this feature was introduced in Milestone 4'>Milestone 4</span>")
   transformer Awestruct::Extensions::Gsub.new(
     /\<!--\s*m5\s*--\>\s*/, 
-    "<span class='milestone'><a href='/documentation/1.0/roadmap/#milestone_5' title='Support for this feature was introduced in Milestone 5'>Milestone 5</a></span>")
+    "<span class='milestone' title='Support for this feature was introduced in Milestone 5'>Milestone 5</span>")
   transformer Awestruct::Extensions::Gsub.new(
     /\<!--\s*m6\s*--\>\s*/, 
-    "<span class='milestone future'><a href='/documentation/1.0/roadmap/#milestone_6' title='Support for this feature will be introduced in Milestone 6'>Milestone 6</a></span>")
+    "<span class='milestone' title='Support for this feature was introduced in Milestone 6'>Milestone 6</span>")
   transformer Awestruct::Extensions::Gsub.new(
     /\<!--\s*m-later\s*--\>\s*/, 
     "<span class='milestone future'><a href='/documentation/1.0/roadmap/#ceylon_11_or_later' title='Support for this feature will be introduced in Ceylon 1.1 or later'>Ceylon 1.1 or later</a></span>")
