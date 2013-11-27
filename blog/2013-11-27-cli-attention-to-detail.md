@@ -12,8 +12,8 @@ tags: [tools]
 We’re programmers, so let’s face it, we spend lots of time in those small obscure windows with tiny text, preferably
 with a green or black background, that Hollywood movies often display scrolling a lot, really fast, you know? Terminals.
 
-While good IDEs are required, and the Ceylon IDE is a must-have for Ceylon developers, they can never replace a good
-terminal session with the proper command-line interface (CLI) tools.
+While good IDEs are required, and the [Ceylon IDE](/documentation/1.0/ide/) is a must-have for Ceylon developers, they 
+can never replace a good terminal session with the proper command-line interface (CLI) tools.
 
 Oh, I know Eclipse has good Git support and I know a few colleagues who use it for committing and branching and other
 daily, nay, hourly push/pull command. But I really love my CLI when it comes to using Git, I never use Eclipse for that,
@@ -38,8 +38,8 @@ can be stored and retrieved in a really straightforward config file, with useful
 then home.
 
 It’s really a treasure trove of good ideas, and much more modern than the Java CLI we started copying. So we stopped
-and rewrote our CLI to copy the Git CLI, and I have to say I’m really glad we did, because we really have a great CLI
-now.
+and rewrote our CLI to copy the Git CLI, and I have to say I’m really glad we did, because [we really have a great CLI
+now](/download/).
 
 ## Discovery
 
@@ -140,7 +140,7 @@ As you can see, it’s quite useful, and again, that’s what you expect in this
 
 The tool system that we wrote (well, mostly that Tom Bentley wrote) even allows us to generate HTML, XML and text
 documentation automatically, for example, the [tool documentation pages](/documentation/current/reference/tool/ceylon/subcommands)
-are entirely generated, and the man pages that we ship in the Ceylon CLI distribution are also generated.
+are entirely generated, and the man pages that we ship in the [Ceylon CLI distribution](/download/) are also generated.
 
 ## Plugins, plugins
 
