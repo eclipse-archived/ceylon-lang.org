@@ -80,13 +80,13 @@ Model difficult relationships with
 </div>
 
 <div class="feature">
-<h2>Type inference, flow-dependent typing, and typesafe <code>null</code></h2>
+<h2>Type inference, flow-sensitive typing, and typesafe <code>null</code></h2>
 <p>Ceylon is more typesafe than other languages, but you write down fewer types: the 
 language features 
 <a href="/documentation/current/introduction/#type_aliases_and_type_inference">local
 type inference</a>, 
 <a href="/documentation/current/introduction/#typesafe_null_and_flow_dependent_typing">
-flow-dependent typing</a>, a typesafe <code>null</code>
+flow-sensitive typing</a>, a typesafe <code>null</code>
 value, and a typesafe <code>switch</code> statement.</p>
 <div>
 <img src="/images/features/flowtyping.png" style="box-shadow: 0 0 15px #888;"/>

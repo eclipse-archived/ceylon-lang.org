@@ -306,7 +306,7 @@ mediate access to a field. The state of a class is always
 from clients of the class: We can change a reference attribute to a getter/setter 
 pair without breaking clients.
 
-## Typesafe null and flow-dependent typing
+## Typesafe null and flow-sensitive typing
 
 There's no `NullPointerException` in Ceylon, nor anything similar. Ceylon
 requires us to be explicit when we declare a value that might be null, or
@@ -361,8 +361,8 @@ way of writing the following:
     }
 
 The ability to narrow the type of a value using conditions like `is` and
-`exists` is called _flow-dependent typing_. Another scenario where 
-flow-dependent typing comes into play is assertions:
+`exists` is called _flow-sensitive typing_. Another scenario where 
+flow-sensitive typing comes into play is assertions:
 
 <!-- try: -->
     if ('/' in string) {
