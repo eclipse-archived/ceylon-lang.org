@@ -50,68 +50,67 @@ now](/download/).
 We have a single command called `ceylon`, and if you do `ceylon help` or `ceylon --help` you will get the following:
 
 <!-- try: -->
-```txt
-NAME
-
-        'ceylon' - The top level Ceylon tool is used to execute other Ceylon tools
-
-
-SYNOPSIS
-
-        ceylon --version
-        ceylon [--stacktraces] [--] <command> [<command‑options...>] [<command‑args...>]
-
-
-DESCRIPTION
-
-        If '--version' is present, print version information and exit. Otherwise '<tool-arguments>' should 
-        begin with the name of a ceylon tool. The named tool is loaded and configured with the remaining
-        command line arguments and control passes to that tool.
-
-        * 'all' - Compiles ceylon modules for JVM and JS and documents them
-
-        * 'compile' - Compiles Ceylon and Java source code and directly produces module and source archives 
-                      in a module repository.
-
-        * 'compile-js' - Compiles Ceylon source code to JavaScript and directly produces module and source 
-                         archives in a module repository
-
-        * 'config' - Manages Ceylon configuration files
-
-        * 'doc' - Generates Ceylon API documentation from Ceylon source files
-
-        * 'doc-tool' - Generates documentation about a tool
-
-        * 'help' - Displays help information about other Ceylon tools
-
-        * 'import-jar' - Imports a jar file into a Ceylon module repository
-
-        * 'info' - Prints information about modules in repositories
-
-        * 'new' - Generates a new Ceylon project
-
-        * 'run' - Executes a Ceylon program
-
-        * 'run-js' - Executes a Ceylon program
-
-        * 'src' - Fetches source archives from a repository and extracts their contents into a source directory
-
-        * 'test' - Executes tests
-
-        * 'version' - Shows and updates version numbers in module descriptors
-
-        See 'ceylon help <command>' for more information about a particular subcommand.
-
-
-OPTIONS
-
-        --stacktraces
-            If an error propagates to the top level tool, print its stack trace.
-
-
-        --version
-            Print version information and exit, ignoring all other options and arguments.
-```
+<!-- lang: none -->
+    NAME
+    
+            'ceylon' - The top level Ceylon tool is used to execute other Ceylon tools
+    
+    
+    SYNOPSIS
+    
+            ceylon --version
+            ceylon [--stacktraces] [--] <command> [<command‑options...>] [<command‑args...>]
+    
+    
+    DESCRIPTION
+    
+            If '--version' is present, print version information and exit. Otherwise '<tool-arguments>' should 
+            begin with the name of a ceylon tool. The named tool is loaded and configured with the remaining
+            command line arguments and control passes to that tool.
+    
+            * 'all' - Compiles ceylon modules for JVM and JS and documents them
+    
+            * 'compile' - Compiles Ceylon and Java source code and directly produces module and source archives 
+                          in a module repository.
+    
+            * 'compile-js' - Compiles Ceylon source code to JavaScript and directly produces module and source 
+                             archives in a module repository
+    
+            * 'config' - Manages Ceylon configuration files
+    
+            * 'doc' - Generates Ceylon API documentation from Ceylon source files
+    
+            * 'doc-tool' - Generates documentation about a tool
+    
+            * 'help' - Displays help information about other Ceylon tools
+    
+            * 'import-jar' - Imports a jar file into a Ceylon module repository
+    
+            * 'info' - Prints information about modules in repositories
+    
+            * 'new' - Generates a new Ceylon project
+    
+            * 'run' - Executes a Ceylon program
+    
+            * 'run-js' - Executes a Ceylon program
+    
+            * 'src' - Fetches source archives from a repository and extracts their contents into a source directory
+    
+            * 'test' - Executes tests
+    
+            * 'version' - Shows and updates version numbers in module descriptors
+    
+            See 'ceylon help <command>' for more information about a particular subcommand.
+    
+    
+    OPTIONS
+    
+            --stacktraces
+                If an error propagates to the top level tool, print its stack trace.
+    
+    
+            --version
+                Print version information and exit, ignoring all other options and arguments.
 
 Yes it’s a man page, this is what is useful and will help you find your way out of the many `ceylon` subcommands we
 have.
@@ -123,16 +122,15 @@ A similar thing will happen if you type `ceylon compile --help` or `ceylon help 
 We ship with completion support for `bash`:
 
 <!-- try: -->
-```txt
-$ . /usr/share/ceylon/1.0.0/contrib/scripts/ceylon-completion.bash 
-$ ceylon [TAB]
-all         compile-js  doc         help        info        run         src         version     
-compile     config      doc-tool    import-jar  new         run-js      test        
-$ ceylon compile[TAB]
-compile     compile-js  
-$ ceylon compile --re[TAB]
---rep\=       --resource\=  
-```
+<!-- lang:bash -->
+    $ . /usr/share/ceylon/1.0.0/contrib/scripts/ceylon-completion.bash 
+    $ ceylon [TAB]
+    all         compile-js  doc         help        info        run         src         version     
+    compile     config      doc-tool    import-jar  new         run-js      test        
+    $ ceylon compile[TAB]
+    compile     compile-js  
+    $ ceylon compile --re[TAB]
+    --rep\=       --resource\=  
 
 As you can see, it’s quite useful, and again, that’s what you expect in this day and age.
 
@@ -147,14 +145,13 @@ are entirely generated, and the man pages that we ship in the [Ceylon CLI distri
 You may not have noticed it but if you type `ceylon help` on your system, it will likely not include that line:
 
 <!-- try: -->
-```txt
-[...]
-DESCRIPTION
-
-        [...]
-
-        * 'all' - Compiles ceylon modules for JVM and JS and documents them
-```
+<!-- lang:none -->
+    [...]
+    DESCRIPTION
+    
+            [...]
+    
+            * 'all' - Compiles ceylon modules for JVM and JS and documents them
 
 And that’s because, like Git, we support CLI plugins, and `ceylon all` is a plugin I wrote for myself, that
 aggregates a bunch of subcommands in a single one.
@@ -166,20 +163,19 @@ it will be used.
 Here’s my `ceylon-all` shell script for example:
 
 <!-- try: -->
-```shell
-#!/bin/sh
-
-USAGE='[generic options] module...'
-DESCRIPTION='Compiles ceylon modules for JVM and JS and documents them'
-LONG_USAGE='ceylon-all allows you to build the specified ceylon modules for the
-JVM and JS backends, and generates the API documentation in a single command.'
-
-. $CEYLON_HOME/bin/ceylon-sh-setup
-
-$CEYLON_HOME/bin/ceylon compile $@
-$CEYLON_HOME/bin/ceylon compile-js $@
-$CEYLON_HOME/bin/ceylon doc $@
-```
+<!-- lang:bash -->
+    #!/bin/sh
+    
+    USAGE='[generic options] module...'
+    DESCRIPTION='Compiles ceylon modules for JVM and JS and documents them'
+    LONG_USAGE='ceylon-all allows you to build the specified ceylon modules for the
+    JVM and JS backends, and generates the API documentation in a single command.'
+    
+    . $CEYLON_HOME/bin/ceylon-sh-setup
+    
+    $CEYLON_HOME/bin/ceylon compile $@
+    $CEYLON_HOME/bin/ceylon compile-js $@
+    $CEYLON_HOME/bin/ceylon doc $@
 
 As you can see, our CLI will use the `USAGE`, `DESCRIPTION` and `LONG_USAGE` environment variables for completion
 and documentation. You only have to source the provided `$CEYLON_HOME/bin/ceylon-sh-setup` shell script to benefit
@@ -196,14 +192,13 @@ option is not defined in it, we will also try the user’s config in `$HOME/.cey
 The syntax is straightforward, take for example the `.ceylon/config` for the Ceylon SDK:
 
 <!-- try: -->
-```txt
-[repositories]
-output=./modules
-lookup=./test-deps
-
-[defaults]
-encoding=UTF-8
-```
+<!-- lang:none -->
+    [repositories]
+    output=./modules
+    lookup=./test-deps
+    
+    [defaults]
+    encoding=UTF-8
 
 It just specifies that the output repository is `modules`, the additional lookup repository is `test-deps`
 (for test dependencies) and the source encoding is `UTF-8`.
