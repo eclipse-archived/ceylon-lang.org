@@ -46,7 +46,8 @@ module Awestruct
         page.output_path = @output_path + "/" + sanitize(name) + "/" + @output_file
         page.blog_url = @output_path + "/" + sanitize(name)
         page.entries = atom_pages
-        page.title = "Blog of #{name}"
+        #Stef: don't ask me why name is an array, but it is and it contains one element with the author name
+        page.title = "Blog of #{name[0]}"
         page.sanitized_author = sanitize(name)
         site.pages << page
       end

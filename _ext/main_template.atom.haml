@@ -5,11 +5,11 @@
 %feed{ 'xml:lang'=>'en-US', :xmlns=>'http://www.w3.org/2005/Atom' }
   %id= "#{site.base_url}/blog/"
   %title= escape_once( page.title )
-  - if ( defined?( site.author ) )
+  - if ( site.author )
     %author
-      - if ( defined?( site.author.name ) )
+      - if ( site.author['name'] )
         %name= site.author.name
-        - if ( site.author.email )
+        - if ( site.author['email'] )
           %email= site.author.email
       - else
         %name= site.author
@@ -23,11 +23,11 @@
         %title= escape_once( entry.title )
         %updated= entry.date.xmlschema
         %link{:rel=>"alternate", :type=>"text/html", :href=>"#{site.base_url}#{entry.url.sub(/\.html$/,'')}" }
-        - if ( defined?( entry.author ) )
+        - if ( entry.author )
           %author
-            - if ( defined?( entry.author.name ) )
+            - if ( entry.author['name'] )
               %name= entry.author.name
-              - if ( entry.author.email )
+              - if ( entry.author['email'] )
                 %email= entry.author.email
             - else
               %name= entry.author
