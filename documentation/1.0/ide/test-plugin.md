@@ -15,53 +15,28 @@ the Ceylon IDE, so no additional installation is needed.
 
 ## Getting started with your first ceylon unit test
 
-The new test framework is in the Ceylon SDK module `ceylon.test`, though this is still an early version
-and contains only basic functionality, because we need annotations and meta-model support to make it really
-flamboyant.
+The test framework is in the Ceylon SDK module `ceylon.test`, latest version and current documentation can be found [here](https://modules.ceylon-lang.org/modules/ceylon.test).
 
 So let’s start by importing the `ceylon.test` module in our module descriptor and writing our first test.
 
 <!-- try: -->
     module com.acme.foo '1.0.0' {
-        import ceylon.test '0.4';
+        import ceylon.test '1.0.0';
     }
 
 
 <!-- try: -->
     import ceylon.test { ... }
 
+    test
     void shouldAlwaysSuccess() {
-        assertEquals(1, 1);
+        assert(1 == 1);
     }
 
+    test
     void shouldAlwaysFail() {
         fail("crash !!!");
     }
-
-
-These tests can be run like any ordinary ceylon application with the following code:
-
-<!-- try: -->
-    void run() {
-        TestRunner testRunner = TestRunner();
-        testRunner.addTestListener(PrintingTestListener());
-        testRunner.addTest("com.acme.foo::shouldAlwaysSuccess", shouldAlwaysSuccess);
-        testRunner.addTest("com.acme.foo::shouldAlwaysFail", shouldAlwaysFail);
-        testRunner.run();
-    }
-
-Which outputs:
-
-<!-- lang: none -->
-    ======================== TESTS STARTED =======================
-    com.acme.foo::shouldAlwaysSuccess
-    com.acme.foo::shouldAlwaysFail
-    ======================== TESTS RESULT ========================
-    run:     2
-    success: 1
-    failure: 1
-    error:   0
-    ======================== TESTS FAILED ========================
 
 
 Now let’s see the IDE integrations!
@@ -111,5 +86,5 @@ easy to get an idea of what your recent work did to the test suite.
 
 ## Try it now
 
-You can try it right away by downloading one of our 
-[Ceylon IDE development build](/documentation/1.0/ide#installing_the_latest_development_unstable_ide).
+You can try it right away by downloading our 
+[Ceylon IDE](/documentation/1.0/ide/install).
