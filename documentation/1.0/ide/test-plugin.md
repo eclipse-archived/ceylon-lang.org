@@ -20,8 +20,8 @@ The test framework is in the Ceylon SDK module `ceylon.test`, latest version and
 So let’s start by importing the `ceylon.test` module in our module descriptor and writing our first test.
 
 <!-- try: -->
-    module com.acme.foo '1.0.0' {
-        import ceylon.test '1.0.0';
+    module com.acme.foo "1.0.0" {
+        import ceylon.test "1.0.0";
     }
 
 
