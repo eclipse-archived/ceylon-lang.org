@@ -88,8 +88,6 @@ Unsupported syntaxes are not highlighted at all.
 
 ### Wiki-style links
 
-**Note: Some of aspects of Wiki-style links may be revised before 1.0**
-
 As an extension to the basic Markdown syntax, `ceylon doc` supports 
 "Wiki-style" links for linking to the documentation of other declarations. 
 These links are enclosed within double square brackets,
