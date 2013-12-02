@@ -39,6 +39,8 @@ The rest of this page will highlight particular tools
   is the command line interface to the Ceylon compiler
 * [`ceylon run`](#{site.urls.ceylon_tool_current}/ceylon-run.html)
   is the command line interface for launching a Celyon program on the JVM
+* [`ceylon test`](#{site.urls.ceylon_tool_current}/ceylon-test.html)
+  is the command line interface for executing tests on the JVM
 * [`ceylon import-jar`](#{site.urls.ceylon_tool_current}/ceylon-import-jar.html)
   is the command line interface for launching a Celyon program on the JVM
   
