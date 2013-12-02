@@ -23,7 +23,7 @@ in the `build` directory (repository):
     <target name="execute" depends="ceylon-ant-taskdefs">
       <ceylon-run run="com.example.foo.lifecycle.start" 
         module="com.example.foo/1.1">
-        <repo url="build"/>
+        <rep url="build"/>
       </ceylon-run>
     </target>
 
