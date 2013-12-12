@@ -26,7 +26,7 @@ satisfying solution, but I would like to submit, if it doesn't sound
 too self-serving, that Ceylon offers the most satisfying solution so 
 far.
 
-Our mascot is Trompon, the elephant, because an elephant has four 
+Our mascot is Trompon the elephant, because an elephant has four 
 legs, and would fall over if one of his legs were missing. Ceylon's
 type system is exactly like this! (Yes, this is a baxplanation.)
 
