@@ -4,7 +4,7 @@ author: Gavin King
 layout: blog
 unique_id: blogpage
 tab: blog
-tags:
+tags: [language design]
 ---
 
 The latest generation of statically typed languages combine 

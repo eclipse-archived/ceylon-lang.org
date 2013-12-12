@@ -4,7 +4,7 @@ author: Gavin King
 layout: blog
 unique_id: blogpage
 tab: blog
-tags:
+tags: [language design]
 ---
 
 If you've worked with any programming language, you have gripes about 

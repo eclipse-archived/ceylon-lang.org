@@ -4,7 +4,7 @@ author: Gavin King
 layout: blog
 unique_id: blogpage
 tab: blog
-tags:
+tags: [language design]
 ---
 I just noticed a tweet by Paul Snively that I thought was interesting.
 I don't make it my practice to respond to tweets, simply because >99.9%
