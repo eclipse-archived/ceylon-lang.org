@@ -49,7 +49,7 @@ Consider this really simple line of code:
 <!-- try: -->
     value animals = ArrayList { Cat(), Dog(), Person() };
 
-The inferred type of `list` is `ArrayList<Cat|Dog|Person>`.
+The inferred type of `animals` is `ArrayList<Cat|Dog|Person>`.
 
 - If we were to take away declaration site covariance, then `animals` 
   would not be assignable to `List<Animal>`.
