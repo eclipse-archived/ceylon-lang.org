@@ -32,7 +32,7 @@ type system is exactly like this! (Yes, this is a baxplanation.)
 
 The four legs of the type system are:
 
-- declaration site covariance
+- declaration site variance
 - ad hoc union and intersection types
 - type inference based on principal typing
 - covariant refinement and principal 
