@@ -46,6 +46,7 @@ reproduce.
 
 Consider this really simple line of code:
 
+<!-- try: -->
     value animals = ArrayList { Cat(), Dog(), Person() };
 
 The inferred type of `list` is `ArrayList<Cat|Dog|Person>`.
@@ -75,6 +76,7 @@ Principal instantiation inheritance meshes really nicely with
 declaration-site covariance, and with ad hoc union/intersection types.
 Consider the following code:
 
+<!-- try: -->
     List<String>|Integer[] ranged = ... ;
     value span = ranged.span(0,max); 
 
