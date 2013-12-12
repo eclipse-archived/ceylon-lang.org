@@ -27,7 +27,7 @@ too self-serving, that Ceylon offers the most satisfying solution so
 far.
 
 Our mascot is Trompon the elephant, because an elephant has four 
-legs, and would fall over if one of his legs were missing. Ceylon's
+legs and would fall over if one of his legs were missing. Ceylon's
 type system is exactly like this! (Yes, this is a baxplanation.)
 
 The four legs of the type system are:
