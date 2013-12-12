@@ -13,13 +13,13 @@ into your solution, rather it's about discovering a small set of
 interlocking features that act to reinforce each other. That is to
 say, we want to maximize the power/expressiveness of our solution,
 while simultaneously minimizing the surface area. I am, furthermore,
-quite often willing to sacrifice some flexibility for _elegance_.
+quite often willing to sacrifice some _flexibility_ for _elegance_.
 It's my view that elegant solutions are easier to learn, more 
 enjoyable to use, and easier to abstract over.
 
 With this in mind, I would like to consider a problem that language
 designers have been working on for at least two decades: how to
-combine subtype polymorphism with parametric polymorphism (generics).
+combine _subtype polymorphism_ with _parametric polymorphism_ (generics).
 This is a central problem faced by any object-oriented language with
 static typing. Recent languages have come progressively closer to a
 satisfying solution, but I would like to submit, if it doesn't sound
