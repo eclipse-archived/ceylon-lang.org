@@ -7,7 +7,7 @@ tab: blog
 tags: [conference]
 ---
 
-# A Ceylon conference in Paris in January 2013
+# A Ceylon conference in Paris in January 2014
 
 We have so many exiting things to talk about in the Ceylon ecosystem that it's impossible for everyone
 to keep track of everything that is happening, but if you live in Paris or not too far from it, we can
