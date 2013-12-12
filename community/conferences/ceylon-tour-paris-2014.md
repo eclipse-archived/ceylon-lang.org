@@ -40,7 +40,7 @@ The morning will start with the following talks (program not set in stone yet), 
 - Contributing to Ceylon, setting up a dev environment (10 minutes)
 - The Ceylon test framework: ceylon.test (10 minutes)
 - How do you write Ceylon documentation? (10 minutes)
-- Module repositories explained (10 minutes)
+- Module repositories and runtime explained (10 minutes)
 - Ceylon and Camel (10 minutes)
 - The road ahead for Ceylon 1.1 and 1.2 (30 minutes)
 
