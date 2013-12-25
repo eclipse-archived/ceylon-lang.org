@@ -69,8 +69,8 @@ be `shared`.
 
 When it comes to class aliases, Ceylon has one more trick up its sleeves. 
 Cast your mind back to what we learned about member classes in the
-[fifth leg of the tour]
-(../anonymous-member-classes#member_classes_and_member_class_refinement).
+[fifth leg of the tour](
+../anonymous-member-classes#member_classes_and_member_class_refinement).
 What we saw there with ordinary classes also applies to class aliases.
 
 A type alias may be nested inside a class or interface. In the case of a 
