@@ -93,7 +93,7 @@ composed of more than one module. Separate modules are:
 - released according to independent schedules.
 
 Therefore, we can often identify the modules that comprise our program 
-by looking at the program is maintained, released, and distributed.
+by looking at how the program is maintained, released, and distributed.
 
 A module has:
 
