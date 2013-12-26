@@ -176,7 +176,7 @@ defining its dependencies, and exporting it to a module repository.
 
 ### Examples: Compiling against a local or remote repository
 
-Let's suppose you are are writing `net.example.foo`. Your project 
+Let's suppose you are writing `net.example.foo`. Your project 
 directory might be layed out like this:
 
 <!-- lang: none -->
@@ -202,7 +202,7 @@ you can compile using the command
     
 This command will compile the source code files (`Foo.ceylon` and `FooService.ceylon`)
 into a module archive and publish it to the default output repository, `modules`.
-(you'd use the `--out build` option to publish to `build` instead)). Now your project 
+(you'd use the `--out build` option to publish to `build` instead). Now your project 
 directory looks something like this:
 
 <!-- lang: none -->
@@ -334,7 +334,7 @@ top level `process` object):
       my options
 
 If one of the dependencies isn't available from a default repository you will 
-need to specify a repository that contains it using another `-rep`:
+need to specify a repository that contains it using another `--rep`:
 
 <!-- lang: bash -->
     ceylon run
