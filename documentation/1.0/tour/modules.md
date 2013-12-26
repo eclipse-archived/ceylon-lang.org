@@ -286,8 +286,8 @@ directory containing the documentation.
 Now, let's suppose your project gains a dependency on `com.example.bar` 
 version 3.1.4. 
 Having declared that module and version as a dependency in your `module.ceylon` 
-[descriptor](#module_descriptors) you'd need to tell `ceylon compile` which 
-repositories to look in to find the dependencies. 
+[descriptor](#dependencies_and_module_descriptors) you'd need to tell 
+`ceylon compile` which repositories to look in to find the dependencies. 
 
 One possibility is that you already have a repository containing 
 `com.example.bar/3.1.4` locally on your machine. If it's in your default 
