@@ -85,8 +85,8 @@ and dependencies between modules.
 ## Modularity
 
 Modularity is of central importance to the Ceylon language. But what 
-does what does this word even mean? Well, a program is modular if it's 
-composed of more than one module. Separate modules are:
+does this word even mean? Well, a program is modular if it's composed
+of more than one module. Separate modules are:
 
 - independently distributed,
 - maintained by different teams, and
