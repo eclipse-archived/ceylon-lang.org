@@ -127,7 +127,7 @@ interface, but most classes do.
 <!-- check:none:decl from ceylon.language -->
     "The abstract supertype of all types with a well-defined
      notion of identity. Values of type `Identifiable` may 
-     be compared using the `==` operator to determine if 
+     be compared using the `===` operator to determine if 
      they are references to the same object instance..."
     shared interface Identifiable {
         
