@@ -153,7 +153,7 @@ annotation type must be a subtype of `ConstrainedAnnotation`:
             given Value satisfies Annotation<Value>
             given ProgramElement satisfies Annotated {
         
-        "Can this annotation can occur on the given program 
+        "Can this annotation occur on the given program 
          element?"
         shared Boolean occurs(Annotated programElement) =>
                 programElement is ProgramElement;
