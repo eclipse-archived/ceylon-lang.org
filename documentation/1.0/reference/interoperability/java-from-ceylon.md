@@ -48,7 +48,7 @@ to let the Ceylon parser know that we're talking about a type name.
 No special syntax is required to call an overloaded constructor or method.
 
 Occasionally, as in Java, a typecast is required to distinguish the overloaded
-version. Ceylon doesn't have unsafe typecasts, is does have the `of` operator:
+version. Ceylon doesn't have unsafe typecasts, but it does have the [`of`](../../operator/of) operator:
 
 <!-- try: -->
     import java.lang { JException=Exception }

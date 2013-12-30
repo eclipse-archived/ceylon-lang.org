@@ -31,7 +31,7 @@ they're used within a plain `String` literal:
 
 * backslash, `\`, must be written as `\\`
 * single quote, `'`, must be written as `\'`
-* backtick, `` \` ``, must be written as `` \` ``
+* backtick, `` ` ``, must be written as `` \` ``
 
 The following traditional C-style escape sequences are also supported:
 

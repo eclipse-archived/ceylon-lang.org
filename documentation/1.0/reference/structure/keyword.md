@@ -45,7 +45,6 @@ The following are reserved keywords:
 * [`function`](../type-inference)
 * [`given`](../type-parameters#constraints)
 * [`if`](../../statement/if)
-
 * [`import`](../../statement/import)
 * `in` 
    (used for [variance](../type-parameters#variance) and with the

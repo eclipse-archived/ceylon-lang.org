@@ -129,7 +129,7 @@ with an [`exists` *operator*](../../operator/exists) of form `t exists`.
 A condition of form `nonempty xs` means `is [X+] xs`, where `X` is the 
 element type of the sequence reference `x`, and is satisfied if the `x` 
 refers to a nonempty sequence. Within the associated block, `x` will 
-have the nonempty type `[X+]``.
+have the nonempty type `[X+]`.
 
 <!-- try: -->
     Integer firstPlusOne(Integer[] xs) {

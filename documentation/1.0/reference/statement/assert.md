@@ -31,7 +31,7 @@ them.
 ### Execution
 
 The condition (or conditions) in the `assert` statement are evaluated in the
-order the occur. If they are all satisfied, then execution continues with the 
+order they occur. If they are all satisfied, then execution continues with the
 statement immediately following the `assert`. Otherwise, an 
 [`AssertionException`](#{site.urls.apidoc_current}/AssertionException.type.html) 
 is thrown with information about the condition that was violated.

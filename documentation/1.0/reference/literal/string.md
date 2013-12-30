@@ -37,7 +37,7 @@ used within a plain `String` literal:
 
 * backslash, `\`, must be written as `\\`
 * double quote, `"`, must be written as `\"`
-* backtick, `` \` ``, must be written as `` \` ``
+* backtick, `` ` ``, must be written as `` \` ``
 
 In a plain `String` literal, the following traditional C-style escape sequences 
 are also supported:
