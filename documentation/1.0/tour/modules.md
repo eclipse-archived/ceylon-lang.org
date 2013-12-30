@@ -310,7 +310,7 @@ the Herd is one of the default repositories `ceylon compile` knows about. So if
     ceylon compile net.example.foo
 
 (that's right, it's the same as before). By the way, you can disable the default 
-repositories with the `--d` option if you want to.
+repositories with the `--no-default-repositories` option if you want to.
 
 If `com.example.bar/3.1.4` were in *another* repository, say `http://repo.example.com`,
 then the command would become
