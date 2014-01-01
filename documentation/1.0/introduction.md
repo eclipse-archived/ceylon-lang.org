@@ -469,7 +469,7 @@ to a `typedef` in C. A type alias can act as an abbreviation for a generic type
 together with its type arguments:
 
 <!-- try: -->
-    interface Strings = List<String>;
+    interface Strings => List<String>;
 
 We encourage the use of both these language features where - *and only where* -
 they make the code more readable.
