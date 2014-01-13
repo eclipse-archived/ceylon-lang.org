@@ -7,8 +7,8 @@ tab: blog
 tags: [language design]
 ---
 
-I've often argued that good design&mdash;of a language, library, or 
-framework&mdash;isn't about packing in as many features as possible 
+I've often argued that good design—of a language, library, or 
+framework—isn't about packing in as many features as possible 
 into your solution, rather it's about discovering a small set of
 interlocking features that act to reinforce each other. That is to
 say, we want to maximize the power/expressiveness of our solution,
