@@ -465,11 +465,5 @@ the topic is outside of the scope of this tour.
 
 ## There's more ...
 
-Well actually, we've finished the tour! Of course, there's still plenty of 
-scope for you to explore Ceylon on your own. You should now know enough to 
-start writing Ceylon code for yourself, and start getting to know the 
-platform modules.
-
-Alternatively, if you want to keep reading you can browse the 
-[reference documentation](#{page.doc_root}/reference) or (if you're sitting 
-comfortably) read the [specification](#{site.urls.spec_current}).
+Finally, we're going to learn about interoperation with languages like
+JavaScript with [dynamic typing](../dynamic).
