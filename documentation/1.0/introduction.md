@@ -811,6 +811,10 @@ We can even call untyped native JavaScript APIs, inside a `dynamic` block:
         req.send();
     }
 
+Try it!
+
+    dynamic { alert("Hello, World!"); }
+
 ## Take the Tour
 
 We're done with the introduction. Take the [tour of Ceylon](#{page.doc_root}/tour) 
