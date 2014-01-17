@@ -23,9 +23,15 @@ missing type information. Such a declaration is called _partially typed_.
 
 <!-- try: -->
     dynamic xmlHttpRequest = ... ;
-    
+
+<br/>
+
+<!-- try: -->
     void handle(dynamic event) { ... }
-    
+
+<!-- try: -->
+<br/>
+
     dynamic findDomNode(String id) { ... }
 
 Note that `dynamic` is not itself a type. Rather, it represents the
@@ -49,6 +55,8 @@ that the compiler normally performs.
     dynamic {
         xmlHttpRequest = XMLHttpRequest();
     }
+
+<br/>
 
 <!-- try: -->
     void handle(dynamic event) {
