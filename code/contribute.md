@@ -33,7 +33,7 @@ You can run the `ceylon` command without any further setup or installation by si
 <!-- lang: bash -->
     $ dist/bin/ceylon
 
-But it's advisable to add the `ceylon` command to your class path (either by adding the `bin` folder to your class path or by creating a symbolic link to it in an appropriate place like `~/bin/`).
+But it's advisable to add the `ceylon` command to your search path (either by adding the `bin` folder to your search path or by creating a symbolic link to it in an appropriate place like `~/bin/`).
 
 If at any time you want to update the distribution to the latest code from GitHub just run
 
