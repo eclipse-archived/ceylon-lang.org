@@ -74,6 +74,21 @@ When a dynamically typed expression is evaluated, certain
 runtime type checks are performed, which can result in a 
 typing exception.
 
+## Example
+
+This example demonstrates the use of a native JavaScript API:
+
+    dynamic { 
+        dynamic req = XMLHttpRequest();
+        req.open("HEAD", "http://try.ceylon-lang.org/", true);
+        req.onreadystatechange = void () {
+            if (req.readyState==4) {
+                alert(req.getAllResponseHeaders());
+            }
+        };
+        req.send();
+    }
+
 ## There's more ...
 
 Well actually, we've finished the tour! Of course, there's still plenty of 
