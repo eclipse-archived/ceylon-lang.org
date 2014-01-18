@@ -212,7 +212,7 @@ constrains the kinds of program elements at which the annotation can occur.
 The argument to `ProgramElement` must be a metamodel type. So the argument 
 `InterfaceDeclaration|AliasDeclaration` would constrain the annotation to occur 
 only at interface and `alias` declarations. The argument `ValueDeclaration` would 
-constrain the annotation to occur only value or attribute declarations.
+constrain the annotation to occur only at value or attribute declarations.
 
 
 ## Restrictions on annotation parameters and annotation arguments

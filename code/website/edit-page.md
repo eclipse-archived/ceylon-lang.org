@@ -82,7 +82,7 @@ You should see a table of content similar to the top of this page.
 ### Documentation section
 
 The documentation is all under a version umbrella (ie `/documentation/1.0`). The purpose is to
-be able to keek old documentations and have stable URLs. The latest and stable documentation is 
+be able to keep old documentations and have stable URLs. The latest and stable documentation is
 available at `/documentation/current` which is a redirect to a specific version. Note that you can 
 point to subsections eg `/documentation/current/ide`. Use the `current` URL for links that are
 generic and from other sections of the website. Be careful that over time the documentation structure

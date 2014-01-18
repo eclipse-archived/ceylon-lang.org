@@ -54,7 +54,7 @@ A `Float` literal may be written with a magnitude, a whole magnitude:
 * `M` (mega), 10<sup>6</sup>
 * `G` (giga), 10<sup>9</sup>
 * `T` (tera), 10<sup>12</sup>
-* `P` (peta), 10<sup>15</sup>:
+* `P` (peta), 10<sup>15</sup>
 
 Or a fractional magnitude:
 

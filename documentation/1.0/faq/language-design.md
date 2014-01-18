@@ -45,7 +45,7 @@ some of the most important ones:
   from the picture.
 * To provide excellent, completely integrated support for 
   modularity.
-* To make it easier to write more generic code, amd provide support
+* To make it easier to write more generic code, and provide support
   for disciplined metaprogramming.
 * To reuse the good of Java, but to be open to good ideas from
   other language families.
