@@ -36,6 +36,7 @@ So, if we need to use the Java collections framework in our
 Ceylon program, we need to create a Ceylon module that depends
 on `java.base`.
 
+<!-- try: -->
     module org.jboss.example "1.0.0" {
         import java.base "7";
     }
@@ -43,6 +44,7 @@ on `java.base`.
 Now, we can simply import the Java class we're interested in
 and use it like any ordinary Ceylon class:
 
+<!-- try: -->
     import java.util { HashMap }
     
     void hashyFun() {
@@ -114,10 +116,15 @@ considered to belong to `java.lang`:
 The object `arrays` in `java.lang` provides methods for casting
 these types to a Ceylon `Array` type.
 
-    import java.lang { JavaString=String; Byte, arrays }
+<!-- try: -->
+    import java.lang { JavaString=String, Byte, arrays }
     
     Array<Byte> byteArray = JavaString("hello world").bytes.array;  //cast a ByteArray to Array<Byte>
     ByteArray bytes = arrays.asByteArray(byteArray);  //cast it back to ByteArray
+
+You can think of the `ByteArray` as the actual underlying
+`byte[]` instance, and the `Array<Byte>` as an instance of the
+Ceylon class `Array` that wraps the `byte[]` instance.
 
 ### Null values are checked at runtime
 
@@ -132,6 +139,7 @@ In this example, no runtime null value check is performed, since
 the return value of `System.getProperty()` is assigned to an 
 optional type:
     
+<!-- try: -->
     import java.lang { System }
     
     void printUserHome() {
@@ -143,6 +151,7 @@ In this example, however, a runtime type check occurs when
 the return value of `System.getProperty()` is assigned to the
 non-optional type `String`:
 
+<!-- try: -->
     import java.lang { System }
     
     String getUserHome() {
@@ -154,6 +163,7 @@ non-optional type `String`:
 A Java getter/setter pair will appear to a Ceylon program as
 a Ceylon attribute. For example:
 
+<!-- try: -->
     import java.util { Calendar, TimeZone } 
 
     void calendaryFun() {
@@ -165,6 +175,8 @@ a Ceylon attribute. For example:
 Note that there are certain corner cases here which might be
 confusing. For example, consider this Java class:
 
+<!-- try: -->
+<!-- lang: java -->
     public class Foo {
         public String getBar() { ... }
         public void setBar(String bar) { ... }
@@ -173,6 +185,7 @@ confusing. For example, consider this Java class:
 
 From Ceylon, this will appear as if it were defined like this:
 
+<!-- try: -->
     shared class Foo {
         shared String bar { ... }
         assign bar { ... }
