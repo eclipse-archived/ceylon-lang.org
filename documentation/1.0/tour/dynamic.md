@@ -29,9 +29,9 @@ missing type information. Such a declaration is called _partially typed_.
 <!-- try: -->
     void handle(dynamic event) { ... }
 
-<!-- try: -->
 <br/>
 
+<!-- try: -->
     dynamic findDomNode(String id) { ... }
 
 Note that `dynamic` is not itself a type. Rather, it represents the
@@ -76,7 +76,7 @@ typing exception.
 
 ## Example
 
-This example demonstrates the use of a native JavaScript API:
+This example demonstrates the use of a native JavaScript API. Try it:
 
     dynamic { 
         dynamic req = XMLHttpRequest();
