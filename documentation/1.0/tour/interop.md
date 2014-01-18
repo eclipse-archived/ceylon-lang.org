@@ -98,6 +98,24 @@ Java method or field from Ceylon. Instead:
   type, and
 - `java.lang.String` is represented by Ceylon's `String` type.
 
+According to these rules, all conversions from a Java primitive 
+to a Ceylon type are _widening_ conversions, and are guaranteed 
+to succeed at runtime. However, conversion from a Ceylon type 
+to a Java primitive type might involve an implicit _narrowing_ 
+conversion. For example, if:
+
+- a Ceylon `Integer` is assigned to a Java `int` or `byte`,
+- a Ceylon `Float` is assigned to a Java `float`, or if
+- a Ceylon UTF-32 `Character` is assigned to a Java 16-bit
+  `char`
+
+the assignment can fail at runtime, producing an exception.
+
+_Note: it is not a goal of Ceylon's type system to warn about
+operations which might result in numeric overflow. In general,
+almost _any_ operation on a numeric type, including `+` or `*`, 
+can result in numeric overflow._ 
+
 ### Java array types are represented by special Ceylon classes
 
 Since there are no primitively-defined array types in Ceylon, 
