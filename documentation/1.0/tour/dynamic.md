@@ -12,9 +12,8 @@ doc_root: ../..
 Interoperation with a dynamic language like JavaScript poses a special
 challenge for Ceylon. Since no typing information for dynamically typed 
 values is available at compile time, the compiler can't validate the
-usual typing rules of the language. Therefore, Ceylon special support
-for writing dynamically typed code where typechecking is performed at
-_runtime_.
+usual typing rules of the language. Therefore, Ceylon lets us write
+dynamically typed code where typechecking is performed at _runtime_.
 
 ## Partially typed declarations
 
