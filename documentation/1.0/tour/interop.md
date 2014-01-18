@@ -70,7 +70,7 @@ The format of the `module.properties` file is documented
 
 If you're using Ceylon IDE, and you don't want to write the 
 `module.xml` descriptor by hand, go to 
-`File > Export > Java Archive to Module Repository`.
+`File > Export ... > Ceylon > Java Archive to Module Repository`.
 
 The Ceylon module architecture interoperates with Maven via
 Aether. You can find more information 

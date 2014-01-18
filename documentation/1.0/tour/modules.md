@@ -210,7 +210,24 @@ archives, and module documentation directories.
 To get started with modules in Ceylon IDE, go to `Help > Cheat Sheets...`, 
 open the `Ceylon` item, and run the `Introduction to Ceylon Modules` cheat sheet, 
 which will guide you step-by-step through the process of creating a module,
-defining its dependencies, and exporting it to a module repository.  
+defining its dependencies, and exporting it to a module repository.
+
+The Ceylon Repository Explorer may be accessed via 
+`Window > Show View > Ceylon Repository Explorer` when in the Ceylon
+perspective.  
+
+A wizard to create a new module, and add its dependencies can be found
+at `File > New > Ceylon Module`.
+
+To change the imports of an existing module, you can select the module 
+in the Ceylon Explorer, got to `File > Properties`, and select the
+`Ceylon Module` properties page.
+
+Under `File > Export... > Ceylon`, you'll find two very useful wizards:
+
+- a wizard to export a Ceylon module defined in a workspace project to
+  a local module repository, and
+- a wizard to add a Java `.jar` archive to a Ceylon module repository.
 
 ### Examples: Compiling against a local or remote repository
 
