@@ -465,5 +465,9 @@ the topic is outside of the scope of this tour.
 
 ## There's more ...
 
-Finally, we're going to learn about interoperation with languages like
-JavaScript with [dynamic typing](../dynamic).
+You can learn more about the metamodel from its 
+[API documentation](#{site.urls.apidoc_current}/meta/index.html).
+
+The last two chapters of this tour deal with interoperation with other
+languages, first with [Java](../interop), and then with dynamically
+typed [JavaScript](../dynamic).
