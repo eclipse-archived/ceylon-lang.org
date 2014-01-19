@@ -8,7 +8,8 @@ author: Stephane Epardaud
 
 ## Getting the source
 
-- Make sure you have the [Java 7 JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) and [Ant 1.8+](http://ant.apache.org/) installed and that both are working correctly
+- Make sure you have the [Java 7 JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) and [Ant 1.8+](http://ant.apache.org/) installed and that both are working correctly.
+- Some Ceylon unit tests use the [Ant junit task](https://ant.apache.org/manual/Tasks/junit.html), which has external [library dependencies](https://ant.apache.org/manual/install.html#librarydependencies).  You may be able to satisfy these using your system package manager; e.g. by installing the yum or apt-get "ant-junit" package.
 - Make sure you have [Git set up correctly](https://help.github.com/articles/set-up-git)
 - Make sure you have [GitHub SSH access set up correctly](https://help.github.com/articles/generating-ssh-keys)
 - Create a new directory for the Ceylon project

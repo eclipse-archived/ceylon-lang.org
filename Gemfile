@@ -15,7 +15,7 @@ gem 'rdiscount', '~> 2.0.7', :platforms => [:ruby]
 #gem 'redcarpet', '~> 2.2.2', :platforms => [:ruby]
 
 # Enable this gem if you want to use AsciiDoc (it's the future):
-#gem 'asciidoctor', '~> 0.1.1'
+gem 'asciidoctor', '~> 0.1.1'
 
 # The deeplink extension comes with a couple of dependencies
 gem 'nokogiri', '~> 1.5.10'
