@@ -25,27 +25,93 @@ as during the presentations.
 
 Doors will open at 8h30 in the morning.
 
-The morning will start with the following talks (program not set in stone yet), between 9h-12h:
+Here's the program you voted for when registering to the conference:
 
-- Introduction to Ceylon (30 minutes)
-- The power behind Ceylon (30 minutes)
-- Ceylon IDE presentation (10 minutes)
-- Guide to the Ceylon command-line (10 minutes)
-- Using Herd: the Ceylon online repository (10 minutes)
-- The Ceylon build system: ceylon.build (10 minutes)
-- What's in the Ceylon SDK (10 minutes)
-- Cayla: a Ceylon web framework (10 minutes)
-- Interoperability with Java (10 minutes)
-- Interoperability with JavaScript (10 minutes)
-- Contributing to Ceylon, setting up a dev environment (10 minutes)
-- The Ceylon test framework: ceylon.test (10 minutes)
-- How do you write Ceylon documentation? (10 minutes)
-- Module repositories and runtime explained (10 minutes)
-- Ceylon and Camel (10 minutes)
-- The road ahead for Ceylon 1.1 and 1.2 (30 minutes)
+<table>
+ <tr>
+  <th>Time</th>
+  <th>Title</th>
+  <th>Duration</th>
+ </tr>
+ <tr style="color: gray;">
+  <td>08:30</td>
+  <td colspan="2">Doors open</td>
+ </tr>
+ <tr>
+  <td>09:00</td>
+  <td>Introduction to Ceylon</td>
+  <td>30 minutes</td>
+ </tr>
+ <tr>
+  <td>09:30</td>
+  <td>The power behind Ceylon</td>
+  <td>30 minutes</td>
+ </tr>
+ <tr style="color: gray;">
+  <td>10:00</td>
+  <td>Pause</td>
+  <td>15 minutes</td>
+ </tr>
+ <tr>
+  <td>10:15</td>
+  <td>Cayla</td>
+  <td>15 minutes</td>
+ </tr>
+ <tr>
+  <td>10:30</td>
+  <td>Ceylon SDK</td>
+  <td>15 minutes</td>
+ </tr>
+ <tr>
+  <td>10:45</td>
+  <td>ceylon.build</td>
+  <td>15 minutes</td>
+ </tr>
+ <tr>
+  <td>11:00</td>
+  <td>ceylon.test</td>
+  <td>15 minutes</td>
+ </tr>
+ <tr style="color: gray;">
+  <td>11:15</td>
+  <td>Pause</td>
+  <td>15 minutes</td>
+ </tr>
+ <tr>
+  <td>11:30</td>
+  <td>Module repositories</td>
+  <td>10 minutes</td>
+ </tr>
+ <tr>
+  <td>11:40</td>
+  <td>Java interop</td>
+  <td>10 minutes</td>
+ </tr>
+ <tr>
+  <td>11:50</td>
+  <td>Ceylon future</td>
+  <td>10 minutes</td>
+ </tr>
+ <tr style="color: gray;">
+  <td>12:00</td>
+  <td>Lunch/discussions</td>
+  <td>2 hours</td>
+ </tr>
+ <tr>
+  <td>14:00</td>
+  <td>Ceylon Workshop (see pre-install instructions below)</td>
+  <td>4 hours</td>
+ </tr>
+ <tr style="color: gray;">
+  <td>18:00</td>
+  <td colspan="2">End/discussions</td>
+ </tr>
+</table>
 
-Then we expect a lunch break and a workshop in the afternoon, between 14h-18h, where we take you
-hand-in-hand and make you discover all the great features of the Ceylon language and ecosystem.
+## Workshop instructions
+
+Make sure you bring your laptop, and pre-install [Java 7](http://java.com/getjava‎), 
+[Eclipse Kepler](http://www.eclipse.org/downloads/index.php) and the [Ceylon IDE plugin](http://ceylon-lang.org/documentation/1.0/ide/).
 
 ## Location
 
