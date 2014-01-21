@@ -31,6 +31,45 @@ tasks they need to be declared using a `<typedef>`:
 
 **Note:** Prior to M5 we used a `<taskdef>`, but such usage is now deprecated.
 
+### Common parameters
+
+<table class="ant-parameters">
+<tbody>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+
+<tr>
+<td><code>cwd</code></td>
+<td>Set the current directory for the task to the given path.</td>
+<td>No</td>
+</tr>
+
+<tr>
+<td><code>sysrep</code></td>
+<td>Set the system repository to the given directory.</td>
+<td>No, the default is <i>$CEYLON_HOME/repo</i>.</td>
+</tr>
+
+<tr>
+<td><code>cacherep</code></td>
+<td>Set the cache repository to the given directory.</td>
+<td>No, the default is <i>~/.ceylon/cache</i>.</td>
+</tr>
+
+<tr>
+<td><code>nodefaultrepository</code></td>
+<td>When set none of the default repositories will be used by the module resolver,
+all of them will have to be specified manually using &lt;rep&gt; and/or &lt;reposet&gt;.</td>
+<td>false</td>
+</tr>
+
+</tbody>
+</table>
+
+
 ### Common nested elements
 
 #### `<reposet>`
@@ -124,6 +163,39 @@ Here's an example using `<moduleset>`/`<module>`from the
     </target>
 
 
+
+#### `<define>`
+
+A `<define>` element is used to set system properties for the ant task being
+executed. It can be used as a child element for any of the Ceylon ant tasks.
+The value for the property can either be passed as a `value` attribute as
+described below or it can be the text between the begin and end tags or
+it is even posible to dispense with the attributes and use the syntax `key=value`.
+
+<table class="ant-parameters">
+<tbody>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+
+<tr>
+<td><code>key</code></td>
+<td>The name of the property to pass</td>
+<td>No</td>
+</tr>
+
+<tr>
+<td><code>value</code></td>
+<td>The value of the property to pass</td>
+<td>No</td>
+</tr>
+
+</tbody>
+</table>
+
+
 ## See also
 
 * The [`<ceylon-compile>`](../ant-ceylon-compile) task
@@ -131,3 +203,4 @@ Here's an example using `<moduleset>`/`<module>`from the
 * The [`<ceylon-run>`](../ant-ceylon-run) task
 * The [`<ceylon-compile-js>`](../ant-ceylon-compile-js) task
 * The [`<ceylon-run-js>`](../ant-ceylon-run-js) task
+

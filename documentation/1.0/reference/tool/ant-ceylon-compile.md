@@ -79,21 +79,9 @@ required.
 
 <tr>
 <td><code>verbose</code></td>
-<td>Whether the compiler should emit verbose logging information.</td>
-<td>No, default is <i>false</i></td>
-</tr>
-
-<tr>
-<td><code>classpath</code></td>
-<td>The classpath to use. Only useful if you depend on local jars or Java classes.</td>
-<td>No</td>
-</tr>
-
-<tr>
-<td><code>classpathref</code></td>
-<td>The classpath to use, given as a 
-[reference](http://ant.apache.org/manual/using.html#references) 
-to a path defined elsewhere. Only useful if you depend on local jars or Java classes.</td>
+<td>Whether the compiler should emit verbose logging information. The zero or more of the
+following flags can be passed separated by commas: 'all', 'loader', 'ast', 'code', 'cmr' or
+'benchmark'. If you do not pass a flag 'all' will be assumed.</td>
 <td>No</td>
 </tr>
 
@@ -175,6 +163,34 @@ A module repository containing dependencies. Can be specified multiple times. De
 <td><code>url</code></td>
 <td>The URL of the module repository</td>
 <td>Yes</td>
+</tr>
+
+</tbody>
+</table>
+
+#### `<javacoption>`
+The text between begin and end tags will be passed as an option to the underlying
+Java compiler. Optionally it is possible to use the attributes listed below which
+will then be interpreted as passing `-key:value` to the compiler.
+
+<table class="ant-parameters">
+<tbody>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+
+<tr>
+<td><code>key</code></td>
+<td>The name of the option to pass</td>
+<td>No</td>
+</tr>
+
+<tr>
+<td><code>value</code></td>
+<td>The value of the option to pass</td>
+<td>No</td>
 </tr>
 
 </tbody>

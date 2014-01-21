@@ -118,6 +118,14 @@ the <code>CEYLON_HOME</code> environment variable.</td>
 <td>No</td>
 </tr>
 
+<tr>
+<td><code>verbose</code></td>
+<td>Whether the documentation generator should emit verbose logging information. The zero or more of the
+following flags can be passed separated by commas: 'all' or 'loader'.
+If you do not pass a flag 'all' will be assumed.</td>
+<td>No</td>
+</tr>
+
 </tbody>
 </table>
 
