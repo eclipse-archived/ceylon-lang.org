@@ -113,7 +113,12 @@ Here's the program you voted for when registering to the conference:
 Make sure you bring your laptop, and pre-install [Java 7](http://java.com/getjava‎), 
 [Eclipse Kepler](http://www.eclipse.org/downloads/index.php) and the [Ceylon IDE plugin](http://ceylon-lang.org/documentation/1.0/ide/).
 
-## Location
+## Meet us for drinks before the conference
+
+The whole Ceylon team will be at ["Le Progrès" in Paris](https://goo.gl/maps/fOKrv) Thursday evening at 19:00 for drinks and discussions,
+we encourage everyone to join us there.
+
+## Conference location
 
 The conference will take place at [IRILL](http://www.irill.org), in the [Inria](http://www.inria.fr/en) Paris offices on Place d'Italie:
 
