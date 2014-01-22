@@ -203,4 +203,5 @@ it is even posible to dispense with the attributes and use the syntax `key=value
 * The [`<ceylon-run>`](../ant-ceylon-run) task
 * The [`<ceylon-compile-js>`](../ant-ceylon-compile-js) task
 * The [`<ceylon-run-js>`](../ant-ceylon-run-js) task
+* The [`<ceylon-import-jar>`](../ant-ceylon-import-jar) task
 
