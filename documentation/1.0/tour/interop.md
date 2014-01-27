@@ -74,7 +74,7 @@ If you're using Ceylon IDE, and you don't want to write the
 
 The Ceylon module architecture interoperates with Maven via
 Aether. You can find more information 
-[here](/reference/repository/#legacy_repositories).
+[here](../../reference/repository/#legacy_repositories).
 
 ## Deploying Ceylon on OSGi
 
