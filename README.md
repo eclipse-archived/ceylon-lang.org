@@ -16,8 +16,8 @@ A bit of Git, a bit a Ruby and you will get your local version of [ceylon-lang.o
 * get Ruby 1.9 (part of the RVM install if you follow that path - see below)
 * if on Mac OS, get XCode (needed for native gems)
 * If on Linux:
-    * Get libxslt-dev - eg via `sudo apt-get install libxslt-dev`
-    * may be called libxslt1-dev for some distros
+    * Get libxslt-devel - eg via `sudo yum install libxslt-devel`
+    * may be called libxslt1-dev for some distros - eg `sudo apt-get install libxslt-dev`
 
 
 Install Git to your system. [GitHub's help page](http://help.github.com/) is a good starting
