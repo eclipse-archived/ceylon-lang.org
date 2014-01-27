@@ -10,9 +10,25 @@ author: Stephane Epardaud
 
 - Make sure you have the [Java 7 JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) and [Ant 1.8+](http://ant.apache.org/) installed and that both are working correctly
 - Make sure you have [Git set up correctly](https://help.github.com/articles/set-up-git)
-- Make sure you have [GitHub SSH access set up correctly](https://help.github.com/articles/generating-ssh-keys)
 - Create a new directory for the Ceylon project
-- Inside that directory clone ceylon-dist
+- Open a terminal and change to the newly created directory
+
+And now you either set things up for HTTPS access (recommended for most people):
+
+- Clone ceylon-dist:
+
+<!-- lang: bash -->
+    $ git clone https://github.com/ceylon/ceylon-dist.git
+
+- Go into the newly created ceylon-dist directory and run the setup
+
+<!-- lang: bash -->
+    $ cd ceylon-dist ; ant setup
+
+Or you set things up for SSH access (mainly contributers with push access):
+
+- Make sure you have [GitHub SSH access set up correctly](https://help.github.com/articles/generating-ssh-keys)
+- Clone ceylon-dist:
 
 <!-- lang: bash -->
     $ git clone git@github.com:ceylon/ceylon-dist.git
@@ -20,9 +36,11 @@ author: Stephane Epardaud
 - Go into the newly created ceylon-dist directory and run the setup
 
 <!-- lang: bash -->
-    $ cd ceylon-dist ; ant setup
+    $ cd ceylon-dist ; ant setup-admins
 
-- Now to build the complete distribution run
+After performing one of the two above setups continue with the following:
+
+- Build the complete distribution by running
 
 <!-- lang: bash -->
     $ ant clean publish-all
