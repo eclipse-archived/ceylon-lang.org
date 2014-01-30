@@ -12,10 +12,8 @@ demonstrate the language, its type system, its module
 architecture, and its IDE.
 
 _Dirección:_ 
-
-Aula Magna ICAI (P. Pérez del Pulgar)
-Alberto Aguilera 25
+Aula Magna ICAI (P. Pérez del Pulgar),
+Alberto Aguilera 25,
 28015 Madrid
-España 
 
 _Hora:_ 19:00 - 21:00
