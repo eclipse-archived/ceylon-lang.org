@@ -16,7 +16,7 @@ or a function as being an
 
 ## Usage
 
-The annotation is applied to the annotation type class defintion:
+The annotation is applied to the annotation type class definition:
 
 <!-- try: -->
     final annotation class Example() 
@@ -30,11 +30,13 @@ Or to the annotation constructor function definition:
 
 ## Description
 
-When applied to a class, the `final` annotation is also required and the class 
-must satisfy [`Annotation`](#{site.urls.apidoc_current}/Annotation.type.html)
+When applied to a class, the `final` annotation is also required 
+and the class must satisfy 
+[`Annotation`](#{site.urls.apidoc_current}/Annotation.type.html)
 
 ## See also
 
 * API documentation for [`annotation`](#{site.urls.apidoc_current}/index.html#annotation)
 * Reference for [annotations in general](../../structure/annotation/)
-* [Annotations](#{site.urls.spec_current}#annotations) in the Ceylon language spec
+* [Annotations](#{site.urls.spec_current}#annotations) in the 
+  Ceylon language specification
