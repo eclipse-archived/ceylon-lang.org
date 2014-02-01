@@ -76,6 +76,9 @@ To iterate an instance of `Iterable`, we can use a
         print(word);
     }
 
+(Note that in this context, the `in` keyword isn't the operator we just met
+above, it's just part of the syntax of the `for` loop.) 
+
 If, for any reason, we need an index for each element produced by an iterable 
 object, we can use a special variation of the `for` loop that is designed for 
 iterating [`Entry`s](#{site.urls.apidoc_current}/Entry.type.html):
