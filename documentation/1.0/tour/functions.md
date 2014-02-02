@@ -260,12 +260,14 @@ It is of type `Anything(Integer)`.
 A static method reference is a reference to a method, qualified by the type
 which declares the method.
 
+<!-- try: -->
     value say = Hello.say;
 
 In a static method reference, there's no receiving instance of the type! We
 have not provided any instance of `Hello` in this snippet. What we just wrote
 is quite different to this:
 
+<!-- try: -->
     value say = Hello("Gavin").say;
 
 So for a static method reference, to invoke the method, we must provide two 
@@ -276,17 +278,20 @@ items of information:
 
 We provide these two items in distinct argument lists:
 
+<!-- try: -->
     value say = Hello.say;
     value sayHello = say(Hello("World"));
     sayHello(3);
 
 Or, simply:
 
+<!-- try: -->
     value say = Hello.say;
     say(Hello("World"))(3);
 
 Let's fill in the types, to see what's really going on here:
 
+<!-- try: -->
     Anything(Integer)(Hello) say = Hello.say;
     Anything(Integer) sayHello = say(Hello("World"));
     sayHello(3);
@@ -297,6 +302,7 @@ function.
 A static attribute reference is a reference to an attribute, qualified by
 the type which declares the attribute.
 
+<!-- try: -->
     Polar coord = .... ;
     value angle = Polar.angle;
     value radius = Polar.angle;
@@ -305,6 +311,7 @@ the type which declares the attribute.
 
 Just to be sure, let's fill in the types:
 
+<!-- try: -->
     Polar coord = .... ;
     Float(Polar) angle = Polar.angle;
     Float(Polar) radius = Polar.angle;
@@ -315,6 +322,7 @@ Static attribute references work especially well with the
 [`map()`](#{site.urls.apidoc_current}/Iterable.type.html#map) 
 method of `Iterable`:
 
+<!-- try: -->
     {String*} names = people.map(Person.name); 
 
 
