@@ -365,7 +365,7 @@ finally executed, producing a `Float`:
 
 <!-- try-pre:
     Float adder(Integer n)(Float x) => x+n;
-    Float addOne(Float y);
+    Float addOne(Float x);
     addOne = adder(1);
 
 -->
