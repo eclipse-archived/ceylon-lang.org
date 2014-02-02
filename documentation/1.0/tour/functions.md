@@ -326,16 +326,16 @@ multiple lists of parameters:
 
 <!-- try-post:
 
-    print(adder(4.0)(2.0));
+    print(adder(4)(2.0));
 -->
-    Float adder(Float x)(Float y) => x+y;
+    Float adder(Integer n)(Float y) => x+y;
 
-The `adder()` function has type `Float(Float)(Float)`. We can invoke it with
-a single argument to get a reference to a function of type `Float(Float)`,
-and store this reference as a function, like this:
+The `adder()` function has type `Float(Float)(Integer)`. We can invoke it 
+with a single integer argument to get a reference to a function of type 
+`Float(Float)`, and store this reference as a function, like this:
 
 <!-- try-pre:
-    Float adder(Float x)(Float y) => x+y;
+    Float adder(Integer n)(Float y) => x+y;
 
 -->
 <!-- try-post:
@@ -343,19 +343,19 @@ and store this reference as a function, like this:
     print(addOne(4.0));
 -->
     Float addOne(Float y);
-    addOne = adder(1.0);
+    addOne = adder(1);
 
 Or as a value, like this:
 
 <!-- try-pre:
-    Float adder(Float x)(Float y) => x+y;
+    Float adder(Integer n)(Float y) => x+y;
 
 -->
 <!-- try-post:
 
     print(addOne(4.0));
 -->
-    Float(Float) addOne = adder(1.0);
+    Float(Float) addOne = adder(1);
 
 (There only real difference between these two approaches is that in the 
 first case we get to assign a name to the parameter of `addOne()`.)
@@ -364,9 +364,9 @@ When we subsequently invoke `addOne()`, the actual body of `adder()` is
 finally executed, producing a `Float`:
 
 <!-- try-pre:
-    Float adder(Float x)(Float y) => x+y;
+    Float adder(Integer n)(Float y) => x+y;
     Float addOne(Float y);
-    addOne = adder(1.0);
+    addOne = adder(1);
 
 -->
 <!-- try-post:
@@ -375,6 +375,20 @@ finally executed, producing a `Float`:
 -->
     Float three = addOne(2.0);
 
+### Gotcha!
+
+Did you notice that order of parameter lists is reversed in a type 
+expression compared to a function declaration? Look again:
+
+<!-- try: -->
+    void printSum(String desc)(Float x, Float y) => print(desc + (x+y).string);
+    Anything(Float,Float)(String) printSumRef = printSum;
+
+The order of parameter lists in the function declaration reflects the order in 
+which we supply arguments when we invoke the function. But in a function type 
+expression, the return type comes always comes before the parameter types, so 
+therefore the parameters which must be supplied _first_ come at the _last_ in 
+the function type.
 
 ## Anonymous functions
 
