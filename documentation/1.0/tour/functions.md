@@ -328,27 +328,27 @@ multiple lists of parameters:
 
     print(adder(4)(2.0));
 -->
-    Float adder(Integer n)(Float y) => x+y;
+    Float adder(Integer n)(Float x) => x+n;
 
 The `adder()` function has type `Float(Float)(Integer)`. We can invoke it 
 with a single integer argument to get a reference to a function of type 
 `Float(Float)`, and store this reference as a function, like this:
 
 <!-- try-pre:
-    Float adder(Integer n)(Float y) => x+y;
+    Float adder(Integer n)(Float x) => x+n;
 
 -->
 <!-- try-post:
 
     print(addOne(4.0));
 -->
-    Float addOne(Float y);
+    Float addOne(Float x);
     addOne = adder(1);
 
 Or as a value, like this:
 
 <!-- try-pre:
-    Float adder(Integer n)(Float y) => x+y;
+    Float adder(Integer n)(Float x) => x+n;
 
 -->
 <!-- try-post:
@@ -364,7 +364,7 @@ When we subsequently invoke `addOne()`, the actual body of `adder()` is
 finally executed, producing a `Float`:
 
 <!-- try-pre:
-    Float adder(Integer n)(Float y) => x+y;
+    Float adder(Integer n)(Float x) => x+n;
     Float addOne(Float y);
     addOne = adder(1);
 
