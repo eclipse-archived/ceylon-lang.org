@@ -176,9 +176,24 @@ Also see [operators](#operators) and [literals](#literals) below
   <li><a href="literal/character/"><code>Character</code> literals</a></li>
 </ul>
 
-## Language module (`ceylon.language`)
+## API docs for `ceylon.language` and the Ceylon SDK
 
-The API documentation for [`ceylon.language`](#{site.urls.apidoc_current}/index.html).
+The API documentation for 
+
+* [`ceylon.language`](#{site.urls.apidoc_current_language})
+* [`ceylon.collection`](#{site.urls.apidoc_current_collection})
+* [`ceylon.dbc`](#{site.urls.apidoc_current_dbc})
+* [`ceylon.file`](#{site.urls.apidoc_current_file})
+* [`ceylon.html`](#{site.urls.apidoc_current_html})
+* [`ceylon.interop.java`](#{site.urls.apidoc_current_interop_java})
+* [`ceylon.io`](#{site.urls.apidoc_current_io})
+* [`ceylon.json`](#{site.urls.apidoc_current_json})
+* [`ceylon.math`](#{site.urls.apidoc_current_math})
+* [`ceylon.net`](#{site.urls.apidoc_current_net})
+* [`ceylon.process`](#{site.urls.apidoc_current_process})
+* [`ceylon.test`](#{site.urls.apidoc_current_test})
+* [`ceylon.time`](#{site.urls.apidoc_current_time})
+* [`ceylon.unicode`](#{site.urls.apidoc_current_unicode})
 
 ## Tools
 
