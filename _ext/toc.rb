@@ -34,7 +34,7 @@ class TOC
           elsif page.relative_source_path.end_with? '.textile'
             toc = parse_textile_headers(page.raw_content)
           else
-            puts page.relative_source_path
+            #puts page.relative_source_path
           end
         end
       end

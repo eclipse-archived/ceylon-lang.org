@@ -27,7 +27,7 @@ class TitleFix
   
   def fix_title(page)
     page.title = Nokogiri::XML.fragment(RDiscount.new(page.title_md).to_html).text()
-    puts page.title
+    #puts page.title
   end
 end
 
