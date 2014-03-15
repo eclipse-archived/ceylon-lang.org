@@ -28,7 +28,7 @@ of these modules. For example:
 
 - the module `java.base` contains core packages including
   `java.lang`, `java.util`, and `javax.security`,
-- the module `java.desktop contains the AWT and Swing desktop
+- the module `java.desktop` contains the AWT and Swing desktop
   UI frameworks, and
 - `java.jdbc` contains the JDBC API.
 
