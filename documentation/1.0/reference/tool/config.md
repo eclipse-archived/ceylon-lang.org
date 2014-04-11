@@ -320,7 +320,7 @@ example the compiler and language module. By default it is located in the
 #### `CACHE` repository
 
 The cache repository contains all modules fetched from remote repositories, 
-so they don't have to be downloaded each time they're needed. By deault it is
+so they don't have to be downloaded each time they're needed. By default it is
 located in the `.ceylon/cache` folder located in the user's home directory.
 
 <!-- lang:none -->
