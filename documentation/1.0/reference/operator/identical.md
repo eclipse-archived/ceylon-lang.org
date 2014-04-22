@@ -23,19 +23,11 @@ are *identical*
 
 ### Definition 
 
-The `===` operator is defined as follows:
-
-<!-- check:none -->
-<!-- try: -->
-    lhs.identical(rhs);
-
-See the [language specification](#{site.urls.spec_current}#equalitycomparison) for more details.
+The `===` operator is primitive.
 
 ### Polymorphism
 
-The `===` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
-The meaning of `===` depends on the 
-[`Identifiable`](#{site.urls.apidoc_current}/Identifiable.type.html) interface
+The `===` operator is not [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism).
 
 ### Type
 
