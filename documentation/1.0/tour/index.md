@@ -174,7 +174,7 @@ encoding on the command line like this:
 
 ## Running the program from the IDE
 
-To run the program in [Ceylon IDE](#{page.doc_root}/ide), go to the Ceylon 
+To run the program in [Ceylon IDE](../ide), go to the Ceylon 
 perspective, then:
 
 1. create a new project using `File > New > Ceylon Project`, 
