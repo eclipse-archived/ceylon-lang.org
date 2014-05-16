@@ -8,7 +8,7 @@ location: Frankfurt, Germany
 effective_date: 20140604
 ---
 Gavin King will talk about the ideas behind Ceylon and 
-demonstrate the language, its type system, its module  
+demonstrate the language, its type system, its module
 architecture, and its IDE.
 
 _Address:_
