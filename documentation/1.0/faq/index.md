@@ -99,13 +99,6 @@ Try the [language design FAQ](language-design).
 Ceylon is a community project sponsored by Red Hat. You can
 read more about the team [here](/community/team/).
 
-### When will it be ready?
-
-When it's finished ;-)
-
-Seriously, it's impossible to give anything like an exact 
-date, but we're planning for a 1.0 release later this year.
-
 ### How is Ceylon pronounced?
 
 There's some debate about that but the accepted pronounciation 

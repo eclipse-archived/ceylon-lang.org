@@ -289,16 +289,6 @@ from.
 Our visibility levels are designed to serve objective software 
 engineering ends, not vague superstitions.
 
-### No `final` modifier?
-
-> Why is there no way to make a class `final`?
-
-Since all members of a type are "final" by default, a subtype
-can't break its supertypes by refining a member unless the
-supertype _explicitly_ allows this by declaring the member
-`default`. So a `final` modifier to prevent inheritance from
-a class would serve no purpose.
-
 ### `overrides` vs. `actual`
 
 > Why rename `overrides`?
