@@ -100,8 +100,8 @@ inside the body of a containing class or interface, may be annotated
 ### Members
 
 The permitted members of interfaces are [classes](../class), 
-[interfaces](../interface), [methods](../method), and 
-[attributes](../attribute).
+[interfaces](../interface), [methods](../function), and 
+[attributes](../value).
 
 Note that an interface cannot have an [`object`](../object) member.
 

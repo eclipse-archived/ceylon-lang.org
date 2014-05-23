@@ -162,7 +162,7 @@ an anonymous function:
 ## See also
 
 * [Type parameters](../type-parameters)
-* [`class` declaration](../../type/class)
+* [`class` declaration](../class)
 * [`function` declaration](../function/) 
 * [Parameters](#{site.urls.spec_current}#parameters) in the Ceylon 
   language spec

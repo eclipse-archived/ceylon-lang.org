@@ -37,5 +37,5 @@ to run your own instance, just as powerful as what we're using, and contribute t
 
 ## See also
 
-* [Module repositories](../repository).
+* [Module repositories](..).
 

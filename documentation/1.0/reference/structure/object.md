@@ -9,7 +9,7 @@ author: Tom Bentley
 # #{page.title_md}
 
 An `object` declaration is an anonymous [class](../class) that is 
-implicitly [instantiated](../../expression/class-instantiation)
+implicitly instantiated
 exactly once at the place it is defined, and nowhere else. As such it 
 is also a [value](../value).
 
@@ -73,7 +73,7 @@ The instance is a [value](../value), so can be manipulated
 ### Members
 
 The permitted members of `object`s are [classes](../class), 
-[interfaces](../interface), [methods](../method), [attributes](../attribute),
+[interfaces](../interface), [methods](../function), [attributes](../value),
 and [`object`s](../object).
 
 ## See also

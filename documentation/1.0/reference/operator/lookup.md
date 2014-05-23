@@ -50,8 +50,6 @@ The result type of the `lhs[index]` operator is the element type of the `Corresp
 
 ## See also
 
-* [`?[]` (nullsafe lookup)](../nullsafe-lookup) operator used for accessesing 
-  a `Correspondence?`
 * API documentation for [`Correspondence`](#{site.urls.apidoc_current}/Correspondence.type.html) 
 * [sequence operators](#{site.urls.spec_current}#listmap) in the 
   language specification

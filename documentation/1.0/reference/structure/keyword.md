@@ -24,7 +24,7 @@ The following are reserved keywords:
 * `abstracts` (currently unused)
 * [`alias`](../alias#type_alises)
 * [`assert`](../../statement/assert)
-* [`assign`](../attribute#attribute_setters)
+* [`assign`](../value#a_value_setter)
 * [`break`](../../statement/break)
 * [`case`](../../statement/switch)
 * [`catch`](../../statement/try)
@@ -77,7 +77,7 @@ The following are reserved keywords:
 * [`throw`](../../statement/throw)
 * [`try`](../../statement/try)
 * [`value`](../type-inference)
-* [`void`](../method#return_type)
+* [`void`](../function#return_type)
 * [`while`](../../statement/while)
 
 

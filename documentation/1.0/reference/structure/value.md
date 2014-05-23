@@ -99,7 +99,7 @@ setter declaration.
 
 Attribute evaluations have a 'receiver', an instance of the type that 
 declares the method. Within the getter or setter body, the expression 
-[`this`](../../expression/self-reference) refers to this receiving 
+[`this`](../../expression/this) refers to this receiving 
 instance.
 
 A [top level](../type#top_level_declarations) value does not have a 
