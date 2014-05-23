@@ -32,7 +32,7 @@ A value getter:
 <!-- id:attr2 -->
 <!-- cat-id: attr -->
 <!-- try: -->
-    // A getter with a block
+    // A getter with a fat arrow
     shared String name => firstName + " " + lastName;
     
     // A getter with a block
