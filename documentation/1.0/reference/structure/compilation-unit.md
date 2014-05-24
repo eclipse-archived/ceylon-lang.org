@@ -44,8 +44,8 @@ A compilation unit may contain one or more declarations:
 
 * [type declarations](../type) ([class](../class), 
   [interface](../interface), or [`object`](../object)), 
-* [function declarations](../method), and/or
-* [value declarations](../attribute).
+* [function declarations](../function), and/or
+* [value declarations](../value).
 
 [Module descriptors](../module/#descriptor) and 
 [package descriptors](../package/#descriptor) are special-purpose 

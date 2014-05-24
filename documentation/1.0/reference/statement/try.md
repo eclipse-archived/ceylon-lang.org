@@ -47,14 +47,14 @@ The `try` clause may optionally have a list of one or more
 *resource expressions*. If it does then both `catch` and `finally` clauses 
 are optional, otherwise at least one other of those clauses is required.
 
-The [`catch` clause](../catch) specifies the [type](../../structure/type) 
+The `catch` clause specifies the [type](../../structure/type) 
 of exception (which must be a subtype of 
 [`Exception`](#{site.urls.apidoc_current}/Exception.type.html)) to be handled 
 by the associated block. The block is executed only if an exception 
 assignable to that type propagates out of the `try` block and the exception 
 was not assignable to the type of any earlier `catch` clause.
 
-The [`finally` clause](../finally) specifies a block to be executed whether 
+The `finally` clause specifies a block to be executed whether 
 or not an exception propogated out of the `try` block, and whether or not any 
 matching `catch` clause was found.
 

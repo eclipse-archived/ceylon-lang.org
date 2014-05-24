@@ -19,8 +19,7 @@ in the `if`, `while`, and `assert` statements and in `if` comprehension clauses.
 ## Usage
 
 A condition list may occur in an [`if`](../if), [`while`](../while), or 
-[`assert`](../assert) statements, or in an `if` clause of a
-[comprehension](../../expression/comprehension).
+[`assert`](../assert) statements, or in an `if` clause of a comprehension.
 
 ## Description
 

@@ -50,7 +50,7 @@ In Ceylon, a *type declaration* is one of:
 * An [`object` declaration](../object)
 * An [`interface` declaration](../interface)
 
-A [type parameter](../type-parameter) is also sometimes considered a
+A [type parameter](../type-parameters) is also sometimes considered a
 kind of type declaration. However, a type parameter may not declare
 members.
 
@@ -146,7 +146,7 @@ of the [expression `[]`](../../expression/sequence-instantiation).
 ### `Sequence`
 
 [`Sequence`](#{site.urls.apidoc_current}/Sequence.type.html) is the 
-type of non-empty [sequences](../../expression/sequence-instantiation).
+type of non-empty sequences.
 `Sequence<T>` is usually abbreviated to `[T+]`.
 
 ### `Tuple`
