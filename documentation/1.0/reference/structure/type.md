@@ -141,7 +141,7 @@ is an enumerated type with subtypes
 ### `Empty`
 
 [`Empty`](#{site.urls.apidoc_current}/Empty.type.html) is the type 
-of the [expression `[]`](../../expression/sequence-instantiation). 
+of the expression `[]`. 
 
 ### `Sequence`
 

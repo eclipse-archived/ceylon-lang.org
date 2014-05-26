@@ -13,8 +13,7 @@ A class is a stateful type that:
 
 - may hold references to other objects,
 - may define initialization logic and initialization parameters, and
-- except in the case of an `abstract` class, may be 
-  [instantiated](../../expression/class-instantiation).
+- except in the case of an `abstract` class, may be instantiated.
 
 A class may inherit another class, but classes are restricted to a
 _single inheritance_ model. That is, a class inherits exactly _one_
@@ -37,7 +36,7 @@ A trivial class declaration looks like this:
 ### Initializer
 
 The class *initializer* executes when instances of the class are created
-(also known as [*class instantiation*](../../expression/class-instantiation)). 
+(also known as *class instantiation*). 
 The parameters to the initializer are specified in parenthesis after the 
 name of the class in the `class` declaration.
 
@@ -137,7 +136,7 @@ is `Example(Integer, Boolean)`.
 
 ### Concrete classes
 
-A class that can be [instantiated](../../expression/class-instantiation) is 
+A class that can be instantiated is 
 *concrete*. It follows that `abstract` or `formal` classes are not concrete.
 
 ### Abstract classes
@@ -186,7 +185,7 @@ may be annotated [`formal`](../../annotation/formal). A formal class must
 also be annotated `shared`.
 
 Like abstract classes, formal classes may have formal members. Unlike abstract
-classes, formal classes may be [instantiated](../../expression/class-instantiation).
+classes, formal classes may be instantiated.
 
 A `formal` class must be [refined](#member_class_refinement) by concrete 
 subclasses of the containing class or interface. 

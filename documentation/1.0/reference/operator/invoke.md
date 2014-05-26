@@ -44,7 +44,6 @@ The result type of the invocation operator expressions is the return type of the
 
 ## See also
 
-* [null-safe version](../nullsafe-invoke) of invoke.
 * [spread invoke] _doc coming soon at_ (../spread-invoke) for calling a `Callable[]`
 * API documentation for [`Callable`] _doc coming soon at_ (../../ceylon.language/Callable)
 * [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 
