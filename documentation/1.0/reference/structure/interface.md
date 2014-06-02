@@ -12,7 +12,7 @@ An interface is a stateless type that, unlike a [class](../class):
 
 - may not hold references to other objects,
 - does not define initialization logic, and 
-- cannot be directly [instantiated](../../expression/class-instantiation).
+- cannot be directly instantiated.
 
 Interfaces support a more flexible inheritance model: _multiple inheritance_.
 "Diamond" inheritance is not a problem for interfaces, because interfaces 

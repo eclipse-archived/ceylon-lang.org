@@ -37,7 +37,7 @@ more details.
 
 The `&=` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 
-The `&` in the definition is the [intersect operator](../intersection) which 
+The `&` in the definition is the [intersection operator](../intersection) which 
 depends on the [`Set`](#{site.urls.apidoc_current}/Set.type.html) interface.
 
 ### Type
@@ -47,7 +47,7 @@ the left hand operand's element type.
 
 ## See also
 
-* [`&` (intersect)](../intersect) operator
+* [`&` (intersection)](../intersection) operator
 * API documentation for [`Set`](#{site.urls.apidoc_current}/Set.type.html)
 * [set operators](#{site.urls.spec_current}#sets) in the 
   language specification
