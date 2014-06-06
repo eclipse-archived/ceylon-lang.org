@@ -78,9 +78,9 @@ control logic. Used in this manner, `throw` is a sort of poor-man's
 
 * [`try` statement](../try)
 * [`ceylon.language.Exception`](#{site.urls.apidoc_current}/Exception.type.html)
-* The [`throws`](#{site.urls.apidoc_current}/../../annotation/throws) annotation 
-  provides a way to document the exceptions which may be thrown from a method, 
-  getter, setter or class initializer.
+* The [`throws`](../../annotation/throws) annotation provides a way to 
+  document the exceptions which may be thrown from a method, getter, setter 
+  or class initializer.
 * [Control directives](#{site.urls.spec_current}#controldirectives) in the 
   Ceylon language specification
 
