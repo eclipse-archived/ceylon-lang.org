@@ -26,17 +26,19 @@ However, our roadmap is quite well-defined:
   - [Milestone 6](#milestone_6_done) (latest release)
 -->
 
-<!--
-## Current progress for 1.0
+
+## Current progress for 1.1
 
 <div id="milestones-progress">
     <div id="milestone-overall">Loading…</div>
     <h3>Detail</h3>
-    <div data-title="Typechecker / language specification" data-milestone="https://api.github.com/repos/ceylon/ceylon-spec/milestones/7?callback=?">Loading…</div>
-    <div data-title="JVM compiler / documentation compiler" data-milestone="https://api.github.com/repos/ceylon/ceylon-compiler/milestones/8?callback=?">Loading…</div>
-    <div data-title="JS compiler" data-milestone="https://api.github.com/repos/ceylon/ceylon-js/milestones/5?callback=?">Loading…</div>
-    <div data-title="Language module" data-milestone="https://api.github.com/repos/ceylon/ceylon.language/milestones/7?callback=?">Loading…</div>
+    <div data-title="Typechecker / language specification" data-milestone="https://api.github.com/repos/ceylon/ceylon-spec/milestones/6?callback=?">Loading…</div>
+    <div data-title="JVM compiler / documentation compiler" data-milestone="https://api.github.com/repos/ceylon/ceylon-compiler/milestones/7?callback=?">Loading…</div>
+    <div data-title="JS compiler" data-milestone="https://api.github.com/repos/ceylon/ceylon-js/milestones/6?callback=?">Loading…</div>
+    <div data-title="Language module" data-milestone="https://api.github.com/repos/ceylon/ceylon.language/milestones/8?callback=?">Loading…</div>
 </div>
+
+<!--
 
 ## Milestone 1 _DONE_
 
