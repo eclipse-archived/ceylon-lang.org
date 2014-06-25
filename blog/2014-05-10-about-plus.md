@@ -88,7 +88,7 @@ concatenation or any other pure associative binary operation.
 
 Furthermore:
 
-- The interface `Invertable` abstracts over groups, allowing
+- The interface `Invertible` abstracts over groups, allowing
   the use of the `-` operator with any mathematical group.
 - The interface `Numeric` abstracts over _rings_, allowing
   the use of the `*` and `/` operators with any mathematical

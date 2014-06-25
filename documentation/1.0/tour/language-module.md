@@ -220,7 +220,7 @@ also important in the definition of Ceylon's polymorphic operators:
 
 * [`Summable`](#{site.urls.apidoc_current}/Summable.type.html) 
   supports the infix `+` operator,
-* [`Invertable`](#{site.urls.apidoc_current}/Invertable.type.html) 
+* [`Invertible`](#{site.urls.apidoc_current}/Invertible.type.html) 
   supports the prefix `+` and `-` operators,
 * [`Ordinal`](#{site.urls.apidoc_current}/Ordinal.type.html) 
   supports the unary `++` and `--` operators,

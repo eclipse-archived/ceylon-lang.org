@@ -109,7 +109,7 @@ operators `+` (unary plus), `-` (unary minus), `+` (sum), `-` (difference),
 
 There are certain *identities* which are true of numbers (and of the built-in
 numeric types), which may not hold with arbitrary types. For example, given any 
-`x` and `y` of a type `T` which implements `Invertable` and `Summable`, the 
+`x` and `y` of a type `T` which implements `Invertible` and `Summable`, the 
 following identity *should* be satisfied:
 
 <pre>
@@ -117,7 +117,7 @@ following identity *should* be satisfied:
 </pre>
 
 Unfortunately, Ceylon can't validate that the above identity holds for `T`'s 
-implementation of `Invertable` and `Summable`. 
+implementation of `Invertible` and `Summable`. 
 
 ### Advice
 
