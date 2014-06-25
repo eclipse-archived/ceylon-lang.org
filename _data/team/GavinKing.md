@@ -12,8 +12,8 @@ JPA specifications and as lead of the
 [CDI specification](http://jcp.org/en/jsr/detail?id=299).
 
 Gavin now works full time on Ceylon, polishing the language specification,
-developing the compiler frontend, and thinking about the SDK and future of
-the platform. He's still a fan of Java, and of other languages, especially 
-Smalltalk, Python, and ML.
+developing the compiler frontend, working on the IDE, and thinking about 
+the SDK and future of the platform. He's still a fan of Java, and of other 
+languages, especially Smalltalk, Python, and ML.
 
 You can [follow him on G+](https://profiles.google.com/gavin.king).
