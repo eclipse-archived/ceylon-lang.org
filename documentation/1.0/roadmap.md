@@ -42,7 +42,6 @@ However, our roadmap is quite well-defined:
 
 <div id="milestones-progress">
     <div data-title="IDE" data-milestone="https://api.github.com/repos/ceylon/ceylon-ide-eclipse/milestones/9?callback=?">Loading…</div>
-    <h3>Detail</h3>
 </div>
 
 <!--
