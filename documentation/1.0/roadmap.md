@@ -36,11 +36,6 @@ However, our roadmap is quite well-defined:
     <div data-title="JVM compiler / documentation compiler" data-milestone="https://api.github.com/repos/ceylon/ceylon-compiler/milestones/7?callback=?">Loading…</div>
     <div data-title="JS compiler" data-milestone="https://api.github.com/repos/ceylon/ceylon-js/milestones/6?callback=?">Loading…</div>
     <div data-title="Language module" data-milestone="https://api.github.com/repos/ceylon/ceylon.language/milestones/8?callback=?">Loading…</div>
-</div>
-
-## Current progress for Ceylon IDE
-
-<div id="milestones-progress">
     <div data-title="IDE" data-milestone="https://api.github.com/repos/ceylon/ceylon-ide-eclipse/milestones/9?callback=?">Loading…</div>
 </div>
 
