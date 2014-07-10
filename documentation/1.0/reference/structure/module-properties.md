@@ -30,7 +30,7 @@ name and version of a dependency. For example:
 
 Then:
 
-- to specify that a module is a `shared` dependency, a '+' is *prepended* to 
+- to specify that a module is a `shared` dependency, a `+` is *prepended* to 
   the module name, or 
 - to specify that a module is an `optional` dependency, a `?` is *appended* 
   to the module name.
@@ -45,5 +45,5 @@ For example:
 ## See also
 
 * About [modules](../module)
-* The [module.xml](https://docs.jboss.org/author/display/MODULES/Module+descriptors) specification
-
+* The [module.xml](https://docs.jboss.org/author/display/MODULES/Module+descriptors) 
+  specification
