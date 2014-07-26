@@ -198,7 +198,7 @@ So here's the essence of why I distrust use-site variance:
 A much saner alternative to use-site variance is 
 _declaration-site variance_, where we specify the variance 
 of a generic type when we declare it. This is the system we
-us in Ceylon. Under this system, we need to split `List` 
+use in Ceylon. Under this system, we need to split `List` 
 into three interfaces:
 
 <!-- try: -->
