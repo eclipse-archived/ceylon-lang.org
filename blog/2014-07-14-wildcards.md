@@ -197,8 +197,9 @@ So here's the essence of why I distrust use-site variance:
 
 A much saner alternative to use-site variance is 
 _declaration-site variance_, where we specify the variance 
-of a generic type when we declare it. Under this system, we 
-need to split `List` into three interfaces:
+of a generic type when we declare it. This is the system we
+us in Ceylon. Under this system, we need to split `List` 
+into three interfaces:
 
 <!-- try: -->
     interface List<out T> {
@@ -296,5 +297,12 @@ support for wildcard capture to Ceylon.
 ## Try it out
 
 Use-site variance is already implemented and already works
-in Ceylon 1.1, which you can get from github, if you're 
+in Ceylon 1.1, which you can get from GitHub, if you're 
 super-motivated.
+
+Even though the main motivation for this feature was great
+Java interop, there will be other, hopefully rare, occasions
+where wildcards will be useful. That doesn't, however, 
+indicate any significant shift in our approach. We will 
+continue using declaration-site variance in the Ceylon SDK
+except in extreme cases. 
