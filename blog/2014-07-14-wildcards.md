@@ -56,7 +56,7 @@ compiles:
     void put(Object[] list) {
         list[0]=10;
     }
-    put(new Object[1]);
+    put(new String[1]);
 
 It fails at runtime with an `ArrayStoreException`.
 
@@ -239,7 +239,7 @@ Now we can write our functions like this:
     void put(ListMutator<Integer> list) {
         list.add(10);
     }
-    iterate(ArrayList<String>()); //error: List<String> is not a ListMutator<Integer>
+    put(ArrayList<String>()); //error: List<String> is not a ListMutator<Integer>
 
 You can read more about declaration-site variance 
 [here](http://ceylon-lang.org/documentation/1.0/tour/generics/).
