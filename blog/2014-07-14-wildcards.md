@@ -108,7 +108,7 @@ Alternatively, we can take a more Ceylonic point of view,
 and say that `List<out Object>` is the union of all types
 `List<T>` where `T` is a subtype of `Object`.
 
-In a system with usesite variance, the following code does
+In a system with use-site variance, the following code does
 not compile:
 
 <!-- try: -->
