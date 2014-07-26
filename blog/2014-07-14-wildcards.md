@@ -212,15 +212,15 @@ into three interfaces:
         void add(T element);
     }
 
-    interface ListMutator<T>
+    interface MutableList<T>
         satisfies List<T>&ListMutator<T> {}
 
 `List` is declared to be a covariant type, `ListMutator` a
-contravariant type, and `ListMutator` an invariant subtype
+contravariant type, and `MutableList` an invariant subtype
 of both.
 
 It might seem that the requirement for multiple interfaces 
-is big disadvantage of declaration-site variance, but it 
+is a big disadvantage of declaration-site variance, but it 
 often turns out to be useful to separate mutation from
 read operations, and:
 
