@@ -101,13 +101,13 @@ A given `V` is called the _bound_ of the wildcard:
 In theory, we could have a wildcard with both an upper and
 lower bound, for example, `L<out X in Y>`.
 
-We can express multiple bounds upper bounds or multiple lower
-bounds using an intersection type, for example, 
-`L<out U&V>` or `L<in U&V>`.
+We can express multiple upper bounds or multiple lower bounds 
+using an intersection type, for example, `L<out U&V>` or 
+`L<in U&V>`.
 
-The type expressions `L<out Anything>` and `L<in Nothing>` 
-refer to exactly the same type, and are supertypes of all
-instantiations of `L`. 
+Note that the type expressions `L<out Anything>` and 
+`L<in Nothing>` refer to exactly the same type, and this
+type is a supertype of all instantiations of `L`. 
 
 You'll often see people refer to wildcarded types as 
 _existential types_. What they mean by this is that if I 
