@@ -88,11 +88,26 @@ to use it anymore in this discussion. Instead, we'll write
 wildcards using the keywords `in` and `out` for
 contravariance and covariance respectively. Thus:
 
-- `L<out V>` is _covariant_ in `V`, and that
+- `L<out V>` is _covariant_ in `V`, and
 - `L<in V>` is _contravariant_ in `V`.
 
+A given `V` is called the _bound_ of the wildcard:
+
+- `out V` is an upper-bounded wildcard, and `V` is its upper
+  bound, and
+- `in V` is a lower-bounded wildcard, and `V` is its lower
+  bound.
+
 In theory, we could have a wildcard with both an upper and
-lower bound, for example, `L<out X in Y>`. 
+lower bound, for example, `L<out X in Y>`.
+
+We can express multiple bounds upper bounds or multiple lower
+bounds using an intersection type, for example, 
+`L<out U&V>` or `L<in U&V>`.
+
+The type expressions `L<out Anything>` and `L<in Nothing>` 
+refer to exactly the same type, and are supertypes of all
+instantiations of `L`. 
 
 You'll often see people refer to wildcarded types as 
 _existential types_. What they mean by this is that if I 
