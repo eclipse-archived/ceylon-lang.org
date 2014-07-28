@@ -320,4 +320,11 @@ Java interop, there will be other, hopefully rare, occasions
 where wildcards will be useful. That doesn't, however, 
 indicate any significant shift in our approach. We will 
 continue using declaration-site variance in the Ceylon SDK
-except in extreme cases. 
+except in extreme cases.
+
+UPDATE:
+
+I just realized I forgot to say thanks to Ross Tate for
+helping me with the finer points of the member typing
+algorithm for use site variance. Very tricky stuff that Ross 
+knows off the top of his head!
