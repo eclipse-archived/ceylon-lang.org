@@ -93,9 +93,9 @@ contravariance and covariance respectively. Thus:
 
 A given `V` is called the _bound_ of the wildcard:
 
-- `out V` is an upper-bounded wildcard, and `V` is its upper
+- `out V` is an _upper-bounded_ wildcard, and `V` is its upper
   bound, and
-- `in V` is a lower-bounded wildcard, and `V` is its lower
+- `in V` is a _lower-bounded_ wildcard, and `V` is its lower
   bound.
 
 In theory, we could have a wildcard with both an upper and
