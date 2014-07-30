@@ -134,7 +134,7 @@ function postSyntaxHighlighting(){
 		if(!(highlighter instanceof SyntaxHighlighter.brushes.Ceylon))
 			return;
 		$elem.addClass("with-editor");
-		var $button = jQuery("<span class='bubble-button' title='Try this code in an online Ceylon editor'>Try</span>");
+		var $button = jQuery("<span class='bubble-button' title='Try this code in an online Ceylon editor'>TRY ONLINE</span>");
 		var src = collectSource($elem);
 		if (src){
 			$button.click(function(){

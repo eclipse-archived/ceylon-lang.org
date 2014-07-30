@@ -35,7 +35,7 @@ module, and the module runtime.
            title='Download the Zip archive'
            class='bubble-button'
            onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_0?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
-           download
+           DOWNLOAD
         </a>
         </td>
     </tr>
@@ -54,7 +54,7 @@ module, and the module runtime.
            title='Download the RPM'
            class='bubble-button'
            onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_0_rpm?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
-           download
+           DOWNLOAD
         </a>
         </td>
     </tr>
@@ -73,7 +73,7 @@ module, and the module runtime.
            title='Download the Debian package'
            class='bubble-button'
            onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_0_deb?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
-           download
+           DOWNLOAD
         </a>
         </td>
     </tr>
@@ -124,7 +124,7 @@ from our [update site][update site].
            title='Install the IDE'
            class='bubble-button'
            onClick="javascript: _gaq.push(['_trackPageview', '/documentation/current/ide/install?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
-           follow these instructions
+           FOLLOW THESE INSTRUCTIONS
         </a>
         </td>
     </tr>
