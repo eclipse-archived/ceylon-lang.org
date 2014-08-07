@@ -160,6 +160,14 @@ form.bp {
 // Various header style
 .header-bar {
   background: url("../images/bkg_header.png") repeat-x;
+  /* for high resolution display */
+  @media only screen and (min--moz-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min-device-pixel-ratio: 2) {
+    background: url("../images/bkg_header-2x.png") repeat-x;
+    background-size: 32px 100px;
+  }
 }
 
 #header {
@@ -174,6 +182,14 @@ form.bp {
     width: 325px;
     display:block;
     float: left;
+  /* for high resolution display */
+  @media only screen and (min--moz-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min-device-pixel-ratio: 2) {
+    background: url("../images/ceylon-logo-2x.png") no-repeat 0px 0px;
+    background-size: 325px 100px;
+  }
 
     h1 {
       text-indent: -9999px;
@@ -312,10 +328,26 @@ form.bp {
 
 .homepage {
   background: url("../images/bkg_home.png") repeat-x center 100px;
+  /* for high resolution display */
+  @media only screen and (min--moz-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min-device-pixel-ratio: 2) {
+    background: url("../images/bkg_home-2x.png") repeat-x center 100px;
+    background-size: 457px 235px;
+  }
 }
 .homepage #banner #elephant {
   background: url("../images/ceylon_homebanner_elephant.png") no-repeat center top;
   height:260px;
+  /* for high resolution display */
+  @media only screen and (min--moz-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min-device-pixel-ratio: 2) {
+    background: url("../images/ceylon_homebanner_elephant-2x.png") no-repeat center top;
+     background-size: 370px 259px;
+  }
 }
 
 .homepage #banner #text {
@@ -415,6 +447,14 @@ form.bp {
     border-right: 1px solid #c7d8d8;
     background: url("../images/sidebar_bkg_elephant.png") no-repeat 0px 0px #d4e5e5;
     
+  /* for high resolution display */
+  @media only screen and (min--moz-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min-device-pixel-ratio: 2) {
+    background: url("../images/sidebar_bkg_elephant-2x.png") no-repeat 0px 0px #d4e5e5;
+     background-size: 220px 450px;
+  }
     strong {
       font-weight:boldest;
     }
