@@ -15,7 +15,7 @@
 @import "compass/typography/lists";
 @import "compass/typography/links/link-colors";
 
-$space-after-home-lines: 1.5em;
+$space-after-home-lines: 1em;
 
 body.bp {
   @include blueprint-scaffolding;
@@ -278,10 +278,15 @@ form.bp {
  
   #text {
     position: absolute;
-    top: 20px;
-    width: 600px;
+    top: 3px;
+    //width: 600px;
     right: 0;
-    background: url("../images/ceylon_homebanner_text.png") no-repeat center top;
+    font-size:47px;
+    font-family: Black Ops One;
+    text-align:right;
+    text-shadow: 2px 2px black;
+    color:white;
+    //background: url("../images/ceylon_homebanner_text.png") no-repeat center top;
   }
  
   #code {
@@ -290,7 +295,7 @@ form.bp {
     width: 475px;
     height: 170px;
     background: rgba(12, 31, 31, 0.9);
-    top: 80px;
+    top: 72px;
     right: 0;
     border-radius: 15px;
     padding: 1em 2em 1em 2em;
@@ -350,10 +355,10 @@ form.bp {
   }
 }
 
-.homepage #banner #text {
-  background: url("../images/ceylon_homebanner_text.png") no-repeat center top;
-  height:260px;
-}
+//.homepage #banner #text {
+//  background: url("../images/ceylon_homebanner_text.png") no-repeat center top;
+//  height:260px;
+//}
 
 .docspage {
   background: url("../images/bkg_section.png") repeat-x center 100px;
@@ -406,7 +411,7 @@ form.bp {
 // primary content style
 #primary-content {
   position:relative;
-  top:2em;
+  top:1em;
   @include container;
   #core-page {
     @include column(16);
