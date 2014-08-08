@@ -351,67 +351,40 @@ form.bp {
   only screen and (-webkit-min-device-pixel-ratio: 2),
   only screen and (min-device-pixel-ratio: 2) {
     background: url("../images/ceylon_homebanner_elephant-2x.png") no-repeat center top;
-     background-size: 370px 259px;
+    background-size: 370px 259px;
   }
 }
 
-//.homepage #banner #text {
-//  background: url("../images/ceylon_homebanner_text.png") no-repeat center top;
-//  height:260px;
-//}
-
-.docspage {
-  background: url("../images/bkg_section.png") repeat-x center 100px;
+#banner {
+  right: 0;
+  font-size:47px;
+  font-family: Black Ops One;
+  //text-align:right;
+  text-shadow: 2px 2px black;
+  color:white;
+  //background: url("../images/sectionbanner_download.png") no-repeat center top;
+  height:85px;
 }
 
-.docspage #banner {
-  background: url("../images/sectionbanner_learn.png") no-repeat center top;
-  height:90px;
+.docspage, .downloadpage, .communitypage, .codepage, .blogpage, .walkthroughpage {
+  background: url("../images/bkg_section.png") repeat-x center 80px;
+  #banner { text-align: right; }
+  /* for high resolution display */
+  @media only screen and (min--moz-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min-device-pixel-ratio: 2) {
+    background: url("../images/bkg_section-2x.png") repeat-x center 80px;
+    background-size: 457px 90px;
+  }
 }
-
-.downloadpage {
-  background: url("../images/bkg_section.png") repeat-x center 100px;
-}
-
-.downloadpage #banner {
-  background: url("../images/sectionbanner_download.png") no-repeat center top;
-  height:90px;
-}
-
-.communitypage {
-  background: url("../images/bkg_section.png") repeat-x center 100px;
-}
-
-.communitypage #banner {
-  background: url("../images/sectionbanner_community.png") no-repeat center top;
-  height:90px;
-}
-
-.codepage {
-  background: url("../images/bkg_section.png") repeat-x center 100px;
-}
-
-.codepage #banner {
-  background: url("../images/sectionbanner_code.png") no-repeat center top;
-  height:90px;
-}
-
-.blogpage {
-  background: url("../images/bkg_section.png") repeat-x center 100px;
-}
-
-.blogpage #banner {
-  background: url("../images/sectionbanner_blog.png") no-repeat center top;
-  height:90px;
-}
-
 //newsbar
 
 
 // primary content style
 #primary-content {
   position:relative;
-  top:1em;
+  //top:1em;
   @include container;
   #core-page {
     @include column(16);
@@ -458,7 +431,7 @@ form.bp {
   only screen and (-webkit-min-device-pixel-ratio: 2),
   only screen and (min-device-pixel-ratio: 2) {
     background: url("../images/sidebar_bkg_elephant-2x.png") no-repeat 0px 0px #d4e5e5;
-     background-size: 220px 450px;
+    background-size: 220px 450px;
   }
     strong {
       font-weight:boldest;
@@ -594,6 +567,7 @@ form.bp {
 
   #newsbar {
     width: 900px;
+    margin-top: $space-after-home-lines;
     margin-bottom: $space-after-home-lines;
     margin-left: 1.75em;
     height: 2em;
@@ -653,6 +627,7 @@ form.bp {
   }
   
   #sidebar {
+    padding-top: 80px;
     @include column(8,true);
     //font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
     #feed {
@@ -673,6 +648,14 @@ form.bp {
     border-right: 1px solid #c7d8d8;
     background: url("../images/sidebar_bkg_elephant.png") no-repeat 0px 0px #d4e5e5;
     
+  /* for high resolution display */
+  @media only screen and (min--moz-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min-device-pixel-ratio: 2) {
+    background: url("../images/sidebar_bkg_elephant-2x.png") no-repeat 0px 0px #d4e5e5;
+    background-size: 220px 450px;
+  }
     h3 {
       font-size: 16px;
       color: #456B6E;

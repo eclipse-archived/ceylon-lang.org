@@ -5,6 +5,8 @@ tab: download
 unique_id: downloadpage
 author: Emmanuel Bernard
 ---
+<div id="banner"><div id="text">Download</div></div>
+
 # #{page.title}
 
 [Ceylon 1.0.0][1.0.0] _&ldquo;No More Mr Nice Guy&rdquo;_ is now 

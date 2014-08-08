@@ -2,8 +2,10 @@
 layout: default
 tab: blog
 unique_id: blogpage
-
 ---
+#banner
+  #text
+    Ceylon Blog
 #post-navigation
   .post-navigation
     #post-nav-previous
@@ -20,6 +22,7 @@ unique_id: blogpage
             next post
           .nav-link
             %a{:href => page.next_post.url}= page.next_post.title
+#core-page
 .post
   %h1.title 
     #{page.title}
@@ -38,7 +41,3 @@ unique_id: blogpage
     ~ content
     = page.disqus_comments
   
-  <a href="/+" style="cursor:pointer;margin-left:auto;margin-right:auto;display:block;text-align:center">
-  <span style="display:inline-block;font-weight:bold;vertical-align:top;margin-right:5px;margin-top:8px;">Follow Ceylon on</span>
-  <img src="https://ssl.gstatic.com/images/icons/gplus-32.png" alt="" style="border:0;width:32px;height:32px;"/>
-  </a>

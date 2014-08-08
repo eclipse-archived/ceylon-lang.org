@@ -31,6 +31,24 @@ tab: to-be-defined
         - idname = page.tab == "blog" ? "selected" : "notselected"
         %li{ :id=>"#{idname}" }
           %a{ :href=>'/blog' } BLOG
+#banner
+  #elephant
+    &nbsp;
+  #text
+    Static types that work
+  #code
+    <!-- lang: none -->
+    %pre
+      %code
+        :preserve
+          <span class="code_type">Html</span> html = <span class="code_type">Html</span> {
+             doctype = html5;
+             <span class="code_type">Head</span> { title = <span class="code_string">"Ceylon: home page"</span>; };
+             <span class="code_type">Body</span> {
+                <span class="code_type">H2</span> ( <span class="code_string">"Welcome to Ceylon &#96;&#96;</span><span class="code_interpolated">language.version</span><span class="code_string">&#96;&#96;!"</span> ),
+                <span class="code_type">P</span> ( <span class="code_string">"Now get your code on :)"</span> )
+             };
+          };
 #primary-content
   ~ content
 .footer-bar
