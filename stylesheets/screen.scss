@@ -171,14 +171,14 @@ form.bp {
 }
 
 #header {
-  height: 100px;
+  height: 92px;
   width: 950px;
   margin: auto;
   
   
   #header-logo {
     background: url("../images/ceylon-logo.png") no-repeat 0px 0px;
-    height: 100px;
+    height: 92px;
     width: 325px;
     display:block;
     float: left;
@@ -210,7 +210,7 @@ form.bp {
     font-family:'Lucida Grande', 'Lucida Sans Unicode', Arial, sans-serif;
     font-size: 14px;
     float: right;
-    margin-top: 70px;
+    margin-top: 62px;
     width: 600px;
   
     #menu-core {
@@ -258,8 +258,19 @@ form.bp {
 
 // banner related styles
 
-#banner #code {
-  display: none;
+#banner {
+  height:70px;
+  #text {
+    position: absolute;
+    top: 3px;
+    right: 0;
+    font-size: 47px;
+    font-family: Black Ops One;
+    text-align: right;
+    text-shadow: 2px 2px black;
+    color: #d4e5e5;
+    //background: url("../images/ceylon_homebanner_text.png") no-repeat center top;
+  }
 }
 
 .homepage #banner {
@@ -274,19 +285,6 @@ form.bp {
     height: 260px;
     width: 370px;
     background: url("../images/ceylon_homebanner_elephant.png") no-repeat center top;
-  }
- 
-  #text {
-    position: absolute;
-    top: 3px;
-    //width: 600px;
-    right: 0;
-    font-size:47px;
-    font-family: Black Ops One;
-    text-align:right;
-    text-shadow: 2px 2px black;
-    color:white;
-    //background: url("../images/ceylon_homebanner_text.png") no-repeat center top;
   }
  
   #code {
@@ -332,13 +330,13 @@ form.bp {
 }
 
 .homepage {
-  background: url("../images/bkg_home.png") repeat-x center 100px;
+  background: url("../images/bkg_home.png") repeat-x center 92px;
   /* for high resolution display */
   @media only screen and (min--moz-device-pixel-ratio: 2),
   only screen and (-o-min-device-pixel-ratio: 2/1),
   only screen and (-webkit-min-device-pixel-ratio: 2),
   only screen and (min-device-pixel-ratio: 2) {
-    background: url("../images/bkg_home-2x.png") repeat-x center 100px;
+    background: url("../images/bkg_home-2x.png") repeat-x center 92px;
     background-size: 457px 235px;
   }
 }
@@ -355,26 +353,15 @@ form.bp {
   }
 }
 
-#banner {
-  right: 0;
-  font-size:47px;
-  font-family: Black Ops One;
-  //text-align:right;
-  text-shadow: 2px 2px black;
-  color:white;
-  //background: url("../images/sectionbanner_download.png") no-repeat center top;
-  height:85px;
-}
-
 .docspage, .downloadpage, .communitypage, .codepage, .blogpage, .walkthroughpage {
-  background: url("../images/bkg_section.png") repeat-x center 80px;
+  background: url("../images/bkg_section.png") repeat-x center 64px;
   #banner { text-align: right; }
   /* for high resolution display */
   @media only screen and (min--moz-device-pixel-ratio: 2),
   only screen and (-o-min-device-pixel-ratio: 2/1),
   only screen and (-webkit-min-device-pixel-ratio: 2),
   only screen and (min-device-pixel-ratio: 2) {
-    background: url("../images/bkg_section-2x.png") repeat-x center 80px;
+    background: url("../images/bkg_section-2x.png") repeat-x center 64px;
     background-size: 457px 90px;
   }
 }
@@ -627,7 +614,7 @@ form.bp {
   }
   
   #sidebar {
-    padding-top: 80px;
+    padding-top: 70px;
     @include column(8,true);
     //font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
     #feed {
