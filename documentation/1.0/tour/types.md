@@ -1,6 +1,6 @@
 ---
 layout: tour
-title: Tour of Ceylon&#58; Union, intersection, and enumerated types
+title: Union, intersection, and enumerated types
 tab: documentation
 unique_id: docspage
 author: Gavin King

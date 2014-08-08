@@ -1,6 +1,6 @@
 ---
 layout: tour
-title: Tour of Ceylon&#58; Attributes and variables, control structures
+title: Attributes and variables, control structures
 tab: documentation
 unique_id: docspage
 author: Gavin King
