@@ -11,9 +11,9 @@ Ceylon 1.1 has been in development for 6 months already, so
 it's way past time for a progress report! Since the release
 is nearly ready, this is going to have to take the form of a 
 summary of what we've been working on. Well, that's a 
-daunting task, since we've already closed almost 650 issues 
-in the compiler and language module, and 300 in the IDE. 
-Phew!
+daunting task, since we've already closed more than 650 
+issues in the compiler and language module, and 300 in the 
+IDE. Phew!
 
 The top priorities for Ceylon 1.1 were:
 
