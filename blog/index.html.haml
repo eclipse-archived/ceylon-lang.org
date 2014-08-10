@@ -81,10 +81,10 @@ unique_id: blogpage
           - post.tags.each do |tag|
             %a{:href=>tag.primary_page.url}
               = tag
-        .body
-          ~ post.content
-        .tail
-          = post.disqus_comments_link
+      .body
+        ~ post.content
+      .tail
+        = post.disqus_comments_link
   = page.posts.links   
    
 :javascript
