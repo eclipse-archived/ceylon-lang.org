@@ -4,8 +4,8 @@ layout: default
 author: Emmanuel Bernard
 tab: blog
 unique_id: blogpage
-
 ---
+
 #sidebar
   
   - if not page.blog_tag
@@ -51,10 +51,15 @@ unique_id: blogpage
       = site.posts_authors_cloud
   .point-light-end 
     &nbsp;
-  <a href="/+" style="cursor:pointer;margin-left:auto;margin-right:auto;display:block;text-align:center;padding:50px">
+  <a href="/+" style="cursor:pointer;margin-left:auto;margin-right:auto;display:block;text-align:center;padding-top:10px;padding-bottom:5px">
   <span style="display:inline-block;font-weight:bold;vertical-align:top;margin-right:5px;margin-top:8px;">Follow Ceylon on</span>
+  </a>
+  <a href="/+" style="cursor:pointer;margin-left:auto;margin-right:auto;display:block;text-align:center">
   <img src="https://ssl.gstatic.com/images/icons/gplus-32.png" alt="" style="border:0;width:32px;height:32px;"/>
   </a>
+#banner
+  #text
+    Blog
 #core-page
   - if page.split_title
     %h1

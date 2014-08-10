@@ -8,9 +8,11 @@ author: Emmanuel Bernard
 
 # #{page.title}
 
-You'll find all you need to know about Ceylon in these pages. Ceylon itself 
-is a work in progress, so this documentation is still in a state of flux. By 
-the way, _you_ can help improve it, [read more](/code/website).
+You'll find all you need to know about Ceylon in these pages. Just like the
+code we write, all the information here is [open source](/code/licenses).
+
+Oh, and if something is missing or isn't right, please 
+[help us improve it](/code/website). 
 
 ## New to Ceylon?
 

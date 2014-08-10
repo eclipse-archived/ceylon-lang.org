@@ -1,13 +1,13 @@
 ---
 layout: tour
-title: Tour of Ceylon
+title: Welcome to the Tour
 tab: documentation
 unique_id: docspage
 author: Emmanuel Bernard
 doc _root: ..
 ---
 
-# Tour of Ceylon
+# #{page.title}
 
 This tour of the Ceylon language is primarily intended for 
 developers with some experience in object-oriented 

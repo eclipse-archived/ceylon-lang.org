@@ -15,7 +15,7 @@
 @import "compass/typography/lists";
 @import "compass/typography/links/link-colors";
 
-$space-after-home-lines: 1.5em;
+$space-after-home-lines: 1em;
 
 body.bp {
   @include blueprint-scaffolding;
@@ -27,8 +27,8 @@ body.bp {
   // Or leave it in if you're happy with how blueprint looks out-of-the-box
 
   font-size:15px;
-  font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;
-  color: #2c2c2c;
+  font-family:'Source Sans Pro', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  color: #525252;
   background-color: white;
   font-weight: 400;
   
@@ -68,6 +68,10 @@ body.bp {
     margin-top:1em;
     margin-bottom:1em;
     line-height:1.45em;
+    strong {
+      font-weight: normal;
+      color: #a52a2a;
+    }
   }
 
   ul, ol {
@@ -86,10 +90,10 @@ body.bp {
     margin-top:0px;
     margin-bottom:0px;
     padding-left: 10px;
-    font-family:Menlo, Monaco, Courier, monospace;
+    font-family:'Inconsolata', Menlo, Monaco, Courier, monospace;
     font-style:normal;
-    border-left: 5px solid #f0f0f0;
-    font-size:85%;
+    //border-left: 5px solid #f0f0f0;
+    font-size:95%;
   }
 
   pre {
@@ -99,14 +103,14 @@ body.bp {
     margin-bottom:0px;
     
     code {
-      font-family:Menlo, Monaco, Courier, monospace;
+      font-family:'Inconsolata', Menlo, Monaco, Courier, monospace;
       font-style:normal;
       font-size:85%;
     }
   }
   
   p code, ul code, ol code {
-    font-family:Menlo, Monaco, Courier, monospace;
+    font-family:'Inconsolata', Menlo, Monaco, Courier, monospace;
     font-style:normal;
     font-size:90%;
     color:#2E5C00;
@@ -156,20 +160,36 @@ form.bp {
 // Various header style
 .header-bar {
   background: url("../images/bkg_header.png") repeat-x;
+  /* for high resolution display */
+  @media only screen and (min--moz-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min-device-pixel-ratio: 2) {
+    background: url("../images/bkg_header-2x.png") repeat-x;
+    background-size: 32px 100px;
+  }
 }
 
 #header {
-  height: 100px;
+  height: 92px;
   width: 950px;
   margin: auto;
   
   
   #header-logo {
     background: url("../images/ceylon-logo.png") no-repeat 0px 0px;
-    height: 100px;
+    height: 92px;
     width: 325px;
     display:block;
     float: left;
+  /* for high resolution display */
+  @media only screen and (min--moz-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min-device-pixel-ratio: 2) {
+    background: url("../images/ceylon-logo-2x.png") no-repeat 0px 0px;
+    background-size: 325px 100px;
+  }
 
     h1 {
       text-indent: -9999px;
@@ -190,7 +210,7 @@ form.bp {
     font-family:'Lucida Grande', 'Lucida Sans Unicode', Arial, sans-serif;
     font-size: 14px;
     float: right;
-    margin-top: 70px;
+    margin-top: 62px;
     width: 600px;
   
     #menu-core {
@@ -238,8 +258,19 @@ form.bp {
 
 // banner related styles
 
-#banner #code {
-  display: none;
+#banner {
+  height:70px;
+  #text {
+    position: absolute;
+    top: 3px;
+    right: 0;
+    font-size: 47px;
+    font-family: Black Ops One;
+    text-align: right;
+    text-shadow: 2px 2px black;
+    color: #d4e5e5;
+    //background: url("../images/ceylon_homebanner_text.png") no-repeat center top;
+  }
 }
 
 .homepage #banner {
@@ -256,21 +287,13 @@ form.bp {
     background: url("../images/ceylon_homebanner_elephant.png") no-repeat center top;
   }
  
-  #text {
-    position: absolute;
-    top: 20px;
-    width: 600px;
-    right: 0;
-    background: url("../images/ceylon_homebanner_text.png") no-repeat center top;
-  }
- 
   #code {
     display: block;
     position: absolute;
     width: 475px;
     height: 170px;
     background: rgba(12, 31, 31, 0.9);
-    top: 80px;
+    top: 72px;
     right: 0;
     border-radius: 15px;
     padding: 1em 2em 1em 2em;
@@ -307,70 +330,48 @@ form.bp {
 }
 
 .homepage {
-  background: url("../images/bkg_home.png") repeat-x center 100px;
+  background: url("../images/bkg_home.png") repeat-x center 92px;
+  /* for high resolution display */
+  @media only screen and (min--moz-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min-device-pixel-ratio: 2) {
+    background: url("../images/bkg_home-2x.png") repeat-x center 92px;
+    background-size: 457px 235px;
+  }
 }
 .homepage #banner #elephant {
   background: url("../images/ceylon_homebanner_elephant.png") no-repeat center top;
   height:260px;
+  /* for high resolution display */
+  @media only screen and (min--moz-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min-device-pixel-ratio: 2) {
+    background: url("../images/ceylon_homebanner_elephant-2x.png") no-repeat center top;
+    background-size: 370px 259px;
+  }
 }
 
-.homepage #banner #text {
-  background: url("../images/ceylon_homebanner_text.png") no-repeat center top;
-  height:260px;
+.docspage, .downloadpage, .communitypage, .codepage, .blogpage, .walkthroughpage {
+  background: url("../images/bkg_section.png") repeat-x center 64px;
+  #banner { text-align: right; }
+  /* for high resolution display */
+  @media only screen and (min--moz-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min-device-pixel-ratio: 2) {
+    background: url("../images/bkg_section-2x.png") repeat-x center 64px;
+    background-size: 457px 90px;
+  }
 }
-
-.docspage {
-  background: url("../images/bkg_section.png") repeat-x center 100px;
-}
-
-.docspage #banner {
-  background: url("../images/sectionbanner_learn.png") no-repeat center top;
-  height:90px;
-}
-
-.downloadpage {
-  background: url("../images/bkg_section.png") repeat-x center 100px;
-}
-
-.downloadpage #banner {
-  background: url("../images/sectionbanner_download.png") no-repeat center top;
-  height:90px;
-}
-
-.communitypage {
-  background: url("../images/bkg_section.png") repeat-x center 100px;
-}
-
-.communitypage #banner {
-  background: url("../images/sectionbanner_community.png") no-repeat center top;
-  height:90px;
-}
-
-.codepage {
-  background: url("../images/bkg_section.png") repeat-x center 100px;
-}
-
-.codepage #banner {
-  background: url("../images/sectionbanner_code.png") no-repeat center top;
-  height:90px;
-}
-
-.blogpage {
-  background: url("../images/bkg_section.png") repeat-x center 100px;
-}
-
-.blogpage #banner {
-  background: url("../images/sectionbanner_blog.png") no-repeat center top;
-  height:90px;
-}
-
 //newsbar
 
 
 // primary content style
 #primary-content {
   position:relative;
-  top:2em;
+  //top:1em;
   @include container;
   #core-page {
     @include column(16);
@@ -411,6 +412,14 @@ form.bp {
     border-right: 1px solid #c7d8d8;
     background: url("../images/sidebar_bkg_elephant.png") no-repeat 0px 0px #d4e5e5;
     
+  /* for high resolution display */
+  @media only screen and (min--moz-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min-device-pixel-ratio: 2) {
+    background: url("../images/sidebar_bkg_elephant-2x.png") no-repeat 0px 0px #d4e5e5;
+    background-size: 220px 450px;
+  }
     strong {
       font-weight:boldest;
     }
@@ -428,6 +437,10 @@ form.bp {
     p {
       margin-top: 0;
       line-height: 1.2em;    
+      strong {
+        font-weight: normal;
+        color: #a52a2a;
+      }
     }
   }
 
@@ -468,6 +481,10 @@ form.bp {
       line-height: 1.2em;
       margin-bottom: 6px;
       margin-top: 0px;
+      strong {
+        font-weight: normal;
+        color: #a52a2a;
+      }
     }
     p:last-child {
       margin-bottom: 0;
@@ -481,31 +498,30 @@ form.bp {
 
   //from http://css3buttongenerator.com/
   .bubble-button {
-    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
-    //font-family: "Marvel", "Trebuchet MS", Arial, sans-serif;
+    font-family: 'Source Sans Pro', Arial, 'Helvetica Neue', Helvetica, sans-serif;
     font-weight: normal;
-    font-size: 15px;
+    font-size: 12px;
     text-decoration: none;
     line-height: normal;
-    padding:7px 10px;
+    padding: 7px 10px;
     color: white;
-    background-color: #5bb65b;
-    text-shadow: 0 -1px 1px #666666;
+    background-color: #337d84;
+    text-shadow: 0 0px 0px #666666;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
-    background-image: -moz-linear-gradient(top, #62c462, #51a351);
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#62c462), to(#51a351));
-    background-image: -webkit-linear-gradient(top, #62c462, #51a351);
-    background-image: -o-linear-gradient(top, #62c462, #51a351);
-    background-image: linear-gradient(to bottom, #62c462, #51a351);
-    background-repeat: repeat-x;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF62C462', endColorstr='#FF51A351', GradientType=0);
+    //background-image: -moz-linear-gradient(top, #62c462, #51a351);
+    //background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#62c462), to(#51a351));
+    //background-image: -webkit-linear-gradient(top, #62c462, #51a351);
+    //background-image: -o-linear-gradient(top, #62c462, #51a351);
+    //background-image: linear-gradient(to bottom, #62c462, #51a351);
+    //background-repeat: repeat-x;
+    //filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF62C462', endColorstr='#FF51A351', GradientType=0);
   }
 
   .bubble-button:hover {
-    color: #aaddff;
-    text-shadow: 0 -1px 1px #666666;
+    color: #a52a2a;
+    //text-shadow: 0 -1px 1px #666666;
   }
 
   .bubble-bottom {
@@ -538,6 +554,7 @@ form.bp {
 
   #newsbar {
     width: 900px;
+    margin-top: $space-after-home-lines;
     margin-bottom: $space-after-home-lines;
     margin-left: 1.75em;
     height: 2em;
@@ -597,6 +614,7 @@ form.bp {
   }
   
   #sidebar {
+    padding-top: 70px;
     @include column(8,true);
     //font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
     #feed {
@@ -617,6 +635,14 @@ form.bp {
     border-right: 1px solid #c7d8d8;
     background: url("../images/sidebar_bkg_elephant.png") no-repeat 0px 0px #d4e5e5;
     
+  /* for high resolution display */
+  @media only screen and (min--moz-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min-device-pixel-ratio: 2) {
+    background: url("../images/sidebar_bkg_elephant-2x.png") no-repeat 0px 0px #d4e5e5;
+    background-size: 220px 450px;
+  }
     h3 {
       font-size: 16px;
       color: #456B6E;
@@ -1063,7 +1089,7 @@ body.two-col {
  position: absolute;
  right: 0;
  top: 0;
- width: 25px;
+ width: 70px;
  cursor: pointer;
  text-align: center;
  padding: 2px 4px !important;
@@ -1155,8 +1181,8 @@ p.screenshot {
     margin-top: 30px;
     text-align:center;
     .bubble-button {
-      padding: 10px 15px;
-      border-radius: 6px;
+      padding: 7px 10px;
+      border-radius: 4px;
     }
 }
 

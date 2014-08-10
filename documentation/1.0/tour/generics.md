@@ -1,6 +1,6 @@
 ---
 layout: tour
-title: Tour of Ceylon&#58; Generics
+title: Generics
 tab: documentation
 unique_id: docspage
 author: Gavin King

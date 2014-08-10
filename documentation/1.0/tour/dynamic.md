@@ -1,6 +1,6 @@
 ---
 layout: tour
-title: Tour of Ceylon&#58; Dynamic typing
+title: Dynamic typing
 tab: documentation
 unique_id: docspage
 author: Gavin King

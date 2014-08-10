@@ -1,6 +1,6 @@
 ---
 layout: tour
-title: Tour of Ceylon&#58; Annotations and the metamodel
+title: Annotations and the metamodel
 tab: documentation
 unique_id: docspage
 author: Gavin King

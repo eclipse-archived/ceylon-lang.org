@@ -1,6 +1,6 @@
 ---
 layout: tour
-title: Tour of Ceylon&#58; Iterables, sequences, and tuples 
+title: Iterables, sequences, and tuples 
 tab: documentation
 unique_id: docspage
 author: Gavin King

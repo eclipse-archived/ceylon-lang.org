@@ -1,6 +1,6 @@
 ---
 layout: tour
-title: Tour of Ceylon&#58; Type aliases and type inference
+title: Type aliases and type inference
 tab: documentation
 unique_id: docspage
 author: Gavin King

@@ -1,6 +1,6 @@
 ---
 layout: tour
-title: Tour of Ceylon&#58; Interoperation with Java
+title: Interoperation with Java
 tab: documentation
 unique_id: docspage
 author: Gavin King
