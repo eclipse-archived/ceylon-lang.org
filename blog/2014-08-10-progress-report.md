@@ -40,14 +40,13 @@ big new features in 1.1 are:
 Other notable changes are:
 
 - Allow comprehensions to begin with an `if` clause.
-- Added `sealed` annotation to prevent extension or
+- New `sealed` annotation to prevent extension or
   instantiation of a type outside the module in which it is 
   defined.
-- Added `dynamic` interfaces, designed for wrapping native 
-  JavaScript APIs.
-- Added ability to `catch` instances of `Throwable`.
+- Introduction of `dynamic` interfaces, designed for 
+  wrapping native JavaScript APIs.
 - Redefined `-` operator to work for any `Invertible`.
-- Added metamodel references to `object`s and members of 
+- Allow metamodel references to `object`s and members of 
   `object`s.
 - `try (x)` was changed to distinguish between the
   lifecycles of `Obtainable` and `Destroyable` resources.
@@ -55,6 +54,7 @@ Other notable changes are:
   instead of `[]`.
 - Allow refinement of multiple overloaded versions of a Java
   supertype method.
+- Added ability to `catch` instances of `Throwable`.
 
 The last two changes are breaking changes but should not
 impact very many programs.
@@ -72,23 +72,23 @@ which will impact existing programs. As of Ceylon 1.1, the
 language module is considered stable, and we won't make 
 further breaking changes.
 
-- Added a raft of new methods and functions for working
-  with streams.
-- Optimized the performance of `Array`, and made some minor
-  improvements to interop with Java native arrays.
-- Removed the `Cloneable` interface, and added a `clone()`
-  method to `Collection`.
-- Added `Throwable`.
-- Replaced `Closeable` with `Obtainable` and `Destroyable`.
-- Made various minor changes to the operations of `Iterable`, 
-  `List`, and `Map`.
-- Made `ArraySequence` sealed and added `sequence()` 
-  function.
-- Redesigned `Enumerable` and `Range`.
-- Made several changes to the type hierarchy for numeric
-  types.
-- Removed `SequenceBuilder` and moved `StringBuilder` to
-  `ceylon.collection`. 
+- Addition of a raft of new methods and functions for 
+  working with streams.
+- Optimization of the performance of `Array`, along with 
+  some minor improvements to interop with Java native arrays.
+- Removal of the `Cloneable` interface, and addition of a 
+  `clone()` method to `Collection`.
+- Addition of `Throwable`.
+- Replacement of `Closeable` with `Obtainable` and 
+  `Destroyable`.
+- Minor changes to the operations of `Iterable`, `List`, and 
+  `Map`.
+- `ArraySequence` is now `sealed` and may be instantiated
+  via the `sequence()` function.
+- Substantial redesign of `Enumerable` and `Range`.
+- Several changes to the type hierarchy for numeric types.
+- Removal of `SequenceBuilder` and move of `StringBuilder` 
+  to `ceylon.collection`. 
 
 ## Modularity
 
@@ -117,7 +117,7 @@ is frozen.
 Development of the IDE has been extremely active, with many
 new features and major performance enhancements.
 
-- Completely reworked build process, for much improved
+- Complete rework of build process, for much improved
   performance.
 - New refactorings: Move Out, Make Receiver, Move to Unit,
   Extract Parameter, Collect Parameters, Invert Boolean, 
@@ -142,7 +142,7 @@ new features and major performance enhancements.
 - Save actions in Editor Preferences.
 - IntelliJ-style "chain completion" (hit ctrl-space twice).
 - Several new options for customizing autocompletion.
-- Added quick fixes/assists: convert between string 
+- New quick fixes/assists: convert between string 
   interpolation and concatenation, convert to/from verbatim 
   string, add satisfied interfaces, add type parameter, 
   change named argument list to positional, fill in 
