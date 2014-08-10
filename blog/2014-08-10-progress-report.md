@@ -139,9 +139,10 @@ new features and major performance enhancements.
   literals.
 - Synchronization of all keyboard accelerators with JDT 
   equivalents (by popular request).
-- Save actions in Editor Preferences.
+- Save actions in Ceylon Editor preferences.
 - IntelliJ-style "chain completion" (hit ctrl-space twice).
-- Several new options for customizing autocompletion.
+- Several new options for customizing autocompletion and
+  appearance in Ceylon Editor preferences.
 - New quick fixes/assists: convert between string 
   interpolation and concatenation, convert to/from verbatim 
   string, add satisfied interfaces, add type parameter, 
