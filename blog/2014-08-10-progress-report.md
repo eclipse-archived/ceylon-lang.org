@@ -107,6 +107,7 @@ to use Ceylon modules outside of the Ceylon module runtime.
 Notable changes to the SDK include:
 
 - Introduction of `ceylon.locale`.
+- Introduction of `ceylon.logging`.
 - Many enhancements to `ceylon.collection`, including 
   addition of `ArrayList`, `TreeSet`, `TreeMap`, and
   `PriorityQueue` classes, along with `Stack` and `Queue` 
