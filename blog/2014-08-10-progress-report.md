@@ -113,6 +113,7 @@ Notable changes to the SDK include:
   `PriorityQueue` classes, along with `Stack` and `Queue` 
   interfaces.
 - Various improvements to `ceylon.dbc`.
+- Many improvements to `ceylon.test`.
 
 The collections module is now considered stable, and its API
 is frozen.
