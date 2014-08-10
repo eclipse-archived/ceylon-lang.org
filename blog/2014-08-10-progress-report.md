@@ -107,7 +107,11 @@ to use Ceylon modules outside of the Ceylon module runtime.
 Notable changes to the SDK include:
 
 - Introduction of `ceylon.locale`.
-- Many enhancements to `ceylon.collection`.
+- Many enhancements to `ceylon.collection`, including 
+  addition of `ArrayList`, `TreeSet`, `TreeMap`, and
+  `PriorityQueue` classes, along with `Stack` and `Queue` 
+  interfaces.
+- Various improvements to `ceylon.dbc`.
 
 The collections module is now considered stable, and its API
 is frozen.
