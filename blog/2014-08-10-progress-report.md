@@ -33,7 +33,7 @@ There have been very few changes to the language, which has
 been considered stable since last year's 1.0 release. The
 big new features in 1.1 are:
 
-- Support for use-site variance.
+- Support for [use-site variance](/blog/2014/07/14/wildcards).
 - Introduction of a `Byte` class that may be optimized by 
   the compiler to `byte` on the JVM. 
 
