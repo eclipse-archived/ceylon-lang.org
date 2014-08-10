@@ -155,7 +155,8 @@ new features and major performance enhancements.
   change named argument list to positional, fill in 
   argument names, export module, convert to verbose form 
   refinement, print expression, fix refining method signature,
-  change to `if (exists)`, change module version.
+  change to `if (exists)`, change module version, assign to
+  `for`/`if (exists)`/`if (nonempty)`/`try`.
 - Run As Ceylon Test on node.js.
 - New default color scheme for syntax highlighting and many
   other aesthetic improvements.
