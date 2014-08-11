@@ -147,6 +147,8 @@ new features and major performance enhancements.
   equivalents (by popular request).
 - Save actions in Ceylon Editor preferences.
 - IntelliJ-style "chain completion" (hit ctrl-space twice).
+- Propose toplevel functions applying to a type alongside
+  members of the type.
 - Several new options for customizing autocompletion and
   appearance in Ceylon Editor preferences.
 - New quick fixes/assists: convert between string 
@@ -156,7 +158,7 @@ new features and major performance enhancements.
   argument names, export module, convert to verbose form 
   refinement, print expression, fix refining method signature,
   change to `if (exists)`, change module version, assign to
-  `for`/`if (exists)`/`if (nonempty)`/`try`.
+  `for`/`try`/`if (exists)`/`if (nonempty)`/`if (is)`.
 - Run As Ceylon Test on node.js.
 - New default color scheme for syntax highlighting and many
   other aesthetic improvements.
