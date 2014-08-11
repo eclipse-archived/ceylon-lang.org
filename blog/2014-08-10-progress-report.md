@@ -88,7 +88,8 @@ further breaking changes.
 - Substantial redesign of `Enumerable` and `Range`.
 - Several changes to the type hierarchy for numeric types.
 - Removal of `SequenceBuilder` and move of `StringBuilder` 
-  to `ceylon.collection`. 
+  to `ceylon.collection`.
+- Removal of `LazyList, `LazySet` and `LazyMap`.
 
 ## Modularity
 
