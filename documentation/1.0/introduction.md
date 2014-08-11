@@ -208,9 +208,9 @@ makes it easier to write generic code.
 Like Java, Ceylon has classes and interfaces. A class may inherit a single
 superclass, and an arbitrary number of interfaces. An interface may inherit
 an arbitrary number of other interfaces, but may not extend a class other
-than `Object`. Unlike Java, interfaces may define concrete members. Thus,
-Ceylon supports a restricted kind of multiple inheritance, called *mixin
-inheritance*. 
+than `Object`. And interfaces can't have fields, but may define concrete 
+members. Thus, Ceylon supports a restricted kind of multiple inheritance, 
+called *mixin inheritance*. 
 
 <!-- try-post:
 
@@ -238,8 +238,8 @@ inheritance*.
 What really distinguishes interfaces from classes in Ceylon is that 
 interfaces are *stateless*. That is, an interface may not directly hold
 a reference to another object, it may not have initialization logic, and
-it may not be directly instantiated. Ceylon neatly avoids the need to
-perform any kind of "linearization" of supertypes.
+it may not be directly instantiated. Thus, Ceylon neatly avoids the need 
+to perform any kind of "linearization" of supertypes.
 
 ## Polymorphic attributes
 
