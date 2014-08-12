@@ -129,6 +129,14 @@ body.bp {
 
     h4 {
       background: url("../images/bullet_elephant.png") no-repeat 0px 0px;
+  /* for high resolution display */
+  @media only screen and (min--moz-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min-device-pixel-ratio: 2) {
+    background: url("../images/bullet_elephant-2x.png") repeat-x;
+    background-size: 32px 24px;
+  }
       min-height: 24px;
       padding-left: 36px;
       font-weight: normal;
@@ -731,6 +739,14 @@ form.bp {
 
 .point-dark-end {
   background: url("../images/sidebar_dark_end.png") no-repeat top center;
+  /* for high resolution display */
+  @media only screen and (min--moz-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min-device-pixel-ratio: 2) {
+    background: url("../images/sidebar_dark_end-2x.png") no-repeat top center;
+    background-size: 32px 40px;
+  }
   height: 40px;
 }
 
@@ -746,6 +762,14 @@ form.bp {
 
 .point-light-end {
   background: url("../images/sidebar_light_end.png") no-repeat top center;
+  /* for high resolution display */
+  @media only screen and (min--moz-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min-device-pixel-ratio: 2) {
+    background: url("../images/sidebar_light_end-2x.png") no-repeat top center;
+    background-size: 32px 40px;
+  }
   height: 40px;
 }
 
@@ -943,6 +967,14 @@ form.bp {
 #blog-archive {
   h4 {
     background: url("../images/bullet_elephant.png") no-repeat 0px 0px;
+  /* for high resolution display */
+  @media only screen and (min--moz-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min-device-pixel-ratio: 2) {
+    background: url("../images/bullet_elephant-2x.png") no-repeat 0px 0px;
+    background-size: 32px 24px;
+  }
     min-height: 24px;
     padding-left: 36px;
     font-size:11px;
