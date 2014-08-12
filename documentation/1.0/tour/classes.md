@@ -332,40 +332,43 @@ attribute as a getter, without affecting any code that uses it.
 ## Living without static members
 
 Right at the beginning of the tour, we mentioned that Ceylon doesn't have
-`static` members like in Java, C#, or C++. Instead of a `static` member, we 
-either:
+`static` members like in Java, C#, or C++. Instead of a `static` member, 
+we either:
 
 - use a toplevel function or value declaration, or
 - in the case where several "static" declarations need to share some private
   stuff, members of a singleton `object` declaration, which we'll meet right
   [at the start of the next chapter](../anonymous-member-classes/#anonymous_classes).
 
-The lack of static members results in a gotcha for newcomers.
+The lack of static members results in a minor gotcha for newcomers.
 
 ### Gotcha!
 
 The syntax `Polar.radius` is legal in Ceylon, and we even call it a 
 [static reference](../functions/#static_method_and_attribute_references), 
-but it _does not mean what you think it means!_
+but it does not usually mean what you think it means!
 
-In particular, if you're taking advantage of Ceylon's Java interop, you 
-_cannot_ call a static member of a Java class using this syntax. This is
-simply wrong:
+Sure, if you're taking advantage of Ceylon's Java interop, you can call 
+a static member of a Java class using this syntax, just like you can in
+Java:
 
 <!-- try: -->
     import java.lang { Runtime }
     
     Integer procs = Runtime.runtime.availableProcessors();
 
-Instead, you must write the following:
+Or, alternatively, you could write the following:
 
 <!-- try: -->
     import java.lang { Runtime { runtime } }
     
     Integer procs = runtime.availableProcessors(); 
 
-We'll come back to the question of what a "static reference" really is, when
-we discuss [higher-order functions](../functions).
+But in regular Ceylon code, an expression like `Polar.radius` is _not_ a
+reference to a static member of the class `Polar`. We'll come back to the 
+question of what a "static reference" really is, when we discuss 
+[higher-order functions](../functions).
+
 
 ## Living without overloading
 
