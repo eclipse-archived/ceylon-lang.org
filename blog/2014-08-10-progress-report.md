@@ -61,7 +61,7 @@ impact very many programs.
 
 ## Language module changes
 
-For the 1.1 release, We've invested a lot of thought and 
+For the 1.1 release, we've invested a lot of thought and 
 development effort in the language module, carefully 
 reviewing its design and scope, reducing the use of native 
 code to an absolute minimum, optimizing performance, and 
@@ -89,7 +89,7 @@ further breaking changes.
 - Several changes to the type hierarchy for numeric types.
 - Removal of `SequenceBuilder` and move of `StringBuilder` 
   to `ceylon.collection`.
-- Removal of `LazyList, `LazySet` and `LazyMap`.
+- Removal of `LazyList`, `LazySet`, and `LazyMap`.
 
 ## Modularity
 
