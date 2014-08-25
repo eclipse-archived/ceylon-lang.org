@@ -9,6 +9,8 @@
 /_tmp
 /.awestruct
 /Gemfile.lock
+/.bin
+/.bundle
 
 #Editor
 *.tmproj
