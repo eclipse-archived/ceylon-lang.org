@@ -81,14 +81,17 @@ further breaking changes.
 - Addition of `Throwable`.
 - Replacement of `Closeable` with `Obtainable` and 
   `Destroyable`.
-- Minor changes to the operations of `Iterable`, `List`, and 
-  `Map`.
+- `Correspondence.items()` changed to `getAll()`.
+- Various minor changes to the operations of `Iterable`, 
+  `List`, and `Map`.
 - `ArraySequence` is now `sealed` and may be instantiated
   via the `sequence()` function.
 - Substantial redesign of `Enumerable` and `Range`.
 - Several changes to the type hierarchy for numeric types.
 - Removal of `SequenceBuilder` and move of `StringBuilder` 
   to `ceylon.collection`.
+- Removal of superfluous functions `entries()` and 
+  `coalesce()`.
 - Removal of `LazyList`, `LazySet`, and `LazyMap`.
 
 ## Modularity
