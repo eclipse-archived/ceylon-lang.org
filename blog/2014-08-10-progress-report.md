@@ -35,10 +35,14 @@ big new features in 1.1 are:
 
 - Support for [use-site variance](/blog/2014/07/14/wildcards).
 - Introduction of a `Byte` class that may be optimized by 
-  the compiler to `byte` on the JVM. 
+  the compiler to `byte` on the JVM.
+- Type inference for parameters of anonymous functions that
+  occur as arguments in positional argument lists.
 
 Other notable changes are:
 
+- Powerful disjointness analysis for sequence and tuple 
+  types.
 - Allow comprehensions to begin with an `if` clause.
 - New `sealed` annotation to prevent extension or
   instantiation of a type outside the module in which it is 
