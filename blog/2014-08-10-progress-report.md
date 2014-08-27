@@ -135,6 +135,8 @@ new features and major performance enhancements.
 - Major enhancements to the Change Parameters refactoring.
 - Inline refactoring now works for shared class/interface 
   members.
+- Much better handling of anonymous functions and function
+  references in Extract and Inline refactorings.
 - Brand new high quality code formatter.
 - Rewritten Ceylon Explorer with much better presentation of 
   modules and modular dependencies.
