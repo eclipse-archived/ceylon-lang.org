@@ -542,7 +542,7 @@ mean a value which is explicitly defined to be reassignable.
     String bye = "Adios";        //a value
     variable Integer count = 0;  //a variable
     
-    bye = "Adeu";  //compile error
+    bye = "Adieu";  //compile error
     count = 1;     //allowed
 
 Note that even a value which isn't a variable in this sense, may still be
