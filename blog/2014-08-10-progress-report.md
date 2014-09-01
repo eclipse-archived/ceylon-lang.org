@@ -59,6 +59,8 @@ Other notable changes are:
 - Allow refinement of multiple overloaded versions of a Java
   supertype method.
 - Added ability to `catch` instances of `Throwable`.
+- Minor adjustment to type argument inference algorithm for
+  covariant and contravariant type parameters.
 
 The last two changes are breaking changes but should not
 impact very many programs.
