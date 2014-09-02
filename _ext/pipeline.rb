@@ -9,7 +9,6 @@ require 'gsub'
 require 'deeplink'
 require 'sanitizer'
 require 'main_atomizer'
-require 'google_analytics'
 require 'titlefix'
 
 Awestruct::Extensions::Pipeline.new do
