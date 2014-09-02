@@ -10,65 +10,81 @@ author: Emmanuel Bernard
 
 A bit of Git, a bit a Ruby and you will get your local version of [ceylon-lang.org](/) served.
 
-## Installation
+## Prerequisites
 
-* get Git
-* get Ruby 1.9 (part of the RVM install if you follow that path - see below)
-* if on Mac OS, get XCode (needed for native gems)
-* If on Linux:
-    * Get libxslt-devel - eg via `sudo yum install libxslt-devel`
-    * may be called libxslt1-dev for some distros - eg `sudo apt-get install libxslt-dev`
-
+- Get [Git](http://git-scm.com)
+- Get [Ruby](https://www.ruby-lang.org/en/) > 1.9
+- If on Mac OS:
+    - Get [XCode](https://developer.apple.com/xcode/) (needed for compilation of native gems)
+- If on Linux:
+    - Get *libxslt-dev* - eg via `sudo apt-get install libxslt-dev` (may be called *libxslt1-dev* for some distros)
 
 Install Git to your system. [GitHub's help page](http://help.github.com/) is a good starting
 point. [Emmanuel's blog](http://in.relation.to/Bloggers/HibernateMovesToGitGitTipsAndTricks)
 on Git tips and tricks is useful too.
 
-Ruby like many other platforms has its dependency hell. We do recommend you use RVM to
-isolate your dependencies. The RVM steps are optional though.
+## Installation
 
-Install [RVM](https://rvm.io).
+### Ensure Rake is installed
 
-Then set up the isolated environment
+Make sure [Rake](https://github.com/jimweirich/rake) is available. It is often installed per default.
 
-    rvm install 1.9.3
-    rvm use 1.9.3
-    rvm gemset create awestruct
+<!-- lang: bash -->
+    rake --version
 
-Next, let's retrieve the website.
+If you get "_command not found_":
 
+<!-- lang: bash -->
+    gem install rake
+
+### Ensure Bundler is installed
+
+Make sure [Bundler](http://bundler.io/) is available. It manages your Ruby gems locally to the project
+and prevents version conflicts between different Ruby projects. To quote from the website:
+
+> Bundler provides a consistent environment for Ruby projects by tracking and installing the exact
+> gems and versions that are needed.
+
+<!-- lang: bash -->
+    bundle -v
+
+If you get "_command not found_":
+
+<!-- lang: bash -->
+    gem install bundler
+
+### Get the source
 
 <!-- lang: bash -->
     git clone git@github.com:ceylon/ceylon-lang.org.git
     cd ceylon-lang.org
 
-If you use RVM, add a `.rvmrc` file in the directory containing
-
-    rvm ruby-1.9.3@awestruct
-
-This will set up the right environment when you enter the directory.
-The first time, leave and reenter the directory `cd ..;cd ceylon-lang.org`.
-
-Finally, let's install Awestruct
+### Setup awestruct
 
 <!-- lang: bash -->
-    gem install bundler
-    # or sudo gem install bundler on Mac OS X if you don't use RVM
-    bundle install
-
-Note that if someone updates Awestruct or any dependent gem via the `Gemfile` dependency
-management, you need to rerun `bundle install`, but before that you have to delete the
-`Gemfile.lock` file.
+    rake setup
+    rake check
 
 ## Serve the site locally
 
-* Run  `awestruct -d`
-* Open your browser to <http://localhost:4242>
+<!-- lang: bash -->
+    rake preview
+
+Point your browser to http://localhost:4242
 
 Any change will be automatically picked up except for `_partials` files, `_base.css`
 and sometimes new blog entries.
 
+### Which other tasks exist in the Rake build file?
+
+<!-- lang:bash -->
+    rake --tasks
+
+This will list the available tasks with a short description
+
 ### How to also include the spec and `ceylon doc` pages
+
+**Is that obsolete?**
 
 Use `./build-site.sh`. This will clone or refresh the spec, language and compiler repos 
 into `_tmp` and build the appropriate artifacts before pushing them to the site.
@@ -83,11 +99,10 @@ to simply copy them to the website structure. This is much faster.
 
 ### If your changes are not visible...
 
-If for whatever reason you make some changes which don't show up, you can
-completely regenerate the site:
+Panic! Then completely regenerate the site via:
 
 <!-- lang: bash -->
-    awestruct -d --force
+    rake clean preview
 
 ### If serving the site is slow...
 
@@ -97,7 +112,7 @@ On Linux, serving the file may be atrociously slow
 Use the following alternative:
 
 * Go in your `~/ceylon-lang.org` directory.  
-* Run  `awestruct --auto -P development`
+* Run  `rake gen`
 * In parallel, go to the `~/ceylon-lang.org/_site` directory
 * Run `python -m SimpleHTTPServer 4242`
 
