@@ -40,7 +40,8 @@ unique_id: blogpage
         %h4 
           %a{:href=>post.url}= post.title
           %br
-          by #{post.author}
+          / Author is put in an array
+          by #{post.author[0]}
           %br
           #{post.date.strftime( '%d %B %Y' )}
     %h3 Tags
