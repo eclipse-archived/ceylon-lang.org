@@ -32,16 +32,23 @@ module Awestruct
         return if ( all.nil? || all.empty? ) 
 
         all.each do |page|
-          author = page.author
-          if ( author && ! author.empty? )
-            author = author.to_s
-            @authors[author] ||= AuthorStat.new( author, [] )
-            @authors[author].pages << page
+          authors = page.author
+          if ( authors && ! authors.empty? )
+            # in first pass, transformed into an array
+            if not authors.kind_of?(Array)
+              authors = [authors]
+            end
+            authors.each do |author|
+              # first pass is a string, second passes is a AuthorStat
+              author = author.to_s
+              @authors[author] ||= AuthorStat.new( author, [] )
+              @authors[author].pages << page
+            end
           end
         end
 
         all.each do |page|
-          page.author = Array(page.author).collect{|t| @authors[t]}
+          page.author = Array(page.author).collect{|t| @authors[t.to_s]}
         end
 
         ordered_authors = @authors.values
