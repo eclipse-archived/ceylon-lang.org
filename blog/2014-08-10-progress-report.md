@@ -90,7 +90,8 @@ further breaking changes.
 - `Correspondence.items()` changed to `getAll()`.
 - `Map`s and `Entry`s may now have null items.
 - Various minor changes to the operations of `Iterable`, 
-  `List`, and `Map`.
+  `List`, and `Map`, including breaking changes to the 
+  signatures of `Iterable.sequence()` and `Iterable.fold()`.
 - `ArraySequence` is now `sealed` and may be instantiated
   via the `sequence()` function.
 - Substantial redesign of `Enumerable` and `Range`.
