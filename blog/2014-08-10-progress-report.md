@@ -88,6 +88,7 @@ further breaking changes.
 - Replacement of `Closeable` with `Obtainable` and 
   `Destroyable`.
 - `Correspondence.items()` changed to `getAll()`.
+- `Map`s and `Entry`s may now have null items.
 - Various minor changes to the operations of `Iterable`, 
   `List`, and `Map`.
 - `ArraySequence` is now `sealed` and may be instantiated
@@ -99,6 +100,7 @@ further breaking changes.
 - Removal of superfluous functions `entries()` and 
   `coalesce()`.
 - Removal of `LazyList`, `LazySet`, and `LazyMap`.
+- Addition of `Array.sortInPlace()`.
 
 ## Modularity
 
@@ -123,10 +125,20 @@ Notable changes to the SDK include:
   `PriorityQueue` classes, along with `Stack` and `Queue` 
   interfaces.
 - Various improvements to `ceylon.dbc`.
-- Many improvements to `ceylon.test`.
 
 The collections module is now considered stable, and its API
 is frozen.
+
+Additionally, the `ceylon.test` module has been 
+significantly enhanced, including the following improvements: 
+
+- New `testSuit`, `testListeners`, and `testExecutor`
+  annotations.
+- Redesigned events model.
+- HTML report generation in `ceylon.test`.
+- Support for TAP v13 (Test Anything Protocol).
+- Many improvements to `ceylon.test`.
+- Addition of `ceylon test-js` command.
 
 ## IDE
 
@@ -172,5 +184,7 @@ new features and major performance enhancements.
   change to `if (exists)`, change module version, assign to
   `for`/`try`/`if (exists)`/`if (nonempty)`/`if (is)`.
 - Run As Ceylon Test on node.js.
+- Support for running all tests in a project or source 
+  folder.
 - New default color scheme for syntax highlighting and many
   other aesthetic improvements.
