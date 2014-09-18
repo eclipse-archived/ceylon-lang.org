@@ -23,9 +23,14 @@ Still interested? The [tour of Ceylon](tour) will guide you through the main
 features and syntax of Ceylon in some depth. Currently, this is the best way 
 to learn Ceylon.
 
+Alternatively, Renato Athaydes has written a 2-part tutorial for folks who
+want to [Learn Programming in Ceylon][].
+
 If you want to get your hands a little dirty, the [walkthrough](walkthrough) 
 is a guided set of exercises introducing many of the basic features of the 
 language.
+
+[Learn Programming in Ceylon]: http://renatoathaydes.github.io/Learn-Programming-In-Ceylon-Part-1/
 
 ## Reference
 
