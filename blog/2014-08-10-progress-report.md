@@ -19,10 +19,11 @@ The top priorities for Ceylon 1.1 were:
 
 - Finalize and freeze the language module APIs.
 - Clean up and minimize the use of Java and JavaScript 
-  native code in the language module. 
+  native code in the language module.
 - Mop up remaining issues affecting Java interop.
 - Performance.
 - IDE build performance.
+- Finish `ceylon.collection` and freeze its public API.
 
 Naturally, we've also fixed hundreds of bugs unrelated to 
 those priorities. 
