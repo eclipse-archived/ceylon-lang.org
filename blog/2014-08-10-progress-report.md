@@ -61,6 +61,8 @@ Other notable changes are:
 - Added ability to `catch` instances of `Throwable`.
 - Minor adjustment to type argument inference algorithm for
   covariant and contravariant type parameters.
+- Change to the syntax for dynamic enumeration expressions
+  in native JavaScript interop.
 
 The last two changes are breaking changes but should not
 impact very many programs.
