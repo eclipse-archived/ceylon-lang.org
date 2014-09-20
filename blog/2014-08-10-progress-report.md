@@ -99,11 +99,10 @@ further breaking changes.
   via the `sequence()` function.
 - Substantial redesign of `Enumerable` and `Range`.
 - Several changes to the type hierarchy for numeric types.
-- Removal of `SequenceBuilder` and move of `StringBuilder` 
-  to `ceylon.collection`.
-- Removal of superfluous functions `entries()` and 
-  `coalesce()`.
-- Removal of `LazyList`, `LazySet`, and `LazyMap`.
+- Improvements to `StringBuilder`.
+- Removal of `SequenceBuilder`, of redundant functions 
+  `entries()` and `coalesce()`, and of `LazyList`, `LazySet`, 
+  and `LazyMap`.
 - Addition of `Array.sortInPlace()`.
 
 ## Modularity
