@@ -1,5 +1,5 @@
 ---
-layout: tour
+layout: tour11
 title: Anonymous and member classes
 tab: documentation
 unique_id: docspage

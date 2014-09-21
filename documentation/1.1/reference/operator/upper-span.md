@@ -1,5 +1,5 @@
 ---
-layout: reference
+layout: reference11
 title_md: '`x[y...]` (upper span) operator'
 tab: documentation
 unique_id: docspage

@@ -1,5 +1,5 @@
 ---
-layout: documentation
+layout: documentation11
 title: Quick introduction
 tab: documentation
 unique_id: docspage
@@ -525,7 +525,7 @@ Or we can specify the argument function inline, either like this:
 -->
 <!-- cat-id:repeat -->
 <!-- cat: void m() { -->
-    repeat(5, (Integer i) => print(i^2));
+    repeat(5, (i) => print(i^2));
 <!-- cat: } -->
 
 Or, using a named argument invocation, like this:

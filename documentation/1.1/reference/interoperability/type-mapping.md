@@ -1,5 +1,5 @@
 ---
-layout: reference
+layout: reference11
 title_md: Type mapping rules
 tab: documentation
 unique_id: docspage

@@ -1,5 +1,5 @@
 ---
-layout: reference
+layout: reference11
 title_md: '`Character` literals'
 tab: documentation
 unique_id: docspage

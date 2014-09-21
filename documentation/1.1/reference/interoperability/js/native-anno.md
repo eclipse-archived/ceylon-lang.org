@@ -1,5 +1,5 @@
 ---
-layout: reference
+layout: reference11
 title_md: Extending types with native JavaScript
 tab: documentation
 unique_id: docspage

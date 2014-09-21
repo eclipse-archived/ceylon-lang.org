@@ -1,5 +1,5 @@
 ---
-layout: reference
+layout: reference11
 title_md: Module repositories
 tab: documentation
 unique_id: docspage

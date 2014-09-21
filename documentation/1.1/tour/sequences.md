@@ -1,5 +1,5 @@
 ---
-layout: tour
+layout: tour11
 title: Iterables, sequences, and tuples 
 tab: documentation
 unique_id: docspage

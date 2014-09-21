@@ -1,5 +1,5 @@
 ---
-layout: tour
+layout: tour11
 title: Functions
 tab: documentation
 unique_id: docspage

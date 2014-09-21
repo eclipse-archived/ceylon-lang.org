@@ -1,5 +1,5 @@
 ---
-layout: tour
+layout: tour11
 title: Annotations and the metamodel
 tab: documentation
 unique_id: docspage

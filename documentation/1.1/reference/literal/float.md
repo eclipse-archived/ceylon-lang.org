@@ -1,5 +1,5 @@
 ---
-layout: reference
+layout: reference11
 title_md: '`Float` literals'
 tab: documentation
 unique_id: docspage

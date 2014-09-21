@@ -1,5 +1,5 @@
 ---
-layout: tour
+layout: tour11
 title: Union, intersection, and enumerated types
 tab: documentation
 unique_id: docspage

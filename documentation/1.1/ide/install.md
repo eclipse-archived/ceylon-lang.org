@@ -1,6 +1,6 @@
 ---
 title: Installing Ceylon IDE
-layout: documentation
+layout: documentation11
 tab: documentation
 unique_id: docspage
 author: Gavin King

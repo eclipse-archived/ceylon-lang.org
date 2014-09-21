@@ -1,5 +1,5 @@
 ---
-layout: tour
+layout: tour11
 title: The language module
 tab: documentation
 unique_id: docspage
