@@ -68,13 +68,14 @@ system. Our class has two parameters, two methods, and an attribute.
     "A polar coordinate"
     class Polar(Float angle, Float radius) {
         
-        shared Polar rotate(Float rotation) =>
-                Polar(angle+rotation, radius);
+        shared Polar rotate(Float rotation) 
+                => Polar(angle+rotation, radius);
         
-        shared Polar dilate(Float dilation) =>
-                Polar(angle, radius*dilation);
+        shared Polar dilate(Float dilation) 
+                => Polar(angle, radius*dilation);
         
-        shared String description = "(``radius``,``angle``)";
+        shared String description 
+                = "(``radius``,``angle``)";
         
     }
 
@@ -124,7 +125,7 @@ Finally, packages are hidden from code outside the module to which the
 package belongs by default. Only explicitly shared packages are visible to 
 other modules.
 
-Got the idea? We are playing Russian dolls here.
+Got the idea? We're playing Russian dolls here.
 
 
 ## Exposing parameters as attributes
@@ -144,13 +145,14 @@ so Ceylon provides a streamlined syntax for this.
         shared Float angle;
         shared Float radius;
         
-        shared Polar rotate(Float rotation) =>
-                Polar(angle+rotation, radius);
+        shared Polar rotate(Float rotation) 
+                => Polar(angle+rotation, radius);
         
-        shared Polar dilate(Float dilation) =>
-                Polar(angle, radius*dilation);
+        shared Polar dilate(Float dilation) 
+                => Polar(angle, radius*dilation);
         
-        shared String description = "(``radius``,``angle``)";
+        shared String description 
+                = "(``radius``,``angle``)";
         
     }
 
@@ -161,11 +163,10 @@ convenient syntax.
 <!-- check:none:Requires Math -->
 <!-- cat-id:polar -->
 <!-- cat:
-    shared class Cartesian(Float x, Float y) {} -->
-    shared Cartesian cartesian(Polar polar) {
-        return Cartesian(polar.radius*cos(polar.angle), 
+    class Cartesian(Float x, Float y) {} -->
+    Cartesian cartesian(Polar polar)
+            => Cartesian(polar.radius*cos(polar.angle), 
                          polar.radius*sin(polar.angle));
-    }
 
 There's an even more compact way to write the code above, though it's often
 less readable:
@@ -177,13 +178,14 @@ less readable:
     "A polar coordinate"
     class Polar(shared Float angle, shared Float radius) {
         
-        shared Polar rotate(Float rotation) =>
-                Polar(angle+rotation, radius);
+        shared Polar rotate(Float rotation)
+                => Polar(angle+rotation, radius);
         
-        shared Polar dilate(Float dilation) =>
-                Polar(angle, radius*dilation);
+        shared Polar dilate(Float dilation)
+                => Polar(angle, radius*dilation);
         
-        shared String description = "(``radius``,``angle``)";
+        shared String description 
+                = "(``radius``,``angle``)";
         
     }
 
@@ -203,9 +205,9 @@ when we declare it.
 
 <!-- try: -->
 <!-- check:none:Requires Math -->
-    shared Float x = radius * sin(angle);
-    shared String greeting = "Hello, ``name``!";
-    shared Integer months = years * 12;
+    Float x = radius * sin(angle);
+    String greeting = "Hello, ``name``!";
+    Integer months = years * 12;
 
 On the other hand, it's sometimes useful to separate declaration from 
 assignment.
@@ -386,8 +388,8 @@ but here's a quick example of each of the three techniques:
 
 <!-- try: -->
     //defaulted parameter
-    void println(String line, String eol = "\n") =>
-            process.write(line + eol);
+    void println(String line, String eol = "\n")
+            => process.write(line + eol);
 
 <br/>
 <!-- try: -->
@@ -471,6 +473,43 @@ Now we can create `Polar` coordinates with or without labels:
     Polar origin = Polar(0.0, 0.0, "origin");
     Polar coord = Polar(r, theta);
 <!-- cat: } -->
+
+Later, we'll learn about [named arguments](../named-arguments), which we
+often use in instantiation expressions:
+
+<!-- try-pre:
+    doc "A polar coordinate with an optional label"
+    class Polar(angle, radius, String? label=null) {
+        
+        shared Float angle;
+        shared Float radius;
+        
+        shared String description {
+            if (exists label) {
+                return label;
+            }
+            else {
+                return "(``radius``,``angle``)";
+            }
+        }
+        
+        // ...
+        
+    }
+
+    Float r = 0.32;
+    Float theta = 10.0;
+-->
+<!-- try-post:
+    print(origin.description);
+    print(coord.description);
+-->
+<!-- cat-id: polar -->
+<!-- cat: void m(Float r, Float theta) { -->
+    Polar origin = Polar { angle=0.0; radius=0.0; label="origin"; };
+    Polar coord = Polar { radius=r; angle=theta; };
+<!-- cat: } -->
+
 
 ## There's more...
 

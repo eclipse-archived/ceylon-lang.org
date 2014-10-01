@@ -39,15 +39,15 @@ with two different implementations of `description`. Here's the superclass:
     "A polar coordinate"
     class Polar(Float angle, Float radius) {
  
-        shared Polar rotate(Float rotation) =>
-                Polar(angle+rotation, radius);
+        shared Polar rotate(Float rotation)
+                => Polar(angle+rotation, radius);
         
-        shared Polar dilate(Float dilation) =>
-                Polar(angle, radius*dilation);
+        shared Polar dilate(Float dilation)
+                => Polar(angle, radius*dilation);
         
         "The default description"
-        shared default String description => 
-                "(``radius``,``angle``)";
+        shared default String description
+                => "(``radius``,``angle``)";
     
     }
 
@@ -64,15 +64,15 @@ an expression that instantiates the superclass:
     "A polar coordinate"
     class Polar(Float angle, Float radius) {
  
-        shared Polar rotate(Float rotation) =>
-                Polar(angle+rotation, radius);
+        shared Polar rotate(Float rotation)
+                => Polar(angle+rotation, radius);
         
-        shared Polar dilate(Float dilation) =>
-                Polar(angle, radius*dilation);
+        shared Polar dilate(Float dilation)
+                => Polar(angle, radius*dilation);
         
         "The default description"
-        shared default String description => 
-                "(``radius``,``angle``)";
+        shared default String description
+                => "(``radius``,``angle``)";
     
     }
 
@@ -86,8 +86,8 @@ an expression that instantiates the superclass:
             extends Polar(angle, radius) {
         
         "The labeled description"
-        shared actual String description =>
-                label + "-" + super.description;
+        shared actual String description
+                => label + "-" + super.description;
         
     }
 
@@ -114,15 +114,15 @@ simply specify its refined implementation using `=>`, like this:
     "A polar coordinate"
     class Polar(Float angle, Float radius) {
  
-        shared Polar rotate(Float rotation) =>
-                Polar(angle+rotation, radius);
+        shared Polar rotate(Float rotation)
+                => Polar(angle+rotation, radius);
         
-        shared Polar dilate(Float dilation) =>
-                Polar(angle, radius*dilation);
+        shared Polar dilate(Float dilation)
+                => Polar(angle, radius*dilation);
         
         "The default description"
-        shared default String description => 
-                "(``radius``,``angle``)";
+        shared default String description 
+                => "(``radius``,``angle``)";
     
     }
 
@@ -145,15 +145,15 @@ Or assign a value to it using `=`, like this:
     "A polar coordinate"
     class Polar(Float angle, Float radius) {
  
-        shared Polar rotate(Float rotation) =>
-                Polar(angle+rotation, radius);
+        shared Polar rotate(Float rotation)
+                => Polar(angle+rotation, radius);
         
-        shared Polar dilate(Float dilation) =>
-                Polar(angle, radius*dilation);
+        shared Polar dilate(Float dilation)
+                => Polar(angle, radius*dilation);
         
         "The default description"
-        shared default String description => 
-                "(``radius``,``angle``)";
+        shared default String description 
+                => "(``radius``,``angle``)";
     
     }
 
@@ -206,8 +206,8 @@ We should _definitely_ refine those:
         
         // ...
 
-        shared default String description => 
-                "(``radius``,``angle``)";
+        shared default String description 
+                => "(``radius``,``angle``)";
         
         value azimuth => pi*(angle/pi).fractionalPart;
         
@@ -253,8 +253,8 @@ abbreviate the above code like this:
         
         // ...
 
-        shared default String description => 
-                "(``radius``,``angle``)";
+        shared default String description 
+                => "(``radius``,``angle``)";
         
         value azimuth => pi*(angle/pi).fractionalPart;
         
@@ -342,14 +342,15 @@ Alternatively, we can write it all out the long way.
         
         shared actual Polar polar => this;
         
-        shared actual Cartesian cartesian =>
-                Cartesian(radius*cos(angle), radius*sin(angle));
+        shared actual Cartesian cartesian
+                => Cartesian(radius*cos(angle),
+                             radius*sin(angle));
         
-        shared actual Polar rotate(Float rotation) =>
-                Polar(angle+rotation, radius);
+        shared actual Polar rotate(Float rotation)
+                => Polar(angle+rotation, radius);
         
-        shared actual Polar dilate(Float dilation) =>
-                Polar(angle, radius*dilation);
+        shared actual Polar dilate(Float dilation)
+                => Polar(angle, radius*dilation);
            
     }
 
@@ -375,16 +376,13 @@ different return type:
     class Cartesian(Float x, Float y) 
             extends Point() {
         
-        shared actual Polar polar => 
-                Polar( (x^2+y^2)^0.5, atan(y/x) ); 
+        polar => Polar((x^2+y^2)^0.5, atan(y/x)); 
+        cartesian => this;
         
-        shared actual Cartesian cartesian => this;
-        
-        shared actual Cartesian rotate(Float rotation) =>
-                polar.rotate(rotation).cartesian;
-        
-        shared actual Cartesian dilate(Float dilation) =>
-                Cartesian(x*dilation, y*dilation);
+        rotate(Float rotation)
+                => polar.rotate(rotation).cartesian;
+        dilate(Float dilation)
+                => Cartesian(x*dilation, y*dilation);
         
     }
 
