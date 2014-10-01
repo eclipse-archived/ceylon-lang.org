@@ -5,11 +5,12 @@ tab: features
 unique_id: keyfeaturespage
 author: Gavin King
 ---
+<p/>
 <h1 style="text-align:center">Key features of Ceylon</h1>
 <div style="margin-left:15%;margin-right:15%;text-shadow: 0 -1px 1px #ffffff;padding-bottom:10px;">
 <p style="margin-left:15%;margin-right:15%;text-align:center">
-Ceylon is a language for writing large programs in teams.<br/> 
-Here's some of what's special about it.</p>
+<b>Ceylon is a language for writing large programs in teams.<br/> 
+Here's some of what's special about it.</b></p>
 
 <div class="feature">
 <h2>Cross-platform execution</h2>

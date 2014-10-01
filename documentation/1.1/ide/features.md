@@ -5,13 +5,14 @@ tab: features
 unique_id: idefeaturespage
 author: Gavin King
 ---
+<p/>
 <h1 style="text-align:center">Features of Ceylon IDE</h1>
 <div style="margin-left:15%;margin-right:15%;text-shadow: 0 -1px 1px #ffffff;padding-bottom:10px;">
-<p style="margin-left:15%;margin-right:15%;text-align:center">
+<p style="margin-left:15%;margin-right:15%;text-align:center"><b>
 Ceylon IDE is a full-featured development environment based on the Eclipse platform. It's of
 central importance to the Ceylon project, and we're continuously improving it.<br/> 
 With the Ceylon language and IDE, you'll be much more productive. Here's a quick list of just
-some of what you get.</p>
+some of what you get.</b></p>
 
 
 <div class="feature">
@@ -26,9 +27,11 @@ the editor features quick fixes for errors, and oodles of contextual quick assis
 
 <div style="text-align:right" class="feature">
 <h2>Refactoring</h2>
-<p>The IDE features Rename, Extract Function, Extract Value, Inline, and Move To New Unit
-refactorings. Even better, it fully integrates with the Eclipse's tooling for moving and 
-copying files, for renaming and copying packages, and for renaming Java program elements.</p>
+<p>The IDE features Rename, Extract Function, Extract Value, Inline, Change Parameter List, 
+Collect Parameters, Move Out, Make Receiver, Enter Import Alias, Invert Boolean, Move To Unit, 
+and Move To New Unit refactorings. Even better, it fully integrates with the Eclipse's tooling 
+for moving and copying files, for renaming and copying packages, and for renaming Java program 
+elements.</p>
 <p>You can rename a declaration using the editor's inline "linked mode".</p>
 <div>
 <img src="/images/screenshots/m6/rename.png" style="box-shadow: 0 0 15px #888;"/>
@@ -52,18 +55,20 @@ Autocompletion will even find modules for you, in Herd, or elsewhere!</p>
 <img src="/images/screenshots/m6/autocomplete1.png" style="box-shadow: 0 0 15px #888;"/>
 <img src="/images/screenshots/m6/autocomplete3.png" style="box-shadow: 0 0 15px #888;"/>
 </div>
+<p>There's even IntelliJ-style "chain completion".</p>
 </div>
 
 <div style="text-align:right" class="feature">
 <h2>Finding and searching</h2>
-<p>With Find References, Find Assignments, Find Subtypes, and the Ceylon Search page,
-you shouldn't be short of ways to find stuff.</p>
+<p>With Find References, Find Assignments, Find Refinements, Find Subtypes, and 
+the Ceylon Search page, you shouldn't be short of ways to find stuff.</p>
 <div>
 <img src="/images/screenshots/m6/findmenu.png" style="box-shadow: 0 0 15px #888;"/>
 </div>
 <div>
 <img src="/images/screenshots/m6/find.png" style="box-shadow: 0 0 15px #888;"/>
 </div>
+<p>There's even the Quick Find References popup control.</p>
 </div>
 
 <div class="feature">
@@ -101,9 +106,7 @@ with Eclipse's merge viewer for team-based development.</p>
 <img src="/images/screenshots/m6/outline.png" style="box-shadow: 0 0 15px #888;"/>
 <img src="/images/screenshots/m6/compare.png" style="box-shadow: 0 0 15px #888;"/>
 </div>
-<p>Of course, we're skipping over so much that the editor has to offer: paste-with-imports,
-autoindentation, autoclosing, Clean Imports, Reveal Inferred Types, the awesome Terminate 
-Statement command, configurable keyboard accelerators, and much more!
+<p>There's also an awesome Type Hierarchy view.
 </div>
 
 <div class="feature">
@@ -152,8 +155,8 @@ version information.</p>
 
 <div style="text-align:right" class="feature">
 <h2>Run, test, and debug</h2>
-<p>You can run and debug your Ceylon projects on Ceylon's modular runtime for the JVM, or 
-on Node.js, directly from the IDE.</p>
+<p>You can run and debug your Ceylon projects on Ceylon's modular runtime for the JVM, 
+or on Node.js, directly from the IDE.</p>
 <div>
 <img src="/images/screenshots/m6/run.png" style="box-shadow: 0 0 15px #888;"/>
 </div>
@@ -164,6 +167,15 @@ on Node.js, directly from the IDE.</p>
 </div>
 
 <div class="feature">
+<h2>Editor and code formatter</h2>
+<p>Ceylon IDE integrates Ceylon Formatter, a high-quality code formatter, alongside
+the lightweight Correct Indentation and Format Block commands.</p>
+<p>Of course, the editor has so much more offer: paste-with-imports, autoindentation, 
+autoclosing, Clean Imports, Reveal Inferred Types, the awesome Terminate 
+Statement command, configurable keyboard accelerators, and much more!</p>
+</div>
+
+<div style="text-align:right" class="feature">
 <h2>Customization</h2>
 <p>Of course, with so much functionality on offer, we had to provide some switches and
 toggles to let you get it working just the way you prefer.</p>
