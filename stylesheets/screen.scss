@@ -32,32 +32,30 @@ body.bp {
   background-color: white;
   font-weight: 400;
   
+  h1, h2, h2, h3, h4, h5 {
+    font-family:'PT Sans', Helvetica, 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700;
+  }
+  
   h1 {
     color: $h1_text_color;
     font-size: 1.6em;
-    font-weight:bold;
-    font-family:'PT Sans', Helvetica, 'Helvetica Neue', Arial, sans-serif;
   }
   h2 {
     font-size:1.3em;
-    font-weight:bold;
     color: #255A5F;
     clear: left;
     margin-top: 0.6em;
-    font-family:'PT Sans', Helvetica, 'Helvetica Neue', Arial, sans-serif;
   }
   h3, h4, h5, h6 {
     color: $h3plus_text_color;
   }
   h3 {
-    font-family:'PT Sans', Helvetica, 'Helvetica Neue', Arial, sans-serif;
     font-size:1.2em;
-    font-weight:bold;
     margin-top: 0.6em;
     margin-bottom: 0.6em;
   }
   h4, h5 {
-    font-family:'PT Sans', Helvetica, 'Helvetica Neue', Arial, sans-serif;
     font-size:1.1em;
   }
   h6 {
