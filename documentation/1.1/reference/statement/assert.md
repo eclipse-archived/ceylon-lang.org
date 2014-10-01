@@ -33,7 +33,7 @@ them.
 The condition (or conditions) in the `assert` statement are evaluated in the
 order they occur. If they are all satisfied, then execution continues with the
 statement immediately following the `assert`. Otherwise, an 
-[`AssertionException`](#{site.urls.apidoc_current}/AssertionException.type.html) 
+[`AssertionException`](#{site.urls.apidoc_1_1}/AssertionException.type.html) 
 is thrown with information about the condition that was violated.
 
 ### Purpose
@@ -48,7 +48,7 @@ is thrown with information about the condition that was violated.
 Failure of an assertion represents a bug in the program or misuse of the API.
 
 Here's an example using the 
-[`parseInteger()`](#{site.urls.apidoc_current}/index.html#parseInteger) 
+[`parseInteger()`](#{site.urls.apidoc_1_1}/index.html#parseInteger) 
 function from `ceylon.language` which returns `Integer?`, forcing the caller 
 to handle the possibility that the argument was not `String` representing 
 a number:
@@ -83,7 +83,7 @@ the `AssertionException` will indicate this.
 The conditions in an `assert` statement form a
 [condition list](../conditions#condition_lists).
 
-Any expression of type [`Boolean`](#{site.urls.apidoc_current}/Boolean.type.html) 
+Any expression of type [`Boolean`](#{site.urls.apidoc_1_1}/Boolean.type.html) 
 may be occur in the condition list of an `assert` statement. The `assert` 
 statement also supports the use of typing conditions:
 

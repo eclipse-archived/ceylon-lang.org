@@ -180,18 +180,18 @@ use the more verbose syntax.
 ## Refining a member of `Object`
 
 Our `Polar` class is an implicit subtype of the class 
-[`Object`](#{site.urls.apidoc_current}/Object.type.html)
+[`Object`](#{site.urls.apidoc_1_1}/Object.type.html)
 in the package `ceylon.language`. If you take a look at this class, you'll 
 see that it has a `default` attribute named 
-[`string`](#{site.urls.apidoc_current}/Object.type.html#string). 
+[`string`](#{site.urls.apidoc_1_1}/Object.type.html#string). 
 It's common to refine this attribute to provide a developer-friendly 
 representation of the object.
 
 `Polar` is also a subtype of the interface 
-[`Identifiable`](#{site.urls.apidoc_current}/Identifiable.type.html) 
+[`Identifiable`](#{site.urls.apidoc_1_1}/Identifiable.type.html) 
 which defines `default` implementations of 
-[`equals()`](#{site.urls.apidoc_current}/Identifiable.type.html#equals) 
-and [`hash`](#{site.urls.apidoc_current}/Identifiable.type.html#hash).
+[`equals()`](#{site.urls.apidoc_1_1}/Identifiable.type.html#equals) 
+and [`hash`](#{site.urls.apidoc_1_1}/Identifiable.type.html#hash).
 We should _definitely_ refine those:
 
 <!-- try-pre:

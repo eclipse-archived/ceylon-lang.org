@@ -9,7 +9,7 @@ author: Tom Bentley
 # #{page.title_md}
 
 _Iterable enumeration_ is a notation for creating instances of
-[`Iterable`](#{site.urls.apidoc_current}/Iterable.type.html).
+[`Iterable`](#{site.urls.apidoc_1_1}/Iterable.type.html).
 
 ## Usage 
 
@@ -25,8 +25,8 @@ Syntactically an iterable enumeration is an
 within braces `{` and `}`.
 
 The empty iteratable, `{}`, has the value 
-[`empty`](#{site.urls.apidoc_current}/index.html#empty) and the type
-[`Empty`](#{site.urls.apidoc_current}/Empty.type.html)
+[`empty`](#{site.urls.apidoc_1_1}/index.html#empty) and the type
+[`Empty`](#{site.urls.apidoc_1_1}/Empty.type.html)
 
 ### Type
 

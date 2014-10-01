@@ -34,15 +34,15 @@ See the [language specification](#{site.urls.spec_current}#equalitycomparison) f
 
 The `in` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `in` depends on the 
-[`Category`](#{site.urls.apidoc_current}/Category.type.html) interface
+[`Category`](#{site.urls.apidoc_1_0}/Category.type.html) interface
 
 ### Type
 
-The result type of the `in` operator is [`Boolean`](#{site.urls.apidoc_current}/Boolean.type.html).
+The result type of the `in` operator is [`Boolean`](#{site.urls.apidoc_1_0}/Boolean.type.html).
 
 ## See also
 
-* API documentation for [`Category`](#{site.urls.apidoc_current}/Category.type.html)
+* API documentation for [`Category`](#{site.urls.apidoc_1_0}/Category.type.html)
 * [`in` in the language specification](#{site.urls.spec_current}#equalitycomparison)
 * [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 
   language specification

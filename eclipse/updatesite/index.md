@@ -1,7 +1,8 @@
 ---
-layout: documentation
+layout: documentation11
 title: Ceylon update site for Eclipse
 tab: documentation
+unique_id: docspage
 author: Max Rydahl Andersen
 ---
 

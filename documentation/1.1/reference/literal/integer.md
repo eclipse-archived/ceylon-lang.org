@@ -9,7 +9,7 @@ doc_root: ../../..
 
 # #{page.title_md}
 
-A literal notation for an [`Integer`](#{site.urls.apidoc_current}/Integer.type.html) 
+A literal notation for an [`Integer`](#{site.urls.apidoc_1_1}/Integer.type.html) 
 value.
 
 ## Usage 

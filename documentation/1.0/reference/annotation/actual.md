@@ -32,6 +32,6 @@ type it's defined in, an `actual` member is necessarily `shared`.
 
 ## See also
 
-* API documentation for [`actual`](#{site.urls.apidoc_current}/index.html#actual)
+* API documentation for [`actual`](#{site.urls.apidoc_1_0}/index.html#actual)
 * Reference for [annotations in general](../../structure/annotation/)
 

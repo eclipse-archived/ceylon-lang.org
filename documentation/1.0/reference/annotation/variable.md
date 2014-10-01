@@ -32,5 +32,5 @@ assigned multiple times.
 
 ## See also
 
-* [`variable`](#{site.urls.apidoc_current}/index.html#variable)
+* [`variable`](#{site.urls.apidoc_1_0}/index.html#variable)
 * Reference for [annotations in general](../../structure/annotation/)

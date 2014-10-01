@@ -8,7 +8,7 @@ doc_root: ../../..
 ---
 # #{page.title_md}
 
-A literal notation for a [`Float`](#{site.urls.apidoc_current}/Float.type.html) 
+A literal notation for a [`Float`](#{site.urls.apidoc_1_0}/Float.type.html) 
 value.
 
 ## Usage 

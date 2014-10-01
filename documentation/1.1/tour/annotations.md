@@ -23,7 +23,7 @@ yet really explored what an annotation *is*.
 
 Let's finally rectify that. The answer is simple: an annotation is a toplevel 
 function that returns a subtype of 
-[`ConstrainedAnnotation`](#{site.urls.apidoc_current}/ConstrainedAnnotation.type.html).
+[`ConstrainedAnnotation`](#{site.urls.apidoc_1_1}/ConstrainedAnnotation.type.html).
 We call the function an _annotation constructor_.
 
 ## Annotation constructors
@@ -173,11 +173,11 @@ subtypes of `ConstrainedAnnotation` that will be useful for the most common
 cases:
 
 * If an annotation type is a subtype of 
-  [`OptionalAnnotation`](#{site.urls.apidoc_current}/OptionalAnnotation.type.html), 
+  [`OptionalAnnotation`](#{site.urls.apidoc_1_1}/OptionalAnnotation.type.html), 
   at most one annotation of a given program element may be of this annotation 
   type, or, otherwise
 * if an annotation type is a subtype of 
-  [`SequencedAnnotation`](#{site.urls.apidoc_current}/SequencedAnnotation.type.html),
+  [`SequencedAnnotation`](#{site.urls.apidoc_1_1}/SequencedAnnotation.type.html),
   more than one annotation of a given program element may be of this annotation 
   type.
 
@@ -255,7 +255,7 @@ language.
 ## Reading annotation values at runtime
 
 Annotation values may be obtained by calling the toplevel method 
-[`annotations()`](#{site.urls.apidoc_current}/meta/index.html#annotations) 
+[`annotations()`](#{site.urls.apidoc_1_1}/meta/index.html#annotations) 
 defined in the language module.
 
 <!-- try: -->
@@ -466,7 +466,7 @@ the topic is outside of the scope of this tour.
 ## There's more ...
 
 You can learn more about the metamodel from its 
-[API documentation](#{site.urls.apidoc_current}/meta/index.html).
+[API documentation](#{site.urls.apidoc_1_1}/meta/index.html).
 
 The last two chapters of this tour deal with interoperation with other
 languages, first with [Java](../interop), and then with dynamically

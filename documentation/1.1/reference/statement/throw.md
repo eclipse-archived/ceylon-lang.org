@@ -43,7 +43,7 @@ circumstance which prevents normal completion of the method, getter, setter
 or initializer. 
 
 An expression may be given. If no expression is given a new messageless and 
-causeless instance of [`Exception`](#{site.urls.apidoc_current}/Exception.type.html) 
+causeless instance of [`Exception`](#{site.urls.apidoc_1_1}/Exception.type.html) 
 is created automatically. If an expression is given is must be assignable to 
 `Exception`.
 
@@ -77,7 +77,7 @@ control logic. Used in this manner, `throw` is a sort of poor-man's
 ## See also
 
 * [`try` statement](../try)
-* [`ceylon.language.Exception`](#{site.urls.apidoc_current}/Exception.type.html)
+* [`ceylon.language.Exception`](#{site.urls.apidoc_1_1}/Exception.type.html)
 * The [`throws`](../../annotation/throws) annotation provides a way to 
   document the exceptions which may be thrown from a method, getter, setter 
   or class initializer.

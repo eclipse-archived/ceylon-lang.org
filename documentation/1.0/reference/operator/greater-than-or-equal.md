@@ -36,15 +36,15 @@ See the [language specification](#{site.urls.spec_current}#equalitycomparison) f
 
 The `>=` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `>=` depends on the 
-[`Comparable`](#{site.urls.apidoc_current}/Comparable.type.html) interface.
+[`Comparable`](#{site.urls.apidoc_1_0}/Comparable.type.html) interface.
 
 ### Type
 
-The result type of the `>=` operator is [`Boolean`](#{site.urls.apidoc_current}/Boolean.type.html).
+The result type of the `>=` operator is [`Boolean`](#{site.urls.apidoc_1_0}/Boolean.type.html).
 
 ## See also
 
-* API documentation for [`Comparable`](#{site.urls.apidoc_current}/Comparable.type.html)
+* API documentation for [`Comparable`](#{site.urls.apidoc_1_0}/Comparable.type.html)
 * [`>=` in the language specification](#{site.urls.spec_current}#equalitycomparison)
 * [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 
   language specification

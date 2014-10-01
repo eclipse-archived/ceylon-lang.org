@@ -33,7 +33,7 @@ See the [language specification](#{site.urls.spec_current}#arithmetic) for more 
 
 The `^` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `^` depends on the 
-[`Exponentiable`](#{site.urls.apidoc_current}/Exponentiable.type.html) interface.
+[`Exponentiable`](#{site.urls.apidoc_1_0}/Exponentiable.type.html) interface.
 
 ### Type
 
@@ -42,15 +42,15 @@ The result type of the `^` operator is the same as the type of the `This` type a
 
 ### Meaning of power for built-in types
 
-For the built-in numeric types [`Integer`](#{site.urls.apidoc_current}/Integer.type.html) and
-[`Float`](#{site.urls.apidoc_current}/Float.type.html), `^` 
+For the built-in numeric types [`Integer`](#{site.urls.apidoc_1_0}/Integer.type.html) and
+[`Float`](#{site.urls.apidoc_1_0}/Float.type.html), `^` 
 performs normal mathematical exponentiation, subject to the limitations
 of the relevant type.
 
 
 ## See also
 
-* API documentation for [`Exponentiable`](#{site.urls.apidoc_current}/Exponentiable.type.html)
+* API documentation for [`Exponentiable`](#{site.urls.apidoc_1_0}/Exponentiable.type.html)
 * [arithmetic operators](#{site.urls.spec_current}#arithmetic) in the 
   language specification
 * [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 

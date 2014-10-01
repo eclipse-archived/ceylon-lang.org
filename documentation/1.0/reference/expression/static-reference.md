@@ -31,7 +31,7 @@ or member class.
 ### Type
 
 The type of a static reference is a higher order 
-[`Callable`](#{site.urls.apidoc_current}/Callable.type.html):
+[`Callable`](#{site.urls.apidoc_1_0}/Callable.type.html):
 
 * A static expression referring to an attribute with type `A` of a 
   type `T` has the type `X(T)`. 

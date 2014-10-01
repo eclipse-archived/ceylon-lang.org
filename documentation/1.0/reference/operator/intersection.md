@@ -43,16 +43,16 @@ more details.
 
 The `&` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `&` depends on the 
-[`Set`](#{site.urls.apidoc_current}/Set.type.html) interface 
+[`Set`](#{site.urls.apidoc_1_0}/Set.type.html) interface 
 
 ### Type
 
-The result type of the `|` operator is a [`Set`](#{site.urls.apidoc_current}/Set.type.html) whose element type is the intersection of the 
+The result type of the `|` operator is a [`Set`](#{site.urls.apidoc_1_0}/Set.type.html) whose element type is the intersection of the 
 element types of its operands.
 
 ## See also
 
-* API documentation for [`Set`](#{site.urls.apidoc_current}/Set.type.html)
+* API documentation for [`Set`](#{site.urls.apidoc_1_0}/Set.type.html)
 * [set operators](#{site.urls.spec_current}#sets) in the 
   language specification
 * [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 

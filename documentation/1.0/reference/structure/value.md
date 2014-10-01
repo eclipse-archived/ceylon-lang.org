@@ -65,7 +65,7 @@ associated with execution of that block.
 
 ### `variable` values
 
-If a reference is annotated [`variable`](#{site.urls.apidoc_current}/index.html#variable), 
+If a reference is annotated [`variable`](#{site.urls.apidoc_1_0}/index.html#variable), 
 it can be [assigned](#{page.doc_root}/reference/operator/assign) more than once.
 Otherwise it must be [specified](../../statement/specification) exactly once. 
 Moreover the specification must occur before its first use.
@@ -149,11 +149,11 @@ body of a containing class or interface, may be annotated
 ### Metamodel
 
 Value declarations can be manipulated at runtime via their representation as
-[`ValueDeclaration`](#{site.urls.apidoc_current}/meta/declaration/ValueDeclaration.type.html) 
+[`ValueDeclaration`](#{site.urls.apidoc_1_0}/meta/declaration/ValueDeclaration.type.html) 
 instances. An *applied function* (i.e. with all type parameters specified) corresponds to 
 either a 
-[`Value`](#{site.urls.apidoc_current}/meta/model/Value.type.html) or 
-[`Attribute`](#{site.urls.apidoc_current}/meta/model/Attribute.type.html) model instance.
+[`Value`](#{site.urls.apidoc_1_0}/meta/model/Value.type.html) or 
+[`Attribute`](#{site.urls.apidoc_1_0}/meta/model/Attribute.type.html) model instance.
 
 ## See also
 

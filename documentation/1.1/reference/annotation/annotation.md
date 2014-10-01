@@ -32,11 +32,11 @@ Or to the annotation constructor function definition:
 
 When applied to a class, the `final` annotation is also required 
 and the class must satisfy 
-[`Annotation`](#{site.urls.apidoc_current}/Annotation.type.html)
+[`Annotation`](#{site.urls.apidoc_1_1}/Annotation.type.html)
 
 ## See also
 
-* API documentation for [`annotation`](#{site.urls.apidoc_current}/index.html#annotation)
+* API documentation for [`annotation`](#{site.urls.apidoc_1_1}/index.html#annotation)
 * Reference for [annotations in general](../../structure/annotation/)
 * [Annotations](#{site.urls.spec_current}#annotations) in the 
   Ceylon language specification

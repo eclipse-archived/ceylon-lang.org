@@ -38,7 +38,7 @@ See the [language specification](#{site.urls.spec_current}#arithmetic) for more 
 
 The unary `+` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `+` depends on 
-[`Invertible`](#{site.urls.apidoc_current}/Invertible.type.html) interface 
+[`Invertible`](#{site.urls.apidoc_1_0}/Invertible.type.html) interface 
 
 ### Type
 
@@ -47,14 +47,14 @@ The result type of the `-` operator is the same as the `Invertible` type of its 
 ### Meaning of unary plus for built-in types
 
 For the built-in numeric types
-[`Integer`](#{site.urls.apidoc_current}/Integer.type.html) and
-[`Float`](#{site.urls.apidoc_current}/Float.type.html), `+` 
+[`Integer`](#{site.urls.apidoc_1_0}/Integer.type.html) and
+[`Float`](#{site.urls.apidoc_1_0}/Float.type.html), `+` 
 is essentially a no-op.
 
 ## See also
 
 * [`-` (unary minus)](../unary_minus) which does change the sign of its operand
-* API documentation for [`Invertible`](#{site.urls.apidoc_current}/Invertible.type.html)
+* API documentation for [`Invertible`](#{site.urls.apidoc_1_0}/Invertible.type.html)
 * [arithmetic operators](#{site.urls.spec_current}#arithmetic) in the 
   language specification
 * [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 

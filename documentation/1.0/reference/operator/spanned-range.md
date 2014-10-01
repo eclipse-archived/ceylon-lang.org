@@ -34,7 +34,7 @@ more details.
 
 The `..` operator is not [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `..` depends on the 
-[`Range`](#{site.urls.apidoc_current}/Range.type.html) 
+[`Range`](#{site.urls.apidoc_1_0}/Range.type.html) 
 class.
 
 ### Type

@@ -38,7 +38,7 @@ more details.
 
 The `x[y:n]` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `x[y:n]` depends on the 
-[`Ranged`](#{site.urls.apidoc_current}/Ranged.type.html) 
+[`Ranged`](#{site.urls.apidoc_1_0}/Ranged.type.html) 
 interface.
 
 ### Type
@@ -48,7 +48,7 @@ The result type of the `lhs[from:length]` operator is the element type of the `R
 ## See also
 
 * [`x[y...z]` (span)](../span) operator used for obtaining a subrange from a `Ranged`.
-* API documentation for [`Ranged`](#{site.urls.apidoc_current}/Ranged.type.html)
+* API documentation for [`Ranged`](#{site.urls.apidoc_1_0}/Ranged.type.html)
 * [sequence operators](#{site.urls.spec_current}#listmap) in the 
   language specification
 * [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 

@@ -53,7 +53,7 @@ any, is executed, followed by the code after the `if` statement.
 The conditions in an `if` statement occur in
 [condition lists](../conditions#condition_lists).
 
-Any expression of type [`Boolean`](#{site.urls.apidoc_current}/Boolean.type.html) 
+Any expression of type [`Boolean`](#{site.urls.apidoc_1_0}/Boolean.type.html) 
 may be occur in the condition list of an `if` statement. The `if` 
 statement also supports the use of typing conditions:
 

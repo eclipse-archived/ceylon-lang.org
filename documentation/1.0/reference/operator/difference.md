@@ -33,7 +33,7 @@ See the [language specification](#{site.urls.spec_current}#arithmetic) for more 
 
 The `-` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `-` depends on the 
-[`Numeric`](#{site.urls.apidoc_current}/Numeric.type.html) interface.
+[`Numeric`](#{site.urls.apidoc_1_0}/Numeric.type.html) interface.
 
 ### Type
 
@@ -41,14 +41,14 @@ The result type of the `-` operator is the same as the type of its right hand op
 
 ### Meaning of *difference* for built-in types
 
-For the built-in numeric types [`Integer`](#{site.urls.apidoc_current}/Integer.type.html) and
-[`Float`](#{site.urls.apidoc_current}/Float.type.html),
+For the built-in numeric types [`Integer`](#{site.urls.apidoc_1_0}/Integer.type.html) and
+[`Float`](#{site.urls.apidoc_1_0}/Float.type.html),
 `-` performs normal mathematical subtraction, subject to the limitations
 of the relevant type.
 
 ## See also
 
-* API documentation for [`Numeric`](#{site.urls.apidoc_current}/Numeric.type.html)
+* API documentation for [`Numeric`](#{site.urls.apidoc_1_0}/Numeric.type.html)
 * [difference in the language specification](#{site.urls.spec_current}#arithmetic)
 * [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 
   language specification

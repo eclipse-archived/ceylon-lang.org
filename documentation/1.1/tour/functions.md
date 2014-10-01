@@ -48,7 +48,7 @@ types of a function into the type system. Remember that Ceylon doesn't have
 representable within the type system as a class or interface declaration.
 
 In Ceylon, a single type 
-[`Callable`](#{site.urls.apidoc_current}/Callable.type.html) 
+[`Callable`](#{site.urls.apidoc_1_1}/Callable.type.html) 
 abstracts *all* functions. Its declaration is the following:
 
 <!-- check:none -->
@@ -319,7 +319,7 @@ Just to be sure, let's fill in the types:
     Float radius = radius(coord);
 
 Static attribute references work especially well with the 
-[`map()`](#{site.urls.apidoc_current}/Iterable.type.html#map) 
+[`map()`](#{site.urls.apidoc_1_1}/Iterable.type.html#map) 
 method of `Iterable`:
 
 <!-- try: -->
@@ -403,7 +403,7 @@ the function type.
 The most famous higher-order functions are a trio of functions for tranforming,
 filtering, and summarizing sequences of values. In Ceylon, these three functions,
 `map()`, `filter()`, and `fold()` are methods of the interface 
-[`Iterable`](#{site.urls.apidoc_current}/Iterable.type.html).
+[`Iterable`](#{site.urls.apidoc_1_1}/Iterable.type.html).
 (They even have a fourth, slightly less glamorous friend called `find()`, also a 
 method of `Iterable`.)
 
@@ -821,7 +821,7 @@ I can write:
 Here, the expression `2.times` is a typical first-class function reference 
 produced by the partial application of the method 
 
-[`times()`](#{site.urls.apidoc_current}/Numeric.type.html#times) 
+[`times()`](#{site.urls.apidoc_1_1}/Numeric.type.html#times) 
 to the receiver expression `2.0`.
 
 But I can also write:
@@ -846,7 +846,7 @@ Unfortunately, the following isn't correctly typed:
 
 The problem is that `Float.times`, when considered as a function reference, 
 is a higher-order function that accepts a 
-[`Float`](#{site.urls.apidoc_current}/Float.type.html) 
+[`Float`](#{site.urls.apidoc_1_1}/Float.type.html) 
 and returns a function that accepts a `Float`, not a first-order function 
 that accepts two `Float`s.
 
@@ -919,7 +919,7 @@ This function composes two functions:
 Fortunately, you won't need to be writing functions like 
 `curry()()`, `uncurry()()` and `compose()()` yourself. They're general 
 purpose tools that are packaged as part of the 
-[`ceylon.language`](#{site.urls.apidoc_current}/index.html)
+[`ceylon.language`](#{site.urls.apidoc_1_1}/index.html)
 module. Nevertheless, it's nice to know that machinery like this is 
 expressible within the type system of Ceylon. 
 -->

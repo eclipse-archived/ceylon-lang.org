@@ -9,7 +9,7 @@ author: Tom Bentley
 # #{page.title_md}
 
 _Tuple enumeration_ is a notation for creating instances of
-[`Tuple`](#{site.urls.apidoc_current}/Tuple.type.html).
+[`Tuple`](#{site.urls.apidoc_1_0}/Tuple.type.html).
 
 ## Usage 
 
@@ -25,12 +25,12 @@ Syntactically a tuple enumeration is an
 within square brackets `[` and `]`.
 
 The empty tuple, `[]`, has the value 
-[`empty`](#{site.urls.apidoc_current}/index.html#empty).
+[`empty`](#{site.urls.apidoc_1_0}/index.html#empty).
 
 ### Type
 
 The type of a tuple enumeration is the 
-[`Tuple`](#{site.urls.apidoc_current}/Tuple.type.html) 
+[`Tuple`](#{site.urls.apidoc_1_0}/Tuple.type.html) 
 type of the list of arguments it contains.
 
 As well as the [example above](#usage), consider

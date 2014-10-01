@@ -34,7 +34,7 @@ This example of an invocation of a `put` function uses
 ## Description
 
 The type of a parameter list is a 
-[`Tuple`](#{site.urls.apidoc_current}/Tuple.type.html) type formed from the 
+[`Tuple`](#{site.urls.apidoc_1_0}/Tuple.type.html) type formed from the 
 types of the argument expressions in the list. 
 
 ### Listed arguments
@@ -50,7 +50,7 @@ TODO discuss listed arguments with variadic parameters
 A spread argument assigns the elements of an iterable object or tuple to 
 one or more (possibly variadic) parameters.
 
-You can spread any [`Iterable`](#{site.urls.apidoc_current}/Iterable.type.html) 
+You can spread any [`Iterable`](#{site.urls.apidoc_1_0}/Iterable.type.html) 
 over a variadic parameter:
 
 <!-- try: -->
@@ -61,7 +61,7 @@ over a variadic parameter:
     // A spread iterable
     spreadIterable(*names);
 
-You can also spread a [`Tuple`](#{site.urls.apidoc_current}/Tuple.type.html) 
+You can also spread a [`Tuple`](#{site.urls.apidoc_1_0}/Tuple.type.html) 
 over *more than one* parameter. In other words a single tuple can be used to 
 provide the arguments of more than one parameter:
 
@@ -85,7 +85,7 @@ the invocation is checked for typesafety by the compiler.
 ### Comprehension arguments
 
 A comprehension is a shorthand way of creating an 
-[`Iterable`](#{site.urls.apidoc_current}/Iterable.type.html) 
+[`Iterable`](#{site.urls.apidoc_1_0}/Iterable.type.html) 
 to be passed as an argument.
 
 ### Anonymous Arguments

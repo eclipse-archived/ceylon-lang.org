@@ -30,6 +30,6 @@ scope of the type it's defined in, a `default` member is necessarily
 
 ## See also
 
-* API documentation for [`default`](#{site.urls.apidoc_current}/index.html#default)
+* API documentation for [`default`](#{site.urls.apidoc_1_0}/index.html#default)
 * Reference for [annotations in general](../../structure/annotation/)
 

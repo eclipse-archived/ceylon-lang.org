@@ -35,6 +35,6 @@ Only `abstract` classes and interfaces are permitted to have `formal` members.
 
 ## See also
 
-* API documentation for [`formal`](#{site.urls.apidoc_current}/index.html#formal)
+* API documentation for [`formal`](#{site.urls.apidoc_1_1}/index.html#formal)
 * Reference for [annotations in general](../../structure/annotation/)
 

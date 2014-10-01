@@ -108,8 +108,8 @@ keyword:
     
 ### `Null`
 
-[`Null`](#{site.urls.apidoc_current}/Null.type.html) is the type of 
-[`null`](#{site.urls.apidoc_current}/index.html#null). 
+[`Null`](#{site.urls.apidoc_1_1}/Null.type.html) is the type of 
+[`null`](#{site.urls.apidoc_1_1}/index.html#null). 
 If an expression permits `null` then it
 needs `Null` as a supertype. This is usually expressed as using a 
 [union type](#union_types) such as `T|Null`, which can be abbreviated 
@@ -117,7 +117,7 @@ as `T?`.
 
 ### `Nothing`
 
-[`Nothing`](#{site.urls.apidoc_current}/Nothing.type.html) 
+[`Nothing`](#{site.urls.apidoc_1_1}/Nothing.type.html) 
 is the intersection of *all* types. It is equivalent to the empty set.
 Because `Nothing` is the intersection of all types it is assignable to 
 all types. Similarly because it is the intersection of all types it can 
@@ -126,32 +126,32 @@ mathematics.
 
 ### `Iterable`
 
-[`Iterable`](#{site.urls.apidoc_current}/Iterable.type.html) 
+[`Iterable`](#{site.urls.apidoc_1_1}/Iterable.type.html) 
 is a type that produces instances of another type when iterated. 
 `Iterable<T>` is usually abbreviated to `{T*}`.
 
 ### `Sequential`
 
-[`Sequential`](#{site.urls.apidoc_current}/Sequential.type.html) 
+[`Sequential`](#{site.urls.apidoc_1_1}/Sequential.type.html) 
 is an enumerated type with subtypes 
-[`Sequence`](#{site.urls.apidoc_current}/Sequence.type.html) and 
-[`Empty`](#{site.urls.apidoc_current}/Empty.type.html). 
+[`Sequence`](#{site.urls.apidoc_1_1}/Sequence.type.html) and 
+[`Empty`](#{site.urls.apidoc_1_1}/Empty.type.html). 
 `Sequential<T>` is usually abbreviated to `T[]` or `[T*]`.
 
 ### `Empty`
 
-[`Empty`](#{site.urls.apidoc_current}/Empty.type.html) is the type 
+[`Empty`](#{site.urls.apidoc_1_1}/Empty.type.html) is the type 
 of the expression `[]`. 
 
 ### `Sequence`
 
-[`Sequence`](#{site.urls.apidoc_current}/Sequence.type.html) is the 
+[`Sequence`](#{site.urls.apidoc_1_1}/Sequence.type.html) is the 
 type of non-empty sequences.
 `Sequence<T>` is usually abbreviated to `[T+]`.
 
 ### `Tuple`
 
-[`Tuple`](#{site.urls.apidoc_current}/Tuple.type.html) is a subclass 
+[`Tuple`](#{site.urls.apidoc_1_1}/Tuple.type.html) is a subclass 
 of `Sequence` (and thus cannot be empty). It differs from `Sequence` 
 in that it encodes the types of each of its elements individually.
 

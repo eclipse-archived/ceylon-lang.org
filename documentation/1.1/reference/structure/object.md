@@ -62,13 +62,13 @@ to which it belongs.
 
 ### Metamodel
 
-[`ClassDeclaration.anonymous`](#{site.urls.apidoc_current}/meta/declaration/ClassDeclaration.type.html#anonymous) 
+[`ClassDeclaration.anonymous`](#{site.urls.apidoc_1_1}/meta/declaration/ClassDeclaration.type.html#anonymous) 
 can be used to determine whether a given `ClassDeclaration` represents an anonymous class. 
 
 The instance is a [value](../value), so can be manipulated 
-[`ValueDeclaration`](#{site.urls.apidoc_current}/meta/declaration/ValueDeclaration.type.html) and 
-[`Value`](#{site.urls.apidoc_current}/meta/model/Value.type.html) or 
-[`Attribute`](#{site.urls.apidoc_current}/meta/model/Attribute.type.html).
+[`ValueDeclaration`](#{site.urls.apidoc_1_1}/meta/declaration/ValueDeclaration.type.html) and 
+[`Value`](#{site.urls.apidoc_1_1}/meta/model/Value.type.html) or 
+[`Attribute`](#{site.urls.apidoc_1_1}/meta/model/Attribute.type.html).
 
 ### Members
 

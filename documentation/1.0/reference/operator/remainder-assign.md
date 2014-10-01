@@ -38,7 +38,7 @@ See the [language specification](#{site.urls.spec_current}#arithmetic) for more 
 ### Polymorphism
 
 The `%=` operator is polymorphic. The definition of the `%=` operator depends 
-on the [`Integral`](#{site.urls.apidoc_current}/Integral.type.html) 
+on the [`Integral`](#{site.urls.apidoc_1_0}/Integral.type.html) 
 interface.
 
 ### Type

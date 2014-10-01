@@ -56,9 +56,9 @@ all that whitespace was automatically removed. This helps us format our
 code nicely.
 
 It's often useful to collapse whitespace in a multiline string literal. The
-[`String`](#{site.urls.apidoc_current}/String.type.html)
+[`String`](#{site.urls.apidoc_1_1}/String.type.html)
 class has an attribute called 
-[`normalized`](#{site.urls.apidoc_current}/String.type.html#normalized). 
+[`normalized`](#{site.urls.apidoc_1_1}/String.type.html#normalized). 
 We can use it like this:
 
 <!-- try-post:
@@ -318,7 +318,7 @@ strings, and more flexible in many cases:
 
 Note that when we use `+` to concatenate strings, we have to explicitly 
 invoke the 
-[`string`](#{site.urls.apidoc_current}/Object.type.html#string) 
+[`string`](#{site.urls.apidoc_1_1}/Object.type.html#string) 
 attribute to convert numeric expressions to strings. The 
 `+` operator does not automatically convert its operands to strings, so the 
 following does not compile:  
@@ -414,7 +414,7 @@ Java where `x==y` evaluates to true if `x` and `y` both evaluate to `null`.
 In a language with static typing, we're always wanting to know what the type 
 of something is. So what's the type of `null`? 
 
-That's easy to answer: `null` is a [`Null`](#{site.urls.apidoc_current}/Null.type.html).
+That's easy to answer: `null` is a [`Null`](#{site.urls.apidoc_1_1}/Null.type.html).
 
 Yes, that's right: the value `null` isn't a primitive value in Ceylon, it's 
 just a perfectly ordinary instance of the perfectly ordinary class `Null`, 
@@ -788,8 +788,8 @@ Unfortunately, not every program is as simple and elegant as "hello world".
 In business or scientific computing, we often encounter programs that do 
 fiendishly complicated stuff with numbers. Ceylon doesn't have any primitive 
 types, so numeric values are usually represented by the classes 
-[`Integer`](#{site.urls.apidoc_current}/Integer.type.html)
-and [`Float`](#{site.urls.apidoc_current}/Float.type.html),
+[`Integer`](#{site.urls.apidoc_1_1}/Integer.type.html)
+and [`Float`](#{site.urls.apidoc_1_1}/Float.type.html),
 which we'll come back to [later in the tour](../language-module/#numeric_types).
 
 `Float` literals are written with a decimal point, and `Integer` literals 

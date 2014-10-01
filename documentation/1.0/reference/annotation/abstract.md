@@ -25,6 +25,6 @@ The annotation is applied to the class definition:
 
 ## See also
 
-* API documentation for [`abstract`](#{site.urls.apidoc_current}/index.html#abstract)
+* API documentation for [`abstract`](#{site.urls.apidoc_1_0}/index.html#abstract)
 * Reference for [annotations in general](../../structure/annotation/)
 

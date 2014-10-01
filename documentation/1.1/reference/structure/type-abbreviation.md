@@ -98,10 +98,10 @@ has the function type `Float(Float+)`.
 
 ## See Also
 
-* [`Null`](#{site.urls.apidoc_current}/Null.type.html)
-* [`Sequential`](#{site.urls.apidoc_current}/Sequential.type.html)
-* [`Sequence`](#{site.urls.apidoc_current}/Sequence.type.html)
-* [`Empty`](#{site.urls.apidoc_current}/Empty.type.html)
-* [`Iterable`](#{site.urls.apidoc_current}/Iterable.type.html)
-* [`Tuple`](#{site.urls.apidoc_current}/Tuple.type.html)
-* [`Callable`](#{site.urls.apidoc_current}/Callable.type.html)
+* [`Null`](#{site.urls.apidoc_1_1}/Null.type.html)
+* [`Sequential`](#{site.urls.apidoc_1_1}/Sequential.type.html)
+* [`Sequence`](#{site.urls.apidoc_1_1}/Sequence.type.html)
+* [`Empty`](#{site.urls.apidoc_1_1}/Empty.type.html)
+* [`Iterable`](#{site.urls.apidoc_1_1}/Iterable.type.html)
+* [`Tuple`](#{site.urls.apidoc_1_1}/Tuple.type.html)
+* [`Callable`](#{site.urls.apidoc_1_1}/Callable.type.html)

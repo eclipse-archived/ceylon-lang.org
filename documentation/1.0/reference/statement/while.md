@@ -45,7 +45,7 @@ execution of the remainder of the block.
 The conditions in a `while` statement form a
 [condition list](../conditions#condition_lists).
 
-Any expression of type [`Boolean`](#{site.urls.apidoc_current}/Boolean.type.html) 
+Any expression of type [`Boolean`](#{site.urls.apidoc_1_0}/Boolean.type.html) 
 may be occur in the condition list of a `while` statement. The 
 `while` statement also supports the use of typing conditions:
 

@@ -46,7 +46,7 @@ A function declaration always specifies the *return type* of the function,
 or the keyword `void` if the function has no specific return value.
 
 The type system considers a `void` function identical to a function declared 
-to return [`Anything`](#{site.urls.apidoc_current}/Anything.type.html). 
+to return [`Anything`](#{site.urls.apidoc_1_0}/Anything.type.html). 
 In particular, a `void` method may be refined by a subtype to return a more 
 specific type. The value actually returned from an unrefined `void` function 
 is always `null`.
@@ -54,7 +54,7 @@ is always `null`.
 ### Callable type
 
 The *callable type* of a function expresses, in terms of the 
-[`Callable`](#{site.urls.apidoc_current}/Anything.type.html) interface, the 
+[`Callable`](#{site.urls.apidoc_1_0}/Anything.type.html) interface, the 
 function's return type and parameter types. For example, the callable type 
 of:
 
@@ -172,11 +172,11 @@ keyword.
 ### Metamodel
 
 Function declarations can be manipulated at runtime via their representation as
-[`FunctionDeclaration`](#{site.urls.apidoc_current}/meta/declaration/FunctionDeclaration.type.html) 
+[`FunctionDeclaration`](#{site.urls.apidoc_1_0}/meta/declaration/FunctionDeclaration.type.html) 
 instances. An *applied function* (i.e. with all type parameters specified) corresponds to 
 either a 
-[`Function`](#{site.urls.apidoc_current}/meta/model/Function.type.html) or 
-[`Method`](#{site.urls.apidoc_current}/meta/model/Method.type.html) model instance.
+[`Function`](#{site.urls.apidoc_1_0}/meta/model/Function.type.html) or 
+[`Method`](#{site.urls.apidoc_1_0}/meta/model/Method.type.html) model instance.
 
 ## See also
 

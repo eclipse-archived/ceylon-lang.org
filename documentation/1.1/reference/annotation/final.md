@@ -35,7 +35,7 @@ the compiler to detect that two types are
 
 ## See also
 
-* API documentation for [`final`](#{site.urls.apidoc_current}/index.html#final)
+* API documentation for [`final`](#{site.urls.apidoc_1_1}/index.html#final)
 * Reference for [annotations in general](../../structure/annotation/)
 * [Disjoint types](#{site.urls.spec_current}#disjointtypes) in the 
   Ceylon language spec

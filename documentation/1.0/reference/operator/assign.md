@@ -42,6 +42,6 @@ The result type of the `=` operator is the type of the right hand operand.
 
 ## See also
 
-* [`variable`](#{site.urls.apidoc_current}/index.html#variable) annotation
+* [`variable`](#{site.urls.apidoc_1_0}/index.html#variable) annotation
 * [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 
   language specification
