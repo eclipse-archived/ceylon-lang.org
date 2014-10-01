@@ -118,7 +118,7 @@ declarations.
 <!-- check:none: Requires IO -->
 <!-- id: hello -->
 	doc ("The classic Hello World program")
-	by ("Gavin")
+	by ("Trompon the Elephant")
 	see (`function goodbye`)
 	throws (`class IOException`)
 	void hello() {
@@ -132,21 +132,6 @@ declarations.
 The `doc`, `by`, `see`, `throws`, and `tagged` annotations contain documentation 
 that is included in the output of the Ceylon documentation compiler, 
 [`ceylon doc`](#{site.urls.ceylon_tool_current}/ceylon-doc.html).
-
-<!--
-Notice that when an annotation argument is a literal, it doesn't need to be 
-enclosed in parentheses. We can write simply: 
-
-<!- - try: - ->
-<!- - check:none - ->
-    by "Gavin"
-
-instead of:
-
-<!- - try: - ->
-<!- - check:none - ->
-    by ("Gavin")
--->
 
 Annotations like `doc`, `by`, `see`, and `throws`, aren't keywords. They're 
 just ordinary identifiers. The same is true for annotations which are part of 
@@ -167,7 +152,7 @@ program element:
 <!-- check:none: Requires IO -->
 <!-- id: hello -->
     "The classic Hello World program"
-    by ("Gavin")
+    by ("Trompon the Elephant")
     see (`function goodbye`)
     throws (`class IOException`)
     void hello() {
@@ -346,7 +331,8 @@ way up to a more convenient form.)
 -->
     "Print a personalized greeting"
     void hello() {
-        String? name = process.arguments.first;
+        String? name 
+                = process.arguments.first;
         String greeting;
         if (exists name) {
             greeting = "Hello, ``name``!";
@@ -366,8 +352,8 @@ inside the `if (exists ... )` condition:
 
 <!-- cat: void hello() { -->
     String greeting;
-    if (exists name = 
-            process.arguments.first) {
+    if (exists name 
+            = process.arguments.first) {
         greeting = "Hello, ``name``!";
     }
     else {
@@ -543,7 +529,7 @@ mean a value which is explicitly defined to be reassignable.
     variable Integer count = 0;  //a variable
     
     bye = "Adieu";  //compile error
-    count = 1;     //allowed
+    count = 1;      //allowed
 
 Note that even a value which isn't a variable in this sense, may still be
 "variable" in the sense that its value varies between different runs of
@@ -579,11 +565,13 @@ In Ceylon, a value or function declaration can occur almost anywhere:
 - as a _block-local_ declaration inside a different value or function 
   body.
 
-Indeed, as we'll see later, a value or function declaration may even 
-occur _inside an expression_ in some cases.
+Indeed, [as we'll see later](../functions/#anonymous_functions), a 
+value or function declaration may even occur _inside an expression_ 
+in some cases.
 
-Functions declarations look pretty similar to what you're probably already
-used to from other C-like languages, with two exceptions. Ceylon has:
+Functions declarations look pretty similar to what you're probably 
+already used to from other C-like languages, with two exceptions. 
+Ceylon has:
 
 - defaulted parameters, and
 - variadic parameters.  
@@ -601,8 +589,8 @@ A function parameter may specify a default value.
         print("Hello, ``name``!");
     }
 
-Then we don't need to specify an argument to the parameter when we call 
-the function:
+Then we don't need to specify an argument to the parameter when we 
+call the function:
 
 <!-- try:
     void hello(String name="World") {
@@ -617,8 +605,8 @@ the function:
     hello("JBoss"); //Hello, JBoss!
 <!-- cat: } -->
 
-Defaulted parameters must be declared after all required parameters in the 
-parameter list of a function.
+Defaulted parameters must be declared after all required parameters 
+in the parameter list of a function.
 
 
 ## Variadic parameters
@@ -632,9 +620,9 @@ for a function or class, and it must be the last parameter.
         // ... 
     }
 
-Inside the function body, the parameter `names` has type `[String*]`, a 
-[sequence type](../sequences), which we'll learn about later. Thus, we
-can iterate the parameter using a `for` loop to get at the individual 
+Inside the function body, the parameter `names` has type `[String*]`, 
+a [sequence type](../sequences), which we'll learn about later. Thus, 
+we can iterate the parameter using a `for` loop to get at the individual 
 arguments.
 
 <!-- try-post:
@@ -662,8 +650,8 @@ one argument.
 To pass an argument to a variadic parameter we have three choices. We
 could:
 
-- provide a an explicit list of enumerated arguments,
-- pass in iterable object producing the arguments, or
+- provide an explicit list of enumerated arguments,
+- pass an iterable object producing the arguments, or
 - specify a comprehension.
 
 The first case is easy:
@@ -684,11 +672,12 @@ later in the tour.
 
 ## Fat arrows and forward declaration
 
-Ceylon's expression syntax is much more powerful than Java's, and it's
-therefore possible to express a lot more in a single compact expression.
-It's therefore _extremely_ common to encounter functions and values which
-simply evaluate and return an expression. So Ceylon lets us abbreviate
-such function and value definitions using a "fat arrow", `=>`. For example:
+Ceylon's expression syntax is much more powerful than Java's, and 
+it's therefore possible to express a lot more in a single compact 
+expression. So it's _extremely_ common to encounter functions and 
+values which simply evaluate and return an expression. So Ceylon 
+lets us abbreviate such function and value definitions using a 
+"fat arrow", `=>`. For example:
 
 <!-- try-pre:
     value firstName = "David";
