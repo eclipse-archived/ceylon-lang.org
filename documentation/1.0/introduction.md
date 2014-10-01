@@ -553,8 +553,8 @@ It's even possible to pass a member method or attribute reference to a
 higher-order function:
 
 <!-- try: -->
-    String[] names = { "Gavin", "Stef", "Tom", "Tako" };
-    String[] uppercaseNames = names.map(String.uppercased);
+    value names = { "Gavin", "Stef", "Tom", "Tako" };
+    value uppercaseNames = names.map(String.uppercased);
 
 Unlike other statically-typed languages with higher-order functions, Ceylon
 has a single function type, the interface `Callable`. There's no need to

@@ -30,7 +30,7 @@ of the language is for most code to be immediately readable to people who
 *aren't* Ceylon programmers, and who *haven't* studied the syntax of the
 language.
 
-Here's what a simple function looks like:
+Here's what it looks like to define and call a simple function:
 
 <!-- try-pre:
     class Point(x, y) { shared Float x; shared Float y; }
@@ -38,7 +38,7 @@ Here's what a simple function looks like:
 -->
 <!-- try-post:
 
-    print(distance(Point(0.0, 0.0), Point(2.0, 3.0)));
+    print(dist);
 -->
 <!-- implicit-id:point: class Point() { shared Float x = 0.0; shared Float y = 0.0; } -->
 <!-- cat-id:point -->
@@ -46,30 +46,9 @@ Here's what a simple function looks like:
     function distance(Point from, Point to) {
         return ((from.x-to.x)^2 + (from.y-to.y)^2)^0.5;
     }
+    
+    value dist = distance(Point(0.0, 0.0), Point(2.0, 3.0));
 <!-- cat: } -->
-
-Here's a simple class:
-
-<!-- try-post:
-
-    value counter = Counter(1);
-    print(counter.currentValue);
-    counter.increment();
-    print(counter.currentValue);
--->
-    class Counter(Integer initialValue=0) {
-        
-        variable value count = initialValue;
-        
-        shared Integer currentValue {
-            return count;
-        }
-        
-        shared void increment() {
-            count++;
-        }
-        
-    }
 
 Here's how we create and iterate a sequence:
 
@@ -82,6 +61,41 @@ Here's how we create and iterate a sequence:
 
 If these code examples look boring to you, well, that's kinda the idea -
 they're boring because you understood them immediately!
+
+Here's a simple class:
+
+<!-- try-post:
+
+    value counter = Counter();
+    print(counter.currentValue);
+    counter.increment();
+    print(counter.currentValue);
+-->
+    class Counter(count=0) {
+        variable Integer count;
+        shared Integer currentValue {
+            return count;
+        }
+        shared void increment() {
+            count++;
+        }
+    }
+
+If that's a little _too_ boring, you're allowed to write it more compactly 
+using fat arrows instead of brace-delimited blocks:
+
+<!-- try-post:
+
+    value counter = Counter();
+    print(counter.currentValue);
+    counter.increment();
+    print(counter.currentValue);
+-->
+    class Counter(count=0) {
+        variable Integer count;
+        shared Integer currentValue => count;
+        shared void increment() => count++;
+    }
 
 ## Declarative syntax for treelike structures
 
@@ -150,7 +164,7 @@ Ceylon's conventional-looking syntax hides a powerful type system that is
 able to express things that other static type systems simply can't. All
 types in Ceylon can, at least in principle, be expressed within the type
 system itself. There are no primitive types, arrays, or anything similar.
-Even `Null` is a class. 
+Even `Null` is a class. Even `Tuple` is a class.
 
 The type system is based on analysis of "best" or *principal* types. For 
 every expression, a unique, most specific type may be determined, without 
@@ -175,10 +189,13 @@ of types:
 <!-- try: -->
     Printable&Sized&Persistent printableSizedPersistent = ... ;
 
-Union and intersection types are occasionally useful as a convenience in 
-ordinary code. More importantly, they help make things that are complex 
-and magical in other languages (especially generic type argument inference) 
-simple and straightforward in Ceylon. For example, consider the following:
+Union and intersection types are often useful as a convenience in ordinary 
+code. (Once you start using Ceylon, you'll be amazed just how often!) More 
+importantly, they help make things that are complex and magical in other 
+languages&mdash;especially generic type argument inference&mdash;simple and 
+straightforward in Ceylon.
+
+For example, consider the following:
 
 <!-- try-post:
 
@@ -218,21 +235,15 @@ called *mixin inheritance*.
 -->
     interface Sized {
         shared formal Integer size;
-        shared Boolean empty {
-            return size==0;
-        }
+        shared Boolean empty => size==0;
     }
     
     interface Printable {
-        shared void printIt() {
-            print(this);
-        }
+        shared void printIt() => print(this);
     }
     
     object empty satisfies Sized & Printable {
-        shared actual Integer size {
-            return 0;
-        }
+        shared actual Integer size => 0;
     }
 
 What really distinguishes interfaces from classes in Ceylon is that 
@@ -303,8 +314,8 @@ Or it might be a getter/setter pair:
 In Ceylon, we don't need to write trival getters or setters which merely 
 mediate access to a field. The state of a class is always 
 [completely abstracted](../tour/classes/#abstracting_state_using_attributes) 
-from clients of the class: We can change a reference attribute to a getter/setter 
-pair without breaking clients.
+from clients of the class: we can change a reference attribute to a 
+getter/setter pair without breaking clients.
 
 ## Typesafe null and flow-sensitive typing
 
@@ -321,8 +332,11 @@ Which is actually just an abbreviation for:
 <!-- try: -->
     String|Null name = ...
 
-An attribute of type `String?` might refer to an actual instance of `String`, 
-or it might refer to the value `null` (the only instance of the class `Null`). 
+An attribute of type `String?` might refer:
+
+- to an actual string, the `String` half of the union type, or 
+- the value `null`, the only instance of the class `Null`.
+ 
 So Ceylon won't let us do anything useful with a value of type `String?` 
 without first checking that it isn't null using the special `if (exists ...)` 
 construct.
@@ -334,6 +348,7 @@ construct.
 -->
     void hello(String? name) {
         if (exists name) {
+            //name is of type String here
             print("Hello, ``name``!");
         }
         else {
@@ -353,6 +368,7 @@ way of writing the following:
 -->
     void hello(String? name) {
         if (is String name) {
+            //name is of type String here
             print("Hello, ``name``!");
         }
         else {
@@ -381,14 +397,14 @@ flow-sensitive typing comes into play is assertions:
 
 ## Enumerated subtypes
 
-In object-oriented programming, it's usually considered bad practice to write 
-long `switch` statements that handle all subtypes of a type. It makes the code 
-non-extensible. Adding a new subtype to the system causes the `switch` 
-statements to break. So in object-oriented code, we usually try to refactor 
-constructs like this to use an abstract method of the supertype that is 
-refined as appropriate by subtypes.
+In object-oriented programming, it's usually considered bad practice to 
+write long `switch` statements that handle all subtypes of a type. It 
+makes the code less extensible. Adding a new subtype to the system causes 
+the `switch` statements to break. So in object-oriented code, we usually 
+try to refactor constructs like this to use an abstract method of the 
+supertype that is refined as appropriate by subtypes.
 
-However, there is a class of problems where this kind of refactoring isn't 
+However, there's a class of problems where this kind of refactoring isn't 
 appropriate. In most object-oriented languages, these problems are usually 
 solved using the "visitor" pattern. Unfortunately, a visitor class actually 
 winds up more verbose than a `switch`, and no more extensible. There is, on
@@ -416,19 +432,27 @@ And we can write a `switch` statement that handles all the enumerated subtypes:
 -->
     Node node = ... ;
     switch (node)
-    case (is Leaf) { ... }
-    case (is Branch) { .... }
+    case (is Leaf) { 
+        //node is of type Leaf here
+        print(node.leafValue); 
+    }
+    case (is Branch) {
+        //node is of type Branch here
+        doSomething(node.leftNode);
+        doSomething(node.rightNode);
+    }
 
-Now, if we add a new subtype of `Node`, we must add the new subtype to the
-`of` clause of the declaration of `Node`, and the compiler will produce an 
-error at every `switch` statement which doesn't handle the new subtype.
+Now, if we were to add a new subtype of `Node`, we would be forced to add the 
+new subtype to the `of` clause of the declaration of `Node`, and the compiler 
+would produce an error at every `switch` statement which doesn't handle the 
+new subtype.
 
 ## Type aliases and type inference
 
 Fully-explicit type declarations very often make difficult code much easier to
 understand, and they're an invaluable aid to understanding the API of a library 
-or framework. But there are other occasions where the repetition of a verbose
-generic type can detract from the readability of the code. We've observed that:
+or framework. But there are plenty of occasions where the repetition of a verbose
+generic type just detracts from the readability of the code. We've observed that:
 
 1. explicit type annotations are of much less value for local declarations, and
 2. repetition of a parameterized type with the same type arguments is common
@@ -443,7 +467,7 @@ declarations. For example:
 <br/>
 
 <!-- try: -->
-    function sqrt(Float x) { return x^0.5; }
+    function sqrt(Float x) => x^0.5;
 
 <br/>    
 
@@ -553,14 +577,15 @@ It's even possible to pass a member method or attribute reference to a
 higher-order function:
 
 <!-- try: -->
-    String[] names = { "Gavin", "Stef", "Tom", "Tako" };
-    String[] uppercaseNames = names.map(String.uppercased);
+    value names = { "Gavin", "Stef", "Tom", "Tako" };
+    value uppercaseNames = names.map(String.uppercased);
 
 Unlike other statically-typed languages with higher-order functions, Ceylon
 has a single function type, the interface `Callable`. There's no need to
-adapt a function to a singe-method interface type, nor is there a profusion
+adapt a function to a singe-method interface type, nor is there a menagerie
 of function types `F`, `F1`, `F2`, etc, with some arbitrary limit of 24 
 parameters or whatever. Nor are Ceylon's function types defined primitively. 
+
 Instead, `Callable` accepts a tuple type argument that captures the parameter 
 types of the function. Of course, there's also a single class `Tuple` that 
 abstracts over all tuple types! This means that it's possible to write 
@@ -583,8 +608,7 @@ We can access the elements of the list without needing to typecast:
     [Float,Float] xy = [xyzWithLabel[0], xyzWithLabel[1]];
     String label = xyzWithLabel[3];
 
-Tuples aren't something we intend for you to use every day. But they are 
-occasionally useful as a convenience, and they really come into play if you
+Tuples are useful as a convenience, and they really come into play if you
 want to take advantage of Ceylon's support for typesafe metaprogramming. For
 example, you can take a tuple, and "spread" it across the parameters of a
 function.
@@ -645,40 +669,61 @@ the names:
 
 ## Simplified generics with fully-reified types
 
-Ceylon does not support Java-style wildcard type parameters, raw types, or any 
-other kind of existential type. And the Ceylon compiler never even uses any kind 
-of "non-denotable" type to reason about the type system. And there's no implicit 
-constraints on type arguments. So generics-related error messages are understandable 
-to humans.
+Ceylon's type system is more powerful than Java's, but it's also simpler. 
+The Ceylon compiler never even uses any kind of "non-denotable" type to reason 
+about your code. And there's no wildcard capture, implicit constraints on type 
+arguments, nor "raw" types. Compared to other languages, generics-related error 
+messages are much more understandable to humans.
 
-Instead of wildcard types, Ceylon features *declaration-site variance*. A type 
-parameter may be marked as covariant (`out`) or contravariant (`in`) by the class 
-or interface that declares the parameter. Consider:
+Furthermore, Ceylon's type system is _fully reified_ at runtime. In particular, 
+generic type arguments are reified, eliminating many frustrations that result 
+from type argument erasure in Java. For example, Ceylon lets us write 
+`if (is Map<String,Object> map)`.
 
-<!-- try: -->
-    shared interface Map<in Key, out Item> {
-         shared formal Item? get(Key key);
-    }
-
-Given this declaration of `Map`:
-
-- a `Map<String,Integer>` is also a `Map<String,Number>`, since `get()` produces an 
-  `Integer`, which is also an `Number`, and 
-- a `Map<List<Character>,Integer>` is also a `Map<String,Integer>`, since `get()` 
-  accepts any key which is an `List<Character>`, and every `String` is a 
-  `List<Character>`.
-
-Ceylon has an expressive system of generic type constraints with a cleaner, more 
-regular syntax. The syntax for declaring type constraints on a type parameter looks 
-very similar to a class or interface declaration.
+Finally, there's a cleaner, more regular syntax for generic type constraints. 
+The syntax for declaring type constraints on a type parameter looks very similar
+to a class or interface declaration.
 
 <!-- try: -->
     shared Value sum<Value>({Value+} values) 
             given Value satisfies Summable<Value> { ... }
 
-Ceylon's type system is _fully reified_. In particular, generic type arguments are 
-reified, eliminating many frustrations that result from type argument erasure in 
-Java. For example, Ceylon lets us write `if (is Map<String,Object> map)`.
+## Declaration-site and use-site variance
+
+Ceylon supports two approaches to _variance_ of generic types:
+
+- *declaration-site variance*, which is used throughout the Ceylon language module 
+  and SDK, and is considered the idiomatic approach, and
+- *use-site variance*, which is used mainly for interoperating with Java's generic
+  types.
+
+With use-site variance, a type _argument_ is marked covariant (`out`) or 
+contravariant (`in`). Thus, this type is contravariant in its first argument,
+and covariant in its second argument:
+
+<!-- try: -->
+    Map<in String, out Number>
+
+(In Java, this type would be written `Map<? super String, ? extends Number>`.)
+
+With declaration-site variance, the system we strongly prefer in Ceylon, a 
+type _parameter_ may be marked as covariant or contravariant by the class or 
+interface that declares the type parameter. Consider:
+
+<!-- try: -->
+    shared interface Dictionary<in Key, out Item> {
+         shared formal Item? get(Key key);
+    }
+
+Given this declaration of `Dictionary`:
+
+- a `Dictionary<String,Integer>` is also a `Dictionary<String,Number>`, since `get()` 
+  produces an `Integer`, which is also an `Number`, and 
+- a `Dictionary<List<Character>,Integer>` is also a `Dictionary<String,Integer>`, 
+  since `get()` accepts any key which is an `List<Character>`, and every `String` 
+  is a `List<Character>`.
+
+So code which uses the `Dictionary` interface doesn't have to worry about variance. 
 
 ## Operator polymorphism
 
@@ -729,7 +774,7 @@ documentation compiler:
 
 <!-- try: -->
     "The user login action"
-    by ("Gavin King")
+    by ("Trompon the Elephant")
     throws (`class DatabaseException`,
             "if database access fails")
     see (`function LogoutAction.logout`)
@@ -765,13 +810,15 @@ the module descriptor:
 
 For execution on the Java Virtual Machine, the Ceylon compiler directly produces 
 `.car` module archives in module repositories. You're never exposed to unpackaged 
-`.class` files.
+`.class` files. The `.car` archives come with built-in metadata for the Ceylon 
+module runtime, for OSGi containers, and for Maven.
 
 At runtime, modules are loaded according to a peer-to-peer classloader architecture,
 based upon the same module runtime that is used at the very core of JBoss AS 7.
+Alternatively, Ceylon modules are compatible with OSGi, and with Vert.x.
 
 For execution on JavaScript Virtual Machines, the Ceylon compiler produces CommonJS
-modules.
+modules, which are compatible with `node.js` and `require.js`.
 
 [Ceylon Herd](http://modules.ceylon-lang.org) is a community module repository for
 sharing open source modules.
@@ -814,6 +861,12 @@ We can even call untyped native JavaScript APIs, inside a `dynamic` block:
 Try it!
 
     dynamic { alert("Hello, World!"); }
+
+## A real specification
+
+The Ceylon language is defined by a an exhaustive, but highly readable,
+144-page [formal specification](../spec). The specification predates the
+compiler, and functions as its foundation. 
 
 ## Take the Tour
 
