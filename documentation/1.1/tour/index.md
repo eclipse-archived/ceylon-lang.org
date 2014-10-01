@@ -111,22 +111,22 @@ Let's try it out. Save the above code in the file `./source/hello.ceylon`
 and then run the following commands:
 
 <!-- lang: bash -->
-    ceylon-1.0.0/bin/ceylon compile source/hello.ceylon
-    ceylon-1.0.0/bin/ceylon run --run hello default
+    ceylon-1.1.0/bin/ceylon compile source/hello.ceylon
+    ceylon-1.1.0/bin/ceylon run --run hello default
 
-where `ceylon-1.0.0` is the path to your Ceylon install directory. You should
+where `ceylon-1.1.0` is the path to your Ceylon install directory. You should
 see the message `Hello, World!`. You will find the compiled module archive 
 `default.car` in the directory `./modules/default`.
 
 A very useful trick is:
 
 <!-- lang: bash -->
-    ceylon-1.0.0/bin/ceylon help compile
+    ceylon-1.1.0/bin/ceylon help compile
 
 And:
 
 <!-- lang: bash -->
-    ceylon-1.0.0/bin/ceylon help run
+    ceylon-1.1.0/bin/ceylon help run
 
 The command
 [ceylon help](#{site.urls.ceylon_tool_current}/ceylon-help.html) 
@@ -139,8 +139,8 @@ already.*
 
 ### Selecting the JDK
 
-Ceylon requires Java 7, so you might need to verify that this is the version
-of Java you're using.
+Ceylon requires Java 7 or Java 8, so you might need to verify that you're 
+using a supported version of Java.
 
 <!-- lang: bash -->
     bash$ java -version
@@ -151,7 +151,7 @@ of Java you're using.
     javac 1.7.0_05
 
 If you're using some other version of Java, you'll need to change to use 
-Java 7:
+Java 7 or Java 8:
 
 - on Linux, use `update-java-alternatives`,
 - on Mac, use the `System Preferences` 
@@ -195,15 +195,17 @@ you step by step through the process.
 
 ### Selecting the JDK
 
-Ceylon IDE requires Java 7, so you might need to verify that Eclipse is running 
-on a Java 7 VM. Go to `Eclipse > About Eclipse`, click `Installation Details`,
-and go to the `Configuration` tab. You'll see the Java version listed among the 
-other system properties. See the [instructions above](#selecting_the_jdk) to
-change the version of Java. You might need to edit `eclipse.ini`.
+Ceylon IDE requires Java 7 or Java 8, so you might need to verify that Eclipse 
+is running on a Java 7 or Java 8 VM. Go to `Eclipse > About Eclipse`, click 
+`Installation Details`, and go to the `Configuration` tab. You'll see the Java 
+version listed among the other system properties. See the 
+[instructions above](#selecting_the_jdk) to change the version of Java. You 
+might need to edit `eclipse.ini`.
 
 You need to make sure that your project is configured to compile using the Java 
-7 compiler. Go to `Project > Properties`, select the `Java Compiler` section,
-and make sure that the project is configured to use the Java 7 compiler.
+7 or Java 8 compiler. Go to `Project > Properties`, select the `Java Compiler` 
+section, and make sure that the project is configured to use the Java 7 or
+Java 8 compiler.
 
 ### Setting the character encoding
 
