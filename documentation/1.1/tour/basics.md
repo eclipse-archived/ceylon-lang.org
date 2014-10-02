@@ -863,6 +863,6 @@ the syntax we're using here a bit [later in the tour](../comprehensions).
 ## There's more...
 
 Ceylon is an object-oriented language, so an awful lot of the code we write 
-in Ceylon is contained in a _class_. [Let's learn about classes](../classes)
+in Ceylon is contained in a _class_. Let's [learn about classes](../classes)
 right now, before we come back to [more of the basic stuff](../attributes-control-structures).
 
