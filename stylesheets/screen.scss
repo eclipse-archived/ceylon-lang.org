@@ -26,7 +26,7 @@ body.bp {
   // Remove the scaffolding when you're ready to start doing visual design.
   // Or leave it in if you're happy with how blueprint looks out-of-the-box
 
-  font-size:15px;
+  font-size:15.5px;
   font-family:'Source Sans Pro', Arial, 'Helvetica Neue', Helvetica, sans-serif;
   color: #525252;
   background-color: white;
@@ -88,7 +88,7 @@ body.bp {
     margin-top:0px;
     margin-bottom:0px;
     padding-left: 10px;
-    font-family:'Inconsolata', Menlo, Monaco, Courier, monospace;
+    font-family:Inconsolata, Monaco, Courier, monospace;
     font-style:normal;
     //border-left: 5px solid #f0f0f0;
     font-size:95%;
@@ -101,17 +101,16 @@ body.bp {
     margin-bottom:0px;
     
     code {
-      font-family:'Inconsolata', Menlo, Monaco, Courier, monospace;
+      font-family:Inconsolata, Monaco, Courier, monospace;
       font-style:normal;
-      font-size:85%;
     }
   }
   
   p code, ul code, ol code {
-    font-family:'Inconsolata', Menlo, Monaco, Courier, monospace;
+    font-family:Inconsolata, Monaco, Courier, monospace;
     font-style:normal;
-    font-size:90%;
     color:#2E5C00;
+    font-size:95%;
   }
   
   //Home news info
@@ -505,7 +504,7 @@ form.bp {
 
   //from http://css3buttongenerator.com/
   .bubble-button {
-    font-family: 'Source Sans Pro', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    //font-family: 'Source Sans Pro', Arial, 'Helvetica Neue', Helvetica, sans-serif;
     font-weight: normal;
     font-size: 12px;
     text-decoration: none;

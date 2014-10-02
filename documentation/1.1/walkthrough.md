@@ -10,7 +10,8 @@ doc_root: ..
 
 The Ceylon Walkthrough is a set of exercises originally developed for 
 a workshop presented by Gavin and Enrique in Mexico City. It comes in 
-English and Spanish and covers much of the basics of the language.
+English, Spanish, French, and German, and covers much of the basics of 
+the language.
 
 ## Before you start
 

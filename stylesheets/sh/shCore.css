@@ -51,10 +51,9 @@
 	height: auto !important;
 	width: auto !important;
 	//line-height: 1.4em !important;
-	font-family: 'Inconsolata', Menlo, Monaco, Courier, monospace !important;
+	font-family: Inconsolata, Monaco, Courier, monospace !important;
 	font-weight: normal !important;
-	font-stylex: normal !important;
-	//font-size: 99% !important;
+	font-style: normal !important;
 	min-height: inherit !important; /* For IE8, FF & WebKit */
 	min-height: auto !important; /* For IE7 */
 }
