@@ -157,9 +157,14 @@ The function `every()` (in `ceylon.language`) accepts a stream of
 `Boolean` values, and stops iterating the stream as soon as it 
 encounters `false` in the stream.
 
-### The fine print
+Now let's see what the various bits of a comprehension do.
 
-Now for a tiny _gotcha_.
+### Gotcha!
+
+It's important to have the right mental model of where a comprehension
+starts and finishes and what precisely it means. The comprehension is 
+the bit which starts with `for`, and ends in an expression. The braces 
+or brackets are _not_ included. 
 
 A comprehension produces multiple value, not a single value.
 _Therefore a comprehension is not considered an expression and we
@@ -178,8 +183,6 @@ like we saw above:
     print(names);
 -->
     {String*} names = { for (p in people) p.name }; 
-
-Now let's see what the various bits of a comprehension do.
 
 ## Transformation
 
@@ -267,6 +270,22 @@ a lot like a `join` in SQL.
     print({for (o in orgs) for (e in o.employees) o.name->e.name});
 -->
     for (o in orgs) for (e in o.employees) e.name
+
+## Comprehensions beginning in `if`
+
+A comprehension may begin with an `if` clause. For example, this
+comprehension:
+
+<!-- try: -->
+    [ if (x>=0.0) x^0.5 ]
+
+Produces the singleton `[2.0]` if `x==4.0`, and the empty tuple
+`[]` if `x<0.0`. Likewise, the comprehension:
+
+<!-- try: -->
+    { if (exists list) for (x in list) x.string }
+
+Produces an empty stream if `list` is `null`.
 
 ## There's more...
 

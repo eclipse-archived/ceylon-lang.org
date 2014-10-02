@@ -400,7 +400,7 @@ the function type.
 
 ## Anonymous functions
 
-The most famous higher-order functions are a trio of functions for tranforming,
+The most famous higher-order functions are a trio of functions for transforming,
 filtering, and summarizing sequences of values. In Ceylon, these three functions,
 `map()`, `filter()`, and `fold()` are methods of the interface 
 [`Iterable`](#{site.urls.apidoc_1_1}/Iterable.type.html).

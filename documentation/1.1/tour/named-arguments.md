@@ -150,6 +150,30 @@ write the arguments down in the right order:
 
 Yes, there's a great reason for this, as we're about to see!
 
+### Gotcha!
+
+There's a slightly-unfortunate near-ambiguity in the grammar
+of named argument lists. This invocation:
+
+    printAll { "hello" };
+
+Means something quite different Is quite different to this
+one, with a terminating semicolon:
+
+    printAll { "hello"; };
+
+(Try them and see.)
+
+According to the rules above, the first example means this:
+
+    printAll { values = { "hello" }; };
+
+Whereas the second example is an abbreviation for:
+
+    printAll { values = "hello"; };
+
+Mind the punctuation! 
+
 
 ## Declarative object instantiation syntax
 
