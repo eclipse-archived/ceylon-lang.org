@@ -278,7 +278,7 @@ with the intersection of their supertypes when performing type inference:
 
     interface Foo {}
     interface Bar {}
-    object foobar satisfies Foo&Bar {}
+    object foobar satisfies Foo & Bar {}
     value fb = foobar; //inferred type Basic&Foo&Bar
     value fbs = { foobar, foobar }; //inferred type {Basic&Foo&Bar+}
 

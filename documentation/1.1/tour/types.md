@@ -107,33 +107,33 @@ An expression is assignable to an *intersection type*, written `X&Y`, if it is
 assignable to *both* `X` and `Y`. For example, since 
 [`Tuple`](#{site.urls.apidoc_1_1}/Tuple.type.html)
 is a subtype of 
-[`Iterable<Nothing>`](#{site.urls.apidoc_1_1}/Iterable.type.html) 
+[`Iterable`](#{site.urls.apidoc_1_1}/Iterable.type.html) 
 and of 
 [`Correspondence`](#{site.urls.apidoc_1_1}/Correspondence.type.html),
 the tuple type `[String,String]` is also a subtype of the intersection 
-`Iterable<String>&Correspondence<Integer,String>`. The supertypes of an 
-intersection type include all supertypes of every intersected type.
+`{String*} & Correspondence<Integer,String>`. The supertypes of 
+an intersection type include all supertypes of every intersected type.
 
 Therefore, the following code is well-typed:
 
-    Iterable<String>&Correspondence<Integer,String> strings = 
-            ["hello", "world"];
+    {String*} & Correspondence<Integer,String> strings 
+            = ["hello", "world"];
     String? str = strings.get(0);  //call get() of Correspondence
     Integer size = strings.size;  //call size of Iterable
 
 Now consider this code, to see the effect of `if (is ...)`:
 
-    Iterable<String> strings = ["hello", "world"];
+    {String*} strings = ["hello", "world"];
     if (is Correspondence<Integer,String> strings) {
         //here strings has type 
-        //Iterable<String> & Correspondence<Integer,String>
+        //{String*} & Correspondence<Integer,String>
         String? str = strings.get(0);
         Integer size = strings.size;
     }
 
 Inside the body of the `if` construct, `strings` has the type 
-`Iterable<String>&Correspondence<Integer,String>`, so we can call operations of 
-both `Iterable` and `Correspondence`.
+`{String*} & Correspondence<Integer,String>`, so we can call 
+operations of both `Iterable` and of `Correspondence`.
 
 
 ## Union types
@@ -199,6 +199,13 @@ will let us leave off the `else` clause.
     }
 
 A union type is a kind of *enumerated type*.
+
+### Gotcha!
+
+The `case`s of a `switch` statement must be [disjoint](#more_about_disjointness).
+Since `String`, `Integer`, and `Float` are disjoint types, the above `switch`
+statement is legal. If a union type is formed from types which aren't disjoint,
+those types can't be used as distinct `case`s. 
 
 ## Enumerated types
 
@@ -431,30 +438,30 @@ compiler enforces those subtypes to be disjoint. So if we define the following
 enumerated interface:
 
 <!-- try:
-    interface Resource of File|Directory|Link { }
+    interface Resource of File | Directory | Link { }
 
     interface File satisfies Resource {}
     interface Directory satisfies Resource {}
     interface Link satisfies Resource {}
 -->
-    interface Resource of File|Directory|Link { ... }
+    interface Resource of File | Directory | Link { ... }
 
 Then the following declaration is an error:
 
 <!-- try-pre:
-    interface Resource of File|Directory|Link { }
+    interface Resource of File | Directory | Link { }
     interface File satisfies Resource {}
     interface Directory satisfies Resource {}
     interface Link satisfies Resource {}
 
 -->
     class DirectoryFile() 
-            satisfies File&Directory {} //compile error: File and Directory are disjoint types
+            satisfies File & Directory {} //compile error: File and Directory are disjoint types
 
 Now this is accepted by the compiler:
 
 <!-- try:
-    interface Resource of File|Directory|Link { }
+    interface Resource of File | Directory | Link { }
     interface File satisfies Resource {}
     interface Directory satisfies Resource {}
     interface Link satisfies Resource {}
@@ -476,7 +483,7 @@ The compiler is pretty clever when it comes to reasoning about disjointness
 and exhaustion. For example, this is acceptable:
 
 <!-- try:
-    interface Resource of File|Directory|Link { }
+    interface Resource of File | Directory | Link { }
     interface File satisfies Resource {}
     interface Directory satisfies Resource {}
     interface Link satisfies Resource {}
@@ -495,7 +502,7 @@ and exhaustion. For example, this is acceptable:
 As is this:
 
 <!-- try:
-    interface Resource of File|Directory|Link { }
+    interface Resource of File | Directory | Link { }
     interface File satisfies Resource {}
     interface Directory satisfies Resource {}
     interface Link satisfies Resource {}
@@ -516,7 +523,7 @@ As is this:
 As is this, still assuming the above declaration of `Resource`:
 
 <!-- try:
-    interface Resource of File|Directory|Link { }
+    interface Resource of File | Directory | Link { }
     interface File satisfies Resource {}
     interface Directory satisfies Resource {}
     interface Link satisfies Resource {}
@@ -578,7 +585,7 @@ language module.
 ## More about disjointness
 
 As we've seen, _disjointness_ is a useful property for two types to have, since
-it lets us uses them as cases of the same `switch` statement. Therefore, the
+it lets us use them as cases of the same `switch` statement. Therefore, the
 compiler expends some effort to determine if two types are disjoint. For 
 example:
 
