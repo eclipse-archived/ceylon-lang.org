@@ -245,7 +245,7 @@ OK, so here we go with the examples.
 
 <a name="conditionals"><!-- old id --></a>
 
-### `if`
+### If conditionals
 
 The `if/else` statement is totally traditional:
 
@@ -271,7 +271,7 @@ back when we talked about [optional types](../basics/#dealing_with_objects_that_
 We often use [the operators `then` and `else`](../basics/#you_can_chain_an_else...)
 instead of `if`. 
 
-### `switch`
+### Switch conditionals
 
 The `switch/case` statement eliminates C's much-criticized "fall through" 
 behavior and irregular syntax:
@@ -293,7 +293,7 @@ We'll have much more to say about `switch` when we discuss
 [enumerated types](../types/#enumerated_types).
 
 
-### `assert`
+### Assertions
 
 Ceylon also has an `assert` statement:
 
@@ -343,7 +343,7 @@ assertions are always enabled.
 
 <a name="loops"><!-- old id --></a>
 
-### `for`
+### For loops
 
 The `for` loop has an optional `else` block, which is executed when the 
 loop completes normally, rather than via a `return` or `break` statement. 
@@ -406,7 +406,7 @@ We often use [comprehensions](../comprehensions) or even
 [higher order functions](../functions/#anonymous_functions) instead of
 `for`.
 
-### `while`
+### While loops
 
 The `while` loop is traditional.
 
@@ -424,7 +424,7 @@ There is no `do/while` statement.
 
 <a name="exception_handling"><!-- old id --></a>
 
-### `try`
+### Try statements
 
 The `try/catch/finally` statement works just like Java's:
 
