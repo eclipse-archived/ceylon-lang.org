@@ -26,7 +26,7 @@ body.bp {
   // Remove the scaffolding when you're ready to start doing visual design.
   // Or leave it in if you're happy with how blueprint looks out-of-the-box
 
-  font-size:15.5px;
+  font-size:15px;
   font-family:'Source Sans Pro', Arial, 'Helvetica Neue', Helvetica, sans-serif;
   color: #525252;
   background-color: white;
@@ -82,16 +82,13 @@ body.bp {
   }
   
   .syntaxhighlighter .lines {
-    //background-color:#f5f5f5;
-    //border: 1px solid #d5d8d3;
     margin-left:10px;
     margin-top:0px;
     margin-bottom:0px;
-    padding-left: 10px;
+    padding-left:10px;
     font-family:Inconsolata, Monaco, Courier, monospace;
     font-style:normal;
-    //border-left: 5px solid #f0f0f0;
-    font-size:95%;
+    font-size:14.5px;
   }
 
   pre {
@@ -99,6 +96,7 @@ body.bp {
     margin-left:15px;
     margin-top:0px;
     margin-bottom:0px;
+    font-size:14.5px;
     
     code {
       font-family:Inconsolata, Monaco, Courier, monospace;
@@ -110,7 +108,7 @@ body.bp {
     font-family:Inconsolata, Monaco, Courier, monospace;
     font-style:normal;
     color:#2E5C00;
-    font-size:95%;
+    font-size:14.5px;
   }
   
   //Home news info
@@ -315,7 +313,6 @@ form.bp {
       padding: 0;
       code {
         font-family:'Courier New', Courier, monospace;
-        font-size: 15px;
         font-weight: bold;
         text-shadow: none;
         line-height: .96em;
@@ -506,7 +503,7 @@ form.bp {
   .bubble-button {
     //font-family: 'Source Sans Pro', Arial, 'Helvetica Neue', Helvetica, sans-serif;
     font-weight: normal;
-    font-size: 12px;
+    font-size: 13px;
     text-decoration: none;
     line-height: normal;
     padding: 7px 10px;
@@ -633,7 +630,7 @@ form.bp {
   .sidebar-block {
     -moz-border-radius: 15px;
     border-radius: 15px;
-    font-size: 14px;
+    font-size: 15px;
     text-shadow: white 1px 1px 0px;
     padding:1.5em;
     margin:0em 1.75em;

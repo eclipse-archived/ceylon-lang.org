@@ -323,9 +323,14 @@ We say that Ceylon features _principal instantiation inheritance_.
 Even the following code is legal:
 
 <!-- try: -->
-    interface ListOfSomething satisfies List<Something> {}
-    interface ListOfSomethingElse satisfies List<SomethingElse> {}
-    class MyList() satisfies ListOfSomething & ListOfSomethingElse { ... }
+    interface ListOfSomething 
+            satisfies List<Something> {}
+            
+    interface ListOfSomethingElse 
+            satisfies List<SomethingElse> {}
+            
+    class MyList() satisfies 
+            ListOfSomething & ListOfSomethingElse { ... }
 
 Then the following is legal and well-typed:
 
