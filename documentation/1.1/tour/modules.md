@@ -188,19 +188,28 @@ the module descriptor:
 
 ## Module archives and module repositories
 
-A module archive packages together compiled `.class` files, package 
-descriptors, and module descriptors into a Java-style `jar` archive with the 
-extension `.car`. The Ceylon compiler doesn't usually produce individual 
-`.class` files in a directory. Instead, it directly produces module archives.
+When compiled for execution on the Java virtual machine, a module compiles
+to a _module archive_. The module archive packages together compiled `.class` 
+files, package descriptors, and module descriptors into a Java-style `jar` 
+archive with the extension `.car`. 
 
-Module archives live in *module repositories*. A module repository is a 
-well-defined directory structure with a well-defined location for each module. 
-A module repository may be either local (on the filesystem) or remote 
-(on the Internet). Given a list of module repositories, the Ceylon compiler 
-can automatically locate dependencies mentioned in the module descriptor of 
-the module it is compiling. And when it finishes compiling the module, 
-it puts the resulting module archive in the right place in a local module 
-repository.
+A `.car` module archive also includes OSGi and Maven metadata.
+
+The Ceylon compiler never produces individual `.class` files in a directory. 
+
+When compiled for execution on a JavaScript virtual machine, the module
+compiles to a `.js` file, called a _module script_. This module script
+follows a standard called Common JS Modules, which allows the script to
+be used in node.js or with require.js.
+
+Module archives and module scripts live in *module repositories*. A module 
+repository is a well-defined directory structure with a well-defined location 
+for each module. A module repository may be either local (on the filesystem) 
+or remote (on the Internet). Given a list of module repositories, the Ceylon 
+compiler can automatically locate dependencies mentioned in the module 
+descriptor of the module it is compiling. And when it finishes compiling the 
+module, it puts the resulting module archive in the right place in a local 
+module repository.
 
 The architecture also includes support for source directories, source 
 archives, and module documentation directories.
