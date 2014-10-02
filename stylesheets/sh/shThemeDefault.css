@@ -106,24 +106,30 @@
 	color: black !important;
 }
 
+.syntaxhighlighter .punc
+{ 
+    color: black !important;
+    unicode-bidi: embed;
+}
+
 .syntaxhighlighter .comments,
 .syntaxhighlighter .comments a
 { 
-    font-style: italic !important;
+    //font-style: italic !important;
     color: red !important; 
 }
 
 .syntaxhighlighter .string,
 .syntaxhighlighter .string a
 {
-	color: blue !important; 
+	color: darkcyan !important; 
 	text-decoration: none;
 }
 
 .syntaxhighlighter .keyword
 { 
 	color: darkmagenta !important; 
-	font-weight: bold !important; 
+	//font-weight: bold !important; 
 }
 
 .syntaxhighlighter .preprocessor 
@@ -133,7 +139,7 @@
 
 .syntaxhighlighter .variable 
 { 
-	color: black !important; 
+	color: rgb(0,51,153) !important;
 }
 
 .syntaxhighlighter .value
@@ -143,7 +149,7 @@
 
 .syntaxhighlighter .functions
 { 
-	color: black !important; 
+	color: rgb(0,51,153) !important; 
 }
 
 .syntaxhighlighter .constants
@@ -156,22 +162,36 @@
 	background-color: yellow !important;
 }
 
+.syntaxhighlighter .type
+{ 
+    color: rgb(153,0,102) !important; 
+}
+
+.syntaxhighlighter .annotation
+{ 
+    color: rgb(51,153,204) !important;
+}
+
+.syntaxhighlighter .member
+{
+    color: rgb(102,51,153) !important;
+}
+
 .syntaxhighlighter .color1,
 .syntaxhighlighter .color1 a
 { 
-	color: darkblue !important; 
+	color: black !important; 
 }
 
 .syntaxhighlighter .color2,
 .syntaxhighlighter .color2 a
 { 
-    color: darkcyan !important; 
-	//color: darkgray !important; 
+    color: black !important;
 }
 
 .syntaxhighlighter .color3,
 .syntaxhighlighter .color3 a
 { 
 	color: red !important; 
-    font-style: italic !important;
+    //font-style: italic !important;
 }
