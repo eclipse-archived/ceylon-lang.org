@@ -18,11 +18,11 @@ we'll come back to talk more about generics [later](../generics).
 
 ## Iterables
 
-An _iterable_ object, or _stream_, is an object that produces a stream of 
-values. Iterable objects satisfy the interface 
+An iterable object, or _stream_, is an object that produces a stream of 
+values. Streams satisfy the interface 
 [`Iterable`](#{site.urls.apidoc_1_1}/Iterable.type.html).
 
-Ceylon provides some syntax sugar for working with iterable objects:
+Ceylon provides some syntax sugar for working with streams:
 
 - the type `Iterable<X,Null>` represents a stream that might not produce any 
   values when it is iterated, and may be abbreviated `{X*}`, and
