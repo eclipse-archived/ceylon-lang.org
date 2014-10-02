@@ -7,8 +7,7 @@
       & #{site.title}: #{page.title}
     %link{ :rel=>'shortcut icon', :type=>'image/vnd.microsoft.icon', :href=>'/images/favicon.ico' }
     %link{ :rel=>'publisher', :href=>'https://plus.google.com/102481741611133754149' }
-    %link{ :href=>'/stylesheets/sh/shCore.css', :rel=>'stylesheet' }
-    %link{ :href=>'/stylesheets/sh/shThemeDefault.css', :rel=>'stylesheet' }
+    %link{ :href=>'/stylesheets/themes/paraiso-dark.css', :rel=>'stylesheet' }
     %link{ :rel=>'stylesheet', :href=>'/stylesheets/screen.css', :media=>'screen, projection' }
     %link{ :rel=>'stylesheet', :href=>'/stylesheets/print.css', :media=>'print' }
     /[if lt IE 8]
@@ -18,22 +17,9 @@
     %script{ :src=>'https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js' }
     %script{ :src=>'/js/jquery-ui-1.8.22.custom.min.js' }
     %script{ :src=>'/js/common.js' }
-    %script{ :src=>'/js/sh/shCore.js' }
-    %script{ :src=>'/js/sh/shBrushJava.js' }
-    %script{ :src=>'/js/sh/shBrushBash.js' }
-    %script{ :src=>'/js/sh/shBrushCeylon.js' }
-    %script{ :src=>'/js/sh/shBrushJScript.js' }
-    %script{ :src=>'/js/sh/shBrushXml.js' }
-    :javascript
-      SyntaxHighlighter.defaults['gutter'] = false;
-      SyntaxHighlighter.defaults['toolbar'] = false;
-      // register a listener for when the highlighter is done with replacing elements
-      var hl = SyntaxHighlighter.highlight;
-      SyntaxHighlighter.highlight = function(params, element){
-        hl(params, element);
-        postSyntaxHighlighting();
-      };
-      SyntaxHighlighter.all();
+    %script{ :src=>'/js/rainbow.min.js' }
+    %script{ :src=>'/js/language/java.js' }
+    %script{ :src=>'/js/language/ceylon.js' }
     = google_analytics_async
   %body.bp
     #container{:class => "#{page.unique_id}"}

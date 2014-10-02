@@ -171,8 +171,8 @@ t.fullName="Pietje     Pluk";
 print(t.fullName);
 -->
 <!-- cat-id:attrs -->
-    shared String fullName =>
-            " ".join(coalesce { firstName, lastName });
+    shared String fullName
+            => " ".join(coalesce { firstName, lastName });
     
     assign fullName {
         value tokens = fullName.split().iterator();

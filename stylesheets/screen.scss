@@ -84,34 +84,24 @@ body.bp {
     }
   }
   
-  .syntaxhighlighter .lines {
-    margin-left:10px;
+  pre {
+    padding:10px;
+    //margin-left:15px;
     margin-top:0px;
     margin-bottom:0px;
-    padding-left:10px;
+    font-size:14.5px;
+    font-family:Inconsolata, Monaco, Courier, monospace;
+    font-style:normal;
+  }
+  
+  code {
     font-family:Inconsolata, Monaco, Courier, monospace;
     font-style:normal;
     font-size:14.5px;
-  }
-
-  pre {
-    padding-left:10px;
-    margin-left:15px;
-    margin-top:0px;
-    margin-bottom:0px;
-    font-size:14.5px;
-    
-    code {
-      font-family:Inconsolata, Monaco, Courier, monospace;
-      font-style:normal;
-    }
   }
   
   p code, ul code, ol code {
-    font-family:Inconsolata, Monaco, Courier, monospace;
-    font-style:normal;
     color:#2E5C00;
-    font-size:14.5px;
   }
   
   //Home news info
