@@ -144,10 +144,11 @@ annotation type must be a subtype of `ConstrainedAnnotation`:
 
 <!-- try: -->
 <!-- check:none:Annotations M6 -->
-    "An annotation. This interface encodes constraints upon 
-     the annotation in its type arguments."
-    shared interface ConstrainedAnnotation<out Value, out Values, 
-                    in ProgramElement> 
+    "An annotation constrained to appear only on certain 
+     program elements, and only with certain values..."
+    shared interface ConstrainedAnnotation<out Value=Annotation, 
+                                           out Values=Anything, 
+                                           in ProgramElement=Nothing> 
             of Value
             satisfies Annotation<Value>
             given Value satisfies Annotation<Value>
@@ -155,8 +156,8 @@ annotation type must be a subtype of `ConstrainedAnnotation`:
         
         "Can this annotation occur on the given program 
          element?"
-        shared Boolean occurs(Annotated programElement) =>
-                programElement is ProgramElement;
+        shared Boolean occurs(Annotated programElement)
+                => programElement is ProgramElement;
         
     }
 
@@ -185,8 +186,8 @@ Where `OptionalAnnotation` is defined in the language module:
 
 <!-- try: -->
 <!-- check:none:Annotations M5 -->
-    "An annotation that may occur at most once
-     at a single program element."
+    "An annotation that may occur at most once at a given 
+     program element..."
     shared interface OptionalAnnotation<out Value, 
                     in ProgramElement=Annotated>
             of Value
@@ -198,8 +199,8 @@ Along with `SequencedAnnotation`:
 
 <!-- try: -->
 <!-- check:none:Annotations M5 -->
-    "An annotation that may occur multiple times
-     at a single program element."
+    "An annotation that may occur multiple times at a given 
+     program element..."
     shared interface SequencedAnnotation<out Value, 
                     in ProgramElement=Annotated>
             of Value

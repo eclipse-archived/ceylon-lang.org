@@ -1,6 +1,6 @@
 ---
 layout: tour11
-title: Iterables, sequences, and tuples 
+title: Streams, sequences, and tuples 
 tab: documentation
 unique_id: docspage
 author: Gavin King
@@ -18,26 +18,25 @@ we'll come back to talk more about generics [later](../generics).
 
 ## Iterables
 
-An _iterable_ object is an object that produces a stream of values. Iterable
-objects satisfy the interface 
+An _iterable_ object, or _stream_, is an object that produces a stream of 
+values. Iterable objects satisfy the interface 
 [`Iterable`](#{site.urls.apidoc_1_1}/Iterable.type.html).
 
 Ceylon provides some syntax sugar for working with iterable objects:
 
-- the type `Iterable<X,Null>` represents an iterable object that might not 
-  produce any values when it is iterated, and may be abbreviated `{X*}`, and
-- the type `Iterable<X,Nothing>` represents an iterable object that always 
-  produces at least one value when it is iterated, and is usually abbreviated
-  `{X+}`.
+- the type `Iterable<X,Null>` represents a stream that might not produce any 
+  values when it is iterated, and may be abbreviated `{X*}`, and
+- the type `Iterable<X,Nothing>` represents a stream that always produces at 
+  least one value when it is iterated, and is usually abbreviated `{X+}`.
 
 We may construct an instance of `Iterable` using braces:
 
     {String+} words = { "hello", "world" };
     {String+} moreWords = { "hola", "mundo", *words };
 
-The prefix `*` is called the _spread operator_. It "spreads" the values of an 
-iterable object. So `moreWords` produces the values `"hola", "mundo", "hello", 
-"world"` when iterated.
+The prefix `*` is called the _spread operator_. It "spreads" the values of a 
+stream. So `moreWords` produces the values `"hola", "mundo", "hello", "world"` 
+when iterated.
 
 As we'll see [later](../comprehensions), the braces may even contain a
 _comprehension_, making them much more powerful than what you see here.
@@ -79,26 +78,26 @@ To iterate an instance of `Iterable`, we can use a
 (Note that in this context, the `in` keyword isn't the operator we just met
 above, it's just part of the syntax of the `for` loop.) 
 
-If, for any reason, we need an index for each element produced by an iterable 
-object, we can use a special variation of the `for` loop that is designed for 
+If, for any reason, we need an index for each element produced by a stream, 
+we can use a special variation of the `for` loop that is designed for 
 iterating [`Entry`s](#{site.urls.apidoc_1_1}/Entry.type.html):
 
 <!-- try-pre:
     {String+} words = { "hello", "world" };
     {String+} moreWords = { "hola", "mundo", *words };
 -->
-    for (i -> word in entries(moreWords)) {
+    for (i -> word in moreWords.indexed) {
         print("``i``: ``word``");
     }
 
-The [`entries()`](#{site.urls.apidoc_1_1}/index.html#entries) 
-function returns an instance of `Entry<Integer,String>[]` containing the 
+The [`indexed`](#{site.urls.apidoc_1_1}/Iterable.type.html#indexed) 
+attribute returns an instance of `Entry<Integer,String>[]` containing the 
 indexed elements of the sequence. (The `->` is syntax sugar for the class 
 `Entry`.)
 
 It's often useful to be able to iterate two sequences at once. The 
-[`zip()`](#{site.urls.apidoc_1_1}/index.html#zip) 
-function comes in handy here:
+[`zip()`](#{site.urls.apidoc_1_1}/index.html#zip) function comes in handy 
+here:
 
 <!-- try-pre:
     String[] names = ["mies", "wim", "jet"];

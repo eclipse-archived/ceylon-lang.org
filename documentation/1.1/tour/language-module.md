@@ -25,8 +25,8 @@ especially in [this chapter](../sequences).
 
 The module [`ceylon.language`](#{site.urls.apidoc_1_1}/index.html) 
 contains classes and interfaces that are referred to in the language 
-specification, other declarations *they* refer to, and a number of related 
-useful functions and types. Let's meet the main characters.
+specification, other declarations *they* refer to, and a number of 
+related useful functions and types. Let's meet the main characters.
 
 Just like Java, Ceylon has a class named 
 [`Object`](#{site.urls.apidoc_1_1}/Object.type.html).
@@ -47,26 +47,38 @@ Just like Java, Ceylon has a class named
         
         "A developer-friendly string representing the 
          instance..."
-        shared default String string =>
-                className(this) + "@" + hash.string;
+        shared default String string
+                => className(this) + "@" + hash.string;
         
     }
 
-In Ceylon, `Object` *isn't* the root of the type system. An expression of 
-type `Object` has a definite, well-defined, non-`null` value. 
-As we've seen, the Ceylon type system can also represent some more exotic 
-types, for example 
+Ceylon's, `Object` *isn't* the root of the type system. An expression 
+of type `Object` has a definite, well-defined, non-`null` value. As 
+we've seen, Ceylon type system also has the class 
 [`Null`](#{site.urls.apidoc_1_1}/Null.type.html), 
 which is the type of `null`.
 
-Therefore, Ceylon's `Object` has a superclass, named 
+<!-- try: -->
+<!-- check:none:decl from ceylon.language -->
+    "The type of the [[null]] value. Any union type of form 
+     `Null|T` is considered an _optional_ type, whose values
+     include `null`. Any type of this form may be written as
+     `T?` for convenience..."
+    see (`value null`)
+    shared abstract class Null() 
+            of null
+            extends Anything() {}
+
+The object `null` is the only instance of this class.
+
+Therefore, `Object` and `Null` share a superclass, named 
 [`Anything`](#{site.urls.apidoc_1_1}/Anything.type.html).
 
 <!-- try: -->
 <!-- check:none:decl from ceylon.language -->
     "The abstract supertype of all types. A value of type 
-     `Anything` may be a definite value of type `Object`, or it 
-     may be the `null` value. A method declared `void` is 
+     `Anything` may be a definite value of type [[Object]], or 
+     it may be the [[null]] value. A method declared `void` is 
      considered to have the return type `Anything`..."
     shared abstract class Anything() 
             of Object | Null {}
@@ -78,20 +90,6 @@ a method when you don't care about the return type, since a method declared
 `void` is considered to have return type `Anything`, as we saw in the 
 [part about functions](../functions).
 
-The class `Null` also directly extends `Anything`. 
-
-<!-- try: -->
-<!-- check:none:decl from ceylon.language -->
-    "The type of the `null` value. Any union type of form 
-     `Null|T` is considered an optional type, whose values
-     include `null`. Any type of this form may be written as
-     `T?` for convenience..."
-    shared abstract class Null() 
-            of null
-            extends Anything() {}
-
-The object `null` is the only instance of this class.
-
 All types that represent well-defined values extend `Object`, including:
 
 * user-written classes,
@@ -100,7 +98,8 @@ All types that represent well-defined values extend `Object`, including:
 * the types that are considered primitive in Java, such as 
   [`Boolean`](#{site.urls.apidoc_1_1}/Boolean.type.html),
   [`Integer`](#{site.urls.apidoc_1_1}/Integer.type.html),
-  [`Float`](#{site.urls.apidoc_1_1}/Float.type.html), and 
+  [`Float`](#{site.urls.apidoc_1_1}/Float.type.html),
+  [`Byte`](#{site.urls.apidoc_1_1}/Byte.type.html), and  
   [`Character`](#{site.urls.apidoc_1_1}/Character.type.html).
 
 Since an expression of type `Object` always evaluates to a definite, 
@@ -215,27 +214,31 @@ behavior for our own classes, just by implementing or refining methods like
 in Ceylon.
 
 Apart from `Comparable` and `Object`, which provide the underlying 
-definition of comparison and equality operators, the following interfaces are 
-also important in the definition of Ceylon's polymorphic operators:
+definition of comparison and equality operators, the following interfaces 
+are also important in the definition of Ceylon's polymorphic operators:
 
 * [`Summable`](#{site.urls.apidoc_1_1}/Summable.type.html) 
   supports the infix `+` operator,
 * [`Invertible`](#{site.urls.apidoc_1_1}/Invertible.type.html) 
-  supports the prefix `+` and `-` operators,
+  supports the prefix and infix `-` operators,
 * [`Ordinal`](#{site.urls.apidoc_1_1}/Ordinal.type.html) 
   supports the unary `++` and `--` operators,
 * [`Numeric`](#{site.urls.apidoc_1_1}/Numeric.type.html) 
-  supports the other basic arithmetic operators,
+  supports the infix `*` and `/` operators,
+* [`Exponentiable`](#{site.urls.apidoc_1_1}/Exponentiable.type.html) 
+  supports the power operator `^`,
 * [`Comparable`](#{site.urls.apidoc_1_1}/Comparable.type.html) 
-  supports the comparison operators,
+  supports the comparison operators `<`, `>`, `<=`, `>=`, and `<=>`,
+* [`Enumerable`](#{site.urls.apidoc_1_1}/Enumerable.type.html) 
+  supports the range operators `..` and `:`,
 * [`Correspondence`](#{site.urls.apidoc_1_1}/Correspondence.type.html) 
   supports the index operator, 
 * [`Ranged`](#{site.urls.apidoc_1_1}/Ranged.type.html) 
-  supports the segment and span operators, 
+  supports the subrange operators, 
 * [`Boolean`](#{site.urls.apidoc_1_1}/Boolean.type.html)
-  is the basis of the logical operators, and
+  is the basis of the logical operators `&&`, `||`, `!`, and
 * [`Set`](#{site.urls.apidoc_1_1}/Set.type.html) 
-  is the basis of the set operators.
+  is the basis of the set operators `|`, `&`, and, `~`.
 
 
 ## Comparison operators
@@ -282,6 +285,7 @@ the two kinds of union/intersection:
     Set<Bar> bars = ... ;
     Set<Foo&Bar> foobars = foos&bars;
 
+The binary `~` operator represents complement (set subtraction).
 
 ## Indexed operations
 
@@ -491,8 +495,9 @@ types:
 
 You might be disappointed to discover that there are no general-purpose 
 implementations of these interfaces in the language module itself. In fact,
-they're only declared here so that `String`, `Sequence`, and 
-[`Array`](#{site.urls.apidoc_1_1}/Array.type.html) 
+they're only declared here so that `String`, `Sequential`, 
+[`Array`](#{site.urls.apidoc_1_1}/Array.type.html), and
+[`Tuple`](#{site.urls.apidoc_1_1}/Tuple.type.html)
 can be subtypes of `List`.
 
 You might be even more disappointed when you look at these interfaces and
@@ -516,9 +521,17 @@ these interfaces, along with APIs for building and mutating collectons.
 The language module isn't by itself a platform for building applications.
 It's a minimal set of basic types that form part of the language definition
 itself. The Ceylon SDK is still under development, but you can already
-start using [ceylon.file](http://modules.ceylon-lang.org/modules/ceylon.file),
-[ceylon.process](http://modules.ceylon-lang.org/modules/ceylon.process), and
-[ceylon.math](http://modules.ceylon-lang.org/modules/ceylon.math). 
+start using platform modules including
+[ceylon.collection](http://modules.ceylon-lang.org/modules/ceylon.file), 
+[ceylon.file](http://modules.ceylon-lang.org/modules/ceylon.file),
+[ceylon.process](http://modules.ceylon-lang.org/modules/ceylon.process)
+[ceylon.math](http://modules.ceylon-lang.org/modules/ceylon.math),
+[ceylon.net](http://modules.ceylon-lang.org/modules/ceylon.net),
+[ceylon.logging](http://modules.ceylon-lang.org/modules/ceylon.logging),
+[ceylon.test](http://modules.ceylon-lang.org/modules/ceylon.test),
+[ceylon.time](http://modules.ceylon-lang.org/modules/ceylon.time),
+[ceylon.promise](http://modules.ceylon-lang.org/modules/ceylon.promise), and
+[ceylon.locale](http://modules.ceylon-lang.org/modules/ceylon.locale). 
 
 Next we're going to come back to the subject of [object initialization](../initialization), 
 and deal with a subtle problem affecting languages like Java and C#.
