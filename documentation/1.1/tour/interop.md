@@ -92,8 +92,9 @@ Java method or field from Ceylon. Instead:
 
 - `boolean` is represented by Ceylon's `Boolean` type,
 - `char` is represented by Ceylon's `Character` type,
-- `long`, `int`, `short`, and `byte` are represented by 
+- `long`, `int`, and `short` are represented by 
   Ceylon's `Integer` type,
+- `byte` is represented by Ceylon's `Byte` type,
 - `double` and `float` are represented by Ceylon's `Float` 
   type, and
 - `java.lang.String` is represented by Ceylon's `String` type.
@@ -104,7 +105,7 @@ to succeed at runtime. However, conversion from a Ceylon type
 to a Java primitive type might involve an implicit _narrowing_ 
 conversion. For example, if:
 
-- a Ceylon `Integer` is assigned to a Java `int` or `byte`,
+- a Ceylon `Integer` is assigned to a Java `int` or `short`,
 - a Ceylon `Float` is assigned to a Java `float`, or if
 - a Ceylon UTF-32 `Character` is assigned to a Java 16-bit
   `char`
@@ -131,18 +132,19 @@ considered to belong to `java.lang`:
 - `double[]` is `java.lang.DoubleArray`, and
 - `float[]` is `java.lang.FloatArray`.
 
-The object `arrays` in `java.lang` provides methods for casting
-these types to a Ceylon `Array` type.
+We can obtain a Ceylon `Array` without losing the identity 
+of the underlying Java array.
 
 <!-- try: -->
-    import java.lang { JavaString=String, Byte, arrays }
-    
-    Array<Byte> byteArray = JavaString("hello world").bytes.array;  //cast a ByteArray to Array<Byte>
-    ByteArray bytes = arrays.asByteArray(byteArray);  //cast it back to ByteArray
+    ByteArray javaByteArray = ByteArray(10);
+    Array<Byte> byteArray = javaByteArray.byteArray;
 
 You can think of the `ByteArray` as the actual underlying
 `byte[]` instance, and the `Array<Byte>` as an instance of the
 Ceylon class `Array` that wraps the `byte[]` instance.
+
+The module `ceylon.interop.java` contains a raft of additional
+methods for working with these Java array types.
 
 ### Null values are checked at runtime
 
@@ -210,20 +212,6 @@ From Ceylon, this will appear as if it were defined like this:
         shared void setBar(String bar, String baz) { ... }
     }
 
-### Overloaded methods cannot be refined in Ceylon
-
-It's possible to call an overloaded method defined in Java
-from Ceylon, but it's not possible to write a Ceylon class
-which refines multiple overloaded methods with the same
-name.
-
-### All generic Java types are invariant
-
-Ceylon treats all parameterized types defined in Java as
-invariant types. Unfortunately, since Ceylon does not (or at
-least does not _yet_) have use-site variance, Java types with 
-wildcards cannot be correctly represented within Ceylon's type 
-system. 
 
 ## There's more ...
 
