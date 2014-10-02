@@ -48,31 +48,28 @@ Awestruct::Extensions::Pipeline.new do
 
   transformer Awestruct::Extensions::Gsub.new(
     /\<!--\s*lang:\s*ceylon\s*--\>\s*<pre><code>(.*?)<\/code><\/pre>/, 
-    "<pre class=\"brush: ceylon\">\\1</pre>")
+    "<pre data-language=\"ceylon\"><code>\\1</code></pre>")
   transformer Awestruct::Extensions::Gsub.new(
     /\<!--\s*lang:\s*java\s*--\>\s*<pre><code>(.*?)<\/code><\/pre>/, 
-    "<pre class=\"brush: java\">\\1</pre>")
+    "<pre data-language=\"java\"><code>\\1</code>1</pre>")
   transformer Awestruct::Extensions::Gsub.new(
     /\<!--\s*lang:\s*bash\s*--\>\s*<pre><code>(.*?)<\/code><\/pre>/, 
-    "<pre class=\"brush: bash\">\\1</pre>")
+    "<pre><code>\\1</code></pre>")
   transformer Awestruct::Extensions::Gsub.new(
     /\<!--\s*lang:\s*js\s*--\>\s*<pre><code>(.*?)<\/code><\/pre>/, 
-    "<pre class=\"brush: js\">\\1</pre>")
+    "<pre data-language=\"javascript\"><code>\\1</code></pre>")
   transformer Awestruct::Extensions::Gsub.new(
     /\<!--\s*lang:\s*javascript\s*--\>\s*<pre><code>(.*?)<\/code><\/pre>/, 
-    "<pre class=\"brush: javascript\">\\1</pre>")
-  transformer Awestruct::Extensions::Gsub.new(
-    /\<!--\s*lang:\s*xml\s*--\>\s*<pre><code>(.*?)<\/code><\/pre>/, 
-    "<pre class=\"brush: xml\">\\1</pre>")
+    "<pre data-language=\"javascript\"><code>\\1</code></pre>")
   transformer Awestruct::Extensions::Gsub.new(
     /\<!--\s*lang:\s*html\s*--\>\s*<pre><code>(.*?)<\/code><\/pre>/, 
-    "<pre class=\"brush: html\">\\1</pre>")
+    "<pre data-language=\"html\"><code>\\1</code></pre>")
   transformer Awestruct::Extensions::Gsub.new(
     /\<!--\s*lang:\s*none\s*--\>\s*<pre><code>(.*?)<\/code><\/pre>/, 
     "<pre><code>\\1</code></pre >")
   transformer Awestruct::Extensions::Gsub.new(
     /<pre><code>(.*?)<\/code><\/pre>/, 
-    "<pre data-language=\"ceylon\">\\1</pre>")
+    "<pre data-language=\"ceylon\"><code>\\1</code></pre>")
   transformer Awestruct::Extensions::Gsub.new(
     /\<title\>(.*?)\&amp\;\#58\;(.*?)\<\/title\>/,
     "<title>\\1:\\2</title>")
