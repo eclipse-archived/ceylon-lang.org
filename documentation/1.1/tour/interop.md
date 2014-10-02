@@ -213,6 +213,24 @@ From Ceylon, this will appear as if it were defined like this:
     }
 
 
+## Wildcards
+
+In pure Ceylon code, we almost always use 
+[declaration-site variance](../generics/#covariance_and_contravariance).
+However, this doesn't work when we interoperate with Java generic
+types with wildcards. Therefore, Ceylon supports use-site variance
+(wildcards).
+
+- `List<out Object>` has a covariant wildcard, and is equivalent to 
+  `List<? extends Object>` in Java, and
+- `Topic<in Object>` has a contravariant wildcard, and is equivalent 
+  to `Topic<? super Object>` in Java.
+
+Wildcard types are unavoidable when interoperating with Java, and 
+perhaps occasionally useful in pure Ceylon code. But we recommend
+avoiding them, except where there's a really good reason.  
+
+
 ## There's more ...
 
 Finally, we're going to learn about interoperation with languages 

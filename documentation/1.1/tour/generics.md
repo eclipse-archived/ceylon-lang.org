@@ -124,10 +124,11 @@ Therefore `Iterable<String>` means `Iterable<String,Null`>.
 
 ## Covariance and contravariance
 
-Ceylon eliminates one of the bits of Java generics that's really hard to get 
-your head around: wildcard types. Wildcard types were Java's solution to the 
-problem of *covariance* in a generic type system. Let's meet the idea of 
-covariance, and then see how covariance works in Ceylon.
+Ceylon eliminates, [mostly](../interop/#wildcards), one of the bits of Java 
+generics that's hardest to get your head around: wildcard types. Wildcard 
+types were Java's solution to the problem of *covariance* in a generic type 
+system. Let's meet the idea of covariance, and then see how covariance works 
+in Ceylon.
 
 It all starts with the intuitive expectation that a collection of `Geek`s is 
 a collection of `Person`s. That's a reasonable intuition, but, if collections 
