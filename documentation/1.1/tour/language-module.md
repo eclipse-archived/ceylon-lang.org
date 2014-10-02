@@ -524,7 +524,8 @@ itself. The Ceylon SDK is still under development, but you can already
 start using platform modules including
 [ceylon.collection](http://modules.ceylon-lang.org/modules/ceylon.file), 
 [ceylon.file](http://modules.ceylon-lang.org/modules/ceylon.file),
-[ceylon.process](http://modules.ceylon-lang.org/modules/ceylon.process)
+[ceylon.process](http://modules.ceylon-lang.org/modules/ceylon.process),
+[ceylon.dbc](http://modules.ceylon-lang.org/modules/ceylon.dbc),
 [ceylon.math](http://modules.ceylon-lang.org/modules/ceylon.math),
 [ceylon.net](http://modules.ceylon-lang.org/modules/ceylon.net),
 [ceylon.logging](http://modules.ceylon-lang.org/modules/ceylon.logging),
