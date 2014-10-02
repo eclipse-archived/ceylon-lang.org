@@ -48,5 +48,10 @@ pre .entity.function, pre .support.css-property, pre .selector {
 }
 
 pre .keyword, pre .storage {
+    color: #b8baaf;
+    font-weight: bold;
+}
+
+pre .support.namespace {
     color: #815ba4; /* purple */
 }
