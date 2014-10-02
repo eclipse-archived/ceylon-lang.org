@@ -420,7 +420,7 @@ useful:
 
     print(max);
 -->
-    Float max = measurements.fold(0.0, largest<Float>);
+    Float max = measurements.fold(0.0)(largest<Float>);
 
 However, quite commonly, it's inconvenient to have to declare a whole named 
 function just to pass it to `map()`, `filter()`, `fold()` or `find()`. Instead, 
@@ -434,8 +434,8 @@ we can declare an *anonymous function* inline, as part of the argument list:
 
     print(max);
 -->
-    Float max = measurements.fold(0.0, 
-            (Float max, Float num) => 
+    Float max = measurements.fold(0.0)
+            ((Float max, Float num) => 
                     num>max then num else max);
 
 An anonymous function has:
@@ -455,14 +455,40 @@ So we could rewrite the above using a block
 
     print(max);
 -->
-    Float max = measurements.fold(0.0, 
-            (Float max, Float num) {
+    Float max = measurements.fold(0.0) 
+            ((Float max, Float num) {
                 return num>max then num else max;
             });
 
 Note that it's quite difficult to come up with a good way to format anonymous
 functions with blocks, so it's usually better to just give the function a 
 name and use it by reference.
+
+## Anonymous function parameter type inference
+
+When an anonymous function occurs in an argument list, it's usually, but not
+always, possible to infer the parameter types. We can write the previous 
+example as follows:
+
+<!-- try-pre:
+    value measurements = { 3.4, 8.7, 1.7, 13.1, 7.7, 1.2 };
+
+-->
+<!-- try-post:
+
+    print(max);
+-->
+    Float max = measurements.fold(0.0)
+            ((max, num) => num>max then num else max);
+
+### Gotcha!
+
+You might have noticed that `fold()` is defined in curried form, with two
+argument lists. The reason it's defined like this is to allow inference of
+the parameter types of its function argument. If it weren't defined in 
+curried form, we would have to explicitly specify the anonymous function
+parameter types, since the type of the first argument of `fold()` would
+not be taken into account when inferring parameter types.
 
 ## More about higher-order functions
 
