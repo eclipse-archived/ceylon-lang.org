@@ -503,7 +503,9 @@ form.bp {
   }
 
   .bubble-button:hover {
-    color: #a52a2a;
+    //color: #a52a2a;
+    color: rgb(242, 223, 183);
+    cursor: pointer;    
     //text-shadow: 0 -1px 1px #666666;
   }
 
