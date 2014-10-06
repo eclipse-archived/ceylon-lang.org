@@ -41,6 +41,9 @@ in this case it is not, strictly speaking, a specification statement:
 
 ## Description
 
+Note that `=>` syntax consistently implies *lazy evaluation*, and 
+`=` implies *eager evaluation*.
+
 There is, in principle, an ambiguity between the assignment operator 
 (the `=` *operator*) and the specification statement (the `=` *statement*). 
 The specification says that the ambiguity is always resolved in favour of

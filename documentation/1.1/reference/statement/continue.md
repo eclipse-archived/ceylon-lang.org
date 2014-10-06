@@ -9,7 +9,7 @@ author: Tom Bentley
 # #{page.title_md}
 
 The `continue` statement is a control directive that causes immediate execution 
-of the next iteration of a `for` or `while` loop.
+of the next iteration of the enclosing `for` or `while` loop.
 
 ## Usage 
 

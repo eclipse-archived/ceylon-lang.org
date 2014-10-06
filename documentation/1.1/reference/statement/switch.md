@@ -10,7 +10,7 @@ doc_root: ../../..
 # #{page.title_md}
 
 The `switch` statement executes code conditionally according to an enumerated 
-list of cases.
+list of disjoint cases.
 
 ## Usage 
 
@@ -46,6 +46,8 @@ The matching `case` has its block executed, and then execution continues with th
 code after the `switch` statement. If none of the given `case`s match and an `else` 
 clause is given, then the `else` block is executed, and then execution continues 
 with the code after the `switch` statement. 
+
+**Note:** The compiler need not evaluate the cases in the order they are written.
 
 ### Exhaustivity and `else`
 

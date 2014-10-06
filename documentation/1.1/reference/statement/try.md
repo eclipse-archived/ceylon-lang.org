@@ -10,7 +10,7 @@ doc_root: ../../..
 # #{page.title_md}
 
 The `try` statement is used to execute a block of code that may result 
-in an exception, providing additional blocks to handle the exceptional 
+in an exception being thrown, providing additional blocks to handle the exceptional 
 circumstances, and, optionally, another block to be executed in all 
 circumstances.
 
@@ -87,7 +87,7 @@ matching `catch` clause was found.
 
 It's worth bearing in mind that the virtual machine could do things
 which prevent a `finally` clause from executing, or from executing 
-in a timely fashion, even though the application may continues to 
+in a timely fashion, even though the application may continue to 
 execute. Such things may include:
 
 * Virtual machine exit

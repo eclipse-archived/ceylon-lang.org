@@ -32,11 +32,11 @@ The `else` clause is optional.
 
 A `for` statement accepts an expression of type 
 [`Iterable`](#{site.urls.apidoc_1_1}/Iterable.type.html), which is evaluated
-to produce and iterable object, and in _iteration variable_. 
+to produce an `Iterable` object. 
 
 The `for` block is executed repeatedly, with the iteration variable taking the 
 value of each successive item produced by an `Iterator` obtained from the iterable 
-object. Iteration of the loop terminated when the `Iterator` is exhausted or an 
+object. Iteration of the loop terminated when the `Iterator` produces `finished` or an 
 [early exit](#early_exit) occurs.
 
 If an early exit does not terminate iteration of the loop, the `else` block is

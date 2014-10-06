@@ -8,8 +8,8 @@ author: Tom Bentley
 
 # #{page.title_md}
 
-The `break` statement is a control directive that causes immediately 
-termination of a `for` or `while` loop.
+The `break` statement is a control directive that causes immediate
+termination of the enclosing `for` or `while` loop.
 
 ## Usage 
 
