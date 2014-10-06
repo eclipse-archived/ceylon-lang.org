@@ -199,6 +199,14 @@ also be annotated `shared`.
 A `default` class may be [refined](#member_class_refinement) by types which
 inherit the containing class or interface. 
 
+### `sealed` classes
+
+A class declaration annotated `sealed` cannot be instantiated (either 
+in an invocation expression or in an extends clause) outside the module 
+in which it is defined. This provides a way to share a 
+class's type with other modules while retaining control over subclassing 
+and instance creation.
+
 ### Members
 
 The permitted members of classes are [classes](../class), 

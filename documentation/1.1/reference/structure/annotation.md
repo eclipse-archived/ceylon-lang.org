@@ -166,6 +166,7 @@ There is specific documentation on each of the language module annotations
   <li><a href="../../annotation/license/"><code>license</code></a></li>
   <li><a href="../../annotation/native/"><code>native</code></a></li>
   <li><a href="../../annotation/optional/"><code>optional</code></a></li>
+  <li><a href="../../annotation/sealed/"><code>sealed</code></a></li>
   <li><a href="../../annotation/see/"><code>see</code></a></li>
   <li><a href="../../annotation/shared/"><code>shared</code></a></li>
   <li><a href="../../annotation/throws/"><code>throws</code></a></li>

@@ -97,6 +97,13 @@ inside the body of a containing class or interface, may be annotated
 - A `shared` interface nested inside a class or interface is visible 
   wherever the containing class or interface is visible.
 
+### `sealed` interfaces
+
+An interface declaration can be annotated `sealed` which prevents 
+the declaration of subclasses and subinterfaces outside the module 
+in which the sealed interface is declared. This provides a way to 
+share an interface's type with other modules.
+
 ### Members
 
 The permitted members of interfaces are [classes](../class), 
