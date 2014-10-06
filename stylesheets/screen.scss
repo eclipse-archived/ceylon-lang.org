@@ -288,36 +288,24 @@ form.bp {
     position: absolute;
     width: 475px;
     height: 170px;
-    background: rgba(12, 31, 31, 0.9);
+    background: rgba(47, 30, 46, 0.85);
     top: 72px;
     right: 0;
     border-radius: 15px;
-    padding: 1em 2em 1em 2em;
-    color: white;
+    padding: 1em;
     text-shadow: none;
-    font-size: 15px;
-    font-weight: bold;
+    font-size: 16px;
 
     pre {
       background: none;
       margin: 0;
+      margin-left: 0.5em;
       border: none;
       padding: 0;
       code {
-        font-family:'Courier New', Courier, monospace;
         font-weight: bold;
         text-shadow: none;
         line-height: .96em;
-        .code_type {
-          color: #D98BD6;
-        }
-        .code_string {
-          color:#88AEFF;
-          //font-weight: normal;
-        }
-        .code_interpolated {
-          font-style: italic;
-        }
       }
     }
 

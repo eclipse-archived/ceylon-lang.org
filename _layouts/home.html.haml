@@ -38,15 +38,15 @@ tab: to-be-defined
     Static types that work
   #code
     <!-- lang: none -->
-    %pre
-      %code
+    %pre{ 'data-language'=>'ceylon' }
+      %code.rainbow
         :preserve
-          <span class="code_type">Html</span> html = <span class="code_type">Html</span> {
-             doctype = html5;
-             <span class="code_type">Head</span> { title = <span class="code_string">"Ceylon: home page"</span>; };
-             <span class="code_type">Body</span> {
-                <span class="code_type">H2</span> ( <span class="code_string">"Welcome to Ceylon &#96;&#96;</span><span class="code_interpolated">language.version</span><span class="code_string">&#96;&#96;!"</span> ),
-                <span class="code_type">P</span> ( <span class="code_string">"Now get your code on :)"</span> )
+          <span class="entity class">Html</span> <span class="variable global">html</span> = <span class="entity class">Html</span> {
+             <span class="variable global">doctype</span> = <span class="variable global">html5</span>;
+             <span class="entity class">Head</span> { <span class="variable global">title</span> = <span class="string">"Ceylon Community"</span>; };
+             <span class="entity class">Body</span> {
+                <span class="entity class">H2</span> ( <span class="string">"Welcome &#96;&#96;</span><span class="code_interpolated variable global">you</span><span class="string">&#96;&#96;, to Ceylon &#96;&#96;</span><span class="code_interpolated variable global">language</span>.<span class="code_interpolated variable instance">version</span><span class="string">&#96;&#96;!"</span> ),
+                <span class="entity class">P</span> ( <span class="string">"Now get your code on :)"</span> )
              };
           };
 #primary-content
