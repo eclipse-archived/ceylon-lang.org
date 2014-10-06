@@ -1,6 +1,6 @@
 ---
 layout: reference11
-title_md: '`x[y:n]` (segment) operator'
+title_md: '`x[y:n]` (measure) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
@@ -9,7 +9,7 @@ doc_root: ../../..
 
 # #{page.title_md}
 
-The *segment* operator returns the subrange of its left-hand operand
+The *measure* operator returns the subrange of its left-hand operand
 starting from its central operand and including as many elements as given by 
 its right-hand operand.
 
@@ -29,7 +29,7 @@ The `lhs[from:length]` operator is defined as follows:
 
 <!-- check:none -->
 <!-- try: -->
-    lhs.segment(from,length)
+    lhs.measure(from,length)
 
 See the [language specification](#{site.urls.spec_current}#listmap) for 
 more details.
@@ -47,7 +47,7 @@ The result type of the `lhs[from:length]` operator is the element type of the `R
 
 ## See also
 
-* [`x[y...z]` (span)](../span) operator used for obtaining a subrange from a `Ranged`.
+* [`x[y..z]` (span)](../span) operator used for obtaining a subrange from a `Ranged`.
 * API documentation for [`Ranged`](#{site.urls.apidoc_1_1}/Ranged.type.html)
 * [sequence operators](#{site.urls.spec_current}#listmap) in the 
   language specification

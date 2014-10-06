@@ -128,7 +128,7 @@ Also see [operators](#operators) and [literals](#literals) below
   <li><a href="operator/entry/"><code>-&gt;</code>  (entry)</a></li>
   <li><a href="operator/member/"><code>.</code>   (member)</a></li>
   <li><a href="operator/spanned-range/"><code>..</code>  (spanned range)</a></li>
-  <li><a href="operator/segmented-range/"><code>:</code>   (segmented range)</a></li>
+  <li><a href="operator/measured-range/"><code>y:z</code> (measured range)</a></li>
   <li><a href="operator/quotient/"><code>/</code>   (quotient)</a></li>
   <li><a href="operator/divide-assign/"><code>/=</code>  (divide assign)</a></li>
   <li><a href="operator/less-than/"><code>&lt;</code>   (less than)</a></li>
@@ -142,13 +142,13 @@ Also see [operators](#operators) and [literals](#literals) below
   <li><a href="operator/nullsafe-member/"><code>?.</code>   (null-safe attribute)</a></li>
   <li><a href="operator/nullsafe-method/"><code>?.</code>   (null-safe method)</a></li>
   <li><a href="operator/lookup/"><code>[]</code>  (lookup)</a></li>
-  <li><a href="operator/spread/"><code>*</code> (spread)</a></li>  
+  <li><a href="operator/spread/"><code>*</code> (spread)</a></li>
   <li><a href="operator/spread-attribute/"><code>*.</code> (spread attribute)</a></li>
   <li><a href="operator/spread-invoke/"><code>*.</code> (spread method)</a></li>
   <li><a href="operator/span/"><code>x[y..z]</code> (span)</a></li>
   <li><a href="operator/upper-span/"><code>x[y...]</code> (upper span)</a></li>
   <li><a href="operator/lower-span/"><code>x[...z]</code> (lower span)</a></li>
-  <li><a href="operator/segment/"><code>x[y:n]</code>  (segment)</a></li>
+  <li><a href="operator/measure/"><code>x[y:z]</code> (measure)</a></li>
   <li><a href="operator/power/"><code>^</code>   (power)</a></li>
   <li><a href="operator/union/"><code>|</code>   (Set union)</a></li>
   <li><a href="operator/union-assign/"><code>|=</code>  (Set union assign)</a></li>

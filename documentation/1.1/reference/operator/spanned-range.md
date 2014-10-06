@@ -25,7 +25,7 @@ The `..` operator is defined as follows:
 
 <!-- check:none -->
 <!-- try: -->
-    Range(lhs, rhs)
+    span(lhs, rhs)
 
 See the [language specification](#{site.urls.spec_current}#constructors) for 
 more details.
@@ -34,7 +34,7 @@ more details.
 
 The `..` operator is not [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `..` depends on the 
-[`Range`](#{site.urls.apidoc_1_1}/Range.type.html) 
+[`Enumerable`](#{site.urls.apidoc_1_1}/Enumerable.type.html) 
 class.
 
 ### Type
@@ -43,7 +43,7 @@ The result type of the `lhs..rhs` operator is `Range<Lhs>` where `Lhs` is the ty
 
 ## See also
 
-* [`:` (segmented range)](../segmented-range)
+* [`:` (measured range)](../measured-range)
 * [object creation operators](#{site.urls.spec_current}#constructors) in the 
   language specification
 * [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 

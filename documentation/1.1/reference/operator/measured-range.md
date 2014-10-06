@@ -1,6 +1,6 @@
 ---
 layout: reference11
-title_md: '`:` (segmented range) operator'
+title_md: '`:` (measured range) operator'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
@@ -9,7 +9,7 @@ doc_root: ../../..
 
 # #{page.title_md}
 
-The *segmented range* operator creates a `Range` from its endpoints.
+The *measured range* operator creates a `Range` from a starting point and a length.
 
 ## Usage 
 
@@ -21,11 +21,11 @@ The *segmented range* operator creates a `Range` from its endpoints.
 
 ### Definition
 
-The `lhs:rhs` operator is defined in pseudocode as:
+The `lhs:rhs` operator is defined as:
 
 <!-- check:none -->
 <!-- try: -->
-    rhs <=0 then [] else Range(lhs, {lhs++ rhs times} )
+    measure(lhs, rhs)
 
 See the [language specification](#{site.urls.spec_current}#constructors) for 
 more details.
@@ -34,7 +34,7 @@ more details.
 
 The `:` operator is not [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `:` depends on the 
-[`Range`](#{site.urls.apidoc_1_1}/Range.type.html) 
+[`Enumerable`](#{site.urls.apidoc_1_1}/Enumerable.type.html) 
 class.
 
 ### Type
