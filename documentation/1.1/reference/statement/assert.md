@@ -9,7 +9,7 @@ doc_root: ../../..
 
 # #{page.title_md}
 
-The `assert` statement validates a given condition, throwing an `AssertionException` 
+The `assert` statement validates a given condition, throwing an `AssertionError` 
 if the condition is not satisfied. An assertion may narrow the type of values as 
 seen by subsequent statements.
 
@@ -33,7 +33,7 @@ them.
 The condition (or conditions) in the `assert` statement are evaluated in the
 order they occur. If they are all satisfied, then execution continues with the
 statement immediately following the `assert`. Otherwise, an 
-[`AssertionException`](#{site.urls.apidoc_1_1}/AssertionException.type.html) 
+[`AssertionError`](#{site.urls.apidoc_1_1}/AssertionError.type.html) 
 is thrown with information about the condition that was violated.
 
 ### Purpose
