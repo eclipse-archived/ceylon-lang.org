@@ -33,8 +33,16 @@ There are abbreviations for tuple types:
 <!-- try: -->
     [T]         // The 1-tuple Tuple<T, T, Empty>
     [X,Y]       // The 2-tuple Tuple<X|Y, X, Tuple<Y, Y, Empty>>
+                // whose first element is an X and whose 
+                // second element is a Y
     [X,Y*]      // The *-tuple Tuple<X|Y, X, Sequential<Y>>
+                // whose first element is an X and 
+                // which has zero or more further elements 
+                // each of type Y
     [X,Y+]      // The +-tuple Tuple<X|Y, X, Sequence<Y>>
+                // whose first element is an X and 
+                // which has one or more further elements 
+                // each of type Y
 
 And for function types:
 

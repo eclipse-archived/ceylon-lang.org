@@ -55,7 +55,7 @@ and it must be a direct subclass of either
     
 Any class parameters must be of one of the allowed types:
 
-* `Integer`, `Character`, `Float`, `String`
+* `Integer`, `Byte`, `Character`, `Float`, `String`
 * [Enumerated types](../type/#enumerated_types) where all the cases are `object` declarations
   (which includes `Boolean`).
 * A subtype of [`Declaration`](#{site.urls.apidoc_1_1}/meta/declaration/Declaration.type.html)

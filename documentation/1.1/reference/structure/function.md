@@ -42,14 +42,32 @@ receiver.
 
 ### Return type
 
-A function declaration always specifies the *return type* of the function, 
-or the keyword `void` if the function has no specific return value.
+A non-local function declaration always specifies the *return type* of the function, 
+or the keyword `void` if the function has no specific return value. 
+Local functions may use the keyword `function` so that the 
+return type of the function is [inferred](#type-inference):
+
+    String inference() {
+        function local() => ""; // return type is inferred as String
+        return local();
+    }
 
 The type system considers a `void` function identical to a function declared 
 to return [`Anything`](#{site.urls.apidoc_1_1}/Anything.type.html). 
 In particular, a `void` method may be refined by a subtype to return a more 
 specific type. The value actually returned from an unrefined `void` function 
-is always `null`.
+is always `null`:
+
+    class Top() {
+        shared default void m() {}
+    }
+    class Sub() extends Top() {
+        shared actual Boolean m() => true
+    }
+    void example() {
+        Anything topM = Top().m(); // topM is null
+        Boolean subM = Sub().m();
+    }
 
 ### Callable type
 
@@ -74,17 +92,17 @@ A _generic_ function declaration lists [type parameters](../type-parameters)
 in angle brackets (`<` and `>`) after the function name.
 
 <!-- try: -->
-    void f<Z>(){
+    void generic<Argument>(){
         /* method block: statements 
-           type parameter Z treated as a type */
+           type parameter Argument treated as a type */
     }
 
 Of course, methods may be members of types which themselves have
 [type parameters](../type-parameters):
 
 <!-- try: -->
-    class C<Z>() {
-        void m(Z z) {
+    class Generic<Argument>() {
+        void method(Argument z) {
         }
     }
 

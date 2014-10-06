@@ -9,12 +9,15 @@ doc_root: ../../..
 
 # #{page.title_md}
 
-There are two kind of _value_:
+There are two kinds of _value_:
 
 - A _reference_ holds state, that is, a reference to another object.
 - A value defined as a getter (with, optionally, a matching setter)
   does not directly hold state, instead it defines how a "derived" 
   value is computed.
+
+Crucially, users of the value cannot distinguish a 
+reference value from a getter value.
 
 When a value is a member of a type, is it called an _attribute_.
 
@@ -59,9 +62,11 @@ A value setter:
 ### References
 
 References are just holders of state. A reference attribute declared within a 
-class body represents state associated with an instance of the class. A local 
+class body represents state associated with an instance of the class 
+(similar to a *field* in other programming languages). A local 
 reference (that is, a reference declared within a block) represents state 
-associated with execution of that block.
+associated with execution of that block (similar to a *local variable* 
+in other programming languages).
 
 ### `variable` values
 

@@ -9,7 +9,7 @@ doc_root: ../../..
 
 # #{page.title_md}
 
-A class is a stateful type that:
+A class is a stateful [type declaration](../type-declaration) that:
 
 - may hold references to other objects,
 - may define initialization logic and initialization parameters, and
@@ -41,7 +41,8 @@ The parameters to the initializer are specified in parenthesis after the
 name of the class in the `class` declaration.
 
 The body of a class must *definitely initialize* every member of the class. 
-The following code will be rejected by the compiler:
+The following code will be rejected by the compiler because if `bool` 
+is false `greeting` does not get initialized:
 
     class C(Boolean bool) {
         shared String greeting;
@@ -50,12 +51,17 @@ The following code will be rejected by the compiler:
         }
     }
 
+The typechecker figures out for itself the point in the class at which all 
+class members have been initialized. Everything before this point is in 
+the *initializer section* of the class, and everything after this point 
+is in the *declaration section*. In the initializer section you 
+can't use a declaration before it's been declared.
+
 ### Extending classes
 
-The `extends` clause specifies the superclass of a class, and arguments 
-of the initializer parameters of the superclass. The arguments to the 
-superclass [initializer](#initializer) are specified in parentheses after 
-the name of the superclass:
+The `extends` clause specifies the type of the superclass together with 
+the argument list to the initializer parameters of the superclass. 
+In other words the extends clause is an invocation expression:
 
 <!-- cat-id:c -->
 <!-- try: -->
@@ -77,13 +83,13 @@ inherited by a class:
         /* declarations of class members */
     }
 
+`&` is used as the separator between satisfied interface types because `C` 
+is being defined as a subtype of the 
+[intersection type](../type#intersection_types) `I1&I2`.
+
 If a class is declared without using the `satisfies` keyword, it does
 not _directly_ inherit any interfaces. However, it may indirectly 
 inherit interfaces via its superclass.
-
-`&` is used as the separator between satisfied interfaces because `C` 
-is being defined as a subtype of the 
-[intersection type](../type#intersection_types) `I1&I2`.
 
 ### Enumerated classes
 
@@ -98,6 +104,8 @@ its declaration would look like this:
     }
 <!-- cat: class S1() extends C() {} -->
 <!-- cat: class S2() extends C() {} -->
+
+Then `S1` and `S2` are called the *cases* of `C`.
 
 ### Generic classes
 
@@ -116,7 +124,11 @@ for each declared type parameter to
 
 ### Initializer parameters
 
-Every class declaration has a [parameter list](../parameter-list).
+Every class declaration has a [parameter list](../parameter-list), 
+because any class can be invoked to create instances of the class.
+
+Note that `abstract` classes cannot be invoked directly, but 
+they are still invoked in the `extends` clause of their subclasses.
 
 ### Callable type
 
@@ -130,7 +142,8 @@ For example the callable type of
 <!-- try: -->
     class Example(Integer int, Boolean bool) => "";
     
-is `Example(Integer, Boolean)`.
+is `Example(Integer, Boolean)`, because it takes 
+`Integer` and `Boolean` parameters and returns an `Example`.
 
 (Regular functions also have a [callable type](../function/#callable_type).)
 
@@ -252,8 +265,8 @@ other object-oriented languages, but it's a lot less verbose.
 
 Only `formal` and `default` member classes are subject to member class 
 refinement. A `formal` member class *must* be refined by concrete subtypes 
-of the type declaring the member class&mdash;just like a `formal` method 
-or attribute. A `default` member class *may* be refined&mdash;just like
+of the type declaring the member class—just like a `formal` method 
+or attribute. A `default` member class *may* be refined—just like
 a `default` method or attribute.
 
 In a subtype of the type declaring the member class, the member class 

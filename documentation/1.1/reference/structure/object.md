@@ -26,7 +26,8 @@ A trivial `object` declaration looks like this:
 
 ### Type parameters and parameters
 
-An `object` declaration does not have parameters or type parameters.
+An `object` declaration does not have parameters or type parameters 
+(just like a [value](../value)).
 
 ### Notation
 
@@ -37,7 +38,8 @@ often use the term _anonymous class_.
 
 ### Toplevel objects
 
-A toplevel object is a _singleton_.
+A toplevel object is a _singleton_, so there is only one 
+instance within the executing program.
 
 ### Nested objects
 

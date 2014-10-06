@@ -9,7 +9,7 @@ author: Tom Bentley
 # #{page.title_md}
 
 A function or class initializer has a *parameter list* declaring the parameters 
-of the function or class. A parameter list may declare zero or more *parameters*.
+of the function or class. A parameter list may contain zero or more *parameters*.
 
 ## Usage
 
@@ -66,7 +66,7 @@ name, separated with an equals sign:
     }
 
 For a callable parameter, the default argument expression follows the 
-parameter's parameter list, separated with a fat arrow:
+parameter's parameter list, separated with a fat arrow (`=>`):
 
     void example(String name int(Integer int) 
             => int == 0 then "zero" else "") {
@@ -75,7 +75,7 @@ parameter's parameter list, separated with a fat arrow:
 A defaulted parameter allows the function or class to be 
 [invoked](../../expression/invocation) without an argument for that parameter. 
 
-Parameters with default values may be called  *optional parameters* or 
+Parameters with default values may be called  *optional parameters* (not to be confused with an *optional type* `T?`) or 
 *defaulted parameters*. Parameters without default values may be called
 *required parameters*. The default argument expression may be called the 
 *default argument*.

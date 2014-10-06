@@ -8,7 +8,7 @@ author: Tom Bentley
 
 # #{page.title_md}
 
-An interface is a stateless type that, unlike a [class](../class):
+An interface is a stateless [type declaration](../type-declaration) that, unlike a [class](../class):
 
 - may not hold references to other objects,
 - does not define initialization logic, and 
@@ -43,18 +43,18 @@ interface:
         /* declarations of interface members */
     }
 
+`&` is used as the separator between satisfied interface types because 
+`I` is being defined as a subtype of the 
+[intersection type](../type#intersection_types) `I1&I2`.
+
 If an interface is declared without using the `satisfies` keyword, 
 it does not directly inherit any interfaces. However, _all_ 
 interfaces are considered to inherit the class
 [`Object`](#{site.urls.apidoc_1_1}/Object.type.html).
 
-`&` is used as the separator between satisfied interfaces because 
-`I` is being defined as a subtype of the 
-[intersection type](../type#intersection_types) `I1&I2`.
-
 ### Enumerated interfaces
 
-The subclasses of an enumerated interface can be constrained to a 
+The subtypes of an enumerated interface can be constrained to a 
 list of named interfaces, classes, or toplevel anonymous classes 
 using the `of` clause. If the interface `I` is permitted only two 
 direct subtypes, the interface `I1`, and the class `C1`, its 
@@ -65,6 +65,8 @@ declaration would look like this:
     interface I of I1 | C1 {
         /* declarations of interface members */
     }
+    
+Then `I1` and `I2` are called the *cases* of `I`.
 
 ### Generic interfaces
 

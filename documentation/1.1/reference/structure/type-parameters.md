@@ -9,7 +9,8 @@ author: Tom Bentley
 # #{page.title_md}
 
 [Class](../class/), [interface](../interface/) and [function](../function/) 
-declarations may have one or more type parameters.
+declarations may have a type parameter list containing 
+one or more type parameters.
 
 ## Usage 
 
