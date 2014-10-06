@@ -20,9 +20,9 @@ Usage depends on the keyword in question.
 
 The following are reserved keywords:
 
-* `assembly` (currently unused)
 * `abstracts` (currently unused)
 * [`alias`](../alias#type_alises)
+* `assembly` (currently unused)
 * [`assert`](../../statement/assert)
 * [`assign`](../value#a_value_setter)
 * [`break`](../../statement/break)
@@ -55,7 +55,9 @@ The following are reserved keywords:
    [`while`](../../statement/while#special_conditions), and 
    [`case`](../../statement/switch#caseis_assignability_condition) 
    statements and as an [operator](../../operator/is))
+* `let` (currently unused)
 * [`module`](../module#descriptor)
+* `new` (currently unused)
 * `nonempty` (used in the [`if`](../../statement/if#special_conditions),
    [`while`](../../statement/while#special_conditions), and 
    [`case`](../../statement/switch#caseis_assignability_condition) 
