@@ -1,6 +1,6 @@
 ---
-title: Known issues in 1.0
-layout: known-issues
+title: Known issues in 1.1
+layout: known-issues11
 toc: true
 tab: documentation
 unique_id: docspage
@@ -22,10 +22,11 @@ No known issue.
 
 <div class="known-issue">
 <a class="see" href="https://github.com/ceylon/ceylon-compiler/issues/470">See issue</a>
-<div class="title"><code>ceylon compile</code> fails to compile module if Java classes 
-and Ceylon classes depend on one another</div>
+<div class="title"><code>ceylon compile</code> fails to compile module if Java code 
+depends on Ceylon code in a single module</div>
 <b>Workaround:</b>
-<div class="workaround">None</div>
+<div class="workaround">Put the Java classes in a separate module and compile them
+after the Ceylon code.</div>
 </div>
 
 ## JavaScript Compiler (<code>ceylon compile-js</code>)

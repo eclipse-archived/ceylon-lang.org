@@ -1,6 +1,6 @@
 ---
 title: Language design Frequently Asked Questions 
-layout: faq
+layout: faq11
 toc: true
 tab: documentation
 unique_id: docspage
