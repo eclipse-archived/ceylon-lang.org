@@ -136,7 +136,7 @@ function addTryButtons(){
 		var src = collectSource($elem);
 		if (src){
 			$button.click(function(){
-				alert(src);
+				//alert(src);
 				if($editorIFrame){
 					updateEditor(src);
 				} else {
