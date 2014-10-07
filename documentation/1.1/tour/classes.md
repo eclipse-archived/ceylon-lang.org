@@ -359,7 +359,8 @@ Java:
     
     Integer procs = Runtime.runtime.availableProcessors();
 
-Or, alternatively, you could write the following:
+Or, alternatively, you could write the following, directly `import`ing
+the static member:
 
 <!-- try: -->
     import java.lang { Runtime { runtime } }
