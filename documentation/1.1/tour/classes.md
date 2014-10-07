@@ -476,7 +476,8 @@ Now we can create `Polar` coordinates with or without labels:
 <!-- cat: } -->
 
 Later, we'll learn about [named arguments](../named-arguments), which we
-often use in instantiation expressions:
+often use to make instantiation expressions more readable, especially
+when the class has more than two parameters:
 
 <!-- try-pre:
     doc "A polar coordinate with an optional label"
@@ -507,9 +508,16 @@ often use in instantiation expressions:
 -->
 <!-- cat-id: polar -->
 <!-- cat: void m(Float r, Float theta) { -->
-    Polar origin = Polar { angle=0.0; radius=0.0; label="origin"; };
-    Polar coord = Polar { radius=r; angle=theta; };
+    Polar origin = Polar { angle = 0.0; radius = 0.0; label = "origin"; };
+    Polar coord = Polar { radius = r; angle = theta; };
 <!-- cat: } -->
+
+
+### Gotcha!
+
+Even with these "emulation" techniques, not _every_ case of a legal overloaded 
+Java method can be represented directly in Ceylon. In such situations it's
+necessary to exert a little more effort to come up with distinct names.
 
 
 ## There's more...
