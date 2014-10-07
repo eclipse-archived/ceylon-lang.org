@@ -804,8 +804,8 @@ the module descriptor:
      
      Happy Herding!"
     module org.jboss.example "1.0.0" {         
-        import ceylon.math "0.3.0";
-        import ceylon.file "0.3.1";
+        import ceylon.math "1.1.0";
+        import ceylon.file "1.1.1";
     }
 
 For execution on the Java Virtual Machine, the Ceylon compiler directly produces 
