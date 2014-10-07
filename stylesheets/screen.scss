@@ -504,7 +504,8 @@ form.bp {
 
   .bubble-button:hover {
     //color: #a52a2a;
-    color: rgb(242, 223, 183);
+    //color: rgb(242, 223, 183);
+    color: #fec418;
     cursor: pointer;    
     //text-shadow: 0 -1px 1px #666666;
   }
@@ -1089,19 +1090,13 @@ body.two-col {
 
 /* Inline code editor */
 
-.syntaxhighlighter.with-editor .lines {
- margin-right: 40px !important;
-}
-
-.syntaxhighlighter .bubble-button {
- display: block;
- position: absolute;
- right: 0;
- top: 0;
- width: 70px;
+.try-button {
+ float: right;
+ color: #fec418;
+ border: 1px solid red;
+ padding: 0px 3px;
  cursor: pointer;
- text-align: center;
- padding: 2px 4px !important;
+ font-size: 10px;
 }
 
 .ui-dialog {

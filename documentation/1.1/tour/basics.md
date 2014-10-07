@@ -221,11 +221,11 @@ Unicode characters in your text.
     "The mathematical constant \{#03C0}, the
      ratio of the circumference of a circle
      to its diameter."
-    Float pi=calculatePi();
+    Float pi = calculatePi();
     
     "The mathematical constant \{#0001D452},
      the base of the natural logarithm."
-    Float e=calculateE();
+    Float e = calculateE();
 
 Even better, you can identity a Unicode character by its name.
 
@@ -236,11 +236,11 @@ Even better, you can identity a Unicode character by its name.
 -->
     "The mathematical constant \{GREEK SMALL LETTER PI}, the 
      ratio of the circumference of a circle to its diameter."
-    Float pi=calculatePi();
+    Float pi = calculatePi();
     
     "The mathematical constant \{MATHEMATICAL ITALIC SMALL E},
      the base of the natural logarithm."
-    Float e=calculateE();
+    Float e = calculateE();
 
 Ceylon strings are composed of UTF-32 characters, as we'll see 
 [later in the tour](../language-module/#characters_and_character_strings).

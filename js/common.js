@@ -126,19 +126,17 @@ function updateEditor(src){
 	$editorIFrame.get(0).contentWindow.setEditCode(src);
 }
 
-function postSyntaxHighlighting(){
-	jQuery(".syntaxhighlighter").each( function(index, element){
+function addTryButtons(){
+	jQuery("pre[data-language]").each(function(index, element){
 		var $elem = jQuery(element);
-		var id = $elem.attr("id");
-		var highlighter = SyntaxHighlighter.vars.highlighters[id];
-		if(!(highlighter instanceof SyntaxHighlighter.brushes.Ceylon))
-			return;
+		//var lang = $elem.attr("data-language");
+		//if (lang!="ceylon") return;
 		$elem.addClass("with-editor");
-		var $button = jQuery("<span class='bubble-button' title='Try this code in an online Ceylon editor'>TRY ONLINE</span>");
+		var $button = jQuery("<span class='try-button' title='Try this code in an online Ceylon editor'>TRY ONLINE</span>");
 		var src = collectSource($elem);
 		if (src){
 			$button.click(function(){
-				// collect the source
+				alert(src);
 				if($editorIFrame){
 					updateEditor(src);
 				} else {
@@ -163,7 +161,7 @@ function postSyntaxHighlighting(){
 					modal: true
 				});
 			});
-			$elem.append($button);
+			$elem.prepend($button);
 		}
 	});
 }
@@ -213,4 +211,5 @@ jQuery(function (){
 			makeMilestoneDiv($overall, null, open_total, closed_total);
 		});
 	});
+	addTryButtons();
 });
