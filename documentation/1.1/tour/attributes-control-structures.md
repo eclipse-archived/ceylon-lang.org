@@ -39,10 +39,11 @@ Here, `count` is a block-local variable of the initializer of `Counter`:
     print(c.count); // Compiler error! No access
 -->
     class Counter() {
-        variable Integer count=0;
+        variable Integer count = 0;
     }
 
-But in the following two examples, `count` is an attribute:
+But in this example, `count` is a `shared` attribute, visible to clients 
+of the class:
 
 <!-- try-post:
     value c = Counter();
@@ -51,19 +52,23 @@ But in the following two examples, `count` is an attribute:
     print(c.count);
 -->
     class Counter() {
-        shared variable Integer count=0;
+        shared variable Integer count = 0;
     }
 
-<!-- break up the two examples so we don't see a duped decl-->
+The distinction starts to melt away when we consider the next example:
 
 <!-- try-post:
     value c = Counter();
     print(c.inc());
 -->
     class Counter() {
-        variable Integer count=0;
+        variable Integer count = 0;
         shared Integer inc() => ++count;
     }
+
+Here, even though `count` is _not_ `shared`, it still has a lifecycle that
+extends beyond the execution of the class initializer. We say that `count`
+is _captured_ by the method `inc()`.
 
 This might seem a bit strange at first, but it's really just how the principle 
 of closure works. The same behavior applies to block-local values declared in
@@ -79,15 +84,15 @@ but they can return an `object` that captures a local variable:
     }
     
     Counter createCounter() {
-        variable Integer count=0;
+        variable Integer count = 0;
         object counter satisfies Counter {
-            shared actual Integer inc() => ++count;
+            inc() => ++count;
         }
         return counter;
     }
 
-Or, as we'll see [later](../functions), a function can return a nested function 
-that captures the local variable:
+Or, as we'll see [later](../functions), a function can even return a nested 
+function that captures the local variable:
 
 <!-- try-post:
     print(counter()());
@@ -111,28 +116,28 @@ to not be captured by anything.
 
 ## Variables
 
-Ceylon encourages you to use *immutable* attributes as much as possible. An 
-immutable attribute has its value specified when the object is initialized, 
+Ceylon encourages you to use *immutable* references as much as possible. An 
+immutable reference has its value specified when the object is initialized, 
 and is never reassigned.
 
-    class Reference<Value>(val) {
+    class Box<Value>(val) {
         shared Value val;
     }
     
-    value ref = Reference("foo");
+    Box<String> ref = Box("foo");
     print(ref.val);
     ref.val = "bar";    //compile error: value is not variable
     
 
-If we want to be able to assign a value to a 
-[reference](../classes/#initializing_attributes), we need to annotate it 
+If we want to be able to reassign a new value to a reference that has already 
+been [initialized](../classes/#initializing_attributes), we need to annotate it 
 `variable`:
 
-    class Reference<Value>(val) {
+    class Box<Value>(val) {
         shared variable Value val;
     }
     
-    value ref = Reference("foo");
+    Box<String> ref = Box("foo");
     print(ref.val);
     ref.val = "bar";    //ok
     print(ref.val);
@@ -150,8 +155,8 @@ consumption only, so un-`shared`:
 
 <!-- try: -->
 <!-- id:attrs -->
-    variable String? firstName=null;
-    variable String? lastName=null;
+    variable String? firstName = null;
+    variable String? lastName = null;
 
 (Remember, Ceylon never automatically initializes attributes to null.)
 
@@ -160,8 +165,8 @@ as a getter/setter pair:
 
 <!-- try-pre:
 class Test() {
-    variable String? firstName=null;
-    variable String? lastName=null;
+    variable String? firstName = null;
+    variable String? lastName = null;
 
 -->
 <!-- try-post:
@@ -172,15 +177,15 @@ print(t.fullName);
 -->
 <!-- cat-id:attrs -->
     shared String fullName
-            => " ".join(coalesce { firstName, lastName });
+            => " ".join({ firstName, lastName }.coalesced);
     
     assign fullName {
         value tokens = fullName.split().iterator();
         if (is String first = tokens.next()) {
-            firstName=first;
+            firstName = first;
         }
         if (is String last = tokens.next()) {
-            lastName=last;
+            lastName = last;
         }
     }
 
@@ -216,6 +221,8 @@ Ceylon has six built-in control structures. There's nothing much new here
 for Java or C# developers, so a few quick examples without much additional 
 commentary should suffice.
 
+### Gotcha!
+
 First, one "gotcha" for folks coming from other C-like languages: Ceylon 
 doesn't allow you to omit the braces in a control structure. The following 
 doesn't even parse:
@@ -238,8 +245,8 @@ You are required to write:
 
 (The reason braces aren't optional in Ceylon is that an expression 
 can begin with an opening brace, for example, `{"hello", "world"}`, 
-so optional braces in control structures make the whole grammar 
-ambiguous to the parser.)
+so optional braces in control structures would make the whole grammar 
+ambiguous.)
 
 OK, so here we go with the examples. 
 
@@ -357,12 +364,12 @@ loop completes normally, rather than via a `return` or `break` statement.
         variable Boolean minors;
         for (p in people) {
             if (p.age<18) {
-                minors=true;
+                minors = true;
                 break;
             }
         }
         else {
-            minors=false;
+            minors = false;
         }
         return minors;
     }
@@ -373,12 +380,12 @@ loop completes normally, rather than via a `return` or `break` statement.
     variable Boolean minors;
     for (p in people) {
         if (p.age<18) {
-            minors=true;
+            minors = true;
             break;
         }
     }
     else {
-        minors=false;
+        minors = false;
     }
 <!-- cat: } -->
 
@@ -470,7 +477,9 @@ defined in `ceylon.language`. If we don't explicitly specify a type,
     }
 <!-- cat: } -->
 
-There is no way to handle exceptions of type of `java.lang.Error`.
+To handle all exceptions, including subtypes of `java.lang.Error`,
+we can catch the root exception class 
+[`Throwable`](#{site.urls.apidoc_1_1}/Throwable.type.html).
 
 The `try` statement may optionally specify a "resource" expression, just
 like in Java.
