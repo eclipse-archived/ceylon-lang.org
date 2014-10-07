@@ -278,7 +278,7 @@ combination of several things:
 * a getter, and, sometimes, 
 * a setter. 
 
-That's because not all value are references like the one we've just seen; 
+That's because not every value is a reference like the one we've just seen; 
 others are more like a getter method, or, sometimes, like a getter and 
 setter method pair.
 
@@ -351,7 +351,7 @@ The syntax `Polar.radius` is legal in Ceylon, and we even call it a
 but it does not usually mean what you think it means!
 
 Sure, if you're taking advantage of Ceylon's Java interop, you can call 
-a static member of a Java class using this syntax, just like you can in
+a static member of a Java class using this syntax, just like you would in
 Java:
 
 <!-- try: -->
