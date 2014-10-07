@@ -170,8 +170,8 @@ when we're not trying to impress people with opaque terminology, we say that
 `Collection` both produces—via the `iterator()` method—and consumes—
 via the `add()` method—the type `Element`.
 
-Here's where Java goes off and dives down a rabbit hole, successfully using 
-wildcards to wrangle a covariant or contravariant type out of an invariant 
+Here's where Java goes off and dives down a rabbit hole, introducing 
+_wildcards_ to wrangle a covariant or contravariant type out of an invariant 
 type, but also succeeding in thoroughly confusing everybody. We're not going 
 to follow Java down the hole.
 
@@ -262,6 +262,54 @@ You're unlikely to spend much time writing your own collection classes, since
 the Ceylon SDK will soon have a powerful collections framework built in. But 
 you'll still appreciate Ceylon's approach to covariance as a user of the 
 built-in collection types.
+
+### Gotcha!
+
+Sadly, declaration site variance doesn't help us when we interoperate with
+native Java code, where all generic types are invariant by default, and
+_wildcards_ are used to recover covariance or contravariance in method 
+signatures.
+
+Therefore, Ceylon also supports Java-style wildcards, albiet with a cleaner
+syntax. 
+
+
+## Wildcard types
+
+We don't recommend the use of wildcard types in pure Ceylon code, but you 
+still need to be aware of their existence if you ever plan to call native
+Java classes from Ceylon.
+
+This Java method signature:
+
+<!-- try: -->
+    //Java
+    void java(Map<? super String, ? extends Widget> map) { ... }
+
+Would be written like this in Ceylon:
+
+<!-- try: -->
+    //Ceylon
+    void java(Map<in String, out Widget> map) { ... }
+
+Here, we see a wildcarded type:
+
+<!-- try: -->
+    Map<in String, out Widget>
+
+The wildcards `in String` and `out Widget` make the following
+code well-typed:
+
+<!-- try: -->
+    //assigns a Map<Object,MoveableWidget> to Map<in String, out Widget>
+    java(HashMap<Object,MoveableWidget>());
+
+Since `Object` is a supertype of `String` and `MoveableWidget` is a subtype
+of `Widget`, `Map<Object,MoveableWidget>` is assignable to the wildcard type
+`Map<in String, out Widget>`.
+
+If you didn't follow this section, don't worry. You might not ever even 
+need to use a wildcard type in Ceylon. We have bigger fish to fry.
 
 
 ## Covariance and contravariance with unions and intersections
