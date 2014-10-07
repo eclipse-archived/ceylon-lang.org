@@ -13,44 +13,78 @@ Invocation is the act of calling something that is
 
 ## Usage 
 
-Invocation using a *positional argument list*, in parentheses:
+Invocation using a [positional argument list](../positional-argument-list/), 
+in parentheses:
 
 <!-- try: -->
     put(1, "one")
     
-Invocation using a *named argument list*, in braces:
+Invocation using a [named argument lists](../named-argument-list/), 
+in braces:
 
 <!-- try: -->
     put {
         integer=1;
-        name="one;
+        name="one";
     }
 
 ## Description
 
 The thing that is being invoked is called the *primary* of the invocation. 
-It is followed by an [argument list](../argument-list/).
 
-The type of an invocation expression is the return type of the 
-[callable type](../../structure/function#callable_type) of the primary. 
-For example, the return type of a function being invoked, or the type of 
-a class being instantiated.
+The primary is followed by an argument list. There are two distinct 
+kinds of argument list:
+
+* Positional argument lists are enclosed in parenthesis and 
+  separated with commas (see reference page for 
+  [positional argument lists](../positional-argument-list/)).
+* Named argument lists are enclosed in braces
+  and separated with semicolons (see reference page for 
+  [named argument lists](../named-argument-list/)).
+
+It is useful to classify invocations as direct and indirect:
+
+* A *direct invocation* is one where the primary is a function, method, 
+  or class. The typechecker knows about the declaration of the primary,
+  so invocation using named arguments is supported.
+* An *indirect invocation* is one where the primary is a reference with 
+  `Callable` type (such as a function reference). 
+  Since the primary isn't based on a declaration (or at least, 
+  there's no declaration known to the typechecker), invocation 
+  using named arguments is not supported.
+
+For example: 
+
+    print("hello world); // direct invocation
+    value p = print;
+    p("hello world); // indirect invocation
 
 ### Function and method invocation
 
-Function and method invocation is *direct* invocation, and therefore 
-supports named argument lists.
+Function and method invocation is *direct* invocation, and supports 
+both positional argument lists and named argument lists.
+
+    print("hello world);
+    print{
+        val="hello world";
+    };
 
 ### Class invocation
 
-Invoking a class (*instantiating* it) creates a new instance of the class.
+Invoking a [class](../../structure/class/) (*instantiating* it) 
+creates a new instance of the class.
 
 Class invocation is a *direct* invocation, and therefore supports 
-named argument lists.
+both positional argument lists and named argument lists.
+
+    value alice = Person("alice");
+    value bob = Person{
+        name="bob";
+    };
 
 ### Indirect invocation
 
-You can invoke a [value](../../structure/value/) that has a 
+You can invoke a [reference](../../structure/value/) if it has a 
 `Callable` type:
 
 <!-- try: -->
@@ -58,11 +92,31 @@ You can invoke a [value](../../structure/value/) that has a
     Anything result = fn();
 
 Because the `Callable` type does not retain any information about
-the parameter names, and cannot use a named argument invocation; 
+the parameter names, you cannot use a named argument invocation; 
 only positional arguments.
 
-The `Callable` type can encode information about 
-[defaulted parameters](../../structure/parameter-list/#defaulted_parameters), so the 
+### Superclass initializer invocation
+
+Technically, the `extends` clause of a 
+[class declatation](../../structure/class/) is also an invocation: 
+Of the superclass's initializer. For example:
+
+    class Example(String name) 
+            extends Person(name) // invocation! 
+    {
+    }
+
+
+
+### Defaulted parameters
+
+Both direct and indirect invocations allow you to omit 
+arguments for some parameters if those parameters have 
+a [default value](../../structure/parameter-list/#defaulted_parameters).
+
+This works for indirect invocations because the `Callable` 
+type can encode information about 
+defaulted parameters, so the 
 invocation need not specify arguments for parameters which are defaulted:
 
 <!-- try: -->
@@ -90,7 +144,8 @@ invocation is an [indirect invocation](#indirect_invocation).
 ### Tuple and Iterable enumeration
 
 Technically, [tuple](../tuple) and [iterable](../iterable/) 
-enumerations are also invocations. 
+enumerations are also invocations: They instantiate new
+tuples and iterables respectively.
 
 ## See also
 

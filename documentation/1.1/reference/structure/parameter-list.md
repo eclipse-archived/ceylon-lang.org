@@ -131,7 +131,9 @@ For example
 
 When a reference to the function or class is the primary of an
 [invocation](../../expression/invocation), the caller supplies an 
-[argument list](../../expression/argument-list) whose type, expressed 
+either a [positional argument list](../../expression/positional-argument-list)
+or a [named argument list](../../expression/named-argument-list) 
+whose type, expressed 
 in terms of [`Tuple`](#{site.urls.apidoc_1_1}/Tuple.type.html),
 must be a subtype of the type of the parameter list, also expressed 
 as a tuple type.
