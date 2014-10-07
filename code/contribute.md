@@ -19,7 +19,14 @@ And now you either set things up for HTTPS access (recommended for most people):
 
 <!-- lang: bash -->
     $ git clone https://github.com/ceylon/ceylon-dist.git
+	
+( If you encounter issue like fatal: "unable to access 'https://github.com/ceylon/ceylon-dist.git/': 
+	Failed connect to github.com:443; No error", make sure you've set up your proxy as git config, ie: 
+<!-- lang: bash -->
+	$ git config --global http.proxy http://userName:password@proxyServer:port 
 
+that should fix it )
+	
 - Go into the newly created ceylon-dist directory and run the setup
 
 <!-- lang: bash -->
