@@ -60,7 +60,7 @@ Otherwise the `else` clause is required.
 If the `switch` expression is of an 
 [enumerated type](../../structure/type#enumerated_types) `U` then a `case` may 
 be of the form `case (x)` where `x` is one of the cases of `U`. A list of cases, 
-`case(x, y, z)`, is also permitted.
+`case(x | y | z)`, is also permitted.
   
 Since `Boolean` and `Null` are both enumerated types, we can use their enumerated
 values in a `switch`:
