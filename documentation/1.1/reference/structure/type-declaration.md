@@ -8,9 +8,9 @@ author: Tom Bentley
 
 # #{page.title_md}
 
-This page is about *type declarations* which define new type constructors. 
-[Types](../type/) are produced
-by applying type arguments to such type constructors.
+This page is about *type declarations*, which define new *type constructors*. 
+There's a separate page about the [types](../type/) that 
+are produced by applying type arguments to such type constructors.
 
 ## Usage 
 
@@ -55,6 +55,19 @@ All these declarations can have [members](#member_declarations).
 
 [Function](../function/) and [value](../value/) declarations to not 
 introduce new types or type constructors and do not have members.
+
+### Declarative subtyping
+
+The [`extends`](../class/#extending_classes) and 
+`satisfies` clauses of a type declaration
+list the types that are treated as supertypes of the 
+types produced from the type declaration.
+
+### Declarative cases
+
+The `of` clause of a type declaration enumerates the 
+disjoint subtypes (the *cases*) of the 
+types produced from the type declaration.
 
 #### Member declarations
 

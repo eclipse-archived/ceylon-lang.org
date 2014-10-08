@@ -70,6 +70,20 @@ In other words the `extends` clause is an
         /* declarations of class members */
     }
 
+Thinking in terms of [types](../type), the `extends` clause
+means that every type produced from the type constructor
+of the class being defined will be a subtype of the type
+in `extends` clause:
+
+    class Sub() extends Generic<String>() {
+    }
+    class GenericSub<Parameter>() extends Generic<Parameter>() {
+    }
+
+    
+Thus the type `Sub` is a subtype of `Generic<String>`, and the
+type `GenericSub<Boolean>` is a subtype of `Generic<Boolean>`.
+
 If a class is declared without using the `extends` keywords, it is a 
 subclass of [`Basic`](#{site.urls.apidoc_1_1}/Basic.type.html).
 
