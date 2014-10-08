@@ -13,6 +13,9 @@ _Iterable enumeration_ is a notation for creating instances of
 
 ## Usage 
 
+An example iterable enumeration using 
+[listed arguments](../positional-argument-list/#listed_arguments):
+
 <!-- try: -->
     {Integer|Float|String+} tuple = {1, 2.0, "three"};
 
@@ -20,9 +23,16 @@ _Iterable enumeration_ is a notation for creating instances of
 
 ### Syntax
 
-Syntactically an iterable enumeration is an 
-[argument list](../argument-list/) enclosed 
+Syntactically an iterable enumeration is a 
+[positional argument list](../positional-argument-list/) enclosed 
 within braces `{` and `}`.
+
+Iterable enumerations are commonly used with 
+[comprehensions](../positional-argument-list#comprehension_arguments) to create a 
+new `Iterable` thats filters, combines and/or transforms some other 
+iterables. For example:
+
+    value evens = {for (i in 0..100) if (i % 2 == 0) i};
 
 The empty iteratable, `{}`, has the value 
 [`empty`](#{site.urls.apidoc_1_1}/index.html#empty) and the type

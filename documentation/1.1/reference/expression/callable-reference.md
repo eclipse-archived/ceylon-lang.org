@@ -25,7 +25,7 @@ Callable references introduce a level of indirection between the
 definition of a function, method, or class, and the invocation of
 the function, method, or class, allowing the definition of generic
 functions, called _higher order functions_, that operate upon
-callable references.
+callable references and other `Callable` values.
 
 ### Type
 
@@ -57,9 +57,27 @@ A callable reference may be invoked, for example:
 
     classReference({'h', 'e', 'l', 'l', 'o'})
 
-The interface `Callable` doesn't encode information about parameter 
-names. So a callable reference may only be invoked with a positional 
-argument list, not a named argument list.
+This is an [indirect invocation](../invocation#indirect_invocation), so 
+you cannot use a [named argument list](../named-argument-list).
+
+### Equality
+
+`Callable` does not refine `Object.equals`. This means that
+if you obtain two different callable references to the 
+same thing they will *not compare as equal*:
+
+    value ref = String;
+    // while this assertion will pass...
+    assert(ref == ref);
+    // ...these assertions will fail
+    assert(String == String);
+    assert(ref == String);
+
+While this may seem surprising for callable references 
+like `String` it would also be surprising if 
+some `Callable` instances had a semantic for `equals`, but 
+others (such as those produced by higher order functions) 
+did not. 
 
 ## See also
 

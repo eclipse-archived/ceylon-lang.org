@@ -13,19 +13,40 @@ _Tuple enumeration_ is a notation for creating instances of
 
 ## Usage 
 
+An example tuple enumeration using 
+[listed arguments](../positional-argument-list/#listed_arguments):
+
 <!-- try: -->
-    [Integer, Float, String] tuple = [1, 2.0, "three"];
+    [Integer, Float, String] one23 = [1, 2.0, "three"];
 
 ## Description
 
 ### Syntax
 
-Syntactically a tuple enumeration is an 
-[argument list](../argument-list/) enclosed 
+Syntactically a tuple enumeration is a 
+[positional argument list](../positional-argument-list/) enclosed 
 within square brackets `[` and `]`.
 
-The empty tuple, `[]`, has the value 
+If you supply no arguments you obtain the empty tuple, `[]`, 
+which is precisely the same as 
 [`empty`](#{site.urls.apidoc_1_1}/index.html#empty).
+
+All kinds of positional argument are available. 
+For example, consider
+the tuple constructed using a 
+[spread argument](../positional-argument-list/#spread_arguments):
+
+<!-- try: -->
+    [Integer, Integer, Float, String] zero123 = [0, *one23];
+
+Or a tuple enumeration with a 
+[comprehension argument](../positional-argument-list/#comprehension_arguments):
+
+<!-- try: -->
+    value oneTo10 
+        = [1, 2, for (i in 3..10) i ];
+
+
 
 ### Type
 
@@ -33,13 +54,6 @@ The type of a tuple enumeration is the
 [`Tuple`](#{site.urls.apidoc_1_1}/Tuple.type.html) 
 type of the list of arguments it contains.
 
-As well as the [example above](#usage), consider
-the tuple constructed using a [
-spread argument](../argument-list#spread_argument):
-
-<!-- try: -->
-    {Integer*} ints = {};
-    [Integer+] variadic = [1, *ints];
 
 ## See also
 
