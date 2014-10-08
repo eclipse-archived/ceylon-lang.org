@@ -25,21 +25,17 @@ enclosed in double-quotes:
 <!-- try-post:
     hello();
 -->
-    void hello() {
+    shared void hello() {
         print("Hello, World!");
     }
 
 String literals in Ceylon may span multiple lines. Try this:
 
-<!-- try:
-    void hello() {
-        print("Hello, 
-               World!");
-    }
+<!-- try-post:
     hello();
 -->
 <!-- id: hello -->
-    void hello() {
+    shared void hello() {
         print("Hello, 
                World!");
     }
@@ -65,7 +61,7 @@ We can use it like this:
     hello();
 -->
 <!-- id: hello -->
-    void hello() {
+    shared void hello() {
         value message = "Hello, 
                          World!";
         print(message.normalized);
@@ -91,7 +87,7 @@ comment, either like this:
 -->
 <!-- id: hello -->
     /* The classic Hello World program */
-    void hello() {
+    shared void hello() {
         print("Hello, World!");
     }
 
@@ -102,7 +98,7 @@ Or like this:
 -->
 <!-- id: hello -->
     //The classic Hello World program
-    void hello() {
+    shared void hello() {
         print("Hello, World!");
     }
 
@@ -121,7 +117,7 @@ declarations.
 	by ("Trompon the Elephant")
 	see (`function goodbye`)
 	throws (`class IOException`)
-	void hello() {
+	shared void hello() {
 	    print("Hello, World!");
 	}
 <!-- cat: 
@@ -155,7 +151,7 @@ program element:
     by ("Trompon the Elephant")
     see (`function goodbye`)
     throws (`class IOException`)
-    void hello() {
+    shared void hello() {
         print("Hello, World!");
     }
 <!-- cat: 
@@ -194,7 +190,7 @@ formatting.
      [helloworld]: http://en.wikipedia.org/wiki/Hello_world_program
      [Ceylon]: http://ceylon-lang.org"
     
-    void hello() {
+    shared void hello() {
         print("Hello, World!");
     }
 
@@ -265,7 +261,7 @@ Let's make our program tell us a little more about itself.
 -->
 <!-- id: hello -->
     "The Hello World program ... version 1.1!"
-    void hello() {
+    shared void hello() {
         print("Hello, this is Ceylon ``language.version``  
                running on Java ``runtime.version``!\n
                You ran me at ``system.milliseconds`` ms, 
@@ -330,7 +326,7 @@ way up to a more convenient form.)
     hello();
 -->
     "Print a personalized greeting"
-    void hello() {
+    shared void hello() {
         String? name 
                 = process.arguments.first;
         String greeting;
@@ -509,7 +505,7 @@ Using `else`, we can finally simplify our example to something reasonable:
     hello();
 -->
     "Print a personalized greeting"
-    void hello() {
+    shared void hello() {
         print("Hello, ``process.arguments.first else "World"``!");
     }
 
@@ -853,7 +849,7 @@ Try it, by running the following function:
     findPrimes();
 -->
     "Print a list of all two-digit prime numbers."
-    void findPrimes()
+    shared void findPrimes()
         => printAll { for (i in 2..99) if (prime(i)) i };
 
 Heh, this was just a little teaser to keep you interested. We'll explain 

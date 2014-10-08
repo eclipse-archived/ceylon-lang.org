@@ -63,25 +63,28 @@ from the command line and IDE.
 
 ## A _really_ simple program
 
-Here's a classic example program.
+Here's a classic example program:
 
 <!-- id: hello -->
 <!-- try-post:
     hello();
 -->
-    void hello() {
+    shared void hello() {
         print("Hello, World!");
     }
 
-This function prints `Hello, World!` on the console. We call this a _toplevel_ 
-function because it's not a member of any specific type. So you don't need a 
-receiving object to invoke a toplevel function. Instead, you can just call it 
-like this:
+This code declares a function named `hello()` that prints `Hello, World!` on 
+the console.
+
+We call this function a _toplevel_ function because it's not a member of a type. 
+So we don't need a receiving object to invoke a toplevel function. Instead, we 
+can just call it like this:
 
 <!-- try:
-    void hello() {
+    shared void hello() {
         print("Hello, World!");
     }
+    
     hello();
 -->
 <!-- cat-id: hello -->
@@ -89,17 +92,20 @@ like this:
     hello();
 <!-- cat: } -->
 
-Or you can run it directly from the command line.
+Or, since this toplevel function is annotated `shared`, we can run it directly 
+from the command line or IDE.
 
 Ceylon doesn't have `static` methods like Java, C++, or C#, but you can think 
 of toplevel functions as filling the same role. The reason for this difference
-is that Ceylon has a very strict block structure - a nested block always has 
-access to declarations in all containing blocks. This isn't the case with 
-Java's `static` methods.
+is that Ceylon has a very strict block structure&mdash;a nested block always has 
+access to declarations in all containing blocks. This isn't the case with Java's 
+`static` methods, which break the usual block structure of the language.
 
-Ceylon doesn't (yet) support _scripting_. You can't write statements like 
-`print("Hello, World!");` outside of a function or class. This is _not_, on
-its own, a legal program:
+### Gotcha!
+
+Note that Ceylon doesn't (yet) support _scripting_. You can't write statements 
+like `print("Hello, World!");` outside of a function or class, like you would
+in a scripting language. This is _not_, on its own, a legal program:
 
 <!-- try: -->
     print("Hello, World!");  //error: must occur inside a function or class
