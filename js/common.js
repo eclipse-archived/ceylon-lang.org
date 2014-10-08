@@ -213,3 +213,30 @@ jQuery(function (){
 	});
 	addTryButtons();
 });
+
+/*
+ Linked section headers:
+ Every header with id that contains no <a> child nodes
+ gets its content wrapped by a link to that anchor.
+ For example:
+ 
+     <h2 id="a_really_simple_program">A <em>really</em> simple program</h2>
+     <h2 id="a_really_simple_program"><a class="anchor" href="http://localhost:4242/documentation/1.0/tour#a_really_simple_program">A <em>really</em> simple program</a></h2>
+ 
+ TODO: This should be done by the Markdown processor; see #308.
+ */
+jQuery(function($) {
+    $(":header[id]").each(function(index, elem) {
+        var $elem = $(elem);
+        var anyLink = false;
+        $elem.children().each(function() {
+            if($(this).is("a"))
+                anyLink = true;
+        });
+        if(!anyLink) {
+            var html = $elem.html();
+            $elem.empty();
+            $elem.append($("<a>").attr("href", document.URL.replace(/\/?(\#.*)?$/, "") + '#' + $elem.attr("id")).attr("class", "anchor").html(html));
+        }
+    });
+});

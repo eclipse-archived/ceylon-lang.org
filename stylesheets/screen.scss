@@ -146,6 +146,14 @@ body.bp {
       padding-top: 10px
     }
   }
+  
+  // no decoration for anchor links (#308) unless they're hovered
+  a.anchor {
+      text-decoration: none; // remove underline
+  }
+  a.anchor:hover {
+      text-decoration: underline;
+  }
 }
 
 form.bp {
