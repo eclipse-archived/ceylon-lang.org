@@ -63,11 +63,26 @@ The [`extends`](../class/#extending_classes) and
 list the types that are treated as supertypes of the 
 types produced from the type declaration.
 
+Put another way, these clauses have the effect that 
+every type produced from the type constructor
+of the class or interface being defined will be a subtype of the type
+in `extends` or `satisfies` clause:
+
+    class Sub() extends Generic<String>() {
+    }
+    class GenericSub<Parameter>() extends Generic<Parameter>() {
+    }
+    
+Thus the type `Sub` is a subtype of `Generic<String>`, and the
+type `GenericSub<Boolean>` is a subtype of `Generic<Boolean>`.
+
 ### Declarative cases
 
 The `of` clause of a type declaration enumerates the 
 disjoint subtypes (the *cases*) of the 
 types produced from the type declaration.
+
+### Different kinds of declaration
 
 #### Member declarations
 
@@ -108,30 +123,89 @@ keyword:
 <!-- try: -->
     alias BasicType = String|Character|Integer|Float|Boolean;
 
-### `Null`
+### Selected important type declarations
 
-[`Null`](#{site.urls.apidoc_1_1}/Null.type.html) is the type of 
-[`null`](#{site.urls.apidoc_1_1}/index.html#null). 
-If an expression permits `null` then it
-needs `Null` as a supertype. This is usually expressed as using a 
-[union type](#union_types) such as `T|Null`, which can be [abbreviated](../type-abbreviation]
-as `T?`, and we may refer to it as an *optional type*.
+#### `Anything`
 
-### `Nothing`
+[`Anything`](#{site.urls.apidoc_1_1}/Anything.type.html) 
+the ultimate supertype of all types. That means that every 
+type has `Anything` as a supertype, which in turn means that 
+every reference is assignable to `Anything`.
+
+You can also think of `Anything` as the union of *all* types.
+
+`Anything` corresponds to the notion of universe set in mathematics.
+
+You can't do anything with an instance of `Anything`, except 
+narrow it to some more specific type.
+
+`Anything`'s cases are `Null` and `Object`.
+
+`Anything` is the default upper bound for type parameters 
+lacking an upper bound constraint.
+
+#### `Nothing`
 
 [`Nothing`](#{site.urls.apidoc_1_1}/Nothing.type.html) 
-is the intersection of *all* types. It is equivalent to the empty set.
+is a subtype of all types. That means that every type has 
+`Nothing` as a subtype (even if the type is produced 
+from a `final` class declaration).
+
+You can also thing of `Nothing` as the intersection of *all* types. 
+
+`Nothing` corresponds to the notion of the empty set in mathematics.
+
 Because `Nothing` is the intersection of all types it is assignable to 
 all types. Similarly because it is the intersection of all types it can 
-have no instances. It corresponds to the notion of an empty set in
-mathematics.
+have no instances. 
 
 There is a value called `nothing` in the language module, which 
 has the type `Nothing`. At runtime trying to evaluate 
 `nothing` (that is, get an instance of `Nothing`) will 
 throw an exception.
 
-### `Iterable`
+Any function or value which claims to return `Nothing` cannot return normally, it
+must either:
+
+* throw an exception or
+* not return (for example, by looping forever, or stopping the virtual machine)
+
+#### `Null`
+
+[`Null`](#{site.urls.apidoc_1_1}/Null.type.html) is the type of 
+[`null`](#{site.urls.apidoc_1_1}/index.html#null). 
+
+Conceptually `null` is the *absence* of a value. 
+
+If an expression permits `null` then it
+needs `Null` as a supertype. This is usually expressed as using a 
+[union type](#union_types) such as `T|Null`, which can be [abbreviated](../type-abbreviation]
+as `T?`, and we may refer to it as an *optional type*.
+
+Because `null` represents the absence of a value (something that is not a thing), 
+it is meaningless to ask some reference is equal to `null`. Thus Ceylon does not 
+permit `obj == null` or `null == null`. In practice there are some situations 
+where you want the answer to be true and other situations where you want the 
+answer to be false.
+
+`Null` is one of the cases of `Anything`, the other being `Object`.
+
+#### `Object`
+
+[`Object`](#{site.urls.apidoc_1_1}/Object.type.html) 
+is the class that declares `equals()`, `hash` and `string`. 
+
+`Object` is one of the cases of `Anything`, the other being `Null`.
+
+#### `Basic`
+
+[`Basic`](#{site.urls.apidoc_1_1}/Basic.type.html) 
+mixes `Identifiable` into `Object`.
+
+`Basic` is the default superclass of classes whose declaration lacks 
+an `extends` clause.
+
+#### `Iterable`
 
 [`Iterable`](#{site.urls.apidoc_1_1}/Iterable.type.html) 
 is a type that produces instances of another type when iterated. 
@@ -143,7 +217,7 @@ There are two flavours of `Iterable`:
 * the type `Iterable<T,Nothing>`, usually [abbreviated](../type-abbreviation]  to `{T+}`,
   contains at least one element (it is *non-empty*)
 
-### `Sequential`
+#### `Sequential`
 
 [`Sequential`](#{site.urls.apidoc_1_1}/Sequential.type.html) 
 is an enumerated type with subtypes 
@@ -152,7 +226,7 @@ is an enumerated type with subtypes
 `Sequential<T>` is usually [abbreviated](../type-abbreviation] 
 to `T[]` or `[T*]`.
 
-### `Empty`
+#### `Empty`
 
 [`Empty`](#{site.urls.apidoc_1_1}/Empty.type.html) is the type 
 of a [`Sequential`](#{site.urls.apidoc_1_1}/Sequential.type.html) 
@@ -161,13 +235,13 @@ which contains no elements.
 The expression `[]` (or alternatively the value `empty`) 
 in the language module has the type `Empty`.
 
-### `Sequence`
+#### `Sequence`
 
 [`Sequence`](#{site.urls.apidoc_1_1}/Sequence.type.html) is the 
 type of non-empty sequences.
 `Sequence<T>` is usually [abbreviated](../type-abbreviation] to `[T+]`.
 
-### `Tuple`
+#### `Tuple`
 
 [`Tuple`](#{site.urls.apidoc_1_1}/Tuple.type.html) is a subclass 
 of `Sequence` (and thus cannot be empty). It differs from `Sequence` 
@@ -210,7 +284,9 @@ instance of a *model* from `ceylon.language.meta.model`.
 
 ## See also
 
-* Top level types are contained in [compilation units](../compilation-unit)
+* [types](../type) are produced from type declarations by applying
+  type arguments
+* Top level types are declared in [compilation units](../compilation-unit)
 * [`class` declaration](../class)
 * [`interface` declaration](../interface)
 * [`object` declaration](../object)

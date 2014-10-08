@@ -13,7 +13,7 @@ An annotation encodes metadata about a [program element](#program_elements).
 
 ## Usage 
 
-Some example annotation declarations:
+Some example annotation constructor *declarations*:
 
 <!-- check:none -->
 <!-- try: -->
@@ -25,6 +25,13 @@ Some example annotation declarations:
     }
     shared Authors by(String* authors) {
         return Authors (*authors);
+    }
+    
+An example of the use of `deprecated` and `by`:
+
+    deprecated
+    by("Tom")
+    class AnnotatedClass() {
     }
 
 ## Description

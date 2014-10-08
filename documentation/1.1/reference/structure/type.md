@@ -92,12 +92,11 @@ the [declaration of a type](../type-declaration#declarative_subtyping)
 includes listing what are the supertypes of types produced 
 from the declaration.
 
-It's worth mentioning type special types at this point,
-because they turn out to be really useful:
+It's worth mentioning two important types at this point:
 
-* `Anything` is the supertype of all types -- you can't do anything with an instanceof `Anything` 
-  except narrow it to some more useful type/
-* `Nothing` is a subtype of all types; there are no instances of `Nothing`.
+* [`Anything`](../type-declaration#anything) is the supertype of all types; you can't do anything with an instanceof `Anything` 
+  except narrow it to some more useful type,
+* [`Nothing`](../type-declaration#nothing) is a subtype of all types; there are no instances of `Nothing`.
 
 ### Subtypes of unions and intersections
 

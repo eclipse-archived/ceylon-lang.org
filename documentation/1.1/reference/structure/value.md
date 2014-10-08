@@ -1,6 +1,6 @@
 ---
 layout: reference11
-title_md: Values and attributes
+title_md: Value and attribute declarations
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
@@ -23,67 +23,113 @@ When a value is a member of a type, is it called an _attribute_.
 
 ## Usage 
 
-A `variable` reference:
+A trivial reference:
 
-<!-- id:attr -->
-<!-- try: -->
-    variable String firstName = "John";
-    variable String lastName = "Smith";
+    String trivalReference = "Alice";
 
-A value getter:
+A trivial getter:
 
-<!-- id:attr2 -->
-<!-- cat-id: attr -->
-<!-- try: -->
-    // A getter with a fat arrow
-    shared String name => firstName + " " + lastName;
-    
-    // A getter with a block
-    shared String name {
-        return firstName + " " + lastName;
+    String trivialSpecifiedGetter => "Bob";
+
+
+A trivial getter and setter:
+
+    Integer trivialValueWithBlock {
+        return i+10;
     }
-
-A value setter:
-
-<!-- cat-id: attr -->
-<!-- cat-id: attr2 -->
-<!-- cat: String[] parseName(String? name) { throw; } -->
-<!-- try: -->
-    assign name {
-        assert (is [String, String] parts
-                = parseName(name));
-        firstName = parts[0];
-        lastName = parts[1];
+    assign trivialValueWithBlock {
+        i = trivialValueWithBlock-10;
     }
     
+The setter uses the `assign` keyword, and has the same name as the 
+corresponding getter.
+
+The general form of a value can look like any of these:
+
+<!-- lang:none -->
+    ANNOTATIONS
+    TYPE exampleReference = INITIAL-EXPRESSION;
+    // or
+    ANNOTATIONS
+    TYPE exampleGetterSpecified => GETTER-EXPRESSION;
+    // or
+    ANNOTATIONS
+    TYPE exampleGetterBlock {
+        GETTER-BODY
+    }
+    // or
+    ANNOTATIONS
+    TYPE exampleGetterBlock {
+        GETTER-BODY
+    }
+    assign exampleGetterBlock {
+        SETTER-BODY
+    }
+
+Where:
+
+* `ANNOTATIONS` is a list of value [annotations](../annotation)
+* `TYPE` is a [type expression](../type) for the [type the reference](#value_type) returned when the value is evaluated
+* `INITIAL-EXPRESSION` is the intial value of the reference
+* `GETTER-EXPRESSION` is the [specified value](#function_specifiers) of the getter
+* `GETTER-BODY` is a [block](#function_blocks) of statements
+* `SETTER-BODY` is a [block](#function_blocks) of statements
+
 
 ## Description
 
-### References
+### Value type
 
-References are just holders of state. A reference attribute declared within a 
+A non-local value declaration always specifies the *type* of the value.
+
+#### Type inference
+
+Local value and attribute declarations don't need to explictly declare a type, 
+but can instead use [type inference](../type-inference) via the `value` 
+keyword.
+
+<!-- try: -->
+    void f() {
+        value string = ""; //inferred type String
+    }
+
+### Reference values
+
+Reference values are just holders of state. 
+
+A toplevel reference represents a "global constant" (or variable).
+
+A reference attribute declared within a 
 class body represents state associated with an instance of the class 
-(similar to a *field* in other programming languages). A local 
-reference (that is, a reference declared within a block) represents state 
+(similar to a *field* in other programming languages). 
+
+A local reference (that is, a reference declared within a block) represents state 
 associated with execution of that block (similar to a *local variable* 
 in other programming languages).
 
-### `variable` values
+Reference values are computed when the value is specified or assigned
+and the exact same instance returned thereafter 
+(unless the value is `variable` and is reassigned). 
 
-If a reference is annotated [`variable`](#{site.urls.apidoc_1_1}/index.html#variable), 
+#### `variable` reference values
+
+If a reference value is annotated [`variable`](#{site.urls.apidoc_1_1}/index.html#variable), 
 it can be [assigned](#{page.doc_root}/reference/operator/assign) more than once.
 Otherwise it must be [specified](../../statement/specification) exactly once. 
-Moreover the specification must occur before its first use.
+
+The specification or assignment must occur before its first use.
 
 ### Getters
 
-A getter defines a derived value that is computed when needed.
+A getter defines a derived value that is computed every time the 
+value is required (unlike a reference value).
 
 From the point of view of the code evaluating a value, it is impossible to 
 determine whether the value is implemented as a reference or as a getter. 
 It's even possible to refine a reference with a getter, or vice versa.
 
-Like functions, you can either use a block of statements or the *fat arrow*
+Like [function declarations](../function), you can either use a 
+block of statements or the *fat arrow*
 (`=>`) syntax if the value can be computed from a single expression.
 
 ### Setters
@@ -110,24 +156,16 @@ instance.
 A [top level](../type-declaration#top_level_declarations) value does not have a 
 receiver.
 
-### Type inference
 
-Local value declarations often don't need to explictly declare a type, 
-but can instead use [type inference](../type-inference) via the `value` 
-keyword.
+### Different kinds of value
 
-<!-- try: -->
-    void f() {
-        value string = ""; //inferred type String
-    }
-
-### `late` values
+#### `late` values
 
 A value can be declared [`late`](../../annotation/late/) in which case the 
 typechecker's [definite specification](../../annotation/late/#description) 
 checks are not performed. 
 
-### `formal` and `default` attributes
+#### `formal` and `default` attributes
 
 An attribute declaration may be annotated [`formal`](../../annotation/formal)
 or [`default`](../../annotation/default). A formal or default attribute must 
@@ -140,7 +178,7 @@ interface.
 A `default` attribute may be refined by types which inherit the containing 
 class or interface. 
 
-### `shared` values
+#### `shared` values
 
 A toplevel value declaration, or a value declaration nested inside the 
 body of a containing class or interface, may be annotated 
@@ -163,8 +201,8 @@ either a
 ## See also
 
 * [Compilation unit](../compilation-unit)
-* [`class` declaration](../class)
-* [`interface` declaration](../interface)
-* [`object` declaration](../object)
+* [`class` declarations](../class)
+* [`interface` declarations](../interface)
+* [`object` declarations](../object)
 * [Values](#{site.urls.spec_current}#values) in the Ceylon language spec
 

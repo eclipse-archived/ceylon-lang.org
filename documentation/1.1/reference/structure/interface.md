@@ -1,6 +1,6 @@
 ---
 layout: reference11
-title_md: Interfaces
+title_md: Interface Declarations
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
@@ -8,7 +8,7 @@ author: Tom Bentley
 
 # #{page.title_md}
 
-An interface is a stateless [type declaration](../type-declaration) that, unlike a [class](../class):
+An interface is a stateless [type declaration](../type-declaration) that, unlike a [class declaration](../class):
 
 - may not hold references to other objects,
 - does not define initialization logic, and 
@@ -23,29 +23,79 @@ don't have state or logic to initialize that state.
 A trivial interface declaration looks like this:
 
 <!-- try: -->
-    interface I {
+    interface Trivial {
         /* declarations of interface members */
     }
 
-Since interfaces don't contain initialization logic, there's no parameter 
-list after the interface name as there would be in a [class declaration](../class).
+The general form of an interface declaration looks like this:
+
+<!-- lang:none -->
+    ANNOTATIONS
+    interface Example
+            <TYPE-PARAMETERS>
+            of ENUMERATED-SUBINTERFACES
+            satisfies SUPER-INTERFACES
+            given TYPE-PARAMETER-CONSTRAINTS {
+        INTERFACE-BODY
+    }
+
+Where:
+
+* `ANNOTATIONS` is a list of interface [annotations](../annotation)
+* `TYPE-PARAMETERS` is a `,`-separated list of [type parameters](#type_parameters)
+* `ENUMERATED-SUBINTERFACES` is a `|`-separated list of [interface types](#enumerated_classes)
+* `SUPER-INTERFACES` is a `&`-separated list of [interface type expressions](#satisfying_interfaces)
+* `TYPE-PARAMETER-CONSTRAINTS` is a list of [constraints on type parameters](../type-parameters#constraints) 
+  declared in the type parameter list
+* `INTERFACE-BODY` is the [declaration section](#declaration_section) of the interface
+
+Due to the stateless nature of interfaces, their declarations have:
+
+* no parameter list after the interface name (as there is in a [class declaration](../class)).
+* no `extends` clause
+* no initializer section in the interface body: It contains only member declarations.
 
 ## Description
 
-### Satisfying interfaces
+### Type parameters
 
-The `satisfies` keyword specifies the interface types inherited by an 
-interface:
+An interface may have a list of [type parameters](../type-parameters) 
+enclosed in angle brackets (`<` and `>`) after the interface name. 
 
-<!-- cat: interface I1{} interface I2{} -->
 <!-- try: -->
-    interface I satisfies I1 & I2 {
-        /* declarations of interface members */
+    interface Generic<Foo, Bar> {
+        /* declarations of interface members 
+           type parameters Foo and Bar are treated as a types */
     }
 
-`&` is used as the separator between satisfied interface types because 
-`I` is being defined as a subtype of the 
-[intersection type](../type#union_and_intersection) `I1&I2`.
+An interface with type parameters is sometimes called a *generic interface*.
+
+An interface declaration with type parameters may also have a `given` clause 
+for each declared type parameter to 
+[constrain the argument types](../type-parameters#constraints):
+
+    interface Constrained<Foo, Bar>
+            given Foo satisfies Baz1&Baz2
+            given Bar of Gee1|Gee2 {
+        /* declarations of interface members 
+           type parameters Foo and Bar treated as a types */
+    }
+
+### Satisfying interfaces
+
+The `satisfies` clause is used to specify that the interface being declared is a
+[subtype](../type-declaration#declarative_subtyping) 
+of the given interface type.
+
+<!-- cat: interface I1 {} interface I2 {} -->
+<!-- try: -->
+    interface I satisfies I1 & I2 {
+        /* declarations of class members */
+    }
+
+`&` is used as the separator between satisfied interface types 
+because the interface (`I`) is being declared as a subtype of an 
+[intersection type](../type#union_and_intersection) (`I1&I2`).
 
 If an interface is declared without using the `satisfies` keyword, 
 it does not directly inherit any interfaces. However, _all_ 
@@ -68,20 +118,17 @@ declaration would look like this:
     
 Then `I1` and `I2` are called the *cases* of `I`.
 
-### Generic interfaces
+### Declaration section
 
-An _generic_ interface declaration lists [type parameters](../type-parameters) 
-in angle brackets (`<` and `>`) after the interface name. 
+### Members
 
-<!-- try: -->
-    interface I<Z> {
-        /* declarations of interface members 
-           type parameter Z treated as a type */
-    }
+The permitted members of interfaces are [classes](../class), 
+[interfaces](../interface), [methods](../function), and 
+[attributes](../value).
 
-An interface declaration with type parameters may have a `given` 
-clause for each declared type parameter to 
-[constrain the argument types](../type-parameters#constraints).
+Note that an interface cannot have an [`object`](../object) member.
+
+### Different kinds of interface
 
 ### `shared` interfaces
 
@@ -106,14 +153,6 @@ the declaration of subclasses and subinterfaces outside the module
 in which the sealed interface is declared. This provides a way to 
 share an interface's type with other modules.
 
-### Members
-
-The permitted members of interfaces are [classes](../class), 
-[interfaces](../interface), [methods](../function), and 
-[attributes](../value).
-
-Note that an interface cannot have an [`object`](../object) member.
-
 ### Aliases
 
 An *interface alias* is a kind of [alias](../alias#interface_aliases).
@@ -129,7 +168,7 @@ either an
 
 ## See also
 
-* [Classes](../class)
+* [Class declarations](../class)
 * [Interfaces](#{site.urls.spec_current}#interfaces) in the Ceylon 
   language spec
 
