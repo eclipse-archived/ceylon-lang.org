@@ -98,7 +98,7 @@ execute. Such things may include:
 
 ### Advice
 
-Note that [union types](../../structure/type#union_types) can and should 
+Note that [union type expressions](../../structure/type#union_and_intersection) can and should 
 be used to avoid writing multiple `catch` blocks with the same logic to 
 handle disparate exception types:
 

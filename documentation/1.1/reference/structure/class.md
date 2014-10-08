@@ -61,7 +61,8 @@ can't use a declaration before it's been declared.
 
 The `extends` clause specifies the type of the superclass together with 
 the argument list to the initializer parameters of the superclass. 
-In other words the extends clause is an invocation expression:
+In other words the `extends` clause is an 
+[invocation expression](../expression/invocation/):
 
 <!-- cat-id:c -->
 <!-- try: -->
@@ -74,8 +75,8 @@ subclass of [`Basic`](#{site.urls.apidoc_1_1}/Basic.type.html).
 
 ### Satisfying interfaces
 
-The `satisfies` keyword specifies the [interfaces](../interface) 
-inherited by a class:
+The `satisfies` keyword specifies the [interface](../interface) 
+types inherited by a class:
 
 <!-- cat: interface I1 {} interface I2 {} -->
 <!-- try: -->
@@ -85,7 +86,7 @@ inherited by a class:
 
 `&` is used as the separator between satisfied interface types because `C` 
 is being defined as a subtype of the 
-[intersection type](../type#intersection_types) `I1&I2`.
+[intersection type](../type#union_and_intersection) `I1&I2`.
 
 If a class is declared without using the `satisfies` keyword, it does
 not _directly_ inherit any interfaces. However, it may indirectly 
@@ -94,7 +95,7 @@ inherit interfaces via its superclass.
 ### Enumerated classes
 
 The subclasses of an `abstract` class can be constrained to a list of 
-named classes or toplevel anonymous classes using the `of` clause. 
+named class types (including toplevel anonymous classes) using the `of` clause. 
 If the class `C` is permitted only two direct subclasses, `S1` and `S2`, 
 its declaration would look like this:
 
@@ -102,10 +103,19 @@ its declaration would look like this:
     abstract class C() of S1 | S2 {
         /* declarations of class members */
     }
-<!-- cat: class S1() extends C() {} -->
-<!-- cat: class S2() extends C() {} -->
+
+The subclasses have to `extend` `C`:
+
+    class S1() extends C() {
+    }
+    class S"() extends C() {
+    }
 
 Then `S1` and `S2` are called the *cases* of `C`.
+
+If a class has enumerated subclasses we can use the subclasses as
+`is` cases in a 
+[`switch` statement](../../statement/switch#caseis_assignability_condition).
 
 ### Generic classes
 

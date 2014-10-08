@@ -58,7 +58,7 @@ Otherwise the `else` clause is required.
 ### `case` with an enumerated type (value reference)
 
 If the `switch` expression is of an 
-[enumerated type](../../structure/type#enumerated_types) `U` then a `case` may 
+[enumerated type](../../structure/type-declaration#enumerated_types) `U` then a `case` may 
 be of the form `case (x)` where `x` is one of the cases of `U`. A list of cases, 
 `case(x | y | z)`, is also permitted.
   
@@ -82,7 +82,7 @@ values in a `switch`:
 ### `case(is...)` (assignability condition)
   
 If the `switch` expression type `U` is a union of disjoint types, or an 
-[enumerated type](../../structure/type#enumerated_types), then a `case` 
+[enumerated type](../../structure/type-declaratiom#enumerated_types), then a `case` 
 may be of the form `case (is V)` where `V` is a case of the type `U`.
 
 <!-- try: -->

@@ -56,7 +56,7 @@ and it must be a direct subclass of either
 Any class parameters must be of one of the allowed types:
 
 * `Integer`, `Byte`, `Character`, `Float`, `String`
-* [Enumerated types](../type/#enumerated_types) where all the cases are `object` declarations
+* [Enumerated types](../type-declaration/#enumerated_types) where all the cases are `object` declarations
   (which includes `Boolean`).
 * A subtype of [`Declaration`](#{site.urls.apidoc_1_1}/meta/declaration/Declaration.type.html)
 * Another annotation class.
@@ -67,7 +67,7 @@ In particular the class parameters may be `shared` or not.
 
 ### Annotation constructor declaration
 
-An annotation constructor must be a [top-level](../type#top_level_declarations) [function](../function/) 
+An annotation constructor must be a [top-level](../type-declaration#top_level_declarations) [function](../function/) 
 annotated with `annotation`, with a return type that is an [annotation class](#annotation_class_declaration). 
 
 <!-- try: -->

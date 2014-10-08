@@ -101,7 +101,7 @@ There are two different kinds of variadic parameter:
   or more arguments for that parameter. Syntactically, a possibly-empty 
   variadic parameter is declared with a type expression followed by an
   asterisk, `*`, and then the parameter name.
-  From within the function or class the parameter has the type [`T[]`](../type#Sequential).
+  From within the function or class the parameter has the type [`T[]`](../type-declaration#Sequential).
   A possibly-empty variadic parameter's default argument is implictly 
   the empty sequence `[]`.
 * _Nonempty variadic parameters_ allow the function or class to be
@@ -109,7 +109,7 @@ There are two different kinds of variadic parameter:
   or more arguments for that parameter.  Syntactically, non-empty 
   variadic parameters are declared with a type expression followed by a 
   plus sign, `+`, and then the parameter name.
-  From within the function or class the parameter has the type [`[T+]`](../type#Sequence).
+  From within the function or class the parameter has the type [`[T+]`](../type-declaration#Sequence).
   A nonempty variadic parameter doesn't have a default argument, and so
   none of the preceding parameters may be [defaulted](#defaulted_parameters).
 

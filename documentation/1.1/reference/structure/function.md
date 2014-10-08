@@ -37,7 +37,7 @@ Method invocations have a 'receiver', an instance of the type that declares
 the method. Within the method [body](#method_blocks), the expression 
 [`this`](../../expression/this) refers to this receiving instance.
 
-A [top level](../type#top_level_declarations) function does not have a 
+A [top level](../type-declaration#top_level_declarations) function does not have a 
 receiver. 
 
 ### Return type

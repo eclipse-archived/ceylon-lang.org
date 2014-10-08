@@ -25,7 +25,7 @@ Union on values:
 ## Description
 
 **Note**: The `|` operator is also commonly used to 
-[union types](#{page.doc_root}/reference/structure/type#union_types). 
+[union types](#{page.doc_root}/reference/structure/type#union_and_intersection). 
 This page is about using the `|` operator on values.
 
 ### Definition

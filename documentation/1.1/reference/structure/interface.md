@@ -34,7 +34,7 @@ list after the interface name as there would be in a [class declaration](../clas
 
 ### Satisfying interfaces
 
-The `satisfies` keyword specifies the interfaces inherited by an 
+The `satisfies` keyword specifies the interface types inherited by an 
 interface:
 
 <!-- cat: interface I1{} interface I2{} -->
@@ -45,7 +45,7 @@ interface:
 
 `&` is used as the separator between satisfied interface types because 
 `I` is being defined as a subtype of the 
-[intersection type](../type#intersection_types) `I1&I2`.
+[intersection type](../type#union_and_intersection) `I1&I2`.
 
 If an interface is declared without using the `satisfies` keyword, 
 it does not directly inherit any interfaces. However, _all_ 

@@ -107,7 +107,7 @@ declares the method. Within the getter or setter body, the expression
 [`this`](../../expression/this) refers to this receiving 
 instance.
 
-A [top level](../type#top_level_declarations) value does not have a 
+A [top level](../type-declaration#top_level_declarations) value does not have a 
 receiver.
 
 ### Type inference
