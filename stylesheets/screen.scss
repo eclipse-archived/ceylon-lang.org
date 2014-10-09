@@ -69,15 +69,11 @@ body.bp {
     margin-top:1em;
     margin-bottom:1em;
     line-height:1.45em;
-    strong {
-      font-weight: normal;
-      color: #a52a2a;
-    }
   }
   
-  li strong {
+  li strong, p strong {
       font-weight: normal;
-      color: #a52a2a;
+      color: #822252;
   }
 
   ul, ol {
@@ -432,11 +428,7 @@ form.bp {
     
     p {
       margin-top: 0;
-      line-height: 1.2em;    
-      strong {
-        font-weight: normal;
-        color: #a52a2a;
-      }
+      line-height: 1.2em;
     }
   }
 
@@ -479,7 +471,7 @@ form.bp {
       margin-top: 0px;
       strong {
         font-weight: normal;
-        color: #a52a2a;
+        color: #822252;
       }
     }
     p:last-child {
