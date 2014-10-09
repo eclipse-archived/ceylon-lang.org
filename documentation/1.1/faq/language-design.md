@@ -25,8 +25,8 @@ abandoned to better fit the language goals.
 
 > What are the design goals of this language?
 
-The principles behind the design of the language are multiple, 
-here are some of the most important ones. The language should:
+Here's a list of some of the ideas motivating the design of
+Ceylon. The language should:
 
 * have a very regular syntax, and a uniform type system without 
   primitively-defined special cases,
