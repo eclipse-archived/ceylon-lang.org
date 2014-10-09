@@ -480,7 +480,7 @@ often use to make instantiation expressions more readable, especially
 when the class has more than two parameters:
 
 <!-- try-pre:
-    doc "A polar coordinate with an optional label"
+    "A polar coordinate with an optional label"
     class Polar(angle, radius, String? label=null) {
         
         shared Float angle;
