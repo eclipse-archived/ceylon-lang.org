@@ -16,7 +16,7 @@ pre {
 }
 
 pre, code {
-    font-family: 'Monaco', courier, monospace;
+    font-family: Inconsolata, Monaco, courier, monospace;
 }
 
 pre .comment {
