@@ -42,14 +42,11 @@ JVM-only, or it might be JavaScript-only. Of course,
 
 Well, we've been designing and building frameworks and 
 libraries for Java for ten years, and we know its limitations 
-intimately. And we're frustrated. 
-
-The number one technical problem that we simply can't solve 
-to our satisfaction in Java - or in any other existing JVM 
-language - is the problem of defining user interfaces and 
-structured data using a typesafe, hierarchical syntax. 
-Without a solution to this problem, Java remains joined at 
-the hip to XML.
+intimately. And we're frustrated. The most recent releases of
+Java go some distance to alleviating _some_ problems, but 
+even the newest language features strain to accommodate
+past mistakes and the requirement for full backward 
+compatibility.
 
 But much of our frustration is not even with the Java 
 language itself. The extremely outdated class libraries that 
@@ -61,8 +58,8 @@ great SDK is a top priority of the project.
 Every language has its strengths and weaknesses. Ceylon is
 a great language if you want to create easily understandable
 and maintainable code with minimum fuss, especially if you
-like navigating and writing code with the help of an IDE. It's
-also an especially great language if you care about 
+like navigating and writing code with the help of an IDE. 
+It's also an especially great language if you care about 
 modularity.
 
 There are [five important concerns](/blog/2012/01/10/goals/)
