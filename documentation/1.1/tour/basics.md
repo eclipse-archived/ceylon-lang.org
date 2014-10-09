@@ -229,7 +229,7 @@ The `+` operator you're probably used to is an alternative way to concatenate
 strings, and more flexible in many cases:
 
     print("Hello, this is Ceylon " + language.version +  
-          "running on " + runtime.name + " " + runtime.version + "!\n" +
+          " running on " + runtime.name + " " + runtime.version + "!\n" +
           "You ran me at " + system.milliseconds.string + 
           " ms, with " + process.arguments.size.string + 
           " arguments.");
@@ -242,7 +242,7 @@ attribute to convert numeric expressions to strings. The
 following does not compile:  
 
     print("Hello, this is Ceylon " + language.version +  
-          "running on " + runtime.name + " " + runtime.version + "!\n" +
+          " running on " + runtime.name + " " + runtime.version + "!\n" +
           "You ran me at " + system.milliseconds +  //compile error!
           " ms, with " + process.arguments.size +    //compile error!
           " arguments.");
