@@ -115,6 +115,7 @@ which are passed by value at the level of the virtual machine, you
 can't use the `===` operator to test the identity of two values of type 
 `Object`. The following is not allowed: 
 
+    Integer x = 1;
     assert (x===1); //compile error: Integer is not Identifiable 
 
 Instead, `===` is defined to act on instances of the interface 
