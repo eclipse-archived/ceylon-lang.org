@@ -97,7 +97,7 @@ To upgrade a previous `brew` installation:
 Instructions for getting started are contained in the file
 `README.md` in the root directory of the distribution, or
 [right here in GitHub][ceylon-dist readme]. To know what's 
-precisely in the release, read our [announcement][1.0.0].
+precisely in the release, read our [announcement](/blog/2014/10/09/ceylon-1/).
 
 [ceylon-dist readme]: https://github.com/ceylon/ceylon-dist/blob/master/README.md 
 
