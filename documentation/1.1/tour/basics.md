@@ -22,23 +22,12 @@ stuff.
 As we [just saw](../#a_really_simple_program), a _string literal_ is text 
 enclosed in double-quotes:
 
-<!-- try-post:
-    hello();
--->
-    shared void hello() {
-        print("Hello, World!");
-    }
+    print("Hello, World!");
 
 String literals in Ceylon may span multiple lines. Try this:
 
-<!-- try-post:
-    hello();
--->
-<!-- id: hello -->
-    shared void hello() {
-        print("Hello, 
-               World!");
-    }
+    print("Hello, 
+           World!");
 
 The output is:
 
@@ -57,15 +46,9 @@ class has an attribute called
 [`normalized`](#{site.urls.apidoc_1_1}/String.type.html#normalized). 
 We can use it like this:
 
-<!-- try-post:
-    hello();
--->
-<!-- id: hello -->
-    shared void hello() {
-        value message = "Hello, 
-                         World!";
-        print(message.normalized);
-    }
+    value message = "Hello, 
+                     World!";
+    print(message.normalized);
 
 Which results in the output:
 
@@ -82,10 +65,7 @@ It's usually a good idea to add some kind of documentation to important
 functions like `hello()`. One way we could do this is by using a C-style 
 comment, either like this:
 
-<!-- try-post:
-    hello();
--->
-<!-- id: hello -->
+<!-- try: -->
     /* The classic Hello World program */
     shared void hello() {
         print("Hello, World!");
@@ -93,10 +73,7 @@ comment, either like this:
 
 Or like this:
 
-<!-- try-post:
-    hello();
--->
-<!-- id: hello -->
+<!-- try: -->
     //The classic Hello World program
     shared void hello() {
         print("Hello, World!");
@@ -105,14 +82,7 @@ Or like this:
 But it's much better to use the `doc` annotation for comments that describe 
 declarations.
 
-<!-- try-post:
-    void goodbye() {
-    }
-    class IOException() extends Exception() {}
-    hello();
--->
-<!-- check:none: Requires IO -->
-<!-- id: hello -->
+<!-- try: -->
 	doc ("The classic Hello World program")
 	by ("Trompon the Elephant")
 	see (`function goodbye`)
@@ -120,10 +90,6 @@ declarations.
 	shared void hello() {
 	    print("Hello, World!");
 	}
-<!-- cat: 
-    void goodbye() {
-        // ...
-    } -->
 
 The `doc`, `by`, `see`, `throws`, and `tagged` annotations contain documentation 
 that is included in the output of the Ceylon documentation compiler, 
@@ -139,14 +105,7 @@ Since the `doc` annotation is ubiquitous, its name and parentheses may be left
 out whenever it occurs as the first annotation in the list of annotations of a 
 program element:
 
-<!-- try-post:
-    void goodbye() {
-    }
-    class IOException() extends Exception() {}
-    hello();
--->
-<!-- check:none: Requires IO -->
-<!-- id: hello -->
+<!-- try: -->
     "The classic Hello World program"
     by ("Trompon the Elephant")
     see (`function goodbye`)
@@ -154,10 +113,6 @@ program element:
     shared void hello() {
         print("Hello, World!");
     }
-<!-- cat: 
-    void goodbye() {
-        // ...
-    } -->
 
 
 ## Formatting inline documentation
@@ -165,10 +120,7 @@ program element:
 The `doc` annotation may contain [Markdown](http://daringfireball.net/projects/markdown/syntax)
 formatting.
 
-<!-- try-post:
-    hello();
--->
-<!-- id: hello -->
+<!-- try: -->
     "The classic [Hello World program][helloworld]
      that prints a message to the console, this 
      time written in [Ceylon][]. 
@@ -210,8 +162,8 @@ You can also use 2-byte and 4-byte hexadecimal escape sequences to embed
 Unicode characters in your text.
 
 <!-- try-pre:
-    Float calculateE() => 2.72;
-    Float calculatePi() => 3.14;
+    Float calculateE() => 2.71828;
+    Float calculatePi() => 3.14159;
     
 -->
     "The mathematical constant \{#03C0}, the
@@ -226,8 +178,8 @@ Unicode characters in your text.
 Even better, you can identity a Unicode character by its name.
 
 <!-- try-pre:
-    Float calculateE() => 2.72;
-    Float calculatePi() => 3.14;
+    Float calculateE() => 2.71828;
+    Float calculatePi() => 3.14159;
     
 -->
     "The mathematical constant \{GREEK SMALL LETTER PI}, the 
@@ -256,17 +208,10 @@ unescaped backslash and double-quote characters:
 
 Let's make our program tell us a little more about itself.
 
-<!-- try-post:
-    hello();
--->
-<!-- id: hello -->
-    "The Hello World program ... version 1.1!"
-    shared void hello() {
-        print("Hello, this is Ceylon ``language.version``  
-               running on Java ``runtime.version``!\n
-               You ran me at ``system.milliseconds`` ms, 
-               with ``process.arguments.size`` arguments.");
-    }
+    print("Hello, this is Ceylon ``language.version``  
+           running on Java ``runtime.version``!\n
+           You ran me at ``system.milliseconds`` ms, 
+           with ``process.arguments.size`` arguments.");
 
 Notice how our message contains interpolated expressions, delimited using
 "doublebacks", that is, two backticks. This is called a _string template_. 
@@ -280,22 +225,14 @@ On my machine, this program results in the following output:
     You ran me at 1362763185067 ms,
     with 0 arguments.
 
-<!--
-(If you're wondering why the syntax isn't something like 
-`"Hello, you ran me at ${process.milliseconds}"`,
-[here's why](#{page.doc_root}/faq/language-design/#string_interpolation_syntax).)
--->
-
 The `+` operator you're probably used to is an alternative way to concatenate
 strings, and more flexible in many cases:
 
-<!-- cat: void m() { -->
     print("Hello, this is Ceylon " + language.version +  
           "running on Java " + process.vmVersion + "!\n" +
           "You ran me at " + process.milliseconds.string + 
           " ms, with " + process.arguments.size.string + 
           " arguments.");
-<!-- cat: } -->
 
 Note that when we use `+` to concatenate strings, we have to explicitly 
 invoke the 
@@ -304,7 +241,6 @@ attribute to convert numeric expressions to strings. The
 `+` operator does not automatically convert its operands to strings, so the 
 following does not compile:  
 
-<!-- check:none:Demoing error -->
     print("Hello, this is Ceylon " + language.version +  
           "running on Java " + process.vmVersion + "!\n" +
           "You ran me at " + process.milliseconds +  //compile error!
@@ -322,31 +258,33 @@ is quite different to what you're probably used to in Java or C#.
 Let's consider an overly-verbose example to start with. (We'll work our 
 way up to a more convenient form.)
 
-<!-- try-post:
-    hello();
--->
-    "Print a personalized greeting"
-    shared void hello() {
-        String? name 
-                = process.arguments.first;
-        String greeting;
-        if (exists name) {
-            greeting = "Hello, ``name``!";
-        }
-        else {
-            greeting = "Hello, World!";
-        }
-        print(greeting);
-    }
+This _doesn't_ compile:
 
-The type `String?` indicates that `name` may contain a `null` value. We then 
+    String name = process.arguments.first; //compile error: String? is not assignable to String
+    String greeting = "Hello, ``name``!";
+    print(greeting);
+
+Instead, we have to explicitly accommodate the possibility that there are
+no arguments:
+
+    String? name 
+            = process.arguments.first;
+    String greeting;
+    if (exists name) {
+        greeting = "Hello, ``name``!";
+    }
+    else {
+        greeting = "Hello, World!";
+    }
+    print(greeting);
+
+The type `String?` indicates that `name` may reference a `null` value. We 
 use the `if (exists ... )` control structure to handle the case of a `null` 
 name separately from the case of a non-`null` name.
 
 It's possible to abbreviate the code we just saw by declaring the local `name` 
 inside the `if (exists ... )` condition:
 
-<!-- cat: void hello() { -->
     String greeting;
     if (exists name 
             = process.arguments.first) {
@@ -356,7 +294,6 @@ inside the `if (exists ... )` condition:
         greeting = "Hello, World!";
     }
     print(greeting);
-<!-- cat: } -->
 
 This is the preferred style most of the time, since we can't actually use 
 `name` for anything useful outside of the `if (exists ... )` construct.
@@ -424,11 +361,7 @@ with `null` values. The first is `else`:
 <!-- try-post:
     print(greeting);
 -->
-<!-- cat: void hello(String? name) { -->
     String greeting = "Hello, " + (name else "World");
-<!-- cat: 
-    print(greeting);
-} -->
 
 The `else` operator produces:
 
@@ -462,8 +395,8 @@ The `then` operator produces
 - its second operand if its first operand evaluates to `true`, or
 - `null` otherwise.
 
-You can chain an `else` after a `then` to reproduce the behavior of C's
-ternary `?:` operator:
+You can chain an `else` after a `then` to reproduce the behavior of 
+C's ternary `?:` operator:
 
 <!-- try-pre:
     String arg = "hello";
@@ -472,42 +405,38 @@ ternary `?:` operator:
     print(name);
 -->
     String name = !arg.trimmed.empty then arg else "World";
-<!--
+
 Finally, the `?.` operator lets us call operations on optional types:
--->
+
 <!-- try-pre:
     String? name = null;
 -->
 <!-- try-post:
-    print(shoutedGreeting);
+    print(length);
 -->
-<!-- cat: void hello(String? name) { -->
-<!-- String shoutedGreeting = "HELLO, " + (name?.uppercased else "WORLD"); -->
-<!-- cat: 
-    print(shoutedGreeting);
-} -->
-<!--
-If `name` is null, `name?.uppercased` evaluates to `null`. Otherwise, the
-`uppercased` attribute of `String` is evaluated. 
--->
+    Integer length = name?.size else 0;
+
+If `name` is null, `name?.size` evaluates to `null`. Otherwise, the
+`size` attribute of `String` is evaluated. 
 
 If we need to squeeze a whole chain of `then`s/`else`s into a single 
 expression, we can use the "poorman's switch" idiom:
 
+<!-- try-pre:
+    Integer int = 1;
+-->
+<!-- try-post:
+    print(sign);
+-->
     String sign = (int>1P then "enormous")
              else (int<0 then "negative")
              else (int>0 then "positive")
              else "zero";
 
-Using `else`, we can finally simplify our example to something reasonable:
+Using `else`, we can finally simplify our original example to something 
+reasonable:
 
-<!-- try-post:
-    hello();
--->
-    "Print a personalized greeting"
-    shared void hello() {
-        print("Hello, ``process.arguments.first else "World"``!");
-    }
+    print("Hello, ``process.arguments.first else "World"``!");
 
 Yes, after all that, it's a one-liner ;-)
 
@@ -580,7 +509,6 @@ A function parameter may specify a default value.
     hello(); //Hello, World!
     hello("JBoss"); //Hello, JBoss!
 -->
-<!-- id: hello -->
     void hello(String name="World") {
         print("Hello, ``name``!");
     }
@@ -588,18 +516,13 @@ A function parameter may specify a default value.
 Then we don't need to specify an argument to the parameter when we 
 call the function:
 
-<!-- try:
+<!-- try-pre:
     void hello(String name="World") {
         print("Hello, ``name``!");
     }
-    hello(); //Hello, World!
-    hello("JBoss"); //Hello, JBoss!
 -->
-<!-- cat-id: hello -->
-<!-- cat: void m() { -->
     hello(); //Hello, World!
     hello("JBoss"); //Hello, JBoss!
-<!-- cat: } -->
 
 Defaulted parameters must be declared after all required parameters 
 in the parameter list of a function.
@@ -722,7 +645,6 @@ result assigned to `name`.
 We're even allowed to define a `void` function using a fat arrow. Earlier,
 we could have written `hello()` like this:
 
-<!-- id: hello -->
 <!-- try-post:
     hello();
 -->
@@ -849,7 +771,7 @@ Try it, by running the following function:
     findPrimes();
 -->
     "Print a list of all two-digit prime numbers."
-    shared void findPrimes()
+    void findPrimes()
         => printAll { for (i in 2..99) if (prime(i)) i };
 
 Heh, this was just a little teaser to keep you interested. We'll explain 

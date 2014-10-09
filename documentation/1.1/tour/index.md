@@ -65,10 +65,7 @@ from the command line and IDE.
 
 Here's a classic example program:
 
-<!-- id: hello -->
-<!-- try-post:
-    hello();
--->
+<!-- try: -->
     shared void hello() {
         print("Hello, World!");
     }
@@ -80,17 +77,13 @@ We call this function a _toplevel_ function because it's not a member of a type.
 So we don't need a receiving object to invoke a toplevel function. Instead, we 
 can just call it like this:
 
-<!-- try:
-    shared void hello() {
+<!-- try-pre:
+    void hello() {
         print("Hello, World!");
     }
     
-    hello();
 -->
-<!-- cat-id: hello -->
-<!-- cat: void m() { -->
     hello();
-<!-- cat: } -->
 
 Or, since this toplevel function is annotated `shared`, we can run it directly 
 from the command line or IDE.
