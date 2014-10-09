@@ -233,19 +233,19 @@ their definition is as follows, for example for `BooleanArray`:
 <!-- try: -->
     shared class BooleanArray(Integer size, Boolean element = false){
         
-        doc "Gets the item at the specified index"
+        "Gets the item at the specified index"
         shared Boolean get(Integer index);
         
-        doc "Sets the item at the specified index"
+        "Sets the item at the specified index"
         shared void set(Integer index, Boolean element);
         
-        doc "The array size"
+        "The array size"
         shared Integer size;
         
-        doc "Get a Ceylon Array that is a view backed by this array"
+        "Get a Ceylon Array that is a view backed by this array"
         shared Array<Boolean> array;
         
-        doc "Copies this array to another array"
+        "Copies this array to another array"
         shared void copyTo(BooleanArray destination, Integer sourcePosition = 0, Integer destinationPosition = 0, Integer length = size);
     }
 
@@ -258,7 +258,7 @@ Note that the `IntArray` type has an extra method to convert an array of Unicode
 `Array` of `Character`:
 
 <!-- try: -->
-        doc "Get a Ceylon Array that is a view backed by this array"
+        "Get a Ceylon Array that is a view backed by this array"
         shared Array<Character> codePointArray;
 
 See how to use Java arrays:
@@ -277,92 +277,7 @@ And:
     String first = array.get(0);
     array.set(0, "Updated");
     t.takeThisArray(array);
-
-
-#### Working with Java arrays
-
-We added another _virtual_ type in `java.lang` called `arrays`, to allow you to create Java arrays based on Ceylon
-`Iterable` values, and to unwrap Ceylon `Array` to the Java arrays they are wrapping. We also have various methods
-to help converting arrays of Java `String` and Ceylon `String` values.
-
-It has the following signature:
-
-<!-- try: -->
-    shared object arrays {
     
-        doc "Converts an `Iterable` of `Integer` to a Java `byte` array"
-        shared ByteArray toByteArray({Integer*} values);
-    
-        doc "Unwraps a Ceylon array to the Java `byte` array it was constructed from (using `ByteArray.array` at the time)"
-        shared ByteArray asByteArray(Array<Integer> array);
-    
-        doc "Converts an `Iterable` of `Integer` to a Java `short` array"
-        shared ShortArray toShortArray({Integer*} values);
-    
-        doc "Unwraps a Ceylon array to the Java `short` array it was constructed from (using `ShortArray.array` at the time)"
-        shared ShortArray asShortArray(Array<Integer> array);
-    
-        doc "Converts an `Iterable` of `Integer` to a Java `int` array"
-        shared IntArray toIntArray({Integer*} values);
-    
-        doc "Unwraps a Ceylon array to the Java `int` array it was constructed from (using `IntArray.array` at the time)"
-        shared IntArray asIntArray(Array<Integer> array);
-    
-        doc "Converts an `Iterable` of `Integer` to a Java `long` array"
-        shared LongArray toLongArray({Integer*} values);
-    
-        doc "Unwraps a Ceylon array to the Java `long` array it was constructed from (using `LongArray.array` at the time)"
-        shared LongArray asLongArray(Array<Integer> array);
-    
-        doc "Converts an `Iterable` of `Integer` to a Java `float` array"
-        shared FloatArray toFloatArray({Float*} values);
-    
-        doc "Unwraps a Ceylon array to the Java `float` array it was constructed from (using `FloatArray.array` at the time)"
-        shared FloatArray asFloatArray(Array<Float> array);
-    
-        doc "Converts an `Iterable` of `Integer` to a Java `double` array"
-        shared DoubleArray toDoubleArray({Float*} values);
-    
-        doc "Unwraps a Ceylon array to the Java `double` array it was constructed from (using `DoubleArray.array` at the time)"
-        shared DoubleArray asDoubleArray(Array<Float> array);
-    
-        doc "Converts an `Iterable` of `Integer` to a Java `char` array"
-        shared CharArray toCharArray({Character*} values);
-    
-        doc "Unwraps a Ceylon array to the Java `char` array it was constructed from (using `CharArray.array` at the time)"
-        shared CharArray asCharArray(Array<Character> array);
-    
-        doc "Converts an `Iterable` of `Integer` to a Java `int` array"
-        shared IntArray toCodePointArray({Character*} values);
-    
-        doc "Unwraps a Ceylon array to the Java `int` array it was constructed from (using `IntArray.codePointArray` at the time)"
-        shared IntArray asCodePointArray(Array<Character> array);
-    
-        doc "Converts an `Iterable` of `Integer` to a Java `boolean` array"
-        shared BooleanArray toBooleanArray({Boolean*} values);
-    
-        doc "Unwraps a Ceylon array to the Java `boolean` array it was constructed from (using `BooleanArray.array` at the time)"
-        shared BooleanArray asBooleanArray(Array<Boolean> array);
-    
-        doc "Converts an `Iterable` of `Integer` to a Java `Object` array"
-        shared ObjectArray<T> toObjectArray<T>({T*} values);
-    
-        doc "Unwraps a Ceylon array to the Java `Object` array it was constructed from (using `ObjectArray<T>.array` at the time)"
-        shared ObjectArray<T> asObjectArray<T>(Array<T> array);
-    
-        doc "Converts an `Iterable` of Ceylon `String` to a Java array of Java `String`"
-        shared ObjectArray<JavaString> toJavaStringArray({String*} values);
-    
-        doc "Converts an `Iterable` of Java `String` to a Java array of Ceylon `String`"
-        shared ObjectArray<String> toStringArray({JavaString*} values);
-    
-        doc "Converts a Java array of Java `String` to a Java array of Ceylon `String`"
-        shared ObjectArray<String> javaStringArrayToCeylonStringArray(ObjectArray<JavaString> array);
-    
-        doc "Converts a Java array of Ceylon `String` to a Java array of Java `String`"
-        shared ObjectArray<JavaString> ceylonStringArrayToJavaStringArray(ObjectArray<String> array);
-    }
-
 
 #### Creating your own Java array in Ceylon
 
@@ -370,7 +285,7 @@ You can create Java arrays in Ceylon:
 
 <!-- lang: java -->
     public class JavaType {
-        public void takeThisArray(ceylon.language.String[] arr){}
+        public void takeThisArray(String[] arr){}
         public void takeThisArray(int[] arr){}
     }
 
@@ -378,9 +293,13 @@ And:
 
 <!-- try: -->
     JavaType t = JavaType();
-    ObjectArray<String> a = arrays.toJavaStringArray{"One", "Two", "Three"}; 
+    ObjectArray<JString> a = ObjectArray<JString>(2);
+    a.set(0, "foo");
+    a.set(1, "bar"); 
     t.takeThisArray(a);
-    IntArray i = arrays.toIntArray{1, 2, 3}; 
+    IntArray i = IntArray(2); 
+    a.set(0, 0);
+    a.set(1, 1); 
     t.takeThisArray(i);
 
 ### Java `enum` types
@@ -406,6 +325,18 @@ And:
 
     void enums(){
         JavaEnum e = one;
+        e.field = e.field;
+        e.property = e.property;
+        e.method();
+    }
+
+Or:
+
+<!-- try: -->
+    import com.foo { JavaEnum }
+
+    void enums(){
+        JavaEnum e = JavaEnum.\iONE;
         e.field = e.field;
         e.property = e.property;
         e.method();

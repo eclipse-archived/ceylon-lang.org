@@ -440,7 +440,7 @@ Let's make use of this idea to "overload" the "constructor" of `Polar`.
 Now we can create `Polar` coordinates with or without labels:
 
 <!-- try-pre:
-    doc "A polar coordinate with an optional label"
+    "A polar coordinate with an optional label"
     class Polar(angle, radius, String? label=null) {
         
         shared Float angle;

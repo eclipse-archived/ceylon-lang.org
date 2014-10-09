@@ -50,7 +50,7 @@ extending an `abstract` class or implementing an interface.
     print(origin);
 -->
 <!-- cat-id:polar -->
-    doc "The origin"
+    "The origin"
     object origin extends Polar(0.0, 0.0) {
         description => "origin";
     }

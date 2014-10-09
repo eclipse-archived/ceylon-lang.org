@@ -176,7 +176,7 @@ A module may be *runnable*. A runnable module must specify a `run()` method in
 the module descriptor:
 
 --><!-- check:none:Quoted--><!--
-    doc "The test suite for Hibernate"
+    "The test suite for Hibernate"
     license "http://www.gnu.org/licenses/lgpl.html";
     module org.hibernate.test "3.0.0.beta" {
         import org.hibernate "3.0.0.beta";
