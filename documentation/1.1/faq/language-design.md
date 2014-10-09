@@ -25,30 +25,40 @@ abandoned to better fit the language goals.
 
 > What are the design goals of this language?
 
-The goals behind the design of the language are multiple, here are 
-some of the most important ones:
+The principles behind the design of the language are multiple, 
+here are some of the most important ones. The language should:
 
-* To have a very regular syntax.
-* To be easy to read and understand, even for beginners, even for
-  non-Ceylon-programmers reading your Ceylon code on your blog or 
-  on GitHub.
-* To be extremely typesafe, completely avoiding the use of 
+* have a very regular syntax, and a uniform type system without 
+  primitively-defined special cases,
+* be easy to read and understand, even for beginners, even for
+  non-Ceylon-programmers reading your Ceylon code on your blog 
+  or on GitHub,
+* be extremely typesafe, completely avoiding the use of 
   exceptions to handle any kind of typing-related problem, 
   including things like null references and missing list 
-  elements.
-* That the reasoning of the compiler can always be reproduced by
-  the programmer according to intuitive rules.
-* To allow excellent tool support, including extremely helpful and 
-  understandable error messages.
-* To offer a typesafe hierarchical syntax for treelike structures,
+  elements,
+* avoid introducing primitively-defined constructs in favor of 
+  providing syntax sugar for common cases that would otherwise
+  be unacceptably verbose,  
+* have a static type checker that reasons about the code 
+  according to intuitive rules that can always be reproduced 
+  by the programmer, and using only denotable types that can 
+  be written down in the language itself, 
+* have excellent tool support, including extremely helpful 
+  and understandable error messages, and powerful IDEs,
+* offer a typesafe hierarchical syntax for treelike structures,
   especially user interfaces, this completely eliminating XML
-  from the picture.
-* To provide excellent, completely integrated support for 
-  modularity.
-* To make it easier to write more generic code, and provide support
-  for disciplined metaprogramming.
-* To reuse the good of Java, but to be open to good ideas from
-  other language families.
+  from the picture,
+* provide excellent, completely integrated support for 
+  modularity,
+* make it easier to write more generic code, and provide 
+  support for disciplined metaprogramming,
+* reuse the good of Java, while remaining open to good ideas 
+  from other language families,
+* abstract away from differences between the target virtual
+  machine platforms, and
+* have a formal specification that defines with precision the
+  syntax, semantics, and type system. 
 
 At a slightly more abstract level, you can read about the five
 important concerns that guide the design of the whole platform
@@ -58,27 +68,28 @@ important concerns that guide the design of the whole platform
 
 > Is Ceylon a functional programming language?
 
-Before I can answer, please first tell me what you mean by that.
-What makes a _programming language_ "functional"?
+Before I can answer, please first tell me what you mean by 
+that. What makes a _programming language_ "functional"?
 
-I suppose I can try to take a bit of a guess at what you _might_ 
-mean, but that leaves me even more confused:
+I suppose I can try to take a bit of a guess at what you 
+_might_ mean, but that leaves me even more confused:
 
-* Does it mean that all functions are pure (without side effect)
-  and there are no variables? Then Lisp and ML aren't functional?
-  So the only well-known functional language is Haskell?
-* Does it mean support for higher-order functions? Then Smalltalk,
-  Python, Ruby, JavaScript, C#, Java 8, Ceylon, and arguably even 
-  C are all functional programming languages?
+* Does it mean that all functions are pure (without side 
+  effect) and there are no variables? Then Lisp and ML aren't 
+  functional? So the only well-known functional language is 
+  Haskell?
+* Does it mean support for higher-order functions? Then 
+  Smalltalk, Python, Ruby, JavaScript, C#, Java 8, Ceylon, 
+  and arguably even C are all functional programming languages?
 * Does it mean no loops? What if a programming language defines
   `for` as a syntax sugar for a function call? Oh, so then
   "functional programming language" boils down to not having
   `break`, `continue` and `return`?
-* Does it mean support for parametric polymorphism? Then C# and 
-  Java 5 are functional?
-* Does it mean an emphasis upon higher-level abstractions from
-  category theory? Then Haskell is the only real functional 
-  programming language?
+* Does it mean support for parametric polymorphism? Then C# 
+  and Java 5 are functional?
+* Could it mean an emphasis upon higher-level abstractions 
+  named after definitions in category theory? Then, again, 
+  Scheme and ML are excluded?
 
 Perhaps what you really want to ask is: 
 
@@ -93,8 +104,8 @@ Well then, that's easy: yes, it certainly does.
 
 > Why not `"Hello $name"` or `"Hello ${name.uppercased}"`?
 
-Primarily because it looks a bit cleaner for defining text in user
-interfaces or other treelike structures.
+Primarily because it looks a bit cleaner for defining text 
+in user interfaces or other treelike structures.
 
 <!-- try: -->
     Html hello {
@@ -104,17 +115,22 @@ interfaces or other treelike structures.
         }
     }
 
-We did originally investigate the `${...}` syntax, but it turns out 
-that this requires a stateful lexer and is more fragile when editing
-code in an IDE. Anyway, some of us just don't love seeing dollar
-signs all over the place.
+We did originally investigate the `${...}` syntax, but it 
+turns out that syntax would require a stateful lexer and, 
+since `}` is a legal token in the language, is more fragile 
+when editing code in an IDE. Anyway, some of us just don't 
+love seeing dollar signs all over the place. It reminds us 
+of languages we don't like.
+
+Ceylon has so many other more powerful ways to reduce 
+verbosity, that this issue is simply small beer.
 
 ### Semicolons `;` at the end of line?
 
-> Optional semicolons are in fashion! All the kids at school are
-> doing it!
+> Optional semicolons are in fashion! All the kids at school 
+> are doing it!
 
-Which of the following do you prefer:
+Well, which of the following do you prefer to look at:
 
 <!-- try: -->
     shared variable 
@@ -133,13 +149,23 @@ or, alternatively:
 
 where `shared` and `variable` are keywords?
 
-It's a choice between semicolons or the ugly `@annotation` syntax. 
-You need one or the other, or your language can't be parsed. Languages
-which ditch the semicolon *have* to introduce a special punctuation 
-for annotations, and that means that they also have to keywordize 
-common modifiers like `public`, `virtual`, etc, since they just 
-can't stomach the ugly syntax for their own annotations (they can't 
-bring themselves to make you write `@public` or `@virtual`).
+It's a choice between semicolons or the ugly `@annotation` 
+syntax for user-defined annotations. You need one or the other, 
+or your language can't be parsed. Languages which ditch the 
+semicolon *have* to introduce a special punctuation for 
+annotations, and that means that they also have to keywordize 
+common modifiers like `public`, `virtual`, etc, since they 
+just can't stomach this nasty syntax for their own annotations 
+(they can't bring themselves to make you write `@public` or 
+`@virtual`).
+
+This problem becomes especially acute when the language 
+designer realizes they want to introduce a _new_ modifier, 
+like `override` or `tailrec`, and we end up with the 
+loveliness of `@Override` or `@tailrec`. In Ceylon, since our 
+modifiers aren't keywords, we can cleanly introduce new 
+modifiers when needed, without breaking existing code. Indeed, 
+we've already done it: in 1.1, we added `sealed`.
 
 We chose what we think is the lesser of two evils.
 
@@ -148,7 +174,7 @@ We chose what we think is the lesser of two evils.
 > Why do I need the parentheses in `if (something) { ... }`?
 
 Because `something { ... }` is a legal expression in Ceylon
-(a named argument method invocation), making `if something { ... }`
+(a named argument function invocation), making `if something { ... }`
 ambiguous.
 
 ### Prefix instead of postfix type annotations
@@ -177,14 +203,14 @@ think otherwise!
 > Why `extends` instead of the much more compact `:`?
 
 It's partially a matter of taste. But the real reason is that 
-if you want to use `:` for `extends`, you then need to come up 
-with punctuation that means `satisfies`, `abstracts`, `of`, 
+if you want to use `:` for `extends`, you then need to come 
+up with punctuation that means `satisfies`, `abstracts`, `of`, 
 `adapts`, etc, and you wind up in a rabbit hole of cryptic 
 character combinations like `:>`, `<:`, `%>`, etc, etc.
 
-In general, Ceylon favours being more explicit at the cost of 
-being a little more verbose, so we prefer keywords and annotations 
-to cryptic punctuation.
+In general, Ceylon favours being more explicit at the cost 
+of being a little more verbose, so we prefer keywords and 
+annotations to cryptic punctuation.
 
 ### `implements` vs. `satisfies`
 
@@ -204,7 +230,13 @@ Other language usually have an ugly or irregular syntax for
 the upper bound constraint `satisfies Object`. In Ceylon,
 it's regular and elegant. But we thought that the word 
 `implements` didn't work here, since the upper bound might
-be a class or even another type parameter.
+be a class or even another type parameter. A type parameter,
+after all, doesn't "implement" anything.
+
+Note also the irregularity in Java where a class `implements`
+an interface, but another interface `extends` it. In Ceylon,
+classes and interfaces `satisfy` interfaces. Nothing every
+`extends` an interface. 
 
 ### Prefix form for `is Type`, `exists`, and `nonempty`
 
@@ -212,10 +244,10 @@ be a class or even another type parameter.
 > or `person is Employee` instead of `exists name` and
 > `is Employee person`?
 
-Yes, but it would not work in two situations:
+Yes, but it would not work well in two situations:
 
 First, when declaring a variable inline in a control structure
-  condition, for example:
+condition, for example:
   
 <!-- try: -->
       if (exists second = seq[1]) { ... }
@@ -231,7 +263,7 @@ Second, when combined with the `!` (not) operator:
 <!-- try: -->
       if (!is Employee person) { ... }
       
-The following reads ambiguously, because it's not entirely
+The following reads ambiguously, because it's not immediately
 clear that `!` has a lower precedence than `is`:
 
 <!-- try: -->
@@ -256,8 +288,8 @@ unintentionally-shared operation for the rest of the life of
 the module, or break clients. There would be nothing the 
 compiler could do to warn you when you _accidently_ left off
 a `private` annotation. On the other hand, if you accidentally 
-leave off a `shared` annotation, the compiler will let you know 
-about that.
+leave off a `shared` annotation, the compiler will let you 
+know about that.
 
 By the same token, defaulting to shared visibility would mean
 that clients can't trust the APIs they use. You would never 
@@ -267,14 +299,14 @@ to add a `private` annotation.
 
 Precisely the same arguments apply to refinement and the
 `default` annotation, and to mutability and the `variable` 
-annotation. Following Java, we could have made 
-`default` the default ;-) and we could have made `variable` 
-the default, providing a Java-like `final` annotation to 
-specify the more restrictive option. But then I'm never sure 
-if you _really_ meant for some operation of your API to be 
-refinable or settable by a client, and if you _really_ 
-designed your class to tolerate that&mdash;or if you just 
-forgot to add `final`.
+annotation. Following Java, we could have made `default` the 
+default ;-) and, likewise, we could have made `variable` the 
+default, providing a Java-like `final` annotation to specify 
+the more restrictive option. But then I'm never sure if you 
+_really_ meant for some operation of your API to be refinable 
+or settable by a client, and if you _really_ designed your 
+class to tolerate that&mdash;or if you just forgot to add 
+`final`.
 
 ### No `protected` modifier?
 
@@ -284,7 +316,7 @@ In our view, there is zero software-engineering justification
 for `protected`. A dependency is a dependency. Whether it's 
 coming from a subtype or not is completely irrelevant. What
 _does_ matter is what package or module the dependency comes
-from. 
+from.
 
 Our visibility levels are designed to serve objective software 
 engineering ends, not vague superstitions.
@@ -294,89 +326,96 @@ engineering ends, not vague superstitions.
 > Why rename `overrides`?
 
 The word "override" is a verb, and doesn't read well when 
-combined with other annotations. Annotations read best together 
-when they are all adjectives.
+combined with other annotations. Annotations read best 
+together when they're all adjectives.
 
 ### `abstract` vs. `formal`
 
 > Why do you use `formal` to define an abstract member?
 
-Ceylon supports member classes and member class refinement.
+Ceylon supports member classes and member class refinement. 
 An `abstract` nested class is a different thing to a `formal`
 member class. A `formal` class can be instantiated. An 
 `abstract` class cannot be.
 
 Actually, if you think about it carefully, you'll notice that 
 in Java `abstract` means something completely different for
-classes to what it means for members. That works out OK in
+classes to what it means for members. That works out OK in 
 Java because Java doesn't have member class refinement.
 
 ## Language features
 
 ### Optional types
 
-> How is Ceylon's `T?` type different to an `Option<T>` or `Maybe t`
-> type? What's wrong with a Java-like null?
+> How is Ceylon's `T?` type different to an `Option<T>` or 
+> `Maybe t` type? What's wrong with a Java-like null?
 
-In languages which don't support first-class union types, `null` is
-either:
+In languages which don't support first-class union types, 
+`null` is either:
 
-* a primitive value, like in Java, C#, Smalltalk, Python, Ruby, 
-  etc, or
+* a primitive value, like in Java, C#, Smalltalk, Python, 
+  Ruby, etc, or
 * a case of an algebraic type, like in ML or Haskell. 
 
-(Some languages, notably Scala, have *both* kinds of null, though 
-this appears to be a design error.)
+(Some languages, notably Scala, and now also Java 8, have 
+*both* kinds of null, but this only happens because the
+language designers realized how harmful primitive `null` is 
+too late in the evolution of the language.)
 
-Primitive null values are usually defined to be assignable to the
-language's bottom type if it has one, or, equivalently, to all 
-types if it doesn't. We believe that this has been an enormous
-mistake with many practical consequences. 
+Primitive null values are usually defined to be assignable to 
+the language's bottom type if it has one, or, equivalently, 
+to all types if it doesn't. We believe that this has been an 
+enormous mistake with many practical consequences. 
 
-(Some newer languages attempt to remedy this by introducing a kind 
-of primitive optional type with null as a primitive value of that. 
-We eschew the use of primitive special types defined by fiat in the 
-language spec, viewing such constructs as the root of much evil.)
+(Some newer languages attempt to remedy this by introducing 
+a kind of primitive optional type with null as a primitive 
+value of that. We eschew the use of primitive special types 
+defined by fiat in the language spec, viewing such constructs 
+as the root of much evil.)
 
-On the other hand, using an algebraic type for optional values gives 
-you typesafety, since `Option<T>` is not assignable to `T`, but is 
-also quite inconvenient. Every time you assign a value of type T to 
-`Option<T>`, you need to instantiate a `Some<T>` to wrap up your T. 
-And if you have a collection which can contain null values, you'll 
-get an instance of `Some` for every element of the collection, even 
-if the collection contains very few null values. 
+On the other hand, using an algebraic type for optional values 
+gives you typesafety, since `Option<T>` is not assignable to 
+`T`, but is also quite inconvenient. Every time you assign a 
+value of type T to `Option<T>`, you need to instantiate a 
+`Some<T>` to wrap up your T. And if you have a collection 
+which can contain null values, you'll get an instance of `Some` 
+for every element of the collection, even if the collection 
+contains very few null values. 
 
-By using a union type, `Nothing|T`, Ceylon spares you the need to 
-wrap your `T`. And there's zero overhead at runtime, because the 
-compiler erases Ceylon's `null` object to a JVM primitive `null`.
-To the best of our knowledge no other existing language uses this
-simple, safe, and convenient model.
+By using a union type, `Nothing|T`, Ceylon spares you the 
+need to wrap your `T`. And there's zero overhead at runtime, 
+because the compiler erases Ceylon's `null` object to a JVM 
+primitive `null`. To the best of our knowledge no other 
+existing language uses this simple, safe, and convenient 
+model.
 
 ### Union and intersection types
 
 > Why are union types so important in Ceylon?
 
-First-class union types first made an appearance when we started
-trying to figure out a sane approach to generic type argument
-inference. One of the big problems in Java's generics system is 
-that the compiler often infers types that are "non-denotable", 
-i.e. not representable within the Java language. This results in 
-*really* confusing error messages. That never happens in Ceylon, 
-since union and intersection types are denotable and there are no 
-wildcard types.
+First-class union types first made an appearance when we 
+started trying to figure out a sane approach to generic type 
+argument inference. One of the big problems in Java's generics 
+system is that the compiler often infers types that are 
+"non-denotable", i.e. not representable within the Java 
+language. This results in *really* confusing error messages. 
+That never happens in Ceylon, since union and intersection 
+types are denotable.
 
-As soon as we embraced the need for union types, they became a
-natural solution for the problem of how to represent optional
+As soon as we embraced the need for union types, they became 
+a natural solution for the problem of how to represent optional
 values (things which can be null) within the type system.
 
-Once we started to explore some of the corner cases in our type
-argument inference algorithm, we [discovered that we were also going 
-to need first-class intersection types](http://in.relation.to/Bloggers/UnionTypesAndCovarianceOrWhyWeNeedIntersections).
+Once we started to explore some of the corner cases in our 
+type argument inference algorithm, we [discovered that we were 
+also going to need first-class intersection 
+types](http://in.relation.to/Bloggers/UnionTypesAndCovarianceOrWhyWeNeedIntersections).
 
-Later, we realized that union and intersection types have lots of 
-other advantages. For example, they help make overloading unnecessary. 
-And they make it easy to reason about algebraic/enumerated types.
-And intersections help us to narrow types. For example:
+Later, we realized that union and intersection types have 
+lots of other advantages. For example, they help make 
+overloading unnecessary. And they make it easy to reason about 
+algebraic/enumerated types. And intersections help us to 
+narrow types. For example:
 
 <!-- try: -->
     Foo foo = ... ;
@@ -384,34 +423,37 @@ And intersections help us to narrow types. For example:
         //foo has type Foo&Bar here!
     }
 
-It turns out that support for first-class unions and intersections
-is perhaps the very coolest feature of Ceylon.
+Eventually we realized all kinds of wonderful uses for unions 
+and intersections and they're now the most distinctive and 
+unique feature of the language. They're what makes Ceylon
+ceylonic.
 
 ### Structural typing
 
 > Why doesn't Ceylon have structural typing?
 
-Structural typing is a kind of "duck" typing. It's an interesting
-path to get some of the flexibility of a dynamic language in a
-language with static types. A structural type is a bit like an
-interface in Java (not like an interface in Ceylon!). But in a
-language with structural typing, a class does not have to 
-explicitly declare that it is a subtype of the interface to be 
-considered assignable to the interface type. Instead, the compiler 
-just validates that the class provides operations that match the 
-operations declared by the interface.
+Structural typing is a kind of static "duck" typing. It's an 
+interesting path to get some of the flexibility of a dynamic 
+language in a language with static types. A structural type 
+is a bit like an interface in Java 7 (not like an interface 
+in Ceylon!). But in a language with structural typing, a class 
+does not have to explicitly declare that it is a subtype of 
+the interface to be considered assignable to the structural 
+type. Instead, the compiler just validates that the class 
+provides operations that match the operations declared by 
+the structural type.
 
-The problem with a structural type system is that, just like the 
-dynamic type systems that inspire it, it doesn't work very well 
-with tools. If I select a member of a class, and ask for all
-references, or select a member of an interface, and ask for all 
-implementations, I'll get an _approximate_ list of results. If 
-I ask my IDE to rename a member of a class or interface, it might
-do a smaller or bigger refactoring than you expect; it might even
-break my code!
+The problem with a structural type system is that, just like 
+the dynamic type systems that inspire it, it doesn't work 
+very well with tools. If I select a member of a class, and 
+ask for all references, or select a member of an interface, 
+and ask for all implementations, I'll get an _approximate_ 
+list of results. If I ask my IDE to rename a member of a 
+class or interface, it might do a smaller or bigger 
+refactoring than I want; it might even break my code!
 
 This isn't the right thing for a language intended for writing 
-large programs.
+very large programs.
 
 ### Overloading
 
@@ -431,34 +473,37 @@ much sense in Ceylon:
    parameters (varargs) make overloading unnecessary, and
 2. method references to overloaded declarations are ambiguous.
 
-Nevertheless, for interoperability, Ceylon, as of M2, _will_ 
-let you call overloaded methods and constructors of classes 
-defined in Java.
+Nevertheless, for interoperability, Ceylon, _does_ let you 
+call overloaded methods and constructors of classes defined 
+in Java. As of 1.1, it even lets you refine multiple 
+overloaded versions of a method when extending a Java class
+or interface.
 
 ### Implicit type conversions
 
-> Why doesn't Ceylon have any kind of implicit type conversions?
+> Why doesn't Ceylon have any kind of implicit type 
+> conversions?
 
-An implicit type conversion is a type conversion that is inserted
-automatically by the compiler when a the type of an expression is 
-not assignable to the thing is being assigned to. For example, the
-Java compiler automatically inserts a call to `Long.toString()` in 
-the following code:
+An implicit type conversion is a type conversion that is 
+inserted automatically by the compiler when a the type of an 
+expression is not assignable to the thing is being assigned 
+to. For example, the Java compiler automatically inserts a 
+call to `Long.toString()` in the following code:
 
 <!-- lang: java -->
     System.out.println("The time is: " + System.currentTimeMillis());
 
-Some languages go as far as to allow the user to define their own 
-implicit type conversions.
+Some languages go as far as to allow the user to define their 
+own implicit type conversions.
 
 Ceylon doesn't have any kind of implicit type conversion, 
-user-defined or otherwise. Every expression in Ceylon has a unique
-well-defined principal type.
+user-defined or otherwise. Every expression in Ceylon has a 
+unique well-defined principal type.
 
 The power of implicit type conversions comes partly from their 
-ability to work around some of the designed-in limitations of the 
-type system. But these limitations have a purpose! In particular, 
-the prohibitions against:
+ability to work around some of the designed-in limitations of 
+the type system. But these limitations have a purpose! In 
+particular, the prohibitions against:
 
 * inheriting the same generic type twice, with different type 
   arguments (in most languages), 
@@ -466,26 +511,31 @@ the prohibitions against:
   (in many languages with mixin inheritance), and
 * overloading (in Ceylon).
 
-Implicit type conversions are an end-run around these restrictions, 
-reintroducing the ambiguities that these restrictions exist to 
-prevent. Any language with user-defined implicit type conversions 
-is almost guaranteed to be riddled with unintuitive corner cases.
+Implicit type conversions are an end-run around these 
+restrictions, reintroducing the ambiguities that these 
+restrictions exist to prevent. Any language with user-defined 
+implicit type conversions is almost guaranteed to be riddled 
+with unintuitive corner cases.
 
-Furthermore, it's extremely difficult to imagine a language with 
-implicit type conversions that preserves the following important 
-properties of the type system:
+Furthermore, it's extremely difficult to imagine a language 
+with implicit type conversions that preserves the following 
+important properties of the type system:
 
 * transitivity of the assignability relationship,
-* distributivity of the assignability relationship over covariant
-  container types,
+* distributivity of the assignability relationship over 
+  covariant container types,
 * the semantics of the identity `===` operator, and
-* the ability to infer generic type arguments of an invocation or 
-  instantiation.
+* the ability to infer generic type arguments of an invocation 
+  or instantiation.
 
-Implicit type conversion is designed to look a little bit like
-subtyping to the user of an API, but it's _not_ subtyping, it 
-doesn't obey the rules of subtyping, and it screws up the simple 
-intuitive relationship between subtyping and assignability.
+Implicit type conversion is designed to look a little bit 
+like subtyping to the user of an API, but it's _not_ subtyping, 
+it doesn't obey the rules of subtyping, and it screws up the 
+simple intuitive relationship between subtyping and 
+assignability.
+
+This problem is especially acute in a language with extensive
+type inference.
 
 For example, an implicit conversion doesn't "distribute over" a 
 container type. If `A` is assignable to `B`, then we expect a 
@@ -495,15 +545,16 @@ expectations are well-founded in a type system with implicit
 conversions.
 
 In Ceylon, you can trust your intuitions about subtyping and
-assignability because "`A` is assignable to `B`" is equivalent to 
-"`A` is a subtype of `B`", always, everywhere, and transitively!
+assignability because "`A` is assignable to `B`" is equivalent 
+to "`A` is a subtype of `B`", always, everywhere, and 
+transitively!
 
 It gets worse. User-defined implicit type conversions work by 
 having the compiler introduce hidden invocations of arbitrary 
 user-written procedural code, code that could potentially have 
 side-effects or make use of temporal state. Thus, the observable 
-behavior of the program can depend upon precisely where and how 
-the compiler introduces these "magic" calls.
+behavior of the program can depend upon precisely where and 
+how the compiler introduces these "magic" calls.
 
 Finally, back to our first example, Java's special-case implict 
 type conversion of `Object` to `String` actually breaks the 
@@ -514,16 +565,19 @@ associativity of the `+` operator! Quick, what does this do:
 
 All this additional complexity, just to avoid _one method call?_
 
+Thanks, but no thanks!
+
 ### Extension methods
 
 > Will Ceylon support extension methods?
 
-Yes, probably.
+It's remotely possible, but we don't think we need them.
 
 An extension method or attribute is a method or attribute 
-introduced to a type within a certain lexical scope. For example, 
-we might want to introduce an `uppercaseString` attribute to 
-`Object` by writing a method like this:
+introduced to a type within a certain lexical scope. For 
+example, we might want to introduce an `uppercaseString` 
+attribute to `Object` by writing an extension method like 
+this:
 
 <!-- try: -->
     shared String uppercaseString(Object this) {
@@ -537,10 +591,20 @@ Or a `printMe()` method to `String` like this:
         print(this);
     }
 
-### Use site variance
+The perceived need for extension methods arises in object
+oriented languages where all functions are forced to belong
+to a class, where `static` method invocations feel 
+uncomfortable, and are not well-supported by tooling.
 
-> Will Ceylon ever support wildcard type arguments or any
-> other kind of use site variance?
+In Ceylon, toplevel functions are a totally natural and
+comfortable part of the language, this discomfort simply
+doesn't arise. Ceylon IDE can even suggest the toplevel 
+functions applying to a type from the completion popup. 
+
+### Variance
+
+> Why does Ceylon support two systems of generic type 
+> variance?
 
 Ceylon embraces the concept of _declaration site variance_,
 where the variance of a type parameter is specified where a
@@ -555,8 +619,8 @@ However, declaration site variance is strictly less powerful
 than use site variance. We can't form a covariant type from 
 an invariant type like in Java.
 
-It would be possible to add support for use site variance to
-Ceylon, probably using a syntax like this:
+However, to support awesome interoperation with Java generics,
+Ceylon also supports Java-style wildcards, using this syntax:
 
 <!-- try: -->
     Array<Integer> ints = array(2, 4, 6);
@@ -564,44 +628,38 @@ Ceylon, probably using a syntax like this:
 
 Since `Array` is invariant in its type parameter, `Array<Integer>`
 isn't an `Array<Object>`. It can't be, because the signature 
-of the `setItem()` method of `Array<Object>` is:
+of the `set()` method of `Array<Object>` is:
 
 <!-- try: -->
-    void setItem(Integer index, Object item)
+    void set(Integer index, Object item)
 
 So you can put things that aren't `Integer`s in an `Array<Object>`.
 
-But `Array<Integer>` _would_ be an `Array<out Object>`, where 
-the signature of the `setItem()` method would be:
+But `Array<Integer>` _is_ an `Array<out Object>`, where the 
+signature of the `set()` method is:
 
 <!-- try: -->
     void setItem(Integer index, Nothing item)
 
-(i.e. contravariant occurrences of the type parameter would take 
-the value `Nothing` in the covariant instantiation of the invariant
-type.)
+(i.e. contravariant occurrences of the type parameter would 
+take the value `Nothing` in the covariant instantiation of 
+the invariant type.)
 
-We're still trying really hard to _not_ need to add use site 
-variance to Ceylon, I guess mainly because of all our traumatic 
-experiences with this feature in Java. But, in fairness, the
-feature would not be as awful in Ceylon because:
-
-* `Nothing` is a denotable type,
-* the syntax would not be awful, and
-* we would have a simpler system without implicit bounds.
+We don't love use-site variance, but at least its simpler
+and cleaner in Ceylon than in Java.
 
 ### Type classes 
 
-> Will Ceylon have type classes?
+> Will Ceylon ever have type classes?
 
-Probably. From our point of view, a type class is a type 
-satisfied by the metatype of a type. Indeed, we view type
-classes as a kind of support for reified types. Since Ceylon 
-will definitely support reified types with typesafe metatypes, 
-it's not unreasonable to consider providing the ability to 
-introduce an additional type to the metatype of a type. Then
-we would support _metatype constraints_ of form `T is Metatype`, 
-for example:
+It's possible, likely even. From our point of view, a type 
+class is a type satisfied by the metatype of a type. Indeed, 
+we view type classes as a kind of support for reified types. 
+Since Ceylon will definitely support reified types with 
+typesafe metatypes, it's not unreasonable to consider 
+providing the ability to introduce an additional type to the 
+metatype of a type. Then we would support _metatype constraints_ 
+of form `T is Metatype`, for example:
 
 <!-- try: -->
     Num sum<Num>(Num* numbers)
@@ -616,19 +674,22 @@ for example:
 Here, `Number` is a _metatype_ (a type class) implemented by
 the reified type of `Num`, not by `Num` itself.
 
-You'll find some further discussion of this issue in 
-[Chapter 3 of the language specification][metatypes].
-
-[metatypes]:#{site.urls.spec_current}#metatypes
 
 ### Type constructor parameterization
 
-> Will Ceylon have higher kinds?
+> Will Ceylon have type constructor parameterization / 
+> higher kinds?
 
-Possibly, in some future version, though we prefer to avoid 
-this terminology. You'll see us discuss this issue under the 
-title _type constructor parameterization_ or even 
-_parameterized type parameters_.
+It's still possible, in some future version of the language.
+
+There is even a branch of the Ceylon typechecker which 
+features support for type constructor parameterization. 
+However, this branch has been set aside for now because we
+realized that the feature wasn't very useful without type
+constructor _inference_, and that, unlike with ordinary type 
+argument inference, there doesn't seem to be a well-defined 
+algorithm for inferring type constructors that doesn't have
+nasty broken behavior in corner cases.
 
 To understand what this is all about, we need to take a 
 slightly different perspective on the notion of a generic 
@@ -655,17 +716,12 @@ is `Functor`, which abstracts over "container types" that
 support the ability to `map()` a function to elements. 
 (Another famous example is `Monad`.)
 
-We have not yet decided if Ceylon needs this feature. It is
-mentioned as a proposal in [Chapter 3 of the language 
-specification][type constructor parameterization].
-
-[type constructor parameterization]: #{site.urls.spec_current}#parameterizedtypeparameters
 
 ### Generalized algebraic types
 
 > Will Ceylon support GADTs?
 
-Probably, in some future version.
+Possibly, to some limited extent, in some future version.
 
 A GADT is a sophisticated kind of algebraic type where the 
 cases of the type depend upon the value of one of its type
@@ -682,104 +738,37 @@ GADT support means that the compiler is able to reason that
 when it has an expression of type `Expression<Float>` then it
 can't possibly have an `IntegerLiteral`.
 
-However, there are some decidability issues associated with
-GADTs that we havn't begun to tackle yet.
+However, there are some hairy decidability issues associated 
+with GADTs that we havn't begun to tackle yet.
 
-You'll find some further discussion of this issue in 
-[Chapter 3 of the language specification][gadts].
-
-[gadts]:#{site.urls.spec_current}#d0e2399
-
-### Type families
-
-> Will Ceylon support type families?
-
-Yes, probably. The Ceylon compiler already has support for 
-this feature. However, we still need to investigate whether 
-this feature is guaranteed to be decidable in all cases.
-
-Self types and type families in Ceylon were previously 
-[discussed here][type families]. In a nutshell:
-
-> A self type is a type parameter of an abstract type (like 
-> `Comparable`) which represents the type of a concrete 
-> instantiation (like `String`) of the abstract type within 
-> the definition of the abstract type itself. In a type family, 
-> the self type of a type is declared not by the type itself, 
-> but by a containing type which groups together a set of 
-> related types. This allows the related types to refer to the
-> unknown self type of the type.
-
-[type families]: http://in.relation.to/Bloggers/SelfTypesAndTypeFamiliesInCeylon
-
-<!--
-### Variables
-
-> The distinctions between immutable and mutable, the `variable` 
-> annotation, and `=` and `:=` look like a lot of rules to 
-> remember.
-
-The rules are:
-
-* If you want to be able to assign a value to something more 
-  than once, you need to annotate it `variable`. It's the 
-  precise opposite of Java where you need to annotate something 
-  `final` if you don't want to be able to assign to it.
-* To assign to a `variable`, you use `:=`. Otherwise, you use 
-  `=`.
-
-Like in ML, this is to warn you that the code is doing something 
-side-effecty.
--->
-<!--
-
-Introductions are a compromise between two features you'll find 
-in other languages. Extension methods (best known from C#) and 
-implicit type conversions (featured in several languages including 
-C++ and Scala).
-
-Extension methods are a safe, convenient feature that let you add 
-new members to a pre-existing type. Unfortunately, they don't give 
-you the ability to introduce a new supertype to the type.
-
-Implicit type conversions are a dangerous feature that screw up 
-several useful properties of the type system (including transitivity 
-of assignability), introducing complexity into mechanisms like member 
-resolution and type argument inference, and can easily be abused.
-
-Introduction is a disciplined way to introduce a new supertype to an 
-existing type, using a mechanism akin to extension methods, without 
-the downsides of implicit type conversions.
-
--->
 
 ### Checked exceptions
 
 > Why doesn't Ceylon have checked exceptions?
 
-Most people agree that checked exceptions were a mistake in Java, 
-and new frameworks and libraries almost never use them. We're in
-agreement with the designers of other later languages such as C#,
-which chose not to have checked exceptions.
+Most people agree that checked exceptions were a mistake in 
+Java, and new frameworks and libraries almost never use them. 
+We're in agreement with the designers of other later languages 
+such as C#, which chose not to have checked exceptions.
 
-And if you think about it carefully, the main reason for having 
-exceptions in the first place is to work around the declared 
-static types of our functions.
+And if you think about it carefully, the main reason for 
+having exceptions in the first place is to work around the 
+declared static types of our functions.
 
 If we wanted to declare the exception as part of the signature 
-of a function, we could just declare it in the return type like
-this:
+of a function, we could just declare it in the return type 
+like this:
 
 <!-- try: -->
     Integer|NegativeException fib(Integer n) { ... }
 
 The reason for using an exception is that we _don't_ want to 
-force the direct caller of `fib()` to account for the exceptional
-case. Rather, the exception is a way to have the function not
-fulfill its promise to return an `Integer`, without breaking the
-soundess of the type system.
+force the direct caller of `fib()` to account for the 
+exceptional case. Rather, the exception is a way to have the 
+function not fulfill its promise to return an `Integer`, 
+without breaking the soundess of the type system.
 
-(OK, sure, Java doesn't have union types, so you can't write the
-above in Java, which I suppose provides a partial motivation for
-having checked exceptions in _Java_. But we're talking about 
-Ceylon here.)
+(OK, sure, Java doesn't have union types, so you can't write 
+the above in Java, which I suppose provides a partial 
+motivation for having checked exceptions in _Java_. But we're 
+talking about Ceylon here.)
