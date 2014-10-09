@@ -13,9 +13,12 @@ apidoc_current_html: https://modules.ceylon-lang.org/modules/ceylon.html/1.1.0/d
 apidoc_current_interop_java: https://modules.ceylon-lang.org/modules/ceylon.interop.java/1.1.0/doc
 apidoc_current_io: https://modules.ceylon-lang.org/modules/ceylon.io/1.1.0/doc
 apidoc_current_json: https://modules.ceylon-lang.org/modules/ceylon.json/1.1.0/doc
+apidoc_current_locale: https://modules.ceylon-lang.org/modules/ceylon.locale/1.1.0/doc
+apidoc_current_logging: https://modules.ceylon-lang.org/modules/ceylon.logging/1.1.0/doc
 apidoc_current_math: https://modules.ceylon-lang.org/modules/ceylon.math/1.1.0/doc
 apidoc_current_net: https://modules.ceylon-lang.org/modules/ceylon.net/1.1.0/doc
 apidoc_current_process: https://modules.ceylon-lang.org/modules/ceylon.process/1.1.0/doc
+apidoc_current_promise: https://modules.ceylon-lang.org/modules/ceylon.promise/1.1.0/doc
 apidoc_current_test: https://modules.ceylon-lang.org/modules/ceylon.test/1.1.0/doc
 apidoc_current_time: https://modules.ceylon-lang.org/modules/ceylon.time/1.1.0/doc
 apidoc_current_unicode: https://modules.ceylon-lang.org/modules/ceylon.unicode/1.1.0/doc
