@@ -544,6 +544,11 @@ a [sequence type](../sequences), which we'll learn about later. Thus,
 we can iterate the parameter using a `for` loop to get at the individual 
 arguments.
 
+<!-- try-pre:
+    void hello(String name) {
+        print("Hello, ``name``!");
+    }
+-->
 <!-- try-post:
     helloEveryone("world", "mars", "saturn");
 -->
