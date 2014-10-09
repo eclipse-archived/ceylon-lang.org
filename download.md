@@ -9,8 +9,8 @@ author: Emmanuel Bernard
 
 # #{page.title}
 
-[Ceylon 1.0.0][1.0.0] _&ldquo;No More Mr Nice Guy&rdquo;_ is now 
-available for download! This is the first production-ready release 
+[Ceylon 1.1.0][1.1.0] _&ldquo;Ultimate Ship The Second&rdquo;_ is now 
+available for download! This is the second production-ready release 
 of the language, command line tools, and IDE.
 
 ## Command line tools
@@ -19,62 +19,62 @@ This package contains the Ceylon command line compiler for Java and
 JavaScript virtual machines, the documentation compiler, the language 
 module, and the module runtime.
 
-[1.0.0]:/blog/2013/11/12/ceylon-1
+[1.1.0]:/blog/2013/11/12/ceylon-1
 
 <table>
     <tr>
         <td>
-        <a href="/download/dist/1_0_0" 
+        <a href="/download/dist/1_1_0" 
            title='Download the Zip archive'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_0?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_1_0?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
            <img src="/images/download/package-zip.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
         </a>
         </td>
         <td>Zip archive</td>
         <td>All Operating Systems</td>
         <td>
-        <a href="/download/dist/1_0_0" 
+        <a href="/download/dist/1_1_0" 
            title='Download the Zip archive'
            class='bubble-button'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_0?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_1_0?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
            DOWNLOAD
         </a>
         </td>
     </tr>
     <tr>
         <td>
-        <a href="/download/dist/1_0_0_rpm" 
+        <a href="/download/dist/1_1_0_rpm" 
            title='Download the RPM'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_0_rpm?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_1_0_rpm?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
            <img src="/images/download/package-fedora.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
         </a>
         </td>
         <td>RPM</td>
         <td>Fedora/Red Hat</td>
         <td>
-        <a href="/download/dist/1_0_0_rpm" 
+        <a href="/download/dist/1_1_0_rpm" 
            title='Download the RPM'
            class='bubble-button'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_0_rpm?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_1_0_rpm?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
            DOWNLOAD
         </a>
         </td>
     </tr>
     <tr>
         <td>
-        <a href="/download/dist/1_0_0_deb" 
+        <a href="/download/dist/1_1_0_deb" 
            title='Download the Debian package'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_0_deb?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_1_0_deb?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
            <img src="/images/download/package-debian.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
         </a>
         </td>
         <td>DEB</td>
         <td>Debian/Ubuntu</td>
         <td>
-        <a href="/download/dist/1_0_0_deb" 
+        <a href="/download/dist/1_1_0_deb" 
            title='Download the Debian package'
            class='bubble-button'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_0_0_deb?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_1_0_deb?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
            DOWNLOAD
         </a>
         </td>
@@ -120,7 +120,7 @@ from our [update site][update site].
         </a>
         </td>
         <td>Ceylon IDE</td>
-        <td>Eclipse Kepler/Juno</td>
+        <td>Eclipse Kepler/Juno/Luna</td>
         <td>
         <a href="/documentation/current/ide/install" 
            title='Install the IDE'
@@ -137,12 +137,12 @@ from our [update site][update site].
     <tr>
         <td>
         <a href='http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=185799' 
-          title='Drag and drop into a running Eclipse Indigo workspace to install Ceylon IDE'>
+          title='Drag and drop into a running Eclipse Luna workspace to install Ceylon IDE'>
           <img src='http://marketplace.eclipse.org/misc/installbutton.png' style="vertical-align: middle; float: right; margin-right: 0.5em"/>
         </a>
         </td>
         <td>Ceylon IDE</td>
-        <td>Eclipse Indigo (or Juno if on Mac OS X)</td>
+        <td>Eclipse Luna</td>
         <td>
         <a href='http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=185799' 
            title='Drag and drop into a running Eclipse Indigo workspace to install Ceylon IDE' 
