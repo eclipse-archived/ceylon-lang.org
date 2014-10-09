@@ -147,10 +147,10 @@ All the code, the language specification, and even our website
 is [open source](/code/licenses). It's extremely important to 
 us that the entire platform be open and unencumbered.
 
-### What is the naming convention for Ceylon platform releases
+### What is the naming convention for Ceylon platform releases?
 
-Ceylon releases are named after Minds from the late great 
-Iain M. Banks' Culture series.
+Ceylon production releases are named after Minds from the late 
+great Iain M. Banks' Culture series.
 
 ### What is the elephant's name?
 
