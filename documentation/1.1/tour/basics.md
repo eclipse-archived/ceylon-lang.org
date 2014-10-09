@@ -557,6 +557,11 @@ A _nonempty_ variadic parameter is declared using a postfix plus sign,
 for example, `String+`. In this case, the caller must supply at least
 one argument.
 
+<!-- try-pre:
+    void hello(String name) {
+        print("Hello, ``name``!");
+    }
+-->
 <!-- try-post:
     helloEveryone("world", "mars", "saturn");
 -->
