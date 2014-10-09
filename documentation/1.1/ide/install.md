@@ -13,8 +13,8 @@ in this release is compatible with the Ceylon 1.1.0 command line tools.
 
 ## Eclipse platform
 
-You'll need a clean installation of [Eclipse 4.3 (Kepler)][eclipse] or of 
-Eclipse 4.2 (Juno).
+You'll need a clean installation of [Eclipse 4.4 (Luna)][eclipse] or of 
+[Eclipse 4.3 (Kepler)][eclipse].
 
 ## Java 7 requirement
 
@@ -45,7 +45,6 @@ Here's what you need to do to install the IDE:
    ![welcomepage](/images/screenshots/intro.png "Welcome Page")
 
 [eclipse]: http://www.eclipse.org/downloads/
-[juno]: http://eclipse.org/juno
 [issues]: https://github.com/ceylon/ceylon-ide-eclipse/issues
 [eclipseini]: http://wiki.eclipse.org/Eclipse.ini
 
