@@ -24,6 +24,7 @@ function collectSource($hl){
 		src = collectSourceFromHighlighter($hl);
 	}
 	if (src == "") src = undefined;
+	console.log(src);
 	return src;
 }
 
@@ -43,15 +44,9 @@ function collectSourceFromComment($hl){
 }
 
 function collectSourceFromHighlighter($hl){
-	var txt = "";
-	jQuery("td.content", $hl).each(function (index, line){
-		jQuery(line).contents().each(function (index, code){
-			// replace the &nbsp; with normal spaces
-			txt += jQuery(code).text().replace(/\u00A0/g, ' ');
-		});
-		txt += "\n";
-	});
-    console.log(txt);
+	var txt = jQuery("code", $hl).text().replace(/\u00A0/g, ' ');
+	txt += "\n";
+	//console.log(txt);
 	return txt;
 }
 
