@@ -8,7 +8,6 @@ author: Gavin King
 # #{page.title}
 
 [eclipse]: http://www.eclipse.org/downloads/
-[juno]: http://eclipse.org/juno
 
 The Ceylon IDE is a plugin for [Eclipse][eclipse]. The IDE project was 
 initiated by David Festal from [SERLI](http://www.serli.com/), a french 
@@ -28,8 +27,8 @@ Like everything we produce, Ceylon IDE is [open source](/code/licenses).
 
 ## Running the IDE
 
-You'll need a clean install of [Eclipse 4.3 Kepler][eclipse] or of 
-[Eclipse 4.2 Juno][juno] running on Java 7. 
+You'll need a clean install of [Eclipse 4.4 Luna][eclipse] or of 
+[Eclipse 4.3 Kepler][eclipse] running on Java 7. 
 
 Install Ceylon IDE (which includes the Ceylon compiler) from our 
 [Eclipse plugin update site](install).
