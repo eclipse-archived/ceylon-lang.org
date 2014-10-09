@@ -19,7 +19,7 @@ is not an expression. An expression, when evaluated, produces a single
 value. The spread operator produces multiple values.
 
 ## See also
-* [Spread arguments](../../expression/argument-list/#spread_arguments) in the expressions reference,
+* [Spread arguments](../../expression/positional-argument-list/#spread_arguments) in the expressions reference,
 * [The type of a list of arguments](#{site.urls.spec_current}#tupletypeofarglist) in the 
   language specification,
 * [Spread arguments](#{site.urls.spec_current}#spreadarguments) in the 

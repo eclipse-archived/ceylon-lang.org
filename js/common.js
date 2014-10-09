@@ -24,6 +24,7 @@ function collectSource($hl){
 		src = collectSourceFromHighlighter($hl);
 	}
 	if (src == "") src = undefined;
+	console.log(src);
 	return src;
 }
 
