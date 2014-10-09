@@ -263,7 +263,7 @@ Let's make our program tell us a little more about itself.
     "The Hello World program ... version 1.1!"
     shared void hello() {
         print("Hello, this is Ceylon ``language.version``  
-               running on Java ``runtime.version``!\n
+               running on ``runtime.name`` ``runtime.version``!\n" +
                You ran me at ``system.milliseconds`` ms, 
                with ``process.arguments.size`` arguments.");
     }
@@ -291,8 +291,8 @@ strings, and more flexible in many cases:
 
 <!-- cat: void m() { -->
     print("Hello, this is Ceylon " + language.version +  
-          "running on Java " + process.vmVersion + "!\n" +
-          "You ran me at " + process.milliseconds.string + 
+          "running on " + runtime.name + " " + runtime.version + "!\n" +
+          "You ran me at " + system.milliseconds.string + 
           " ms, with " + process.arguments.size.string + 
           " arguments.");
 <!-- cat: } -->
@@ -306,8 +306,8 @@ following does not compile:
 
 <!-- check:none:Demoing error -->
     print("Hello, this is Ceylon " + language.version +  
-          "running on Java " + process.vmVersion + "!\n" +
-          "You ran me at " + process.milliseconds +  //compile error!
+          "running on " + runtime.name + " " + runtime.version + "!\n" +
+          "You ran me at " + system.milliseconds +  //compile error!
           " ms, with " + process.arguments.size +    //compile error!
           " arguments.");
 
