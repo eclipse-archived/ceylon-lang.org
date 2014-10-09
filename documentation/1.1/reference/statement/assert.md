@@ -76,7 +76,7 @@ function:
 
 Here, the assertion imposes a constraint upon the argument `radix`. If
 a client calls `parseInteger()` with an illegal value for `radix`, then
-the `AssertionException` will indicate this.
+the `AssertionError` will indicate this.
 
 ### Conditions
 

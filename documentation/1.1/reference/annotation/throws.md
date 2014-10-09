@@ -20,7 +20,7 @@ identifying a class of `Exception` that is thrown, along with a
 description of the conditions that cause the exception.
 
 <!-- try: -->
-    throws (`class AssertionException`, "if `i < 0`")
+    throws (`class AssertionError`, "if `i < 0`")
     void example(Integer i) {
         assert (i>=0);
     }

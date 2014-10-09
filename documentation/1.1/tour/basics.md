@@ -723,7 +723,7 @@ if an `Integer` represents a prime number:
     print(prime(17));
 -->
     "Determine if `n` is a prime number."
-    throws (`class AssertionException`, "if `n<2`")
+    throws (`class AssertionError`, "if `n<2`")
     Boolean prime(Integer n) {
         "`n` must be greater than 1"
         assert (n>1);
