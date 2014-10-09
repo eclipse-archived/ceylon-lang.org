@@ -576,6 +576,15 @@ don't narrow the type of `suit`.
 Yes, this is a bit more verbose than a Java `enum`, but it's also somewhat 
 more flexible.
 
+We can handle multiple cases in a single `case`:
+
+<!-- try: -->
+    void printColor(Suit suit) {
+        switch (suit)
+        case (hearts|diamonds) { print("Red"); }
+        case (clubs|spades) { print("Black"); }
+    }
+
 For a couple of more practical examples, check out the definitions of 
 [`Boolean`](#{site.urls.apidoc_1_1}/Boolean.type.html) and 
 [`Comparison`](#{site.urls.apidoc_1_1}/Comparison.type.html) in the 
