@@ -19,7 +19,7 @@ This package contains the Ceylon command line compiler for Java and
 JavaScript virtual machines, the documentation compiler, the language 
 module, and the module runtime.
 
-[1.1.0]:/blog/2013/11/12/ceylon-1
+[1.1.0]:/blog/2014/08/10/progress-report
 
 <table>
     <tr>
