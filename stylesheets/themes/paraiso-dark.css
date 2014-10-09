@@ -49,7 +49,7 @@ pre .entity.function, pre .support.css-property, pre .selector {
 
 pre .keyword, pre .storage {
     color: #b8baaf;
-    font-weight: bold;
+    //font-weight: bold;
 }
 
 pre .support.namespace {
