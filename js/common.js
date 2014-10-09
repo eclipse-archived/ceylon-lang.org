@@ -43,16 +43,7 @@ function collectSourceFromComment($hl){
 }
 
 function collectSourceFromHighlighter($hl){
-	var txt = "";
-	jQuery("td.content", $hl).each(function (index, line){
-		jQuery(line).contents().each(function (index, code){
-			// replace the &nbsp; with normal spaces
-			txt += jQuery(code).text().replace(/\u00A0/g, ' ');
-		});
-		txt += "\n";
-	});
-    console.log(txt);
-	return txt;
+	return $hl.find("code").text();
 }
 
 function extractComment($hl, prefix){
@@ -129,14 +120,14 @@ function updateEditor(src){
 function addTryButtons(){
 	jQuery("pre[data-language]").each(function(index, element){
 		var $elem = jQuery(element);
-		//var lang = $elem.attr("data-language");
-		//if (lang!="ceylon") return;
+		var lang = $elem.attr("data-language");
+		if (lang!="ceylon") return;
 		$elem.addClass("with-editor");
 		var $button = jQuery("<span class='try-button' title='Try this code in an online Ceylon editor'>TRY ONLINE</span>");
 		var src = collectSource($elem);
 		if (src){
 			$button.click(function(){
-				//alert(src);
+		        console.log(src);
 				if($editorIFrame){
 					updateEditor(src);
 				} else {
