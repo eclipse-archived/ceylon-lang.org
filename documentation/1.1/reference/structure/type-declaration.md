@@ -179,7 +179,7 @@ Conceptually `null` is the *absence* of a value.
 
 If an expression permits `null` then it
 needs `Null` as a supertype. This is usually expressed as using a 
-[union type](#union_types) such as `T|Null`, which can be [abbreviated](../type-abbreviation]
+[union type](#union_types) such as `T|Null`, which can be [abbreviated](../type-abbreviation)
 as `T?`, and we may refer to it as an *optional type*.
 
 Because `null` represents the absence of a value (something that is not a thing), 
@@ -212,9 +212,9 @@ is a type that produces instances of another type when iterated.
 
 There are two flavours of `Iterable`:
 
-* the type `Iterable<T>`, usually [abbreviated](../type-abbreviation]  to `{T*}`,
+* the type `Iterable<T>`, usually [abbreviated](../type-abbreviation)  to `{T*}`,
   may contain zero or more elements (it is *possibly empty*),
-* the type `Iterable<T,Nothing>`, usually [abbreviated](../type-abbreviation]  to `{T+}`,
+* the type `Iterable<T,Nothing>`, usually [abbreviated](../type-abbreviation)  to `{T+}`,
   contains at least one element (it is *non-empty*)
 
 #### `Sequential`
@@ -223,7 +223,7 @@ There are two flavours of `Iterable`:
 is an enumerated type with subtypes 
 [`Sequence`](#{site.urls.apidoc_1_1}/Sequence.type.html) and 
 [`Empty`](#{site.urls.apidoc_1_1}/Empty.type.html). 
-`Sequential<T>` is usually [abbreviated](../type-abbreviation] 
+`Sequential<T>` is usually [abbreviated](../type-abbreviation) 
 to `T[]` or `[T*]`.
 
 #### `Empty`
@@ -239,7 +239,7 @@ in the language module has the type `Empty`.
 
 [`Sequence`](#{site.urls.apidoc_1_1}/Sequence.type.html) is the 
 type of non-empty sequences.
-`Sequence<T>` is usually [abbreviated](../type-abbreviation] to `[T+]`.
+`Sequence<T>` is usually [abbreviated](../type-abbreviation) to `[T+]`.
 
 #### `Tuple`
 
@@ -269,7 +269,7 @@ Tuples also have a notion of *variadicity*:
 parameter list, and are therefore used to encode function types.
 
 Unabbreviated tuple types are extremely verbose, and therefore the 
-[abbreviated](../type-abbreviation] form is always used. 
+[abbreviated](../type-abbreviation) form is always used. 
 
 ### Metamodel
 
