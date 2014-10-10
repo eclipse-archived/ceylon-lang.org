@@ -57,8 +57,9 @@ Ceylon. The language should:
   from other language families,
 * abstract away from differences between the target virtual
   machine platforms, and
-* have a formal specification that defines with precision the
-  syntax, semantics, and type system. 
+* have a specification that defines with precision the 
+  syntax, semantics, and type system, using fully-specified 
+  terminology. 
 
 At a slightly more abstract level, you can read about the five
 important concerns that guide the design of the whole platform

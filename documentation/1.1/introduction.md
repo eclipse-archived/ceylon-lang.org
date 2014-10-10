@@ -865,8 +865,8 @@ Try it!
 ## A real specification
 
 The Ceylon language is defined by a an exhaustive, but highly readable,
-144-page [formal specification](../spec). The specification predates the
-compiler, and functions as its foundation. 
+144-page [specification](../spec). The specification predates the compiler,
+and functions as its foundation. 
 
 ## Take the Tour
 
