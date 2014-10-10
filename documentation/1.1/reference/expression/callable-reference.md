@@ -10,7 +10,7 @@ author: Tom Bentley
 
 A _callable reference_ is an expression that references something 
 (a function, method, or class) that can be invoked by specifying 
-an [argument list](../argument-list).
+a [positional argument list](../positional-argument-list).
 
 ## Usage
 
