@@ -9,7 +9,7 @@ tags: [osgi]
 Write in Ceylon, Deploy in OSGI, Use in JEE
 ===========================================
 
-_... or How to push Ceylon inside J2EE applications_
+_... or How to push Ceylon inside JEE applications_
 
 
 The Ceylon language is _inherently modular_, and is shipped with a _complete infrastructure_ that allows leveraging this modularity out-of-the box.
@@ -21,6 +21,14 @@ Instead of writing long explanations, I thought it would be better to provide so
 https://github.com/davidfestal/Ceylon-Osgi-Examples/
 
 In this first example, I intentionally show the use of a Ceylon module _totally outside Ceylon's standard infrastructure_, even _totally outside the JBoss world_ : Ceylon code is used by a **Web application servlet running on a Glassfish v4.1 application server**. But of course it can be used in other OSGI-enabled application servers or containers.
+
+
+Containers explicitely tested so far are : 
+- Apache Felix 4.4.1, 
+- Oracle Glassfish v4.1, 
+- Equinox platform, 
+- JBoss WildFly 8.0.0.alpha3 (with JBossOSGi installed)
+
 
 In the next examples we'll try to go further :  providing services, using Ceylon annotations (compatible with Java annotations), etc ...
 
