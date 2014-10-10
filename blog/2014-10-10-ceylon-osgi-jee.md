@@ -1,3 +1,11 @@
+---
+title: Write in Ceylon, Deploy as OSGI, use in JEE
+author: David Festal
+layout: blog
+unique_id: blogpage
+tab: blog
+tags: [osgi]
+---
 Write in Ceylon, Deploy in OSGI, Use in JEE
 ===========================================
 
@@ -8,13 +16,13 @@ The Ceylon language is _inherently modular_, and is shipped with a _complete inf
 
 However Ceylon is _not captive of its own infrastructure_ : After the Java and JS interoperability efforts, the 1.1.0 version has brought out-of-the-box compatibility with OSGI.
 
-Instead of writing long explanations, I thought it would be better to provide some examples of what can be done, that anyone can try. You will find the first one here :
+Instead of writing long explanations, I thought it would be better to provide some examples of what can be done, that anyone can try. You will find the first, very simple one, here :
 
 https://github.com/davidfestal/Ceylon-Osgi-Examples/
 
-In this first example, I intentionally show the use of a Ceylon module totally outside Ceylon's standard infrastructure, even totally outside the JBoss world : Ceylon code is used by a Web application servlet running on a Glassfish v4.1 application server. But of course it can be use din other OSGI-enabled application servers or containers.
+In this first example, I intentionally show the use of a Ceylon module _totally outside Ceylon's standard infrastructure_, even _totally outside the JBoss world_ : Ceylon code is used by a **Web application servlet running on a Glassfish v4.1 application server**. But of course it can be used in other OSGI-enabled application servers or containers.
 
-In the next examples we will try to go further :  providing services, using Ceylon annotations (compatible with Java annotations), etc ...
+In the next examples we'll try to go further :  providing services, using Ceylon annotations (compatible with Java annotations), etc ...
 
 Please report any problem you might encounter while testing, and feel free to submit pull request for other successful use cases  you might have built.
 
