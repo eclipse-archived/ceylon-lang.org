@@ -68,7 +68,7 @@ RewriteRule ^download/dist/1_0_0_rpm$ "http\:\/\/downloads\.ceylon-lang\.org\/cl
 
 RewriteRule ^download/dist/1_1_0$ "http\:\/\/downloads\.ceylon-lang\.org\/cli\/ceylon-1\.1\.0\.zip" [R=302,L]
 RewriteRule ^download/dist/1_1_0_deb$ "http\:\/\/downloads\.ceylon-lang\.org\/cli\/ceylon-1\.1\.0_1\.1\.0_all\.deb" [R=302,L]
-RewriteRule ^download/dist/1_1_0_rpm$ "http\:\/\/downloads\.ceylon-lang\.org\/cli\/ceylon-1\.1\.0-1\.1\.0-0\.noarch\.rpm" [R=302,L]
+RewriteRule ^download/dist/1_1_0_rpm$ "http\:\/\/downloads\.ceylon-lang\.org\/cli\/ceylon-1\.1\.0-1\.1\.0-1\.noarch\.rpm" [R=302,L]
 
 # Redirect social network links
 RewriteRule ^plus$ "https\:\/\/plus\.google\.com\/u\/0\/102481741611133754149" [R=302,L]
