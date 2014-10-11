@@ -76,8 +76,6 @@ the compiler:
         print(event.info);
     }
 
-## Runtime type checking
-
 When a dynamically typed expression is evaluated, certain 
 runtime type checks are performed, which can result in a 
 runtime typing exception.
