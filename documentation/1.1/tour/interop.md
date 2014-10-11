@@ -121,16 +121,20 @@ can result in numeric overflow._
 
 Since there are no primitively-defined array types in Ceylon, 
 arrays are represented by special classes. These classes are
-considered to belong to `java.lang`:
+considered to belong to the package `java.lang`. (Which belongs
+to the module `java.base`.)
 
-- `boolean[]` is `java.lang.BooleanArray`,
-- `char[]` is `java.lang.CharArray`,
-- `long[]` is `java.lang.LongArray`,
-- `int[]` is `java.lang.IntArray`,
-- `short[]` is `java.lang.ShortArray`,
-- `byte[]` is `java.lang.ByteArray`,
-- `double[]` is `java.lang.DoubleArray`, and
-- `float[]` is `java.lang.FloatArray`.
+- `boolean[]` is represented by the class `BooleanArray`,
+- `char[]` is represented by the class `CharArray`,
+- `long[]` is represented by the class `LongArray`,
+- `int[]` is represented by the class `IntArray`,
+- `short[]` is represented by the class `ShortArray`,
+- `byte[]` is represented by the class `ByteArray`,
+- `double[]` is represented by the class `DoubleArray`,
+- `float[]` is represented by the class `FloatArray`, and, 
+  finally,
+- `T[]` for any object type `T` is represented by the class 
+  `ObjectArray<T>`.
 
 We can obtain a Ceylon `Array` without losing the identity 
 of the underlying Java array.
@@ -140,8 +144,8 @@ of the underlying Java array.
     Array<Byte> byteArray = javaByteArray.byteArray;
 
 You can think of the `ByteArray` as the actual underlying
-`byte[]` instance, and the `Array<Byte>` as an instance of the
-Ceylon class `Array` that wraps the `byte[]` instance.
+`byte[]` instance, and the `Array<Byte>` as an instance of 
+the Ceylon class `Array` that wraps the `byte[]` instance.
 
 The module `ceylon.interop.java` contains a raft of additional
 methods for working with these Java array types.
@@ -150,10 +154,10 @@ methods for working with these Java array types.
 
 Java types offer no information about whether a field or method
 can produce a null value, except in the very special case of a
-primitive type. Therefore, the compiler inserts runtime null value 
-checks wherever Ceylon code calls a Java function that returns an 
-object type, or evaluates a Java field of object type, and assigns
-the result to an non-optional Ceylon type.
+primitive type. Therefore, the compiler inserts runtime null 
+value checks wherever Ceylon code calls a Java function that 
+returns an object type, or evaluates a Java field of object 
+type, and assigns the result to an non-optional Ceylon type.
 
 In this example, no runtime null value check is performed, since
 the return value of `System.getProperty()` is assigned to an 
@@ -178,6 +182,19 @@ non-optional type `String`:
         return System.getProperty("user.home");
     }
 
+The runtime check ensures that `null` can never unsoundly 
+propagate from native Java code with unchecked null values 
+into Ceylon code with checked null values, resulting in an 
+eventual `NullPointerException` in Ceylon code far from the
+original call to Java.
+
+#### Gotcha!
+
+The Ceylon compiler doesn't have any information that a Java
+method could return `null`, and so it won't warn you at 
+compile time if you call a Java method that sometimes returns
+`null`.
+
 ### Java properties are exposed as Ceylon attributes
 
 A Java getter/setter pair will appear to a Ceylon program as
@@ -191,6 +208,13 @@ a Ceylon attribute. For example:
         TimeZone timeZone = calendar.timeZone;
         Integer timeInMillis = calendar.timeInMillis;
     }
+
+If you want to call a Java setter method, assign a value to
+it using `=`:
+
+    calendar.timeInMillis = system.milliseconds;
+
+#### Gotcha!
 
 Note that there are certain corner cases here which might be
 confusing. For example, consider this Java class:
@@ -221,15 +245,22 @@ However, this doesn't work when we interoperate with Java generic
 types with wildcards. Therefore, Ceylon supports use-site variance
 (wildcards).
 
-- `List<out Object>` has a covariant wildcard, and is equivalent to 
-  `List<? extends Object>` in Java, and
-- `Topic<in Object>` has a contravariant wildcard, and is equivalent 
-  to `Topic<? super Object>` in Java.
+- `List<out Object>` has a covariant wildcard, and is equivalent 
+  to `List<? extends Object>` in Java, and
+- `Topic<in Object>` has a contravariant wildcard, and is 
+  equivalent to `Topic<? super Object>` in Java.
 
 Wildcard types are unavoidable when interoperating with Java, and 
 perhaps occasionally useful in pure Ceylon code. But we recommend
 avoiding them, except where there's a really good reason.  
 
+
+## Utility functions and classes
+
+In the module [`ceylon.interop.java`](https://modules.ceylon-lang.org/repo/1/ceylon/interop/java/1.1.0/module-doc/api/index.html)
+you can find a suite of useful utility methods and classes for
+Java interoperation. For example, there are classes that adapt
+between Ceylon collection types and Java collection types.
 
 ## There's more ...
 
