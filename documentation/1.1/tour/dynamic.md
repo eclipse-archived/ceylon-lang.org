@@ -73,7 +73,7 @@ the compiler:
 
 <!-- try: -->
     void handle(dynamic event) {
-        print(event.info);
+        print(event.info); //compile error: event has unknown type
     }
 
 When a dynamically typed expression is evaluated, certain 
