@@ -188,7 +188,7 @@ into Ceylon code with checked null values, resulting in an
 eventual `NullPointerException` in Ceylon code far from the
 original call to Java.
 
-#### Gotcha!
+### Gotcha!
 
 The Ceylon compiler doesn't have any information that a Java
 method could return `null`, and so it won't warn you at 
@@ -212,9 +212,10 @@ a Ceylon attribute. For example:
 If you want to call a Java setter method, assign a value to
 it using `=`:
 
+<!-- try: -->
     calendar.timeInMillis = system.milliseconds;
 
-#### Gotcha!
+### Gotcha!
 
 Note that there are certain corner cases here which might be
 confusing. For example, consider this Java class:
@@ -258,7 +259,7 @@ avoiding them, except where there's a really good reason.
 ## Utility functions and classes
 
 In the module [`ceylon.interop.java`](https://modules.ceylon-lang.org/repo/1/ceylon/interop/java/1.1.0/module-doc/api/index.html)
-you can find a suite of useful utility methods and classes for
+you'll find a suite of useful utility methods and classes for
 Java interoperation. For example, there are classes that adapt
 between Ceylon collection types and Java collection types.
 

@@ -65,7 +65,13 @@ that the compiler normally performs.
     }
 
 Note: you _cannot_ make use of a partially typed declaration
-outside of a `dynamic` block.
+outside of a `dynamic` block. The following is not accepted
+by the compiler:
+
+<!-- try: -->
+    void handle(dynamic event) {
+        print(event.info);
+    }
 
 ## Runtime type checking
 
@@ -82,11 +88,87 @@ This example demonstrates the use of a native JavaScript API. Try it:
         req.open("HEAD", "http://try.ceylon-lang.org/", true);
         req.onreadystatechange = void () {
             if (req.readyState==4) {
-                alert(req.getAllResponseHeaders());
+                print(req.getAllResponseHeaders());
             }
         };
         req.send();
     }
+
+## Dynamic interfaces
+
+Writing dynamically-typed code is a frustrating, tedious, error-prone 
+activity involving lots of debugging and lots of finger-typing, since 
+the IDE can't autocomplete the names of members of a dynamic type,
+nor even show us the documentation of an object or member when we 
+hover over it.
+
+Therefore, Ceylon makes it possible to write a special sort of interface 
+that captures the typing information that is missing from a JavaScript 
+API. For example:
+
+<!-- try: -->
+    dynamic IXMLHttpRequest {
+        shared formal void open(String method, String url, Boolean async);
+        shared formal variable Anything()? onreadystatechange;
+        shared formal void send();
+        shared formal Integer readyState;
+        shared formal String? getAllResponseHeaders();
+        //TODO: more operations
+    }
+
+    IXMLHttpRequest newXMLHttpRequest() {
+        dynamic { return XMLHttpRequest(); }
+    }
+
+Now we can rewrite the example above, without the use of `dynamic`:
+
+<!-- try-pre:
+    dynamic IXMLHttpRequest {
+        shared formal void open(String method, String url, Boolean async);
+        shared formal variable Anything()? onreadystatechange;
+        shared formal void send();
+        shared formal Integer readyState;
+        shared formal String? getAllResponseHeaders();
+        //TODO: more operations
+    }
+
+    IXMLHttpRequest newXMLHttpRequest() {
+        dynamic { return XMLHttpRequest(); }
+    }
+    
+-->
+    IXMLHttpRequest req = newXMLHttpRequest();
+    req.open("HEAD", "http://try.ceylon-lang.org/", true);
+    req.onreadystatechange = void () {
+        if (req.readyState==4) {
+            print(req.getAllResponseHeaders());
+        }
+    };
+    req.send();
+
+Thus, it's possible to create Ceylon libraries that provide a typesafe
+view of native JavaScript APIs.
+
+
+## Dynamic instantiation expressions
+
+Occasionally it's necessary to instantiate a JavaScript `Array` or plain
+JavaScript `Object` (which is not the same thing as a Ceylon `Object`!).
+We may use a special-purpose _dynamic enumeration expression_:
+
+    dynamic {
+        dynamic obj = dynamic [ hello="Hello, World"; count=11; ];
+        print(obj.hello);
+        print(obj.count);
+        
+        dynamic arr = dynamic [ 12, 13, 14 ];
+        print(arr[0]);
+        print(arr[2]);
+    }
+
+Note that these expressions are _not_ considered to produce an instance
+of a Ceylon class.
+
 
 ## There's more ...
 
