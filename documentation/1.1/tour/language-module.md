@@ -358,9 +358,9 @@ Java's primitive types. The types that represent numeric values are just
 ordinary classes. Ceylon has fewer built-in numeric types than other C-like 
 languages:
 
-* [`Integer`](#{site.urls.apidoc_1_1}/Integer.type.html) 
+* [`Integer`](#{site.urls.apidoc_1_1}/Integer.type.html)
   represents signed integers, and
-* [`Float`](#{site.urls.apidoc_1_1}/Float.type.html) 
+* [`Float`](#{site.urls.apidoc_1_1}/Float.type.html)
   represents floating point approximations to the real numbers.
 
 However, the compiler magically eliminates these classes, wherever possible,
@@ -378,6 +378,29 @@ your code on the JVM or on a JavaScript virtual machine.
   `Integer`s have 53-bit precision.
 
 Overflow (on the JVM), or loss of precision (in JavaScript) occurs silently.
+
+The class [`Byte`](#{site.urls.apidoc_1_1}/Byte.type.html) is very different 
+from `byte`s in Java, C#, or C. A `Byte` is considered to represent a 
+[congruence class](http://en.wikipedia.org/wiki/Modular_arithmetic) of 
+integers modulo 256. That is to say, a `Byte` doesn't represent just one 
+integer value, but a whole infinite set of them!
+
+Therefore:
+
+- the arithmetic operations on `Byte` are explicitly understood to be the 
+  operations of modular arithmetic, not of ordinary integer arithmetic,
+- there is no order for `Byte`s (they aren't `Comparable`), and
+- it doesn't even make sense to ask if a `Byte` is signed or unsigned!
+
+However, `Byte` has two very useful attributes: 
+
+- `unsigned`, which returns a positive `Integer` in the range `0..255`, 
+  and
+- `signed`, which returns an `Integer` in the range `-128..127`. 
+
+You'll need to use either `signed` or `unsigned` if you want to treat a
+`Byte` value as an integer with integer arithmetic and integer ordering.
+
 
 ## Numeric literals
 
