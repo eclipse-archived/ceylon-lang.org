@@ -277,14 +277,14 @@ the two kinds of union/intersection:
 <!-- try: -->
     Set<Integer> integers = ... ;
     Set<Float> floats = ... ;
-    Set<Float|Integer> numbers = integers|floats;
+    Set<Float|Integer> numbers = integers | floats;
 
 <br/>
 
 <!-- try: -->
     Set<Foo> foos = ... ;
     Set<Bar> bars = ... ;
-    Set<Foo&Bar> foobars = foos&bars;
+    Set<Foo&Bar> foobars = foos & bars;
 
 The binary `~` operator represents complement (set subtraction).
 
@@ -456,9 +456,8 @@ Since all numeric types are subtypes of `Numeric`, it's possible to write
 generic code that treats numeric values polymorphically.
 
     Value ratio<Value>(Value num, Value denom) 
-            given Value satisfies Numeric<Value> {
-        return num/denom;
-    }
+            given Value satisfies Numeric<Value>
+            => num/denom;
 
 You can pass `Float`s, `Integer`s, `Whole`s, `Decimal`s or any other numeric
 type to `ratio()`. But since polymorphic numeric functions can't be optimized
