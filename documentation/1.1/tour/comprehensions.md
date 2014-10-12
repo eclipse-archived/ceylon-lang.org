@@ -86,6 +86,20 @@ but it's a useful mental model to keep handy. So the idea is that
 anything we can write inside braces or brackets should also be 
 syntactically legal inside a named argument list.)
 
+### Gotcha!
+
+It's important to have the right mental model of where a comprehension
+starts and finishes and what precisely it means. The comprehension is 
+the bit which starts with `for`, and ends in an expression. The braces 
+or brackets are _not_ included. 
+
+A comprehension produces multiple values, not a single value.
+_Therefore a comprehension is not considered an expression and we
+can't directly assign a comprehension to a value reference!_ If we 
+just need to store the iterable stream somewhere, without evaluating 
+any of its elements, we can use an iterable instantiation expression, 
+exactly like the one we've just seen.
+
 ### Comprehensions as variadic arguments
 
 One place where the language "accepts multiple values" is in the
@@ -159,31 +173,6 @@ iterating the stream as soon as it encounters `false`.
 
 Now let's see what the various bits of a comprehension do.
 
-### Gotcha!
-
-It's important to have the right mental model of where a comprehension
-starts and finishes and what precisely it means. The comprehension is 
-the bit which starts with `for`, and ends in an expression. The braces 
-or brackets are _not_ included. 
-
-A comprehension produces multiple value, not a single value.
-_Therefore a comprehension is not considered an expression and we
-can't directly assign a comprehension to a value reference!_ If we 
-just need to store the iterable stream somewhere, without evaluating 
-any of its elements, we can use an iterable instantiation expression, 
-like we saw above:
-
-<!-- try-pre:
-    class Person(shared String name) {}
-    value people = { Person("Gavin"), Person("Stephane"), Person("Tom"), Person("Tako") };
-
--->
-<!-- try-post:
-
-    print(names);
--->
-    {String*} names = { for (p in people) p.name }; 
-
 ## Transformation
 
 The first thing we can do with a comprehension is transform the
@@ -231,16 +220,16 @@ It's especially useful to filter using `if (exists ...)`.
     jet.spouse = wim;
     value people = { wim, zus, jet };
 
-    print({for (p in people) if (exists s=p.spouse) p->s});
+    print({for (p in people) if (exists s = p.spouse) p->s});
 -->
-    for (p in people) if (exists s=p.spouse) p->s
+    for (p in people) if (exists s = p.spouse) p->s
 
 You can even use [multiple `if` conditions](../attributes-control-structures#condition_lists):
 
 <!-- try: -->
     for (p in people) 
-        if (exists s=p.spouse, 
-            nonempty inlaws=s.parents) 
+        if (exists s = p.spouse, 
+            nonempty inlaws = s.parents) 
                     p->inlaws
 
 ## Products and joins
