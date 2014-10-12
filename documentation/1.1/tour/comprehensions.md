@@ -153,9 +153,9 @@ evaluated. This is extremely useful for functions like `every()` and
 -->
     if (every { for (p in people) p.age>=18 }) { ... }
 
-The function `every()` (in `ceylon.language`) accepts a stream of
-`Boolean` values, and stops iterating the stream as soon as it 
-encounters `false` in the stream.
+The function [`every()`](#{site.urls.apidoc_1_1}/index.html#every) 
+in `ceylon.language` accepts a stream of `Boolean` values, and stops 
+iterating the stream as soon as it encounters `false`.
 
 Now let's see what the various bits of a comprehension do.
 
