@@ -133,7 +133,7 @@ typos, improvements, or new pages [very easily](/code/website).
 
 ### What version of Java is required to run Ceylon?
 
-Both Ceylon and Ceylon IDE require Java 7.
+Both Ceylon and Ceylon IDE require Java 7 or Java 8.
 
 ### Can you tell me more about how it works?
 
@@ -151,6 +151,10 @@ us that the entire platform be open and unencumbered.
 
 Ceylon production releases are named after Minds from the late 
 great Iain M. Banks' Culture series.
+
+### Am I allowed to say "ceylonish"?
+
+No, the correct term is "ceylonic".
 
 ### What is the elephant's name?
 
