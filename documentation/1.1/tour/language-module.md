@@ -107,7 +107,6 @@ well-defined value, it's possible to obtain the runtime type of an
 `Object`, or narrow an expression of type `Object` to a more specific 
 type.
 
-
 ## Equality and identity
 
 On the other hand, since `Object` is a supertype of types like `Float` 
@@ -171,7 +170,6 @@ attributes must extend `Basic`.
      specified using `extends`..."
     shared abstract class Basic() 
             extends Object() satisfies Identifiable {}
-
 
 ## Operator polymorphism
 
@@ -240,7 +238,6 @@ are also important in the definition of Ceylon's polymorphic operators:
   is the basis of the logical operators `&&`, `||`, `!`, and
 * [`Set`](#{site.urls.apidoc_1_1}/Set.type.html) 
   is the basis of the set operators `|`, `&`, and, `~`.
-
 
 ## Comparison operators
 
@@ -316,11 +313,10 @@ Please take careful note the difference between `..` and `:`, they have quite di
 purposes:
 
     print("hello"[2..2]); //prints "l"
-    print("hello"[2:2]);  //prints "ll" 
+    print("hello"[2:2]);  //prints "ll"
 
     print("hello"[2..0]); //prints "leh"
-    print("hello"[2:0]);  //prints "" 
-
+    print("hello"[2:0]);  //prints ""
 
 ## Characters and character strings
 
@@ -379,29 +375,6 @@ your code on the JVM or on a JavaScript virtual machine.
 
 Overflow (on the JVM), or loss of precision (in JavaScript) occurs silently.
 
-The class [`Byte`](#{site.urls.apidoc_1_1}/Byte.type.html) is very different 
-from `byte`s in Java, C#, or C. A `Byte` is considered to represent a 
-[congruence class](http://en.wikipedia.org/wiki/Modular_arithmetic) of 
-integers modulo 256. That is to say, a `Byte` doesn't represent just one 
-integer value, but a whole infinite set of them!
-
-Therefore:
-
-- the arithmetic operations on `Byte` are explicitly understood to be the 
-  operations of modular arithmetic, not of ordinary integer arithmetic,
-- there is no order for `Byte`s (they aren't `Comparable`), and
-- it doesn't even make sense to ask if a `Byte` is signed or unsigned!
-
-However, `Byte` has two very useful attributes: 
-
-- `unsigned`, which returns a positive `Integer` in the range `0..255`, 
-  and
-- `signed`, which returns an `Integer` in the range `-128..127`. 
-
-You'll need to use either `signed` or `unsigned` if you want to treat a
-`Byte` value as an integer with integer arithmetic and integer ordering.
-
-
 ## Numeric literals
 
 In their simplest form the literals for `Integer`s, and 
@@ -438,17 +411,23 @@ groups of four digits.
 
     Integer sixtyNine = $0100_0101;
 
-## `Whole` and `Decimal`
+## Arbitrary precision numeric types
 
-The platform module `ceylon.math` defines the types `Whole` and `Decimal`,
-which represent arbitrary precision integers and arbitrary precision decimals.
-Both classes are subtypes of `Numeric`, so you can use all the usual numeric
-operators with them:
+The platform module `ceylon.math` defines the types 
+
+- [`Whole`](#{site.urls.apidoc_current_math}/Whole.type.html) and 
+- [`Decimal`](#{site.urls.apidoc_current_math}/Decimal.type.html), 
+
+which represent arbitrary precision integers and arbitrary precision 
+decimals. Both classes are subtypes of `Numeric`, so you can use all the 
+usual numeric operators with them:
 
 <!-- try: -->
     Decimal num = ... ;
     Decimal denom = ... ;
-    Decimal ratio = num/denom;
+    Decimal ratio = num / denom;
+
+Note that `ceylon.math` is currently JVM-only.
 
 ## Abstracting over numeric types
 
@@ -460,9 +439,15 @@ generic code that treats numeric values polymorphically.
             => num/denom;
 
 You can pass `Float`s, `Integer`s, `Whole`s, `Decimal`s or any other numeric
-type to `ratio()`. But since polymorphic numeric functions can't be optimized
-to use VM-level primitive types, this function is likely to be much slower
-than a function that accepts two `Float`s or two `Integer`s.
+type to `ratio()`. 
+
+### Gotcha!
+
+Since polymorphic numeric functions can't be optimized to use VM-level 
+primitive types, when executed on the JVM, the generic function above is 
+likely to be _much_ slower than a function which accepts two `Float`s or two 
+`Integer`s. (On a JavaScript VM, you can expect a much smaller performance
+penalty.)
 
 ## Numeric widening
 
@@ -506,15 +491,42 @@ Since `ceylon.language` only has two numeric types the only automatic
 widening conversion is from `Integer` to `Float`. This is the one and
 only thing approaching an implicit type conversion in the whole language.
 
+## Bytes
+
+The class [`Byte`](#{site.urls.apidoc_1_1}/Byte.type.html) is very different 
+from `byte`s in Java, C#, or C. A `Byte` is considered to represent a 
+[congruence class](http://en.wikipedia.org/wiki/Modular_arithmetic) of 
+integers modulo 256. That is to say, a `Byte` doesn't represent just one 
+integer value, but a whole infinite set of them!
+
+Therefore:
+
+- the arithmetic operations on `Byte` are explicitly understood to be the 
+  operations of modular arithmetic, not of ordinary integer arithmetic,
+- there is no order for `Byte`s (they aren't `Comparable`), and
+- it doesn't even make sense to ask if a `Byte` is signed or unsigned!
+
+However, `Byte` has two very useful attributes: 
+
+- `unsigned`, which returns a positive `Integer` in the range `0..255`, 
+  and
+- `signed`, which returns an `Integer` in the range `-128..127`. 
+
+You'll need to use either `signed` or `unsigned` if you want to treat a
+`Byte` value as an integer with integer arithmetic and integer ordering.
+
+`Byte` is optimized by the compiler to a Java `byte` on the JVM, where
+possible.
 
 ## Collections
 
 The language module includes several interfaces that represent container
-types: 
-[`Collection`](#{site.urls.apidoc_1_1}/Collection.type.html),
-[`List`](#{site.urls.apidoc_1_1}/List.type.html),
-[`Map`](#{site.urls.apidoc_1_1}/Map.type.html), and
-[`Set`](#{site.urls.apidoc_1_1}/Set.type.html).
+types:
+
+- [`Collection`](#{site.urls.apidoc_1_1}/Collection.type.html),
+- [`List`](#{site.urls.apidoc_1_1}/List.type.html),
+- [`Map`](#{site.urls.apidoc_1_1}/Map.type.html), and
+- [`Set`](#{site.urls.apidoc_1_1}/Set.type.html).
 
 You might be disappointed to discover that there are no general-purpose 
 implementations of these interfaces in the language module itself. In fact,
@@ -537,7 +549,10 @@ mutating the collection. Actually, there's a couple of good reasons for this:
   parameters.  
 
 The module `ceylon.collection` contains general-purpose implementations of
-these interfaces, along with APIs for building and mutating collectons.
+these interfaces, along with APIs for building and mutating collections:
+[`MutableList`](#{site.urls.apidoc_current_collection}/MutableList.type.html), 
+[`MutableMap`](#{site.urls.apidoc_current_collection}/MutableMap.type.html), 
+and [`MutableSet`](#{site.urls.apidoc_current_collection}/MutableSet.type.html).
 
 ## There's more...
 
@@ -559,4 +574,3 @@ start using platform modules including
 
 Next we're going to come back to the subject of [object initialization](../initialization), 
 and deal with a subtle problem affecting languages like Java and C#.
-
