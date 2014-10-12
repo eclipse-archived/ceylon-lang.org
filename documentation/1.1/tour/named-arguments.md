@@ -120,13 +120,13 @@ a sequence:
     Float product(Float+ floats) {
         variable value product = floats.first;
         for (float in floats.rest) {
-            product*=float;
+            product *= float;
         }
         return product;
     }
     
     print(product(2.0, 3.0, 4.0));              //positional args
-    print(product { floats=[2.0, 3.0, 4.0]; }); //same thing, with a named arg
+    print(product { floats = [2.0, 3.0, 4.0]; }); //same thing, with a named arg
 
 
 ## Leaving out the parameter names
@@ -204,8 +204,8 @@ anonymous functions:
 -->
 <!-- check:none:pedagogical -->
     Table table = Table("Squares", 5, Border(2,1), 
-            { Column("x",10, (Integer row) => row.string), 
-              Column("x^2",12, (Integer row) => (row^2).string) });
+            { Column("x",10, (row) => row.string), 
+              Column("x^2",12, (row) => (row^2).string) });
 
 However, it's far more common to use named arguments to build a complex 
 graph of objects. In this section we're going to meet some new features of 
@@ -285,21 +285,21 @@ abbreviated like this:
 -->
 <!-- check:none:pedagogical -->
     Table table = Table {
-        title="Squares";
-        rows=5;
+        title = "Squares";
+        rows = 5;
         Border {
-            padding=2;
-            weight=1;
+            padding = 2;
+            weight = 1;
         };
         Column {
-            heading="x";
-            width=10;
+            heading = "x";
+            width = 10;
             content(Integer row) 
                     => row.string;
         },
         Column {
-            heading="x^2";
-            width=10;
+            heading = "x^2";
+            width = 10;
             content(Integer row) 
                     => (row^2).string;
         }
@@ -308,18 +308,18 @@ abbreviated like this:
 Notice how we've transformed our code from a form which emphasized invocation 
 into a form that emphasizes declaration of a hierarchical structure. 
 Semantically, the two forms are equivalent. But in terms of readability, 
-they are quite different.
+they're quite different.
 
 We could put the above totally declarative code in a file by itself and it 
-would look like some kind of "mini-language" for defining tables. In fact, 
+would look like some kind of "minilanguage" for defining tables. In fact, 
 it's executable Ceylon code that may be validated for syntactic correctness by 
 the Ceylon compiler and then compiled to Java bytecode or JavaScript. Even 
-better, the Ceylon IDE will provide authoring support for our mini-language. 
+better, the Ceylon IDE will provide authoring support for our minilanguage. 
 In complete contrast to the DSL support in some dynamic languages, any Ceylon 
 DSL is completely typesafe! You can think of the definition of the `Table`, 
 `Column` and `Border` classes as defining the "schema" or "grammar" of the 
-mini-language. (In fact, they are really defining a syntax tree for the 
-mini-language.)
+minilanguage. (In fact, they are really defining a syntax tree for the 
+minilanguage.)
 
 Now let's see an example of a named argument list with an inline getter 
 declaration:
@@ -360,8 +360,8 @@ declaration:
     observable.addObserver {
         object observer 
                 satisfies Observer<UpdateEvent> {
-            on(UpdateEvent e) => 
-                    print("Update:" + e.string);
+            on(UpdateEvent e)
+                    => print("Update:" + e.string);
         }
     };
 
@@ -380,8 +380,8 @@ function directly:
     }
     
     observable.addObserver {
-        void on(UpdateEvent e) => 
-                print("Update:" + e.string);
+        void on(UpdateEvent e)
+                => print("Update:" + e.string);
     };
 
 
@@ -395,7 +395,7 @@ Ceylon. A fragment of static HTML looks something like this:
     Html {
         doctype = html5;
         Head {
-            title = "Ceylon: home page";
+            title = "Welcome Message";
             Link { 
                 rel = stylesheet; 
                 type = css; 
