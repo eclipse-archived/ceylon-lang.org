@@ -163,7 +163,7 @@ evaluated. This is extremely useful for functions like `every()` and
     class Person(shared String name, shared Integer age) {}
     value people = { Person("Wim", 43), Person("Zus", 20), Person("Jet", 37) };
 
-    print(every { for (p in people) p.age>=18 });
+    print( every { for (p in people) p.age>=18 } );
 -->
     if (every { for (p in people) p.age>=18 }) { ... }
 
@@ -187,7 +187,7 @@ For example, this comprehension
     class Person(name) { shared String name; }
     value people = { Person("Gavin"), Person("Stephane"), Person("Tom"), Person("Tako") };
 
-    value ps = { for (p in people) p.name->p };
+    printAll { for (p in people) p.name->p };
 -->
     for (p in people) p.name->p
 
@@ -201,7 +201,7 @@ of the stream. This comprehension produces a stream of numbers which
 are divisible by `3`.
 
 <!-- try:
-    print({for (i in 0..100) if (i%3==0) i});
+    printAll { for (i in 0..100) if (i%3==0) i };
 -->
     for (i in 0..100) if (i%3==0) i
 
@@ -220,7 +220,7 @@ It's especially useful to filter using `if (exists ...)`.
     jet.spouse = wim;
     value people = { wim, zus, jet };
 
-    print({for (p in people) if (exists s = p.spouse) p->s});
+    printAll { for (p in people) if (exists s = p.spouse) p->s };
 -->
     for (p in people) if (exists s = p.spouse) p->s
 
@@ -243,7 +243,7 @@ cartesian product:
         shared actual String string = "(``x``,``y``)"; 
     }
 
-    print({for (i in 0..5) for (j in 0..5) Node(i,j)});
+    printAll { for (i in 0..5) for (j in 0..5) Node(i,j) };
 -->
     for (i in 0..100) for (j in 0..10) Node(i,j)
 
@@ -256,7 +256,7 @@ a lot like a `join` in SQL.
     value orgs = { Organisation("RedHat", Employee("Joe"), Employee("Jack")),
                    Organisation("Fedora", Employee("Lisa")) };
 
-    print({for (o in orgs) for (e in o.employees) o.name->e.name});
+    printAll { for (o in orgs) for (e in o.employees) o.name->e.name };
 -->
     for (o in orgs) for (e in o.employees) e.name
 
