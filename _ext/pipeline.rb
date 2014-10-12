@@ -51,7 +51,7 @@ Awestruct::Extensions::Pipeline.new do
     "<pre data-language=\"ceylon\"><code>\\1</code></pre>")
   transformer Awestruct::Extensions::Gsub.new(
     /\<!--\s*lang:\s*java\s*--\>\s*<pre><code>(.*?)<\/code><\/pre>/, 
-    "<pre data-language=\"java\"><code>\\1</code>1</pre>")
+    "<pre data-language=\"java\"><code>\\1</code></pre>")
   transformer Awestruct::Extensions::Gsub.new(
     /\<!--\s*lang:\s*bash\s*--\>\s*<pre><code>(.*?)<\/code><\/pre>/, 
     "<pre data-language=\"bash\"><code>\\1</code></pre>")
