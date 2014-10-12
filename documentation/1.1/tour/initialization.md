@@ -11,10 +11,10 @@ doc_root: ../..
 
 This is the fifteenth part of the Tour of Ceylon. In the 
 [last part](../language-module) we learned about the language module, 
-[`ceylon.language`](#{site.urls.apidoc_1_1}/index.html). Now we're 
-going to go into the details of *initialization*, and the restrictions that 
-Ceylon places upon your code to ensure that you never experience anything 
-like Java's `NullPointerException`.
+[`ceylon.language`](#{site.urls.apidoc_1_1}/index.html). Now we're going to 
+go into the details of *initialization*, and the restrictions that Ceylon 
+places upon your code to ensure that you never experience anything like 
+Java's infamous `NullPointerException`.
 
 But first, we need to learn a little more about references to the current
 object.
@@ -25,9 +25,27 @@ Ceylon features the keywords `this` and `super`, which refer to the current
 instance of a class—the receiving instance of an operation (method 
 invocation, member class instantiation, or attribute evaluation/assignment), 
 within the body of the definition of the operation. The semantics are exactly 
-the same as what you're used to in Java. In particular, a reference to a member 
-of `super` always refers to a member of a superclass. There is currently no 
-syntax defined for references to a concrete member of a superinterface.
+the same as what you're used to in Java, with one exception: a reference to 
+a member of `super` might refer to a member inherited from an interface, 
+instead of from a superclass. 
+
+Consider this class:
+
+<!-- try: -->
+    class Impl() extends Class() satisfies Interface { ... }
+
+Inside the body of this class, the expression `super` is treated as having 
+the type `Class & Interface`. But what if `Class` and `Interface` both 
+descend from a common ancestor with a method named `ambiguous()`, and `Impl` 
+inherits two different implementations of `ambiguous()`, one from `Class`, 
+and one from `Interface`? Then the expression `super.ambiguous()` would be, 
+well, super-ambiguous.
+
+In this case, the widening operator `of` may be used to disambiguate the 
+member reference:
+
+<!-- try: -->
+    (super of Interface).ambiguous() //ambiguity resolved!
 
 In addition to `this` and `super`, Ceylon features the keyword `outer`, which 
 refers to the parent instance of the current instance of a nested class.
@@ -54,21 +72,18 @@ in the current package.
 <!-- try: -->
     String name = "Trompon";
     
-    class Elephant(name=package.name) {
+    class Elephant(name = package.name) {
         String name;
     }
 
 
 ## Multiple inheritance and "linearization"
 
-There's a good reason why `super` always refers to a super*class*, and never 
-to a super*interface*.
-
 Ceylon features a restricted kind of multiple inheritance often called 
 _mixin inheritance_. Some languages with multiple inheritance or even mixin 
 inheritance feature so-called "depth-first" member resolution or 
 linearization where all supertypes of a class are arranged into a linear 
-order. We believe that this model is arbitrary and fragile.
+order. We believe that this model is unacceptably arbitrary and fragile.
 
 Ceylon doesn't perform any kind of linearization of supertypes. The order in 
 which types appear in the `satisfies` clause is never significant. The only 
@@ -86,7 +101,8 @@ is explicitly declared to refine the second.
 For a similar reason, interfaces shouldn't be able to define initialization 
 logic. There's no non-fragile way to define the ordering in which supertype 
 initializers are executed in a multiple-inheritance model. This is the basic 
-reason why [interfaces are stateless](../inheritance#interfaces_and_mixin_inheritance) in Ceylon.
+reason why [interfaces are stateless](../inheritance#interfaces_and_mixin_inheritance) 
+in Ceylon.
 
 <!--
 (Note that these arguments are even stronger in the case of 
@@ -113,7 +129,7 @@ without error:
 -->
 <!-- cat: void m(String person, String me) { -->
     String greeting;
-    if (person==me) {
+    if (person == me) {
         greeting = "You're beautiful!";
     }
     else {
@@ -131,7 +147,7 @@ But the following code results in an error at compile time:
 -->
 <!-- check:none:demos error -->
     String greeting;
-    if (person==me) {
+    if (person == me) {
         greeting = "You're beautiful!";
     }
     print(greeting);   //error: greeting not definitely initialized
@@ -148,7 +164,6 @@ default value for a `final` instance variable that is eventually assigned a
 value by the constructor. Consider the following code:
 
 <!-- lang: java -->
-
     //Java code that prints "null"
     class Broken {
         final String greeting;
@@ -170,27 +185,27 @@ acceptable in Ceylon, where most types don't have an acceptable "default"
 value. For example, consider the type `Person`. What would be an acceptable 
 default value of this type? The value `null` certainly won't do, since it's 
 not even an instance of `Person`. (It's an instance of `Null`, 
-[remember!](../basics#dealing_with_objects_that_arent_there)) 
-Although evaluation of an uninitialized instance variable could be defined 
-to result in an immediate runtime exception, that would just be our old 
-friend `NullPointerException` creeping back in by the back door. 
+[remember!](../basics#dealing_with_objects_that_arent_there)) Sure, 
+evaluation of an uninitialized instance variable could be defined 
+to result in an immediate exception, that would just be our old friend 
+`NullPointerException` creeping back in by the back door. 
 
-Indeed, "few" object-oriented languages  (and possibly none) perform the 
-necessary static analysis to ensure definite initialization of instance 
-variables, and this is perhaps one of the main reasons why object-oriented 
-languages have never featured typesafe handling of `null` values.
+Indeed, very few object-oriented languages perform the necessary static 
+analysis to ensure definite initialization of instance variables, and this 
+is perhaps one of the main reasons why object-oriented languages have never 
+featured typesafe handling of `null` values.
 
 
 ## Class bodies
 
 In order to make it possible for the compiler to guarantee definite 
-initialization of attributes, Ceylon imposes some restrictions on the body of 
-a class. (Remember that Ceylon doesn't have constructors!) Actually, to be 
-completely fair, they're not really restrictions at all, at least not from one 
-point of view, since you're actually allowed *extra* flexibility in the body 
-of a class that you're not allowed in the body of a function or getter
-declaration! But compared to Java, there's some things you're not allowed 
-to do.
+initialization of attributes, Ceylon imposes some restrictions on the body 
+of a class. (Remember that Ceylon doesn't have constructors!) Actually, to 
+be completely fair, they're not strictly speaking _restrictions_ at all, at 
+least not from a ceylonic point of view, since you're actually allowed 
+*extra* flexibility in the body of a class that you're not allowed in the 
+body of a function or getter declaration! But compared to Java, there's some 
+things you're not allowed to do.
 
 First, we need to know that the compiler automatically divides the body of 
 the class into two sections:

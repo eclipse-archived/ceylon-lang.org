@@ -16,35 +16,41 @@ about *annotations* and metaprogramming.
 
 ## Annotations
 
-If you've made it this far into this series of articles, you've already seen 
-lots of annotations. Annotations are *so* important in Ceylon that it's 
-extremely difficult to write any code without using them. But we have not 
-yet really explored what an annotation *is*.
+If you've made it this far into this series of articles, you've already 
+seen lots of annotations. Annotations are *so* important in Ceylon that 
+it's extremely difficult to write any code without using them. But we 
+have not yet really explored what an annotation actually *is*.
 
-Let's finally rectify that. The answer is simple: an annotation is a toplevel 
-function that returns a subtype of 
+Let's finally rectify that. The answer is simple: an annotation is a 
+toplevel function that returns a subtype of 
 [`ConstrainedAnnotation`](#{site.urls.apidoc_1_1}/ConstrainedAnnotation.type.html).
 We call the function an _annotation constructor_.
 
 ## Annotation constructors
 
-Here's the definition of a some of our old friends, `doc`:
+Here's the definition of a some of our old friends, first `shared`:
 
 <!-- try: -->
-<!-- cat: shared class Deprecated(String? desc=null) {} -->
-<!-- cat: shared class Description(String? desc=null) {} -->
-<!-- cat: shared class Authors(String[] desc={}) {} -->
+    "Annotation to mark a type or member as shared. A `shared` 
+     member is visible outside the block of code in which it is 
+     declared."
+    shared annotation SharedAnnotation shared() 
+            => SharedAnnotation();
+
+Then `doc`:
+
+<!-- try: -->
     "Annotation to specify API documentation of a program
      element." 
-    shared annotation DocAnnotation doc(String description) =>
-            DocAnnotation(description);
+    shared annotation DocAnnotation doc(String description)
+            => DocAnnotation(description);
 
 And `by`:
 
 <!-- try: -->
     "Annotation to specify API authors."
-    shared annotation AuthorsAnnotation by(String* authors) =>
-            AuthorsAnnotation(*authors);
+    shared annotation AuthorsAnnotation by(String* authors) 
+            => AuthorsAnnotation(*authors);
 
 Of course, we can define our own annotations. (That's the whole point!)
 
@@ -79,7 +85,7 @@ Or:
 <!-- try-post:
     void test() { }
 -->
-    doc { description="The Hello World program"; }
+    doc { description = "The Hello World program"; }
 <!-- cat: void m() {} -->
 
 Likewise, we could write:
@@ -95,7 +101,7 @@ Or:
 <!-- try-post:
     void test() { }
 -->
-    by { authors=["Gavin", "Stephane", "Emmanuel", "Tom", "Tako"]; }
+    by { authors = ["Gavin", "Stephane", "Emmanuel", "Tom", "Tako"]; }
 <!-- cat: void m() {} -->
 
 If an annotation has no arguments, we can just write the annotation name 
@@ -106,6 +112,15 @@ and leave it at that. We do this all the time with annotations like `shared`,
 ## Annotation types
 
 The return type of an annotation constructor is called the *annotation type*.
+The `shared` annotation produces a `SharedAnnotation`:
+
+<!-- try: -->
+    "The annotation class for [[shared]]."
+    shared final annotation class SharedAnnotation()
+            satisfies OptionalAnnotation<SharedAnnotation, 
+                FunctionOrValueDeclaration|ClassOrInterfaceDeclaration|
+                        Package|Import> {}
+
 The `doc` annotation produces a `DocAnnotation`:
 
 <!-- try: -->
@@ -369,7 +384,7 @@ Alternatively, we could use a named argument list:
 
 <!-- try: -->
 <!-- check:none:Annotations M5 -->
-    shared transactional { requiresNew=true; }
+    shared transactional { requiresNew = true; }
     void createOrder(Order order) { ... }
 
 <!--We won't need to use reflection in our example, since Ceylon's module 
@@ -455,7 +470,7 @@ And use it like this:
     Integer isqr(Integer i) => i*i;
     class Triple<T>(T t0, T t1, T t2) {}
     
-    Triple<Integer> triple = createTriple(`Triple<Integer>`, `sqr`)
+    Triple<Integer> triple = createTriple(`Triple<Integer>`, `isqr`)
 
 OK, sure, that's a very contrived example, and doesn't demonstrate
 anything that we couldn't do more efficiently with function references.
