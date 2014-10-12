@@ -250,8 +250,8 @@ So we could rewrite the code that builds a `Table` as follows:
         title = "Squares";
         rows = 5;
         border = Border {
-            padding=2;
-            weight=1;
+            padding = 2;
+            weight = 1;
         };
         Column {
             heading = "x";
