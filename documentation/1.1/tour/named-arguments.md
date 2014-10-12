@@ -247,21 +247,21 @@ So we could rewrite the code that builds a `Table` as follows:
 -->
 <!-- check:none:pedagogical -->
     Table table = Table {
-        title="Squares";
-        rows=5;
+        title = "Squares";
+        rows = 5;
         border = Border {
             padding=2;
             weight=1;
         };
         Column {
-            heading="x";
-            width=10;
+            heading = "x";
+            width = 10;
             function content(Integer row) 
                     => row.string;
         },
         Column {
-            heading="x^2";
-            width=12;
+            heading = "x^2";
+            width = 12;
             function content(Integer row) 
                     => (row^2).string;
         }
