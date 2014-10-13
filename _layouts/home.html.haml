@@ -15,22 +15,34 @@ tab: to-be-defined
       %ul#menu-core
         - idname = page.tab == "home" ? "selected" : "notselected"
         %li{ :id=>"#{idname}" }
-          %a{ :href=>'/' } HOME
+          %a{ :href=>'/' } 
+            %i{:class=>'fa fa-home'}
+            HOME
         - idname = page.tab == "documentation" ? "selected" : "notselected"
         %li{ :id=>"#{idname}" }
-          %a{ :href=>'/documentation/current' } LEARN
+          %a{ :href=>'/documentation/current' } 
+            %i{:class=>'fa fa-university'}
+            LEARN
         - idname = page.tab == "download" ? "selected" : "notselected"
         %li{ :id=>"#{idname}" }
-          %a{ :href=>'/download' } DOWNLOAD
+          %a{ :href=>'/download' } 
+            %i{:class=>'fa fa-download'}
+            DOWNLOAD
         - idname = page.tab == "community" ? "selected" : "notselected"
         %li{ :id=>"#{idname}" }
-          %a{ :href=>'/community' } COMMUNITY
+          %a{ :href=>'/community' } 
+            %i{:class=>'fa fa-users'}
+            COMMUNITY
         - idname = page.tab == "code" ? "selected" : "notselected"
         %li{ :id=>"#{idname}" }
-          %a{ :href=>'/code' } CODE
+          %a{ :href=>'/code' } 
+            %i{:class=>'fa fa-code-fork'}
+            CODE
         - idname = page.tab == "blog" ? "selected" : "notselected"
         %li{ :id=>"#{idname}" }
-          %a{ :href=>'/blog' } BLOG
+          %a{ :href=>'/blog' } 
+            %i{:class=>'fa fa-rss'}
+            BLOG
 #banner
   #elephant
     &nbsp;
