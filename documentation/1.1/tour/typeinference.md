@@ -320,7 +320,7 @@ first uses a "wrapper" object for each entry:
     void put(String key, Item? item) 
             => map.put(key, Maybe(item));
     
-    Item? get(String key, Item? default) {
+    Item? get(String key, Item? defaultItem) {
         if (exists maybe = map[key]) {
             return maybe.item;
         }
@@ -341,7 +341,7 @@ The second idiom is more efficient. It uses the unit type pattern:
     void put(String key, Item? item) 
             => map.put(key, item else nil);
     
-    Item? get(String key, Item? default) {
+    Item? get(String key, Item? defaultItem) {
         if (!is Nil item = map[key]) {
             return item else default;
         }
