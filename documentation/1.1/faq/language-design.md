@@ -431,18 +431,19 @@ ceylonic.
 
 ### Structural typing
 
-> Why doesn't Ceylon have structural typing?
+> Wouldn't structural typing be nice?
 
 Structural typing is a kind of static "duck" typing. It's an 
 interesting path to get some of the flexibility of a dynamic 
 language in a language with static types. A structural type 
 is a bit like an interface in Java 7 (not like an interface 
-in Ceylon!). But in a language with structural typing, a class 
-does not have to explicitly declare that it is a subtype of 
-the interface to be considered assignable to the structural 
-type. Instead, the compiler just validates that the class 
-provides operations that match the operations declared by 
-the structural type.
+in Ceylon!). But in a language with structural typing, a 
+class does not have to _explicitly_ declare that it is a 
+subtype of the structural type to be considered assignable 
+to the structural type. Instead, the compiler just validates 
+that the class provides operations that match the operations 
+declared by the structural type wherever an instance of a
+class is assigned to a structural type.
 
 The problem with a structural type system is that, just like 
 the dynamic type systems that inspire it, it doesn't work 
@@ -453,8 +454,34 @@ list of results. If I ask my IDE to rename a member of a
 class or interface, it might do a smaller or bigger 
 refactoring than I want; it might even break my code!
 
-This isn't the right thing for a language intended for writing 
-very large programs.
+This isn't the right thing for a language intended for 
+writing very large programs.
+
+Furthermore, we're very skeptical of the claim that 
+structural typing is really significantly more flexible than 
+nominative typing, since so-called "structural" types are 
+in fact only partially structural. All the operations of the 
+structural type still have names! So you're never going to 
+find a class that satisfies a structural type by fortunate 
+serendipity. The chance of the names and signatures of 
+several separate operations of the class _just happening_ to 
+align with the names and signatures of the structural type 
+is essentially zero except for in _extremely_ trivial cases.
+In practice, the classes which satisfy a given structural 
+type are going to need to be designed for that, with 
+knowledge of the structural type, just like in a nominative
+type system. Thus, it seems to us better to make that 
+relationship explicit as it is in a nominative type system.
+
+Indeed, some of the flexibility that is claimed to be an
+advantage of structural typing is actually more likely to be
+achievable in practice via the use of union and intersection
+types.
+
+There's one place, however, where structural types certainly
+do work: _function types_. Thus, function types in Ceylon 
+are indeed structural types, unlike in Java 8, where you 
+have an explosion of single-method interfaces!
 
 ### Overloading
 
@@ -625,7 +652,7 @@ Ceylon also supports Java-style wildcards, using this syntax:
 
 <!-- try: -->
     Array<Integer> ints = array(2, 4, 6);
-    Array<out Object> = ints;
+    Array<out Object> objects = ints;
 
 Since `Array` is invariant in its type parameter, `Array<Integer>`
 isn't an `Array<Object>`. It can't be, because the signature 
@@ -655,12 +682,12 @@ and cleaner in Ceylon than in Java.
 
 It's possible, likely even. From our point of view, a type 
 class is a type satisfied by the metatype of a type. Indeed, 
-we view type classes as a kind of support for reified types. 
-Since Ceylon will definitely support reified types with 
-typesafe metatypes, it's not unreasonable to consider 
-providing the ability to introduce an additional type to the 
-metatype of a type. Then we would support _metatype constraints_ 
-of form `T is Metatype`, for example:
+we view a type class as a kind of reified type argument. 
+Since Ceylon already supports reified types with typesafe 
+metatypes, it's not unreasonable to consider providing the 
+ability to introduce an additional type to the metatype of a 
+type. Then we would support _metatype constraints_ of form 
+`T is Metatype`, for example:
 
 <!-- try: -->
     Num sum<Num>(Num* numbers)
@@ -736,8 +763,8 @@ arguments. Consider:
     class IntegerLiteral() extends Expression<Integer>() {}
 
 GADT support means that the compiler is able to reason that
-when it has an expression of type `Expression<Float>` then it
-can't possibly have an `IntegerLiteral`.
+when it has an expression of type `Expression<Float>` then 
+it can't possibly be an `IntegerLiteral`.
 
 However, there are some hairy decidability issues associated 
 with GADTs that we havn't begun to tackle yet.
