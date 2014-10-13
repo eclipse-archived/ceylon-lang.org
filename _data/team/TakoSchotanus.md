@@ -1,7 +1,7 @@
 ---
 name: Tako Schotanus
 photo: /images/team/TakoSchotanus.jpg
-level: 10
+level: 5
 ---
 <!-- level explanation
 1: founder and fearless leaders

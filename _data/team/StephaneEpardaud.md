@@ -1,7 +1,7 @@
 ---
 name: St&#233;phane &#201;pardaud
 photo: /images/team/StephaneEpardaud.jpg
-level: 10
+level: 5
 ---
 [Stéphane Épardaud](http://stephane.epardaud.fr) is a long-time open source user and contributor, now working on the Ceylon compiler because if you're not writing a compiler you're not doing proper programming ;)
 
