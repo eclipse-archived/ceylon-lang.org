@@ -21,35 +21,7 @@ Dynamic interfaces make it possible to ascribe static types to an
 untyped JavaScript API. For example, we could write a dynamic 
 interface for the HTML 5 `CanvasRenderingContext2D` like this:
 
-<!-- try-post:
-
-    CanvasRenderingContext2D ctx;
-    
-    dynamic {
-        if (exists canvas = document.getElementById("lifegrid")) {
-            canvas.parentNode.removeChild(canvas);
-        }
-        
-        dynamic canvas = document.createElement("canvas");
-        canvas.setAttribute("id", "lifegrid");
-        canvas.setAttribute("width", 300);
-        canvas.setAttribute("height", 120);
-        dynamic corePage = document.getElementById("core-page");
-        corePage.insertBefore(canvas, corePage.childNodes[3]);
-        ctx = canvas.getContext("2d");
-    }
-    
-    ctx.fillStyle = "navy";
-    ctx.fillRect(50, 50, 235, 60);
-    ctx.beginPath();
-    ctx.moveTo(100,50);
-    ctx.lineTo(60,5);
-    ctx.lineTo(75,75);
-    ctx.fill();
-    ctx.fillStyle = "orange";
-    ctx.font = "40px PT Sans";
-    ctx.fillText("Hello world!", 60, 95);
--->
+<!-- try: -->
     dynamic CanvasRenderingContext2D {
         shared formal variable String|CanvasGradient|CanvasPattern fillStyle;
         shared formal variable String font;
@@ -89,8 +61,9 @@ interface for the HTML 5 `CanvasRenderingContext2D` like this:
         //todo
     }
 
-Now, if we assign an instanceof of JavaScript's `CanvasRenderingContext2D` to this interface
-type, we won't need to be inside a `dynamic` block when we call its methods. Try it!
+Now, if we assign an instance of JavaScript's `CanvasRenderingContext2D` to this interface
+type, we won't need to be inside a `dynamic` block when we call its methods. You can try it 
+out in your own browser by clicking the "TRY ONLINE" button!
 
 <!-- try:
     dynamic CanvasRenderingContext2D {
@@ -160,11 +133,13 @@ type, we won't need to be inside a `dynamic` block when we call its methods. Try
     ctx.fillText("Hello world!", 60, 95);
 -->
     CanvasRenderingContext2D ctx;
-    
     dynamic {
+        //get the CanvasRenderingContext2D from the 
+        //canvas element using dynamically typed code
         ctx = ... ;
     }
     
+    //typesafe code, checked at compile time 
     ctx.fillStyle = "navy";
     ctx.fillRect(50, 50, 235, 60);
     ctx.beginPath();
