@@ -27,10 +27,16 @@ Then we're going to skim over some material about
 ## Attributes and local values
 
 In Java, a field of a class is quite easily distinguished from a local 
-variable or parameter of a constructor. This distinction is much less
-meaningful in Ceylon, and often irrelevant. An _attribute_ is really 
-just a value declared in the parameter list or body of the class that 
-happens to be captured by some `shared` declaration.
+variable or parameter of a constructor. Fields are declared directly in
+the body of a Java class, whereas local variables are declared within 
+the body of the constructor. And they're different kinds of things. A
+local variable in a constructor doesn't outlive the invocation of the
+constructor. But a field lives until the object it belongs to is garbage
+collected.
+
+This distinction is much less meaningful in Ceylon, and often irrelevant. 
+An _attribute_ is really just a value declared in the parameter list or 
+body of the class that happens to be captured by some `shared` declaration.
 
 Here, `count` is a block-local variable of the initializer of `Counter`:
 
@@ -109,27 +115,41 @@ the variable `count`.)
 
 So even though we'll continue to use the terms "local value" and "attribute" 
 throughout this tutorial, keep in mind that there's no really strong distinction 
-between the terms. Any named value might be captured by some other declaration 
-in the same containing scope. A local value is just an attribute that happens 
-to not be captured by anything.
+between the things these terms refer to. Any named value might be captured by 
+some other declaration in the same containing scope. A local value is just an 
+attribute that happens to not be captured by anything.
 
 
 ## Variables
 
-Ceylon encourages you to use *immutable* references as much as possible. An 
-immutable reference has its value specified when the object is initialized, 
-and is never reassigned.
+Ceylon encourages you to use *immutable* references as much as possible. 
+Therefore, immutability is the default! An immutable reference has its value 
+specified when the object is initialized, and is never reassigned.
 
     class Box<Value>(val) {
         shared Value val;
     }
     
-    Box<String> ref = Box("foo");
+    Box<String> ref = Box("hello");
     print(ref.val);
     ref.val = "bar";    //compile error: value is not variable
-    
 
-If we want to be able to reassign a new value to a reference that has already 
+Note that, just like in Java, we don't have to declare and initialize a reference
+in one line of code. We can write:
+
+<!--- try: -->
+    Box<String> ref;
+    if (leaving) {
+        ref = Box("goodbye");
+    }
+    else {
+        ref = Box("hello");    //ok
+    }
+
+That's perfectly OK, as long as the compiler can verify that `ref` only gets
+assigned once in each conditional path through the code.
+
+But if we want to be able to reassign a new value to a reference that has already 
 been [initialized](../classes/#initializing_attributes), we need to annotate it 
 `variable`:
 
@@ -137,17 +157,20 @@ been [initialized](../classes/#initializing_attributes), we need to annotate it
         shared variable Value val;
     }
     
-    Box<String> ref = Box("foo");
+    Box<String> ref = Box("hello");
     print(ref.val);
-    ref.val = "bar";    //ok
+    ref.val = "goodbye";    //ok
     print(ref.val);
+
+Idiomatic Ceylon code uses mutable references relatively less often than in most 
+other languages. 
 
 ## Setters
 
 We've already met the concept of a [getter](../classes/#abstracting_state_using_attributes).
 
-If we want to make an attribute with a getter mutable, we need to define a 
-matching setter. Usually this is only useful if you have some other internal 
+If we want to make an attribute defined as a getter mutable, we need to define 
+a matching setter. Usually this is only useful if you have some other internal 
 attribute you're trying to set the value of indirectly.
 
 Suppose our class has the following attributes, intended for internal 
@@ -482,7 +505,9 @@ we can catch the root exception class
 [`Throwable`](#{site.urls.apidoc_1_1}/Throwable.type.html).
 
 The `try` statement may optionally specify a "resource" expression, just
-like in Java.
+like in Java. The resource is a 
+[`Destroyable`](#{site.urls.apidoc_1_1}/Destroyable.type.html) or an
+[`Obtainable`](#{site.urls.apidoc_1_1}/Obtainable.type.html).
 
 <!-- try: -->
 <!-- cat-id:tx -->
@@ -512,8 +537,8 @@ Let's see an example using `assert`:
 
 <!-- try: -->
     value url = parserUri("http://ceylon-lang.org/download");
-    assert(exists authority=url.authority,
-           exists host=authority.hostname);
+    assert(exists authority = url.authority,
+           exists host = authority.hostname);
     // do something with host
 
 Here you can see two `exists` conditions in the `assert` statement, separated 
