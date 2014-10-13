@@ -17,7 +17,6 @@ In this chapter, we're going to discuss _type aliases_ and _local type
 inference_, two features of the language that help reduce the verbosity
 of statically typed code.
 
-
 ## Type aliases
 
 It's often useful to provide a shorter or more semantic name to an existing 
@@ -41,8 +40,9 @@ use the `alias` keyword:
 <!-- try: -->
     alias Num => Float|Integer;
 
-Note: we can extend or satisfy a class or interface alias, but we can't
-inherit from a type alias declared using the `alias` keyword.
+Note: the reason for the difference in syntax is that we can extend or 
+satisfy a class or interface alias, but we can't inherit from a type alias 
+declared using the `alias` keyword.
 
 A type alias may be parameterized, and have type constraints, which we'll
 [learn about later](../generics/#generic_type_constraints):
@@ -56,8 +56,8 @@ A type alias may be parameterized, and have type constraints, which we'll
 
 Type aliases help us reduce verbosity, because instead of repeatedly writing
 out the same generic type, for example `Set<Person>`, we can use a snappier
-alias, such as `People`. But in some cases, Ceylon lets us omit the type
-altogether. 
+alias, such as `People`. But in some cases, as we're about to see below, 
+Ceylon lets us omit the type altogether. 
 
 A toplevel type alias or a type alias belonging to a class or interface may 
 be `shared`.
@@ -69,8 +69,7 @@ be `shared`.
 
 When it comes to class aliases, Ceylon has one more trick up its sleeves. 
 Cast your mind back to what we learned about member classes in the
-[fifth leg of the tour](
-../anonymous-member-classes#member_classes_and_member_class_refinement).
+[fifth leg of the tour](../anonymous-member-classes#member_classes_and_member_class_refinement).
 What we saw there with ordinary classes also applies to class aliases.
 
 A type alias may be nested inside a class or interface. In the case of a 
@@ -116,9 +115,9 @@ This generally makes code, especially example code, much easier to read and
 understand.
 
 However, Ceylon does have the ability to infer the type of a local variable 
-or the return type of a local method. Just place the keyword 
-`value` (in the case of a local variable) or `function` (in the case of a 
-local method) in place of the type declaration.
+or the return type of a local method. Just place the keyword `value` (in the 
+case of a local value) or `function` (in the case of a local function) in 
+place of the type declaration.
 
 <!-- try-pre:
     Float pi = 3.14159;
@@ -139,8 +138,12 @@ or `function`:
 
 * for declarations annotated `shared`,
 * for declarations annotated `formal`,
-* when the value is specified later in the block of statements, or
-* to declare a parameter.
+* to declare a parameter, or
+* for a [forward declaration](../basics/#fat_arrows_and_forward_declaration), 
+  where the value is specified later in the block of statements.
+  
+(Note, this last restriction will be removed in a future version of the 
+language!)
 
 These restrictions mean that Ceylon's type inference rules are quite simple. 
 Type inference is purely "right-to-left" and "top-to-bottom". The type of any 
@@ -156,10 +159,25 @@ to the left of the `=` specifier, or further down the block of statements.
   returned expression types appearing in the method's `return` statements
   (or `Nothing` if the method has no `return` statement).
 
+For example:
+
+    function parseIntegerOrFloat(String text) {
+        if ('.' in text) {
+            return parseInteger(text);
+        }
+        else {
+            return parseFloat(text);
+        }
+    }
+
+The inferred return type of `parseIntegerOrFloat()` is `Integer|Float?`,
+since `parseInteger()` returns `Integer?` and `parseFloat()` returns
+`Float?`.
 
 ## Type inference for iterable constructor expressions
 
-What about iterable constructor expressions expressions like this:
+What about iterable enumeration expressions like this, which we first
+[met in the last chapter](../sequences/#iterables):
 
 <!-- try-pre:
     abstract class Point() of Polar | Cartesian { }
@@ -185,13 +203,20 @@ What type is inferred for `coords`? You might answer:
 > of all the element types. 
 
 But that can't be right, since there might be more than one common 
-supertype.
+supertype, and supertypes have no well-defined linearization (order).
 
 The correct answer is that the inferred type is `{X+}` where `X` is the 
 union of all the element expression types. In this case, the type is 
-`{Polar|Cartesian+}`. Now, this works out nicely, because `Iterable<T>` 
-is [covariant](../generics#covariance_and_contravariance) in `T`. So 
-the following code is well-typed:
+`{Polar|Cartesian+}`.
+
+Now, since `Iterable<T>` is 
+[covariant](../generics#covariance_and_contravariance) in `T`, and since 
+a union type is the most precise common supertype of any two types, it 
+turns out that `coords` is of type `{X+}` _for every_ `X` in the set of 
+common supertypes of the element types. That this even works out is due 
+to a property of Ceylon's type system called _principal typing_.
+
+Thus, the following code is well-typed:
 
 <!-- try-pre:
     abstract class Point() of Polar | Cartesian { }
@@ -220,8 +245,8 @@ As is the following code:
     print(numbers);
 -->
 <!-- cat: void m() { -->
-    value nums = { 12.0, 1, -3 }; //type {Float|Integer+}
-    {Number+} numbers = nums;
+    value nums = { 12.0, 1, -3, "0" }; //type {Float|Integer|String+}
+    {Object+} objects = nums;
 <!-- cat: } -->
 
 What about iterables that produce `null`s? Well, do you 
@@ -237,10 +262,10 @@ What about iterables that produce `null`s? Well, do you
 <!-- cat: } -->
 
 The type of the attribute `first` of `Iterable<Element>` is `Element?`. 
-Here, we have an `Iterable<String?>` Substituting `String?` for `Element`, 
+Here, we have an `Iterable<String?>`. Substituting `String?` for `Element`, 
 we get the type `String??`, that is, `Null|Null|String`, which is simply 
-`Null|String`, written `String?`. Of course, the compiler can figure out 
-that kind of thing for us, we could have simply written:
+`Null|String`, written `String?`. Of course, since the compiler can figure 
+out that kind of thing for us, we could have simply written:
 
 <!-- try-post:
     print(str);
