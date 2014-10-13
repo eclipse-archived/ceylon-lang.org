@@ -295,6 +295,63 @@ Ceylon uses for _generic type argument inference_, and all of the above works
 just as well for [user-written generic types](../generics) as it does for 
 `Iterable`. 
 
+### Gotcha!
+
+Very occasionally, this "collapsing" behavior of unions of `Null`s&mdash;that
+`Null|Null|T` is just `Null|T`&mdash;is inconvenient. Imagine that we wanted 
+to have a `Map` that distinguished between:
+
+- a key for which the map has no entry, and
+- a key for which the map has an entry with a no item.
+
+We might try to use a `Map<String,Item?>` for this. But then `map.get(key)` 
+would simply return `null` in _both_ of the above cases, and we would be 
+forced to call `map.defines(key)` to distinguish between them, resulting in
+an additional lookup.
+
+There's two idioms that handle this situation a little more elegantly. The 
+first uses a "wrapper" object for each entry:
+
+<!-- try: -->
+    class Maybe(Item? item) {}
+    Map<String,Maybe<Item>> map 
+            = HashMap<String,Maybe<Item>>();
+    
+    void put(String key, Item? item) 
+            => map.put(key, Maybe(item));
+    
+    Item? get(String key, Item? default) {
+        if (exists maybe = map[key]) {
+            return maybe.item;
+        }
+        else {
+            //no entry
+            return default;
+        }
+    }
+
+The second idiom is more efficient. It uses the unit type pattern:
+
+<!-- try: -->
+    abstract class Nil() of nil {}
+    object nil extends Nil();
+    Map<String,Maybe<Item>> map 
+            = HashMap<String,Item|Nil>();
+    
+    void put(String key, Item? item) 
+            => map.put(key, item else nil);
+    
+    Item? get(String key, Item? default) {
+        if (!is Nil item = map[key]) {
+            return item else default;
+        }
+        else {
+            //entry with no item
+            return null;
+        }
+    }
+
+These idioms sometimes arise in problems like caching.
 
 ## Anonymous classes and type inference
 
