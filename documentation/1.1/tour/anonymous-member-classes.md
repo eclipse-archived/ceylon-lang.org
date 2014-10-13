@@ -146,7 +146,7 @@ class is more than natural. But in Ceylon, a non-`abstract` nested class is
 actually considered a polymorphic member of the containing type. 
 
 Let's start with the following example: `BufferedReader` defines the member 
-class `Buffer`:
+class `Buffer`.
 
 <!-- try: -->
     class BufferedReader(Reader reader)
