@@ -16,21 +16,23 @@ functions.
 
 ## First class and higher order functions
 
-Ceylon isn't a functional language: it has variable attributes and so methods 
-can have *side effects*. But one thing Ceylon has in common with functional
-programming languages is that it lets you treat functions as values, which in 
-some people's eyes makes the language a kind of hybrid. In truth, there's 
-nothing remotely new about having functions-as-values in an object oriented 
-language—for example, Smalltalk, one of the first and still one of the 
-cleanest object oriented languages, was built around this idea. Anyway, Ceylon, 
-like Smalltalk and a number of other object oriented languages, lets you treat 
-a function as an object and pass it around the system.
+Ceylon isn't a _pure_ functional language: it has `variable` value 
+references and so functions can have *side effects*. But one thing Ceylon 
+has in common with functional programming languages is that it lets you 
+treat functions as values, which in some people's eyes makes the language 
+a kind of hybrid. In truth, there's nothing remotely new about having 
+functions-as-values in an object oriented language&mdash;for example, 
+Smalltalk, one of the first and still one of the cleanest object oriented 
+languages, was built around this idea. Anyway, Ceylon, like Smalltalk and 
+a number of other object oriented languages, lets you treat a function as 
+an object and pass it to another function.
 
 In this installment, we're going to discuss Ceylon's support for first class 
 and higher order functions. A little bit of PL jargon:
 
-- _First class function_ support means the ability to treat a function as a 
-   value, assigning it to variables, and passing it as an argument. 
+- _First class functions_ means the ability to treat a function as a value, 
+  assigning it to a variable, or passing it as an argument to another
+  function. 
 - A _higher order function_ is a function that accepts other functions as 
   arguments, or returns another function.
   
@@ -41,13 +43,13 @@ It's clear that these two ideas go hand-in-hand, so we'll just use the term
 ## Representing the type of a function
 
 Ceylon is a (very) statically typed language. So if we're going to treat a 
-function as a value, the very first question that arises is: What is the 
+function as a value, the very first question that arises is: what is the 
 type of the function? We need a way to encode the return type and parameter 
 types of a function into the type system. Remember that Ceylon doesn't have 
 "primitive" types. A strong design principle is that every type should be 
 representable within the type system as a class or interface declaration.
 
-In Ceylon, a single type 
+In Ceylon, a single interface 
 [`Callable`](#{site.urls.apidoc_1_1}/Callable.type.html) 
 abstracts *all* functions. Its declaration is the following:
 
