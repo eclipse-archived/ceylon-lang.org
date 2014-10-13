@@ -6,10 +6,8 @@ unique_id: blogpage
 tab: blog
 tags: [osgi]
 ---
-Write in Ceylon, Deploy in OSGI, Use in JEE
-===========================================
 
-_... or How to push Ceylon inside JEE applications_
+### _... or How to push Ceylon inside JEE applications_
 
 
 The Ceylon language is inherently modular, and is shipped with a complete infrastructure that allows leveraging this modularity out-of-the box.
