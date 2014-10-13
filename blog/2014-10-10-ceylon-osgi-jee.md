@@ -10,13 +10,14 @@ tags: [osgi]
 
 The Ceylon language is inherently modular, and is shipped with a complete 
 infrastructure that allows leveraging this modularity out-of-the box.
-However Ceylon is _not captive of its own infrastructure_: After the Java 
-and JS interoperability efforts, the 1.1.0 version has brought out-of-the-box 
-compatibility with OSGI.
+However Ceylon is _not captive of its own infrastructure_. After the Java
+and JS interoperability efforts, the 1.1.0 version has brought out-of-the-box
+compatibility with OSGI, which enables running Ceylon code inside many other
+containers.
 
-Every module archive produced by the Ceylon compiler contains OSGI headers 
-in its MANIFEST file, that describes the module as it should seen by the 
-OSGI container.
+Every module archive produced by the Ceylon compiler contains OSGI headers
+in its MANIFEST file, that describe the module as it should seen by OSGI
+containers.
 
 Containers tested so far are:
 
