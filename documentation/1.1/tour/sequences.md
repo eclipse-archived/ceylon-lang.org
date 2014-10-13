@@ -11,8 +11,8 @@ doc_root: ../..
 
 This is the sixth leg of the Tour of Ceylon. In the 
 [previous leg](../anonymous-member-classes) we covered anonymous classes and 
-member classes. Now we're going to look at *iterable objects*, *sequences*, 
-and *tuples*. These are examples of generic _container objects_. Don't worry,
+member classes. Now we're going to look at *streams*, *sequences*, and 
+*tuples*. These are examples of generic _container objects_. Don't worry,
 we'll come back to talk more about generics [later](../generics).
 
 
@@ -58,11 +58,12 @@ so we can use the `in` operator to test if a value is produced by the
     "index must be between 1 and 100"
     assert (index in 1..100);
 
-The `in` operator is just syntactic sugar for the method `contains()` of
+The `in` operator is just syntactic sugar for the method 
+[`contains()`](#{site.urls.apidoc_1_1}/Category.type.html#contains) of
 `Category`.
 
 
-## Iterating using `for`
+## Iterating a stream
 
 To iterate an instance of `Iterable`, we can use a 
 [`for` loop](../attributes-control-structures/#for):
@@ -80,7 +81,7 @@ above, it's just part of the syntax of the `for` loop.)
 
 If, for any reason, we need an index for each element produced by a stream, 
 we can use a special variation of the `for` loop that is designed for 
-iterating [`Entry`s](#{site.urls.apidoc_1_1}/Entry.type.html):
+iterating streams of [`Entry`s](#{site.urls.apidoc_1_1}/Entry.type.html):
 
 <!-- try-pre:
     {String+} words = { "hello", "world" };
@@ -91,9 +92,11 @@ iterating [`Entry`s](#{site.urls.apidoc_1_1}/Entry.type.html):
     }
 
 The [`indexed`](#{site.urls.apidoc_1_1}/Iterable.type.html#indexed) 
-attribute returns an instance of `Entry<Integer,String>[]` containing the 
-indexed elements of the sequence. (The `->` is syntax sugar for the class 
-`Entry`.)
+attribute returns a stream of entries containing the indexed elements of 
+the original stream.
+
+(Note: the arrow `->` is syntax sugar for the class `Entry`. So we can write 
+the type of the entry stream as `{<Integer->String>*}`.)
 
 It's often useful to be able to iterate two sequences at once. The 
 [`zip()`](#{site.urls.apidoc_1_1}/index.html#zip) function comes in handy 
