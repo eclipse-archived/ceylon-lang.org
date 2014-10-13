@@ -26,7 +26,7 @@ Containers tested so far are:
 
 Of course, the Ceylon distribution and SDK modules should first be added inside the OSGI container as OSGI bundles. 
 
-But instead of writing long explanations here, let me direct you to some concrete examples, along with the required instructions, available here:
+But instead of writing long explanations here, let me direct you to some concrete examples provided, with the required instructions, in the following repository:
 
 https://github.com/davidfestal/Ceylon-Osgi-Examples/
 
