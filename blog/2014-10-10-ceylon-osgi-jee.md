@@ -1,5 +1,5 @@
 ---
-title: Write in Ceylon, Deploy as OSGI, use in JEE
+title: Write in Ceylon, deploy as OSGI, use in Java EE
 author: David Festal
 layout: blog
 unique_id: blogpage
