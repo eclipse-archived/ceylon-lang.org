@@ -170,7 +170,7 @@ Or assign a value to it using `=`, like this:
         
     }
 
-You can refine any function or non-`variable` value using this streamlined
+You can refine any method or non-`variable` attribute using this streamlined
 syntax.
 
 Note that this shortcut syntax does not allow annotations. If you need to
