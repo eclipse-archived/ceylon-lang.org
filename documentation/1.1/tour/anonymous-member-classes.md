@@ -220,13 +220,17 @@ In this case, a concrete subclass of the `abstract` class must refine the
         ...
     }
 
-Even though `abstract` classes and `formal` classes seem like superficially 
-similar concepts, there's a really big difference:
+Even though `abstract` classes and `formal` classes seem like quite similar 
+concepts, there's a really big difference:
 
 - An `abstract` nested class *may not* be instantiated, and *need not* be 
   refined by concrete subclasses of the containing class. 
 - A `formal` member class *may* be instantiated, and *must* be refined by every 
   subclass of the containing class.
+
+Note that this difference explains why Ceylon has a special-purpose annotation 
+to distinguish a formal member. We can't use `abstract` to declare a formal
+member, since that would be ambiguous in the case of a nested class. 
 
 It's an interesting exercise to compare Ceylon's member class refinement with 
 the functionality of Java dependency injection frameworks. Both mechanisms 
