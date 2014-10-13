@@ -38,6 +38,7 @@ To import the project into Eclipse:
 * For English, go to the directory `source/en`.
 * Para español, ve a `source/es`.
 * Pour le français, allez à `source/fr`.
+* Für die deutsche Version, siehe `source/de`.
 
 Start with `01basics.ceylon`.
  
