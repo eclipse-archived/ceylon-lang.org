@@ -51,12 +51,15 @@ unique_id: blogpage
       = site.posts_authors_cloud
   .point-light-end 
     &nbsp;
-  <a href="/+" style="cursor:pointer;margin-left:auto;margin-right:auto;display:block;text-align:center;padding-top:10px;padding-bottom:5px">
-  <span style="display:inline-block;font-weight:bold;vertical-align:top;margin-right:5px;margin-top:8px;">Follow Ceylon on</span>
-  </a>
-  <a href="/+" style="cursor:pointer;margin-left:auto;margin-right:auto;display:block;text-align:center">
-  <img src="https://ssl.gstatic.com/images/icons/gplus-32.png" alt="" style="border:0;width:32px;height:32px;"/>
-  </a>
+  %a{ :href=>'/+', :style=>'cursor:pointer;margin-left:auto;margin-right:auto;display:block;text-align:center;padding-top:10px;padding-bottom:0px' }
+    %span{ :style=>'display:inline-block;font-weight:bold;vertical-align:top;margin-right:5px;margin-top:8px;' } Follow Ceylon:
+  %p{ :style=>'cursor:pointer;margin-left:auto;margin-right:auto;margin-top:2px;display:block;text-align:center;padding-top:0px' }
+    %a{ :href=>'/+' }
+      %i{ :class=>'fa fa-google-plus-square fa-2x', :alt=>'Google Plus', :height=>'32', :width=>'32' }
+    %a{ :href=>'http://twitter.com/ceylonlang' }
+      %i{:class=>'fa fa-twitter-square fa-2x', :alt=>'Twitter', :height=>'32', :width=>'32'}
+    %a{ :href=>'https://www.facebook.com/ceylonlang' }
+      %i{:class=>'fa fa-facebook-square fa-2x', :alt=>'Facebook', :height=>'32', :width=>'32'}
 #banner
   #text
     Blog
