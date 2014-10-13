@@ -326,7 +326,7 @@ first uses a "wrapper" object for each entry:
         }
         else {
             //no entry
-            return default;
+            return defaultItem;
         }
     }
 
@@ -343,7 +343,7 @@ The second idiom is more efficient. It uses the unit type pattern:
     
     Item? get(String key, Item? defaultItem) {
         if (!is Nil item = map[key]) {
-            return item else default;
+            return item else defaultItem;
         }
         else {
             //entry with no item
