@@ -22,6 +22,12 @@ Write your code in Ceylon, and have it run on the JVM, on Node.js, or in a
 web browser. Some modules are platform-dependent, but the language itself
 is equally at home on Java and JavaScript virtual machines.
 
+Ceylon modules may be deployed on Ceylon's own JVM-based module runtime,
+on any OSGi container, on the 
+[Node.js module system](http://nodejs.org/api/modules.html), on 
+[Vert.x](http://vertx.io/core_manual_ceylon.html#vertx-for-ceylon), or
+in a browser using [require.js](http://requirejs.org/).
+
 ## A familiar, readable syntax
 
 Ceylon's syntax is ultimately derived from C. So if you're a C, Java, or C#
@@ -864,9 +870,9 @@ Try it!
 
 ## A real specification
 
-The Ceylon language is defined by a an exhaustive, but highly readable,
+The Ceylon language is defined by an exhaustive, but highly readable,
 144-page [specification](../spec). The specification predates the compiler,
-and functions as its foundation. 
+and functions as its foundation.
 
 ## Take the Tour
 
