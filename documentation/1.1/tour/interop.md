@@ -266,6 +266,25 @@ you'll find a suite of useful utility methods and classes for
 Java interoperation. For example, there are classes that adapt
 between Ceylon collection types and Java collection types.
 
+An especially useful adaptor is 
+[`CeylonIterable`](#{site.urls.apidoc_current_interop_java}/CeylonIterable.type.html), 
+which lets you iterate any Java `Iterable` from a `for` loop in 
+Ceylon, or apply any of the usual operations of a Ceylon 
+[`Iterable`](#{site.urls.apidoc_1_1}/Iterable.type.html) to it.
+
+<!-- try: -->
+    import java.util { JList=List }
+    import ceylon.interp.java { CeylonIterable }
+
+    JList<String> strings = ... ;
+    for (string in CeylonIterable(strings) {
+        ...
+    }
+
+(Alternatively, we could have used 
+[`CeylonList`](#{site.urls.apidoc_current_interop_java}/CeylonList.type.html)
+in this example.)
+
 ## Limitations
 
 Here's a couple of limitations to be aware of:
