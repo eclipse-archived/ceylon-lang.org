@@ -9,14 +9,18 @@ doc_root: ../..
 
 # #{page.title}
 
-The Ceylon language was designed to execute in a virtual machine
-environment (loosely speaking, in an environment with built-in
-garbage collection), but it doesn't have its own native virtual
-machine. Instead, it "borrows" a virtual machine designed for
-some other language. For now the options are the Java Virtual
-Machine, or a JavaScript virtual machine. In this chapter, we're
-going to learn about how to interoperate with native code running
-on the Java Virtual Machine.
+Ceylon is designed to execute in a virtual machine environment 
+(loosely speaking, in an environment with built-in garbage
+collection), but it doesn't have its own native virtual machine.
+Instead, it "borrows" a virtual machine designed for some other
+language. For now the options are:
+
+- the Java Virtual Machine, or 
+- a JavaScript virtual machine. 
+
+In this chapter, we're going to learn about how to interoperate 
+with native code running on the Java Virtual Machine. In the
+[next chapter](../dynamic) we'll discuss JavaScript. 
 
 ## Depending on the Java SDK
 
@@ -255,13 +259,25 @@ Wildcard types are unavoidable when interoperating with Java, and
 perhaps occasionally useful in pure Ceylon code. But we recommend
 avoiding them, except where there's a really good reason.  
 
-
 ## Utility functions and classes
 
 In the module [`ceylon.interop.java`](https://modules.ceylon-lang.org/repo/1/ceylon/interop/java/1.1.0/module-doc/api/index.html)
 you'll find a suite of useful utility methods and classes for
 Java interoperation. For example, there are classes that adapt
 between Ceylon collection types and Java collection types.
+
+## Limitations
+
+Here's a couple of limitations to be aware of:
+
+- You can't call Java methods using the named argument syntax, since
+  Java 7 doesn't expose the names of parameters at runtime (and 
+  Ceylon doesn't yet depend on features of Java 8).
+- You can't obtain a method reference, nor a static method reference,
+  to an overloaded method.
+- Java generic types don't carry reified type arguments at runtime, 
+  so certain operations that depend upon reified generics (for 
+  example, `is` tests) fail at runtime.
 
 ## There's more ...
 
