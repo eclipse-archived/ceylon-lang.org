@@ -54,6 +54,11 @@ You can find information about [Ceylon IDE](ide) and how to
 
 There is even [Vim support](resources/vim) available.
 
+## Vert.x
+
+There is [extensive documentation](http://vertx.io/core_manual_ceylon.html) 
+for using Ceylon on Vert.x.
+
 ## Got questions? We have FAQs
 
 We're compiling a list of common questions. Check out the [FAQs](faq). 
