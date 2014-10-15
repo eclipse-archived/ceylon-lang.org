@@ -50,9 +50,10 @@ Ceylon Language Module `ceylon.language` is
 ## Tools
 
 You can find information about [Ceylon IDE](ide) and how to 
-[install it](ide/install).
+[install it](ide/install), along with information about the 
+[command line tools](reference/tool/ceylon/).
 
-There is even [Vim support](resources/vim) available.
+There's even [Vim support](resources/vim) available.
 
 ## Vert.x
 
