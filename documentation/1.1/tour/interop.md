@@ -274,10 +274,10 @@ Ceylon, or apply any of the usual operations of a Ceylon
 
 <!-- try: -->
     import java.util { JList=List }
-    import ceylon.interp.java { CeylonIterable }
+    import ceylon.interop.java { CeylonIterable }
 
     JList<String> strings = ... ;
-    for (string in CeylonIterable(strings) {
+    for (string in CeylonIterable(strings)) {
         ...
     }
 
