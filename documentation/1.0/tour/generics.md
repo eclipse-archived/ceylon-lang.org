@@ -525,9 +525,8 @@ producing JavaScript source. But unlike Java, type arguments are _reified_
 virtual machine!
 
 So the code fragments above compile and function as expected on both 
-platforms. Once we finish implementing the metamodel, you will even be able 
-to use reflection to discover the type arguments of an instance of a generic 
-type.
+platforms. Via the metamodel, you're even able to use reflection to discover 
+the type arguments of an instance of a generic type at runtime.
 
 Now of course, generic type arguments aren't checked for typesafety by the 
 underlying virtual machine at runtime, but that's not really strictly 
