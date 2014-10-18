@@ -433,7 +433,7 @@ public module repository.
 
 ## Resources
 
-To include resources in a `.car` archive, you must place them in a _resource 
+To include resources in a module archive, you must place them in a _resource 
 directory_, named `resource` by default:
 
 <!-- lang: none -->
@@ -450,6 +450,10 @@ directory_, named `resource` by default:
         example/
           foo/
             foo.properties
+
+Resources in the subdirectory `resource/net/example/foo` are packaged into 
+the module archive for the module `net.example.foo`, and into a directory 
+of the module respository where they're accessible to the JavaScript runtime.
 
 At runtime, the resource may be loaded by calling 
 [`resourceByPath()`](#{site.urls.apidoc_1_1}/meta/declaration/Module.type.html#resourceByPath) 
