@@ -64,9 +64,16 @@ Other notable changes are:
   covariant and contravariant type parameters.
 - Change to the syntax for dynamic enumeration expressions
   in native JavaScript interop.
+- `case (foo, bar)` is now written `case (foo|bar)`.
+- Removal of operator-style invocation expressions.
 
-The last two changes are breaking changes but should not
+The last four changes are breaking changes but should not
 impact very many programs.
+
+Finally, note that:
+
+- Runnable functions must now be `shared`, eliminating an
+  inconsistency between Ceylon on JVM and on JS.
 
 ## Language module changes
 
