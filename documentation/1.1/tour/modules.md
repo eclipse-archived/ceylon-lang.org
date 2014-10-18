@@ -429,7 +429,43 @@ And all required dependencies get automatically downloaded as needed.
 [Ceylon Herd](http://modules.ceylon-lang.org) is a central community module 
 repository where anyone can contribute reusable modules. Of course, the module 
 repository format is an open standard, so any organization can maintain its own 
-public module repository. 
+public module repository.
+
+## Resources
+
+To include resources in a `.car` archive, you must place them in a _resource 
+directory_, named `resource` by default:
+
+<!-- lang: none -->
+    README
+    source/
+      net/
+        example/
+          foo/
+            Foo.ceylon
+            FooService.ceylon
+            module.ceylon
+    resource/
+      net/
+        example/
+          foo/
+            foo.properties
+
+At runtime, the resource may be loaded by calling 
+[`resourceByPath()`](#{site.urls.apidoc_1_1}/meta/declaration/Module.type.html#resourceByPath) 
+on the `Module` object representing the module to which the resource belongs:
+
+<!-- try: -->
+    assert (exists Resource resource 
+            = `module net.example.foo`.resourceByPath("foo.properties"));
+    String text = resource.textContent();
+
+Alternatively, you may identify the resource by a fully qualified path beginning 
+with `/`, for example:
+
+<!-- try: -->
+    assert (exists Resource resource 
+            = `module net.example.foo`.resourceByPath("/net/example/foo/foo.properties");
 
 ## There's more
 
