@@ -296,13 +296,13 @@ form.bp {
   #code {
     display: block;
     position: absolute;
-    width: 475px;
+    width: 490px;
     height: 170px;
     background: rgba(47, 30, 46, 0.85);
     top: 62px;
     right: 0;
     border-radius: 15px;
-    padding: 1em;
+    padding: 0.8em;
     text-shadow: none;
     font-size: 16px;
 
@@ -385,6 +385,8 @@ form.bp {
     }
     .bubble-block-transparent {
       padding: 0;
+      margin-left: 23px;
+      margin-right: 23px;
     }
   }
 
