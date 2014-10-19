@@ -475,6 +475,10 @@ lazy initialization of an attribute:
     Float calculatePi() => 3.14159;
     
 -->
+<!-- try-post:
+
+    print(HaveYourPi().pi);
+-->
     class HaveYourPi() {
         variable Float? _pi = null;
         shared Float pi
