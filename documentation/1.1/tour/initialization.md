@@ -351,7 +351,6 @@ essentially the same rules governing the body of an interface. That makes
 sense, because interfaces don't have initialization logic—what interfaces 
 and declaration sections have in common is _statelessness_.
 
-
 ## Circular references
 
 Unfortunately, these rules make it a little tricky to set up circular 
@@ -421,7 +420,6 @@ Or when a function implementation is specified using a fat arrow:
 The rules for definite initialization of values apply equally to functions 
 defined this way.
 
-
 ## Definite return
 
 While we're on the topic, it's worth noting that the Ceylon compiler, just 
@@ -468,6 +466,22 @@ But the following code results in an error at compile time:
         //or otherwise? what now?
     }
 
+## Lazy initialization
+
+We can abuse the `variable` annotation to arrive at the following idiom for 
+lazy initialization of an attribute:
+
+<!-- try-pre:
+    Float calculatePi() => 3.14159;
+    
+-->
+    class HaveYourPi() {
+        variable Float? _pi = null;
+        shared Float pi
+            => _pi else (_pi=calculatePi());
+    }
+
+A future version of the language will likely offer a better way to do this.
 
 ## There's more...
 
