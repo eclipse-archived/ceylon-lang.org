@@ -126,9 +126,8 @@ Other instance methods can be accessed as normal Ceylon instance method.
 A Ceylon-side `catch (Exception e) { ... }` will catch `java.lang.Exception` 
 (and, of course its subclasses).
 
-It's currently impossible to catch non-`java.lang.Exception` subclasses of
-`java.lang.Throwable`. In particular this means it's currently impossible to 
-catch `java.lang.Error`.
+A Ceylon-side `catch (Throwable e) { ... }` will catch `java.lang.Throwable`. 
+There is no way to catch only `java.lang.Error`.
 
 ### Java primitive types
 

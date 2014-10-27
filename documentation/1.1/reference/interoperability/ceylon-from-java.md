@@ -159,9 +159,18 @@ use the following idiom:
 
 ### Catching Ceylon exceptions
 
-The root of the exception hierarchy in Ceylon is `ceylon.language.Exception`, 
-(a subclass of `java.lang.RuntimeException` at runtime). This means that pure Ceylon code can only
-generate unchecked exceptions.
+The root of the exception hierarchy in Ceylon is `ceylon.language::Throwable`, 
+Unlike Java's `Throwable`, 
+`ceylon.language::Throwable` is `sealed` and the only subclasses available 
+to users are `ceylon.language::Exception` and `ceylon.language::AssertionError`.
+In order to best interoperate between the JVM and the JavaScript virtual 
+machines there's is no Ceylon equivalent to `java.lang.Error`
+(in general JavaScript virtual machine errors are uncatchable and fatal). 
+
+The JVM implementation of `ceylon.language::Exception` is a 
+`java.lang.RuntimeException`. On the other hand, `ceylon.language::AssertionError` is a 
+`java.lang.Error` at runtime. This means that pure Ceylon code 
+compiled for the JVM can only generate unchecked exceptions.
 
 Impure Ceylon (that is, Ceylon code which access Java code) may throw 
 *any* exception that is thrown by that Java code, including checked exceptions. 
@@ -172,6 +181,10 @@ Ceylon methods are very unlikely to throw `Throwable` itself
 to throw `java.lang.Exception`. So unless you know otherwise, it's 
 probably sensible to wrap calls to Ceylon methods in a Java-side 
 `try/catch` which handles this possibility.
+
+If you really need to catch `java.lang.Error` from Ceylon you have 
+to catch `ceylon.language::Throwable` and then decide whether you really 
+have the error you're interested in.
 
 ### Type conversions
 

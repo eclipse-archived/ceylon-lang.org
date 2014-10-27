@@ -121,7 +121,10 @@ Please note: **These mapping rules are subject to change as the compiler develop
       <td><code>ceylon.language.Exception</code></td>
       <td><code>ceylon.language.Exception</code> (in instantiations and <code>extends</code> clauses)<br/>
       <code>java.lang.Exception</code> (in <code>catch</code> clauses)<br/>
-      <code>java.lang.Throwable</code> (everywhere else)</td>
+    </tr>
+    <tr>
+      <td><code>ceylon.language.Throwable</code></td>
+      <td><code>java.lang.Throwable</code>
     </tr>
     <tr>
       <td><code>ceylon.language.Sequence</code></td>
