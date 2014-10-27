@@ -78,6 +78,14 @@ Please note: **These mapping rules are subject to change as the compiler develop
       <td><code>ceylon.language.Boolean</code></td>
     </tr>
     <tr>
+      <td><code>ceylon.language.Byte</code></td>
+      <td><code>byte</code><a href="#note1"><sup>1</sup></a> <!--1.1--></td>
+    </tr>
+    <tr>
+      <td><code>ceylon.language.Byte?</code></td>
+      <td><code>ceylon.language.Byte</code> <!--1.1--></td>
+    </tr>
+    <tr>
       <td><code>ceylon.language.Integer</code></td>
       <td><code>long</code><a href="#note1"><sup>1</sup></a></td>
     </tr>
@@ -136,7 +144,7 @@ In addition, we map the following Java types to certain Ceylon types:
     </tr>
     <tr>
       <td><code>byte</code></td>
-      <td><code>ceylon.language.Integer</code><a href="#note3"><sup>3</sup></a></td>
+      <td><code>ceylon.language.Byte</code> <!--1.1--></td>
     </tr>
     <tr>
       <td><code>short</code></td>
@@ -179,10 +187,6 @@ Notes:
     <tr>
       <td><a name="note2"><sup>2</sup></a></td>
       <td>In Ceylon, characters are stored as Unicode code-points, thus requiring 32 bits.</td>
-    </tr>
-    <tr>
-      <td><a name="note3"><sup>3</sup></a></td>
-      <td>This is likely to change in the future if we introduce a Ceylon `Byte` type.</td>
     </tr>
     <tr>
       <td><a name="note4"><sup>4</sup></a></td>

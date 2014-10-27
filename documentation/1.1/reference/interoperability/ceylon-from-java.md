@@ -191,7 +191,11 @@ methods.
         <td><code>ceylon.language.Boolean.instance(b)</code></td>
     </tr>
     <tr>
-        <td><code>byte x</code>, <code>short x</code>, <code>int x</code>, <code>long x</code></td>
+        <td><code>byte x</code></td>
+        <td><code>ceylon.language.Byte.instance(x)</code> <!--1.1--></td>
+    </tr>
+    <tr>
+        <td><code>short x</code>, <code>int x</code>, <code>long x</code></td>
         <td><code>ceylon.language.Integer.instance(x)</code></td>
     </tr>
     <tr>
@@ -222,6 +226,10 @@ methods.
     <tr>
         <td><code>ceylon.language.Boolean b</code></td>
         <td><code>b.booleanValue()</code></td>
+    </tr>
+    <tr>
+        <td><code>ceylon.language.Byte b</code></td>
+        <td><code>b.byteValue()</code> <!--1.1--></td>
     </tr>
     <tr>
         <td><code>ceylon.language.Integer i</code></td>
