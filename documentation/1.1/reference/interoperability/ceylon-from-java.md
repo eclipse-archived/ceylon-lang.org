@@ -12,9 +12,6 @@ author: Tom Bentley
 
 This page covers how you can use Ceylon classes, interfaces etc from Java.
 
-**Important Note: Everything documented here is subject to change until 
-Ceylon 1.0 and has changed in M3.**
-
 ### Declaring Ceylon types
 
 In general, a top level Ceylon types and inner classes compile into a Java 
