@@ -12,8 +12,6 @@ author: Tom Bentley
 
 This page covers how you can use Java classes from Ceylon.
 
-**Important Note: Everything documented here is subject to change before 1.0.**
-
 ### Dealing with Ceylon constraints
 
 #### Accessing Java types with an initial lowercase letter
@@ -59,10 +57,8 @@ version. Ceylon doesn't have unsafe typecasts, but it does have the [`of`](../..
 
 #### Overriding overloaded methods
 
-It's possible to refine one overloaded version of a method, but refining multiple
-overloaded versions is not allowed, because it would require nothing short of 
-supporting overloading in Ceylon, 
-[which is not something we want to do](../../../faq/language-design/#overloading).
+Although it [is not possible in Ceylon to declare overloaded methods](../../../faq/language-design/#overloading), it 
+is possible to refine overloaded methods defined in a Java type. 
 
 ### Dealing with static fields and methods
 
