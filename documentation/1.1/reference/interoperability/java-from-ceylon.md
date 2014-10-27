@@ -231,6 +231,8 @@ These virtual types must be imported from the `java.base/7` module, as the rest 
 their definition is as follows, for example for `BooleanArray`:
 
 <!-- try: -->
+    import java.lang { JBoolean = Boolean }
+
     shared class BooleanArray(Integer size, Boolean element = false){
         
         "Gets the item at the specified index"
@@ -243,10 +245,31 @@ their definition is as follows, for example for `BooleanArray`:
         shared Integer size;
         
         "Get a Ceylon Array that is a view backed by this array"
-        shared Array<Boolean> array;
+        shared Array<JBoolean> array;
+
+        "Get a Ceylon Array that is a view backed by this array"
+        shared Array<Boolean> booleanArray;
         
+        "Get a Ceylon Iterable that is a view backed by this array"
+        shared Iterable<Boolean> iterable;
+
         "Copies this array to another array"
-        shared void copyTo(BooleanArray destination, Integer sourcePosition = 0, Integer destinationPosition = 0, Integer length = size);
+        shared void copyTo(BooleanArray destination, 
+                           Integer sourcePosition = 0, 
+                           Integer destinationPosition = 0, 
+                           Integer length = size - sourcePosition);
+
+        "True if this array is equal to the given array"
+        shared Boolean equals(Object other);
+
+        "A string representation of this array"
+        shared String string;
+
+        "A hash code for this array"
+        shared Integer hash;
+
+        "A shallow copy of this array"
+        shared BooleanArray clone();
     }
 
 As you can see, we mapped every Java array operation to methods and attributes, and added a way to get a
@@ -260,6 +283,18 @@ Note that the `IntArray` type has an extra method to convert an array of Unicode
 <!-- try: -->
         "Get a Ceylon Array that is a view backed by this array"
         shared Array<Character> codePointArray;
+
+Also note that the `ObjectArray` type is covariant in its element type `T`, as is the case in Java, and
+that therefore, to fit Ceylon semantics regarding declaration-site variance, its `set` method accepts
+`Object` and not just `T`. However, if you try to store elements whose type is not compatible with `T`,
+you will get a `java.lang.ArrayStoreException`.
+
+<!-- try: -->
+    shared class ObjectArray<out T>(Integer size, T? element = null){
+        "Sets the item at the specified index"
+        shared void set(Integer index, Object element);
+        // ...
+    }
 
 See how to use Java arrays:
 
