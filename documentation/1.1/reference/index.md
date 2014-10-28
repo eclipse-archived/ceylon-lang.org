@@ -205,6 +205,7 @@ The API documentation for
 
 * The `ceylon` command, [`ceylon`](tool/ceylon/)
 * An index of [`ceylon`](#{site.urls.ceylon_tool_current}/index.html) subcommands
+* `ceylon` [command plugins](tool/plugin/)
 * The Ceylon [`ant`](tool/ant/) tasks
 * The [configuration file format](tool/config/)
 
