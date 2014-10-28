@@ -3,6 +3,9 @@ source 'https://rubygems.org'
 gem 'awestruct', '~> 0.5.1'
 #gem 'awestruct', :github => 'awestruct'
 
+# Fix compass dependency as 1.0 no longer has blueprint includes
+gem 'compass', '0.12.6'
+
 gem 'rb-inotify', '~> 0.9.0', :platforms => [:ruby, :jruby]
 gem 'rb-fsevent', '~> 0.9', :platforms => [:ruby, :jruby]
 gem 'htmlentities'

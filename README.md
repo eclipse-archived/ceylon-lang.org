@@ -57,7 +57,8 @@ Finally, let's install Awestruct
     bundle install
 
 Note that if someone updates Awestruct or any dependent gem via the `Gemfile` dependency
-management, you need to rerun `bundle install`.
+management, you need to rerun `bundle install`, but before that you have to delete the
+`Gemfile.lock` file.
 
 ## Serve the site locally
 
