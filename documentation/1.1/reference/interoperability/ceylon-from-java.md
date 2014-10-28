@@ -182,9 +182,16 @@ to throw `java.lang.Exception`. So unless you know otherwise, it's
 probably sensible to wrap calls to Ceylon methods in a Java-side 
 `try/catch` which handles this possibility.
 
-If you really need to catch `java.lang.Error` from Ceylon you have 
-to catch `ceylon.language::Throwable` and then decide whether you really 
-have the error you're interested in.
+If you really need to catch `java.lang.Error` from Ceylon you have two choices:
+
+* you can catch `ceylon.language::Throwable` and then decide whether 
+  you really have the error you're interested in (e.g. from 
+  its error message). This has a tendency to be bug-prone 
+  (exception messages can change), but doesn't require your module to 
+  be JVM only.
+
+* if you're willing to have a JVM-only module you can
+ explicitly import `java.lang.Error` and catch it directly.
 
 ### Type conversions
 
