@@ -100,7 +100,16 @@ and [other tools](#{page.doc_root}/reference/#tools).
 
 For interoperability with Java it's possible to convert Java `.jar` files into Ceylon
 compatible modules. But for that they need a module descriptor telling Ceylon what it
-needs to know. There are two possible ways to do this:
+needs to know.
+
+If there is any module descriptor in the jar in the following locations, it will be used:
+
+- `META-INF/jbossmodules/module/name/version/module.xml` in the jar, or
+- `META-INF/jbossmodules/module/name/version/module.properties` in the jar, or
+- `META-INF/MANIFEST.MF` for OSGi modules in the jar, or
+- `META-INF/maven/module/name/pom.xml` for Maven modules in the jar.
+
+If there are no module descriptors in the jar, you can provide one externally:
 
 * Using a `module.properties` file whose format is explained [here](../module-properties)
 * Or using a JBoss Modules `module.xml` file whose detailed explanation can be found
@@ -109,6 +118,9 @@ needs to know. There are two possible ways to do this:
 In both cases the file must be placed in the same folder as the `.jar` file it belongs to.
 The name of the `.jar` file itself and the folder structure must adhere to the same rules
 as those for `.car` files.
+
+Alternatively, you can use a [flat repository](../../interoperability/ceylon-on-jvm#flat_repositories)
+to define external `module.xml` or `module.properties` descriptors in a flat folder.
 
 ### Metamodel
 

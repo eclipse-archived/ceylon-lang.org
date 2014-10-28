@@ -211,6 +211,7 @@ The API documentation for
 
 ## Interoperability
 
+* [Calling Ceylon modules on the JVM](interoperability/ceylon-on-jvm/)
 * [Calling Ceylon from Java](interoperability/ceylon-from-java/)
 * [Calling Java from Ceylon](interoperability/java-from-ceylon/)
 * [Type mapping](interoperability/type-mapping/)

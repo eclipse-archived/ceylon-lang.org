@@ -38,8 +38,8 @@ file using the ZIP file format just as they are for Java. They are used instead
 of the corresponding `.car` archive (you can have on or the other, not both).
 A legacy archive needs to follow the same naming rules and folder structure
 as defined for `.car` archives (see below). Also if the legacy archive has
-dependencies on other modules they can be defined using a `modules.xml` or
-`module.properties` file, see [here](../structure/module#legacy_modules) for more information.
+dependencies on other modules [they can be defined](../structure/module#legacy_modules)
+using a `modules.xml` or `module.properties` file or other external files.
 
 ## Repository structure
 
@@ -73,7 +73,8 @@ At the moment, the Ceylon tools are able to use the following repository types:
 - File system repository
 - HTTP repository (for reading)
 - WebDAV repository (for reading and publishing). You can specify the user name 
-  and password to use for WebDAV publishing in the [tools](../#tools) 
+  and password to use for WebDAV publishing in the [tools](../#tools)
+- A [_flat_ repository](../interoperability/ceylon-on-jvm#flat_repositories) for interop 
 
 ## Standard repositories
 
@@ -86,7 +87,7 @@ The Ceylon tools use a number of standard repositories:
   Ceylon tools, and defaults to `modules` in the current directory.
 - The **home repository**, which is located at `$HOME/.ceylon/repo` and contains
   a cache of module artifacts downloaded from remote repositories.
-- The **central repository**, which is going to be located at `http://modules.ceylon-lang.org/repo`
+- The **central repository**, which is going to be located at `http://modules.ceylon-lang.org/repo/1`
   and will contain every published Ceylon module.
 
 Normally, when looking for a Ceylon module, the tools will use these standard repositories
