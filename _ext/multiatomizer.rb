@@ -16,7 +16,8 @@ module Awestruct
         names = []
         atom_pages_per_name = {}
         entries.each do |entry|
-          name = entry.send( @filtered_property )
+          # Authors come as an array because it reuses the tag logic
+          name = entry.send( @filtered_property )[0]
           unless ( names.include?(name) )
             names << name
             atom_pages_per_name[name] = []
@@ -46,8 +47,7 @@ module Awestruct
         page.output_path = @output_path + "/" + sanitize(name) + "/" + @output_file
         page.blog_url = @output_path + "/" + sanitize(name)
         page.entries = atom_pages
-        #Stef: don't ask me why name is an array, but it is and it contains one element with the author name
-        page.title = "Blog of #{name[0]}"
+        page.title = "Blog of #{name}"
         page.sanitized_author = sanitize(name)
         site.pages << page
       end
@@ -59,3 +59,4 @@ module Awestruct
     end
   end
 end
+# vim: softtabstop=2 shiftwidth=2 expandtab
