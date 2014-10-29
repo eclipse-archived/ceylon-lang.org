@@ -32,7 +32,7 @@ The `[]` operator is defined as follows:
 
 <!-- check:none -->
 <!-- try: -->
-    lhs.item(index)
+    lhs.get(index)
 
 See the [language specification](#{site.urls.spec_current}#listmap) for 
 more details.
