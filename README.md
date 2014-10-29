@@ -13,7 +13,7 @@ A bit of Git, a bit a Ruby and you will get your local version of [ceylon-lang.o
 ## Prerequisites
 
 - Get [Git](http://git-scm.com)
-- Get [Ruby](https://www.ruby-lang.org/en/) > 1.9
+- Get [Ruby](https://www.ruby-lang.org/en/) > 2.1
 - If on Mac OS:
     - Get [XCode](https://developer.apple.com/xcode/) (needed for compilation of native gems)
 - If on Linux:
@@ -64,6 +64,26 @@ If you get "_command not found_":
 <!-- lang: bash -->
     rake setup
     rake check
+
+Note that on existing installs, you might see the following error
+
+    /Users/alice/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/rubygems/dependency.rb:298:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+            from /Users/alice/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/rubygems/dependency.rb:309:in `to_spec'
+            from /Users/alice/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/rubygems/core_ext/kernel_gem.rb:53:in `gem'
+            from /Users/alice/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+            from /Users/alice/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+            from /Users/alice/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+    rake aborted!
+
+It is due to a partial or corrupt installation of the bundles that you need to clear.
+Do either of these operations:
+
+<!-- lang: bash -->
+    rake clean[all]
+    # if that fails, do
+    rm -fR .bundle _tmp _bin
+
+Then run the `rake setup` command again.
 
 ## Serve the site locally
 
