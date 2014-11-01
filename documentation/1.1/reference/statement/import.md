@@ -31,7 +31,7 @@ The `import` statement has several variations:
     
     // assigning a different name to an imported declaration
     // (an 'alias' import)
-    import org.example.metasyntax { ExampleFoo=>Foo, Bar }
+    import org.example.metasyntax { ExampleFoo=Foo, Bar }
 
     // assigning a different name to a member of an imported type
     import org.example.metasyntax { Foo { b=bar } }
