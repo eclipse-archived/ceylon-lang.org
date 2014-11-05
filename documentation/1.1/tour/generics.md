@@ -417,6 +417,11 @@ we need some way to assert that `Element` is a subtype of `Object`. This is
 an example of a *type constraint*—in fact, it's an example of the most 
 common kind of type constraint, an *upper bound*.
 
+### Upper bound type constraints
+
+An upper bound type constraint restricts the arguments of a type parameter
+to subtypes of a certain type.
+
 <!-- try: -->
 <!-- check:none -->
     shared class Set<out Element>(Element* elements)
@@ -434,7 +439,7 @@ common kind of type constraint, an *upper bound*.
      
     }
 
-A type argument to `Element` must be a subtype of `Object`.
+Now, a type argument to `Element` must be a subtype of `Object`.
 
 <!-- try-pre:
     class Set<out Element>(Element* elements)
@@ -445,55 +450,68 @@ A type argument to `Element` must be a subtype of `Object`.
     Set<String> set1 = Set("C", "Java", "Ceylon"); //ok
     Set<String?> set2 = Set("C", "Java", "Ceylon", null); //compile error
 
-In Ceylon, a generic type parameter is considered a proper type, so a type 
-constraint looks a lot like a class or interface declaration. This is 
-another way in which Ceylon is more regular than some other C-like languages.
+### Enumerated bound type constraints
 
-Future versions of Ceylon, after the 1.0 release, will almost certainly
-introduce support for several additional kinds of generic type constraint.
-You can find out more details in the [language specification](../../spec).
-
-<!--
-An upper bound lets us call methods and attributes of the bound, but it 
-doesn't let us instantiate new instances of `Element`. Once we implement 
-reified generics, we'll be able to add a new kind of type constraint to 
-Ceylon. An *initialization parameter specification* lets us actually 
-instantiate the type parameter.
--->
-
-<!-- check:none:Parameter bounds not yet supported --><!--
-    shared class Factory<out Result>()
-            given Result(String s) {
-     
-        shared Result produce(String string) {
-            return Result(string);
-        }
-     
-    }
-
-A type argument to `Result` of `Factory` must be a class with a single 
-initialization parameter of type 
-[`String`](#{site.urls.apidoc_1_1}/String.type.html).
-
-A second kind of type constraint is an *enumerated type bound*, which 
+A second kind of type constraint is an *enumerated bound*, which 
 constrains the type argument to be one of an enumerated list of types. 
 It lets us write an exhaustive switch on the type parameter:
+
+<!-- try: pre
+    function sqrt(Float x) => x^0.5;
 -->
-<!-- check:none:Requires ceylon.math --><!--
-    Value sqrt<Value>(Value x)
-            given Value of Float | Decimal {
-        switch (Value)
-        case (satisfies Float) {
-            return sqrtFloat(x);
+<!-- try: post
+
+    print(sqrt(3));
+    print(sqrt(9.0));
+-->
+    Float sqr<Value>(Value x, Value y)
+            given Value of Float | Integer {
+        switch (x)
+        case (is Float) {
+            assert (is Float y);
+            return sqrt(x^2+y^2);
         }
-        case (satisfies Decimal) {
-            return sqrtDecimal(x);
+        case (is Integer) {
+            assert (is Integer y);
+            return sqrt((x^2+y^2).float);
         }
     }
 
 This is one of the workarounds we [mentioned earlier](../classes/#living_without_overloading) 
 for Ceylon's lack of overloading.
 
+### Gotcha!
+
+An enumerated bound like `given Value of Float|Integer` doesn't make
+`Value` a _subtype_ of the union type `Float|Integer`. However, the
+union type does _cover_ the type parameter `Value`. So you can assign
+`Value` to `Float|Integer` with the help of the `of` operator:
+
+<!-- try: -->
+    void fun<Value>(Value val) 
+            given Value of Float|Integer {
+        Float|Integer floatOrInteger 
+                = val of Float|Integer;
+        ...
+    }
+
+This is the same thing we've [already seen](../types/#coverage_and_the_of_operator)
+for other enumerated types.
+
+### Multiple type constraints
+
+When we declare multiple constraints on a type parameter, we must declare
+them as part of the same `given` declaration:
+
+<!-- try: -->
+    given Value of Float | Integer satisfies Ordinal<Value> & Comparable<Value>
+
+In Ceylon, a generic type parameter is considered a perfectly normal type, 
+so a type constraint declaration looks a lot like an interface declaration, 
+with the same syntax for the `of` and `satisfies` clauses. This is another 
+way in which Ceylon is more regular than some other C-like languages.
+
+<!--
 Finally, the fourth kind of type constraint, which is much less common, and 
 which most people find much more confusing, is a *lower bound*. A lower 
 bound is the opposite of an upper bound. It says that a type parameter is 
