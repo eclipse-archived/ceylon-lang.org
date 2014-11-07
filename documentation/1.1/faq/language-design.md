@@ -217,27 +217,46 @@ annotations to cryptic punctuation.
 
 > Did you really have to go and rename `implements`?!
 
-We use `satisfies` so that type constraints have a syntax
-that is regular with class and interface declarations. The
-words `extends` and `implements` would simply not work for 
-an upper bound type constraint. Consider:
+Ceylon uses `satisfies` to specify a supertype in three
+locations:
+
+- a class may satisfy an interface,
+- an interface may satisfy an interface, or
+- a type parameter may satisfy any type.
+
+Ceylon uses `extends` to specify a supertype in one situation:
+
+- a class may extend a class.
+
+Unlike in Java, the syntax of the `extends` and `satisfies` 
+clauses are quite different. The `extends` clause specifies 
+a single type, _with arguments to instantiate the type_. The 
+`satisfies` clause always specifies an intersection of types, 
+and never has arguments.
+
+Now, in principle we could have used the keyword `implements` 
+instead of `satisfies`. But is it natural to say that a type 
+parameter "implements" its upper bounds? Is it natural to say 
+that one interface "implements" a second interface? We don't
+think so. The designers of Java didn't think so either, which
+is why in Java, irregularly, a class "implements" interfaces, 
+but an interface "extends" interfaces.
+
+What's nice here is that type constraints in Ceylon have a 
+syntax that is regular with class and interface declarations. 
+Consider:
 
 <!-- try: -->
     class Singleton<Element>(Element element)
-            satisfies Iterable<Element>
+            satisfies Sequence<Element>
             given Element satisfies Object { ... }
 
-Other language usually have an ugly or irregular syntax for
-the upper bound constraint `satisfies Object`. In Ceylon,
-it's regular and elegant. But we thought that the word 
-`implements` didn't work here, since the upper bound might
-be a class or even another type parameter. A type parameter,
-after all, doesn't "implement" anything.
-
-Note also the irregularity in Java where a class `implements`
-an interface, but another interface `extends` it. In Ceylon,
-classes and interfaces `satisfy` interfaces. Nothing every
-`extends` an interface. 
+Many other languages, including Java, have an ugly or 
+irregular syntax for the upper bound type constraint 
+`given Element satisfies Object`. In Ceylon, it's regular 
+and it reads well. We don't think 
+`given Element implements Object` would have been as elegant 
+here. A type parameter doesn't "implement" anything. 
 
 ### Prefix form for `is Type`, `exists`, and `nonempty`
 
