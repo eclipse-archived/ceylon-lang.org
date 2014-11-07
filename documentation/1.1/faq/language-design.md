@@ -336,9 +336,9 @@ class to tolerate that&mdash;or if you just forgot to add
 > Why on earth did you rename `public`?
 
 Ceylon has a quite different model for specifying visibility,
-with just one annotation instead of the _four_ annotations we 
-would have needed to handle our four visibility levels (that's
-one more than Java). We have:
+with just one annotation instead of the three annotations we 
+would have needed to handle our four visibility levels. We 
+have:
 
 - private, 
 - package-private, 
