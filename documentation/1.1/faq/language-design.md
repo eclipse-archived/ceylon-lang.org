@@ -206,11 +206,11 @@ think otherwise!
 It's partially a matter of taste. But the real reason is that 
 if you want to use `:` for `extends`, you then need to come 
 up with punctuation that means `satisfies`, `abstracts`, `of`, 
-`adapts`, etc, and you wind up in a rabbit hole of cryptic 
-character combinations like `:>`, `<:`, `%>`, etc, etc.
+etc, and you wind up in a rabbit hole of cryptic character 
+combinations like `:>`, `<:`, `%>`, etc, etc.
 
-In general, Ceylon favours being more explicit at the cost 
-of being a little more verbose, so we prefer keywords and 
+In general, Ceylon favors being more explicit at the cost of 
+being a little more verbose, so we prefer keywords and 
 annotations to cryptic punctuation.
 
 ### `implements` vs. `satisfies`
@@ -238,9 +238,12 @@ Now, in principle we could have used the keyword `implements`
 instead of `satisfies`. But is it natural to say that a type 
 parameter "implements" its upper bounds? Is it natural to say 
 that one interface "implements" a second interface? We don't
-think so. The designers of Java didn't think so either, which
-is why in Java, irregularly, a class "implements" interfaces, 
-but an interface "extends" interfaces.
+think so.
+
+The designers of Java didn't think so either, which is why in 
+Java, irregularly, a class `implements` interfaces, but an 
+interface `extends` interfaces, even though the syntax and 
+semantics are otherwise identical!
 
 What's nice here is that type constraints in Ceylon have a 
 syntax that is regular with class and interface declarations. 
@@ -327,6 +330,26 @@ _really_ meant for some operation of your API to be refinable
 or settable by a client, and if you _really_ designed your 
 class to tolerate that&mdash;or if you just forgot to add 
 `final`.
+
+### `shared` vs. `public`
+
+> Why on earth did you rename `public`?
+
+Ceylon has a quite different model for specifying visibility,
+with just one annotation instead of the _four_ annotations we 
+would have needed to handle our four visibility levels (that's
+one more than Java). We have:
+
+- private, 
+- package-private, 
+- module-private, and 
+- public.
+
+So the `shared` annotation does indeed sometimes mean "public".
+But on the other hand it sometimes means package-private or
+module-private! A `shared` declaration is only public if every
+containing declaration, along with the containing package, is
+also `shared`. 
 
 ### No `protected` modifier?
 
