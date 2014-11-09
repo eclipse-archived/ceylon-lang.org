@@ -27,11 +27,11 @@ the editor features quick fixes for errors, and oodles of contextual quick assis
 
 <div style="text-align:right" class="feature">
 <h2>Refactoring</h2>
-<p>The IDE features Rename, Extract Function, Extract Value, Inline, Change Parameter List, 
-Collect Parameters, Move Out, Make Receiver, Enter Import Alias, Invert Boolean, Move To Unit, 
-and Move To New Unit refactorings. Even better, it fully integrates with the Eclipse's tooling 
-for moving and copying files, for renaming and copying packages, and for renaming Java program 
-elements.</p>
+<p>The IDE features Rename, Inline, Extract Function, Extract Value, Extract Parameter, 
+Change Parameter List, Collect Parameters, Move Out, Make Receiver, Enter Import Alias, 
+Invert Boolean, Move To Unit, and Move To New Unit refactorings. Even better, it fully 
+integrates with Eclipse's tooling for moving and copying files, for renaming and copying 
+packages, and for renaming Java program elements.</p>
 <p>You can rename a declaration using the editor's inline "linked mode".</p>
 <div>
 <img src="/images/screenshots/m6/rename.png" style="box-shadow: 0 0 15px #888;"/>
