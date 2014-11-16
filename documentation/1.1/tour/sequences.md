@@ -187,9 +187,9 @@ The code above is exactly equivalent to the following de-sugared code:
 
 (We'll come back to what the list of values in brackets means in a minute!)
 
-The `Sequence` interface extends 
+The `Sequential` interface extends 
 [`Iterable`](#{site.urls.apidoc_1_1}/Iterable.type.html), 
-so we can iterate a `Sequence` using a `for` loop:
+so we can iterate a `Sequential` using a `for` loop:
 
 <!-- try-pre:
     String[] operators = ["+", "-", "*", "/"];
