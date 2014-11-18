@@ -64,7 +64,7 @@ Awestruct::Extensions::Pipeline.new do
     /\<!--\s*lang:\s*javascript\s*--\>\s*<pre><code>(.*?)<\/code><\/pre>/, 
     "<pre data-language=\"javascript\"><code>\\1</code></pre>")
   transformer Awestruct::Extensions::Gsub.new(
-    /\<!--\s*lang:\s*html\s*--\>\s*<pre><code>(.*?)<\/code><\/pre>/, 
+    /\<!--\s*lang:\s*(?:html|xml)\s*--\>\s*<pre><code>(.*?)<\/code><\/pre>/, 
     "<pre data-language=\"html\"><code>\\1</code></pre>")
   transformer Awestruct::Extensions::Gsub.new(
     /\<!--\s*lang:\s*none\s*--\>\s*<pre><code>(.*?)<\/code><\/pre>/, 
