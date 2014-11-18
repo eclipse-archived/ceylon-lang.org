@@ -123,6 +123,8 @@ function addTryButtons(){
 		var $elem = jQuery(element);
 		var lang = $elem.attr("data-language");
 		if (lang!="ceylon") return;
+		var ttry = $elem.attr("data-try");
+		if (ttry=="false") return;
 		$elem.addClass("with-editor");
 		var $button = jQuery("<span class='try-button' title='Try this code in an online Ceylon editor'>TRY ONLINE</span>");
 		var src = collectSource($elem);

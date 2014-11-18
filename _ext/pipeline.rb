@@ -49,6 +49,9 @@ Awestruct::Extensions::Pipeline.new do
     /\<!--\s*lang:\s*ceylon\s*--\>\s*<pre><code>(.*?)<\/code><\/pre>/, 
     "<pre data-language=\"ceylon\"><code>\\1</code></pre>")
   transformer Awestruct::Extensions::Gsub.new(
+    /\<!--\s*lang:\s*ceylon-notry\s*--\>\s*<pre><code>(.*?)<\/code><\/pre>/, 
+    "<pre data-language=\"ceylon\" data-try=\"false\"><code>\\1</code></pre>")
+  transformer Awestruct::Extensions::Gsub.new(
     /\<!--\s*lang:\s*java\s*--\>\s*<pre><code>(.*?)<\/code><\/pre>/, 
     "<pre data-language=\"java\"><code>\\1</code></pre>")
   transformer Awestruct::Extensions::Gsub.new(
