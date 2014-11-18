@@ -61,7 +61,7 @@ by design, luck or overrides, while Ceylon uses strict module version imports. A
 Maven modules frequently bundles things that should not be made visible, such as other modules or tests,
 that you may want to exclude.
 
-For all these reasons, we created a temporary measure that lets you override Maven module descriptors
+For all these reasons, we created an experimental measure that lets you override Maven module descriptors
 in a single location, called the Maven `overrides.xml` file, which lets you:
 
 - replace a module import by another version (for all modules)
@@ -95,3 +95,5 @@ The syntax is as follows:
             </filter>
         </artifact>
     </maven-overrides>
+
+You can specify Maven overrides on the command-line with the `--maven-overrides` flag.
