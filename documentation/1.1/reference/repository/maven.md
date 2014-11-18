@@ -77,7 +77,7 @@ The syntax is as follows:
         <artifact groupId="org.restlet.jse" artifactId="org.restlet" version="2.0.10">
             <!-- Add/replace a dependency -->
             <add groupId="org.slf4j" artifactId="slf4j-api" version="1.6.1" shared="true"/>
-            <!-- Remove a depdendency -->
+            <!-- Remove a dependency -->
             <remove groupId="org.osgi" artifactId="org.osgi.core" version="4.0.0"/>
         </artifact>
         <!-- Replace all uses of org.apache.camel:camel-core/2.9.2 with version 2.10 -->
