@@ -155,7 +155,7 @@ This is accomplished via a _module descriptor_:
 <!-- try: -->
 <!-- check:none-->
     "The best-ever ORM solution!"
-    license "http://www.gnu.org/licenses/lgpl.html"
+    license ("http://www.gnu.org/licenses/lgpl.html")
     module org.hibernate "3.0.0.beta" {
         import ceylon.collection "1.0.0";
         import java.base "7";
@@ -177,7 +177,7 @@ the module descriptor:
 
 --><!-- check:none:Quoted--><!--
     "The test suite for Hibernate"
-    license "http://www.gnu.org/licenses/lgpl.html";
+    license ("http://www.gnu.org/licenses/lgpl.html")
     module org.hibernate.test "3.0.0.beta" {
         import org.hibernate "3.0.0.beta";
         void run() {
