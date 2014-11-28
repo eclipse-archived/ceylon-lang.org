@@ -228,7 +228,7 @@ inner class.
     shared class FileReader(File file) 
             extends Reader() {
         shared actual class Buffer(Character* chars)
-                extends Reader::Buffer(chars) {
+                extends super.Buffer(*chars) {
             // ...
         }
         // ...
