@@ -26,14 +26,13 @@ to a module repository in the `build` directory:
 ## Description
 
 The `<ceylon-compile>` ant task supports copying a module or a set of
-modules from one repository to another. If set for recursive copying
-it will also copy all the module's dependencies and their dependencies
-until the entire module tree has been copied.
+modules from one repository to another. It can also copy all the module's
+dependencies and their dependencies until the entire module tree has been copied.
 
 ### Parameters
 
 **Note**: In addition to the parameters in the table below, 
-a nested [`<module>`](#module)s required.
+a nested [`<module>`](#module) is required.
 
 <table class="ant-parameters">
 <tbody>
@@ -62,14 +61,14 @@ a nested [`<module>`](#module)s required.
 </tr>
 
 <tr>
-<td><code>recursive</code></td>
-<td>A source directory.</td>
+<td><code>withDependencies</code></td>
+<td>Whether to recursively copy dependencies or not.</td>
 <td>No, default is <i>false</i></td>
 </tr>
 
 <tr>
 <td><code>verbose</code></td>
-<td>Whether the compiler should emit verbose logging information. The zero or more of the
+<td>Whether verbose logging information should be emitted. Zero or more of the
 following flags can be passed separated by commas: 'all' or 'loader'. If you do not pass
 a flag 'all' will be assumed.</td>
 <td>No</td>
@@ -87,7 +86,7 @@ ant build file.
 
 #### `<module>`
 
-A module to compile. Can be specified multiple times.
+A module to copy. Can be specified multiple times.
 
 <table class="ant-parameters">
 <tbody>
