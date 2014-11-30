@@ -20,12 +20,12 @@ to a module repository in the `build` directory:
     <target name="copy" depends="ceylon-ant-taskdefs">
       <ceylon-copy out="build" recursive="true">
         <module name="com.example.foo" version="1.5"/>
-      </ceylon-compile>
+      </ceylon-copy>
     </target>
 
 ## Description
 
-The `<ceylon-compile>` ant task supports copying a module or a set of
+The `<ceylon-copy>` ant task supports copying a module or a set of
 modules from one repository to another. It can also copy all the module's
 dependencies and their dependencies until the entire module tree has been copied.
 
