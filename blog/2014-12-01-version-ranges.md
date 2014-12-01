@@ -18,17 +18,20 @@ are strictly-speaking useless at best, and harmful at worst.
 
 First, a philosophical point: version ranges encourage module
 authors to make untested or untestable claims about their
-modules, such as _`my.module` is compatible with 
-`other.dependency` version 2.x_. Yeah, right, because you've 
-tested `my.module` with every single minor version and point 
-release of `other.dependency`, including all the versions 
-that have not even been released yet! Sorry, but I simply 
-don't believe you and I have to assume you're lying to me. 
-_Almost nobody_ tests their program or library with many 
-different versions of its dependencies, and it's easy to see 
-why they don't: as soon as we have a program with several 
-dependencies, we face a factorial explosion of dependency 
-version combinations.
+modules, such as:
+
+> `my.module` is compatible with  `other.dependency` 
+> version 2.x.
+
+Yeah, right, `cos you've _actually tested_ `my.module` with 
+every single minor version and point release of 
+`other.dependency`, including all the versions that have not 
+even been released yet! Sorry, but I simply don't believe 
+you and I have to assume you're lying to me. _Almost nobody_ 
+tests their program or library with many different versions 
+of its dependencies, and it's easy to see why they don't: as 
+soon as we have a program with several dependencies, we face 
+a factorial explosion of dependency version combinations.
 
 OK, sure, you might argue, but version ranges are still
 _better than nothing_. Alright, alright. I'm not the kind of
@@ -50,18 +53,19 @@ I have chosen when declaring this dependency?
 
 - Well, for the lower bound I decided to lie and write 
   `4.1.0`. Typically, I hadn't actually _tested_ `x.y` with
-  versions `4.1.0`, `4.1.1` and `4.1.2`, but I had been using 
-  `4.1.2` in development at one stage and it seemed to work,
-  and I didn't see any particular reason it wouldn't also work 
-  with `4.1.0` and `4.1.1`. On the other hand, maybe I could 
-  have just picked `4.1.3`. (It's not going to matter for the 
-  rest of this argument.)
+  versions `4.1.0`, `4.1.1` and `4.1.2`, but I had been 
+  using `4.1.2` in development at one stage and it seemed to 
+  work, and I didn't see any particular reason it wouldn't 
+  also work with `4.1.0` and `4.1.1`. On the other hand, 
+  maybe I could have just picked `4.1.3`. (It's not going to 
+  matter for the rest of this argument.)
 - For the upper bound, I had no clue. How could I possibly
   have known at the time which future unreleased version of
-  `org.hibernate` would break my library? Assigning the upper
-  bound of `4.1.3` would have seemed much too restrictive, so
-  what I did was assume that `org.hibernate` is following the
-  completely untestable [semantic versioning]() standard, and
+  `org.hibernate` would break my library? Assigning the 
+  upper bound of `4.1.3` would have seemed much too 
+  restrictive, so what I did was assume that `org.hibernate` 
+  is following the completely untestable 
+  [semantic versioning](http://semver.org/) standard, and
   that future versions of Hibernate 4.x would not have any 
   bugs.
 
@@ -126,9 +130,9 @@ especially in light of the fact that upper bounds are
 essentially impossible to determine, and even lower bounds 
 often lie. Why inject additional inaccurate information into
 the mix when we already have an algorithm that produces a
-result without depending on guesses and lies and unverifiable
-assumptions? (I apologize for going all logical positivist 
-on your arse.)
+result without depending on guesses and lies and 
+unverifiable assumptions? (I apologize for going all logical 
+positivist on your arse.)
 
 What do you think? Am I wrong? Is there some reasonably 
 common scenario where the module system can be expected to
