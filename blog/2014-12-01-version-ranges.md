@@ -43,8 +43,8 @@ view of two library authors assigning version ranges to their
 modules, and then from the point of view of the program or
 person assembling these modules.
 
-So let's suppose my library `x.y` depends on `org.hibernate`.
-I tested and released `x.y` with the then-current version of
+Let's suppose my library `x.y` depends on `org.hibernate`. I 
+tested and released `x.y` with the then-current version of
 `org.hibernate`, which was `4.1.3`. What version range would
 I have chosen when declaring this dependency?
 
