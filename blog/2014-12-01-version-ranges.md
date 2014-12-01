@@ -103,7 +103,7 @@ Let's consider the reasonable options:
   chance that one of the libraries (in this case, `a.b`) has 
   actually been tested with this version. Still, according 
   to this strategy the system could in general pick a 
-  dependency version that;s earlier than all the current 
+  dependency version that's earlier than all the current 
   versions when the libraries were developed. That seems 
   quite suboptimal.
 - Pick 4.2.0, since that was the current version of 
