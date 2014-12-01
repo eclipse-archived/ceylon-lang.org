@@ -4,7 +4,7 @@ author: Gavin King
 layout: blog
 unique_id: blogpage
 tab: blog
-tags: modularity
+tags: [modularity]
 ---
 
 A frequent request from the Ceylon community is support for
