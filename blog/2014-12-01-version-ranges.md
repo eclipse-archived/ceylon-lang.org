@@ -23,7 +23,7 @@ modules, such as:
 > `my.module` is compatible with  `other.dependency` 
 > version 2.x.
 
-Yeah, right, `cos you've _actually tested_ `my.module` with 
+Yeah, right, 'cos you've _actually tested_ `my.module` with 
 every single minor version and point release of 
 `other.dependency`, including all the versions that have not 
 even been released yet! Sorry, but I simply don't believe 
