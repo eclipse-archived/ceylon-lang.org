@@ -38,6 +38,19 @@ Come hear about Ceylon at a [conference or user group near you](events).
 
 Ceylon even has a [Google+ page](http://ceylon-lang.org/+).
 
+## Reddit
+
+Ceylon has a subreddit, [`/r/ceylon`](http://www.reddit.com/r/ceylon).
+
+## Articles
+
+We're compiling a list of [offsite articles about Ceylon](articles).
+
+## Presentations
+
+You can watch a [Ceylon presentation](presentations) online, and
+download slides.
+
 ## Desktop wallpaper
 
 Finally, *everyone* needs [an elephant on their desktop](https://www.jboss.org/coolstuff/desktopwallpapers/ceylon.html).
