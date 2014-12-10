@@ -96,6 +96,7 @@ what you want in the script.
 On Windows, your script will be named `ceylon-format.bat` and look like:
 
 <!-- lang:shell -->
+    @echo off
     set "USAGE=[any option valid for compile, compile-js and doc]"
     set "DESCRIPTION=Runs both compilers and the doc tool"
     set "LONG_USAGE=This will run the `compile`, `compile-js` and `doc` subcommands."
