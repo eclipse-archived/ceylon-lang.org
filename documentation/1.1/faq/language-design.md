@@ -123,9 +123,6 @@ when editing code in an IDE. Anyway, some of us just don't
 love seeing dollar signs all over the place. It reminds us 
 of languages we don't like.
 
-Ceylon has so many other more powerful ways to reduce 
-verbosity, that this issue is simply small beer.
-
 ### Semicolons `;` at the end of line?
 
 > Optional semicolons are in fashion! All the kids at school 
@@ -169,6 +166,9 @@ modifiers when needed, without breaking existing code. Indeed,
 we've already done it: in 1.1, we added `sealed`.
 
 We chose what we think is the lesser of two evils.
+
+Ceylon has so many other more powerful ways to reduce 
+verbosity, that semicolons are simply small beer.
 
 ### Parentheses `()` in control structures
 
@@ -377,6 +377,9 @@ together when they're all adjectives.
 > Why do you use `formal` to define an abstract member?
 
 Ceylon supports member classes and member class refinement. 
+And so for nested classes, `abstract` and `formal` are both
+meaningful modifiers with quite different semantics!
+
 An `abstract` nested class is a different thing to a `formal`
 member class. A `formal` class can be instantiated. An 
 `abstract` class cannot be.
@@ -385,6 +388,43 @@ Actually, if you think about it carefully, you'll notice that
 in Java `abstract` means something completely different for
 classes to what it means for members. That works out OK in 
 Java because Java doesn't have member class refinement.
+
+### The `variable` modifier
+
+> Why isn't `variable` a keyword?
+
+All declarations in Ceylon follow a regular grammar 
+expressible in BNF:
+
+<!-- lang: bnf -->
+    Annotation*
+    (keyword | Type) Name 
+    TypeParameters? Parameters*
+    ("of" CaseTypes)? 
+    ("extends" ExtendedType)? 
+    ("satisfies" SatisfiedTypes)?
+    TypeConstraint*
+    Definition
+
+Now with this in mind, consider the syntax of a variable 
+declaration with an explicit type. We write:
+
+    variable Integer count = 0;
+
+If `variable` were a keyword, this declaration would not
+actually conform to the grammar above, since it would be of 
+the form `keyword Type Name`. So, instead, by making it an 
+annotation instead of a keyword, we preserve the regularity 
+of the language, at the cost of making a variable declaration 
+with inferred type _slightly_ more verbose than in some other 
+languages:
+
+    variable value count = 0;
+
+We're perfectly comfortable with that tradeoff, since 
+`variable` declarations are actually surprisingly uncommon
+in Ceylon. We quite intentionally require a little ceremony 
+here.
 
 ## Language features
 
@@ -533,15 +573,18 @@ Well, overloading interacts with a number of other language
 features though, in truth, the interactions could probably
 be controlled by sufficiently restricting the signature of
 overloaded declarations. And overloading also maps badly to
-the JVM because generic types are erased from signatures.
-But there are potential workarounds for this problem, too.
+both the JVM, where generic types are erased from signatures, 
+and to JavaScript, where all typing information is 
+completely erased from signatures. But there are potential 
+workarounds for this problem, too.
 
 The are really two main reasons why overloading doesn't make
 much sense in Ceylon:
 
-1. support for union types, default arguments, and sequenced 
+1. support for union types, default arguments, and variadic 
    parameters (varargs) make overloading unnecessary, and
-2. method references to overloaded declarations are ambiguous.
+2. function references to overloaded declarations are 
+   ambiguous.
 
 Nevertheless, for interoperability, Ceylon, _does_ let you 
 call overloaded methods and constructors of classes defined 
@@ -636,6 +679,37 @@ associativity of the `+` operator! Quick, what does this do:
 All this additional complexity, just to avoid _one method call?_
 
 Thanks, but no thanks!
+
+### Pattern matching
+
+> Will Ceylon add pattern matching?
+
+_Pattern matching_ means conditional statements which package
+together branching and destructuring. A value is matched 
+against a list of patterns and the branch associated with the
+pattern is executed, with values automatically assigned to 
+variables embedded in the pattern. For example:
+
+<!-- try: -->
+      switch (sequence)
+      case ([]) { empty(); }
+      case ([x]) { singleton(x); }
+      case ([x,y]) { pair(x,y); }
+      else {} 
+
+We will probably, eventually, add pattern matching to Ceylon,
+though we're not yet certain of exactly what form it will 
+take. For now, we're leaving our options open so when can do 
+this in the most elegant possible way when the time comes.
+
+Note that there is little urgency for this feature, since 
+Ceylon's flow-sensitive typing already quite comfortably 
+solves some of the most common usecases for pattern matching.
+
+Further note that Ceylon 1.2 introduces pattern-based 
+destructuring for entries, sequences, and tuples in 
+specification statements, `let` expressions, `for` loops and 
+comprehensions, and in `exists` and `nonempty` conditions.
 
 ### Extension methods
 
