@@ -178,6 +178,14 @@ Because `something { ... }` is a legal expression in Ceylon
 (a named argument function invocation), making `if something { ... }`
 ambiguous.
 
+### Required braces `{}` in control structures
+
+> Why can't we make the braces optional for control structures
+> with a single-statement bodies?
+
+Same reason: `{}` is a legal expression in the language, so
+`if (something) {` would be quite ambiguous.
+
 ### Prefix instead of postfix type annotations
 
 > Why do you follow C and Java in putting type annotations
