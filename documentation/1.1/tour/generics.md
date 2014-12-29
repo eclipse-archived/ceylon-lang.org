@@ -97,7 +97,7 @@ arguments.
 
 <!-- check:none -->
     value strings = Array { "Hello", "World" }; // type Array<String>
-    value things = interleave(strings, ints); // type {String|Integer*}
+    value things = interleave(strings, 0..2); // type {String|Integer*}
 
 The generic type argument inference algorithm is slightly involved, so you
 should refer to the [language specification](#{site.urls.spec_current}#typeargumentinference) 
