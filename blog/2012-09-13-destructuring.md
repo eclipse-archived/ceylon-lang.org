@@ -24,7 +24,7 @@ hypothetical Ceylon-like language, before we get to the main point
 of this post.
 
 A number of languages support a kind of parallel assignment syntax
-for desctructuring tuples. In our hypothetical language, it might 
+for destructuring tuples. In our hypothetical language, it might 
 look like this:
 
 <!-- try: -->

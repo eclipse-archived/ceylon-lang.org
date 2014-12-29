@@ -84,7 +84,7 @@ special case.
 But looking into the future, you could also choose to see 
 this as us dipping our toes in the water of eventual support
 for _pattern matching_. I remain ambivalent about pattern
-matching, and its certainly not something we find that the
+matching, and it's certainly not something we find that the
 language is missing or needs, but lots of folks tell us they
 like it in other languages, so we're keeping our options 
 open. Fortunately, the syntax described above well scale
