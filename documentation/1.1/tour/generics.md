@@ -89,15 +89,15 @@ On the other hand, we don't need to explicitly specify type arguments in most
 method invocations or class instantiations. We don't usually need to write:
 
 <!-- check:none -->
-    Array<String> strings = array<String> { "Hello", "World" };
-    {<Integer->String>*} things = entries<String>(strings);
+    Array<String> strings = Array<String> { "Hello", "World" };
+    {String|Integer*} things = interleave<String|Integer,Null>(strings,ints);
 
 Instead, it's very often possible to infer the type arguments from the ordinary 
 arguments.
 
 <!-- check:none -->
-    value strings = array { "Hello", "World" }; // type Array<String>
-    value things = entries(strings); // type Iterable<Entry<Integer,String>>
+    value strings = Array { "Hello", "World" }; // type Array<String>
+    value things = interleave(strings, ints); // type {String|Integer*}
 
 The generic type argument inference algorithm is slightly involved, so you
 should refer to the [language specification](#{site.urls.spec_current}#typeargumentinference) 
@@ -110,12 +110,12 @@ in the case of a contravariant type parameter.
     class Polar(Float angle, Float radius) { }
     class Cartesian(Float x, Float y) { }
 
-    value points = array { Polar(0.7854, 0.5), Cartesian(-1.0, 2.5) }; // type Array<Polar|Cartesian>
-    value things = entries(points); // type Iterable<Entry<Integer,Polar|Cartesian>>
+    value points = Array { Polar(0.7854, 0.5), Cartesian(-1.0, 2.5) }; // type Array<Polar|Cartesian>
+    value things = zipEntries(1..points.size, points); // type {<Integer->Polar|Cartesian>*}
 -->
 <!-- check:none -->
-    value points = array { Polar(pi/4, 0.5), Cartesian(-1.0, 2.5) }; // type Array<Polar|Cartesian>
-    value entries = entries(points); // type Entries<Integer,Polar|Cartesian>
+    value points = Array { Polar(pi/4, 0.5), Cartesian(-1.0, 2.5) }; // type Array<Polar|Cartesian>
+    value entries = zipEntries(1..points.size, points); // type {<Integer->Polar|Cartesian>*}
 
 If a type parameter has a default argument, we're allowed to leave out the
 type argument to that type parameter when we supply a type argument list.
