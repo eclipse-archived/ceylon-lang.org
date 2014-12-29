@@ -90,7 +90,7 @@ method invocations or class instantiations. We don't usually need to write:
 
 <!-- check:none -->
     Array<String> strings = Array<String> { "Hello", "World" };
-    {String|Integer*} things = interleave<String|Integer,Null>(strings,ints);
+    {String|Integer*} things = interleave<String|Integer,Null>(strings, 0..2);
 
 Instead, it's very often possible to infer the type arguments from the ordinary 
 arguments.
