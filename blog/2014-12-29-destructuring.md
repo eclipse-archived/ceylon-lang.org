@@ -87,7 +87,7 @@ for _pattern matching_. I remain ambivalent about pattern
 matching, and it's certainly not something we find that the
 language is missing or needs, but lots of folks tell us they
 like it in other languages, so we're keeping our options 
-open. Fortunately, the syntax described above well scale
+open. Fortunately, the syntax described above will scale
 nicely to more complex patterns in a full pattern matching
 facility.
 
