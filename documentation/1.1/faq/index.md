@@ -25,7 +25,7 @@ programs in teams.
 
 ### Where can I run Ceylon?
 
-You can run Ceylon anywhere a Java 7 Virtual Machine is 
+You can run Ceylon anywhere a Java 7 or 8 Virtual Machine is 
 available. The Ceylon compiler uses the bytecode generator 
 in Open JDK to produce Java bytecode. Ceylon modules even
 run on Vert.x or in any OSGi container.
@@ -108,6 +108,10 @@ Or in less fancy schmancy phoneticsy, `selón`.
 `say-lon` with the emphasis on the first syllable so if you 
 say it like that we'll probably know what you're talking 
 about.) 
+
+### Where can I read some user's opinions of Ceylon?
+
+We're collecting links to [articles about Ceylon](/community/articles).
 
 ## Contributing
 
