@@ -473,7 +473,7 @@ which can contain null values, you'll get an instance of `Some`
 for every element of the collection, even if the collection 
 contains very few null values. 
 
-By using a union type, `Nothing|T`, Ceylon spares you the 
+By using a union type, `Null|T`, Ceylon spares you the 
 need to wrap your `T`. And there's zero overhead at runtime, 
 because the compiler erases Ceylon's `null` object to a JVM 
 primitive `null`. To the best of our knowledge no other 
@@ -797,7 +797,7 @@ signature of the `set()` method is:
 take the value `Nothing` in the covariant instantiation of 
 the invariant type.)
 
-We don't love use-site variance, but at least its simpler
+We don't love use-site variance, but at least it's simpler
 and cleaner in Ceylon than in Java.
 
 ### Type classes 
