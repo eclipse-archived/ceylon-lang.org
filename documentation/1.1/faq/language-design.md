@@ -797,7 +797,7 @@ signature of the `set()` method is:
 take the value `Nothing` in the covariant instantiation of 
 the invariant type.)
 
-We don't love use-site variance, but at least its simpler
+We don't love use-site variance, but at least it's simpler
 and cleaner in Ceylon than in Java.
 
 ### Type classes 
