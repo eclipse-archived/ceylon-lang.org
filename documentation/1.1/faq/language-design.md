@@ -473,7 +473,7 @@ which can contain null values, you'll get an instance of `Some`
 for every element of the collection, even if the collection 
 contains very few null values. 
 
-By using a union type, `Nothing|T`, Ceylon spares you the 
+By using a union type, `Null|T`, Ceylon spares you the 
 need to wrap your `T`. And there's zero overhead at runtime, 
 because the compiler erases Ceylon's `null` object to a JVM 
 primitive `null`. To the best of our knowledge no other 
