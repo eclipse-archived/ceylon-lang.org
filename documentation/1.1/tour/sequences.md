@@ -95,19 +95,19 @@ The [`indexed`](#{site.urls.apidoc_1_1}/Iterable.type.html#indexed)
 attribute returns a stream of entries containing the indexed elements of 
 the original stream.
 
-(Note: the arrow `->` is syntax sugar for the class `Entry`. So we can write 
-the type of the entry stream as `{<Integer->String>*}`.)
+(Note: the arrow `->` is syntax sugar for the class `Entry`. So we can 
+write the type of the entry stream as `{<Integer->String>*}`.)
 
 It's often useful to be able to iterate two sequences at once. The 
-[`zip()`](#{site.urls.apidoc_1_1}/index.html#zip) function comes in handy 
-here:
+[`zipEntries()`](#{site.urls.apidoc_1_1}/index.html#zipEntries) function 
+comes in handy here:
 
 <!-- try-pre:
     String[] names = ["mies", "wim", "jet"];
     String[] places = ["hoogezand", "sappemeer", "kalkwijk"];
 -->
 <!-- cat: void m(String[] names, String[] places) { -->
-    for (name -> place in zip(names,places)) {
+    for (name -> place in zipEntries(names,places)) {
         print(name + " @ " + place);
     }
 <!-- cat: } -->
