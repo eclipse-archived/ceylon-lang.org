@@ -8,7 +8,7 @@ author: Stephane Epardaud
 
 ## Getting the source
 
-- Make sure you have the [Java 7 JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) and [Ant 1.8+](http://ant.apache.org/) installed and that both are working correctly
+- Make sure you have the [Java 7 JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) and [Ant 1.8+](http://ant.apache.org/) installed and that both are working correctly (if you installed Ant using your platform's package manager make sure it installed `ant-junit` as well)
 - Make sure you have [Git set up correctly](https://help.github.com/articles/set-up-git)
 - Create a new directory for the Ceylon project
 - Open a terminal and change to the newly created directory
