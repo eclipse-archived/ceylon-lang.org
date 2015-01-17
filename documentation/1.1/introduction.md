@@ -187,13 +187,13 @@ support for union and intersection types. A *union type* is a type which
 accepts instances of any one of a list of types:
 
 <!-- try: -->
-    Person|Organization personOrOrganization = ... ;
+    Person | Organization personOrOrganization = ... ;
 
 An *intersection type* is a type which accepts instances of all of a list
 of types:
 
 <!-- try: -->
-    Printable&Sized&Persistent printableSizedPersistent = ... ;
+    Printable & Sized & Persistent printableSizedPersistent = ... ;
 
 Union and intersection types are often useful as a convenience in ordinary 
 code. (Once you start using Ceylon, you'll be amazed just how often!) More 
@@ -336,7 +336,7 @@ we must declare it like this:
 Which is actually just an abbreviation for:
 
 <!-- try: -->
-    String|Null name = ...
+    String | Null name = ...
 
 An attribute of type `String?` might refer:
 
