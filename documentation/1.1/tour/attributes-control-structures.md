@@ -104,7 +104,7 @@ function that captures the local variable:
     print(counter()());
 -->
     Integer() counter() {
-        variable Integer count=0;
+        variable Integer count = 0;
         Integer inc() => ++count;
         return inc;
     }
@@ -252,10 +252,10 @@ doesn't even parse:
 
 <!-- try:
     Integer x = 200;
-    if (x>100) print("big");  //error
+    if (x > 100) print("big");  //error
 -->
 <!-- check:none:Demoing error -->
-    if (x>100) print("big");  //error
+    if (x > 100) print("big");  //error
 
 You are required to write:
 
@@ -263,7 +263,7 @@ You are required to write:
     Integer x = 200;
 -->
 <!-- cat: void m(Integer x) { -->
-    if (x>100) { print("big"); }
+    if (x > 100) { print("big"); }
 <!-- cat: } -->
 
 (The reason braces aren't optional in Ceylon is that an expression 
@@ -283,10 +283,10 @@ The `if/else` statement is totally traditional:
     Integer x = 2000;
 -->
 <!-- cat: void m(Integer x) { -->
-    if (x>1000) {
+    if (x > 1000) {
         print("really big");
     }
-    else if (x>100) {
+    else if (x > 100) {
         print("big");
     }
     else {
@@ -310,7 +310,7 @@ behavior and irregular syntax:
     Integer x = 100;
 -->
 <!-- cat: void m(Integer x) { -->
-    switch (x<=>100)
+    switch (x <=> 100)
     case (smaller) { print("smaller"); }
     case (equal) { print("one hundred"); }
     case (larger) { print("larger"); }
@@ -360,7 +360,7 @@ statements which follow the assertion, for example:
     Integer? x = parseInteger("1");
     assert (exists x);
     // after the assert, x has type Integer instead of Integer?
-    value y = x+10;
+    value y = x + 10;
 
 This is really just the same behavior we saw 
 [earlier](../basics#dealing_with_objects_that_arent_there), only this time 
@@ -386,7 +386,7 @@ loop completes normally, rather than via a `return` or `break` statement.
     Boolean hasMinors(Person* people) {
         variable Boolean minors;
         for (p in people) {
-            if (p.age<18) {
+            if (p.age < 18) {
                 minors = true;
                 break;
             }
@@ -402,7 +402,7 @@ loop completes normally, rather than via a `return` or `break` statement.
 <!-- cat: void m(Person[] people) { -->
     variable Boolean minors;
     for (p in people) {
-        if (p.age<18) {
+        if (p.age < 18) {
             minors = true;
             break;
         }
@@ -544,10 +544,10 @@ Let's see an example using `assert`:
 Here you can see two `exists` conditions in the `assert` statement, separated 
 with a comma. The first one declares `authority` (which is inferred to be a 
 `String`, rather than a `String?` because of the `exists`). The second condition
-then uses this in it's own `exists` condition. 
+then uses this in its own `exists` condition. 
 
 The important thing to note is that the compiler lets us use `authority` in the 
-second condition and knows that it's a `String` not a `String?`. You can't do 
+second condition and knows that it's a `String`, not a `String?`. You can't do 
 that by `&&`-ing multiple conditions together. You could do it by nesting several 
 `if`s, but that tends to lead to much less readable code, and doesn't work well 
 in `while` statements or comprehensions. 
