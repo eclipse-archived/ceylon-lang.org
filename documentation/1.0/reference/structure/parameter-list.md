@@ -68,7 +68,7 @@ name, separated with an equals sign:
 For a callable parameter, the default argument expression follows the 
 parameter's parameter list, separated with a fat arrow:
 
-    void example(String name int(Integer int) 
+    void example(String name(Integer int) 
             => int == 0 then "zero" else "") {
     }
 
