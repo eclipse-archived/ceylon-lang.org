@@ -15,7 +15,7 @@ A type alias assigns a name to a type expression.
 A type alias:
 
 <!-- try: -->
-    alias BasicType = String|Character|Integer|Float|Boolean;
+    alias BasicType => String|Character|Integer|Float|Boolean;
 
 A generic type alias:
 
