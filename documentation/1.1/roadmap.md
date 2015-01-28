@@ -30,15 +30,15 @@ However, our roadmap is quite well-defined:
 <div id="milestones-progress">
     <div id="milestone-overall">Loading…</div>
     <h3>Detail</h3>
-    <div data-title="Typechecker / language specification" data-milestone="https://api.github.com/repos/ceylon/ceylon-spec/milestones/10?callback=?">Loading…</div>
-    <div data-title="JVM compiler / documentation compiler" data-milestone="https://api.github.com/repos/ceylon/ceylon-compiler/milestones/10?callback=?">Loading…</div>
-    <div data-title="JS compiler" data-milestone="https://api.github.com/repos/ceylon/ceylon-js/milestones/7?callback=?">Loading…</div>
-    <div data-title="Language module" data-milestone="https://api.github.com/repos/ceylon/ceylon.language/milestones/9?callback=?">Loading…</div>
-    <div data-title="Module resolver" data-milestone="https://api.github.com/repos/ceylon/ceylon-module-resolver/milestones/9?callback=?">Loading…</div>
-    <div data-title="Runtime" data-milestone="https://api.github.com/repos/ceylon/ceylon-runtime/milestones/10?callback=?">Loading…</div>
-    <div data-title="Common" data-milestone="https://api.github.com/repos/ceylon/ceylon-common/milestones/6?callback=?">Loading…</div>
-    <div data-title="IDE" data-milestone="https://api.github.com/repos/ceylon/ceylon-ide-eclipse/milestones/10?callback=?">Loading…</div>
-    <div data-title="SDK" data-milestone="https://api.github.com/repos/ceylon/ceylon-sdk/milestones/7?callback=?">Loading…</div>
-    <div data-title="Formatter" data-milestone="https://api.github.com/repos/ceylon/ceylon.formatter/milestones/3?callback=?">Loading…</div>
+    <div data-title="Typechecker / language specification" data-milestone="https://api.github.com/repos/ceylon/ceylon-spec/milestones/9?callback=?">Loading…</div>
+    <div data-title="JVM compiler / documentation compiler" data-milestone="https://api.github.com/repos/ceylon/ceylon-compiler/milestones/11?callback=?">Loading…</div>
+    <div data-title="JS compiler" data-milestone="https://api.github.com/repos/ceylon/ceylon-js/milestones/9?callback=?">Loading…</div>
+    <div data-title="Language module" data-milestone="https://api.github.com/repos/ceylon/ceylon.language/milestones/10?callback=?">Loading…</div>
+    <div data-title="Module resolver" data-milestone="https://api.github.com/repos/ceylon/ceylon-module-resolver/milestones/10?callback=?">Loading…</div>
+    <div data-title="Runtime" data-milestone="https://api.github.com/repos/ceylon/ceylon-runtime/milestones/11?callback=?">Loading…</div>
+    <div data-title="Common" data-milestone="https://api.github.com/repos/ceylon/ceylon-common/milestones/7?callback=?">Loading…</div>
+    <div data-title="IDE" data-milestone="https://api.github.com/repos/ceylon/ceylon-ide-eclipse/milestones/11?callback=?">Loading…</div>
+    <div data-title="SDK" data-milestone="https://api.github.com/repos/ceylon/ceylon-sdk/milestones/8?callback=?">Loading…</div>
+    <div data-title="Formatter" data-milestone="https://api.github.com/repos/ceylon/ceylon.formatter/milestones/6?callback=?">Loading…</div>
 </div>
 
