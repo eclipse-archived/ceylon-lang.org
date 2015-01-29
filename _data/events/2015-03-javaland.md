@@ -7,7 +7,7 @@ event_url: http://www.javaland.eu/1/javaland-2015/
 location: 'Brühl, DE'
 effective_date: 20150325
 ---
-We are coming to JavaOne
+We are coming to JavaLand
 
 ### Ceylon from Here to Infinity: The Big Picture and What’s Coming
 
