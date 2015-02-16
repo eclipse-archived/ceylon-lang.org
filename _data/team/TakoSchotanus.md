@@ -11,7 +11,7 @@ level: 5
 
  -->
 
-Old enough to remember the ZX81 Tako Schotanus has spent an awfull amount
+Old enough to remember the ZX81 Tako Schotanus has spent an awful amount
 of years programming in Java to please his corporate overlords but when
 he heard about Ceylon he decided it was time to do his part for the good
 of mankind (well at least for those in IT slaving away on the next website
