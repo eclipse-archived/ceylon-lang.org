@@ -14,3 +14,6 @@ The slides for this presentation are available:
 
 - [in English](Ceylon-vJUG.pdf),
 - [y en español](Ceylon-JavaConf.pdf).
+
+Stef and Tom's presentation to the Virtual JBUG is [online
+here](http://www.slideshare.net/vjbug/2015-02ukjugs).
