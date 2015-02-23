@@ -50,18 +50,18 @@ The rest of this page will highlight particular tools
 * [`ceylon compile`](#{site.urls.ceylon_tool_current}/ceylon-compile.html) 
   is the command line interface to the Ceylon compiler.
 * [`ceylon run`](#{site.urls.ceylon_tool_current}/ceylon-run.html)
-  is the command line interface for launching a Celyon program on the JVM.
+  is the command line interface for launching a Ceylon program on the JVM.
 * [`ceylon test`](#{site.urls.ceylon_tool_current}/ceylon-test.html)
   is the command line interface for executing tests on the JVM.
 * [`ceylon import-jar`](#{site.urls.ceylon_tool_current}/ceylon-import-jar.html)
-  is the command line interface for launching a Celyon program on the JVM.
+  is the command line interface for launching a Ceylon program on the JVM.
   
 ### JavaScript-specific commands
 
 * [`ceylon compile-js`](#{site.urls.ceylon_tool_current}/ceylon-compile-js.html)
   is the command line interface to the Ceylon compiler for JavaScript.
 * [`ceylon run-js`](#{site.urls.ceylon_tool_current}/ceylon-run-js.html)
-  is the command line interface for launching a Celyon program on `node.js`.
+  is the command line interface for launching a Ceylon program on `node.js`.
 * [`ceylon test-js`](#{site.urls.ceylon_tool_current}/ceylon-test.html)
   is the command line interface for executing tests on `node.js`.
 
