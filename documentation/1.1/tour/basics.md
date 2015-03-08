@@ -299,6 +299,8 @@ This is the preferred style most of the time, since we can't actually use
 `name` for anything useful outside of the `if (exists ... )` construct.
 (But this still isn't the most compact way to write this code.)
 
+![Null is not a Duck](/images/features/NullIsNotADuck.png)
+
 
 ## Optional types
 
