@@ -162,20 +162,20 @@ function addTryButtons(){
 
 // Roadmap
 
-function loadMilestone(div, title, json){
+function loadMilestone(div, title, json, repo){
     var open = json.data.open_issues;
     var closed = json.data.closed_issues;
     var percentage = 100 * closed / (open + closed);
     var milestone = json.data.title;
-    makeMilestoneDiv(div, title, open, closed, milestone);
+    makeMilestoneDiv(div, title, open, closed, milestone, repo);
 }
 
-function makeMilestoneDiv(div, title, open, closed, milestone){
+function makeMilestoneDiv(div, title, open, closed, milestone, repo){
 	var percentage = 100 * closed / (open + closed);
 	div.empty();
 	
 	if(title != null){
-		jQuery("<div/>").addClass("title").text(title + ": " + milestone).appendTo(div);
+		jQuery("<div/>").addClass("title").text(title + ": ").append(jQuery("<a/>").attr("href", "https://github.com/ceylon/" + repo + "/milestones/" + milestone).text(milestone)).appendTo(div)
 	}
 	jQuery("<div/>").addClass("count").text("closed: " + closed + " — open: " + open).appendTo(div);
 
@@ -196,12 +196,14 @@ jQuery(function (){
 	jQuery("div[data-milestone]").each(function (index, elem){
 		var $elem = jQuery(elem);
         var title = $elem.attr("data-title");
-		var url = $elem.attr("data-milestone");
+		var repo = $elem.attr("data-repo");
+		var milestone = $elem.attr("data-milestone");
+		var url = "https://api.github.com/repos/ceylon/" + repo + "/milestones/" + milestone + "?callback=?";
 		makeMilestoneDiv($elem, title, 100, 0, "M6");
 		jQuery.getJSON(url, function(json){
 		    open_total += json.data.open_issues;
 		    closed_total += json.data.closed_issues;
-			loadMilestone($elem, title, json);
+			loadMilestone($elem, title, json, repo);
 			makeMilestoneDiv($overall, null, open_total, closed_total);
 		});
 	});
