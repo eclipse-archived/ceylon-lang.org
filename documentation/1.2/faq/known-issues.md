@@ -1,6 +1,6 @@
 ---
 title: Known issues in 1.1
-layout: known-issues11
+layout: known-issues12
 toc: true
 tab: documentation
 unique_id: docspage

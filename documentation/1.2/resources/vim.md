@@ -1,6 +1,6 @@
 ---
 title: Vim Ceylon resources
-layout: documentation11
+layout: documentation12
 tab: documentation
 unique_id: docspage
 author: Stephane Epardaud

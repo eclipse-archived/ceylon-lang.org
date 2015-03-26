@@ -1,6 +1,6 @@
 ---
 title: FAQs 
-layout: faq11
+layout: faq12
 toc: true
 tab: documentation
 unique_id: docspage

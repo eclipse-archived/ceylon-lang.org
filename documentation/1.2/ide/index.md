@@ -1,6 +1,6 @@
 ---
 title: Ceylon IDE
-layout: documentation11
+layout: documentation12
 tab: documentation
 unique_id: docspage
 author: Gavin King

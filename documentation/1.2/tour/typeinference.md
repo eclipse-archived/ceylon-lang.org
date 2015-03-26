@@ -1,5 +1,5 @@
 ---
-layout: tour11
+layout: tour12
 title: Type aliases and type inference
 tab: documentation
 unique_id: docspage

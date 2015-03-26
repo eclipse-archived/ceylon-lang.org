@@ -1,5 +1,5 @@
 ---
-layout: documentation11
+layout: documentation12
 title: Tutorial videos in French
 tab: documentation
 unique_id: docspage

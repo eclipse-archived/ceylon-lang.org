@@ -1,5 +1,5 @@
 ---
-layout: reference11
+layout: reference12
 title_md: The JavaScript compiler
 tab: documentation
 unique_id: docspage

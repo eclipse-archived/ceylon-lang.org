@@ -1,5 +1,5 @@
 ---
-layout: tour11
+layout: tour12
 title: Interoperation with Java
 tab: documentation
 unique_id: docspage

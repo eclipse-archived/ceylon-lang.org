@@ -1,5 +1,5 @@
 ---
-layout: tour11
+layout: tour12
 title: Packages and modules
 tab: documentation
 unique_id: docspage

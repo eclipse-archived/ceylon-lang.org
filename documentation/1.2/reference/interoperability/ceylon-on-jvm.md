@@ -1,5 +1,5 @@
 ---
-layout: reference11
+layout: reference12
 title_md: Starting a Ceylon module from the JVM
 tab: documentation
 unique_id: docspage

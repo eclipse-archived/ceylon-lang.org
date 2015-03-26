@@ -1,5 +1,5 @@
 ---
-layout: documentation11
+layout: documentation12
 title: Ceylon Walkthrough
 tab: documentation
 unique_id: walkthroughpage

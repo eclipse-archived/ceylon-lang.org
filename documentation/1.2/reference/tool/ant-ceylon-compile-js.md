@@ -1,5 +1,5 @@
 ---
-layout: reference11
+layout: reference12
 title_md: '`<ceylon-compile-js>` Ant task'
 tab: documentation
 unique_id: docspage

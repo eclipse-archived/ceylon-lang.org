@@ -1,5 +1,5 @@
 ---
-layout: reference11
+layout: reference12
 title_md: Format of module.properties files
 tab: documentation
 unique_id: docspage

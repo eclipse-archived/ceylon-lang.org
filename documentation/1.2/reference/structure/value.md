@@ -1,5 +1,5 @@
 ---
-layout: reference11
+layout: reference12
 title_md: Value and attribute declarations
 tab: documentation
 unique_id: docspage

@@ -1,5 +1,5 @@
 ---
-layout: tour11
+layout: tour12
 title: Inheritance, refinement, and interfaces
 tab: documentation
 unique_id: docspage
