@@ -12,7 +12,7 @@ doc_root: ../../..
 A class is a stateful [type declaration](../type-declaration) that:
 
 - may hold references to other objects,
-- may define initialization logic and initialization parameters, and
+- may define initialization logic, and
 - except in the case of an `abstract` or `formal` class, may be instantiated.
 
 A class may inherit another class, but classes are restricted to a
@@ -30,7 +30,8 @@ A trivial class declaration looks like this:
         /* declarations of class members */
     }
 
-The general form of a class declaration looks like this:
+A more general form of a class declaration with initializer parameters 
+looks like this:
 
 <!-- lang:none -->
     ANNOTATIONS
@@ -56,6 +57,31 @@ Where:
   declared in the type parameter list
 * `CLASS-BODY` is the [initializer section](#initializer) of the class, 
   followed by the [declaration section](#declaration_section) of the class
+
+An alternative to declaring a class with initializer parameters is to 
+provide one or more constructors.
+
+<!-- lang:none -->
+    ANNOTATIONS
+    class Example
+            <TYPE-PARAMETERS>
+            /* no parameter list */
+            of ENUMERATED-SUBCLASSES
+            extends SUPER-CLASS
+            satisfies SUPER-INTERFACES
+            given TYPE-PARAMETER-CONSTRAINTS {
+        INITIALIZER-STATEMENTS
+        CONSTRUCTORS
+        DECLARATIONS
+    }
+    
+Where:
+
+* `SUPER-CLASS` is the type expression for the superclass (not an invocation)
+* `INITIALIZER-STATEMENTS` are statements in the intializer
+* `CONSTRUCTORS` are constructor declarations
+* `DECLARATIONS` constitute the [declaration section](#declaration_section) 
+  of the class.
 
 ## Description
 
@@ -85,12 +111,17 @@ for each declared type parameter to
 
 ### Initializer parameters
 
-Every class declaration must have a [parameter list](../parameter-list), 
-because any class can be invoked to create instances of the class.
-(Even an `abstract` class, which will be invoked by its subclasses).
+Class declarations *usually* have a [parameter list](../parameter-list), the *initializer parameters*,
+
+    class WithParameters(Integer param1, String param2) {
+        // ...
+    }
 
 The initializer parameters are visible to statements in 
 the [class initializer](#initializer).
+
+If a class lacks a parameter list it must have one or more 
+[constructor declarations](#constructor_declarations). 
 
 #### Callable type
 
@@ -112,17 +143,28 @@ is `CallableExample(Integer, Boolean)`, because the class initializer takes
 
 ### Extending classes
 
-The `extends` clause is used simultaneously to:
+The `extends` clause is used to:
 
 * specify that the class being declared is a 
   [subtype](../type-declaration#declarative_subtyping) 
   of the given class type and,
 * [invoke](../expression/invocation/) that class's initializer.
 
+In the case of a class with initializer parameters the superclass constructor
+is invoked directly in the class's `extends` clause:
+
 <!-- cat-id:c -->
 <!-- try: -->
     class S() extends C() {
         /* declarations of class members */
+    }
+    
+In the case of a class with constructors each constructor declaration has its 
+own `extends` clause for invoking the appropriate superclass constructor:
+
+    class T extends C {
+        shared new () extends C() {}
+        new NonShared() extends C.NonShared() {}
     }
 
 If a class is declared without using the `extends` keywords, it is a 
@@ -177,8 +219,8 @@ If a class has enumerated subclasses we can use the subclasses as
 
 The class *initializer* executes when instances of the class are created
 (also known as *class instantiation*). 
-The parameters to the initializer are specified in parenthesis after the 
-name of the class in the `class` declaration.
+The parameters to the initializer (if any) are specified in parenthesis 
+after the name of the class in the `class` declaration.
 
 The body of a class must *definitely initialize* every member of the class. 
 The following code will be rejected by the compiler because if `bool` 
@@ -199,6 +241,47 @@ can't use a declaration before it's been declared.
 
 Note that `abstract` classes cannot be invoked directly, but 
 they are still invoked in the `extends` clause of their subclasses.
+
+### Constructor Declarations
+
+If a class lacks [initializer parameters](#initializer_parameters) 
+it must have one or more constructor declarations. In this case:
+
+* the class's `extends` clause is a type expression for the superclass 
+  (not an invocation)
+* the class may contain initializer statements before the 
+  constructor declarations
+* constructor declarations are identified using `new` keyword
+* each constructor declaration invokes a particular superclass constructor in 
+  its own `extends` caluse
+* the constructor parameters are in scope only in the constructor body
+* each constructor must initialize all the members of the class not already 
+  initialized in the class initializer statements.
+
+Constructor declarations occur after other initialization code 
+(and immediately before the *declaration section*).
+
+    shared class WithConstructor extends SomeClass {
+        Integer x = 0;
+        Integer y;
+        shared new() {
+            y = 0;
+        }
+        new Other(Integer y) {
+            // assign the attribute y to the parameter y
+            this.y = y;
+        }
+
+In the above example `WithConstructor` declares two constructors. The first
+is the *default constructor* (because it has no name) which will be used for
+instantiations of the form `WithConstructor()` (that is, instantiations 
+which don't specify any other constructor).
+
+The second constructor, `Other`, is used to initialize instances created 
+by invocations of the form `WithConstructor.Other(n)`.
+
+Note that two constructors can have the same signature: They are 
+distinguished by name.
 
 ### Declaration section
 
