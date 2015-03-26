@@ -81,6 +81,15 @@ both positional argument lists and named argument lists.
     value bob = Person{
         name="bob";
     };
+    
+### Constructor invocation
+
+Invoking a [class constructor](../../structure/class/#constructor_declarations)
+creates a new instance of the class, just like class invocation. 
+The only difference is that when you're invoking a non-default constructor
+you have to specify the constructor name.
+
+    value anon = Person.Anonymous();
 
 ### Indirect invocation
 
