@@ -1,0 +1,29 @@
+---
+layout: faq11
+tab: to-be-defined
+---
+#core-page
+  :javascript
+    jQuery(function (){
+      jQuery(".see").each(function (index, elem){
+        var $elem = jQuery(elem);
+        var url = $elem.attr('href');
+        // from: https://github.com/ceylon/ceylon-compiler/issues/463
+        // to: /repos/:user/:repo/issues/:number
+        var restURL = url.replace('https://github.com', 'https://api.github.com/repos');
+        var issue = url.substring(url.lastIndexOf("/")+1);
+        jQuery.getJSON(restURL+"?callback=?", function(data){
+          var state = data.data.state;
+          if(state == 'open'){
+            $elem.text(issue+" (Open)");
+            $elem.attr("title", "This issue is still open, do you want to contribute?");
+            $elem.addClass(state);
+          }else if(state == 'closed'){
+            $elem.text(issue+" (Fixed)");
+            $elem.attr("title", "Yay! This issue has been fixed in the code repository.");
+            $elem.addClass(state);
+          }
+        });
+      });
+    });
+  ~ content
