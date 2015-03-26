@@ -19,7 +19,9 @@ Obtaining models:
 
 <!-- try: -->
     Class<String, [{Character*}]> cls = `String`;
-    
+
+    Constructor constr = `Class.Constructor`;
+        
     Interface<{String*}> iface = `Iterable<String, Null>`;
     
     Function<Integer?, [{Integer*}]> func = `max<Integer, Null>`;
@@ -38,6 +40,8 @@ Obtaining declarations:
 
 <!-- try: -->
     ClassDeclaration c = `class String`;
+    
+    ConstructorDeclaration ctor = `new Class.Constructor`;
     
     InterfaceDeclaration i = `interface Iterable`;
     

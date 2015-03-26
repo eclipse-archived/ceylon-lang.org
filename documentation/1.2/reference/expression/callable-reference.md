@@ -18,6 +18,12 @@ a [positional argument list](../positional-argument-list).
     value classReference = String;
     value methodReference = 1.plus;
     value functionReference = sum<Integer>;
+    // constructor reference
+    class Baz {
+        shared new (){}
+        shared new Constructor(String name) {}
+    }
+    Baz(String) baz = Baz.Constructor;
     
 ## Description
 
@@ -34,10 +40,11 @@ The type of a callable reference is the
 thing being referenced, so referring to the [example above](#usage),
 
 * the type of `classReference` is `String({Character*})`,
-* the type of `methodReference` is  `Integer(Integer)`.
+* the type of `methodReference` is  `Integer(Integer)`,
 * the type of `functionReference` is `Integer({Integer+})`,
+* the type of `Baz.Constructor` is `Baz(String)`.
 
-### Unreferenceable things
+### Unreferenceable elements
 
 It's not possible to obtain a callable reference to an `abstract` 
 class, because calling it would be the same as instantiating the 
