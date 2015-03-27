@@ -100,7 +100,7 @@ because the interface (`I`) is being declared as a subtype of an
 If an interface is declared without using the `satisfies` keyword, 
 it does not directly inherit any interfaces. However, _all_ 
 interfaces are considered to inherit the class
-[`Object`](#{site.urls.apidoc_1_1}/Object.type.html).
+[`Object`](#{site.urls.apidoc_1_2}/Object.type.html).
 
 ### Enumerated interfaces
 
@@ -160,11 +160,11 @@ An *interface alias* is a kind of [alias](../alias#interface_aliases).
 ### Metamodel
 
 Interface declarations can be manipulated at runtime via their representation as
-[`InterfaceDeclaration`](#{site.urls.apidoc_1_1}/meta/declaration/InterfaceDeclaration.type.html) 
+[`InterfaceDeclaration`](#{site.urls.apidoc_1_2}/meta/declaration/InterfaceDeclaration.type.html) 
 instances. An *applied interface* (i.e. with all type parameters specified) corresponds to 
 either an 
-[`Interface`](#{site.urls.apidoc_1_1}/meta/model/Interface.type.html) or 
-[`MemberInterface`](#{site.urls.apidoc_1_1}/meta/model/MemberInterface.type.html) model instance.
+[`Interface`](#{site.urls.apidoc_1_2}/meta/model/Interface.type.html) or 
+[`MemberInterface`](#{site.urls.apidoc_1_2}/meta/model/MemberInterface.type.html) model instance.
 
 ## See also
 

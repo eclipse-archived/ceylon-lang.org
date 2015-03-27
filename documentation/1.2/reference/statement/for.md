@@ -31,7 +31,7 @@ The `else` clause is optional.
 ### Execution
 
 A `for` statement accepts an expression of type 
-[`Iterable`](#{site.urls.apidoc_1_1}/Iterable.type.html), which is evaluated
+[`Iterable`](#{site.urls.apidoc_1_2}/Iterable.type.html), which is evaluated
 to produce an `Iterable` object. 
 
 The `for` block is executed repeatedly, with the iteration variable taking the 
@@ -100,7 +100,7 @@ of `Entry`.
 * The [`break` statement](../break)
 * The [`continue` statement](../continue)
 * The [`while` statement](../while)
-* [`Iterable`](#{site.urls.apidoc_1_1}/Iterable.type.html)
+* [`Iterable`](#{site.urls.apidoc_1_2}/Iterable.type.html)
 * The [`for` statement](#{page.doc_root}/tour/attributes-control-structures#control_structures) 
   and [Iterating Sequences](#{page.doc_root}/tour/sequences#iterating_sequences)
   in the Tour of Ceylon

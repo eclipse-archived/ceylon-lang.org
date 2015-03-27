@@ -88,13 +88,13 @@ The constraints are:
 #### Examples
 
 The default supertype of a type parameter is 
-[`Anything`](#{site.urls.apidoc_1_1}/Anything.type.html), 
+[`Anything`](#{site.urls.apidoc_1_2}/Anything.type.html), 
 so it's common to 
-see type constraints which use [`Object`](#{site.urls.apidoc_1_1}/Object.type.html) 
+see type constraints which use [`Object`](#{site.urls.apidoc_1_2}/Object.type.html) 
 as an upper bound if the declaration 
 doesn't support 
-[`Null`](#{site.urls.apidoc_1_1}/Null.type.html). 
-An example of this is [`Set`](#{site.urls.apidoc_1_1}/Set.type.html) 
+[`Null`](#{site.urls.apidoc_1_2}/Null.type.html). 
+An example of this is [`Set`](#{site.urls.apidoc_1_2}/Set.type.html) 
 from the language module:
 
 <!-- try: -->
@@ -109,7 +109,7 @@ Given this declaration it's not allowed to have a `Set<String?>`, because
 `String?` means `String|Null` and although `String` satisfies `Object`, 
 `Null` does not.
 
-Another example from the language module is [`Comparable`](#{site.urls.apidoc_1_1}/Comparable.type.html), 
+Another example from the language module is [`Comparable`](#{site.urls.apidoc_1_2}/Comparable.type.html), 
 declared like this:
 
 <!-- try: -->
@@ -126,7 +126,7 @@ the type instantiated type. Concretely, in the type instantiation
 of `Comparable<Integer>`.
 
 A final example is the language module's
-[`sort()`](#{site.urls.apidoc_1_1}/index.html#sort) function, which 
+[`sort()`](#{site.urls.apidoc_1_2}/index.html#sort) function, which 
 constrains the type parameter `Element` so that it can only be called 
 with a `Comparable` type argument:
 
@@ -147,7 +147,7 @@ can define defaulted type parameters. Here's an example from the language module
     Iterable<out Element, out Absent=Null>
     
 This means we can apply the type constructor 
-[`Iterable`](#{site.urls.apidoc_1_1}/Iterable.type.html) using either one 
+[`Iterable`](#{site.urls.apidoc_1_2}/Iterable.type.html) using either one 
 or two type arguments. If we supply only one type argument, the default type 
 (in this case `Null`) is used:
 

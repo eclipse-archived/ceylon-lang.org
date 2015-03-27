@@ -50,11 +50,11 @@ Here's an example:
 The `package` declaration may be preceeded by [annotations](../annotation), 
 including:
 
-* [`shared`](#{site.urls.apidoc_1_1}/index.html#shared) to allow the 
+* [`shared`](#{site.urls.apidoc_1_2}/index.html#shared) to allow the 
   package to be visible outside its containing module,
-* [`doc`](#{site.urls.apidoc_1_1}/index.html#doc) 
+* [`doc`](#{site.urls.apidoc_1_2}/index.html#doc) 
   to let you to specify package-level documentation,
-* [`by`](#{site.urls.apidoc_1_1}/index.html#by) 
+* [`by`](#{site.urls.apidoc_1_2}/index.html#by) 
   to document the package's author or authors. 
 
 The package declaration consists of the `package` keyword 
@@ -66,7 +66,7 @@ is not `shared`.
 ### Metamodel
 
 Packages can be manipulated at runtime via their representation as
-[`Package`](#{site.urls.apidoc_1_1}/meta/declaration/Package.type.html) instances. 
+[`Package`](#{site.urls.apidoc_1_2}/meta/declaration/Package.type.html) instances. 
 
 
 ## See also

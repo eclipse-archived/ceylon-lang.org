@@ -27,6 +27,6 @@ externalized to a `Deconstructor`, and to initialize an instance from a
 
 ## See also
 
-* [`serializable`](#{site.urls.apidoc_1_1}/index.html#serializable)
+* [`serializable`](#{site.urls.apidoc_1_2}/index.html#serializable)
 * Reference for [annotations in general](../../structure/annotation/)
 

@@ -50,7 +50,7 @@ visible to any client of the package or type to which it belongs.
 
 ## See also
 
-* API documentation for [`shared`](#{site.urls.apidoc_1_1}/index.html#shared)
+* API documentation for [`shared`](#{site.urls.apidoc_1_2}/index.html#shared)
 * Reference for [annotations in general](../../structure/annotation/)
 * [Visibility](#{site.urls.spec_current}#visibility) in the Ceylon 
   language spec

@@ -36,6 +36,6 @@ on Ceylon-compiled code that the declaration is to be avoided.
 
 ## See also
 
-* API documentation for [`deprecated`](#{site.urls.apidoc_1_1}/index.html#deprecated)
+* API documentation for [`deprecated`](#{site.urls.apidoc_1_2}/index.html#deprecated)
 * Reference for [annotations in general](../../structure/annotation/)
 

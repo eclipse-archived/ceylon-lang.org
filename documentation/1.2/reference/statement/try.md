@@ -46,12 +46,12 @@ The `try` clause may optionally have a list of one or more
 *resource expressions*. If it does then both `catch` and `finally` clauses 
 are optional, otherwise at least one other of those clauses is required.
 Each resource expressions must have either the type 
-[`Destroyable`](#{site.urls.apidoc_1_1}/Destroyable.type.html)
-or the type [`Obtainable`](#{site.urls.apidoc_1_1}/Obtainable.type.html).
+[`Destroyable`](#{site.urls.apidoc_1_2}/Destroyable.type.html)
+or the type [`Obtainable`](#{site.urls.apidoc_1_2}/Obtainable.type.html).
 
 The `catch` clause specifies the [type](../../structure/type) 
 of exception (which must be a subtype of 
-[`Throwable`](#{site.urls.apidoc_1_1}/Throwable.type.html)) to be handled 
+[`Throwable`](#{site.urls.apidoc_1_2}/Throwable.type.html)) to be handled 
 by the associated block. The block is executed only if an exception 
 assignable to that type propagates out of the `try` block and the exception 
 was not assignable to the type of any earlier `catch` clause.
@@ -64,7 +64,7 @@ matching `catch` clause was found.
 
 1. If there are any resource expressions they are evaluated and, 
    if they are of type `Obtainable`,
-   [`obtain()`](#{site.urls.apidoc_1_1}/Obtainable.type.html#obtain) is 
+   [`obtain()`](#{site.urls.apidoc_1_2}/Obtainable.type.html#obtain) is 
    invoked.
 2. Each of the statements in the `try` block is executed until either 
    an exception propagates to the `try` block or all statements in the 
@@ -72,10 +72,10 @@ matching `catch` clause was found.
 3. Whether or not the try block executed normally, 
    each of the resources acquired in 1 is handled in turn.
    If the resource is of type `Destroyable` then
-   [`destroy()`](#{site.urls.apidoc_1_1}/Destroyable.type.html#destroy) is 
+   [`destroy()`](#{site.urls.apidoc_1_2}/Destroyable.type.html#destroy) is 
    invoked. 
    If the resource is of type `Obtainable` then
-   [`release()`](#{site.urls.apidoc_1_1}/Obtainable.type.html#release) is 
+   [`release()`](#{site.urls.apidoc_1_2}/Obtainable.type.html#release) is 
    invoked. 
 4. If an exception propogated out of the `try` block, each of the
    `catch` clauses is considered in turn:
@@ -110,7 +110,7 @@ handle disparate exception types:
 ## See also
 
 * [`throw`](../throw)
-* [`Throwable`](#{site.urls.apidoc_1_1}/Throwable.type.html)
-* [`Exception`](#{site.urls.apidoc_1_1}/Exception.type.html)
+* [`Throwable`](#{site.urls.apidoc_1_2}/Throwable.type.html)
+* [`Exception`](#{site.urls.apidoc_1_2}/Exception.type.html)
 * [`try` in the language specification](#{site.urls.spec_current}#trycatchfinally)
 

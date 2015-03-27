@@ -57,7 +57,7 @@ See the [language specification](#{site.urls.spec_current}#arithmetic) for more 
 
 The `++` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `++` depends on the 
-[`Ordinal`](#{site.urls.apidoc_1_1}/Ordinal.type.html).
+[`Ordinal`](#{site.urls.apidoc_1_2}/Ordinal.type.html).
 
 ### Type
 

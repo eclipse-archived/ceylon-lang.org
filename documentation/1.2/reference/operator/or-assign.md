@@ -40,7 +40,7 @@ The `||` operator is not [polymorphic](#{page.doc_root}/reference/operator/opera
 
 ### Type
 
-The result type of the `||` operator is [`Boolean`](#{site.urls.apidoc_1_1}/Boolean.type.html).
+The result type of the `||` operator is [`Boolean`](#{site.urls.apidoc_1_2}/Boolean.type.html).
 
 ## See also
 

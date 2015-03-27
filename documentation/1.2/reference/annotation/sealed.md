@@ -37,7 +37,7 @@ without losing control over their subtypes or instances.
 
 ## See also
 
-* API documentation for [`sealed`](#{site.urls.apidoc_1_1}/index.html#sealed)
+* API documentation for [`sealed`](#{site.urls.apidoc_1_2}/index.html#sealed)
 * Reference for [annotations in general](../../structure/annotation/)
 * [Sealed classes](#{site.urls.spec_current}#abstractandformalclasses) in the Ceylon 
   language spec

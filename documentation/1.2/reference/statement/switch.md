@@ -101,9 +101,9 @@ may be of the form `case (is V)` where `V` is a case of the type `U`.
 
 ### `case(...)` with literals
 
-If the `switch` expression is of type [`Integer`](#{site.urls.apidoc_1_1}/Integer.type.html), 
-[`Character`](#{site.urls.apidoc_1_1}/Character.type.html), or 
-[`String`](#{site.urls.apidoc_1_1}/String.type.html) then the 
+If the `switch` expression is of type [`Integer`](#{site.urls.apidoc_1_2}/Integer.type.html), 
+[`Character`](#{site.urls.apidoc_1_2}/Character.type.html), or 
+[`String`](#{site.urls.apidoc_1_2}/String.type.html) then the 
 `case`s may be literal values.
 
 <!-- try: -->

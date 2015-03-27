@@ -66,7 +66,7 @@ Since you cannot used listed arguments
 (because you don't know what the elements of the reference are)
 you have to use a spread.
 
-A spread [`Iterable`](#{site.urls.apidoc_1_1}/Iterable.type.html) 
+A spread [`Iterable`](#{site.urls.apidoc_1_2}/Iterable.type.html) 
 can assigns a single `Iterable` argument to a variadic parameter:
 
 <!-- try: -->
@@ -87,7 +87,7 @@ to a `Sequential` before being passed to the function (because
 within a variadic function, the variadic parameter has 
 `Sequential` or `Sequence` type, depending on the varidacity).
 
-You can also spread a [`Tuple`](#{site.urls.apidoc_1_1}/Tuple.type.html) 
+You can also spread a [`Tuple`](#{site.urls.apidoc_1_2}/Tuple.type.html) 
 over *more than one* parameter. In other words a single argument can be used to 
 provide the values of more than one parameter:
 
@@ -119,7 +119,7 @@ too, of course:
 ### Comprehension arguments
 
 A comprehension is a shorthand way of creating an 
-[`Iterable`](#{site.urls.apidoc_1_1}/Iterable.type.html) 
+[`Iterable`](#{site.urls.apidoc_1_2}/Iterable.type.html) 
 to be passed as an argument. 
 
     Integer sum({Integer*} values) {

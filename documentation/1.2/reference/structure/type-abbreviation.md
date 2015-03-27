@@ -106,10 +106,10 @@ has the function type `Float(Float+)`.
 
 ## See Also
 
-* [`Null`](#{site.urls.apidoc_1_1}/Null.type.html)
-* [`Sequential`](#{site.urls.apidoc_1_1}/Sequential.type.html)
-* [`Sequence`](#{site.urls.apidoc_1_1}/Sequence.type.html)
-* [`Empty`](#{site.urls.apidoc_1_1}/Empty.type.html)
-* [`Iterable`](#{site.urls.apidoc_1_1}/Iterable.type.html)
-* [`Tuple`](#{site.urls.apidoc_1_1}/Tuple.type.html)
-* [`Callable`](#{site.urls.apidoc_1_1}/Callable.type.html)
+* [`Null`](#{site.urls.apidoc_1_2}/Null.type.html)
+* [`Sequential`](#{site.urls.apidoc_1_2}/Sequential.type.html)
+* [`Sequence`](#{site.urls.apidoc_1_2}/Sequence.type.html)
+* [`Empty`](#{site.urls.apidoc_1_2}/Empty.type.html)
+* [`Iterable`](#{site.urls.apidoc_1_2}/Iterable.type.html)
+* [`Tuple`](#{site.urls.apidoc_1_2}/Tuple.type.html)
+* [`Callable`](#{site.urls.apidoc_1_2}/Callable.type.html)

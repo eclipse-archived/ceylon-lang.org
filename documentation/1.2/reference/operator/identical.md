@@ -31,7 +31,7 @@ The `===` operator is not [polymorphic](#{page.doc_root}/reference/operator/oper
 
 ### Type
 
-The result type of the `===` operator is [`Boolean`](#{site.urls.apidoc_1_1}/Boolean.type.html).
+The result type of the `===` operator is [`Boolean`](#{site.urls.apidoc_1_2}/Boolean.type.html).
 
 ### Meaning of *identical* for built-in types
 
@@ -40,7 +40,7 @@ TODO
 ## See also
 
 * [`==` (equal)](../equal) operator
-* API documentation for [`Identifiable`](#{site.urls.apidoc_1_1}/Identifiable.type.html)
+* API documentation for [`Identifiable`](#{site.urls.apidoc_1_2}/Identifiable.type.html)
 * [identical in the language specification](#{site.urls.spec_current}#equalitycomparison)
 * [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 
   language specification

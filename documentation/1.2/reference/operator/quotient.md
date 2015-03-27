@@ -33,7 +33,7 @@ See the [language specification](#{site.urls.spec_current}#arithmetic) for more 
 
 The `/` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `/` depends on the 
-[`Numeric`](#{site.urls.apidoc_1_1}/Numeric.type.html) interface.
+[`Numeric`](#{site.urls.apidoc_1_2}/Numeric.type.html) interface.
 
 ### Type
 
@@ -41,15 +41,15 @@ The result type of the `/` operator is the same as the type of its right hand op
 
 ### Meaning of quotient for built-in types
 
-For the built-in numeric types [`Integer`](#{site.urls.apidoc_1_1}/Integer.type.html) and
-[`Float`](#{site.urls.apidoc_1_1}/Float.type.html),
+For the built-in numeric types [`Integer`](#{site.urls.apidoc_1_2}/Integer.type.html) and
+[`Float`](#{site.urls.apidoc_1_2}/Float.type.html),
 `/` performs normal mathematical division, subject to the limitations
 of the relevant type.
 
 
 ## See also
 
-* API documentation for [`Numeric`](#{site.urls.apidoc_1_1}/Numeric.type.html)
+* API documentation for [`Numeric`](#{site.urls.apidoc_1_2}/Numeric.type.html)
 * [arithmetic operators](#{site.urls.spec_current}#arithmetic) in the 
   language specification
 * [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 

@@ -30,6 +30,6 @@ than a license name (which might be ambiguous or unknown to the reader).
 
 ## See also
 
-* [`license`](#{site.urls.apidoc_1_1}/index.html#license)
+* [`license`](#{site.urls.apidoc_1_2}/index.html#license)
 * Reference for [annotations in general](../../structure/annotation/)
 

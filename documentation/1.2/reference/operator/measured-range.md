@@ -34,7 +34,7 @@ more details.
 
 The `:` operator is not [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `:` depends on the 
-[`Enumerable`](#{site.urls.apidoc_1_1}/Enumerable.type.html) 
+[`Enumerable`](#{site.urls.apidoc_1_2}/Enumerable.type.html) 
 class.
 
 ### Type

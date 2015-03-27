@@ -127,7 +127,7 @@ keyword:
 
 #### `Anything`
 
-[`Anything`](#{site.urls.apidoc_1_1}/Anything.type.html) 
+[`Anything`](#{site.urls.apidoc_1_2}/Anything.type.html) 
 the ultimate supertype of all types. That means that every 
 type has `Anything` as a supertype, which in turn means that 
 every reference is assignable to `Anything`.
@@ -146,7 +146,7 @@ lacking an upper bound constraint.
 
 #### `Nothing`
 
-[`Nothing`](#{site.urls.apidoc_1_1}/Nothing.type.html) 
+[`Nothing`](#{site.urls.apidoc_1_2}/Nothing.type.html) 
 is a subtype of all types. That means that every type has 
 `Nothing` as a subtype (even if the type is produced 
 from a `final` class declaration).
@@ -172,8 +172,8 @@ must either:
 
 #### `Null`
 
-[`Null`](#{site.urls.apidoc_1_1}/Null.type.html) is the type of 
-[`null`](#{site.urls.apidoc_1_1}/index.html#null). 
+[`Null`](#{site.urls.apidoc_1_2}/Null.type.html) is the type of 
+[`null`](#{site.urls.apidoc_1_2}/index.html#null). 
 
 Conceptually `null` is the *absence* of a value. 
 
@@ -192,14 +192,14 @@ answer to be false.
 
 #### `Object`
 
-[`Object`](#{site.urls.apidoc_1_1}/Object.type.html) 
+[`Object`](#{site.urls.apidoc_1_2}/Object.type.html) 
 is the class that declares `equals()`, `hash` and `string`. 
 
 `Object` is one of the cases of `Anything`, the other being `Null`.
 
 #### `Basic`
 
-[`Basic`](#{site.urls.apidoc_1_1}/Basic.type.html) 
+[`Basic`](#{site.urls.apidoc_1_2}/Basic.type.html) 
 mixes `Identifiable` into `Object`.
 
 `Basic` is the default superclass of classes whose declaration lacks 
@@ -207,7 +207,7 @@ an `extends` clause.
 
 #### `Iterable`
 
-[`Iterable`](#{site.urls.apidoc_1_1}/Iterable.type.html) 
+[`Iterable`](#{site.urls.apidoc_1_2}/Iterable.type.html) 
 is a type that produces instances of another type when iterated. 
 
 There are two flavours of `Iterable`:
@@ -219,17 +219,17 @@ There are two flavours of `Iterable`:
 
 #### `Sequential`
 
-[`Sequential`](#{site.urls.apidoc_1_1}/Sequential.type.html) 
+[`Sequential`](#{site.urls.apidoc_1_2}/Sequential.type.html) 
 is an enumerated type with subtypes 
-[`Sequence`](#{site.urls.apidoc_1_1}/Sequence.type.html) and 
-[`Empty`](#{site.urls.apidoc_1_1}/Empty.type.html). 
+[`Sequence`](#{site.urls.apidoc_1_2}/Sequence.type.html) and 
+[`Empty`](#{site.urls.apidoc_1_2}/Empty.type.html). 
 `Sequential<T>` is usually [abbreviated](../type-abbreviation) 
 to `T[]` or `[T*]`.
 
 #### `Empty`
 
-[`Empty`](#{site.urls.apidoc_1_1}/Empty.type.html) is the type 
-of a [`Sequential`](#{site.urls.apidoc_1_1}/Sequential.type.html) 
+[`Empty`](#{site.urls.apidoc_1_2}/Empty.type.html) is the type 
+of a [`Sequential`](#{site.urls.apidoc_1_2}/Sequential.type.html) 
 which contains no elements. 
 
 The expression `[]` (or alternatively the value `empty`) 
@@ -237,13 +237,13 @@ in the language module has the type `Empty`.
 
 #### `Sequence`
 
-[`Sequence`](#{site.urls.apidoc_1_1}/Sequence.type.html) is the 
+[`Sequence`](#{site.urls.apidoc_1_2}/Sequence.type.html) is the 
 type of non-empty sequences.
 `Sequence<T>` is usually [abbreviated](../type-abbreviation) to `[T+]`.
 
 #### `Tuple`
 
-[`Tuple`](#{site.urls.apidoc_1_1}/Tuple.type.html) is a subclass 
+[`Tuple`](#{site.urls.apidoc_1_2}/Tuple.type.html) is a subclass 
 of `Sequence` (and thus cannot be empty). It differs from `Sequence` 
 in that it encodes the types of each of its elements individually.
 

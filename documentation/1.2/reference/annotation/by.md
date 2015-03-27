@@ -27,6 +27,6 @@ which assumes it contains [Markdown formatted](../markdown/) text.
 
 ## See also
 
-* API documentation for [`by`](#{site.urls.apidoc_1_1}/index.html#by)
+* API documentation for [`by`](#{site.urls.apidoc_1_2}/index.html#by)
 * Reference for [annotations in general](../../structure/annotation/)
 

@@ -127,7 +127,7 @@ If a class lacks a parameter list it must have one or more
 
 A class may be viewed as a function that produces new instances of
 the class. The *callable type* of a class expresses, in terms of 
-the interface [`Callable`](#{site.urls.apidoc_1_1}/Callable.type.html), 
+the interface [`Callable`](#{site.urls.apidoc_1_2}/Callable.type.html), 
 the type of this function.
 
 For example the callable type of 
@@ -168,7 +168,7 @@ own `extends` clause for invoking the appropriate superclass constructor:
     }
 
 If a class is declared without using the `extends` keywords, it is a 
-subclass of [`Basic`](#{site.urls.apidoc_1_1}/Basic.type.html).
+subclass of [`Basic`](#{site.urls.apidoc_1_2}/Basic.type.html).
 
 ### Satisfying interfaces
 
@@ -426,11 +426,11 @@ A *class alias* is a kind of [alias](../alias/#class_aliases).
 ### Metamodel
 
 Class declarations can be manipulated at runtime via their representation as
-[`ClassDeclaration`](#{site.urls.apidoc_1_1}/meta/declaration/ClassDeclaration.type.html) 
+[`ClassDeclaration`](#{site.urls.apidoc_1_2}/meta/declaration/ClassDeclaration.type.html) 
 instances. An *applied class* (i.e. with all type parameters specified) 
 corresponds to either a 
-[`Class`](#{site.urls.apidoc_1_1}/meta/model/Class.type.html) or 
-[`MemberClass`](#{site.urls.apidoc_1_1}/meta/model/MemberClass.type.html) 
+[`Class`](#{site.urls.apidoc_1_2}/meta/model/Class.type.html) or 
+[`MemberClass`](#{site.urls.apidoc_1_2}/meta/model/MemberClass.type.html) 
 model instance.
 
 ## See also

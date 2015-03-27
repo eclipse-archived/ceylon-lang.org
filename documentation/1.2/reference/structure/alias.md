@@ -52,21 +52,21 @@ affecting where the alias can appear:
 ### Metamodel
 
 Type aliases can be manipulated at runtime via their representation as
-[`AliasDeclaration`](#{site.urls.apidoc_1_1}/meta/declaration/AliasDeclaration.type.html) 
+[`AliasDeclaration`](#{site.urls.apidoc_1_2}/meta/declaration/AliasDeclaration.type.html) 
 instances. There is no corresponding model interface.
 
 Class and interface aliases are treated as normal classes and interfaces,
 therefore their declarations are
-[`ClassDeclaration`](#{site.urls.apidoc_1_1}/meta/declaration/ClassDeclaration.type.html)
+[`ClassDeclaration`](#{site.urls.apidoc_1_2}/meta/declaration/ClassDeclaration.type.html)
 and
-[`InterfaceDeclaration`](#{site.urls.apidoc_1_1}/meta/declaration/InterfaceDeclaration.type.html).
+[`InterfaceDeclaration`](#{site.urls.apidoc_1_2}/meta/declaration/InterfaceDeclaration.type.html).
 The 
-[`ClassOrInterfaceDeclaration.isAlias`](#{site.urls.apidoc_1_1}/meta/declaration/ClassOrInterfaceDeclaration.type.html#isAlias) 
+[`ClassOrInterfaceDeclaration.isAlias`](#{site.urls.apidoc_1_2}/meta/declaration/ClassOrInterfaceDeclaration.type.html#isAlias) 
 attribute is used to distinguish aliases from normal classes and interfaces.
 The corresponding models are
-[`Class`](#{site.urls.apidoc_1_1}/meta/model/Class.type.html)
+[`Class`](#{site.urls.apidoc_1_2}/meta/model/Class.type.html)
 and
-[`Interface`](#{site.urls.apidoc_1_1}/meta/model/Interface.type.html).
+[`Interface`](#{site.urls.apidoc_1_2}/meta/model/Interface.type.html).
 
 ## See also
 

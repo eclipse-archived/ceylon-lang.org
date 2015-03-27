@@ -35,15 +35,15 @@ See the [language specification](#{site.urls.spec_current}#equalitycomparison) f
 
 The `<=>` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `<=>` depends on the 
-[`Comparable`](#{site.urls.apidoc_1_1}/Comparable.type.html) interface 
+[`Comparable`](#{site.urls.apidoc_1_2}/Comparable.type.html) interface 
 
 ### Type
 
-The result type of the `<=>` operator is [`Comparison`](#{site.urls.apidoc_1_1}/Comparison.type.html).
+The result type of the `<=>` operator is [`Comparison`](#{site.urls.apidoc_1_2}/Comparison.type.html).
 
 ## See also
 
-* API documentation for [`Comparable`](#{site.urls.apidoc_1_1}/Comparable.type.html)
+* API documentation for [`Comparable`](#{site.urls.apidoc_1_2}/Comparable.type.html)
 * [compare in the language specification](#{site.urls.spec_current}#equalitycomparison)
 * [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 
   language specification

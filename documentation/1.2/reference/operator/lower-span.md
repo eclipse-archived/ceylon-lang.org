@@ -38,7 +38,7 @@ more details.
 
 The `x[...z]` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `x[...z]` depends on the 
-[`Ranged`](#{site.urls.apidoc_1_1}/Ranged.type.html) 
+[`Ranged`](#{site.urls.apidoc_1_2}/Ranged.type.html) 
 interface.
 
 ### Type
@@ -49,7 +49,7 @@ The result type of the `lhs[..to]` operator is the element type of the `Ranged` 
 
 * [`x[y..z]` (span)](../span) operator used for obtaining a span of a `Ranged`.
 * [`x[y...]` (upper span)](../upper-span) operator used for obtaining a span of a `Ranged`.
-* API documentation for [`Ranged`](#{site.urls.apidoc_1_1}/Ranged.type.html)
+* API documentation for [`Ranged`](#{site.urls.apidoc_1_2}/Ranged.type.html)
 * [sequence operators](#{site.urls.spec_current}#listmap) in the 
   language specification
 * [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 

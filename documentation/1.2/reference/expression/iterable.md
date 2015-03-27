@@ -9,7 +9,7 @@ author: Tom Bentley
 # #{page.title_md}
 
 _Iterable enumeration_ is a notation for creating instances of
-[`Iterable`](#{site.urls.apidoc_1_1}/Iterable.type.html).
+[`Iterable`](#{site.urls.apidoc_1_2}/Iterable.type.html).
 
 ## Usage 
 
@@ -35,8 +35,8 @@ iterables. For example:
     value evens = {for (i in 0..100) if (i % 2 == 0) i};
 
 The empty iteratable, `{}`, has the value 
-[`empty`](#{site.urls.apidoc_1_1}/index.html#empty) and the type
-[`Empty`](#{site.urls.apidoc_1_1}/Empty.type.html)
+[`empty`](#{site.urls.apidoc_1_2}/index.html#empty) and the type
+[`Empty`](#{site.urls.apidoc_1_2}/Empty.type.html)
 
 ### Type
 

@@ -9,7 +9,7 @@ author: Tom Bentley
 # #{page.title_md}
 
 _Tuple enumeration_ is a notation for creating instances of
-[`Tuple`](#{site.urls.apidoc_1_1}/Tuple.type.html).
+[`Tuple`](#{site.urls.apidoc_1_2}/Tuple.type.html).
 
 ## Usage 
 
@@ -29,7 +29,7 @@ within square brackets `[` and `]`.
 
 If you supply no arguments you obtain the empty tuple, `[]`, 
 which is precisely the same as 
-[`empty`](#{site.urls.apidoc_1_1}/index.html#empty).
+[`empty`](#{site.urls.apidoc_1_2}/index.html#empty).
 
 All kinds of positional argument are available. 
 For example, consider
@@ -51,7 +51,7 @@ Or a tuple enumeration with a
 ### Type
 
 The type of a tuple enumeration is the 
-[`Tuple`](#{site.urls.apidoc_1_1}/Tuple.type.html) 
+[`Tuple`](#{site.urls.apidoc_1_2}/Tuple.type.html) 
 type of the list of arguments it contains.
 
 

@@ -51,9 +51,9 @@ A given annotation class can have zero, one or many annotation constructors.
 An annotation class must be a toplevel class 
 annotated with the `final` and `annotation` annotations 
 and it must be a direct subclass of either 
-[`Annotation`](#{site.urls.apidoc_1_1}/Annotation.type.html),
-[`OptionalAnnotation`](#{site.urls.apidoc_1_1}/OptionalAnnotation.type.html) or 
-[`SequencedAnnotation`](#{site.urls.apidoc_1_1}/SequencedAnnotation.type.html).
+[`Annotation`](#{site.urls.apidoc_1_2}/Annotation.type.html),
+[`OptionalAnnotation`](#{site.urls.apidoc_1_2}/OptionalAnnotation.type.html) or 
+[`SequencedAnnotation`](#{site.urls.apidoc_1_2}/SequencedAnnotation.type.html).
 
 <!-- try: -->
     final annotation class Example(shared String description) 
@@ -65,7 +65,7 @@ Any class parameters must be of one of the allowed types:
 * `Integer`, `Byte`, `Character`, `Float`, `String`
 * [Enumerated types](../type-declaration/#enumerated_types) where all the cases are `object` declarations
   (which includes `Boolean`).
-* A subtype of [`Declaration`](#{site.urls.apidoc_1_1}/meta/declaration/Declaration.type.html)
+* A subtype of [`Declaration`](#{site.urls.apidoc_1_2}/meta/declaration/Declaration.type.html)
 * Another annotation class.
 * `Iterable`s, `Sequence`s or `Tuple`s of the above.
 
@@ -105,19 +105,19 @@ Annotation classes must be a subclass of `Annotation`.
 
 * Using `Annotation` as the superclass means the annotation class can be used on any 
   program element that supports annotations. The annotation may appear at most once. 
-* `Annotation` has a subclass, [`ConstrainedAnnotation`](#{site.urls.apidoc_1_1}/metamodel/ConstrainedAnnotation.type.html),
+* `Annotation` has a subclass, [`ConstrainedAnnotation`](#{site.urls.apidoc_1_2}/metamodel/ConstrainedAnnotation.type.html),
   which allows more fine-grained control over where and how the annotation may be used. 
   Its enumerated subclasses are:
-    * [`OptionalAnnotation`](#{site.urls.apidoc_1_1}/metamodel/OptionalAnnotation.type.html) 
+    * [`OptionalAnnotation`](#{site.urls.apidoc_1_2}/metamodel/OptionalAnnotation.type.html) 
       for annotations which occur at most once on a given program element, and
-    * [`SequencedAnnotation`](#{site.urls.apidoc_1_1}/metamodel/SequencedAnnotation.type.html)
+    * [`SequencedAnnotation`](#{site.urls.apidoc_1_2}/metamodel/SequencedAnnotation.type.html)
       which can occur more than once on a given program element.
 
 ### Program Elements
 
 A `ConstrainedAnnotation` may constrain the program elements where it is allowed to 
 be used to any of the types satisfying 
-[`Annotated`](#{site.urls.apidoc_1_1}/metamodel/Annotated.type.html), which are
+[`Annotated`](#{site.urls.apidoc_1_2}/metamodel/Annotated.type.html), which are
 
 * [Class declarations](../class), [class aliases](../class#alises) and their [parameters](../parameter-list),
 * [Interface declarations](../interface) and [interface alises](../interface#aliases)

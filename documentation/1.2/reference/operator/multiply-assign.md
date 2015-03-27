@@ -40,7 +40,7 @@ See the [language specification](#{site.urls.spec_current}#arithmetic) for more 
 
 The `*=` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism).
 The definition of the `*=` operator depends 
-on the [`Numeric`](#{site.urls.apidoc_1_1}/Numeric.type.html) interface.
+on the [`Numeric`](#{site.urls.apidoc_1_2}/Numeric.type.html) interface.
 
 ### Type
 

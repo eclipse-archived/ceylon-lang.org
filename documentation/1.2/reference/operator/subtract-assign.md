@@ -39,7 +39,7 @@ See the [language specification](#{site.urls.spec_current}#arithmetic) for more 
 
 The `-=` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism).
 The definition of the `-=` operator depends 
-on the [`Invertible`](#{site.urls.apidoc_1_1}/Invertible.type.html) interface.
+on the [`Invertible`](#{site.urls.apidoc_1_2}/Invertible.type.html) interface.
 
 ### Type
 

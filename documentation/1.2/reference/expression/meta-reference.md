@@ -9,9 +9,9 @@ author: Tom Bentley
 # #{page.title_md}
 
 Meta references are a way to obtain models from 
-[`ceylon.language.meta.model`](#{site.urls.apidoc_1_1}/meta/model/index.html)
+[`ceylon.language.meta.model`](#{site.urls.apidoc_1_2}/meta/model/index.html)
 and declarations from 
-[`ceylon.language.meta.declaration`](#{site.urls.apidoc_1_1}/meta/declaration/index.html).
+[`ceylon.language.meta.declaration`](#{site.urls.apidoc_1_2}/meta/declaration/index.html).
 
 ## Usage 
 

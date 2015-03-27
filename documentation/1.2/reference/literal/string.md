@@ -9,7 +9,7 @@ doc_root: ../../..
 
 # #{page.title_md}
 
-A literal notation for a [`String`](#{site.urls.apidoc_1_1}/String.type.html) 
+A literal notation for a [`String`](#{site.urls.apidoc_1_2}/String.type.html) 
 value.
 
 ## Usage 

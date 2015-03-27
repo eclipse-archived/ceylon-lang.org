@@ -55,11 +55,11 @@ example:
 The `module` declaration may be preceeded by [annotations](../annotation), 
 including:
 
-* [`doc`](#{site.urls.apidoc_1_1}/index.html#doc) 
+* [`doc`](#{site.urls.apidoc_1_2}/index.html#doc) 
   to let you to specify module-level documentation,
-* [`license`](#{site.urls.apidoc_1_1}/index.html#license) 
+* [`license`](#{site.urls.apidoc_1_2}/index.html#license) 
   to let you specify the module's license,
-* [`by`](#{site.urls.apidoc_1_1}/index.html#by) 
+* [`by`](#{site.urls.apidoc_1_2}/index.html#by) 
   to document the module's author or authors. 
 
 The module declaration itself starts with the `module` keyword 
@@ -73,14 +73,14 @@ its version.
 The `import` declarations can also be annotated. Annotations 
 particularly worth noting are:
 
-* [`shared`](#{site.urls.apidoc_1_1}/index.html#shared) to mark the 
+* [`shared`](#{site.urls.apidoc_1_2}/index.html#shared) to mark the 
   imported module as also being exported to clients of this 
   module. If your module uses types from an imported module in 
   its API then the `import` for that module must be annotated 
   `shared` in the module descriptor.
-* [`optional`](#{site.urls.apidoc_1_1}/index.html#optional) to mark
+* [`optional`](#{site.urls.apidoc_1_2}/index.html#optional) to mark
   the imported module as being an optional dependency.
-* [`doc`](#{site.urls.apidoc_1_1}/index.html#doc), 
+* [`doc`](#{site.urls.apidoc_1_2}/index.html#doc), 
   if there is something about the dependency which is worthy of documentation.
 
 
@@ -125,10 +125,10 @@ to define external `module.xml` or `module.properties` descriptors in a flat fol
 ### Metamodel
 
 Modules can be manipulated at runtime via their representation as
-[`Module`](#{site.urls.apidoc_1_1}/meta/declaration/Module.type.html) instances. 
+[`Module`](#{site.urls.apidoc_1_2}/meta/declaration/Module.type.html) instances. 
 A module's `import` declarations are represented as
-[`Import`](#{site.urls.apidoc_1_1}/meta/declaration/Import.type.html) instances.
-The [`modules`](#{site.urls.apidoc_1_1}/meta/modules.object.html) object can be 
+[`Import`](#{site.urls.apidoc_1_2}/meta/declaration/Import.type.html) instances.
+The [`modules`](#{site.urls.apidoc_1_2}/meta/modules.object.html) object can be 
 used to list the modules currently loaded in the virtual machine.
 
 ## See also

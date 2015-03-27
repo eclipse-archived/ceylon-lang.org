@@ -31,6 +31,6 @@ Its content should be a short keyword or identifier, and
 
 ## See also
 
-* [`tagged`](#{site.urls.apidoc_1_1}/index.html#tagged)
+* [`tagged`](#{site.urls.apidoc_1_2}/index.html#tagged)
 * Reference for [annotations in general](../../structure/annotation/)
 

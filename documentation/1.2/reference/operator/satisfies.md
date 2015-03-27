@@ -38,15 +38,15 @@ for more details.
 
 TODO The `satisfies` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `satisfies` depends on the 
-[`Type`](#{site.urls.apidoc_1_1}/metamodel/Type.type.html) interface.
+[`Type`](#{site.urls.apidoc_1_2}/metamodel/Type.type.html) interface.
 
 ### Type
 
-The result type of the `satisfies` operator is [`Boolean`](#{site.urls.apidoc_1_1}/Boolean.type.html).
+The result type of the `satisfies` operator is [`Boolean`](#{site.urls.apidoc_1_2}/Boolean.type.html).
 
 ## See also
 
-* API documentation for [`Type`](#{site.urls.apidoc_1_1}/metamodel/Type.type.html)
+* API documentation for [`Type`](#{site.urls.apidoc_1_2}/metamodel/Type.type.html)
 * [`is` in the language specification](#{site.urls.spec_current}#equalitycomparison)
 * [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 
   language specification

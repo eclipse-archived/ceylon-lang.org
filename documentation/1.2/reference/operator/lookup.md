@@ -41,7 +41,7 @@ more details.
 
 The `[]` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `[]` depends on the 
-[`Correspondence`](#{site.urls.apidoc_1_1}/Correspondence.type.html) 
+[`Correspondence`](#{site.urls.apidoc_1_2}/Correspondence.type.html) 
 interface.
 
 ### Type
@@ -50,7 +50,7 @@ The result type of the `lhs[index]` operator is the element type of the `Corresp
 
 ## See also
 
-* API documentation for [`Correspondence`](#{site.urls.apidoc_1_1}/Correspondence.type.html) 
+* API documentation for [`Correspondence`](#{site.urls.apidoc_1_2}/Correspondence.type.html) 
 * [sequence operators](#{site.urls.spec_current}#listmap) in the 
   language specification
 * [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 

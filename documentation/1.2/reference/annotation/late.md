@@ -43,5 +43,5 @@ Only references may be annotated `late` (it doesn't make sense for
 
 ## See also
 
-* API documentation for [`late`](#{site.urls.apidoc_1_1}/index.html#late)
+* API documentation for [`late`](#{site.urls.apidoc_1_2}/index.html#late)
 * Reference for [annotations in general](../../structure/annotation/)
