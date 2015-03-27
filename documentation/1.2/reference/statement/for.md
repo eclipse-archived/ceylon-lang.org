@@ -79,13 +79,21 @@ not been found:
         return minors;
     }
 
-### Iterating entries
+### Iterating entries and tuples
 
-A special syntactic form of the `for` statement is provided for iterating instances
-of `Entry`.
+The `for` statement supports [destructuring](../destructure) for iterating instances
+of `Entry` and `Tuple`:
 
 <!-- try: -->
     for (key->item in map) {
+        //...
+    }
+
+    for ([x, y, z] in points) {
+        //...
+    }
+    
+    for ([x, y, z]->label in labelledPoints) {
         //...
     }
 

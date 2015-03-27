@@ -60,10 +60,18 @@ initialized to zero or the null value.
 These checks can be disabled using the [`late`](../../annotation/late/)
 annotation.
 
+### Destructuring
+
+When extracting values from a `Tuple` or `Entry` you can use 
+[destructuring](../destructuring):
+
+    // declares values x and y, where location is a tuple
+    value [x, y] = object.location;
+
 ## See also
 
 * The [`=` (assignment) *operator*](../../operator/assign/), used for 
   assigning a value to `variable` locals or attributes.
 * [Specification statements](#{site.urls.spec_current}#specificationstatements) 
   in the Ceylon language specification
-  
+* [Destructuring](../destructuring)

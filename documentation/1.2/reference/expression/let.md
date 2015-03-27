@@ -24,7 +24,11 @@ values, like this:
 
     Integer result = let(x = 1, y = x+2, z=x*y) x^y;
     
+### Destructuring
 
+`let` supports [destructuring](../../statement/destructure):
+
+    value r = let([x, y] = point) sqrt(x^2+y^2);
 
 ### Type
 
