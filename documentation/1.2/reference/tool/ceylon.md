@@ -36,6 +36,8 @@ The rest of this page will highlight particular tools
   allows you to copy modules across repositories.
 * [`ceylon doc`](#{site.urls.ceylon_tool_current}/ceylon-doc.html)
   is the command line interface to the Ceylon documentation compiler.
+* [`ceylon browse`](#{site.urls.ceylon_tool_current}/ceylon-browse.html)
+  is a convenient way to open a web browser on a module's API documentation.
 * [`ceylon info`](#{site.urls.ceylon_tool_current}/ceylon-info.html)
   queries modules from repositories and displays information about them.
 * [`ceylon new`](#{site.urls.ceylon_tool_current}/ceylon-new.html)
