@@ -130,5 +130,6 @@ clause is required.
 
 * The [`if` statement](../if) is an alternative control structure for 
   conditional execution
+* The [`switch` expression](../../expression/switch/) 
 * [`switch` in the language specification](#{site.urls.spec_current}#switchcaseelse)
 
