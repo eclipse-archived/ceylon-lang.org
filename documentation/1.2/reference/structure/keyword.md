@@ -34,17 +34,23 @@ The following are reserved keywords:
 * `else` 
    (used with the [`for`](../../statement/for), 
    [`if`](../../statement/if) and 
-   [`switch`](../../statement/switch) statements and as an
+   [`switch`](../../statement/switch) statements, in the
+   [`if`](../../expression/if/) expression and as an
    [operator](../../operator/else/))
 * `exists` 
    (used with [`if`](../../statement/if#if_exists_) and as an 
    [operator](../../operator/exists))
-* [`extends`](../class)
+* `extends`
+    used in [class declarations](../class) to specify the superclass and 
+    invoke superclass initializers, and also in [constructor declarations](../class#constructor_declarations) 
+    to invoke superclass constructors.
 * [`finally`](../../statement/try)
 * [`for`](../../statement/for)
 * [`function`](../type-inference)
 * [`given`](../type-parameters#constraints)
-* [`if`](../../statement/if)
+* `if`
+    used for the [`if` statement](../../statement/if)
+    and the [`if` expression](../../expression/if)
 * [`import`](../../statement/import)
 * `in` 
    (used for [variance](../type-parameters#variance) and with the
@@ -55,9 +61,9 @@ The following are reserved keywords:
    [`while`](../../statement/while#special_conditions), and 
    [`case`](../../statement/switch#caseis_assignability_condition) 
    statements and as an [operator](../../operator/is))
-* `let` (currently unused)
+* [`let`](../../expression/let))
 * [`module`](../module#descriptor)
-* `new` (currently unused)
+* [`new`](../class#constructor_declarations)
 * `nonempty` (used in the [`if`](../../statement/if#special_conditions),
    [`while`](../../statement/while#special_conditions), and 
    [`case`](../../statement/switch#caseis_assignability_condition) 
@@ -73,8 +79,10 @@ The following are reserved keywords:
 * `satisfies` (used in [`class`](../class) and 
    [`interface`](../interface) declarations)
 * [`super`](../../expression/#self_and_outer_references)
-* [`switch`](../../statement/switch)
-* [`then`](../../operator/then)
+* `switch` is used for the [`switch` statement](../../statement/switch)
+  and the [`switch` expression](../../expression/switch)
+* `then` is used in [`if` expressions](../../expression/if/) 
+  and also as the [`then` operator](../../operator/then)
 * [`this`](../../expression/#self_and_outer_references)
 * [`throw`](../../statement/throw)
 * [`try`](../../statement/try)
