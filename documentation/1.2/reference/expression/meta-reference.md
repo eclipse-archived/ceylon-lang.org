@@ -61,6 +61,12 @@ Obtaining declarations:
         TypeParameter otherDecl = `given Other`;
     }
 
+When you want a reference to the current class you can use an abbreviated syntax:
+
+    ClassDeclaration myClass = `class`;
+    Package myPackage = `package`;
+    Module myModule = `module`;
+
 ## Description
 
 ### Syntax
