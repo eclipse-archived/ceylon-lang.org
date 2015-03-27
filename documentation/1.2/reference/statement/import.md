@@ -36,6 +36,24 @@ The `import` statement has several variations:
     // assigning a different name to a member of an imported type
     import org.example.metasyntax { Foo { b=bar } }
 
+It is also possible to import the members of a top level `object`, or a 
+constructor from a toplevel class:
+
+    import org.example.person {
+        Person { 
+            // import the Person.FromName constructor
+            // so code can just do NamedPerson("Alan", "Turing")
+            NamedPerson=FromName 
+        },
+        famousPeople {
+            // import values from the famourPeople object
+            // so code can use them as if they were top level
+            elvis,
+            beethoven
+        }
+    }
+    
+
 ## Description
 
 Since Ceylon does not support the use of fully-qualified names in code,
