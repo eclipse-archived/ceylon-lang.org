@@ -126,6 +126,24 @@ If the `switch` expression is of type [`Integer`](#{site.urls.apidoc_1_2}/Intege
 Since it's impossible to enumerate every value of any of these types, the `else` 
 clause is required.
 
+### Flow typing
+
+Note that `case (is ...)` narrows the type of the switch value within the 
+scope of the `case`. Furthermore this flow typing can also affect the `else` 
+clause of the control structure:
+
+    void go(Car|Bicycle|Motobike vehicle) {
+        switch(vehicle)
+        case (is Car) {
+            // vehicle has type Car
+            vehicle.drive();
+        } 
+        else {
+            // vehicle has type Bicycle|Motobike
+            vehicle.ride();
+        }
+    }
+
 ## See also
 
 * The [`if` statement](../if) is an alternative control structure for 

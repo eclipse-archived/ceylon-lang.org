@@ -62,7 +62,8 @@ statement also supports the use of typing conditions:
 * [`nonempty` conditions](../conditions/#nonempty_conditions).
 
 These conditions narrow the type of a reference within the associated block, 
-and in later conditions in the condition list.
+and in later conditions in the condition list and the rest of the 
+control structure.
 
 <!-- try: -->
     void printSqrt(Object x) {
@@ -75,6 +76,18 @@ By not separating the operation that checks the safety of the typecast from
 the operation used to actually perform the typecast Ceylon eliminates the 
 possibility that the programmer might forget to do the test before attempting 
 the typecast, and eliminates repetition of the narrower type.
+
+Flow typing can also affect the rest of the control structure:
+
+    void go(Car|Bicycle vehicle) {
+        if (is Car vehicle) {
+            // vehicle has type Car
+            vehicle.drive();
+        } else {
+            // vehicle has type Bicycle
+            vehicle.ride();
+        }
+    }
 
 ## See also
 
