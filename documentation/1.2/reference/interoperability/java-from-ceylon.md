@@ -399,7 +399,7 @@ properties (as Ceylon attributes).
 ## Using Java annotations on Ceylon declarations
 
 Ceylon annotations differ from Java annotations in an important respect: 
-Ceylon requires an annotation constructor to be invoked at the 
+Ceylon requires an *annotation constructor* to be invoked at the 
 declaration being annotated. 
 Java doesn't have the concept of an annotation constructor, so for 
 each Java annotation type we pretend there's a corresponding annotation 
@@ -437,6 +437,21 @@ elements and class literals (using `Declaration` reference expressions):
         annotationTakingClass(`class Bar`)
         shared variable String tom = "";
     }
+
+In some cases the target of the annotation is ambiguous, for example you might 
+need to annotate a *field* with `@Inject`, but in Ceylon there is field in the source code 
+to apply the annotation to. In these cases there are several synthetic annotation 
+constructors available, named according to the possible `@Target` of the 
+annotation type in question. For example
+ 
+    class Injected() {
+        inject__FIELD
+        shared variable String whatever;
+    }
+
+The compiler will warn you if you apply an annotation constructor to an 
+element in an ambiguous way, and force you to use the more specific 
+named variant.
 
 ## Importing JDK modules
 
