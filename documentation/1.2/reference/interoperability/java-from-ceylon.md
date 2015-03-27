@@ -439,8 +439,9 @@ elements and class literals (using `Declaration` reference expressions):
     }
 
 In some cases the target of the annotation is ambiguous, for example you might 
-need to annotate a *field* with `@Inject`, but in Ceylon there is field in the source code 
-to apply the annotation to. In these cases there are several synthetic annotation 
+need to annotate a *field* with `@Inject`, but in Ceylon there is no 
+field in the source code to apply the annotation to. 
+In these cases there are several synthetic annotation 
 constructors available, named according to the possible `@Target` of the 
 annotation type in question. For example
  
