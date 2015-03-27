@@ -165,6 +165,10 @@ It is common to use a comprehension argument in an
 
     value names = {for (person in people) person.name};
 
+Comprehensions support [destructuring](../../statement/destructure):
+
+    value distances = {for ([x, y] in points) sqrt(x^2+y^2)};
+
 ## See also
 
 * The reference on [invocation](../invocation)
