@@ -31,7 +31,7 @@ _Some of these pages are incomplete. Want to help? [See how](/code/website)._
   <li><a href="structure/parameter-list/">Parameters</a></li>
   <li><a href="structure/value/">Values</a></li>
   <li><a href="structure/function/">Functions</a></li>
-  <li><a href="structure/object/"><code>object</code>s</a></li>
+  <li><a href="structure/object/"><code>object</code> declarations</a> <small>(c.f. object expressions)</small></li>
   <li><a href="structure/annotation/">Annotations</a></li>
 </ul>
 
@@ -72,11 +72,12 @@ _Some of these pages are incomplete. Want to help? [See how](/code/website)._
   <li><a href="statement/conditions/">Condition lists</a></li>
   <li><a href="statement/expression/">Expression statements</a></li>
   <li><a href="statement/for/"><code>for</code></a></li>
-  <li><a href="statement/if/"><code>if</code></a></li>
+  <li><a href="statement/if/"><code>if statement</code></a></li>
   <li><a href="statement/import/"><code>import</code></a></li>
   <li><a href="statement/return/"><code>return</code></a></li>
   <li><a href="statement/specification/">Specification statements</a></li>
-  <li><a href="statement/switch/"><code>switch</code></a></li>
+  <li><a href="statement/destructure/">Destructuring specification</a></li>
+  <li><a href="statement/switch/"><code>switch statement</code></a></li>
   <li><a href="statement/throw/"><code>throw</code></a></li>
   <li><a href="statement/try/"><code>try</code></a></li>
   <li><a href="statement/while/"><code>while</code></a></li>
@@ -101,6 +102,11 @@ _Some of these pages are incomplete. Want to help? [See how](/code/website)._
   <li><a href="expression/callable-reference/">Callable references</a></li>
   <li><a href="expression/static-reference/">Static references</a></li>
   <li><a href="expression/meta-reference/">Meta references</a></li>
+  
+  <li><a href="expression/if/"><code>if</code> expressions</a></li>
+  <li><a href="expression/switch/"><code>switch</code> expression</a></li>
+  <li><a href="expression/let/"><code>let</code></a></li>
+  <li><a href="expression/object/"><code>object</code> expressions</a></li>
 </ul>
 
 Also see [operators](#operators) and [literals](#literals) below
