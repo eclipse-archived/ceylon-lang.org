@@ -9,14 +9,18 @@ author: Emmanuel Bernard
 
 Ceylon is first and foremost an open source community project.
 
-## Forum
+## User mailing list
 If you have questions or suggestions, you're welcome to discuss them in 
-our Google group [forum](http://groups.google.com/group/ceylon-users).
+our [Google user group](http://groups.google.com/group/ceylon-users).
 
 ## Development mailing list
 
 You can follow and participate in the development of Ceylon by joining 
-our [development mailing list](http://groups.google.com/group/ceylon-dev).
+our [Google development group](http://groups.google.com/group/ceylon-dev).
+
+## Gitter
+
+You can also chat live with us on our [Gitter channel](https://gitter.im/ceylon/user)
 
 ## IRC
 
