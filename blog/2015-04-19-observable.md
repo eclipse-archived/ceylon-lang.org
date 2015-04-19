@@ -58,7 +58,7 @@ An observer, usually, is in essence nothing more than a
 function that accepts a certain type of event as a parameter.
 
 For example, this anonymous function observes the creation
-or `User`s:
+of `User`s:
 
 <!-- try: -->
     (Created<User> userCreated) 
@@ -71,8 +71,8 @@ kind of entity:
     (Lifecycle<Object> event) 
             => print("something happened: " + event)
 
-In Ceylon, union and intersection types give us a nice way
-to express conjunction and disjunction of event types:
+Union and intersection types give us a nice way to express 
+conjunction and disjunction of event types:
 
 <!-- try: -->
     void (Created<User>|Deleted<User> userEvent) {
@@ -121,7 +121,9 @@ with the `Observable`:
             => listeners.add(handle);
 
 This method only accepts observer functions for some subset
-of the events actually produced by the `Observable`.
+of the events actually produced by the `Observable`. This
+constraint is enforced by the upper bound 
+`given ObservedEvent satisfies Event`.
 
 The `raise()` method produces an event:
 
@@ -131,7 +133,11 @@ The `raise()` method produces an event:
             => listeners.narrow<Anything(RaisedEvent)>()
                 .each((handle) => handle(event));
 
-This function uses the new `narrow()` method of `Iterable`
+Again, the upper bound enforces that this method only 
+accepts event objects that are of an event type produced by 
+the `Observable`.
+
+This method uses the new `narrow()` method of `Iterable`
 in Ceylon 1.2 to filter out observer functions that don't
 accept the raised event type. This method is implemented
 using reified generics. Here's its definition in 
@@ -140,6 +146,12 @@ using reified generics. Here's its definition in
 <!-- try: -->
     shared default {Element&Type*} narrow<Type>() 
             => { for (elem in this) if (is Type elem) elem };
+
+That is, if we have a stream of `Element`s, and we call
+`narrow<Type>()`, explicitly passing an arbitrary type 
+`Type`, then we get back a stream of all elements of the 
+original stream which are instances of `Type`. This is, 
+naturally, a stream of `Element&Type`s.
 
 Now, finally, if we define an instance of `Observable`:
 
