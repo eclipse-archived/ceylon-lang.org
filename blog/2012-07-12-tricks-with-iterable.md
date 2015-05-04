@@ -56,7 +56,7 @@ Ceylon. We would really write the above code like this:
     print(string(for (c in "Hello Word") if (c.uppercase) c)); //prints "HW"
     print(string(for (c in "Hello Word") c.uppercased)); //prints "HELLO WORLD"
 
-Likewise, `Iterable` has the methods `any()` and `every()`, and
+Likewise, `Iterable` has the methods `any()` and `every()`, 
 but it's still usually more convenient and idiomatic to use 
 comprehensions:
 
