@@ -457,7 +457,10 @@ Here:
 - `Stream` is a type function representing an unknown 
   container type that can contain either characters or 
   tokens,
-- `characterStream` is a stream of characters, and 
+- `newToken` is a function that accepts a substream of 
+  characters and creates a `Token`, 
+- `characterStream` is a stream of characters, and, most 
+  significantly, 
 - `newStream` is a generic function that constructs streams
   of any element type, used internally to create streams of
   characters as well as tokens.
