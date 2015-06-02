@@ -516,6 +516,7 @@ system of subtype polymorphism, including with union
 and intersection types, and with type inference and type
 argument inference. There's even limited support for type
 function inference! And there's no arbitrary upper limits 
-here; not only rank 2 but arbitrary rank types are supported.  
-If there's enough interest, I'll cover that material in a 
+here; not only rank 2 but arbitrary rank types are supported.
+
+If there's enough interest, I'll cover that material in a
 future post.
