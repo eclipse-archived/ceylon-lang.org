@@ -284,7 +284,7 @@ the type variable `TypeFunction` accepts type functions with
 one type argument.
 
 Now, there's one thing to take note of here. At this point,
-by notion that type functions are types is a purely formal
+the notion that type functions are types is a purely formal
 statement. An axiom that defines what kinds types I can 
 write down and expect the typechecker of my programming
 language to be able to reason about. I have 
