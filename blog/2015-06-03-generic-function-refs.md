@@ -422,6 +422,7 @@ of signature:
      a stream of tokens."
     Stream<Token> scan<Char,Token,Stream>
             (grammar, characterStream, newToken, newStream)
+                //Note: Stream is a reference to a type function!
                 given Stream<Element> satisfies {Element*} {
         
         //parameters:
@@ -438,6 +439,7 @@ of signature:
         
         "Generic function to construct a stream
          of characters or tokens."
+         //Note: newStream is a reference to a generic function!
          Stream<Elem> newStream<Elem>({Elem*} elements);
         
         //implementation:
