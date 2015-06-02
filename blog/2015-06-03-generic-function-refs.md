@@ -263,9 +263,8 @@ types_. That is, I can:
 For example:
 
 <!-- try: -->
-    interface SecondOrder<TypeFunction> 
-            given Box<Value> {
-            
+    interface SecondOrder<Box> given Box<Value> {
+        
         formal Box<Float> createBox(Float float);
         
     }
@@ -279,9 +278,9 @@ For example:
     //apply to an anonymous type function
     SecondOrder<<Value> => [Value,Value]> somethingScaryLookin;
 
-The type constraint `given Function<Value>` indicates that
-the type variable `TypeFunction` accepts type functions with
-one type argument.
+The type constraint `given Box<Value>` indicates that the 
+type variable `Box` accepts type functions with one type 
+argument.
 
 Now, there's one thing to take note of here. At this point,
 the notion that type functions are types is a purely formal
