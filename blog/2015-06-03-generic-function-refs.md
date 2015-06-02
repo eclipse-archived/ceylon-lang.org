@@ -499,8 +499,8 @@ In Ceylon 1.2, programming with type functions is an
 experimental feature that only works in conjunction with 
 the JavaScript backend. So you can run code that uses type
 functions on a JavaScript virtual machine, but not on the
-JVM. This is something we're inviting you and to play with
-to see if the whole community agrees it is useful. But right
+JVM. This is something we're inviting you to play with to 
+see if the whole community agrees it is useful. But right
 now it's not covered in the language specification, and it's 
 not supported by the Java backend.
 
