@@ -421,21 +421,24 @@ of signature:
     "Tokenize a stream of characters, producing
      a stream of tokens."
     Stream<Token> scan<Char,Token,Stream>
-            (characterStream, newToken, newStream)
+            (grammar, characterStream, newToken, newStream)
                 given Stream<Element> satisfies {Element*} {
         
         //parameters:
+        
+        "The token grammar."
+        Grammar grammar;
         
         "The character stream to tokenize."
         Stream<Char> characterStream;
         
         "Constructor for tokens, accepting a
          substream of characters."
-        Token(Stream<Char>) newToken;
+        Token newToken(Stream<Char> chars);
         
         "Generic function to construct a stream
          of characters or tokens."
-        <Elem> => Stream<Elem>({Elem*}) newStream;
+         Stream<Elem> newStream<Elem>({Elem*} elements);
         
         //implementation:
         
