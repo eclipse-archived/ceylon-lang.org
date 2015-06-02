@@ -264,7 +264,7 @@ For example:
 
 <!-- try: -->
     interface SecondOrder<Box> given Box<Value> {
-        formal Box<Float> createBox(Float float);
+        shared formal Box<Float> createBox(Float float);
     }
     
     //apply to a generic type alias
