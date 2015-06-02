@@ -208,7 +208,7 @@ In the platonic world of types, I can do that too:
 
 Finally, an ordinary value function can constrain its 
 arguments using a type annotation like `Float x`. A type
-function can do the same thing, albiet with a more 
+function can do the same thing, albeit with a more 
 cumbersome syntax:
 
 <!-- try: -->
