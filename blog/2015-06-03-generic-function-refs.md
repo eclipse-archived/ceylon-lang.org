@@ -496,7 +496,7 @@ to use!
 ### Compiling this code
 
 In Ceylon 1.2, programming with type functions is an 
-experimental feature that is only works in conjunction with 
+experimental feature that only works in conjunction with 
 the JavaScript backend. So you can run code that uses type
 functions on a JavaScript virtual machine, but not on the
 JVM. This is something we're inviting you and to play with
