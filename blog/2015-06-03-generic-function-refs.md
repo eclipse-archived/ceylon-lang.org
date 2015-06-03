@@ -477,29 +477,44 @@ Here:
 We could use this function like this:
 
 <!-- try: -->
+    //Let's use String as the token type, Character as the
+    //character type, and Iterable as the stream type.
+
     //input a stream of characters
     {Character*} input = ... ; 
     
     //get back a stream of Strings
     {String*} tokens =
-            scan<Character,String,Iterable>
-                (input, String, <Elem>({Elem*} elems) => elems);
+            scan<Character, String, Iterable>
+                (input, String,
+                        //Note: a generic anonymous function! 
+                        <Elem>({Elem*} elems) => elems);
 
 Or like this:
 
 <!-- try: -->
+    //use LinkedList as the stream type
+    import ceylon.collection { LinkedList }
+    
+    //we don't need Unicode support, so let's use
+    //Ceylon's 8-bit Byte as our character type
+    alias Char => Byte;
+    
     //define our own token type
-    class BasicToken(LinkedList<Character> charList) {
-        string => String(charList);
+    class BasicToken(LinkedList<Char> charList) {
+        string => String { for (b in charList) 
+                           b.unsigned.character };
     }
     
     //input a linked list of characters
-    LinkedList<Character> input = ... ;
+    LinkedList<Char> input = ... ;
     
     //get back a linked list of BasicTokens
     LinkedList<BasicToken> tokens =
-            scan<Character,BasicToken,LinkedList>
-                (input, BasicToken, LinkedList);
+            scan<Char, BasicToken, LinkedList>
+                (input, BasicToken,
+                        //Note: a generic function ref! 
+                        LinkedList);
     
 As you can see, our parsing algorithm is now almost 
 completely abstracted away from the concrete types we want
