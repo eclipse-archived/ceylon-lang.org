@@ -134,7 +134,7 @@ _promise_.
 So, we all know what an ordinary function looks like:
 
 <!-- try: -->
-    Float addFloats(Float x, Float y) => x+y;
+    function addFloats(Float x, Float y) => x+y;
 
 Let's break that down, we have:
 
