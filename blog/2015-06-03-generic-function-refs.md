@@ -481,12 +481,15 @@ We could use this function like this:
     //character type, and Iterable as the stream type.
 
     //input a stream of characters
-    {Character*} input = ... ; 
+    {Character*} input = ... ;
+    
+    //and some token grammar
+    Grammar grammar = ... ;
     
     //get back a stream of Strings
     {String*} tokens =
             scan<Character, String, Iterable>
-                (input, String,
+                (grammar, input, String,
                         //Note: a generic anonymous function! 
                         <Elem>({Elem*} elems) => elems);
 
@@ -509,10 +512,13 @@ Or like this:
     //input a linked list of characters
     LinkedList<Char> input = ... ;
     
+    //and some token grammar
+    Grammar grammar = ... ;
+    
     //get back a linked list of BasicTokens
     LinkedList<BasicToken> tokens =
             scan<Char, BasicToken, LinkedList>
-                (input, BasicToken,
+                (grammar, input, BasicToken,
                         //Note: a generic function ref! 
                         LinkedList);
     
