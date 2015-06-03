@@ -13,7 +13,7 @@ going to explain in this post is known, technically, as:
 
 - **higher order generic types** (or _type constructor 
   polymorphism_, or _higher kinds_), and
-- **higher rank generic types** (or _rank-N polymoprhism_).
+- **higher rank generic types** (or _rank-N polymorphism_).
 
 Please don't worry about this jargon salad. (And please don't
 try to google any of those terms, because the explanations
@@ -516,7 +516,7 @@ system of subtype polymorphism, including with union
 and intersection types, and with type inference and type
 argument inference. There's even limited support for type
 function inference! And there's no arbitrary upper limits 
-here; not only rank 2 but arbitrary rank types are supported.
+here; not only rank-2 but arbitrary rank types are supported.
 
 If there's enough interest, I'll cover that material in a
 future post.
