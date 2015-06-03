@@ -349,6 +349,13 @@ pretty verbose, we can assign them aliases:
             => <Number> given Number satisfies Summable<Number>
                     => Number(Number,Number);
 
+Or, equivalently, but more simply:
+
+<!-- try: -->
+    alias AdditionLikeOperation<Number> 
+            given Number satisfies Summable<Number>
+                    => Number(Number,Number);
+
 That was the hard part&mdash;we're almost done.
 
 ### References to generic functions
