@@ -83,7 +83,7 @@ function. Well, one thing I can typically do is nail down
 the unknown type to a concrete value:
 
 <!-- try: -->
-    Object pipeObjectFun = pipe<Object>;
+    Object(Object) pipeObjectFun = pipe<Object>;
 
 Or:
 
