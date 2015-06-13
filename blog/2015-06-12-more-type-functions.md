@@ -21,6 +21,61 @@ how we've incorporated type functions into Ceylon's type
 system. Don't even bother continuing any further until 
 you've read the [earlier post](2015/06/03/generic-function-refs).
 
+### A use case for generic function reference types 
+
+The most well-known application of higher-order generics is
+for representing high-levels abstractions of container types:
+functors, monads, and friends. That's not what motivated me
+to experiment with higher-order generics in Ceylon, and as a
+practical matter I still have little interest in these 
+abstractions, though they're fun to play with.
+
+No, what bothered me was not that Ceylon's type system 
+wasn't powerful enough to represent `Functor` or `Monad`, 
+but rather that Ceylon's type system _wasn't powerful enough
+to represent Ceylon_. In the original post, I showed how 
+function types were necessary to represent the type of a 
+reference to a generic function. One place where this 
+problem arises is with one of Ceylon's more unique features: 
+its _typesafe metamodel_. 
+
+Usually, I can obtain a metamodel object that represents a 
+class or function and captures its type signature. For 
+example, the expression `` `String` `` evaluates to a 
+metamodel object that captures the type and initializer
+parameters of the class `String`:
+
+<!-- try: -->
+    Class<String,[{Character*}]> stringClass = `String`;
+
+For a generic declaration, I can do a similar thing, as long 
+as I'm prepared to nail down the type arguments. For example, 
+I can write `` `Singleton<String>` `` to get a metamodel
+object representing the class `Singleton` after applying the
+type argument `String`: 
+
+<!-- try: -->
+    `Class<Singleton<String>,[String]>` stringSingletonClass
+            = `Singleton<String>`
+
+But in Ceylon as it exists today, I can't obtain a typed 
+metamodel object that represents just `` `Singleton` ``, 
+because to represent the type of that metamodel object I 
+would necessarily need a type function.
+
+Now, with the new experimental support for type functions, 
+the type of the expression `` `Singleton` `` could be
+`<T> => Class<Singleton<T>,[T]>()`, allowing code like this:
+
+<!-- try: -->
+    value singletonGenericClass = `Singleton`;
+    ...
+    Class<Singleton<String>,[String]> stringSingletonClass 
+            = singletonGenericClass<String>();
+
+That's just one example of how allowing references to 
+generic functions makes Ceylon feel more "complete".
+
 ### Are type functions "type types"?
 
 One thing I should have made very clear, and forgot, is that
@@ -29,12 +84,13 @@ Ceylon's type system, type functions are types, in the very
 same sense that function are values in Ceylon and other 
 modern languages.
 
-There simply is no type system for types in Ceylon. The 
-closest thing we have to a "type type" is a generic type
-constraint, but that's an extremely impoverished sort of 
-type type, since Ceylon provides no facilities at all to 
-abstract over type constraints&mdash;I can't even assign an 
-alias to a type constraint and reuse it by name.
+There simply is no additional meta-type system for types in 
+Ceylon. The closest thing we have to a "type type" is a 
+generic type constraint, but that's an extremely 
+impoverished sort of type type, since Ceylon provides no 
+facilities at all to abstract over type constraints&mdash;I 
+can't even assign an alias to a type constraint and reuse it 
+by name.
 
 Ceylon reasons about type constraints and assignability of
 types to type variables using hardcoded rules written
