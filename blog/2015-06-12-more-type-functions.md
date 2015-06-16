@@ -429,11 +429,12 @@ For the contravariant type `Comparable<T>`:
 Naturally, it's important that we can do the same tricks for
 intersections and unions of instantiations of higher-order
 types. As at happens, this works out extremely naturally,
-using the following identities
+using the following identities:
 
-- `<<X> => F<X>> | <<Y> => G<Y>>` is just `<T> => F<T> | G<T>`, 
-  and
-- `<<X> => F<X>> & <<Y> => G<Y>>` is just `<T> => F<T> & G<T>`.
+- `<<X> => F<X>> | <<Y> => G<Y>>` is a subtype of 
+  `<T> => F<T> | G<T>`, and
+- `<<X> => F<X>> & <<Y> => G<Y>>` is a subtype of 
+  `<T> => F<T> & G<T>`.
 
 Thus, if we have the following covariant second-order type:
 
