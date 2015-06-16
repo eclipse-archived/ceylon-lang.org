@@ -455,12 +455,12 @@ reason Ceylon's type system is so nice to work with.
 Everything fits together here, without weird holes and 
 corner cases.
 
-### A work about "rank"
+### A word about "rank"
 
 In the previous post I described our support for references
 to generic functions as "arbitrary rank" polymorphism, which
 prompted a short discussion about how to measure the rank of
-a generic type. I know think that the term "rank" probably
+a generic type. I now think that the term "rank" probably
 isn't very meaningful in connection to Ceylon, since there's
 nothing special about our function types: they're just
 instantiations of the perfectly ordinary generic type 
