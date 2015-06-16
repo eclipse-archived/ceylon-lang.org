@@ -8,7 +8,7 @@ tags:
 ---
 
 My previous post about 
-[type functions](2015/06/03/generic-function-refs)
+[type functions](/blog/2015/06/03/generic-function-refs)
 generated some interesting discussion, here, and 
 [on reddit](http://www.reddit.com/r/programming/comments/38hsrb/programming_with_type_functions_in_ceylon/).
 
@@ -19,7 +19,7 @@ observations about type functions.
 _Warning: this post addresses some very technical details of
 how we've incorporated type functions into Ceylon's type 
 system. Don't even bother continuing any further until 
-you've read the [earlier post](2015/06/03/generic-function-refs)._
+you've read the [earlier post](/blog/2015/06/03/generic-function-refs)._
 
 ### The "why" of this
 
