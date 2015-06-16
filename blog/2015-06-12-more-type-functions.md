@@ -294,7 +294,9 @@ and `Out` is `String`, without any loss of precision.
 Unfortunately, once higher-order generics come into play,
 inference of type functions is a much more ambiguous problem.
 Consider this second-order generic function, which abstracts
-the `map()` function away from the container type:
+the `map()` function away from the container type, by 
+introducing the type function variable `Box` to represent
+the unknown container type:
 
 <!-- try: -->
     Box<Out> fmap<Box,In,Out>(Out(In) fun, Box<In> box) 
