@@ -12,9 +12,9 @@ My previous post about
 generated some interesting discussion, here, and 
 [on reddit](http://www.reddit.com/r/programming/comments/38hsrb/programming_with_type_functions_in_ceylon/).
 
-Therefore, I think it's worth tying up several loose ends I 
-left hanging in the earlier post. So here's a collection of 
-further observations about type functions.
+Therefore, I think it's worth tying up several loose ends
+from the earlier post. So here's a collection of further 
+observations about type functions.
 
 Warning: this post addresses some very technical details of
 how we've incorporated type functions into Ceylon's type 
@@ -94,8 +94,8 @@ by name.
 
 Ceylon reasons about type constraints and assignability of
 types to type variables using hardcoded rules written
-primitively into the language spec and and type checker, not
-by abstraction over the types of types. 
+primitively into the language spec and type checker, not by 
+abstraction over the types of types. 
 
 ### Type functions and subtyping
 
@@ -148,14 +148,20 @@ Then `A` is a subtype of `B` iff:
 - for any type `T`, `F<T>` is a subtype of `G<T>`.
 
 That is to say, if `A<X>` accepts every type argument `T` 
-that `B<X>` accepts, and for each such `T`, `A<T>` produces 
-a type that is a subtype of `B<T>`, then we can soundly 
-replace `B` with `A` in well-typed code.  
+that `B<Y>` accepts, and for each such `T`, the applied type
+`A<T>` is a subtype of the applied type `B<T>`, then we can 
+soundly replace `B` with `A` in well-typed code.
 
-Let's narrow our attention to consider only type functions 
-that represent the types of generic functions. We could 
-consider generic functions of this form, with one type 
-parameter and one value parameter:
+(Of course, these rules generalize to type functions with
+multiple type parameters.) 
+
+### Generic function types and subtyping
+
+Now let's narrow our attention to consider only type 
+functions that represent the types of generic functions. 
+To make it easier, we'll consider generic functions of the 
+following form, with just one type parameter and just one 
+value parameter:
 
 <!-- try: -->
 
@@ -171,11 +177,12 @@ previous post&mdash; is the type function:
 <!-- try: -->
     <X> given X satisfies U => F<X>(P<X>)
 
-So let's consider two type functions of that general form:
+So let's consider two type functions of the general form
+we're considering:
 
 <!-- try: -->
     alias A<X> given X satisfies U => F<X>(P<X>)
-    alias B<Y> given Y satisfies V => G<Y>(Q<X>)
+    alias B<Y> given Y satisfies V => G<Y>(Q<Y>)
 
 Then we see quickly that `A` is a subtype of `B` iff:
 
@@ -199,6 +206,9 @@ is a subtype of this generic function type:
 Take a minute to convince yourself that this is correct
 intuitively.
 
+(Again, these rules generalize naturally to functions with
+multiple type parameters and/or multiple value parameters.) 
+
 ### Type functions and type inference
 
 When we call a first-order generic function in Ceylon, we 
@@ -210,8 +220,8 @@ generic function:
 <!-- try: -->
     List<Out> map<In,Out>(Out(In) fun, List<In> list) => ... ;
 
-Then can always safely infer `In` and `Out`, because there's
-a unique most-precise choice of type arguments:
+Then we can always safely infer `In` and `Out`, because 
+there's a unique most-precise choice of type arguments:
 
 <!-- try: -->
     value list = map(Integer.string, ArrayList { 10, 20, 30 });
