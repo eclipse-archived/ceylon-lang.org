@@ -454,3 +454,17 @@ don't undermine the basic algebraic properties which are the
 reason Ceylon's type system is so nice to work with. 
 Everything fits together here, without weird holes and 
 corner cases.
+
+### A work about "rank"
+
+In the previous post I described our support for references
+to generic functions as "arbitrary rank" polymorphism, which
+prompted a short discussion about how to measure the rank of
+a generic type. I know think that the term "rank" probably
+isn't very meaningful in connection to Ceylon, since there's
+nothing special about our function types: they're just
+instantiations of the perfectly ordinary generic type 
+`Callable`. As suggested by Kamatsu 
+[on reddit](http://www.reddit.com/r/programming/comments/38hsrb/programming_with_type_functions_in_ceylon/crva8md),
+it seems to me that a better word to use is probably
+"impredicative".
