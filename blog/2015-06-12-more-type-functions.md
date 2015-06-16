@@ -34,7 +34,7 @@ No, what bothered me was not that Ceylon's type system
 wasn't powerful enough to represent `Functor` or `Monad`, 
 but rather that Ceylon's type system _wasn't powerful enough
 to represent Ceylon_. In the original post, I showed how 
-function types were necessary to represent the type of a 
+type functions were necessary to represent the type of a 
 reference to a generic function. One place where this 
 problem arises is with one of Ceylon's more unique features: 
 its _typesafe metamodel_. 
@@ -55,7 +55,7 @@ object representing the class `Singleton` after applying the
 type argument `String`: 
 
 <!-- try: -->
-    `Class<Singleton<String>,[String]>` stringSingletonClass
+    Class<Singleton<String>,[String]> stringSingletonClass
             = `Singleton<String>`
 
 But in Ceylon as it exists today, I can't obtain a typed 
