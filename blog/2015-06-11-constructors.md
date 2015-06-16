@@ -610,11 +610,11 @@ Consider this class:
             print(2);
         }
         print(3);
-        shared new () {
+        shared new () extends partial() {
             print(4);
         }
         print(5);
-        shared new create() {
+        shared new create() extends partial() {
             print(6);
         }
         print(7);
