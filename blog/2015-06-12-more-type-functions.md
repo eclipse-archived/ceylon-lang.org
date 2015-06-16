@@ -16,12 +16,12 @@ Therefore, I think it's worth tying up several loose ends
 from the earlier post. So here's a collection of further 
 observations about type functions.
 
-Warning: this post addresses some very technical details of
+_Warning: this post addresses some very technical details of
 how we've incorporated type functions into Ceylon's type 
 system. Don't even bother continuing any further until 
-you've read the [earlier post](2015/06/03/generic-function-refs).
+you've read the [earlier post](2015/06/03/generic-function-refs)._
 
-### A use case for generic function reference types 
+### The "why" of this
 
 The most well-known application of higher-order generics is
 for representing high-levels abstractions of container types:
@@ -33,11 +33,33 @@ abstractions, though they're fun to play with.
 No, what bothered me was not that Ceylon's type system 
 wasn't powerful enough to represent `Functor` or `Monad`, 
 but rather that Ceylon's type system _wasn't powerful enough
-to represent Ceylon_. In the original post, I showed how 
-type functions were necessary to represent the type of a 
-reference to a generic function. One place where this 
-problem arises is with one of Ceylon's more unique features: 
-its _typesafe metamodel_. 
+to represent Ceylon_. I'll show you what I mean by that in
+just a second. But first I want to argue that type functions
+can be seen as a regularization of the language. 
+
+From a _purely syntactic_ point of view, it's always seemed 
+a little strange that every sort of type declaration in 
+Ceylon can have a list of type parameters, _except for a 
+type parameter itself_. Furthermore, it's noticeable that I 
+can take a reference, or meta reference to any program 
+element _unless it has a list of type parameters_. Now, such 
+restrictions might seem reasonable if a parameterized type 
+parameter or a reference to a generic declaration were not
+meaningful notions at a fundamental level. But they clearly
+_are_ meaningful, and even at least _somewhat_ useful.
+
+Exactly _how_ useful is a different question&mdash;the 
+jury's still out, at least in my mind. And so perhaps we'll 
+ultimately conclude that this stuff isn't worth its weight.
+The weight being, substantially, the time it takes for 
+programmers new to Ceylon to understand this stuff.
+
+In the original post, I showed how type functions were 
+necessary to represent the type of a reference to a generic 
+function. One place where this problem arises is with one of 
+Ceylon's more unique features: its _typesafe metamodel_. 
+
+### A use case for generic function reference types 
 
 Usually, I can obtain a metamodel object that represents a 
 class or function and captures its type signature. For 
@@ -75,6 +97,45 @@ the type of the expression `` `Singleton` `` could be
 
 That's just one example of how allowing references to 
 generic functions makes Ceylon feel more "complete".
+
+### Two use cases for anonymous type functions
+
+I get the impression that the "scariest" bit of what I've
+presented in the previous post is the notation for anonymous
+type functions. That is, the following syntax:
+
+<!-- try: -->
+    <X> => X
+    <X> => [X,X,X]
+    <X,Y> => X|Y
+    <T> given T satisfies Object => Category<T>(T*)
+
+But I'm convinced that this notation is not really that
+hard to understand. The reason I assert this is because if
+I give each of these type functions a name, then most of
+you guys have no problem understanding them:
+
+<!-- try: -->
+    alias Identity<X> => X;
+    alias Triple<X> => [X,X,X];
+    alias Union<X,Y> => X|Y;
+    alias CategoryCreator<T> given T satisfies Object => Category<T>(T*);
+
+_But_&mdash;one might reasonably enquire&mdash;_why do we 
+even need them, if the named versions are easier to read_?
+
+Well, we need them:
+
+1. in order to be able to denote the type of a reference to
+   a generic function&mdash;remember, we don't have 
+   undenotable types in Ceylon&mdash;and
+2. to make it easy to "curry" a named type function like 
+   `Map`.
+
+For example, we want to be able to write stuff like
+`<T> => Map<String,T>` when working with higher-order 
+generics, thus turning a type function of two type 
+parameters into a type function of one type parameter.
 
 ### Are type functions "type types"?
 
@@ -171,8 +232,9 @@ Here, `F<X>` is the return type, a type expression involving
 the type parameter `X`, and `P<X>` is the parameter type,
 which also involves `X`.
 
-The type of this generic function&mdash;as we saw in the 
-previous post&mdash; is the type function:
+The type of this generic function&mdash;as we 
+[saw](/blog/2015/06/03/generic-function-refs/#the_type_of_a_generic_function_is_a_type_function) 
+in the previous post&mdash; is the type function:
 
 <!-- try: -->
     <X> given X satisfies U => F<X>(P<X>)
@@ -367,9 +429,9 @@ intersections and unions of instantiations of higher-order
 types. As at happens, this works out extremely naturally,
 using the following identities
 
-- `<<X> => F<X>> | <<Y> => G<Y>>` is just `<T> => F<T>|G<T>`, 
+- `<<X> => F<X>> | <<Y> => G<Y>>` is just `<T> => F<T> | G<T>`, 
   and
-- `<<X> => F<X>> & <<Y> => G<Y>>` is just `<T> => F<T>&G<T>`.
+- `<<X> => F<X>> & <<Y> => G<Y>>` is just `<T> => F<T> & G<T>`.
 
 Thus, if we have the following covariant second-order type:
 
@@ -387,4 +449,6 @@ Then we obtain the following principal instantiations:
 You don't need to know these identities when you're writing
 code in Ceylon, but it's nice to know that type functions
 don't undermine the basic algebraic properties which are the 
-reason Ceylon's type system is so nice to work with.
+reason Ceylon's type system is so nice to work with. 
+Everything fits together here, without weird holes and 
+corner cases.
