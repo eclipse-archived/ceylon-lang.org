@@ -129,8 +129,8 @@ Well, we need them:
 1. in order to be able to denote the type of a reference to
    a generic function&mdash;remember, we don't have 
    undenotable types in Ceylon&mdash;and
-2. to make it easy to "curry" a named type function like 
-   `Map`.
+2. to make it easy to _partially apply_ a named type 
+   function like `Map`.
 
 For example, we want to be able to write stuff like
 `<T> => Map<String,T>` when working with higher-order 
