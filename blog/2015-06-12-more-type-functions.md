@@ -24,7 +24,7 @@ you've read the [earlier post](/blog/2015/06/03/generic-function-refs)._
 ### The "why" of this
 
 The most well-known application of higher-order generics is
-for representing high-levels abstractions of container types:
+for representing high-level abstractions of container types:
 functors, monads, and friends. That's not what motivated me
 to experiment with higher-order generics in Ceylon, and as a
 practical matter I still have little interest in these 
