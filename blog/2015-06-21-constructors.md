@@ -592,7 +592,7 @@ value constructors in future revisions of the class.
 
 <!-- try: -->
     shared class Day 
-            of sunday |monday | tuesday | wednesday | 
+            of sunday | monday | tuesday | wednesday | 
                thursday | friday | saturday {
         shared actual String string;
         abstract new named(String name) {
