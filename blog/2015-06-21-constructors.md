@@ -144,7 +144,7 @@ interoperating with native Java code).
         
         //default constructor
         shared new (Integer rgba) {
-            assert (rgba <= #FFFFFFFF);
+            assert (0 <= rgba <= #FFFFFFFF);
             this.rgba = rgba;
         }
         
@@ -217,7 +217,7 @@ Or, using named arguments, like this:
 A function reference to a constructor has a natural syntax:
 
 <!-- try: -->
-    Color(Integer,Integer,Integer) createColor
+    Color(Float,Float,Float) createColor
             = Color.withRGBIntensities;
 
 A class may have a constructor, called the _default constructor_,
@@ -282,7 +282,7 @@ example, the following is perfectly legal:
         }
         
         //executed for every constructor
-        assert (rgba <= #FFFFFFFF);
+        assert (0 <= rgba <= #FFFFFFFF);
         
         //other members
         ...
@@ -399,7 +399,7 @@ clause:
                                 int(green), 
                                 int(blue)) {}
         
-        assert (rgba <= #FFFFFFFF);
+        assert (0 <= rgba <= #FFFFFFFF);
         
         //other members
         ...
