@@ -33,7 +33,7 @@ class.
                    alpha=``hex(alpha)``, \
                    red=``hex(red)``, \
                    green=``hex(green)``, \
-                   blue=``hex(blue)``, }";
+                   blue=``hex(blue)`` }";
         
     }
 
@@ -193,7 +193,7 @@ interoperating with native Java code).
                    alpha=``hex(alpha)``, \
                    red=``hex(red)``, \
                    green=``hex(green)``, \
-                   blue=``hex(blue)``, }";
+                   blue=``hex(blue)`` }";
         
     }
 
