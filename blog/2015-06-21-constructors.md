@@ -29,10 +29,10 @@ class.
         
         function hex(Integer int) => formatInteger(int, 16);
         
-        string => "Color { \
-                   alpha=``hex(alpha)``, \
-                   red=``hex(red)``, \
-                   green=``hex(green)``, \
+        string => "Color { \ 
+                   alpha=``hex(alpha)``, \ 
+                   red=``hex(red)``, \ 
+                   green=``hex(green)``, \ 
                    blue=``hex(blue)`` }";
         
     }
@@ -189,10 +189,10 @@ interoperating with native Java code).
         
         function hex(Integer int) => formatInteger(int, 16);
         
-        string => "Color { \
-                   alpha=``hex(alpha)``, \
-                   red=``hex(red)``, \
-                   green=``hex(green)``, \
+        string => "Color { \ 
+                   alpha=``hex(alpha)``, \ 
+                   red=``hex(red)``, \ 
+                   green=``hex(green)``, \ 
                    blue=``hex(blue)`` }";
         
     }
