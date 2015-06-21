@@ -8,9 +8,10 @@ tags: [constructors, 1.2]
 ---
 
 Since the earliest versions of Ceylon, we've supported a
-streamlined syntax class initialization where the parameters
-of a class are listed right after the class name, and 
-initialization logic goes directly in the body of the class.
+streamlined syntax for class initialization where the 
+parameters of a class are listed right after the class name, 
+and initialization logic goes directly in the body of the 
+class.
 
 <!-- try: -->
     class Color(shared Integer rgba) {
