@@ -85,9 +85,9 @@ of the class, leading to awful code like the following:
         }
     }
 
-This is so awful it hurts. Fortunately, we've already made 
-that pain go away in Ceylon. So let's look at some 
-additional issues with constructors in Java:
+This hurts. Fortunately, we've already made that pain go 
+away in Ceylon. So let's look at some additional issues with 
+constructors in Java.
 
 To begin with, the syntax is irregular. In C-like languages, 
 the grammar for a declaration is:
