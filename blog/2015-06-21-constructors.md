@@ -397,7 +397,8 @@ clause:
                 //delegate to other named constructor
                 extends withRGB(int(red), 
                                 int(green), 
-                                int(blue)) {}
+                                int(blue),
+                                int(alpha)) {}
         
         assert (0 <= rgba <= #FFFFFFFF);
         
