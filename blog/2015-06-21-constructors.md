@@ -123,6 +123,10 @@ most certainly belong to the class of problems that I expect
 a static type system to be able to detect, and, indeed, in
 other contexts Java _does_ detect uninitialized variables.
 
+Further note that this would be an even bigger problem in 
+Ceylon, because most types don't have `null` as an instance,
+so there is no obvious "default" value.
+
 As usual, my purpose here isn't to bash Java, but to justify
 why we've done things differently in Ceylon.
 
