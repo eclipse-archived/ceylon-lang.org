@@ -57,6 +57,14 @@ estimate&mdash;constructors are unnecessary and uncomfortable.
 But we still need a good solution for the remaining trickier
 cases.
 
+A couple of especially compelling cases we ran into were:
+
+- the class `Array` in `ceylon.language`, which can be 
+  allocated with a list of elements, or with a size and a
+  single element value, and
+- cloning copy constructors, used, for example, to implement
+  `HashMap.clone()` and `HashSet.clone()`.
+
 Unfortunately, I've always found the design of constructors
 that Java and C# inherited from C++ to be a bit strange and
 inexpressive. So before I tell you what we've done about
