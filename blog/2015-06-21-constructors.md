@@ -108,7 +108,7 @@ To begin with, the syntax is irregular. In C-like languages,
 the grammar for a declaration is:
 
 <!-- try: -->
-    modifier* (Keyword|Type) Identifier OtherStuff
+    Modifier* (Keyword|Type) Identifier OtherStuff
 
 Constructors, strangely, don't conform to this general 
 schema, having been bolted on later.
@@ -126,8 +126,8 @@ the same name. This seems like a quite bizarre restriction:
   for overloading. I can't have a constructor that takes
   a `List<Float>` and another which takes a `List<Integer>`,
   since these two parameter types have the same erasure.
-- Constructor references (`Constructor::new` in Java) can
-  be ambiguous, depending on the context.
+- Constructor references (`Class::new` in Java) can be 
+  ambiguous, depending on the context.
 
 Third, constructors aren't forced to initialize the instance
 variables of the class. All Java types have a "default"
