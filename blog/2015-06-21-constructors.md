@@ -94,8 +94,15 @@ of the class, leading to awful code like the following:
     }
 
 This hurts. Fortunately, we've already made that pain go 
-away in Ceylon. So let's look at some additional issues with 
-constructors in Java.
+away in Ceylon. 
+
+<!-- try: -->
+    class Point(shared Float x, shared Float y) {
+        string => "(``x``, ``y``)";
+    }
+
+So let's look at some additional issues with constructors in 
+Java.
 
 To begin with, the syntax is irregular. In C-like languages, 
 the grammar for a declaration is:
