@@ -521,7 +521,7 @@ has constructors:
 In this example, the constructors delegate directly to 
 constructors of the superclass.
 
-### Ordering
+### Ordering of initialization logic
 
 With constructor delegation, together with initialization 
 logic defined directly in the body of the class, you must
@@ -573,10 +573,14 @@ Calling `Class.create()` results in this output:
 
 All quite orderly and predictable!
 
+In the [comments](http://ceylon-lang.org/blog/2015/06/21/constructors/#comment-2091964265),
+David Hagen suggests a way of understanding how constructor
+delegation and ordering works.
+
 ## Using value constructors to emulate enums 
 
-If a class _only_ has value constructors, it's very similar 
-to a Java `enum`.
+You might already have noticed that if a class _only_ has 
+value constructors, it's very similar to a Java `enum`.
 
 <!-- try: -->
     shared class Day {
@@ -593,10 +597,48 @@ to a Java `enum`.
         shared new saturday extends named("SATURDAY") {}
     }
 
-But Ceylon goes a little further than Java here. If we add 
-an `of` clause to `Day`, it will be considered a "closed"
-enumeration. That is, an enumeration that won't grow new
-value constructors in future revisions of the class.
+We therefore let you use value constructors in a `switch`
+statement. The ability to `switch` over value constructors 
+can be viewed as an extension of the pre-existing facility 
+for `switch`ing over literal values of types like `Integer`, 
+`Character`, and `String`.
+
+<!-- try: -->
+    Day day = ... ;
+    String message;
+    switch (day)
+    case (Day.friday) { 
+        message = "thank god"; 
+    }
+    case (Day.sunday | Day.saturday) { 
+        message = "we could be having this conversation with beer"; 
+    }
+    else {
+        message = "need more coffee";
+    }
+    print(message);
+
+But when we noticed the similarity to Java `enum`s, we 
+decided to take the idea a little further than what Java 
+offers here. Java enumerations are _open_, in the sense that 
+a `switch` statement which covers all enumerated values of 
+an `enum` must still include a `default` case to be 
+considered exhaustive by definite assignment and definite 
+return checking.
+
+But in Ceylon we also have the notion of _closed_ 
+enumerated types, where the "default" case&mdash;the `else` 
+clause of Ceylon's `switch` statement&mdash;may be omitted, 
+but the whole `switch` will still be considered exhaustive.
+
+Note: API designers should be careful to only "close" an 
+enumeration that won't grow new value constructors in future 
+revisions of the API. `Day` and `Boolean` are good examples 
+of closed enumerations. `ErrorType` is an examples of an 
+open enumeration. 
+
+If we add an `of` clause to `Day`, it will be considered a 
+closed enumeration.
 
 <!-- try: -->
     shared class Day 
@@ -617,26 +659,27 @@ value constructors in future revisions of the class.
 
 Now Ceylon will consider a `switch` statement that covers 
 all the value constructors as an exhaustive `switch`, and we 
-can write:
+can write the following code without needing an `else` 
+clause:
 
 <!-- try: -->
     Day day = ... ;
+    String message;
     switch (day)
     case (Day.monday | Day.tuesday | 
           Day.wednesday | Day.thursday) { 
-        print("need more coffee"); 
+        message = "need more coffee"; 
     }
     case (Day.friday) { 
-        print("thank god"); 
+        message = "thank god"; 
     }
     case (Day.sunday | Day.saturday) { 
-        print("we could be having this conversation with beer"); 
+        message = "we could be having this conversation with beer"; 
     }
+    print(message);
 
-The ability to `switch` over value constructors can be 
-viewed as an extension of the pre-existing ability to switch
-over literal values of types like `Integer`, `Character`,
-and `String`.
+This is an alternative to the [existing pattern for emulating
+Java-style `enum`s](http://ceylon-lang.org/documentation/1.1/tour/types/#enumerated_instances).
 
 ## A final word
 
