@@ -143,7 +143,15 @@ why we've done things differently in Ceylon.
 By contrast, the newly introduced syntax for constructors in 
 Ceylon is regular, expressive, and doesn't rely on 
 overloading (which Ceylon doesn't support, except when 
-interoperating with native Java code).
+interoperating with native Java code). Here's the basic 
+syntax for a constructor:
+
+<!-- try: -->
+    new withFooAndBar(Foo foo, Bar bar) {
+        //do stuff
+    }
+
+And here's an example of how it's used:
 
 <!-- try: -->
     class Color {
