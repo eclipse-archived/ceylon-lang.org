@@ -147,9 +147,13 @@ interoperating with native Java code). Here's the basic
 syntax for a constructor:
 
 <!-- try: -->
-    new withFooAndBar(Foo foo, Bar bar) {
+    new withFooAndBar(Foo foo, Bar bar)
+            extends anotherConstructor(foo) {
         //do stuff
     }
+
+When the class to which the constructor belongs directly
+extends `Basic`, the `extends` clause is optional. 
 
 And here's an example of how it's used:
 
