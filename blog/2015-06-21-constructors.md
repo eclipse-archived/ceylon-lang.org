@@ -163,7 +163,7 @@ interoperating with native Java code).
             assert (0 <= red <= #FF, 
                     0 <= green <= #FF, 
                     0 <= blue <= #FF);
-            this.rgba = 
+            rgba = 
                     alpha.leftLogicalShift(24) +
                     red.leftLogicalShift(16) +
                     green.leftLogicalShift(8) +
@@ -179,7 +179,7 @@ interoperating with native Java code).
                     0.0 <= blue <= 1.0);
             function int(Float intensity) 
                     => (intensity*#FF).integer;
-            this.rgba = 
+            rgba = 
                     int(alpha).leftLogicalShift(24) +
                     int(red).leftLogicalShift(16) +
                     int(green).leftLogicalShift(8) +
@@ -267,7 +267,7 @@ example, the following is perfectly legal:
             assert (0 <= red <= #FF, 
                     0 <= green <= #FF, 
                     0 <= blue <= #FF);
-            this.rgba = 
+            rgba = 
                     alpha.leftLogicalShift(24) +
                     red.leftLogicalShift(16) +
                     green.leftLogicalShift(8) +
@@ -282,7 +282,7 @@ example, the following is perfectly legal:
                     0.0 <= blue <= 1.0);
             function int(Float intensity) 
                     => (intensity*#FF).integer;
-            this.rgba = 
+            rgba = 
                     int(alpha).leftLogicalShift(24) +
                     int(red).leftLogicalShift(16) +
                     int(green).leftLogicalShift(8) +
@@ -322,19 +322,19 @@ constructor is a singleton.
         //value constructors
         
         shared new white {
-            this.rgba = #FFFFFFFF;
+            rgba = #FFFFFFFF;
         }
         
         shared new red {
-            this.rgba = #FFFF0000;
+            rgba = #FFFF0000;
         }
         
         shared new green {
-            this.rgba = #FF00FF00;
+            rgba = #FF00FF00;
         }
         
         shared new blue {
-            this.rgba = #FF0000FF;
+            rgba = #FF0000FF;
         }
         
         //etc
@@ -392,7 +392,7 @@ clause:
             assert (0 <= red <= #FF, 
                     0 <= green <= #FF, 
                     0 <= blue <= #FF);
-            this.rgba = 
+            rgba = 
                     alpha.leftLogicalShift(24) +
                     red.leftLogicalShift(16) +
                     green.leftLogicalShift(8) +
