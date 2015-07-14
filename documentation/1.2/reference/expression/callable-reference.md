@@ -21,9 +21,9 @@ a [positional argument list](../positional-argument-list).
     // constructor reference
     class Baz {
         shared new (){}
-        shared new Constructor(String name) {}
+        shared new constructor(String name) {}
     }
-    Baz(String) baz = Baz.Constructor;
+    Baz(String) baz = Baz.constructor;
     
 ## Description
 

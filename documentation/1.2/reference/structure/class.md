@@ -70,16 +70,14 @@ provide one or more constructors.
             extends SUPER-CLASS
             satisfies SUPER-INTERFACES
             given TYPE-PARAMETER-CONSTRAINTS {
-        INITIALIZER-STATEMENTS
-        CONSTRUCTORS
+        INITIALIZER-STATEMENTS-AND-CONSTRUCTORS
         DECLARATIONS
     }
     
 Where:
 
 * `SUPER-CLASS` is the type expression for the superclass (not an invocation)
-* `INITIALIZER-STATEMENTS` are statements in the intializer
-* `CONSTRUCTORS` are constructor declarations
+* `INITIALIZER-STATEMENTS-AND-CONSTRUCTORS` consists of statements in the intializer and constructor declarations
 * `DECLARATIONS` constitute the [declaration section](#declaration_section) 
   of the class.
 
@@ -164,7 +162,7 @@ own `extends` clause for invoking the appropriate superclass constructor:
 
     class T extends C {
         shared new () extends C() {}
-        new NonShared() extends C.NonShared() {}
+        new nonShared() extends C.nonShared() {}
     }
 
 If a class is declared without using the `extends` keywords, it is a 
@@ -245,43 +243,149 @@ they are still invoked in the `extends` clause of their subclasses.
 ### Constructor Declarations
 
 If a class lacks [initializer parameters](#initializer_parameters) 
-it must have one or more constructor declarations. In this case:
+it must have one or more *constructor declarations*. 
 
-* the class's `extends` clause is a type expression for the superclass 
-  (not an invocation)
-* the class may contain initializer statements before the 
-  constructor declarations
-* constructor declarations are identified using `new` keyword
-* each constructor declaration invokes a particular superclass constructor in 
-  its own `extends` caluse
-* the constructor parameters are in scope only in the constructor body
-* each constructor must initialize all the members of the class not already 
-  initialized in the class initializer statements.
+**Note:** Constructors allow sophistocated initialization logic, 
+but at a cost in terms of complexity and verbosity compared with 
+classes with initializer parameters. It is recommended to 
+prefer classes with initializer parameters where possible. 
+Most classes can be written with initializer parameters.
 
-Constructor declarations occur after other initialization code 
-(and immediately before the *declaration section*).
+The job of the constructor is to particpate in initialzing a 
+class instance. A constructor is either be a *value constructor* or 
+a *callable constructor*. 
 
-    shared class WithConstructor extends SomeClass {
-        Integer x = 0;
-        Integer y;
-        shared new() {
-            y = 0;
+#### Value Constructors
+
+A value constructor is simply a named instance of a class that it accessible by name, without requiring a parameter list:
+
+    class ValueConstructor {
+        new example {
+            // initialization logic
         }
-        new Other(Integer y) {
-            // assign the attribute y to the parameter y
-            this.y = y;
+    }
+    
+The instance is created lazily on first access 
+(i.e. when `ValueConstructor.example` is first evaluated) 
+and is initialized according to the body of the 
+value constructor `example`. 
+Thereafter further references to `example` refer to the 
+*same instance*. This can be viewed as a form of the 
+singleton pattern, rather like an [`object` declaration](../object/). 
+Unlike an `object` declaration, however, a value constructor is not 
+declaring a new class, simply a named instance of a class with 
+some initialization logic.
+
+It is possible to constrain the class to have a finite set 
+of named instances using the `of` clause:
+
+    class EnumeratedInstances 
+            of one|two|more {
+        new one {
         }
+        new two {
+        }
+        new more {
+        }       
+    }
 
-In the above example `WithConstructor` declares two constructors. The first
-is the *default constructor* (because it has no name) which will be used for
-instantiations of the form `WithConstructor()` (that is, instantiations 
-which don't specify any other constructor).
 
-The second constructor, `Other`, is used to initialize instances created 
-by invocations of the form `WithConstructor.Other(n)`.
+#### Callable Constructors
 
-Note that two constructors can have the same signature: They are 
-distinguished by name.
+A callable constructor is function that participates in 
+initializing an instance of the class. 
+
+    class CallableConstructor {
+        new example() {
+            // initialization logic
+        }
+    }
+    
+A callable constructor always initializes a fresh instance of 
+the class, and multiple invocations of a callable constructor 
+result in multiple instances of the class.
+
+#### Default Constructors
+
+The callable constructor with no name is the *default constructor*
+
+    class DefaultConstructor {
+        shared new () {
+        }
+    }
+    
+This is the constructor used when the class is instantiated 
+without an explicit constructor, for example via the invocation
+`DefaultConstructor()`.
+
+This has an important consequence with respect to refactoring: 
+A class with a parameter list can be refactored into a class 
+with a default constructor without affecting the sites where 
+the class was instantiated.
+
+Classes do not need to have a default constructor, but if it exists it must be `shared`.
+
+#### Constructor Delegation
+
+When a class has constructors the class's `extends` clause is the expression for the superclass type, and not an invocation expression. Delegation to the superclass for initialization is instead achieved via an `extends` clause on the *constructor declaration*:
+
+    class DelegationToDefault extends DefaultConstructor {
+        shared new () extends DefaultConstructor() {
+        }
+    }
+    class DelegationToNamed extends CallableConstructor {
+        shared new () extends CallableConstructor.example() {
+        }
+    }
+
+Alternatively the constructor can delegate to another 
+constructor of the *same* class:
+
+    class SelfDelegation {
+        shared greet(String greeting, String subject) {
+        }
+        shared new hello(String subject) extends greet("hello", subject) {
+        }
+        shared new helloWorld extends hello("world") {
+        }
+    }
+
+The above example shows a callable constructor `hello` delegating to a callable constructor `greet`, and a value constructor `helloWorld` delegating to `hello`.
+
+#### `abstract` Constructors
+
+A callable constructor usually has to initialize all the 
+members of the class which are not initialized by 
+the rest of the initializer section of the class.
+
+An `abstract` constructor is allowed to leave members unitialized. An `abstract` constructor can only be used for other constructors to delegate to (otherwise you could obtain a partially initialized instance, which would defeat the whole point of having constructors). It follows that `abstract` constructors may not be `shared`.
+
+#### Statements between constructors
+
+Constructors occur in the initializer section of the class, but they can be preceeded by, separated by and followed by other statements, which are executed in order during initialization:
+
+    class StatementsAndConstructors {
+        print(1);
+        abstract foo() {
+            print(2);
+        }
+        print(3)
+        shared new () extends foo() {
+            print(4);
+        }
+        print(5);
+    }
+
+An invocation such as `StatementsAndConstructors()` would 
+have the side-effect of printing 
+
+    1
+    2
+    3
+    4
+    5
+
+to standard output.
 
 ### Declaration section
 
