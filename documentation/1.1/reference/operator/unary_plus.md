@@ -30,7 +30,7 @@ The `+` operator is defined as follows:
 
 <!-- check:none -->
 <!-- try: -->
-    rhs.positiveValue;
+    rhs;
 
 See the [language specification](#{site.urls.spec_current}#arithmetic) for more details.
 
