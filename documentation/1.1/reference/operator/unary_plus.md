@@ -42,7 +42,7 @@ The meaning of `+` depends on
 
 ### Type
 
-The result type of the `-` operator is the same as the `Invertible` type of its operand.
+The result type of the `+` operator is the same as the `Invertible` type of its operand.
 
 ### Meaning of unary plus for built-in types
 
