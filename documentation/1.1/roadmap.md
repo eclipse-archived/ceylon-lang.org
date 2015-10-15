@@ -31,6 +31,7 @@ However, our roadmap is quite well-defined:
     <div id="milestone-overall">Loading…</div>
     <h3>Detail</h3>
     <div data-title="Typechecker / language specification" data-repo="ceylon-spec" data-milestone="11">Loading…</div>
+    <div data-title="Model" data-repo="ceylon-model" data-milestone="1">Loading…</div>
     <div data-title="JVM compiler / documentation compiler" data-repo="ceylon-compiler" data-milestone="11">Loading…</div>
     <div data-title="JS compiler" data-repo="ceylon-js" data-milestone="8">Loading…</div>
     <div data-title="Language module" data-repo="ceylon.language" data-milestone="10">Loading…</div>

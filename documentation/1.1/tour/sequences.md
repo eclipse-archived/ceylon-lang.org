@@ -336,12 +336,12 @@ shown above.
 
 <!-- try:
     String[] operators = [ "+", "-", "*", "/" ];
-    for (i -> op in entries(operators)) {
+    for (i -> op in operators.indexed) {
         // ...
     }
 -->
 <!-- cat: void m(String operators) { -->
-    for (i -> op in entries(operators)) {
+    for (i -> op in operators.indexed) {
         // ...
     }
 <!-- cat: } -->
