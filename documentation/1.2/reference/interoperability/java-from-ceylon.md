@@ -454,6 +454,92 @@ The compiler will warn you if you apply an annotation constructor to an
 element in an ambiguous way, and force you to use the more specific 
 named variant.
 
+## java.io.Serializable
+
+It is a common requirement of Java frameworks that user classes 
+be serializable (in the Java sense).
+
+Ceylon classes directly extending `Basic` or `Object` automatically 
+implement `java.io.Serializable` whether or not
+they are declared with a `satisfies Serializable` clause. Of course, subclasses 
+of such classes will inherit `java.io.Serializable`. Thus most classes 
+in Ceylon are serializable.
+
+`object`s and instances created from value constructors are supported
+and result in the appropiate instance being resolved during deserialization.
+This means that you still have a single instance of classes which are 
+supposed to be singletons.
+
+Currently there is no mechanism for marking a field as `transient` or 
+for specifying a `serialVersionUID`. It is possible to implement the 
+"magic" methods of 
+[`java.io.Serializable`][1]
+`writeObject()`, `readObject()`, `readObjectNoData()`, 
+`writeReplace()` and `readResolve()`.
+
+A number of runtime classes are not serializable, including callables, 
+the iterables supporting comprehensions and metamodel 
+implementation classes. This means that you should thoroughly test
+the actually serializability of the instances your application creates 
+if you're relying on 
+serializablility in your application.
+
+[1]:https://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html
+
+
+## 'Default' constructors
+
+Frameworks frequently require that user classes have a no-arguments 
+constructor. The need for this usually stems from the fact that such 
+classes will be instantiated via reflection APIs. 
+
+The usual idiom in Ceylon is for the constructor to fully initialize 
+the instance. Thus the idomatic class:
+
+    class Person(firstName, lastName, dateOfBirth) {
+        shared variable String firstName;
+        shared variable String lastName;
+        shared variable Date dateOfBirth;
+    }
+    
+would have to be written non-idiomatically as 
+
+    class Person {
+        shared variable String firstName;
+        shared variable String lastName;
+        shared variable Date dateOfBirth;
+        "Constructor for the framework"
+        shared new () {
+            this.firstName = "";
+            this.lastName = "";
+            this.dateOfBirth = epoch;
+        }
+        shared new instance(String firstName, String lastName, Date dateOfBirth) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.dateOfBirth = dateOfBirth;
+        }
+    }
+
+You could omit the `instance()` constructor, but at the cost Ceylon clients of 
+`Person` having to instantiate and then call the setters separately.
+
+    
+So the ceylon compiler generates a 
+`protected` no-arguments constructor behind the scenes, specifically for use 
+by frameworks, while Ceylon clients get the benefits of an API that is 
+pleasant to use.
+
+There are some cases where a constructor is not generated (or is not no-arguments):
+
+* Generic classes have constructors, but they take reified type arguments, 
+  and so won't be useful to frameworks. (They will be useful to non-generic 
+  subclasses though).
+* `object` ("anonymous") classes, since these have a singleton semantic 
+  which would be subverted by providing an accessible constructor.
+* Simiarly, classes which have only value constructors.
+
+
 ## Importing JDK modules
 
 The Java JDK is not imported by default anymore since Milestone 4, which means you need to import
