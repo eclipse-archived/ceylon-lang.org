@@ -89,7 +89,7 @@ creates a new instance of the class, just like class invocation.
 The only difference is that when you're invoking a non-default constructor
 you have to specify the constructor name.
 
-    value anon = Person.Anonymous();
+    value anon = Person.anonymous();
 
 ### Indirect invocation
 

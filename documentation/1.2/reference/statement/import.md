@@ -41,12 +41,12 @@ constructor from a toplevel class:
 
     import org.example.person {
         Person { 
-            // import the Person.FromName constructor
-            // so code can just do NamedPerson("Alan", "Turing")
-            NamedPerson=FromName 
+            // import the Person.fromName constructor
+            // so code can just do namedPerson("Alan", "Turing")
+            namedPerson=fromName 
         },
         famousPeople {
-            // import values from the famourPeople object
+            // import values from the famousPeople object
             // so code can use them as if they were top level
             elvis,
             beethoven
