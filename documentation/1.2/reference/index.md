@@ -40,6 +40,7 @@ _Some of these pages are incomplete. Want to help? [See how](/code/website)._
 <ul class="linear">
   <li><a href="annotation/abstract/"><code>abstract</code></a></li>
   <li><a href="annotation/actual/"><code>actual</code></a></li>
+  <li><a href="annotation/aliased/"><code>aliased</code></a></li>
   <li><a href="annotation/annotation/"><code>annotation</code></a></li>
   <li><a href="annotation/default/"><code>default</code></a></li>
   <li><a href="annotation/deprecated/"><code>deprecated</code></a></li>
