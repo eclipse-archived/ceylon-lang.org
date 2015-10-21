@@ -868,6 +868,21 @@ Try it!
 
     dynamic { alert("Hello, World!"); }
 
+It's even possible for a cross-platform module to interoperate with native
+Java _and_ JavaScript code, via use of the `native` annotation.
+
+<!-- try: -->
+    native void hello();
+    
+    native("jvm") void hello()
+        => System.out.println("hello");
+    
+    native("js") void hello() {
+        dynamic {
+            console.log("hello");
+        }
+    }
+
 ## A real specification
 
 The Ceylon language is defined by an exhaustive, but highly readable,
