@@ -1,6 +1,6 @@
 ---
 layout: reference12
-title_md: '`object`' expression
+title_md: '`object` expression'
 tab: documentation
 unique_id: docspage
 author: Tom Bentley
