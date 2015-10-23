@@ -785,8 +785,7 @@ That's really just a syntactic abbreviation for:
 
 ## There's more...
 
-You can read more about constructors 
-[here](../../../../blog/2015/06/21/constructors/).
+You can read more about constructors [here](/blog/2015/06/21/constructors/).
 
 Now, we're going to discuss [annotations](../annotations), and take a little 
 peek at using the metamodel to build framework code. 

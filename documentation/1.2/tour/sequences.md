@@ -336,12 +336,12 @@ shown above.
 
 <!-- try:
     String[] operators = [ "+", "-", "*", "/" ];
-    for (i -> op in entries(operators)) {
+    for (i -> op in operators.indexed) {
         // ...
     }
 -->
 <!-- cat: void m(String operators) { -->
-    for (i -> op in entries(operators)) {
+    for (i -> op in operators.indexed) {
         // ...
     }
 <!-- cat: } -->
@@ -457,10 +457,72 @@ This tuple contains two `Float`s followed by an unknown number of `String`s.
 Now we can see that a sequence type like `[String*]` or `[String+]` can
 be viewed as a degenerate tuple type!
 
+## Destructuring
+
+Individually accessing the elements of a tuple by numeric index can be 
+a little verbose, so Ceylon supports a sophisticated sort of parallel 
+assignment called _destructuring_. We can rewrite the code above like 
+this:
+
+<!-- try-pre:
+    value point = [0.0, 0.0, "origin"];
+-->
+    value [x, y, label] = point;
+
+This introduces three new values, `x` and `y` of inferred type `Float`,
+and `label` of inferred type `String`.
+
+The syntax `[x, y, label]` is called a _tuple pattern_.
+
+We can even use destructuring in `for` loops:
+
+<!-- try-pre:
+    value points = {[0.0, 0.0, "origin"], [1.0, 2.5, "whatever"]};
+-->
+    for ([x, y, label] in points) {
+        print("``label``: (``x``, ``y``)");
+    }
+
+And in `if`:
+
+    if (nonempty [name, *rest] = process.arguments) {
+        print("Hello ``name``!");
+    }
+
+And in `let`:
+
+    print(let [x, y] = [1.0, 2.0]) "(``x``, ``y``)");
+
+We can also destructure `Entry`s. We've already seen this used in a 
+`for` loop:
+
+<!-- try: -->
+    for (i -> op in operators.indexed) {
+        // ...
+    }
+
+The syntax `i -> op` is called an _entry pattern_.
+
+More complex destructuring patterns may be formed by nesting tuple
+and entry patterns, for example:
+
+<!-- try-pre:
+    value translations = { ["hello", "hola"], ["goodbye", "adios"] };
+-->
+    for (i -> [en, es] in translations.indexed) {
+        print("``i``: ``en`` ``es``");
+    }
+
+Ceylon doesn't yet support destructuring in the `case`s of a `switch`,
+but that's something that will definitely be added to a future release
+of the language.
+
 ## There's more...
 
 If you're interested, you can find a more in-depth discussion of tuples 
 [here](/blog/2013/01/21/abstracting-over-functions/).
+
+You can read more about destructuring [here](/blog/2014/12/29/destructuring). 
 
 Next up we'll explore some more details of the type system, starting with
 [type aliases and type inference](../typeinference).

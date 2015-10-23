@@ -132,7 +132,7 @@ example:
             "Hello ``name``!":
 
 Let expressions are especially useful in combination with tuple and entry 
-destructuring. 
+[destructuring](../sequences/#destructuring). 
 
 ## Variables
 
