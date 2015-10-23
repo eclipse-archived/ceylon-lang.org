@@ -591,6 +591,13 @@ Or:
           case (equal) "one hundred"
           case (larger) "larger");
 
+Note that the branches of an `if` or `switch` expression are always just 
+expressions, never blocks of code!
+
+### Gotcha!
+
+Don't forget the `then` keyword in your `if` expression!
+
 ## There's more...
 
 Now that we know enough about classes and their members, we're ready to 
