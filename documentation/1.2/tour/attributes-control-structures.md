@@ -119,6 +119,20 @@ between the things these terms refer to. Any named value might be captured by
 some other declaration in the same containing scope. A local value is just an 
 attribute that happens to not be captured by anything.
 
+## Let expressions
+
+It's possible to declare a local value within an expression using `let`, for
+example:
+
+<!-- try:post
+    print(greeting);
+ -->
+    value greeting 
+            => let (name = process.arguments.first else "world")
+            "Hello ``name``!":
+
+Let expressions are especially useful in combination with tuple and entry 
+destructuring. 
 
 ## Variables
 
@@ -319,9 +333,18 @@ behavior and irregular syntax:
 The type of the `switch`ed expression may be an enumerated type, `String`,
 `Character`, or `Integer`.
 
+A `switch` statement may declare a value:
+
+    switch (name = process.arguments.first)
+    case (null) {
+        print("Hello world!");
+    }
+    else {
+        print("Hello ``name``!");
+    }
+
 We'll have much more to say about `switch` when we discuss 
 [enumerated types](../types/#enumerated_types).
-
 
 ### Assertions
 
@@ -552,9 +575,23 @@ that by `&&`-ing multiple conditions together. You could do it by nesting severa
 `if`s, but that tends to lead to much less readable code, and doesn't work well 
 in `while` statements or comprehensions. 
 
+## If and switch expressions
+
+It's possible to write an "inline" `if` or `switch` within an expression, for
+example:
+
+    value greeting
+        => if (exists name = process.arguments.first)
+        then "Hello ``name``!" else "Hello world!";
+
+Or:
+
+    print(switch (x <=> 100)
+          case (smaller) "smaller"
+          case (equal) "one hundred"
+          case (larger) "larger");
 
 ## There's more...
 
 Now that we know enough about classes and their members, we're ready to 
 explore [inheritance and refinement (overriding)](../inheritance).
-
