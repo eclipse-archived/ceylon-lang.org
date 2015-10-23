@@ -1,6 +1,6 @@
 ---
 layout: tour12
-title: Initialization
+title: Initialization and Constructors
 tab: documentation
 unique_id: docspage
 author: Gavin King
@@ -487,7 +487,308 @@ lazy initialization of an attribute:
 
 A future version of the language will likely offer a better way to do this.
 
+## Constructors
+
+Classes with [initializer parameters](../classes/#creating_your_own_class) 
+are very convenient almost all of the time, but very occasionally we run 
+into the need for a class with two or more completely separate initialization 
+paths. For this relatively rare case, Ceylon allows you to write a class with
+separate _constructors_.
+
+### Gotcha!
+
+A class with initializer parameters can't have constructors, so if we need
+to add a constructor to a class, the first thing we need to do is rewrite it
+without initializer parameters.
+
+## Default constructors
+
+Let's take our [trusty `Polar` class](../classes/#creating_your_own_class),
+and rewrite it to use a _default constructor_:
+
+<!-- try-post:
+    print(Polar(0.37, 10.0).description);
+-->
+    "A polar coordinate"
+    class Polar {
+        
+        shared Float angle;
+        shared Float radius;
+        
+        shared new (Float angle, Float radius) {
+            this.angle = angle;
+            this.radius = radius;
+        }
+        
+        shared Polar rotate(Float rotation) 
+                => Polar(angle+rotation, radius);
+        
+        shared Polar dilate(Float dilation) 
+                => Polar(angle, radius*dilation);
+        
+        shared String description 
+                = "(``radius``,``angle``)";
+        
+    }
+
+This looks a great deal like a constructor declaration in Java or C#,
+except that we write the keyword `new` instead of the name of the
+class.
+
+The good news is that this refactoring didn't break any clients, who
+can still instantiate `Polar` like this:
+
+<!-- try-pre:
+    "A polar coordinate"
+    class Polar {
+        
+        shared Float angle;
+        shared Float radius;
+        
+        shared new (Float angle, Float radius) {
+            this.angle = angle;
+            this.radius = radius;
+        }
+        
+        shared Polar rotate(Float rotation) 
+                => Polar(angle+rotation, radius);
+        
+        shared Polar dilate(Float dilation) 
+                => Polar(angle, radius*dilation);
+        
+        string => "(``radius``,``angle``)";
+        
+    }
+-->
+    print(Polar(0.37, 10.0));
+
+Unlike Java and C#, we can't overload a default constructor. Instead,
+we must give a distinct name to each additional constructor of the 
+class.
+
+Constructors are considered to belong to the initialized section of
+the class, so in this case the initializer section extends until the
+end of the default constructor declaration.
+
+Of course, all the usual langauge guarantees about definite 
+initialization are still in force, and the compiler will make sure
+that every constructor of a class leaves all members of the class
+fully initialized. 
+
+## Named constructors
+
+A named constructor declaration looks just like a default constructor,
+except that it declares an initial-lowercase name:
+
+<!-- try-post:
+    value pt = Polar(0.37, 10.0);
+    print(Polar.copy(pt));
+-->
+    "A polar coordinate"
+    class Polar {
+        
+        shared Float angle;
+        shared Float radius;
+        
+        shared new (Float angle, Float radius) {
+            this.angle = angle;
+            this.radius = radius;
+        }
+        
+        shared new copy(Polar polar) {
+            this.angle = polar.angle;
+            this.radius = polar.radius;
+        }
+        
+        shared Polar rotate(Float rotation) 
+                => Polar(angle+rotation, radius);
+        
+        shared Polar dilate(Float dilation) 
+                => Polar(angle, radius*dilation);
+        
+        string => "(``radius``,``angle``)";
+        
+    }
+
+A reference to a named constructor must be qualified by the
+class name, except within the body of the class itself:
+
+<!-- try: none -->
+    value pt = Polar(0.37, 10.0);
+    print(Polar.copy(pt));
+    
+## Constructor delegation
+
+A constructor may delegate to:
+
+- another constructor of the class to which it belongs,
+  whose declaration occurs earlier in the body of the class, 
+  or 
+- directly to a constructor of its superclass or to the 
+ initializer of its superclass, if any.
+ 
+ Constructor delegation is specified using `extends`:
+
+<!-- try-post:
+    print(Polar.onHorizontalAxis(1.0));
+-->
+    "A polar coordinate"
+    class Polar {
+        
+        shared Float angle;
+        shared Float radius;
+        
+        shared new (Float angle, Float radius) {
+            this.angle = angle;
+            this.radius = radius;
+        }
+        
+        shared new copy(Polar polar)
+            extends Polar(polar.angle, polar.radius) {}
+        
+        shared new onHorizontalAxis(Float distance)
+            extends Polar(0.0, distance) {}
+        
+        shared Polar rotate(Float rotation) 
+                => Polar(angle+rotation, radius);
+        
+        shared Polar dilate(Float dilation) 
+                => Polar(angle, radius*dilation);
+        
+        string => "(``radius``,``angle``)";
+        
+    }
+
+If the class directly extends `Basic`, and the constructor
+does not explicitly delegate to another constructor, it is
+understood to implicitly delegate to initializer of `Basic`.
+
+Constructors of a class which does not directly extend `Basic` 
+_must_ explicitly delegate.
+
+Since constructors are restricted to delegate _backwards_, the 
+general flow of member initialization in Ceylon is preserved: 
+initialization flows forward from the beginning of the body of 
+the class, and each member must be initialized before it is 
+used. The gory details are covered 
+[here](../../../../blog/2015/06/21/constructors/#ordering_of_initialization_logic).
+
+## Value constructors
+
+A _value constructor_ is a constructor that:
+
+- takes no parameters, and
+- is executed exactly once for the context to which the class
+  belongs.
+
+Value constructors of toplevel classes are singletons.
+
+<!-- try-post:
+    print(Polar.origin);
+    print(Polar.onHorizontalAxis(1.0));
+-->
+    "A polar coordinate"
+    class Polar {
+        
+        shared Float angle;
+        shared Float radius;
+        
+        shared new (Float angle, Float radius) {
+            this.angle = angle;
+            this.radius = radius;
+        }
+        
+        shared new copy(Polar polar)
+            extends Polar(polar.angle, polar.radius) {}
+        
+        shared new onHorizontalAxis(Float distance)
+            extends Polar(0.0, distance) {}
+        
+        shared new origin extends onHorizontalAxis(0.0) {}
+        
+        shared Polar rotate(Float rotation) 
+                => Polar(angle+rotation, radius);
+        
+        shared Polar dilate(Float dilation) 
+                => Polar(angle, radius*dilation);
+        
+        string => "(``radius``,``angle``)";
+        
+    }
+
+A reference to a value constructor must be qualified by the
+class name, except within the body of the class itself:
+
+<!-- try: none -->
+    print(Polar.origin);
+
+## Value constructor enumerations
+
+Finally we've arrived at an alternative, more satisfying, way 
+to emulate a Java `enum`. We've already seen how to do it
+using [anonymous classes](../types/#enumerated_instances), but
+we can also use value constructors:
+
+<!-- try-post:
+    void printSuit(Suit suit) {
+        switch (suit)
+        case (Suit.hearts) { print("Heartzes"); }
+        case (Suit.diamonds) { print("Diamondzes"); }
+        case (Suit.clubs) { print("Clidubs"); }
+        case (Suit.spades) { print("Spidades"); }
+    }
+-->
+    class Suit
+            of hearts | diamonds | clubs | spades {
+        String name;
+        shared new hearts { name = "hearts"; }
+        shared new diamonds { name = "diamonds"; }
+        shared new clubs { name = "clubs"; }
+        shared new spades { name = "spades"; }
+    }
+
+We can use this enumerated type in a `switch`:
+
+<!-- try-pre:
+    class Suit
+            of hearts | diamonds | clubs | spades {
+        String name;
+        shared new hearts { name = "hearts"; }
+        shared new diamonds { name = "diamonds"; }
+        shared new clubs { name = "clubs"; }
+        shared new spades { name = "spades"; }
+    }
+-->
+    void printSuit(Suit suit) {
+        switch (suit)
+        case (Suit.hearts) { print("Heartzes"); }
+        case (Suit.diamonds) { print("Diamondzes"); }
+        case (Suit.clubs) { print("Clidubs"); }
+        case (Suit.spades) { print("Spidades"); }
+    }
+
+You're probably wondering why Ceylon would provide two 
+different ways to do essentially the same thing. Well, the
+thing is that according to the language specification, an 
+`object` _actually is a value constructor!_
+
+When we write:
+
+<!-- try: none -->
+    object thing {}
+
+That's really just a syntactic abbreviation for:
+
+<!-- try: none -->
+    class \Ithing {
+        shared new thing {}
+    }
+    \Ithing thing => \Ithing.thing;
+
 ## There's more...
+
+You can read more about constructors 
+[here](../../../../blog/2015/06/21/constructors/).
 
 Now, we're going to discuss [annotations](../annotations), and take a little 
 peek at using the metamodel to build framework code. 

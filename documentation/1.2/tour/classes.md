@@ -82,9 +82,10 @@ system. Our class has two parameters, two methods, and an attribute.
 There's two things in particular to notice here:
 
 1. The parameters used to instantiate a class are specified as part of the 
-   class declaration, right after the name of the class. There's no Java-style 
-   constructors in Ceylon. This syntax is less verbose and more regular than 
-   Java, C#, or C++.
+   class declaration, right after the name of the class. This syntax is less 
+   verbose and more regular than Java, C#, or C++. We do have
+   [constructors](../initialization#constructors) in Ceylon, but we rarely
+   need them, and they shouldn't be the first thing you reach for.
    
 2. We make use of the parameters of a class anywhere within the body of 
    the class. In Ceylon, we often don't need to define explicit members of the 
