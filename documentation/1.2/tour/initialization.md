@@ -613,7 +613,7 @@ except that it declares an initial-lowercase name:
 A reference to a named constructor must be qualified by the
 class name, except within the body of the class itself:
 
-<!-- try: none -->
+<!-- try: -->
     value pt = Polar(0.37, 10.0);
     print(Polar.copy(pt));
     
@@ -719,7 +719,7 @@ Value constructors of toplevel classes are singletons.
 A reference to a value constructor must be qualified by the
 class name, except within the body of the class itself:
 
-<!-- try: none -->
+<!-- try: -->
     print(Polar.origin);
 
 ## Value constructor enumerations
@@ -738,8 +738,7 @@ we can also use value constructors:
         case (Suit.spades) { print("Spidades"); }
     }
 -->
-    class Suit
-            of hearts | diamonds | clubs | spades {
+    class Suit of hearts | diamonds | clubs | spades {
         String name;
         shared new hearts { name = "hearts"; }
         shared new diamonds { name = "diamonds"; }
@@ -750,8 +749,7 @@ we can also use value constructors:
 We can use this enumerated type in a `switch`:
 
 <!-- try-pre:
-    class Suit
-            of hearts | diamonds | clubs | spades {
+    class Suit of hearts | diamonds | clubs | spades {
         String name;
         shared new hearts { name = "hearts"; }
         shared new diamonds { name = "diamonds"; }
@@ -774,12 +772,12 @@ thing is that according to the language specification, an
 
 When we write:
 
-<!-- try: none -->
+<!-- try: -->
     object thing {}
 
 That's really just a syntactic abbreviation for:
 
-<!-- try: none -->
+<!-- try: -->
     class \Ithing {
         shared new thing {}
     }

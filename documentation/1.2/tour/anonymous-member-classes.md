@@ -64,10 +64,12 @@ An anonymous class may extend an ordinary class and satisfy interfaces.
         write(String string) => process.write(string);
     }
 
-The downside to an `object` declaration is that we can't write code that 
-refers to the concrete type of `origin` or `consoleWriter`, only to the 
-named instances. Thus, you occasionally see the following pattern in
-Ceylon:
+The downside to an `object` declaration is that if we ever need to write 
+code that refers to the concrete type of `origin` or `consoleWriter`, we
+must use the very ugly syntax `\Iorigin` or `\IconsoleWriter` as the type
+name.
+
+Thus, you occasionally see the following pattern in Ceylon:
 
 <!-- try: -->
     abstract class Unit() of unit {
@@ -76,9 +78,26 @@ Ceylon:
     object unit extends Unit() {}
 
 If `Unit` and `unit` are toplevel declarations, then `Unit` is called a 
-_unit type_, since it has exactly one instance.
+_unit type_, since it has exactly one instance. 
 
-You might be tempted to think of object declarations as defining singletons, 
+### Gotcha!
+
+Later, we'll see that
+it's usually better to write a class like `Unit` as a class with a 
+[value constructor](../initialization/#value_constructors):
+
+<!-- try: -->
+    class Unit {
+        shared new unit {}
+        //operations
+    }
+
+And we'll also learn that `object` declarations are really just a syntax 
+sugar for a value constructor after all. 
+
+## Is an anonymous class a singleton?
+
+You might be tempted to think of `object` declarations as defining singletons, 
 but that's not quite right:
 
 * A _toplevel_ object declaration does indeed define a singleton.
@@ -105,8 +124,7 @@ Let's see how this can be useful:
     Subscription register(Subscriber s) {
         subscribers.append(s);
         object subscription satisfies Subscription {
-            shared actual void cancel() =>
-                subscribers.remove(s);
+            cancel() => subscribers.remove(s);
         }
         return subscription;
     }
@@ -137,6 +155,31 @@ as long as it is a subtype of the declared type of the attribute.
     }
 
 However, an `object` may not itself be declared `formal` or `default`.
+
+## Anonymous class expressions
+
+We can even write an anonymous class "inline" in an expression, 
+for example:
+
+<!-- try-pre:
+    interface Subscriber {}
+    object subscribers {
+        shared void append(Subscriber s) {}
+        shared void remove(Subscriber s) {}
+    }
+
+-->
+<!-- check:none:Requires Mutable List -->
+    interface Subscription {
+        shared formal void cancel();
+    }
+
+    Subscription register(Subscriber s) {
+        subscribers.append(s);
+        return object satisfies Subscription {
+            cancel() => subscribers.remove(s);
+        };
+    }
 
 ## Member classes and member class refinement
 
