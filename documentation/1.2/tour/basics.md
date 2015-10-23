@@ -406,6 +406,9 @@ C's ternary `?:` operator:
 -->
     String name = !arg.trimmed.empty then arg else "World";
 
+However, for more complex conditions, it's better to use an [inline `if`
+expression](../attributes-control-structures/#if_and_switch_expressions).
+
 Finally, the `?.` operator lets us call operations on optional types:
 
 <!-- try-pre:
