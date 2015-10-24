@@ -939,3 +939,36 @@ without breaking the soundess of the type system.
 the above in Java, which I suppose provides a partial 
 motivation for having checked exceptions in _Java_. But we're 
 talking about Ceylon here.)
+
+
+### Constructors
+
+> Does Ceylon really need constructors?
+
+Originally we hoped to avoid adding a separate constructor
+notion to the language. However, experience convinced us that
+constructors are necessary, even though we only use them in
+very rare cases. Constructors offer us three clear advantages:
+
+- We can more cleanly separate the initialization logic of a
+  class with more than one initialization path. Thus,
+  constructors improved the APIs and internal implementations 
+  of classes like `Array`, `ArrayList`, and `HashMap`.
+- When a superclass has multiple initialization paths, a 
+  subclass can inherit them using constructor delegation. This
+  was simply not possible with any proposed workaround. Thus,
+  constructors solved the difficult problem of implementing
+  class hierarchies with `clone()` methods.
+- Value constructors provide a firm foundational building 
+  block for the notion of a "singleton" instance. Thus, we 
+  were about to redefine the notion of an `object` anonymous
+  class in a _much_ more satisfying way, in terms of value
+  constructors.
+
+Constructors in other languages have always left us with a bad 
+taste in our mouths, so we spent a lot of design effort on 
+making Ceylon's constructors regular and elegant, without
+breaking any of the principles of block structure, visibility,
+or definite initialization. 
+
+Ultimately we're very happy with the result. 
