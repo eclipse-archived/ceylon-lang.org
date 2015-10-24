@@ -16,7 +16,7 @@ the basics of the language.
 ## Before you start
 
 To try the walkthrough, first install Java 7 or 8, Eclipse Luna 
-or Kepler, and [Ceylon IDE 1.1](../ide/install).
+or Kepler, and [Ceylon IDE 1.2](../ide/install).
 
 ## Getting the code
 
