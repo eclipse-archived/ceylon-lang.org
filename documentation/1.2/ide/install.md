@@ -7,14 +7,14 @@ author: Gavin King
 ---
 # #{page.title}
 
-The 1.1.0 release of the Ceylon IDE is available from our Eclipse 
+The 1.2.0 release of the Ceylon IDE is available from our Eclipse 
 plugin update site. Note that the version of the Ceylon compiler embedded 
-in this release is compatible with the Ceylon 1.1.0 command line tools.
+in this release is compatible with the Ceylon 1.2.0 command line tools.
 
 ## Eclipse platform
 
-You'll need a clean installation of [Eclipse 4.4 (Luna)][eclipse] or of 
-[Eclipse 4.3 (Kepler)][eclipse].
+You'll need a clean installation of [Eclipse 4.5 Mars][eclipse] or of 
+[Eclipse 4.4 Luna][eclipse].
 
 ## Java 7 requirement
 
