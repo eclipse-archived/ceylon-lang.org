@@ -200,12 +200,13 @@ featured typesafe handling of `null` values.
 
 In order to make it possible for the compiler to guarantee definite 
 initialization of attributes, Ceylon imposes some restrictions on the body 
-of a class. (Remember that Ceylon doesn't have constructors!) Actually, to 
-be completely fair, they're not strictly speaking _restrictions_ at all, at 
-least not from a ceylonic point of view, since you're actually allowed 
-*extra* flexibility in the body of a class that you're not allowed in the 
-body of a function or getter declaration! But compared to Java, there's some 
-things you're not allowed to do.
+of a class.
+
+Actually, to be completely fair, they're not strictly speaking _restrictions_ 
+at all, at least not from a ceylonic point of view, since you're actually 
+allowed *extra* flexibility in the body of a class that you're not allowed in 
+the body of a function or getter declaration! But, at least compared to Java, 
+there's some things you're not allowed to do.
 
 First, we need to know that the compiler automatically divides the body of 
 the class into two sections:
