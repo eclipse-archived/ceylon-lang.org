@@ -319,13 +319,13 @@ Now, according to the language spec:
 > class may not:
 >
 > * pass a self reference to the instance being initialized as an argument of 
->   an instantiation, method invocation, or `extends` clause expression or as 
->   the value of an attribute assignment or specification, 
+>   an instantiation, function invocation, or `extends` clause expression or as 
+>   the value of a value assignment or specification, 
 > * use a self reference to the instance being initialized as an operand of 
->   any operator except the member selection operator, or the of operator,
+>   any operator except the member selection operator, or the `of` operator,
 > * return a self reference to the instance being initialized, or
-> * attempt to narrow the type of a self reference to the instance being 
->   initialized using the `if (is ...)` construct or case `(is ...)`.
+> * narrow the type of a self reference to the instance being initialized 
+>   using an assignability [`is`] condition.
 
 (The spec mentions a couple of other restrictions that we'll gloss over here.)
 
@@ -338,14 +338,15 @@ belong has been completely initialized.
 According to the language spec:
 
 > The following constructs may not [occur] in the declaration section
-> [unless nested inside member body]:
+> [unless nested inside a member body]:
 > 
 > * a statement or control structure,
 > * a reference declaration,
-> * a forward-declared method or attribute declaration not annotated `late`,
+> * a constructor declaration,
+> * a forward-declared function or value declaration not annotated `late`,
 > * an `object` declaration with a non-empty initializer section, or
 > * an `object` declaration that directly extends a class other than 
->   `Object` or `Basic`...
+>   `Object` or `Basic`.
 
 Note that the rules governing the declaration section of a class body are 
 essentially the same rules governing the body of an interface. That makes 
