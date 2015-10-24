@@ -616,7 +616,7 @@ class name, except within the body of the class itself:
 <!-- try: -->
     value pt = Polar(0.37, 10.0);
     print(Polar.copy(pt));
-    
+
 ## Constructor delegation
 
 A constructor may delegate to:
@@ -672,6 +672,85 @@ initialization flows forward from the beginning of the body of
 the class, and each member must be initialized before it is 
 used. The gory details are covered 
 [here](../../../../blog/2015/06/21/constructors/#ordering_of_initialization_logic).
+
+## Constructors and extension
+
+When a class with a constructor extends a class with an 
+initializer or default constructor, it specifies just the name 
+of the extended class in the `extends` clause, and a regular 
+instantiation in the `extends` clause of the constructor:
+
+    class Person(String name) {}
+
+    class Employee 
+            extends Person { //just the class name
+        shared new withName(String name) 
+                extends Person(name) {} //instantiation
+    }
+
+When a class with an initializer extends a class with a named
+constructor, it may specify the constructor invocation in its
+`extends` clause:
+
+    class Person {
+        String name;
+        shared new withName(String name) {
+            this.name = name;
+        }
+    }
+
+    class Employee(String name) 
+            extends Person.withName(name) {} //constructor invocation
+
+When a class with a constructor extends a class with a named 
+constructor, it specifies just the name of the extended class 
+in the `extends` clause, and a regular constructor invocation 
+in the `extends` clause of the constructor:
+
+    class Person {
+        String name;
+        shared new withName(String name) {
+            this.name = name;
+        }
+    }
+
+    class Employee 
+            extends Person { //just the class name
+        shared new withName(String name) 
+                extends Person.withName(name) {} //constructor invocation
+    }
+
+It is legal to delegate to `super` instead of writing `Person`
+explicitly:
+
+<!-- try: -->
+    class Employee 
+            extends Person { //just the class name
+        shared new withName(String name) 
+                extends super.withName(name) {} //super constructor invocation
+    }
+
+It is perfectly legal for each constructor of a class to
+delegate to a _different_ constructor of the superclass:
+
+    class Person {
+        String name;
+        shared new withName(String name) {
+            this.name = name;
+        }
+        shared new withFirstAndLast(String first, String last) {
+            this.name = first + ' ' + last;
+        }
+    }
+
+    class Employee 
+            extends Person {
+        shared new withName(String name) 
+                extends super.withName(name) {}
+        shared new withFirstAndLast(String first, String last) 
+                extends super.withFirstAndLast(first, last) {}
+    }
+
 
 ## Value constructors
 
