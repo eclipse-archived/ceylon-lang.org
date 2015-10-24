@@ -232,15 +232,19 @@ locations:
 - an interface may satisfy an interface, or
 - a type parameter may satisfy any type.
 
-Ceylon uses `extends` to specify a supertype in one situation:
+Ceylon uses `extends` to specify a supertype in two 
+situations:
 
-- a class may extend a class.
+- a class may extend a class,
+- a constructor may delegate to another constructor.
 
-Unlike in Java, the syntax of the `extends` and `satisfies` 
-clauses are quite different. The `extends` clause specifies 
-a single type, _with arguments to instantiate the type_. The 
-`satisfies` clause always specifies an intersection of types, 
-and never has arguments.
+Unlike in Java, the syntax of the `extends` clause is quite
+different to the syntax of the `satisfies` clause: 
+
+- The `extends` clause specifies a single class or class 
+  constructor, _with arguments to instantiate the class_.
+- The `satisfies` clause, on the other hand, always specifies 
+  an intersection of types, and never has arguments.
 
 Now, in principle we could have used the keyword `implements` 
 instead of `satisfies`. But is it natural to say that a type 
@@ -288,7 +292,12 @@ precedence than `=`:
 
 <!-- try: -->
       if (second = seq[1] exists) { ... } //confusing unsupported syntax
-      
+
+And it looks even worse with destructuring:
+
+<!-- try: -->
+      if ([first, *rest] = process.arguments nonempty) { ... } //confusing unsupported syntax
+
 Second, when combined with the `!` (not) operator:
 
 <!-- try: -->
@@ -596,9 +605,8 @@ much sense in Ceylon:
 
 Nevertheless, for interoperability, Ceylon, _does_ let you 
 call overloaded methods and constructors of classes defined 
-in Java. As of 1.1, it even lets you refine multiple 
-overloaded versions of a method when extending a Java class
-or interface.
+in Java. Ceylon even lets you refine multiple overloaded 
+versions of a method when extending a Java class or interface.
 
 ### Implicit type conversions
 
@@ -832,17 +840,21 @@ the reified type of `Num`, not by `Num` itself.
 > Will Ceylon have type constructor parameterization / 
 > higher kinds?
 
-It's still possible, in some future version of the language.
+Currently, support for higher-order and higher-rank generic
+types is an [experimental feature of the 
+language](/blog/2015/06/03/generic-function-refs/)
+that is only available when compiling Ceylon for JavaScript
+virtual machines.
 
-There is even a branch of the Ceylon typechecker which 
-features support for type constructor parameterization. 
-However, this branch has been set aside for now because we
-realized that the feature wasn't very useful without type
-constructor _inference_, and that, unlike with ordinary type 
-argument inference, there doesn't seem to be a well-defined 
-algorithm for inferring type constructors that doesn't have
-nasty broken behavior in corner cases.
+The Ceylon typechecker itself has a rather [powerful and 
+elegant implementation](/blog/2015/06/12/more-type-functions/) 
+of type constructors and type constructor 
+parameterization&mdash;the most elegant and powerful 
+implementation in any object-oriented language, in our 
+opinion. However, this is not yet an official part of the 
+language, and is not defined by the language specification.
 
+<!--
 To understand what this is all about, we need to take a 
 slightly different perspective on the notion of a generic 
 type to the one that folks coming from C++ usually have. 
@@ -861,6 +873,7 @@ abstract the definition of a function or type over other
 unknown types. Then type constructor parameterization is the 
 ability to abstract the definition of a function or type not 
 only over types but also over type constructors. 
+-->
 
 Without type constructor parameterization, we can't form
 certain higher-order abstractions, the most famous of which 
@@ -868,6 +881,8 @@ is `Functor`, which abstracts over "container types" that
 support the ability to `map()` a function to elements. 
 (Another famous example is `Monad`.)
 
+However, it's highly debatable whether Ceylon would actually
+benefit from such abstractions.
 
 ### Generalized algebraic types
 
