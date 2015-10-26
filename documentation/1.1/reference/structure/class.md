@@ -48,7 +48,7 @@ Where:
 
 * `ANNOTATIONS` is a list of class [annotations](../annotation)
 * `TYPE-PARAMETERS` is a `,`-separated list of [type parameters](../#type_parameters)
-* `INITIALIZER-PARAMETERS` is a `,`-separated list of [value parameters](../parameters-list)
+* `INITIALIZER-PARAMETERS` is a `,`-separated list of [value parameters](../parameter-list)
 * `ENUMERATED-SUBCLASSES` is a `|`-separated list of [class types](#enumerated_classes)
 * `SUPER-CLASS-INVOCATION` is [class invocation expression](#extending_classes) for the superclass initializer
 * `SUPER-INTERFACES` is a `&`-separated list of [interface type expressions](#satisfying_interfaces)
@@ -117,7 +117,7 @@ The `extends` clause is used simultaneously to:
 * specify that the class being declared is a 
   [subtype](../type-declaration#declarative_subtyping) 
   of the given class type and,
-* [invoke](../expression/invocation/) that class's initializer.
+* [invoke](../../expression/invocation/) that class's initializer.
 
 <!-- cat-id:c -->
 <!-- try: -->

@@ -40,7 +40,7 @@ hand operand.
 
 ## See also
 
-* [`?` (default)](../default) operator
+* [`else` (default)](../else) operator
 * [`?.`](#{site.urls.spec_current}#nullvalues) in the language specification.
 * [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 
   language specification

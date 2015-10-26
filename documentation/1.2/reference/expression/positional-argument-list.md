@@ -161,7 +161,7 @@ The `Iterable`s created by comprehension arguments are *lazy*,
 so each element is only evaluated when required.
 
 It is common to use a comprehension argument in an 
-[iterable enumeration](../iterable-enumeration):
+[iterable enumeration](../iterable):
 
     value names = {for (person in people) person.name};
 

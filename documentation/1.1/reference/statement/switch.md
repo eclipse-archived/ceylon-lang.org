@@ -82,7 +82,7 @@ values in a `switch`:
 ### `case(is...)` (assignability condition)
   
 If the `switch` expression type `U` is a union of disjoint types, or an 
-[enumerated type](../../structure/type-declaratiom#enumerated_types), then a `case` 
+[enumerated type](../../structure/type-declaration#enumerated_types), then a `case` 
 may be of the form `case (is V)` where `V` is a case of the type `U`.
 
 <!-- try: -->

@@ -51,7 +51,7 @@ Where:
 * `ANNOTATIONS` is a list of function [annotations](../annotation)
 * `TYPE` is a [type expression](../type) for the reference returned from the function when it is invoked (or `void`).
 * `TYPE-PARAMETERS` is a `,`-separated list of [type parameters](../#type_parameters)
-* `PARAMETER-LISTS` is one or more `,`-separated list of [value parameters](../parameters-list), each list enclosed in parenthesis
+* `PARAMETER-LISTS` is one or more `,`-separated list of [value parameters](../parameter-list), each list enclosed in parenthesis
 * `TYPE-PARAMETER-CONSTRAINTS` is a list of [constraints on type parameters](../type-parameters#constraints) 
   declared in the type parameter list
 * `FUNCTION-BODY` is [block](#function_blocks) of statements
