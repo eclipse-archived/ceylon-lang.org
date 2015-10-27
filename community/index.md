@@ -20,14 +20,16 @@ our [Google development group](http://groups.google.com/group/ceylon-dev).
 
 ## Gitter
 
-You can also chat live with us on our [Gitter channel](https://gitter.im/ceylon/user)
+You can also chat live with us on our [Gitter channel](https://gitter.im/ceylon/user).
 
+<!--
 ## IRC
 
 You can get in touch with our community directly through our IRC channel
 on [FreeNode](https://webchat.freenode.net?randomnick=0&channels=%23ceylonlang&prompt=1&uio=d4)
 called [#ceylonlang](http://www.wsirc.com/?username=&server=irc.freenode.net%3A6667&channel=%23ceylonlang)
 (if you don't have an IRC client installed you can try either of the two previous links).
+-->
 
 ## Feedback requests
 
