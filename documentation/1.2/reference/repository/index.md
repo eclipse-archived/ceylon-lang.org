@@ -98,3 +98,7 @@ is described in the section on [tool configuration](../tool/config).
 ## Legacy repositories
 
 Ceylon also integrates with other [legacy repositories](maven) such as Maven.
+
+## Dependency overrides
+
+You can [override dependencies](./overrides) for Maven or Ceylon modules.
