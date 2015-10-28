@@ -207,8 +207,10 @@ The API documentation for
 * [`ceylon.net`](#{site.urls.apidoc_current_net})
 * [`ceylon.process`](#{site.urls.apidoc_current_process})
 * [`ceylon.promise`](#{site.urls.apidoc_current_promise})
+* [`ceylon.regex`](#{site.urls.apidoc_current_regex})
 * [`ceylon.test`](#{site.urls.apidoc_current_test})
 * [`ceylon.time`](#{site.urls.apidoc_current_time})
+* [`ceylon.transaction`](#{site.urls.apidoc_current_transaction})
 * [`ceylon.unicode`](#{site.urls.apidoc_current_unicode})
 
 ## Tools
