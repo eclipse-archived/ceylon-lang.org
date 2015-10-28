@@ -46,8 +46,8 @@ For example, suppose you want to run the `ceylon.formatter` module from Java, th
 transitive dependencies loaded in the JVM, so you run `ceylon classpath ceylon.formatter`:
 
 <!-- lang:shell -->
-    $ ceylon classpath ceylon.formatter/1.1.0
-    /usr/share/ceylon/1.1.0/repo/org/apache/httpcomponents/httpclient/4.3.2/org.apache.httpcomponents.httpclient-4.3.2.jar:/home/stephane/.ceylon/repo/ceylon/test/1.1.0/ceylon.test-1.1.0.car:/usr/share/ceylon/1.1.0/repo/org/apache/httpcomponents/httpcore/4.3.2/org.apache.httpcomponents.httpcore-4.3.2.jar:/usr/share/ceylon/1.1.0/repo/com/redhat/ceylon/common/1.1.0/com.redhat.ceylon.common-1.1.0.jar:/usr/share/ceylon/1.1.0/repo/com/redhat/ceylon/compiler/java/1.1.0/com.redhat.ceylon.compiler.java-1.1.0.jar:/usr/share/ceylon/1.1.0/repo/org/antlr/antlr/2.7.7/org.antlr.antlr-2.7.7.jar:/usr/share/ceylon/1.1.0/repo/com/github/lookfirst/sardine/5.1/com.github.lookfirst.sardine-5.1.jar:/usr/share/ceylon/1.1.0/repo/org/apache/commons/logging/1.1.1/org.apache.commons.logging-1.1.1.jar:/usr/share/ceylon/1.1.0/repo/com/github/rjeschke/txtmark/0.11/com.github.rjeschke.txtmark-0.11.jar:/usr/share/ceylon/1.1.0/repo/ceylon/language/1.1.0/ceylon.language-1.1.0.car:/usr/share/ceylon/1.1.0/repo/org/slf4j/api/1.6.1/org.slf4j.api-1.6.1.jar:/usr/share/ceylon/1.1.0/repo/net/minidev/json-smart/1.1.1/net.minidev.json-smart-1.1.1.jar:/usr/share/ceylon/1.1.0/repo/org/antlr/stringtemplate/3.2.1/org.antlr.stringtemplate-3.2.1.jar:/home/stephane/.ceylon/repo/ceylon/collection/1.1.0/ceylon.collection-1.1.0.car:/home/stephane/.ceylon/repo/ceylon/formatter/1.1.0/ceylon.formatter-1.1.0.car:/usr/share/ceylon/1.1.0/repo/org/antlr/runtime/3.4/org.antlr.runtime-3.4.jar:/usr/share/ceylon/1.1.0/repo/org/jboss/modules/1.3.3.Final/org.jboss.modules-1.3.3.Final.jar:/usr/share/ceylon/1.1.0/repo/com/redhat/ceylon/compiler/js/1.1.0/com.redhat.ceylon.compiler.js-1.1.0.jar:/home/stephane/.ceylon/repo/ceylon/file/1.1.0/ceylon.file-1.1.0.car:/home/stephane/.ceylon/repo/ceylon/interop/java/1.1.0/ceylon.interop.java-1.1.0.car:/usr/share/ceylon/1.1.0/repo/com/redhat/ceylon/maven-support/2.0/com.redhat.ceylon.maven-support-2.0.jar:/usr/share/ceylon/1.1.0/repo/com/redhat/ceylon/module-resolver/1.1.0/com.redhat.ceylon.module-resolver-1.1.0.jar:/usr/share/ceylon/1.1.0/repo/com/redhat/ceylon/typechecker/1.1.0/com.redhat.ceylon.typechecker-1.1.0.jar:/usr/share/ceylon/1.1.0/repo/org/tautua/markdownpapers/core/1.2.7/org.tautua.markdownpapers.core-1.2.7.jar:/usr/share/ceylon/1.1.0/repo/org/apache/commons/codec/1.8/org.apache.commons.codec-1.8.jar:/usr/share/ceylon/1.1.0/repo/org/jboss/jandex/1.0.3.Final/org.jboss.jandex-1.0.3.Final.jar
+    $ ceylon classpath ceylon.formatter/1.2.0
+    /usr/share/ceylon/1.2.0/repo/org/apache/httpcomponents/httpclient/4.3.2/org.apache.httpcomponents.httpclient-4.3.2.jar:/home/stephane/.ceylon/repo/ceylon/test/1.2.0/ceylon.test-1.2.0.car:/usr/share/ceylon/1.2.0/repo/org/apache/httpcomponents/httpcore/4.3.2/org.apache.httpcomponents.httpcore-4.3.2.jar:/usr/share/ceylon/1.2.0/repo/com/redhat/ceylon/common/1.2.0/com.redhat.ceylon.common-1.2.0.jar:/usr/share/ceylon/1.2.0/repo/com/redhat/ceylon/compiler/java/1.2.0/com.redhat.ceylon.compiler.java-1.2.0.jar:/usr/share/ceylon/1.2.0/repo/org/antlr/antlr/2.7.7/org.antlr.antlr-2.7.7.jar:/usr/share/ceylon/1.2.0/repo/com/github/lookfirst/sardine/5.1/com.github.lookfirst.sardine-5.1.jar:/usr/share/ceylon/1.2.0/repo/org/apache/commons/logging/1.1.1/org.apache.commons.logging-1.1.1.jar:/usr/share/ceylon/1.2.0/repo/com/github/rjeschke/txtmark/0.11/com.github.rjeschke.txtmark-0.11.jar:/usr/share/ceylon/1.2.0/repo/ceylon/language/1.2.0/ceylon.language-1.2.0.car:/usr/share/ceylon/1.2.0/repo/org/slf4j/api/1.6.1/org.slf4j.api-1.6.1.jar:/usr/share/ceylon/1.2.0/repo/net/minidev/json-smart/1.1.1/net.minidev.json-smart-1.1.1.jar:/usr/share/ceylon/1.2.0/repo/org/antlr/stringtemplate/3.2.1/org.antlr.stringtemplate-3.2.1.jar:/home/stephane/.ceylon/repo/ceylon/collection/1.2.0/ceylon.collection-1.2.0.car:/home/stephane/.ceylon/repo/ceylon/formatter/1.2.0/ceylon.formatter-1.2.0.car:/usr/share/ceylon/1.2.0/repo/org/antlr/runtime/3.4/org.antlr.runtime-3.4.jar:/usr/share/ceylon/1.2.0/repo/org/jboss/modules/1.3.3.Final/org.jboss.modules-1.3.3.Final.jar:/usr/share/ceylon/1.2.0/repo/com/redhat/ceylon/compiler/js/1.2.0/com.redhat.ceylon.compiler.js-1.2.0.jar:/home/stephane/.ceylon/repo/ceylon/file/1.2.0/ceylon.file-1.2.0.car:/home/stephane/.ceylon/repo/ceylon/interop/java/1.2.0/ceylon.interop.java-1.2.0.car:/usr/share/ceylon/1.2.0/repo/com/redhat/ceylon/maven-support/2.0/com.redhat.ceylon.maven-support-2.0.jar:/usr/share/ceylon/1.2.0/repo/com/redhat/ceylon/module-resolver/1.2.0/com.redhat.ceylon.module-resolver-1.2.0.jar:/usr/share/ceylon/1.2.0/repo/com/redhat/ceylon/typechecker/1.2.0/com.redhat.ceylon.typechecker-1.2.0.jar:/usr/share/ceylon/1.2.0/repo/org/tautua/markdownpapers/core/1.2.7/org.tautua.markdownpapers.core-1.2.7.jar:/usr/share/ceylon/1.2.0/repo/org/apache/commons/codec/1.8/org.apache.commons.codec-1.8.jar:/usr/share/ceylon/1.2.0/repo/org/jboss/jandex/1.0.3.Final/org.jboss.jandex-1.0.3.Final.jar
 
 It is a mouthful, to be sure, and we plan on removing most of those runtime dependencies in the next release, but
 it does the job.
@@ -55,7 +55,7 @@ it does the job.
 Of course, you can directly pass this classpath to Java:
 
 <!-- lang:shell -->
-    $ java -cp `ceylon classpath ceylon.formatter/1.1.0` ...
+    $ java -cp `ceylon classpath ceylon.formatter/1.2.0` ...
 
 ### Running Ceylon modules directly from the command-line using `java`
 
@@ -64,7 +64,7 @@ Ceylon modules. For this, you just need to set up the classpath as we’ve alrea
 module you want to run, its main Java class and any arguments you want to pass it:
 
 <!-- lang:shell -->
-    $ java -cp `ceylon classpath ceylon.formatter/1.1.0` com.redhat.ceylon.compiler.java.runtime.Main ceylon.formatter/1.1.0 ceylon.formatter.run_ args...
+    $ java -cp `ceylon classpath ceylon.formatter/1.2.0` com.redhat.ceylon.compiler.java.runtime.Main ceylon.formatter/1.2.0 ceylon.formatter.run_ args...
 
 This will set up the metamodel and invoke the `ceylon.formatter` module in a flat classpath.
 
@@ -78,7 +78,7 @@ this will set up the metamodel and invoke the `ceylon.formatter` module:
     
     public class Run {
         public static void main(String[] args){
-            Main.runModule("ceylon.formatter", "1.1.0", "ceylon.formatter.run_");
+            Main.runModule("ceylon.formatter", "1.2.0", "ceylon.formatter.run_");
         }
     }
 
@@ -89,7 +89,7 @@ allows you to compile and run Ceylon modules from the JVM for both the JVM and J
 
 This API assumes you have the Ceylon distribution in your classpath, but not necessarily the Ceylon modules you
 want to compile or run (although it is supported too). This means you have to start your JVM with a classpath
-set to `ceylon classpath ceylon.language/1.1.0` or a similar classpath provided by a manually created `ClassLoader`.
+set to `ceylon classpath ceylon.language/1.2.0` or a similar classpath provided by a manually created `ClassLoader`.
 
 ### Compiling a Ceylon module for both backends
 
