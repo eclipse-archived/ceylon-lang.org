@@ -9,7 +9,11 @@ doc_root: ../../..
 
 # #{page.title_md}
 
-[![Ceylon Herd](/images/herd-200.png "Ceylon Herd")](http://modules.ceylon-lang.org)
+<center>
+<a href=http://modules.ceylon-lang.org" title="Ceylon Herd" alt="Ceylon Herd">
+<img src="/images/herd-200.png" srcset="/images/herd-200-2x.png 2x"/> 
+</a>
+</center>
 
 Ceylon Herd is our next-gen module repository, where you can find and publish
 open-source Ceylon modules. Why is it next-gen? Here's why:
