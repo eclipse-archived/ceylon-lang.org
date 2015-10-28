@@ -31,7 +31,8 @@ _Some of these pages are incomplete. Want to help? [See how](/code/website)._
   <li><a href="structure/parameter-list/">Parameters</a></li>
   <li><a href="structure/value/">Values</a></li>
   <li><a href="structure/function/">Functions</a></li>
-  <li><a href="structure/object/"><code>object</code> declarations</a> <small>(c.f. object expressions)</small></li>
+  <li><a href="structure/object/"><code>object</code> declarations</a> 
+      <small>(c.f. <a href="expression/object/">object expressions</a>)</small></li>
   <li><a href="structure/annotation/">Annotations</a></li>
 </ul>
 
@@ -105,7 +106,7 @@ _Some of these pages are incomplete. Want to help? [See how](/code/website)._
   <li><a href="expression/meta-reference/">Meta references</a></li>
   
   <li><a href="expression/if/"><code>if</code> expressions</a></li>
-  <li><a href="expression/switch/"><code>switch</code> expression</a></li>
+  <li><a href="expression/switch/"><code>switch</code> expressions</a></li>
   <li><a href="expression/let/"><code>let</code></a></li>
   <li><a href="expression/object/"><code>object</code> expressions</a></li>
 </ul>

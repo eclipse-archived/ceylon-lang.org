@@ -126,5 +126,6 @@ The instance is a [value](../value), so can be manipulated
 
 ## See also
 
+* [`object` expressions](../../expression/object/)
 * [Anonymous classes](#{site.urls.spec_current}#anonymousclasses) in the Ceylon 
   language spec
