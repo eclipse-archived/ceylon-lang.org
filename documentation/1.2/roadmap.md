@@ -10,6 +10,7 @@ author: Emmanuel Bernard
 Ceylon 1.2 [has been released](/download) and we're in the 
 process of preparing a new roadmap for Ceylon 1.3.
 
+<!--
 ## Current progress for Ceylon 1.3
 
 <div id="milestones-progress">
@@ -29,4 +30,5 @@ process of preparing a new roadmap for Ceylon 1.3.
     <div data-title="SDK" data-repo="ceylon-sdk" data-milestone="9">Loading…</div>
     <div data-title="Formatter" data-repo="ceylon.formatter" data-milestone="7">Loading…</div>
 </div>
+-->
 
