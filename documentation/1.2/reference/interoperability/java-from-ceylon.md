@@ -559,7 +559,8 @@ NIO and security
 - `java.jdbc`: contains `java.sql`, `javax.sql`
 - `java.jdbc.rowset`: contains `javax.sql.rowset.**`
 - `javax.script`: contains `javax.script`
-- `javax.xml`: contains `javax.xml.**`, `org.w3c.dom.**`, `org.xml.sax.**`
+- `javax.xml`: contains `javax.xml.**`, `org.w3c.dom`, `org.w3c.dom.{bootstrap,events,ls}`
+   (`css`, `html`, `ranges`, `stylesheets`, `traversal` and `views` are in the `oracle.jdk.jaxp` module), `org.xml.sax.**`
 - `javax.xmldsig`: contains `javax.xml.crypto.**`
 - `java.management`: contains `javax.management`
 - `java.instrument`: contains `java.lang.instrument`
