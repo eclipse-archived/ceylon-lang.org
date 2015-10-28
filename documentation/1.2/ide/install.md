@@ -18,7 +18,7 @@ You'll need a clean installation of [Eclipse 4.5 Mars][eclipse] or of
 
 ## Java 7 requirement
 
-The Eclipse platform must itself be executing on Java 7. Ceylon IDE is
+The Eclipse platform must itself be executing on Java 7 or 8. Ceylon IDE is
 not compatible with Java 6 or earlier.
 
 - Mac OS users _must_ make Java 7 the default virtual machine using the 
@@ -61,5 +61,5 @@ Beware that this is an unstable and unfinished version.
 
 Please [report any issue in our issue tracker][issues]. _Note that if
 Ceylon IDE doesn't work at all, the problem is probably that Eclipse
-is not executing on a Java 7 VM._
+is not executing on a Java 7 or 8 VM._
 

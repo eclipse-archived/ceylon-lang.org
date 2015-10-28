@@ -28,7 +28,7 @@ Like everything we produce, Ceylon IDE is [open source](/code/licenses).
 ## Running the IDE
 
 You'll need a clean install of [Eclipse 4.5 Mars][eclipse] or of 
-[Eclipse 4.4 Luna][eclipse] running on Java 7. 
+[Eclipse 4.4 Luna][eclipse] running on Java 7 or 8. 
 
 Install Ceylon IDE (which includes the Ceylon compiler) from our 
 [Eclipse plugin update site](install).
