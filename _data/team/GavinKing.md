@@ -16,4 +16,5 @@ developing the compiler frontend, working on the IDE, and thinking about
 the SDK and future of the platform. He's still a fan of Java, and of other 
 languages, especially Smalltalk, Python, and ML.
 
-You can [follow him on G+](https://profiles.google.com/gavin.king).
+You can [follow him on G+](https://profiles.google.com/gavin.king) or on
+[twitter](https://twitter.com/1ovthafew).
