@@ -29,6 +29,8 @@ Ceylon, not to the current 1.1 release.
 - [Learn Programming in Ceylon - Part 1](http://renatoathaydes.github.io/Learn-Programming-In-Ceylon-Part-1/)
 - [Learn Programming in Ceylon - Part 2](http://renatoathaydes.github.io/Learn-Programming-In-Ceylon-Part-2/)
 - [Ceylon: Awesome Tea or a New Language to Learn](https://blog.openshift.com/ceylon-awesome-tea-or-a-new-language-to-learn/)
+- [The Ceylon programming language - Introduction](http://taiar.github.io/log/2015/10/09/ceylon-programming-language.html)
+- [The Ceylon programming language - Usage](http://taiar.github.io/log/2015/10/23/ceylon-programming-language-usage.html)
 
 ## French
 
