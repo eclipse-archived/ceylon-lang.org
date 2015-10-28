@@ -886,7 +886,7 @@ Java _and_ JavaScript code, via use of the `native` annotation.
 ## A real specification
 
 The Ceylon language is defined by an exhaustive, but highly readable,
-144-page [specification](../spec). The specification predates the compiler,
+160-page [specification](../spec). The specification predates the compiler,
 and functions as its foundation.
 
 ## Take the Tour
