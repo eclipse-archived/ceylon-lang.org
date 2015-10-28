@@ -15,9 +15,11 @@ release of the language, command line tools, and IDE.
 
 ## Command line tools
 
-This package contains the Ceylon command line compiler for Java and
-JavaScript virtual machines, the documentation compiler, the language 
-module, and the module runtime.
+This package contains the Ceylon command line compiler for 
+Java and JavaScript virtual machines, the documentation 
+compiler, the test runner, the language module, the module 
+runtimes for the JVM and Node.js, and a suite of additional 
+command line tools.
 
 [1.2.0]: /blog/2015/10/28/ceylon-1
 
