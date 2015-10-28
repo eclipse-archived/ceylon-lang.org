@@ -7,7 +7,7 @@ author: Emmanuel Bernard
 ---
 # #{page.title}
 
-Ceylon 1.1 [has been released](/download).
+Ceylon 1.0 [has been released](/download).
 
 ## Issue summary for Ceylon 1.1
 

@@ -8,7 +8,7 @@ author: Emmanuel Bernard
 # #{page.title}
 
 Ceylon 1.2 [has been released](/download) and we're in the 
-process of preparing a new roadmap for Ceylon 1.3
+process of preparing a new roadmap for Ceylon 1.3.
 
 ## Current progress for Ceylon 1.3
 

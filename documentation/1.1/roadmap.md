@@ -7,10 +7,7 @@ author: Emmanuel Bernard
 ---
 # #{page.title}
 
-Ceylon 1.1 [has been released](/download) and we're in the 
-process of preparing a new roadmap for Ceylon 1.2, which 
-will focus on new language features and integration with 
-application platforms like Java EE. Stay tuned!
+Ceylon 1.1 [has been released](/download).
 
 <!--
 However, our roadmap is quite well-defined:
