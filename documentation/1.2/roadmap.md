@@ -29,6 +29,7 @@ process of preparing a new roadmap for Ceylon 1.3.
     <div data-title="Common IDE code" data-repo="ceylon-ide-common" data-milestone="1">Loading…</div>
     <div data-title="SDK" data-repo="ceylon-sdk" data-milestone="9">Loading…</div>
     <div data-title="Formatter" data-repo="ceylon.formatter" data-milestone="7">Loading…</div>
+    <div data-title="Distribution" data-repo="ceylon-dist" data-milestone="9">Loading…</div>
 </div>
 -->
 
