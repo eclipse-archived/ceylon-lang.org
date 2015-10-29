@@ -28,6 +28,11 @@ on any OSGi container, on the
 [Vert.x](http://vertx.io/core_manual_ceylon.html#vertx-for-ceylon), or
 in a browser using [require.js](http://requirejs.org/).
 
+When cross-platform execution is not a priority, Ceylon is designed to 
+[interoperate](#interoperation_with_native_java_and_javascript) 
+smoothly and elegantly with native Java and JavaScript code and libraries,
+and even with Maven and OSGi. 
+
 ## A familiar, readable syntax
 
 Ceylon's syntax is ultimately derived from C. So if you're a C, Java, or C#
