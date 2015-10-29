@@ -16,18 +16,10 @@ in this release is compatible with the Ceylon 1.1.0 command line tools.
 You'll need a clean installation of [Eclipse 4.4 (Luna)][eclipse] or of 
 [Eclipse 4.3 (Kepler)][eclipse].
 
-## Java 7 requirement
+## Java 7+ requirement
 
-The Eclipse platform must itself be executing on Java 7. Ceylon IDE is
-not compatible with Java 6 or earlier.
-
-- Mac OS users _must_ make Java 7 the default virtual machine using the 
-  `Java Preferences` application located in `/Applications/Utilities`.
-- Other OS users can select the Java 7 VM in [eclipse.ini][eclipseini]
-  if necessary.
-  
-_It is not enough to just choose JDK 7 from Installed JREs in Eclipse 
-Preferences!_
+The Eclipse platform must itself be executing on Java 7 or 8. Ceylon IDE 
+is not compatible with Java 6 or earlier.
 
 ## Installing the Ceylon plugin from the update site
 
@@ -46,7 +38,6 @@ Here's what you need to do to install the IDE:
 
 [eclipse]: http://www.eclipse.org/downloads/
 [issues]: https://github.com/ceylon/ceylon-ide-eclipse/issues
-[eclipseini]: http://wiki.eclipse.org/Eclipse.ini
 
 ## Installing from the development (unstable) update site
 
