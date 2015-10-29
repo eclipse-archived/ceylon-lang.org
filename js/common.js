@@ -141,7 +141,7 @@ function addTryButtons(){
 					// need to start your browser with security checks disabled to test this on localhost
 					// Chrome would be "chromium-browser --disable-web-security" for example
 					if(document.domain != "localhost")
-						document.domain = "ceylon-lang.org";
+						document.domain = "try.ceylon-lang.org";
 					$editorIFrame = jQuery("<iframe class='code-editor' src='http://try.ceylon-lang.org/embedded.html?src='>");
 					$editorIFrame.load(function(){
 						updateEditor(src);
