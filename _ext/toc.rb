@@ -10,9 +10,9 @@ class TOC
 
   def execute(site)
     site.pages.each do |page|
-      next unless page.toc
+      next unless page.toc # only for pages with toc: true in their metadata
+      next if page.table_of_contents # only do this once
       toc = ""
-
       # Necessary to support old Awestruct
       # remove when everyone has moved
       begin
@@ -38,9 +38,7 @@ class TOC
           end
         end
       end
-
       page.table_of_contents = toc
-
     end
   end
 

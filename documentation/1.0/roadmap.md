@@ -7,9 +7,11 @@ author: Emmanuel Bernard
 ---
 # #{page.title}
 
-Ceylon 1.1 [has been released](/download).
+Ceylon 1.0 [has been released](/download-archive).
 
 ## Issue summary for Ceylon 1.1
+
+Ceylon 1.1 [has been released](/download-archive).
 
 <div id="milestones-progress">
     <div id="milestone-overall">Loading…</div>

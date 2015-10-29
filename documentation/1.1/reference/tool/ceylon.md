@@ -54,7 +54,8 @@ The rest of this page will highlight particular tools
 * [`ceylon test`](#{site.urls.ceylon_tool_current}/ceylon-test.html)
   is the command line interface for executing tests on the JVM.
 * [`ceylon import-jar`](#{site.urls.ceylon_tool_current}/ceylon-import-jar.html)
-  is the command line interface for launching a Ceylon program on the JVM.
+  is the command line interface for importing a Java archive into a Ceylon
+  module repository.
   
 ### JavaScript-specific commands
 

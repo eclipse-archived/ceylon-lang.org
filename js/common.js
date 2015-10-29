@@ -199,7 +199,7 @@ jQuery(function (){
 		var repo = $elem.attr("data-repo");
 		var milestone = $elem.attr("data-milestone");
 		var url = "https://api.github.com/repos/ceylon/" + repo + "/milestones/" + milestone + "?callback=?";
-		makeMilestoneDiv($elem, title, 100, 0, "M6");
+		makeMilestoneDiv($elem, title, 100, 0, "1.3");
 		jQuery.getJSON(url, function(json){
 		    open_total += json.data.open_issues;
 		    closed_total += json.data.closed_issues;
