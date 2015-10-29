@@ -47,9 +47,10 @@ on Gitter or by emailing the development list.
 
 Come hear about Ceylon at a [conference or user group near you](events).
 
-## Google+
+## Google+ and Twitter
 
-Ceylon even has a [Google+ page](http://ceylon-lang.org/+).
+Ceylon even has a [Google+ page](http://ceylon-lang.org/+) and a
+[Twitter account](http://twitter.com/ceylonlang).
 
 ## Reddit
 
