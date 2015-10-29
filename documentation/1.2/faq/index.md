@@ -83,7 +83,7 @@ without even getting started on any of
 Java interoperability is a major priority for the project.
 However, since Ceylon will be based on its own modular SDK,
 making a clean break from the legacy Java SDK, Ceylon will 
-require sometimes benefit from frameworks designed especially 
+sometimes benefit from frameworks designed especially 
 for Ceylon. That's reasonable, since Ceylon is a _much_ nicer 
 language for developing frameworks and libraries than Java!
 
