@@ -58,6 +58,9 @@ The rest of this page will highlight particular tools
 * [`ceylon import-jar`](#{site.urls.ceylon_tool_current}/ceylon-import-jar.html)
   is the command line interface for importing a Java archive into a Ceylon
   module repository.
+* [`ceylon war`](#{site.urls.ceylon_tool_current}/ceylon-war.html)
+  is the command line interface for generating `.war` files to
+  deploy Ceylon modules in Java EE environments.
   
 ### JavaScript-specific commands
 
