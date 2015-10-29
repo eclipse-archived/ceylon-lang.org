@@ -115,7 +115,7 @@ function getCommonIndent(src) {
 var $editorIFrame;
 
 function updateEditor(src){
-	$editorIFrame.get(0).contentWindow.addSourceEditor("embedded.ceylon", src);
+	$editorIFrame.get(0).contentWindow.editSource(src);
 }
 
 function addTryButtons(){
