@@ -134,7 +134,7 @@ function addTryButtons(){
 				if($editorIFrame){
 					updateEditor(src);
 				} else {
-					// We must set the document.domain to be the same as the one set on http://try.ceylon-lang.org/embed.jsp
+					// We must set the document.domain to be the same as the one set on http://try.ceylon-lang.org/embedded.html
 					// otherwise we can't touch their iframe and get the editor because we would have different subdomains
 					// See https://developer.mozilla.org/en-US/docs/Same_origin_policy_for_JavaScript
 					// We don't do it for localhost, though if localhost uses try.ceylon-lang.org it will not work and you
@@ -142,7 +142,7 @@ function addTryButtons(){
 					// Chrome would be "chromium-browser --disable-web-security" for example
 					if(document.domain != "localhost")
 						document.domain = "ceylon-lang.org";
-					$editorIFrame = jQuery("<iframe class='code-editor' src='http://try.ceylon-lang.org/embed.jsp?src='>");
+					$editorIFrame = jQuery("<iframe class='code-editor' src='http://try.ceylon-lang.org/embedded.html?src='>");
 					$editorIFrame.load(function(){
 						updateEditor(src);
 					});
