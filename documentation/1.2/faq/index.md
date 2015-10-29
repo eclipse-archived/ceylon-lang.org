@@ -80,12 +80,17 @@ without even getting started on any of
 
 ### How about Java interoperability?
 
-Java interoperability is a major priority for the project.
-However, since Ceylon will be based on its own modular SDK,
-making a clean break from the legacy Java SDK, Ceylon will 
-sometimes benefit from frameworks designed especially 
-for Ceylon. That's reasonable, since Ceylon is a _much_ nicer 
-language for developing frameworks and libraries than Java!
+Java interoperability is a major priority for the project,
+and you can use the Java SDK and other Java libraries 
+directly from Ceylon. This gives Ceylon programs immediate 
+access to a huge ecosystem of reusable functionality.
+
+On the other hand, Ceylon has its own, cleaner, modular SDK, 
+and since code written to depend on the Java SDK can't execute 
+on a JavaScript virtual machine, Ceylon will sometimes benefit 
+from frameworks designed especially for Ceylon. That's 
+reasonable, since Ceylon is a _very_ comfortable language 
+for development of frameworks and libraries!
 
 You can learn more about interoperation with Java 
 [right here](../tour/interop/)
