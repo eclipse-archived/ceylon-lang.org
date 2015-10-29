@@ -4,7 +4,8 @@
    <property name="p2.compressed" value="true"/>
    <property name="p2.timestamp" value="1316559185000"/>
  </properties>
- <children size="1">
+ <children size="2">
    <child location="http://downloads.ceylon-lang.org/ide/eclipse/prod/"/>
+   <child location="http://download.eclipse.org/tools/gef/updates/releases/"/>
  </children>
 </repository>
