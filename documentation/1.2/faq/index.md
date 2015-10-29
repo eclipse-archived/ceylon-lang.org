@@ -93,7 +93,7 @@ reasonable, since Ceylon is a _very_ comfortable language
 for development of frameworks and libraries!
 
 You can learn more about interoperation with Java 
-[right here](../tour/interop/)
+[right here](../tour/interop/).
 
 ### And interoperation with JavaScript?
 

@@ -9,6 +9,15 @@ author: Emmanuel Bernard
 
 Ceylon is first and foremost an open source community project.
 
+## Stack Overflow
+
+You can ask questions about Ceylon on [stackoverflow](http://stackoverflow.com/questions/ask).
+Make sure you add the `ceylon` tag to your question.
+
+## Gitter
+
+You can chat live with us on our busy [Gitter channel](https://gitter.im/ceylon/user).
+
 ## User mailing list
 If you have questions or suggestions, you're welcome to discuss them in 
 our [Google user group](http://groups.google.com/group/ceylon-users).
@@ -17,10 +26,6 @@ our [Google user group](http://groups.google.com/group/ceylon-users).
 
 You can follow and participate in the development of Ceylon by joining 
 our [Google development group](http://groups.google.com/group/ceylon-dev).
-
-## Gitter
-
-You can also chat live with us on our [Gitter channel](https://gitter.im/ceylon/user).
 
 <!--
 ## IRC
@@ -31,10 +36,12 @@ called [#ceylonlang](http://www.wsirc.com/?username=&server=irc.freenode.net%3A6
 (if you don't have an IRC client installed you can try either of the two previous links).
 -->
 
-## Feedback requests
+## Issues
 
-We're using github's issue tracker to solicit feedback from the community
-on a number of [open language design issues](https://github.com/ceylon/ceylon-spec/issues?labels=request+for+feedback&sort=created&direction=desc&state=open&page=1).
+Please report bugs and request improvements via GitHub's
+[issue tracking system](https://github.com/ceylon/). If you're not sure
+precisely which subproject your issue report belongs in, please ask us
+on Gitter or by emailing the development list.
 
 ## Events
 
