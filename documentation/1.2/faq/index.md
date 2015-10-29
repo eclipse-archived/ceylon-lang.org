@@ -87,6 +87,24 @@ sometimes benefit from frameworks designed especially
 for Ceylon. That's reasonable, since Ceylon is a _much_ nicer 
 language for developing frameworks and libraries than Java!
 
+You can learn more about interoperation with Java 
+[right here](../tour/interop/)
+
+### And interoperation with JavaScript?
+
+The Ceylon language features several constructs that exist 
+to support interoperation with languages with dynamic typing,
+primarily with JavaScript:
+
+- `dynamic` blocks make it possible to write and interoperate
+  with dynamically typed code in Ceylon,
+- a `dynamic` instantiation expression lets you create an
+  untyped JavaScript object in Ceylon, and
+- `dynamic` interfaces allow us to ascribe static types to
+  pre-existing dynamically-typed JavaScropt APIs.
+
+You can learn more `dynamic` [here](../tour/dynamic).
+
 ### Where can I read more about some of your language design choices?
 
 Try the [language design FAQ](language-design).
