@@ -115,7 +115,7 @@ function getCommonIndent(src) {
 var $editorIFrame;
 
 function updateEditor(src){
-	$editorIFrame.get(0).contentWindow.setEditCode(src);
+	$editorIFrame.get(0).contentWindow.addSourceEditor("embedded.ceylon", src);
 }
 
 function addTryButtons(){
@@ -142,7 +142,7 @@ function addTryButtons(){
 					// Chrome would be "chromium-browser --disable-web-security" for example
 					if(document.domain != "localhost")
 						document.domain = "ceylon-lang.org";
-					$editorIFrame = jQuery("<iframe class='code-editor' src='http://try.ceylon-lang.org/embedded.html?src='>");
+					$editorIFrame = jQuery("<iframe class='code-editor' src='http://try.ceylon-lang.org/embedded.html'>");
 					$editorIFrame.load(function(){
 						updateEditor(src);
 					});
