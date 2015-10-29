@@ -21,7 +21,7 @@ compiler, the test runner, the language module, the module
 runtimes for the JVM and Node.js, and a suite of additional 
 command line tools.
 
-[1.2.0]: /blog/2015/10/28/ceylon-1-2-0/
+[1.2.0]: /blog/2015/10/29/ceylon-1-2-0/
 
 <table>
     <tr>
