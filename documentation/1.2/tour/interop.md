@@ -270,7 +270,7 @@ An especially useful adaptor is
 [`CeylonIterable`](#{site.urls.apidoc_current_interop_java}/CeylonIterable.type.html), 
 which lets you iterate any Java `Iterable` from a `for` loop in 
 Ceylon, or apply any of the usual operations of a Ceylon 
-[`Iterable`](#{site.urls.apidoc_1_1}/Iterable.type.html) to it.
+[`Iterable`](#{site.urls.apidoc_1_2}/Iterable.type.html) to it.
 
 <!-- try: -->
     import java.util { JList=List }

@@ -412,7 +412,7 @@ For example, if we were writing a parameterized type `Set<Element>`, we would
 need to be able to compare instances of `Element` using `==` to see if a 
 certain instance of `Element` is contained in the `Set`. Since `==` is 
 defined for expressions of type 
-[`Object`](#{site.urls.apidoc_1_1}/Object.type.html),
+[`Object`](#{site.urls.apidoc_1_2}/Object.type.html),
 we need some way to assert that `Element` is a subtype of `Object`. This is 
 an example of a *type constraint*—in fact, it's an example of the most 
 common kind of type constraint, an *upper bound*.

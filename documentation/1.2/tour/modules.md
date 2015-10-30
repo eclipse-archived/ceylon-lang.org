@@ -456,7 +456,7 @@ the module archive for the module `net.example.foo`, and into a directory
 of the module respository where they're accessible to the JavaScript runtime.
 
 At runtime, the resource may be loaded by calling 
-[`resourceByPath()`](#{site.urls.apidoc_1_1}/meta/declaration/Module.type.html#resourceByPath) 
+[`resourceByPath()`](#{site.urls.apidoc_1_2}/meta/declaration/Module.type.html#resourceByPath) 
 on the `Module` object representing the module to which the resource belongs:
 
 <!-- try: -->
