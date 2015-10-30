@@ -335,7 +335,7 @@ The second idiom is more efficient. It uses the unit type pattern:
 <!-- try: -->
     abstract class Nil() of nil {}
     object nil extends Nil() {}
-    Map<String,Maybe<Item>> map 
+    Map<String,Item|Nil> map 
             = HashMap<String,Item|Nil>();
     
     void put(String key, Item? item) 
