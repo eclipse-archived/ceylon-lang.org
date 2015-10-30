@@ -305,12 +305,17 @@ to have a `Map` that distinguished between:
 - a key for which the map has an entry with a no item.
 
 We might try to use a `Map<String,Item?>` for this. But then `map.get(key)` 
-would simply return `null` in _both_ of the above cases, and we would be 
-forced to call `map.defines(key)` to distinguish between them, resulting in
-an additional lookup.
+would simply return `null` in _both_ of the above cases, so how could we 
+distinguish between them? One way would be to call `map.defines(key)`, but
+that would result in an additional lookup.
 
-There's two idioms that handle this situation a little more elegantly. The 
-first uses a "wrapper" object for each entry:
+In practice, what we actually do is call 
+[`Map.getOrDefault()`](#{site.urls.apidoc_1_2}/Map.type.html#getOrDefault), 
+but, for the sake of argument, let's pretend that `getOrDefault()` isn't there, 
+and ask how else we could solve the problem.
+
+There's two idioms that we could use to handle this situation. The first uses 
+a "wrapper" object for each entry:
 
 <!-- try: -->
     class Maybe(Item? item) {}
