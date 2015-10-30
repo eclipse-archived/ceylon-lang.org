@@ -1,6 +1,6 @@
 ---
 name: Red Hat
-photo: /images/companies/RedHat.png
+photo: /images/companies/RedHat-black.svg
 level: 1
 homepage: http://www.redhat.com
 ---
