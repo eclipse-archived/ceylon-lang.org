@@ -19,7 +19,7 @@ using named arguments. We're now ready to learn about _comprehensions_.
 A comprehension is a convenient way to transform, filter, or combine a
 stream or streams of values before passing the result to a function.
 Comprehensions act upon, and produce, instances of 
-[`Iterable`](#{site.urls.apidoc_1_1}/Iterable.type.html).
+[`Iterable`](#{site.urls.apidoc_1_2}/Iterable.type.html).
 A comprehension may appear:
 
 - inside braces, producing an iterable,
@@ -167,7 +167,7 @@ evaluated. This is extremely useful for functions like `every()` and
 -->
     if (every { for (p in people) p.age>=18 }) { ... }
 
-The function [`every()`](#{site.urls.apidoc_1_1}/index.html#every) 
+The function [`every()`](#{site.urls.apidoc_1_2}/index.html#every) 
 in `ceylon.language` accepts a stream of `Boolean` values, and stops 
 iterating the stream as soon as it encounters `false`.
 

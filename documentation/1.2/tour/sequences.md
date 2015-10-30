@@ -20,7 +20,7 @@ we'll come back to talk more about generics [later](../generics).
 
 An iterable object, or _stream_, is an object that produces a stream of 
 values. Streams satisfy the interface 
-[`Iterable`](#{site.urls.apidoc_1_1}/Iterable.type.html).
+[`Iterable`](#{site.urls.apidoc_1_2}/Iterable.type.html).
 
 Ceylon provides some syntax sugar for working with streams:
 
@@ -42,7 +42,7 @@ As we'll see [later](../comprehensions), the braces may even contain a
 _comprehension_, making them much more powerful than what you see here.
 
 `Iterable` is a subtype of the interface 
-[`Category`](#{site.urls.apidoc_1_1}/Category.type.html),
+[`Category`](#{site.urls.apidoc_1_2}/Category.type.html),
 so we can use the `in` operator to test if a value is produced by the 
 `Iterable`.
 
@@ -59,7 +59,7 @@ so we can use the `in` operator to test if a value is produced by the
     assert (index in 1..100);
 
 The `in` operator is just syntactic sugar for the method 
-[`contains()`](#{site.urls.apidoc_1_1}/Category.type.html#contains) of
+[`contains()`](#{site.urls.apidoc_1_2}/Category.type.html#contains) of
 `Category`.
 
 
@@ -81,7 +81,7 @@ above, it's just part of the syntax of the `for` loop.)
 
 If, for any reason, we need an index for each element produced by a stream, 
 we can use a special variation of the `for` loop that is designed for 
-iterating streams of [`Entry`s](#{site.urls.apidoc_1_1}/Entry.type.html):
+iterating streams of [`Entry`s](#{site.urls.apidoc_1_2}/Entry.type.html):
 
 <!-- try-pre:
     {String+} words = { "hello", "world" };
@@ -91,7 +91,7 @@ iterating streams of [`Entry`s](#{site.urls.apidoc_1_1}/Entry.type.html):
         print("``i``: ``word``");
     }
 
-The [`indexed`](#{site.urls.apidoc_1_1}/Iterable.type.html#indexed) 
+The [`indexed`](#{site.urls.apidoc_1_2}/Iterable.type.html#indexed) 
 attribute returns a stream of entries containing the indexed elements of 
 the original stream.
 
@@ -99,7 +99,7 @@ the original stream.
 write the type of the entry stream as `{<Integer->String>*}`.)
 
 It's often useful to be able to iterate two sequences at once. The 
-[`zipEntries()`](#{site.urls.apidoc_1_1}/index.html#zipEntries) function 
+[`zipEntries()`](#{site.urls.apidoc_1_2}/index.html#zipEntries) function 
 comes in handy here:
 
 <!-- try-pre:
@@ -117,9 +117,9 @@ comes in handy here:
 
 Some kind of array or list construct is a universal feature of all programming 
 languages. The Ceylon language module defines support for *sequence types* via
-the interfaces [`Sequential`](#{site.urls.apidoc_1_1}/Sequential.type.html),
-[`Sequence`](#{site.urls.apidoc_1_1}/Sequence.type.html),
-and [`Empty`](#{site.urls.apidoc_1_1}/Empty.type.html). 
+the interfaces [`Sequential`](#{site.urls.apidoc_1_2}/Sequential.type.html),
+[`Sequence`](#{site.urls.apidoc_1_2}/Sequence.type.html),
+and [`Empty`](#{site.urls.apidoc_1_2}/Empty.type.html). 
 
 Again, there is some syntax sugar associated with sequences:
 
@@ -188,7 +188,7 @@ The code above is exactly equivalent to the following de-sugared code:
 (We'll come back to what the list of values in brackets means in a minute!)
 
 The `Sequential` interface extends 
-[`Iterable`](#{site.urls.apidoc_1_1}/Iterable.type.html), 
+[`Iterable`](#{site.urls.apidoc_1_2}/Iterable.type.html), 
 so we can iterate a `Sequential` using a `for` loop:
 
 <!-- try-pre:
@@ -203,7 +203,7 @@ so we can iterate a `Sequential` using a `for` loop:
 
 ## Ranges
 
-A [`Range`](#{site.urls.apidoc_1_1}/Range.type.html)
+A [`Range`](#{site.urls.apidoc_1_2}/Range.type.html)
 is a kind of `Sequence`. The following:
 
 <!-- try:
@@ -247,25 +247,25 @@ It's probably a good time to see some more advanced Ceylon code. What better
 place to find some than in the language module itself?
 
 You can find the API documentation and source code of 
-[`Sequence`](#{site.urls.apidoc_1_1}/Sequence.type.html)
+[`Sequence`](#{site.urls.apidoc_1_2}/Sequence.type.html)
 online, or you can go to `Navigate > Open Ceylon Declaration...` to view the 
 declaration of `Sequential` directly inside Ceylon IDE.
 
 The most important operations of `Sequential` are inherited from 
-[`Correspondence`](#{site.urls.apidoc_1_1}/Correspondence.type.html), 
-and [`Iterable`](#{site.urls.apidoc_1_1}/Iterable.type.html).
+[`Correspondence`](#{site.urls.apidoc_1_2}/Correspondence.type.html), 
+and [`Iterable`](#{site.urls.apidoc_1_2}/Iterable.type.html).
 
 - `Correspondence` provides the capability to access elements of the sequence
   by index, and
 - `Iterable` provides the ability to iterate the elements of the sequence. 
 
-Now open the class [`Range`](#{site.urls.apidoc_1_1}/Range.type.html)
+Now open the class [`Range`](#{site.urls.apidoc_1_2}/Range.type.html)
 in the IDE, to see a concrete implementation of the `Sequence` interface.
 
 ## Empty sequences and the bottom type
 
 Finally, check out the definition of 
-[`Empty`](#{site.urls.apidoc_1_1}/Empty.type.html).
+[`Empty`](#{site.urls.apidoc_1_2}/Empty.type.html).
 Notice that `Empty` is declared to be a subtype of `List<Nothing>`. This special 
 type `Nothing`, often called the _bottom type_, represents:
 
@@ -284,8 +284,8 @@ return a value. There is only one possible way that such an operation can
 terminate: by throwing an exception.
 
 Another cool thing to notice here is the return type of the 
-[`first`](#{site.urls.apidoc_1_1}/Empty.type.html#first) and 
-[`item()`](#{site.urls.apidoc_1_1}/Empty.type.html#item) operations 
+[`first`](#{site.urls.apidoc_1_2}/Empty.type.html#first) and 
+[`item()`](#{site.urls.apidoc_1_2}/Empty.type.html#item) operations 
 of `Empty`. You might have been expecting to see `Nothing?` here, since they 
 override supertype members of type `T?`. But as we saw in the 
 [first part](../basics) of the Tour, `Nothing?` is just an abbreviation for 
@@ -402,7 +402,7 @@ This is much cleaner:
 
 All this may take a little getting used to. But what's nice is that all the 
 exact same idioms also apply to other kinds of `Correspondence`, including 
-[`Map`s](#{site.urls.apidoc_1_1}/Map.type.html) .
+[`Map`s](#{site.urls.apidoc_1_2}/Map.type.html) .
 
 ## Tuples
 
@@ -418,7 +418,7 @@ This tuple contains a two `Float`s followed by a `String`. That information
 is captured in its static type, `[Float,Float,String]`.
 
 Each link of the list is an instance of the class
-[`Tuple`](#{site.urls.apidoc_1_1}/Tuple.type.html).
+[`Tuple`](#{site.urls.apidoc_1_2}/Tuple.type.html).
 If you really _must know_, the code above is syntax sugar for the following:
 
 <!-- try-post:

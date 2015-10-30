@@ -508,7 +508,7 @@ The `try/catch/finally` statement works just like Java's:
 To handle all Ceylon exceptions, together with all JavaScript exceptions,
 or all Java exceptions that are subclasses of `java.lang.Exception`, we 
 can `catch` the type 
-[`Exception`](#{site.urls.apidoc_1_1}/Exception.type.html) 
+[`Exception`](#{site.urls.apidoc_1_2}/Exception.type.html) 
 defined in `ceylon.language`. If we don't explicitly specify a type,
 `Exception` is inferred:
 
@@ -525,12 +525,12 @@ defined in `ceylon.language`. If we don't explicitly specify a type,
 
 To handle all exceptions, including subtypes of `java.lang.Error`,
 we can catch the root exception class 
-[`Throwable`](#{site.urls.apidoc_1_1}/Throwable.type.html).
+[`Throwable`](#{site.urls.apidoc_1_2}/Throwable.type.html).
 
 The `try` statement may optionally specify a "resource" expression, just
 like in Java. The resource is a 
-[`Destroyable`](#{site.urls.apidoc_1_1}/Destroyable.type.html) or an
-[`Obtainable`](#{site.urls.apidoc_1_1}/Obtainable.type.html).
+[`Destroyable`](#{site.urls.apidoc_1_2}/Destroyable.type.html) or an
+[`Obtainable`](#{site.urls.apidoc_1_2}/Obtainable.type.html).
 
 <!-- try: -->
 <!-- cat-id:tx -->

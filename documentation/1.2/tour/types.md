@@ -105,11 +105,11 @@ The `if (is ... )` construct actually narrows to an intersection type.
 
 An expression is assignable to an *intersection type*, written `X&Y`, if it is 
 assignable to *both* `X` and `Y`. For example, since 
-[`Tuple`](#{site.urls.apidoc_1_1}/Tuple.type.html)
+[`Tuple`](#{site.urls.apidoc_1_2}/Tuple.type.html)
 is a subtype of 
-[`Iterable`](#{site.urls.apidoc_1_1}/Iterable.type.html) 
+[`Iterable`](#{site.urls.apidoc_1_2}/Iterable.type.html) 
 and of 
-[`Correspondence`](#{site.urls.apidoc_1_1}/Correspondence.type.html),
+[`Correspondence`](#{site.urls.apidoc_1_2}/Correspondence.type.html),
 the tuple type `[String,String]` is also a subtype of the intersection 
 `{String*} & Correspondence<Integer,String>`. The supertypes of 
 an intersection type include all supertypes of every intersected type.
@@ -172,9 +172,9 @@ determines this automatically. So the following code is also well-typed:
     Object obj = val; // Object is a supertype of String, Integer, and Float
 
 However, the following code is *not* well-typed, since 
-[`Number`](#{site.urls.apidoc_1_1}/Number.type.html) 
+[`Number`](#{site.urls.apidoc_1_2}/Number.type.html) 
 is not a supertype of
-[`String`](#{site.urls.apidoc_1_1}/String.type.html).
+[`String`](#{site.urls.apidoc_1_2}/String.type.html).
 
 <!-- check:none:demoing compile error -->
     String|Integer|Float x = -1;
@@ -586,8 +586,8 @@ We can handle multiple cases in a single `case`:
     }
 
 For a couple of more practical examples, check out the definitions of 
-[`Boolean`](#{site.urls.apidoc_1_1}/Boolean.type.html) and 
-[`Comparison`](#{site.urls.apidoc_1_1}/Comparison.type.html) in the 
+[`Boolean`](#{site.urls.apidoc_1_2}/Boolean.type.html) and 
+[`Comparison`](#{site.urls.apidoc_1_2}/Comparison.type.html) in the 
 language module.
 
 
