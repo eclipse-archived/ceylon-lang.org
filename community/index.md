@@ -7,7 +7,8 @@ author: Emmanuel Bernard
 ---
 # #{page.title}
 
-Ceylon is first and foremost an open source community project.
+Ceylon is sponsored and supported by Red Hat. Like other things Red Hat 
+sponsors, it's first and foremost an open source community project.
 
 ## Stack Overflow
 
