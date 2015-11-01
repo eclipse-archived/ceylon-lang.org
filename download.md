@@ -83,6 +83,11 @@ command line tools.
     </tr>
 </table>
 
+You can also install the Ceylon command line tools via [SDKMAN!](http://sdkman.io/):
+
+<!-- lang: none -->
+    sdk install ceylon
+
 Mac OS X users running the [Homebrew package manager](http://mxcl.github.com/homebrew/) 
 can easily install Ceylon:
 
