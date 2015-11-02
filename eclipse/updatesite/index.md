@@ -16,7 +16,7 @@ To install Ceylon IDE:
    `Work With` field and hit Enter.
 4. Click `Select All` and then `Finish`.
 
-![eclipseupdatesite](/images/eclipseupdatesite.png "Update Site")
+<img src="/images/eclipseupdatesite.png" alt="Update Site" width="80%" height="auto"/>
 
 Eclipse will install the Ceylon Eclipse plugins and then ask you to 
 restart. After restarting you will be ready to start using Ceylon IDE.

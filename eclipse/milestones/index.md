@@ -19,7 +19,7 @@ Eclipse do the following:
    the plugin
 5. Press 'Finish'
 
-![eclipseupdatesite](/images/eclipseupdatesite.png "Update Site")
+<img src="/images/eclipseupdatesite.png" alt="Update Site" width="80%" height="auto"/>
 
 Eclipse will install the Ceylon Eclipse plugins and it will ask 
 you to restart. After the restart you will be ready to start using 

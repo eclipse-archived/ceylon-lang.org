@@ -29,12 +29,11 @@ Here's what you need to do to install the IDE:
 2. Go to `Help > Install New Software...`.
 3. Enter the URL <http://ceylon-lang.org/eclipse/updatesite/>
    in the `Work with` field and hit Enter.<br/>
-   ![eclipseupdatesite](/images/eclipseupdatesite.png "Update Site")
+   <img src="/images/eclipseupdatesite.png" alt="Update Site" width="80%" height="auto"/>
 4. Click `Select All` and then `Finish`.
 5. Wait while Eclipse installs the Ceylon plugin, and then restart 
    Eclipse when prompted.
-6. Go to `Help > Welcome to Ceylon` to get started.<br/>
-   ![welcomepage](/images/screenshots/intro.png "Welcome Page")
+6. Go to `Help > Welcome to Ceylon` to get started.
 
 [eclipse]: http://www.eclipse.org/downloads/
 [issues]: https://github.com/ceylon/ceylon-ide-eclipse/issues
