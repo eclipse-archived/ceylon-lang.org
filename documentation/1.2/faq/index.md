@@ -20,8 +20,13 @@ questions about the Ceylon project.
 
 Ceylon is a new programming language that's deeply influenced 
 by Java, designed by people who are unapologetic fans of Java. 
-It's a language designed specifically for writing large 
-programs in teams.
+It's a language designed for writing large programs in teams.
+
+In line with this purpose, Ceylon is a language which offers 
+disciplined static typing, built-in modularity, and excellent
+tooling.
+
+It's also an extremely elegant language, and highly readable.
 
 ### Where can I run Ceylon?
 
@@ -41,22 +46,16 @@ JVM-only, or it might be JavaScript-only. Of course,
 ### Why a new language?
 
 Well, we've been designing and building frameworks and 
-libraries for Java for ten years, and we know its limitations 
-intimately. And we're frustrated. The most recent releases of
-Java go some distance to alleviating _some_ problems, but 
-even the newest language features strain to accommodate
-past mistakes and the requirement for full backward 
-compatibility.
-
-But much of our frustration is not even with the Java 
-language itself. The extremely outdated class libraries that 
-form the Java SE SDK are riddled with problems. Developing a 
-great SDK is a top priority of the project.
+libraries for Java for well over a decade, and we know its 
+limitations intimately. The most recent releases of Java go 
+some distance to alleviating _some_ problems, but even the 
+newest language features strain to accommodate past mistakes 
+and the requirement for full backward compatibility.
 
 ### How is Ceylon different?
 
-Every language has its strengths and weaknesses. Ceylon is
-a great language if you want to create easily understandable
+Every language has its strengths and weaknesses. Ceylon is a 
+great language if you want to create easily understandable
 and maintainable code with minimum fuss, especially if you
 like navigating and writing code with the help of an IDE. 
 It's also an especially great language if you care about 
@@ -78,15 +77,18 @@ same set of technical capabilities as Ceylon. And that's
 without even getting started on any of 
 [our other goals and principles](/blog/2012/01/10/goals).
 
+If you're not convinced, we've written a longer post on 
+[why you might want to choose Ceylon](http://ceylon-lang.org/blog/2015/10/27/why/). 
+
 ### How about Java interoperability?
 
-Java interoperability is a major priority for the project,
-and you can use the Java SDK and other Java libraries 
-directly from Ceylon. This gives Ceylon programs immediate 
-access to a huge ecosystem of reusable functionality.
+Java interoperability is a critically important feature of 
+the language. You can use the Java SDK and other Java 
+libraries directly from Ceylon. This gives Ceylon programs 
+immediate access to a huge ecosystem of reusable functionality.
 
 On the other hand, Ceylon has its own, cleaner, modular SDK, 
-and since code written to depend on the Java SDK can't execute 
+and, since code written to depend on the Java SDK can't execute 
 on a JavaScript virtual machine, Ceylon will sometimes benefit 
 from frameworks designed especially for Ceylon. That's 
 reasonable, since Ceylon is a _very_ comfortable language 

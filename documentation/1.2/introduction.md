@@ -25,13 +25,14 @@ is equally at home on Java and JavaScript virtual machines.
 Ceylon modules may be deployed on Ceylon's own JVM-based module runtime,
 on any OSGi container, on the 
 [Node.js module system](http://nodejs.org/api/modules.html), on 
-[Vert.x](http://vertx.io/core_manual_ceylon.html#vertx-for-ceylon), or
-in a browser using [require.js](http://requirejs.org/).
+[Vert.x](http://vertx.io/core_manual_ceylon.html#vertx-for-ceylon), or in 
+a browser using [require.js](http://requirejs.org/).
 
 When cross-platform execution is not a priority, Ceylon is designed to 
 [interoperate](#interoperation_with_native_java_and_javascript) 
 smoothly and elegantly with native Java and JavaScript code and libraries,
-and even with Maven and OSGi. 
+and even with Maven and OSGi. Thus, Ceylon programs have access to not one
+but two huge ecosystems of reusable building blocks.
 
 ## A familiar, readable syntax
 
