@@ -123,7 +123,7 @@ You can replace every import of a given module to use another module:
 
 <!--lang: xml -->
     <replace module="com.foo.bar" version="2">
-        <with module="com.foo.gee" version="3">
+        <with module="com.foo.gee" version="3"/>
     </replace>
 
 These elements accept the common [Artifact coordinates or module names](#artifact_coordinates_or_module_names) attributes.
@@ -135,9 +135,9 @@ You can add/replace/remove or share dependencies of a single module:
 <!--lang: xml -->
     <module module="com.foo.bar" version="2">
         <!-- this will add or replace existing dependencies -->
-        <add module="com.foo.gee" version="3">
-        <remove module="com.foo.baz">
-        <share module="com.foo.dep">
+        <add module="com.foo.gee" version="3"/>
+        <remove module="com.foo.baz"/>
+        <share module="com.foo.dep"/>
     </module>
 
 Or for Maven artifacts:
@@ -145,9 +145,9 @@ Or for Maven artifacts:
 <!--lang: xml -->
     <artifact groupId="com.foo" artifactId="bar" version="2">
         <!-- this will add or replace existing dependencies -->
-        <add groupId="com.foo" artifactId="gee" version="3">
-        <remove groupId="com.foo" artifactId="baz">
-        <share groupId="com.foo" artifactId="dep">
+        <add groupId="com.foo" artifactId="gee" version="3"/>
+        <remove groupId="com.foo" artifactId="baz"/>
+        <share groupId="com.foo" artifactId="dep"/>
     </artifact>
 
 These elements accept the common [Artifact coordinates or module names](#artifact_coordinates_or_module_names) attributes.
