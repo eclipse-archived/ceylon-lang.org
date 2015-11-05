@@ -605,7 +605,7 @@ one of the super-interface implementations using the syntax
 The `of` operator performs a _statically safe typecast_. That is, 
 a cast that is guaranteed to succeed at runtime. We'll meet other 
 uses for it later, but here you can think of it as widening the type 
-of the expression `super` from `User&Party` to `User`, thus resolving 
+of the expression `super` from `User&Party` to `Party`, thus resolving 
 the ambiguity as to which inherited definition of `name` should be
 called.
 
