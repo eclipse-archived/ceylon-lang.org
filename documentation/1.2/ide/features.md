@@ -20,8 +20,8 @@ some of what you get.</b></p>
 <p>The compiler and IDE work together to find bugs in your code and propose solutions:
 the editor features quick fixes for errors, and oodles of contextual quick assists.</p>
 <div>
-<img src="/images/screenshots/m6/quickfix.png" style="box-shadow: 0 0 15px #888;"/>
-<img src="/images/screenshots/m6/quickassist.png" style="box-shadow: 0 0 15px #888;"/>
+<img src="/images/screenshots/1.2.0/quick-fix.png" width="55%" style="box-shadow: 0 0 15px #888;"/>
+<img src="/images/screenshots/1.2.0/quick-assist.png" width="40%" style="box-shadow: 0 0 15px #888;"/>
 </div>
 </div>
 
@@ -29,17 +29,25 @@ the editor features quick fixes for errors, and oodles of contextual quick assis
 <h2>Refactoring</h2>
 <p>The IDE features Rename, Inline, Extract Function, Extract Value, Extract Parameter, 
 Change Parameter List, Collect Parameters, Move Out, Make Receiver, Enter Import Alias, 
-Invert Boolean, Move To Unit, and Move To New Unit refactorings. Even better, it fully 
-integrates with Eclipse's tooling for moving and copying files, for renaming and copying 
-packages, and for renaming Java program elements.</p>
+Introduce Type Alias, Extract Interface, Invert Boolean, Move To Unit, and 
+Move To New Unit refactorings. Even better, it fully integrates with Eclipse's tooling 
+for moving and copying files, for renaming and copying  packages, and for renaming Java 
+program elements.</p>
 <p>You can rename a declaration using the editor's inline "linked mode".</p>
 <div>
-<img src="/images/screenshots/m6/rename.png" style="box-shadow: 0 0 15px #888;"/>
+<img src="/images/screenshots/1.2.0/rename.png" width="55%" style="box-shadow: 0 0 15px #888;"/>
+</div>
+<p>Extract refactorings let you select a containing expression.</p>
+<div>
+<img src="/images/screenshots/1.2.0/extract-function.png" width="55%" style="box-shadow: 0 0 15px #888;"/>
+</div>
+<p>Change parameters lets you add and inline default arguments.</p>
+<div>
+<img src="/images/screenshots/1.2.0/change-parameters.png" width="55%" style="box-shadow: 0 0 15px #888;"/>
 </div>
 <p>The refactoring wizards provide previews of changes before applying them.</p>
 <div>
-<img src="/images/screenshots/m6/refactor1.png" style="box-shadow: 0 0 15px #888;"/>
-<!--img src="/images/screenshots/m6/refactor2.png" style="box-shadow: 0 0 15px #888;"/-->
+<img src="/images/screenshots/1.2.0/preview.png" width="55%" style="box-shadow: 0 0 15px #888;"/>
 </div>
 </div>
 
@@ -48,14 +56,18 @@ packages, and for renaming Java program elements.</p>
 <p>We haven't forgotten everyone's favorite feature of an IDE: contextual autocompletion.
 Autocompletion will even find modules for you, in Herd, or elsewhere!</p>
 <div>
-<img src="/images/screenshots/m6/autocomplete2.png" style="box-shadow: 0 0 15px #888;"/>
+<img src="/images/screenshots/1.2.0/complete-module.png" width="70%" style="box-shadow: 0 0 15px #888;"/>
+<img src="/images/screenshots/1.2.0/complete-version.png" width="25%" style="box-shadow: 0 0 15px #888;"/>
 </div>
 <p>Autocompletion even supports "linked mode" argument proposals.</p>
 <div>
-<img src="/images/screenshots/m6/autocomplete1.png" style="box-shadow: 0 0 15px #888;"/>
-<img src="/images/screenshots/m6/autocomplete3.png" style="box-shadow: 0 0 15px #888;"/>
+<img src="/images/screenshots/1.2.0/complete-type.png" width="50%" style="box-shadow: 0 0 15px #888;"/>
+<img src="/images/screenshots/1.2.0/complete-arg.png" width="40%" style="box-shadow: 0 0 15px #888;"/>
 </div>
 <p>There's even IntelliJ-style "chain completion".</p>
+<div>
+<img src="/images/screenshots/1.2.0/chain-completion.png" width="80%" style="box-shadow: 0 0 15px #888;"/>
+</div>
 </div>
 
 <div style="text-align:right" class="feature">
@@ -63,12 +75,20 @@ Autocompletion will even find modules for you, in Herd, or elsewhere!</p>
 <p>With Find References, Find Assignments, Find Refinements, Find Subtypes, and 
 the Ceylon Search page, you shouldn't be short of ways to find stuff.</p>
 <div>
-<img src="/images/screenshots/m6/findmenu.png" style="box-shadow: 0 0 15px #888;"/>
+<img src="/images/screenshots/1.2.0/find-menu.png" width="40%" style="box-shadow: 0 0 15px #888;"/>
 </div>
 <div>
-<img src="/images/screenshots/m6/find.png" style="box-shadow: 0 0 15px #888;"/>
+<img src="/images/screenshots/1.2.0/search-results.png" width="70%" style="box-shadow: 0 0 15px #888;"/>
 </div>
 <p>There's even the Quick Find References popup control.</p>
+<div>
+<img src="/images/screenshots/1.2.0/quick-find-references.png" width="80%" style="box-shadow: 0 0 15px #888;"/>
+</div>
+<p>On the other hand, the Open Ceylon Declaration dialog is the quickest way to get 
+to a toplevel declaration from wherever you are.</p>
+<div style="text-align:center">
+<img src="/images/screenshots/1.2.0/open-declaration.png" width="90%" style="box-shadow: 0 0 15px #888;"/>
+</div>
 </div>
 
 <div class="feature">
@@ -78,35 +98,33 @@ easy navigation between code, and easy access to its API documentation. Ceylon I
 provides hyperlink-style "go to" navigation to any referenced declaration, package,
 or module, including Java declarations.</p>
 
-<p>The Open Ceylon Declaration dialog is the quickest way to get to a toplevel 
-declaration from wherever you are.</p>
-<div style="text-align:center">
-<img src="/images/screenshots/m6/open.png" style="box-shadow: 0 0 15px #888;"/>
-</div>
 <p>Hover puts the documentation for any program element right at your pointer.
 Hover over a declaration and see its API documentation, dynamically compiled.
 Hover over a <code>value</code> or <code>function</code> keyword, and see the inferred type.</p>
 <div>
-<img src="/images/screenshots/m6/hover.png" style="box-shadow: 0 0 15px #888;"/>
+<img src="/images/screenshots/1.2.0/hover.png" width="60%" style="box-shadow: 0 0 15px #888;"/>
 </div>
 <p>The popup outline and type hierarchy controls provide two extra useful ways to 
 navigate your code.</p>
 <div>
-<img src="/images/screenshots/m6/popuphierarchy.png" style="box-shadow: 0 0 15px #888;vertical-align:top"/>
-<img src="/images/screenshots/m6/popupoutline.png" style="box-shadow: 0 0 15px #888;"/>
+<img src="/images/screenshots/1.2.0/quick-hierarchy.png" width="50%" style="box-shadow: 0 0 15px #888;vertical-align:top"/>
+<img src="/images/screenshots/1.2.0/quick-outline.png" width="40%" style="box-shadow: 0 0 15px #888;"/>
+</div>
+<p>Finally, there's the Outline View and an awesome Type Hierarchy view.</p>
+<div>
+<img src="/images/screenshots/1.2.0/big-hierarchy-view.png" width="40%" style="box-shadow: 0 0 15px #888;vertical-align:top"/>
+<img src="/images/screenshots/1.2.0/big-outline-view.png" width="40%" style="box-shadow: 0 0 15px #888;"/>
 </div>
 </div>
 
 <div style="text-align:right" class="feature">
 <h2>Syntax highlighting, outlining, and structural compare</h2>
 <p>The editor features configurable syntax highlighting, occurrence marking, search
-result highlighting, a helpful outline view, and code folding. The editor integrates 
-with Eclipse's merge viewer for team-based development.</p>
-<div>
-<img src="/images/screenshots/m6/outline.png" style="box-shadow: 0 0 15px #888;"/>
-<img src="/images/screenshots/m6/compare.png" style="box-shadow: 0 0 15px #888;"/>
+result highlighting, and code folding. The editor integrates with Eclipse's merge 
+viewer for team-based development.</p>
+<div style="text-align:center">
+<img src="/images/screenshots/1.2.0/compare.png" width="80%" style="box-shadow: 0 0 15px #888;"/>
 </div>
-<p>There's also an awesome Type Hierarchy view.
 </div>
 
 <div class="feature">
