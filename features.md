@@ -73,10 +73,10 @@ intersection and union types</a> as basic building blocks, along with
 <a href="/documentation/current/introduction/#enumerated_subtypes">enumerated types</a> 
 and <a href="/documentation/current/introduction/#type_aliases_and_type_inference">type aliases</a>.</p>
 <div>
-<img src="/images/screenshots/1.2.0/type-system-1.png" width="45%" style="box-shadow: 0 0 15px #888;"/>
+<img src="/images/screenshots/1.2.0/type-system-1.png" width="42%" style="box-shadow: 0 0 15px #888;"/>
 </div>
 <div>
-<img src="/images/screenshots/1.2.0/type-system-2.png" width="70%" style="box-shadow: 0 0 15px #888;"/>
+<img src="/images/screenshots/1.2.0/type-system-2.png" width="64%" style="box-shadow: 0 0 15px #888;"/>
 </div>
 </div>
 
@@ -102,7 +102,7 @@ type inference</a>,
 flow-sensitive typing</a>, a typesafe <code>null</code>
 value, and a typesafe <code>switch</code> statement.</p>
 <div>
-<img src="/images/screenshots/1.2.0/flow-typing-1.png" width="40%" style="box-shadow: 0 0 15px #888;"/>
+<img src="/images/screenshots/1.2.0/flow-typing-1.png" width="38%" style="box-shadow: 0 0 15px #888;"/>
 <img src="/images/screenshots/1.2.0/flow-typing-2.png" width="50%" style="vertical-align:top;box-shadow: 0 0 15px #888;"/>
 </div>
 </div>
@@ -113,11 +113,11 @@ value, and a typesafe <code>switch</code> statement.</p>
 <a href="/documentation/current/introduction/#simplified_generics_with_fully_reified_types">"fixes" 
 generics</a> with declaration-site covariance and contravariance, reified type arguments, and 
 principal instantiation inheritance.</p>
-<img src="/images/screenshots/1.2.0/generics.png" width="75%" style="vertical-align:top;box-shadow: 0 0 15px #888;"/>
+<img src="/images/screenshots/1.2.0/generics.png" width="72%" style="vertical-align:top;box-shadow: 0 0 15px #888;"/>
 <p>Ceylon's reified generics even allow us to inspect runtime type arguments in the
 debugger.</p>
 <div>
-<img src="/images/screenshots/1.2.0/debugger.png" width="60%" style="vertical-align:top;box-shadow: 0 0 15px #888;"/>
+<img src="/images/screenshots/1.2.0/debugger.png" width="72%" style="vertical-align:top;box-shadow: 0 0 15px #888;"/>
 </div>
 </div>
 
@@ -128,7 +128,7 @@ debugger.</p>
 and reified generics are the foundation of Ceylon's unique approach to typesafe 
 runtime metaprogramming, which makes framework development a pleasure.</p>
 <div>
-<img src="/images/screenshots/1.2.0/meta.png" width="60%" style="vertical-align:top;box-shadow: 0 0 15px #888;"/>
+<img src="/images/screenshots/1.2.0/meta.png" width="50%" style="vertical-align:top;box-shadow: 0 0 15px #888;"/>
 </div>
 </div>
 
