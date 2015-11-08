@@ -161,6 +161,7 @@ file also understood by the command line toolset.</p>
 <div style="text-align:center">
 <img src="/images/screenshots/1.2.0/module-repositories.png" width="70%" style="box-shadow: 0 0 15px #888;"/>
 </div>
+<p>Finally, the **Build Paths** page lets you set up dependencies between projects.</p>
 </div>
 
 <div class="feature" style="text-align:right">
