@@ -134,13 +134,13 @@ viewer for team-based development.</p>
 <img src="/images/screenshots/1.2.0/compare.png" width="80%" style="box-shadow: 0 0 15px #888;"/>
 </div>
 <p>The editor integrates Ceylon Formatter, a high-quality code formatter, alongside
-the lightweight Correct Indentation and Format Block commands.</p>
+the lightweight **Correct Indentation** and **Format Block** commands.</p>
 <div style="text-align:center">
 <img src="/images/screenshots/1.2.0/formatter.png" width="80%" style="box-shadow: 0 0 15px #888;"/>
 </div>
 <p>Of course, the editor has so much more offer: paste-with-imports, autoindentation, 
-autoclosing, Clean Imports, Reveal Inferred Types, the awesome Terminate 
-Statement command, configurable keyboard accelerators, and much more!</p>
+autoclosing, **Clean Imports**, **Reveal Inferred Types**, the awesome **Terminate 
+Statement** command, configurable keyboard accelerators, and much more!</p>
 </div>
 
 <div class="feature">
