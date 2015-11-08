@@ -199,10 +199,15 @@ repository.</p>
 
 <div style="text-align:right" class="feature">
 <h2>Run, test, and debug</h2>
-<p>You can run and debug your Ceylon projects on Ceylon's modular runtime for the JVM, 
-or on Node.js, directly from the IDE.</p>
+<p>You can run and debug your Ceylon projects on Ceylon's modular runtime for the 
+JVM, or on Node.js, directly from the IDE.</p>
 <div>
 <img src="/images/screenshots/1.2.0/run.png" width="70%" style="box-shadow: 0 0 15px #888;"/>
+</div>
+<p>Unlike other JVM languages, the debugger for Ceylon IDE shows the runtime type 
+arguments of a generic function or instance of a generic type!</p>
+<div>
+<img src="/images/screenshots/1.2.0/debugger.png" width="70%" style="box-shadow: 0 0 15px #888;"/>
 </div>
 <p>You can even run tests written with the Ceylon SDK's testing module.</p>
 <div>
