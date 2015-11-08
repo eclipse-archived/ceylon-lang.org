@@ -95,7 +95,7 @@ switchingPrint("foo");
         }
     }
 
-These constructs protect us from inadvertantly writing code that would 
+These constructs protect us from inadvertently writing code that would 
 cause a `ClassCastException` in Java, just like `if (exists ... )` 
 protects us from writing code that would cause a `NullPointerException`.
 

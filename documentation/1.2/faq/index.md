@@ -108,7 +108,7 @@ primarily with JavaScript:
 - a `dynamic` instantiation expression lets you create an
   untyped JavaScript object in Ceylon, and
 - `dynamic` interfaces allow us to ascribe static types to
-  pre-existing dynamically-typed JavaScropt APIs.
+  pre-existing dynamically-typed JavaScript APIs.
 
 You can learn more `dynamic` [here](../tour/dynamic).
 
@@ -125,11 +125,11 @@ read more about the team [here](/community/team/).
 
 ### How is Ceylon pronounced?
 
-There's some debate about that but the accepted pronounciation 
+There's some debate about that but the accepted pronunciation 
 in the team is [/sɨˈlɒn/](http://en.wikipedia.org/wiki/Wikipedia:IPA_for_English#Key).
 Or in less fancy schmancy phoneticsy, `selón`. 
 
-(On the other hand, lot's of folks seem to pronounce it 
+(On the other hand, lots of folks seem to pronounce it 
 `say-lon` with the emphasis on the first syllable so if you 
 say it like that we'll probably know what you're talking 
 about.) 
