@@ -206,7 +206,7 @@ or on Node.js, directly from the IDE.</p>
 </div>
 <p>You can even run tests written with the Ceylon SDK's testing module.</p>
 <div>
-<img src="/images/screenshots/1.2.0/test-view.png" width="50%" style="box-shadow: 0 0 15px #888;"/>
+<img src="/images/screenshots/1.2.0/test-view.png" width="40%" style="box-shadow: 0 0 15px #888;"/>
 </div>
 </div>
 
