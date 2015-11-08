@@ -572,7 +572,7 @@ Constructors are considered to belong to the initialized section of
 the class, so in this case the initializer section extends until the
 end of the default constructor declaration.
 
-Of course, all the usual langauge guarantees about definite 
+Of course, all the usual language guarantees about definite 
 initialization are still in force, and the compiler will make sure
 that every constructor of a class leaves all members of the class
 fully initialized. 

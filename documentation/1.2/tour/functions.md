@@ -955,7 +955,7 @@ expressible within the type system of Ceylon.
 ## There's more...
 
 You'll find a more detailed discussion of how Ceylon represents function 
-types using tupes [here](/blog/2013/01/21/abstracting-over-functions/),
+types using tuples [here](/blog/2013/01/21/abstracting-over-functions/),
 including an in-depth discussion of `compose()` and `curry()`.
 
 Now we're  going to talk about Ceylon's syntax for [named argument 

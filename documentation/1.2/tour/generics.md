@@ -270,7 +270,7 @@ native Java code, where all generic types are invariant by default, and
 _wildcards_ are used to recover covariance or contravariance in method 
 signatures.
 
-Therefore, Ceylon also supports Java-style wildcards, albiet with a cleaner
+Therefore, Ceylon also supports Java-style wildcards, albeit with a cleaner
 syntax. 
 
 

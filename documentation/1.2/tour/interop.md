@@ -59,7 +59,7 @@ _TODO: instructions for using JavaFX here._
 
 ## Depending on a Java archive
 
-Two make use of native code belonging to a packaged `.jar`
+To make use of native code belonging to a packaged `.jar`
 archive, you have two options:
 
 - add the archive to a Ceylon module repository, along with
