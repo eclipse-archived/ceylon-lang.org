@@ -261,7 +261,7 @@ avoiding them, except where there's a really good reason.
 
 ## Utility functions and classes
 
-In the module [`ceylon.interop.java`](https://modules.ceylon-lang.org/repo/1/ceylon/interop/java/1.1.0/module-doc/api/index.html)
+In the module [`ceylon.interop.java`](#{site.urls.apidoc_current_interop_java}/index.html)
 you'll find a suite of useful utility methods and classes for
 Java interoperation. For example, there are classes that adapt
 between Ceylon collection types and Java collection types.
