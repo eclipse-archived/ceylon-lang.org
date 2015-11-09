@@ -45,10 +45,10 @@ copying packages, and for renaming Java program elements.</p>
 <div>
 <img src="/images/screenshots/1.2.0/extract-function.png" width="80%" style="box-shadow: 0 0 15px #888;"/>
 </div>
-<p>**Change Parameters** lets you change the signature of a method, including adding or 
-inlining default arguments.</p>
+<p>**Change Parameter List** lets you change the signature of a method, including adding 
+or inlining default arguments.</p>
 <div>
-<img src="/images/screenshots/1.2.0/change-parameters.png" width="65%" style="box-shadow: 0 0 15px #888;"/>
+<img src="/images/screenshots/1.2.0/change-parameters.png" width="70%" style="box-shadow: 0 0 15px #888;"/>
 </div>
 <p>The refactoring wizards provide previews of changes before applying them.</p>
 <div>
