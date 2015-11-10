@@ -415,8 +415,8 @@ groups of four digits.
 
 The platform module `ceylon.math` defines the types 
 
-- [`Whole`](#{site.urls.apidoc_current_math}/Whole.type.html) and 
-- [`Decimal`](#{site.urls.apidoc_current_math}/Decimal.type.html), 
+- [`Whole`](#{site.urls.apidoc_current_math}/whole/Whole.type.html) and 
+- [`Decimal`](#{site.urls.apidoc_current_math}/decimal/Decimal.type.html), 
 
 which represent arbitrary precision integers and arbitrary precision 
 decimals. Both classes are subtypes of `Numeric`, so you can use all the 
