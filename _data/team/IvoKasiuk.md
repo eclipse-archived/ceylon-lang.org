@@ -1,7 +1,7 @@
 ---
 name: Ivo Kasiuk
 photo: /images/team/IvoKasiuk.jpg
-level: 100
+level: 1000
 ---
 
 Ivo wrote his first programs in AmigaBASIC and assembler but later became increasingly

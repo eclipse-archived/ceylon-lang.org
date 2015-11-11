@@ -1,7 +1,7 @@
 ---
 name: Max Rydahl Andersen
 photo: /images/team/MaxRydahlAndersen.jpg
-level: 10   
+level: 100
 ---
 
 Max Rydahl Andersen is the tooling architect at JBoss by Red
