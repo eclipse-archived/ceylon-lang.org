@@ -1,7 +1,7 @@
 ---
 name: John Doe
 photo: /images/team/JohnDoe.jpg
-level: 1000   
+level: 5000   
 ---
 <!-- level explanation
 1: founder and fearless leaders
