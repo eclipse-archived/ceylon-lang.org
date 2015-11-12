@@ -11,7 +11,7 @@ This year we released three different ways you can run your Ceylon code on [Open
 
 - Bare-bones, using the [Ceylon cartridge](https://developers.openshift.com/en/ceylon-overview.html#_using_the_ceylon_cartridge),
 - Writing a verticle in Ceylon, using the [Vert.x cartridge](https://developers.openshift.com/en/ceylon-overview.html#_using_the_a_href_vertx_overview_html_vert_x_a_cartridge), or
-- Packaging your Ceylon application as a `.war` file and runing it on the WildFly cartridge.
+- Packaging your Ceylon application as a `.war` file and running it on the WildFly cartridge.
 
 In this post we will see how you can write and publish a bare-bones application on
 [OpenShift Online](https://openshift.redhat.com/app/login) using the [OpenShift Ceylon cartridge](https://hub.openshift.com/quickstarts/138-ceylon). 
