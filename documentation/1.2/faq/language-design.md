@@ -207,6 +207,33 @@ Is simply much easier to read than this:
 And we simply don't understand how anyone could possibly 
 think otherwise!
 
+### Pointy brackets `<` `>` for generics 
+
+> Why does Ceylon use pointy brackets `<` `>` for generics 
+> like Java and C# instead of square brackets `[` `]` like 
+> Scala?
+
+Ceylon retains the more traditional interpretation that 
+square brackets enclose lists, in our case, immutable 
+sequences or tuples. This means that Ceylon has a very 
+regular syntax for tuples and sequences:
+
+    [] unit = [];
+    [Integer] singleton = [1];
+    [Float,Float] pair = [1.0, 2.0];
+    [Float,Float,String] triple = [0.0, 0.0, "origin"];
+    [Integer*] cubes = [ for (x in 1..100) x^3 ];
+
+In Scala, the equivalent code looks like this:
+
+    val unit: Unit = ()
+    val singleton: Tuple1[Long] = new Tuple1(1)
+    val pair: (Double,Double) = (1.0, 2.0)
+    val triple: (Double,Double,String) = (0.0, 0.0, "origin")
+    val cubes: List[Integer] = ... 
+
+Ceylon is more regular here.
+
 ### Colon `:` vs. `extends` for inheritance
 
 > Why `extends` instead of the much more compact `:`?
