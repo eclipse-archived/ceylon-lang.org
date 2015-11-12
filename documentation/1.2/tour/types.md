@@ -103,6 +103,7 @@ typecast, we would use an `assert` statement, which we saw
 -->
 <!-- try-post:
     printIfPrintable("foo");
+    //results in an AssertionError!
     printIfPrintable(PrintableString("bar"));
 -->
     void printIfPrintable(Object obj) {
