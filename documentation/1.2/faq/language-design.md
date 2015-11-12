@@ -226,6 +226,7 @@ regular syntax for tuples and sequences:
 
 In Scala, the equivalent code looks like this:
 
+<!-- try: -->
     val unit: Unit = ()
     val singleton: Tuple1[Long] = new Tuple1(1)
     val pair: (Double,Double) = (1.0, 2.0)
