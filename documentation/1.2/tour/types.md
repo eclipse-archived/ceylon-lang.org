@@ -83,7 +83,7 @@ switchingPrint("foo");
     } 
 -->
     void switchingPrint(Object obj) {
-        switch(obj)
+        switch (obj)
         case (is Hello) {
             obj.printMsg();
         }
@@ -99,12 +99,25 @@ These constructs protect us from inadvertently writing code that would
 cause a `ClassCastException` in Java, just like `if (exists ... )` 
 protects us from writing code that would cause a `NullPointerException`.
 
-The `if (is ... )` construct actually narrows to an intersection type.
+Now, in cases we _really_ want to do something more like a Java-style 
+typecast, we would use an `assert` statement, which we saw 
+[earlier](../attributes-control-structures/#assertions).
+
+<!-- try: -->
+    assert (is Printable obj);
+    obj.printObject();
+
+But assertions should be avoided where reasonable. They undermine the
+ability of the compiler to tell us about logic errors in our program
+at compile time, resulting in more errors at runtime.
+
+The `is` conditions in `if`, `switch`, or `assert` actually narrow to 
+an intersection type.
 
 ## Intersection types
 
-An expression is assignable to an *intersection type*, written `X&Y`, if it is 
-assignable to *both* `X` and `Y`. For example, since 
+An expression is assignable to an *intersection type*, written `X&Y`, 
+if it is assignable to *both* `X` and `Y`. For example, since 
 [`Tuple`](#{site.urls.apidoc_1_2}/Tuple.type.html)
 is a subtype of 
 [`Iterable`](#{site.urls.apidoc_1_2}/Iterable.type.html) 
