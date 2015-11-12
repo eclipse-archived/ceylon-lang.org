@@ -160,6 +160,9 @@ And now we run it:
     Installing file .openshift/config/ceylon.properties: Generated
     ...
 
+For those who want more information, or tune how the application is deployed by the OpenShift
+Ceylon cartridge, [the documentation has a lot more information](https://github.com/ceylon/openshift-cartridge/blob/master/template/README.md).
+
 Our application is now ready to be run on OpenShift.
 
 ## Deploying our application to OpenShift Online
@@ -254,7 +257,7 @@ That's it, you can now go and check your application online at `http://test-from
 
 Congratulations!
 
-Now you can also puglish your code online, at GitHub or elsewhere, and every time you
+Now you can also publish your code online, at GitHub or elsewhere, and every time you
 push your modifications to the `openshift` remote, your application will be restarted
 with your changes.
 
