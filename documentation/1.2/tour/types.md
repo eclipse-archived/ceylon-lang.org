@@ -37,17 +37,16 @@ to [`if (exists ... )`](../basics#dealing_with_objects_that_arent_there) and
 
 <!-- try-pre:
     interface Printable {
-      shared formal void printObject();
+        shared formal void printObject();
     }
     class PrintableString(String string) satisfies Printable{
-      shared actual void printObject() { print(string); }
+        printObject() => print(string);
     }
 -->
 <!-- try-post:
     printIfPrintable("foo");
     printIfPrintable(PrintableString("bar"));
 -->
-<!-- cat: interface Printable { shared formal void print(); } -->
     void printIfPrintable(Object obj) {
         if (is Printable obj) {
             obj.printObject();
@@ -73,15 +72,6 @@ switchingPrint(Hello("World"));
 switchingPrint(Person("Pietje", "Pluk"));
 switchingPrint("foo");
 -->
-<!-- cat: 
-    class Hello() { 
-        shared void printMsg() {
-        }
-    } 
-    class Person(String firstName) { 
-        shared String firstName = firstName; 
-    } 
--->
     void switchingPrint(Object obj) {
         switch (obj)
         case (is Hello) {
@@ -103,9 +93,22 @@ Now, in cases we _really_ want to do something more like a Java-style
 typecast, we would use an `assert` statement, which we saw 
 [earlier](../attributes-control-structures/#assertions).
 
-<!-- try: -->
-    assert (is Printable obj);
-    obj.printObject();
+<!-- try-pre:
+    interface Printable {
+        shared formal void printObject();
+    }
+    class PrintableString(String string) satisfies Printable{
+        printObject() => print(string);
+    }
+-->
+<!-- try-post:
+    printIfPrintable("foo");
+    printIfPrintable(PrintableString("bar"));
+-->
+    void printIfPrintable(Object obj) {
+        assert (is Printable obj);
+        obj.printObject();
+    }
 
 But assertions should be avoided where reasonable. They undermine the
 ability of the compiler to tell us about logic errors in our program
