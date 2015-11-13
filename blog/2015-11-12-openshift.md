@@ -61,7 +61,7 @@ Then use it in `source/openshift/bare/run.ceylon`:
     import ceylon.io { SocketAddress }
     import ceylon.net.http.server { ... }
     
-    shared void start(String host, Integer ip){
+    shared void start(String host, Integer port){
         //create a HTTP server
         value server = newServer {
             //an endpoint, on the path /hello
@@ -73,11 +73,11 @@ Then use it in `source/openshift/bare/run.ceylon`:
             }
         };
         //start the server
-        server.start(SocketAddress(host, ip));
+        server.start(SocketAddress(host, port));
     }
     
     shared void run(){
-        start("127.0.0.1",8080);
+        start("127.0.0.1", 8080);
     }
 
 Let's run it:
@@ -116,7 +116,7 @@ And use it in in `source/openshift/bare/run.ceylon`:
     import ceylon.io { SocketAddress }
     import ceylon.net.http.server { ... }
     
-    shared void start(String host, Integer ip){
+    shared void start(String host, Integer port){
         //create a HTTP server
         value server = newServer {
             //an endpoint, on the path /hello
@@ -128,14 +128,14 @@ And use it in in `source/openshift/bare/run.ceylon`:
             }
         };
         //start the server
-        server.start(SocketAddress(host, ip));
+        server.start(SocketAddress(host, port));
     }
     
     shared void run(){
         if(openshift.running){
             start(openshift.ceylon.ip, openshift.ceylon.port);
         }else{
-            start("127.0.0.1",8080);
+            start("127.0.0.1", 8080);
         }
     }
 
