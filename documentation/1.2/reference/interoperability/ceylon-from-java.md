@@ -12,150 +12,196 @@ author: Tom Bentley
 
 This page covers how you can use Ceylon classes, interfaces etc from Java.
 
-### Declaring Ceylon types
+### Ceylon classes and interfaces
 
-In general, a top level Ceylon types and inner classes compile into a Java 
-type of the same name.
+Every
 
-The situation is more complicated for inner interfaces. The compiler always 
-generates a top level interface, using the containing type name(s) separated with a dollar (`$`) and then the interface name, again separated with a dollar. For 
-example this Ceylon:
+- toplevel Ceylon class or interface, or 
+- Ceylon inner class 
+
+compiles to a Java class or interface of the same name.
+
+The situation is more complicated for inner interfaces. The compiler 
+produces a top level interface whose name is produced by concatenating the 
+names of containing types with `$`.
+
+For example, this Ceylon class:
 
 <!-- try: -->
     class C() {
-        interface I {
-        }
+        interface I {}
     }
     
-results in an interface like this:
+results in the following Java interface:
 
 <!-- lang: java -->
-    interface C$I {
-    }
+    interface C$I {}
 
-This is done in order to support arbitrary nesting of interfaces and classes 
-within other types, which cannot be expressed in Java.
+This is necessary in order to support arbitrary nesting of interfaces and 
+classes within other types, which cannot be expressed in Java.
 
 ### Instantiating Ceylon classes
 
-Ceylon types are instantiated like every Java type. They have an overloaded 
-constructor for each defaulted parameter.
+A Ceylon class with initializer parameters or a default constructor is 
+instantiated like any other Java class. 
 
-For example suppose you have the following Ceylon class:
+For example, suppose we have the following Ceylon class:
 
 <!-- try: -->
-    shared class Foo(Integer n = 5, Integer m = n + 1) {
-    }
+    shared class Person(String name) {}
 
-Then in Java you can instantiate a `Foo` in three ways:
+Then, in Java, we can call the constructor like this:
 
 <!-- lang: java -->
-    Foo foo1 = new Foo(6, 7);
-    Foo foo2 = new Foo(6); // use the default m
-    Foo foo3 = new Foo();  // use the default n and m
+    Person person = new Person("Some One");
 
-### Accessing Ceylon attributes
+This would still be true if the class were defined with a default 
+constructor like this:
 
-If the Ceylon attribute
-is annotated `shared` the Java accessor will be declared `public`, otherwise
-it will be annotated `private`.
+<!-- try: -->
+    shared class Person { shared new(String name) {} }
+
+On the other hand, instantiation via a named constructor is a bit less 
+comfortable. Given:
+
+<!-- try: -->
+    shared class Person {
+        shared new create(String name) {}
+    }
+
+Then, in Java, we can call the named constructor like this:
+
+<!-- lang: java -->
+    Person person = new Person(Person.create_, "Some One");
+
+### Instantiating a class with defaulted parameters
+
+A Ceylon class or constructor may have defaulted parameters. Such a class 
+has an overloaded constructor for each defaulted initializer parameter or 
+default constructor parameter.
+
+For example, suppose we have the following Ceylon class:
+
+<!-- try: -->
+    shared class Animal(String name, Species = elephant, Integer age = 0) {}
+
+Then, in Java, we can instantiate a `Person` as follows:
+
+<!-- lang: java -->
+    Animal animal = new Animal("Trompon");
+    Animal animal = new Animal("Trompon", elephant);
+    Animal animal = new Animal("Trompon", elephant, 6);
+
+This would still be true if the class were defined with a default 
+constructor like this:
+
+<!-- try: -->
+    shared class Animal {
+        shared new(String name, Species = elephant, Integer age = 0) {}
+    }
+
+### Accessing Ceylon values
+
+The type of a Ceylon value is translated to Java according to the 
+[type mapping rules](../type-mapping).
+
+If a Ceylon value name is a Java keyword, it will be prefixed with `$`, 
+for example, `$int`.
 
 #### Instance attributes
 
-In general a Ceylon instance attribute compiles into a Java Bean-style getter and 
-(if the attribute is `variable` or has an `assign` block) setter. 
+A `shared` Ceylon attribute compiles into a JavaBean-style getter 
+and&mdash;if the attribute is `variable` or has an `assign` 
+block&mdash;a JavaBeans-styel setter.
+
+For example, this class has `getName()`, `getAge()`, and `setAge()`:
+
+<!-- try: -->
+    class Person(shared String name, shared variable Integer age) {}
 
 `Boolean` attributes use `get` accessors rather than an `is` accessors. 
-Note that a `get` accessor is still valid for `boolean` properties 
-according to the Java Bean specification.
+(Note that a `get` accessor is acceptable for `boolean` properties, 
+according to the JavaBean specification.)
 
-#### Toplevel attributes
+If both the attribute and the type it belongs to are `shared`, the
+Java accessors will be `public`.
 
-A toplevel attribute is compiled into a class of the same name with an underscore (`_`)
-suffix, which is `final`,
-has a `private` constructor, a `static` getter method and if the attribute is mutable, a
-corresponding `static` setter method.
+#### Toplevel values
 
-Toplevel attributes like the following:
+A toplevel value compiles to a class of the same name, suffixed with an 
+underscore (`_`), which:
+
+- is `final`,
+- has a `private` constructor, 
+- a `static` getter method and,
+- if the attribute is mutable, a corresponding `static` setter method.
+
+For example, this toplevel values:
 
 <!-- try: -->
     shared variable Boolean bool = true;
 
-Are accessed and set using the following Java code:
+may be accessed and set using the following Java code:
 
 <!-- lang: java -->
-    // bool is the name of the Java class that holds the toplevel attribute 
-    boolean value = bool_.getBool$();
-    bool_.setBool$(false);
+    // bool_ is the name of the Java class that holds the toplevel value 
+    boolean value = bool_.get_();
+    bool_.set_(false);
 
-### Calling Ceylon methods
+If the value is declared `shared`, the class and its accessors will both
+be `public`.
 
-In general a Ceylon method compiles directly into a Java method of the same 
-name. The method result type and argument types may not however 
-translate directly because of the [type mapping rules](../type-mapping).
+### Calling Ceylon functions
 
-If a Ceylon method name is a Java keyword, it will be prefixed with `$`, like `$true`.
+A Ceylon function compiles directly into a Java method of the same name. 
+The method result type and argument types are translated according to the 
+[type mapping rules](../type-mapping).
 
-#### Calling Ceylon toplevel methods
+If a Ceylon function name is a Java keyword, it will be prefixed with `$`, 
+for example, `$true`.
 
-A Ceylon toplevel method is compiled into a class of the same name with an underscore (`_`)
-suffix, which is `final`,
-has a `private` constructor, and a `static` method of the same name corresponding to the 
-toplevel method.
+#### Toplevel functions
 
-Toplevel methods like the following:
+A toplevel function compiles to a class of the same name, suffixed with 
+an underscore (`_`), which:
+
+- is `final`,
+- has a `private` constructor, and 
+- a `static` method of the same name as the toplevel function.
+
+Thus, this toplevel function:
 
 <!-- try: -->
-    shared Boolean foo(Boolean b){
-        return b;
-    }
+    shared Boolean foo(Boolean b) => !b;
 
-Are called using the following Java code:
+may be called using the following Java code:
 
 <!-- lang: java -->
-    // foo is the name of the Java class that holds the toplevel method 
+    // foo_ is the name of the Java class that holds the toplevel function 
     boolean value = foo_.foo(false);
 
-#### Calling a Ceylon method with default parameter values
+#### Calling a function with defaulted parameters
 
-Ceylon methods can have default parameter values. There will be an overloaded method for each defaulted parameter. 
+A Ceylon function may have defaulted parameters. There will be an overloaded 
+method for each defaulted parameter. 
 
-For example suppose you have the following Ceylon class:
+For example, suppose we have the following Ceylon function:
 
 <!-- try: -->
-    shared class Foo() {
-        shared void foo(Integer n = 5, Integer m = n + 1) {}
-    }
+    shared Boolean foo(Boolean b = false, Boolean c = false) => b||c;
 
-Then in Java you can invoke `Foo.foo()` in three ways:
+Then, in Java, we can invoke `foo()` as follows:
 
 <!-- lang: java -->
-    Foo f = new Foo();
-    f.foo(6, 88);
-    f.foo(6); // use the default m
-    f.foo();  // use the default n and m
+    Boolean bool = foo();
+    Boolean bool = foo(true);
+    Boolean bool = foo(true, true);
 
-### Methods and initialisers with varargs
+### Functions, initializers, and constructors with variadic parameters
 
-Method and initialisers can have varargs, which are represented in the resulting Java
-code as a `Iterable<? extends T>` parameter. There will be an overloaded 
-method if you want to use the sequenced parameter's default value (an empty 
-`Iterable` by default)
-
-If you wish to invoke a Ceylon method or initialiser that supports varargs you need to
-use the following idiom:
-
-<!-- lang: java -->
-    // Foo.foo supports varargs of String...
-    Foo f = new Foo();
-    // use the parameter's default sequence
-    f.foo();
-    // pass no arguments
-    f.foo(ceylon.language.$empty.getEmpty());
-    // pass two arguments
-    f.foo(new ceylon.language.ArraySequence(ceylon.language.String.instance("a"), 
-                                            ceylon.language.String.instance("b")));
-
+A function, initializer, or constructor may have a variadic parameter, which 
+is represented in the resulting Java code as a parameter of type 
+`Sequential<? extends T>`. 
 
 ### Catching Ceylon exceptions
 
@@ -325,7 +371,6 @@ The grammar for the Declaration reference syntax is as follows:
 For example the `ClassDeclaration` for `ceylon.language::String` in ceylon.language 
 version 0.6 would be `::0.6:ceylon.language::CString`, and for the value `true` 
 it would be `::0.6:ceylon.language::Vtrue`.
-
 
 
 ## See also
