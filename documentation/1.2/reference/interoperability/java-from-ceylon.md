@@ -62,14 +62,26 @@ is possible to refine overloaded methods defined in a Java type.
 
 ### Dealing with static fields and methods
 
-Just like in Java, you can use static fields and methods as it they were instance
-fields or methods, so if you have an instance at hand, you're all set up.
+It's easy to access `static` members of a Java class.
 
 #### Accessing static methods or fields
 
-You can access static methods or fields without having an instance of the container
-type by importing them from their containing type, which makes them toplevel attributes
-or methods:
+You can access static methods or fields just like you would in Java:
+
+<!-- try: -->
+    import java.io { File }
+    
+    void m(){
+        print(File.separator);
+        File.createTempFile("foo", "bar");
+    }
+
+Note that since many Java static fields actually have an initial uppercase letter you will
+have to prefix their name with `\i`.
+
+#### Importing static methods or fields
+
+Alternatively, you can import a `static` method or field from its containing type:
 
 <!-- try: -->
     import java.io { File { separator, createTempFile } }
@@ -79,7 +91,7 @@ or methods:
         createTempFile("foo", "bar");
     }
 
-Note that you can alias them too like other imports:
+You can even alias them:
 
 <!-- try: -->
     import java.io { JFile = File { sep = separator, roots = listRoots } }
@@ -90,13 +102,18 @@ Note that you can alias them too like other imports:
         ObjectArray<JFile> roots2 = roots();
     }
 
-Note that since many Java static fields actually have an initial uppercase letter you will
-have to prefix their name with `\i`.
+This is a good way to eliminate the `\i`:
+
+    import java.lang { Integer { maxInt=\iMAX_VALUE } }
+    
+    void m() {
+        print(maxInt);
+    }
 
 ### Accessing instance fields
 
 You can access Java instance fields as if they were normal Ceylon attributes,
-except if they are not public or if they are hidden by a JavaBean property of
+except if they are not `public` or if they are hidden by a JavaBean property of
 the same name.
 
 ### Accessing JavaBean properties
@@ -106,20 +123,17 @@ JavaBean property defined in Java is mapped to a Ceylon instance attribute.
 
 ### Accessing instance methods
 
-1. Java Bean accessors (`get*()` and `set*()` methods) will be 
-   treated as Ceylon attributes, and therefore can only be accessed as such. 
-1. If there is a Java Bean setter that has no corresponding getter (such as in
+1. Java Bean accessors (`get*()` and `set*()` methods) will be treated as Ceylon 
+   attributes, and therefore can only be accessed as such. 
+2. If there is a Java Bean setter that has no corresponding getter (such as in
    the older parts of the JDK such as `Vector.size()` and `Vector.setSize()`)
    then both methods are available as normal Ceylon instance methods.
-1. The `Object.toString()` and `Object.hashCode()` methods are mapped to the
+3. The `Object.toString()` and `Object.hashCode()` methods are mapped to the
    respective Ceylon instance attributes `string` and `hash`, and as such are
    not visible as instance methods.
-1. The `java.lang.Object` type is mapped to the Ceylon type 
-   `ceylon.language.Basic` as defined in [type mapping](../type-mapping),
-   therefore the fields and methods defined in `java.lang.Object` are not visible
-   in Ceylon (we might change this in the future).
+4. Other methods declared by `java.lang.Object` are not visible in Ceylon.
 
-Other instance methods can be accessed as normal Ceylon instance method.
+Other instance methods can be accessed as normal Ceylon instance methods.
 
 ### Catching Java exceptions
 
