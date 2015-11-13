@@ -57,8 +57,8 @@ version. Ceylon doesn't have unsafe typecasts, but it does have the [`of`](../..
 
 #### Overriding overloaded methods
 
-Although it [is not possible in Ceylon to declare overloaded methods](../../../faq/language-design/#overloading), it 
-is possible to refine overloaded methods defined in a Java type. 
+Although it [is not possible in Ceylon to declare overloaded methods](../../../faq/language-design/#overloading), 
+it is possible to refine overloaded methods defined in a Java type. 
 
 ### Dealing with static fields and methods
 
@@ -91,7 +91,7 @@ Alternatively, you can import a `static` method or field from its containing typ
         createTempFile("foo", "bar");
     }
 
-You can even alias them:
+You can even use aliases:
 
 <!-- try: -->
     import java.io { JFile = File { sep = separator, roots = listRoots } }
@@ -104,6 +104,7 @@ You can even alias them:
 
 This is a good way to eliminate the `\i`:
 
+<!-- try: -->
     import java.lang { Integer { maxInt=\iMAX_VALUE } }
     
     void m() {
