@@ -24,8 +24,14 @@
     %script{ :src=>'/js/language/javascript.js' }
     %script{ :src=>'/js/language/html.js' }
     %script{ :src=>'/js/language/shell.js' }
+    %script{ :src=>"https://sidecar.gitter.im/dist/sidecar.v1.js", :async=>true, :defer=>true }
     = google_analytics_universal
   %body.bp
     #container{:class => "#{page.unique_id}"}
       ~ content
   = page.disqus_comments_count
+:javascript
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'ceylon/user'
+  };
+  

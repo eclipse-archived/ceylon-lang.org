@@ -19,6 +19,9 @@ Make sure you add the `ceylon` tag to your question.
 
 You can chat live with us on our busy [Gitter channel](https://gitter.im/ceylon/user).
 
+There's also a [second Gitter channel](https://gitter.im/ceylon/dev) for 
+development-related discussions.
+
 ## User mailing list
 If you have questions or suggestions, you're welcome to discuss them in 
 our [Google user group](http://groups.google.com/group/ceylon-users).
