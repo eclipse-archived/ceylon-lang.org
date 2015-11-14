@@ -184,7 +184,7 @@ its supertypes? Well, the answer is pretty intuitive: `T` is a supertype of
 determines this automatically. So the following code is also well-typed:
 
     Integer|Float x = -1;
-    Number num = x;  // Number is a supertype of both Integer and Float
+    Number<out Anything> num = x;  // Number is a supertype of both Integer and Float
     String|Integer|Float val = x; // String|Integer|Float is a supertype of Integer|Float
     Object obj = val; // Object is a supertype of String, Integer, and Float
 
@@ -195,7 +195,7 @@ is not a supertype of
 
 <!-- check:none:demoing compile error -->
     String|Integer|Float x = -1;
-    Number num = x; //compile error: String is not a subtype of Number
+    Number<out Anything> num = x; //compile error: String is not a subtype of Number<Anything>
 
 Of course, it's very common to narrow an expression of union type using a 
 `switch` statement. Usually, the Ceylon compiler forces us to write an `else` 
