@@ -1247,3 +1247,18 @@ div.toc h2#contents {
 .sidebar-dark div.toc code {
     color: #FFFFFF
 }
+
+body.bp > a.gitter-open-chat-button {
+  padding: 8px 15px;
+  font-size: 13px;
+  //font-weight: bold;
+  text-decoration: none;
+  color: white;
+  background-color: darkgray;
+  font-family: 'Source Sans Pro', Arial, 'Helvetica Neue', Helvetica, sans-serif;  
+}
+
+body.bp > a.gitter-open-chat-button:hover {
+    color: #fec418;
+    cursor: pointer;    
+}
