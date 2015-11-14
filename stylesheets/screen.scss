@@ -1262,3 +1262,11 @@ body.bp > a.gitter-open-chat-button:hover {
     color: #fec418;
     cursor: pointer;    
 }
+
+a.ui-dialog-titlebar-close {
+  padding: 10px 0px;
+  font-size: 13px;
+  text-decoration: none !important;
+  text-transform: uppercase;
+  font-family: 'Source Sans Pro', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+}
