@@ -569,7 +569,7 @@ With type inference, the compiler chooses an appropriate type argument to
     Set<String> allTheStrings = strings.union(moreStrings);
     Set<Decimal> decimals = Set(1.2.decimal, 3.67.decimal) ;
     Set<Float> floats = Set(0.33, 22.0, 6.4);
-    Set<Number> allTheNumbers = decimals.union(floats);
+    Set<Number<out Anything>> allTheNumbers = decimals.union(floats);
     Set<Point> points = Set( Polar(pi,3.5), Cartesian(1.0, -2.0) );
     Set<Object> objects = Set("Gavin", 12, true);
     Set<Object> allTheObjects = points.union(objects);

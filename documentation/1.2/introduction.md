@@ -715,9 +715,9 @@ contravariant (`in`). Thus, this type is contravariant in its first argument,
 and covariant in its second argument:
 
 <!-- try: -->
-    Map<in String, out Number>
+    Map<in String, out Number<out Anything>>
 
-(In Java, this type would be written `Map<? super String, ? extends Number>`.)
+(In Java, this type would be written `Map<? super String, ? extends Number<? extends Object>>`.)
 
 With declaration-site variance, the system we strongly prefer in Ceylon, a 
 type _parameter_ may be marked as covariant or contravariant by the class or 
@@ -730,8 +730,8 @@ interface that declares the type parameter. Consider:
 
 Given this declaration of `Dictionary`:
 
-- a `Dictionary<String,Integer>` is also a `Dictionary<String,Number>`, since `get()` 
-  produces an `Integer`, which is also an `Number`, and 
+- a `Dictionary<String,Integer>` is also a `Dictionary<String,Object>`, since `get()` 
+  produces an `Integer`, which is also an `Object`, and 
 - a `Dictionary<List<Character>,Integer>` is also a `Dictionary<String,Integer>`, 
   since `get()` accepts any key which is an `List<Character>`, and every `String` 
   is a `List<Character>`.

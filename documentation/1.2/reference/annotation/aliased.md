@@ -17,7 +17,7 @@ The annotation accepts a list of alternative names for the declaration.
 
 <!-- try: -->
     aliased("absolute")
-    Number magnitude(Number n) {
+    Integer magnitude(Integer n) {
         return if (n >= zero) then n else -n;
     }
 

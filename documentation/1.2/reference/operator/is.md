@@ -16,7 +16,7 @@ expression.
 
 <!-- try: -->
     void m(Object? obj) {
-        Boolean isNumber = obj is Number;
+        Boolean isNumber = obj is Number<out Anything>;
         Boolean isNull = obj is Null;
     }
 
