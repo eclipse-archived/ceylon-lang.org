@@ -243,11 +243,12 @@ called *mixin inheritance*.
 
 <!-- try-post:
 
-    print(empty.size);
+empty.printIt();
 -->
     interface Sized {
         shared formal Integer size;
         shared Boolean empty => size==0;
+        string => empty then "EMPTY" else "SIZE: ``size``";
     }
     
     interface Printable {
@@ -255,7 +256,7 @@ called *mixin inheritance*.
     }
     
     object empty satisfies Sized & Printable {
-        shared actual Integer size => 0;
+        size => 0;
     }
 
 What really distinguishes interfaces from classes in Ceylon is that 
