@@ -150,7 +150,7 @@ function addTryButtons(){
 				$editorIFrame.dialog({
 					width: 630,
 					height: 555,
-					closeText: "Close",
+					closeText: "CLOSE",
 					closeOnEscape: true,
 					modal: true
 				});
