@@ -154,6 +154,7 @@ function addTryButtons(){
 					closeOnEscape: true,
 					modal: true
 				});
+				jQuery(".ui-dialog-titlebar-close").prepend("<i class='fa fa-times'></i>&nbsp;");
 			});
 			$elem.prepend($button);
 		}
