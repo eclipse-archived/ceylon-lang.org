@@ -195,7 +195,7 @@ is not a supertype of
 
 <!-- check:none:demoing compile error -->
     String|Integer|Float x = -1;
-    Number<out Anything> num = x; //compile error: String is not a subtype of Number<Anything>
+    Number<out Anything> num = x; //compile error: String is not a subtype of Number<out Anything>
 
 Of course, it's very common to narrow an expression of union type using a 
 `switch` statement. Usually, the Ceylon compiler forces us to write an `else` 
