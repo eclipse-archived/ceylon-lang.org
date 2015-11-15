@@ -19,9 +19,9 @@ Obtaining models:
 
 <!-- try: -->
     Class<String, [{Character*}]> cls = `String`;
-
-    Constructor constr = `Class.Constructor`;
-        
+    
+    CallableConstructor<Array<String>,[Integer, String]> constr = `Array<String>.ofSize`;
+    
     Interface<{String*}> iface = `Iterable<String, Null>`;
     
     Function<Integer?, [{Integer*}]> func = `max<Integer, Null>`;
@@ -41,7 +41,7 @@ Obtaining declarations:
 <!-- try: -->
     ClassDeclaration c = `class String`;
     
-    ConstructorDeclaration ctor = `new Class.Constructor`;
+    ConstructorDeclaration ctor = `new Array.ofSize`;
     
     InterfaceDeclaration i = `interface Iterable`;
     
@@ -61,9 +61,11 @@ Obtaining declarations:
         TypeParameter otherDecl = `given Other`;
     }
 
-When you want a reference to the current class you can use an abbreviated syntax:
+When you want a reference to the current type, package, or module, you can use an abbreviated syntax:
 
+<!-- try: -->
     ClassDeclaration myClass = `class`;
+    InterfaceDeclaration myInterface = `interface`;
     Package myPackage = `package`;
     Module myModule = `module`;
 
