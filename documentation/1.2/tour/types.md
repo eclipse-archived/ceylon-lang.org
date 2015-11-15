@@ -610,7 +610,7 @@ language module.
 It's often useful to be able to iterate the enumerated instances of a class
 like this. For that, we need [the metamodel](../annotations/#the_metamodel).
 
-<!-- try: pre
+<!-- try-pre:
     abstract class Suit(String name)
             of hearts | diamonds | clubs | spades {}
     
