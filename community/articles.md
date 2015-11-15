@@ -12,7 +12,7 @@ We're collecting links to external articles about Ceylon here.
 Note that the Ceylon team didn't write these articles, so or
 course we don't endorse all of the opinions expressed. Also 
 note that most of these articles refer to older versions of
-Ceylon, not to the current 1.1 release.
+Ceylon, not to the current 1.2 release.
 
 ## English
 
