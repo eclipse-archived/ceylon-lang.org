@@ -607,6 +607,23 @@ For a couple of more practical examples, check out the definitions of
 [`Comparison`](#{site.urls.apidoc_1_2}/Comparison.type.html) in the 
 language module.
 
+It's often useful to be able to iterate the enumerated instances of a class
+like this. For that, we need [the metamodel](../annotations/#the_metamodel).
+
+<!-- try: pre
+    abstract class Suit(String name)
+            of hearts | diamonds | clubs | spades {}
+    
+    object hearts extends Suit("hearts") {}
+    object diamonds extends Suit("diamonds") {}
+    object clubs extends Suit("clubs") {}
+    object spades extends Suit("spades") {}
+    
+-->
+    for (suit in `Suit`.caseValues) {
+        print(suit);
+    }
+
 
 ## More about disjointness
 
