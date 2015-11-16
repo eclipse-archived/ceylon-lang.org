@@ -87,7 +87,7 @@ to find stuff.</p>
 <div>
 <img src="/images/screenshots/1.2.0/search-results.png" width="60%" style="box-shadow: 0 0 15px #888;"/>
 </div>
-<p>There's even the Quick Find References popup control.</p>
+<p>There's even the **Quick Find References** popup control.</p>
 <div>
 <img src="/images/screenshots/1.2.0/quick-find-references.png" width="80%" style="box-shadow: 0 0 15px #888;"/>
 </div>
