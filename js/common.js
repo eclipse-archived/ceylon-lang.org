@@ -150,11 +150,11 @@ function addTryButtons(){
 				$editorIFrame.dialog({
 					width: 630,
 					height: 555,
-					closeText: "CLOSE",
+					closeText: "DONE",
 					closeOnEscape: true,
 					modal: true
 				});
-				jQuery(".ui-dialog-titlebar-close").prepend("<i class='fa fa-times'></i>&nbsp;");
+				jQuery(".ui-dialog-titlebar-close").html("<i class='fa fa-times'></i>&nbsp;DONE");
 			});
 			$elem.prepend($button);
 		}
