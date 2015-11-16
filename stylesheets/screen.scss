@@ -1264,9 +1264,18 @@ body.bp > a.gitter-open-chat-button:hover {
 }
 
 a.ui-dialog-titlebar-close {
-  padding: 10px 0px;
+  padding: 0px 0px 5px;
   font-size: 13px;
   text-decoration: none !important;
-  text-transform: uppercase;
   font-family: 'Source Sans Pro', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  text-align: right; 
+  display: inline-block; 
+  width:25%;
+}
+
+span.ui-dialog-title { 
+  padding: 0px 0px 5px;
+  font-size: 13px;
+  display: inline-block; width:75%; 
+  text-align: left;
 }

@@ -152,7 +152,8 @@ function addTryButtons(){
 					height: 555,
 					closeText: "DONE",
 					closeOnEscape: true,
-					modal: true
+					modal: true,
+					title: "CEYLON WEB RUNNER"
 				});
 				jQuery(".ui-dialog-titlebar-close").html("<i class='fa fa-times'></i>&nbsp;DONE");
 			});
