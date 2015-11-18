@@ -241,7 +241,7 @@ types:
 >
 > - `Integer`, `Float`, `Character`, or `String`,
 > - an enumerated type whose cases are all anonymous classes, such as `Boolean`,
-> - a subtype of `Declaration` in `ceylon.language.model.declaration`,
+> - a subtype of `Declaration` in `ceylon.language.meta.declaration`,
 > -  an annotation type,
 > - `{T*}` or `[T*]` where `T` is a legal annotation constructor parameter type, 
 >   or
@@ -402,10 +402,10 @@ _Note: Ceylon does not support any form of compile-time metaprogramming._
 
 In fact, the Ceylon metamodel is divided into two separate APIs:
 
-- `ceylon.language.model.declaration` defines a _detyped_ model of 
+- `ceylon.language.meta.declaration` defines a _detyped_ model of 
   declarations, packages, and modules, while 
-- `ceylon.language.model` defines a statically typed model of types and
-  typed declarations.
+- `ceylon.language.meta.model` defines a statically typed model of types
+  and typed declarations.
 
 The language provides a built-in syntax for obtaining the metamodel for
 a program element. All metamodel expressions are enclosed in backticks.
@@ -424,7 +424,7 @@ and `throws` annotations:
     `value Iterable.size`
     `given Element`
     `module ceylon.language`
-    `package ceylon.language.model`
+    `package ceylon.language.meta`
 
 Reference expressions produce an instance of a subtype of `Declaration`,
 for example, a reference to a `class` is of type `ClassDeclaration`, and
