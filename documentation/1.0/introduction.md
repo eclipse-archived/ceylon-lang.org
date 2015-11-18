@@ -558,7 +558,7 @@ higher-order function:
 
 Unlike other statically-typed languages with higher-order functions, Ceylon
 has a single function type, the interface `Callable`. There's no need to
-adapt a function to a singe-method interface type, nor is there a profusion
+adapt a function to a single-method interface type, nor is there a profusion
 of function types `F`, `F1`, `F2`, etc, with some arbitrary limit of 24 
 parameters or whatever. Nor are Ceylon's function types defined primitively. 
 Instead, `Callable` accepts a tuple type argument that captures the parameter 
