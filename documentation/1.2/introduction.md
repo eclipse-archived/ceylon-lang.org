@@ -395,17 +395,16 @@ flow-sensitive typing comes into play is assertions:
 
 <!-- try: -->
     if ('/' in string) {
-        value bits = string.split("/");
-		value first = bits.first; //first may be null, according to its type
-		value second = bits.rest.first; //second may be null, according to its type
-		//assert that first and second are in 
-		//fact _not_ null, since we happen to
-		//know that the string contains a /
-		assert (exists first); 
-		assert (exists second);
-		value firstLength = first.size; //first is not null
-		value secondLength = second.size; //second is not null
-		...
+        value bits = string.split('/'.equals); // bits has type {String+}
+        value first = bits.first;              // so first is not null
+        value second = bits.rest.first;        // but second _could_ be null
+        //assert that second is in 
+        //fact _not_ null, since we happen to
+        //know that the string contains a /
+        assert (exists second);
+        value firstLength = first.size;   //first is not null
+        value secondLength = second.size; //second is not null
+        ...
     }
 
 ## Enumerated subtypes
