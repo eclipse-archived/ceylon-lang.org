@@ -172,8 +172,7 @@ dependencies. You can also exclude them with this:
 ## Example
 
 Here's an `overrides.xml` file that lets you import 
-[Hibernate](http://hibernate.org)'s JPA-complian API from 
-Maven:
+[Hibernate](http://hibernate.org)'s JPA-compliant API from Maven:
 
 <!--lang: xml -->
     <overrides xmlns="http://www.ceylon-lang.org/xsd/overrides">
@@ -197,6 +196,7 @@ Maven:
 
 Now you can `import` Hibernate JPA like this:
 
+<!-- try: -->
     native("jvm")
     module com.my.module "1.0.0" {
         import "org.hibernate:hibernate-entitymanager" "5.0.4.Final";
@@ -204,8 +204,8 @@ Now you can `import` Hibernate JPA like this:
     }
 
 And define a persistence unit by placing this XML configuration in 
-`resources/com/my/module/ROOT/META-INF/persistence.xml` where
-`resources` is your Ceylon resources directory:
+`resources/com/my/module/ROOT/META-INF/persistence.xml` where `resources` 
+is your Ceylon resources directory:
 
 <!--lang: xml -->
     <persistence xmlns="http://java.sun.com/xml/ns/persistence"
