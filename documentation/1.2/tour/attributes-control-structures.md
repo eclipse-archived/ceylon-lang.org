@@ -124,12 +124,12 @@ attribute that happens to not be captured by anything.
 It's possible to declare a local value within an expression using `let`, for
 example:
 
-<!-- try:post
+<!-- try-post:
     print(greeting);
  -->
     value greeting 
             => let (name = process.arguments.first else "world")
-            "Hello ``name``!":
+               "Hello ``name``!";
 
 Let expressions are especially useful in combination with tuple and entry 
 [destructuring](../sequences/#destructuring). 
