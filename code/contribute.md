@@ -15,76 +15,84 @@ author: Stephane Epardaud
 
 And now you either set things up for HTTPS access (recommended for most people):
 
-- Clone ceylon-dist:
+- Clone the `ceylon` repository:
 
 <!-- lang: bash -->
-    $ git clone https://github.com/ceylon/ceylon-dist.git
+    $ git clone https://github.com/ceylon/ceylon.git
 	
-(If you encounter an issue like "fatal: unable to access 'https://github.com/ceylon/ceylon-dist.git/': 
+(If you encounter an issue like "fatal: unable to access 'https://github.com/ceylon/ceylon.git/': 
 Failed connect to github.com:443; No error", make sure you've set up your proxy as git config, ie: 
 <!-- lang: bash -->
 	$ git config --global http.proxy http://userName:password@proxyServer:port 
 
 that should fix it.)
 	
-- Go into the newly created ceylon-dist directory and run the setup
-
-<!-- lang: bash -->
-    $ cd ceylon-dist ; ant setup
-
 Or you set things up for SSH access (mainly contributors with push access):
 
 - Make sure you have [GitHub SSH access set up correctly](https://help.github.com/articles/generating-ssh-keys)
-- Clone ceylon-dist:
+- Clone the `ceylon` repository:
 
 <!-- lang: bash -->
-    $ git clone git@github.com:ceylon/ceylon-dist.git
+    $ git clone git@github.com:ceylon/ceylon.git
 
-- Go into the newly created ceylon-dist directory and run the setup
-
-<!-- lang: bash -->
-    $ cd ceylon-dist ; ant setup-admins
-
-After performing one of the two above setups continue with the following:
+After performing one of the two above cloning operations continue with the following:
 
 - Build the complete distribution by running
 
 <!-- lang: bash -->
-    $ ant clean publish-all
+    $ cd ceylon
+    $ ant clean dist
 
-After this you'll have a newly built distribution in the `dist` folder of your current directory.
+After this you'll have a newly built distribution in the `dist/dist` folder of your current directory.
 You can run the `ceylon` command without any further setup or installation by simply running
 
 <!-- lang: bash -->
-    $ dist/bin/ceylon
+    $ dist/dist/bin/ceylon
 
 But it's advisable to add the `ceylon` command to your search path (either by adding the `bin` folder to your search path or by creating a symbolic link to it in an appropriate place like `~/bin/`).
 
 If at any time you want to update the distribution to the latest code from GitHub just run
 
 <!-- lang: bash -->
-    $ ant update-all
-    $ ant clean publish-all
+    $ ant update
+    $ ant clean dist
 
-NB: The `update-all` command assumes that your projects are "clean", that is you don't have uncommitted changes.
+NB: The `update` command assumes that your projects are "clean", that is you don't have uncommitted changes.
 If that's not the case you'll have to manually update those projects or first stash your changes (using `git stash`).
 
 ## Setting up Eclipse
 
-- Import all projects (except ceylon-dist) into Eclipse (see [README.eclipse](https://github.com/ceylon/ceylon-compiler/blob/master/README.eclipse) in ceylon-compiler)
+- Import all projects you find in the `ceylon` folder into Eclipse (see [README.eclipse](https://github.com/ceylon/ceylon-compiler/blob/master/README.eclipse) in ceylon-compiler)
 - Configure Eclipse's code formatting for the project's minimal [coding style](#coding_style).
 - Set your default `Text file encoding` to `UTF-8` and your default `New text file line delimiter` to `Unix` in your Eclipse preferences (`Window` -> `Preferences` -> `General` -> `Workspace`). Or at least set it in the properties for each of the imported projects (Right-click on the project, select `Properties` then `Resource`).
 - In Eclipse, run the unit tests: `com.redhat.ceylon.compiler.test.ConcurrentTests`
 
+## Setting up the SDK
+
+If you want to work on any of the SDK modules you simply clone the SDK project and build it like this:
+
+<!-- lang: bash -->
+    $ git clone https://github.com/ceylon/ceylon-sdk.git
+    $ cd ceylon-sdk
+    $ ant clean publish
+
+But perhaps an easier way is to do it from the root of the `ceylon` project like this:
+
+<!-- lang: bash -->
+    $ ant setup-sdk
+    $ ant clean-sk sdk
+
+This will clone the `ceylon-sdk` repository in the parent directory of the `ceylon` project.
+
 ## Forking a project
 
 When you have decided on which project you are going to work you'll have to fork it in GitHub.
-For this example we assume you'll be working on `ceylon-compiler`.
+For this example we assume you'll be working on `ceylon`.
 
 - Go to the [Ceylon project on GitHub](https://github.com/ceylon) and click on the repository you'll be working on
 - Click the `Fork` button (in the top left of the page)
 - Now on the main page of your forked repository copy the **SSH** url
-- Go inside the local directory that corresponds with the repository (ceylon-compiler) and run
+- Go inside the local directory that corresponds with the repository (`ceylon`) and run
 
 <!-- lang: bash -->
     $ git remote set-url origin THE_URL_YOU_JUST_COPIED
@@ -97,16 +105,11 @@ For this example we assume you'll be working on `ceylon-compiler`.
 - Add an "upstream" alias for easy remote access:
 
 <!-- lang: bash -->
-    $ git remote add upstream git@github.com:ceylon/ceylon-compiler.git
-
-- Run the tests to check that everything is working (a few tests may fail)
-
-<!-- lang: bash -->
-    $ ant test
+    $ git remote add upstream git@github.com:ceylon/ceylon.git
 
 ## Typical workflow
 
-1. Check out the [list of issues](https://github.com/ceylon/ceylon-compiler/issues) for things to do.
+1. Check out the [list of issues](https://github.com/ceylon/ceylon/issues) for things to do.
     1. Try your luck on issues tagged `beginner` or `ceylondoc`
     1. Don't take on issues tagged `inprogress`
 1. Ask on our ceylon-dev mailing list for what to do.
@@ -121,7 +124,7 @@ For this example we assume you'll be working on `ceylon-compiler`.
 1. Rebase your work on the latest master: `$ git checkout my-next-feature-name; git rebase master`
 1. Push your branch to github: `$ git push origin my-next-feature-name`
 1. Make a pull request for your branch
-1. Go to https://github.com/YOUR_GITHUB_USERNAME/ceylon-compiler
+1. Go to https://github.com/YOUR_GITHUB_USERNAME/ceylon
 1. Select your `my-next-feature-name` branch
 1. Click on `Pull request`
 1. Describe your work and click on `Send pull request`
@@ -135,20 +138,20 @@ For this example we assume you'll be working on `ceylon-compiler`.
 
 These are the various major parts of the Ceylon compiler.
 
-- Runner commands (for now a few batch/shell scripts in ceylon-compiler/bin to start the compiler)
-- Parser (part of the ceylon-spec project, translates ceylon source into a ceylon tree)
-- Type checker (part of the ceylon-spec project, checks a ceylon tree and builds its model)
-- Model (part of the ceylon-spec project, represents meta information about ceylon declarations and types)
+- Runner commands (for now a few batch/shell scripts in ceylon/compiler-java/bin to start the compiler)
+- Parser (part of the ceylon/typechecker component, translates ceylon source into a ceylon tree)
+- Type checker (part of the ceylon/typechecker component, checks a ceylon tree and builds its model)
+- Model (part of the ceylon/model component, represents meta information about ceylon declarations and types)
 - Transformer (translates a ceylon tree and model into a java tree)
 - Model loader (translates compiled java and ceylon class files into a ceylon model)
 - Javac (does all the rest, including type checking java source, loading class files and turning java trees into bytecode)
-- Runtime (copy of the ceylon-spec runtime but coded in Java so we can use it without requiring the compiler to support all the features of the runtime)
+- Runtime (copy of the ceylon/typechecker runtime but coded in Java so we can use it without requiring the compiler to support all the features of the runtime)
 
 The ceylon compiler is an extension of the Javac compiler, which handles both .java and .ceylon files.
 
 The process for the code is roughly the following:
 
-1. You invoke `bin/ceylon compile`
+1. You invoke `ceylon/dist/dist/bin/ceylon compile`
 1. It calls in com.redhat.ceylon.compiler.tools.LanguageCompiler
 1. That parses every ceylon file into a ceylon tree
 1. LanguageCompiler's superclass calls com.redhat.ceylon.compiler.codegen.CeylonEnter
@@ -169,9 +172,9 @@ first argument. In particular
 - `ceylon run` runs a ceylon toplevel method, takes similar arguments to `java`
 - `ceylon doc` generates documentation for ceylon files, takes similar arguments to `javadoc`
 
-### Parser, Typechecker and Model
+### Parser and Typechecker
 
-They are part of the ceylon-spec project. Best to ask Emmanuel or Gavin about that part, or by 
+They are part of the ceylon/typechecker component. Best to ask Emmanuel or Gavin about that part, or by 
 [filing an issue](https://github.com/ceylon/ceylon-spec/issues).
 
 ### Generator
