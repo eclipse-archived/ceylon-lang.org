@@ -169,3 +169,66 @@ dependencies. You can also exclude them with this:
         </filter>
     </artifact>
 
+## Example
+
+Here's an `overrides.xml` file that lets you import 
+[Hibernate](http://hibernate.org)'s JPA-complian API from 
+Maven:
+
+<!--lang: xml -->
+    <overrides xmlns="http://www.ceylon-lang.org/xsd/overrides">
+        <module groupId="org.hibernate" 
+             artifactId="hibernate-entitymanager">
+            <share groupId="org.hibernate" 
+                artifactId="hibernate-core"/>
+            <share groupId="org.javassist" 
+                artifactId="javassist"/>
+            <share groupId="org.hibernate.javax.persistence" 
+                artifactId="hibernate-jpa-2.1-api"/>
+        </module>
+        <module groupId="org.hibernate" 
+             artifactId="hibernate-core">
+            <add groupId="javax.transaction" 
+              artifactId="jta" 
+                 version="1.1"
+                  shared="true"/>
+        </module>
+    </overrides>
+
+Now you can `import` Hibernate JPA like this:
+
+    native("jvm")
+    module com.my.module "1.0.0" {
+        import "org.hibernate:hibernate-entitymanager" "5.0.4.Final";
+        import "org.hsqldb:hsqldb" "2.3.1";
+    }
+
+And define a persistence unit by placing this XML configuration in 
+`resources/com/my/module/ROOT/META-INF/persistence.xml` where
+`resources` is your Ceylon resources directory:
+
+<!--lang: xml -->
+    <persistence xmlns="http://java.sun.com/xml/ns/persistence"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+                 version="2.0">
+    
+        <persistence-unit name="sample">
+            <class>com.my.module.Person</class>
+            <properties>
+                <property name="javax.persistence.jdbc.driver" 
+                         value="org.hsqldb.jdbcDriver"/>
+                <property name="javax.persistence.jdbc.url" 
+                         value="jdbc:hsqldb:mem:testdb"/>
+                <property name="javax.persistence.jdbc.user" 
+                         value="sa"/>
+                <property name="javax.persistence.jdbc.password" 
+                         value=""/>
+                <property name="hibernate.dialect" 
+                         value="org.hibernate.dialect.HSQLDialect"/>
+                <property name="hibernate.hbm2ddl.auto" 
+                         value="update"/>
+            </properties>
+        </persistence-unit>
+    
+    </persistence>
