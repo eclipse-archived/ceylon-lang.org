@@ -265,7 +265,7 @@ avoiding them, except where there's a really good reason.
 ## Utility functions and classes
 
 In the module [`ceylon.interop.java`](#{site.urls.apidoc_current_interop_java}/index.html)
-you'll find a suite of useful utility methods and classes for
+you'll find a suite of useful utility functions and classes for
 Java interoperation. For example, there are classes that adapt
 between Ceylon collection types and Java collection types.
 
@@ -276,18 +276,37 @@ Ceylon, or apply any of the usual operations of a Ceylon
 [`Iterable`](#{site.urls.apidoc_1_2}/Iterable.type.html) to it.
 
 <!-- try: -->
-    import java.util { JList=List }
+    import java.util { JList=List, JArrayList=ArrayList }
     import ceylon.interop.java { CeylonIterable }
-
-    JList<String> strings = ... ;
+    
+    ...
+    
+    JList<String> strings = JArrayList<String>();
+    strings.add("hello");
+    strings.add("world");
+    
     for (string in CeylonIterable(strings)) {
-        ...
+        print(string);
     }
 
 (Alternatively, we could have used 
 [`CeylonList`](#{site.urls.apidoc_current_interop_java}/CeylonList.type.html)
 in this example.)
 
+Another especially useful function is [`javaClass`](#{site.urls.apidoc_current_interop_java}/index.html#javaClass),
+which obtains an instance of `java.util.Class` for a given type.
+
+<!-- try: -->
+    import ceylon.interop.java { CeylonIterable }
+    import java.lang { JClass=Class }
+    
+    JClass<Integer> jc = javaClass<Integer>();
+    print(jc.protectionDomain);
+
+The functions [`javaClassFromInstance`](#{site.urls.apidoc_current_interop_java}/index.html#javaClassFromInstance)
+and [`javaClassFromDeclaration`](#{site.urls.apidoc_current_interop_java}/index.html#javaClassFromDeclaration)
+are also useful.
+    
 ## Limitations
 
 Here's a couple of limitations to be aware of:
@@ -299,7 +318,7 @@ Here's a couple of limitations to be aware of:
   to an overloaded method.
 - Java generic types don't carry reified type arguments at runtime, 
   so certain operations that depend upon reified generics (for 
-  example, `is` tests) fail at runtime.
+  example, some `is` tests) fail at runtime.
 
 ## There's more ...
 
