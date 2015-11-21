@@ -31,7 +31,8 @@ Ceylon uses a single identifier for module names, but Maven uses a _group id_
 together with an _artifact id_. So to import the Maven module with group id 
 `org.hibernate` and artifact id `hibernate-core`, we formed a module name 
 by concatenating the two identifiers with a `:` (colon) and quoting 
-the resulting identifier.
+the resulting identifier, resulting in the module name 
+`"org.hibernate:hibernate-core"` seen above.
 
 ### Specifying explicit Maven settings 
 
