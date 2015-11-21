@@ -235,6 +235,6 @@ The API documentation for
 * [Maven repositories](repository/maven/)
 * [Module overrides](repository/overrides/)
 * [`modules.ceylon-lang.org` aka Ceylon Herd](repository/modules.ceylon-lang.org)
-* The [ceylon SDK](https://modules.ceylon-lang.org/categories/SDK)
+* The [Ceylon SDK](https://modules.ceylon-lang.org/categories/SDK)
 
 
