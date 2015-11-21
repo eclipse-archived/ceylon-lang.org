@@ -66,7 +66,7 @@ archive, you have two options:
   JBoss Modules metadata defined in a `module.xml` or 
   `module.properties` file, or
 - import the archive directly from a 
-  [legacy Maven repository](../../reference/maven).
+  [legacy Maven repository](../../reference/repository/maven).
 
 The format of the `module.properties` file is documented
 [here](../../reference/structure/module-properties/), and the 
@@ -78,7 +78,7 @@ If you're using Ceylon IDE, and you don't want to write the
 `File > Export ... > Ceylon > Java Archive to Module Repository`.
 
 The Ceylon module architecture interoperates with Maven via
-Aether. You can find more information [here](../../reference/maven).
+Aether. You can find more information [here](../../repository/reference/maven).
 
 ## Deploying Ceylon on OSGi
 
