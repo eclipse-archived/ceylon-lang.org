@@ -68,17 +68,20 @@ archive, you have two options:
 - import the archive directly from a 
   [legacy Maven repository](../../reference/repository/maven).
 
-The format of the `module.properties` file is documented
-[here](../../reference/structure/module-properties/), and the 
-`module.xml` descriptor format is defined 
-[here](https://docs.jboss.org/author/display/MODULES/Module+descriptors).
+A `module.xml` or `module.properties` file specifies dependency
+information for a `.jar`.
+
+- The format of the `module.properties` file is documented
+  [here](../../reference/structure/module-properties/), and 
+- the `module.xml` descriptor format is defined 
+  [here](https://docs.jboss.org/author/display/MODULES/Module+descriptors).
 
 If you're using Ceylon IDE, and you don't want to write the 
 `module.xml` descriptor by hand, go to 
 `File > Export ... > Ceylon > Java Archive to Module Repository`.
 
 The Ceylon module architecture interoperates with Maven via
-Aether. You can find more information [here](../../repository/reference/maven).
+Aether. You can find more information [here](../../reference/repository/maven).
 
 ## Deploying Ceylon on OSGi
 
