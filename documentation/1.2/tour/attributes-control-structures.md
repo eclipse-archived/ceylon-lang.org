@@ -151,7 +151,15 @@ specified when the object is initialized, and is never reassigned.
 Note that, just like in Java, we don't have to declare and initialize a reference
 in one line of code. We can write:
 
-<!--- try: -->
+<!--- try-pre:
+    class Box<Value>(val) {
+        shared Value val;
+    }
+    Boolean leaving = false;
+-->
+<!-- try-post:
+    print(ref.val);
+-->
     Box<String> ref;
     if (leaving) {
         ref = Box("goodbye");
