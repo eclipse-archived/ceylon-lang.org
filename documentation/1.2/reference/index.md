@@ -232,6 +232,7 @@ The API documentation for
 ## Module repositories
 
 * [Module repositories](repository/)
+* [`module.properties` files](structure/module-properties/)
 * [Maven repositories](repository/maven/)
 * [Module overrides](repository/overrides/)
 * [`modules.ceylon-lang.org` aka Ceylon Herd](repository/modules.ceylon-lang.org)
