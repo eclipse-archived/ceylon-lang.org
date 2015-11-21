@@ -63,9 +63,10 @@ To make use of native code belonging to a packaged `.jar`
 archive, you have two options:
 
 - add the archive to a Ceylon module repository, along with
-  JBoss modules metadata in a `module.xml` or `module.properties`
-  file, or
-- import the archive from a legacy Maven repository.
+  JBoss Modules metadata defined in a `module.xml` or 
+  `module.properties` file, or
+- import the archive directly from a 
+  [legacy Maven repository](../../reference/maven).
 
 The format of the `module.properties` file is documented
 [here](../../reference/structure/module-properties/), and the 
@@ -77,8 +78,7 @@ If you're using Ceylon IDE, and you don't want to write the
 `File > Export ... > Ceylon > Java Archive to Module Repository`.
 
 The Ceylon module architecture interoperates with Maven via
-Aether. You can find more information 
-[here](../../reference/repository/#legacy_repositories).
+Aether. You can find more information [here](../../reference/maven).
 
 ## Deploying Ceylon on OSGi
 
