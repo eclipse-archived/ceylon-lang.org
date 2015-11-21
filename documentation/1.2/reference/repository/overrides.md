@@ -169,7 +169,7 @@ dependencies. You can also exclude them with this:
         </filter>
     </artifact>
 
-## Example
+## Example (Solution 1)
 
 Here's an `overrides.xml` file that lets you import 
 [Hibernate](http://hibernate.org)'s JPA-compliant API from Maven:
@@ -232,3 +232,37 @@ is your Ceylon resources directory:
         </persistence-unit>
     
     </persistence>
+
+## Example (Solution 2)
+
+Alternatively, instead of using `<share/>` in `overrides.xml`, we can
+do some of the work with the `--auto-export-maven-dependencies` flag
+which is supported by the command line tools. You can also find this
+setting on the **Ceylon Build > Module Repositories** page of the
+**Project > Properties** for your Ceylon project.
+
+With this flag enabled, we can use the following simplified
+`overrides.xml` file:
+
+<!--lang: xml -->
+    <overrides xmlns="http://www.ceylon-lang.org/xsd/overrides">
+        <module groupId="org.hibernate" 
+             artifactId="hibernate-core">
+            <add groupId="javax.transaction" 
+              artifactId="jta" 
+                 version="1.1"
+                  shared="true"/>
+        </module>
+    </overrides>
+
+However, with this solution, we must explicitly import the JPA API 
+module, since the `--auto-export-maven-dependencies` flag only affects
+_transitive_ dependencies.
+
+<!-- try: -->
+    native("jvm")
+    module hib "1.0.0" {
+        import "org.hibernate:hibernate-entitymanager" "5.0.4.Final";
+        import "org.hibernate.javax.persistence:hibernate-jpa-2.1-api" "1.0.0.Final";
+        import "org.hsqldb:hsqldb" "2.3.1";
+    }
