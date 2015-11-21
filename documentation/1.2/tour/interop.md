@@ -106,6 +106,8 @@ Java method or field from Ceylon. Instead:
   type, and
 - `java.lang.String` is represented by Ceylon's `String` type.
 
+### Gotcha!
+
 According to these rules, all conversions from a Java primitive 
 to a Ceylon type are _widening_ conversions, and are guaranteed 
 to succeed at runtime. However, conversion from a Ceylon type 
@@ -123,6 +125,16 @@ _Note: it is not a goal of Ceylon's type system to warn about
 operations which might result in numeric overflow. In general,
 almost _any_ operation on a numeric type, including `+` or `*`, 
 can result in numeric overflow._ 
+
+### Gotcha again!
+
+There is no mapping between Java's *wrapper* classes like 
+`java.lang.Integer` or `java.lang.Boolean` and Ceylon basic 
+types, so these conversions must be performed explicitly by
+calling, for example, `intValue()` or `booleanValue()`, or
+by explicitly instantiating the wrapper class, just like you
+would do in Java when converting between a Java primitive
+type and its wrapper class.
 
 ### Java array types are represented by special Ceylon classes
 
@@ -227,7 +239,6 @@ it using `=`:
 Note that there are certain corner cases here which might be
 confusing. For example, consider this Java class:
 
-<!-- try: -->
 <!-- lang: java -->
     public class Foo {
         public String getBar() { ... }
@@ -244,6 +255,12 @@ From Ceylon, this will appear as if it were defined like this:
         shared void setBar(String bar, String baz) { ... }
     }
 
+Therefore: 
+
+- to call the single-argument setter, use an assignment
+  statement like `foo.bar = bar`, but
+- to call the two-argument setter, use a method call like
+  `foo.setBar(bar,baz)`.
 
 ## Wildcards
 
@@ -306,6 +323,72 @@ which obtains an instance of `java.util.Class` for a given type.
 The functions [`javaClassFromInstance`](#{site.urls.apidoc_current_interop_java}/index.html#javaClassFromInstance)
 and [`javaClassFromDeclaration`](#{site.urls.apidoc_current_interop_java}/index.html#javaClassFromDeclaration)
 are also useful.
+
+## Java annotations
+
+You can annotate a Ceylon class or interface with Java annotations.
+However, you must use an initial lowercase identifier to refer to
+the Java annotation.
+
+For example:
+
+<!-- try: -->
+    import javax.persistence {
+        id,
+        generatedValue,
+        entity,
+        column,
+        manyToOne,
+    }
+    
+    entity
+    class Person(firstName, lastName, city) {
+        
+        id generatedValue
+        column { name = "pid"; }
+        value _id = 0;
+        
+        shared String firstName;
+        shared String lastName;
+        
+        manyToOne { optional=false; }
+        shared City city;
+        
+        string => "Person(``_id``, ``firstName`` ``lastName``, ``city.name``)";
+    }
+
+Note that `id` here refers to the Java annotation `javax.persistence.Id`.
+
+### Gotcha!
+
+A Java annotation with `@Target(ElementType.METHOD)` may be applied to
+a getter or setter method on Java. Similarly, it may be applied to a
+Ceylon getter or setter. But tt _may not_ be applied it to a Ceylon 
+_reference_ declaration.
+
+For example, given the following Java annotation:
+
+<!-- lang: java -->
+    @Target(ElementType.METHOD)
+    public @interface Awesome {}
+
+We may apply the annotation to a getter or setter:
+
+<!-- try: -->
+    awesome String name => _name;
+    awesome assign name => _name = name;
+
+But the following is _not_ legal:
+
+<!-- try: -->
+    awesome String name = "Trompon"; //compile error!
+
+The reason for this restriction is that if either:
+
+- the Ceylon reference is `variable`, or
+- the Java annotation is also marked `@Target(ElementType.FIELD)`,
+
+then this code would be ambiguous.
 
 ## `META-INF` and `WEB-INF`
 
