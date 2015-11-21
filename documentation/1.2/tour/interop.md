@@ -363,7 +363,7 @@ Note that `id` here refers to the Java annotation `javax.persistence.Id`.
 
 A Java annotation with `@Target(ElementType.METHOD)` may be applied to
 a getter or setter method on Java. Similarly, it may be applied to a
-Ceylon getter or setter. But tt _may not_ be applied it to a Ceylon 
+Ceylon getter or setter. But it _may not_ be applied it to a Ceylon 
 _reference_ declaration.
 
 For example, given the following Java annotation:
