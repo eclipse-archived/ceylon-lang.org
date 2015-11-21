@@ -433,8 +433,7 @@ public module repository.
 
 ## Resources
 
-To include resources in a module archive, you must place them in a _resource 
-directory_, named `resource` by default:
+To include resources in a module archive, you must place them in a _resource directory_, named `resource` by default:
 
 <!-- lang: none -->
     README

@@ -306,6 +306,26 @@ which obtains an instance of `java.util.Class` for a given type.
 The functions [`javaClassFromInstance`](#{site.urls.apidoc_current_interop_java}/index.html#javaClassFromInstance)
 and [`javaClassFromDeclaration`](#{site.urls.apidoc_current_interop_java}/index.html#javaClassFromDeclaration)
 are also useful.
+
+## `META-INF` and `WEB-INF`
+
+Some Java frameworks and environments require metadata packaged in
+the  `META-INF` or `WEB-INF` directory of the module archive, or
+sometimes even in the root directory of the module archive. We've
+already seen how to [package resources](../modules/#resources) in 
+Ceylon module archives by placing the resource files in the modules' 
+subdirectory of the resource directory, named `resource` by default.
+
+Then, given a module named `net.example.foo`:
+
+- resources to be packaged in the root directory of the  module 
+  archive should be placed in `resource/net/example/foo/ROOT/`,
+- resources to be packaged in the `META-INF` directory of the 
+  module archive should be placed in 
+  `resource/net/example/foo/ROOT/META-INF/`, and
+- resources to be packaged in the `WEB-INF` directory of the 
+  module archive should be placed in 
+  `resource/net/example/foo/ROOT/WEB-INF/`.
     
 ## Limitations
 
