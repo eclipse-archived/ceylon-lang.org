@@ -542,7 +542,7 @@ conditions are satisfied, that is, only if `arg` is non-`null` _and_
 non-`empty`.
 
 The difference between a Ceylon condition list, and an expression 
-formed by combining boolean expressions with `&&` is that an `exists`,
+formed by combining boolean expressions with `&&`, is that an `exists`,
 `nonempty`, or `is` condition actually narrows the type of the value
 to which the condition is applied.
 
