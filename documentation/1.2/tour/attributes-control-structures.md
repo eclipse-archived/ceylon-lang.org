@@ -276,7 +276,6 @@ doesn't even parse:
     Integer x = 200;
     if (x > 100) print("big");  //error
 -->
-<!-- check:none:Demoing error -->
     if (x > 100) print("big");  //error
 
 You are required to write:
@@ -284,9 +283,7 @@ You are required to write:
 <!-- try-pre:
     Integer x = 200;
 -->
-<!-- cat: void m(Integer x) { -->
     if (x > 100) { print("big"); }
-<!-- cat: } -->
 
 (The reason braces aren't optional in Ceylon is that an expression 
 can begin with an opening brace, for example, `{"hello", "world"}`, 
@@ -295,8 +292,6 @@ ambiguous.)
 
 OK, so here we go with the examples. 
 
-<a name="conditionals"><!-- old id --></a>
-
 ### If conditionals
 
 The `if/else` statement is totally traditional:
@@ -304,7 +299,6 @@ The `if/else` statement is totally traditional:
 <!-- try-pre:
     Integer x = 2000;
 -->
-<!-- cat: void m(Integer x) { -->
     if (x > 1000) {
         print("really big");
     }
@@ -314,7 +308,6 @@ The `if/else` statement is totally traditional:
     else {
         print("small");
     }
-<!-- cat: } -->
 
 Later we will learn how `if` can [narrow the type](../types#narrowing_the_type_of_an_object_reference) 
 of references in its block. We've already seen an example of that, 
@@ -331,12 +324,10 @@ behavior and irregular syntax:
 <!-- try-pre:
     Integer x = 100;
 -->
-<!-- cat: void m(Integer x) { -->
     switch (x <=> 100)
     case (smaller) { print("smaller"); }
     case (equal) { print("one hundred"); }
     case (larger) { print("larger"); }
-<!-- cat: } -->
 
 The type of the `switch`ed expression may be an enumerated type, `String`,
 `Character`, or `Integer`.
@@ -402,8 +393,6 @@ it's happening in the middle of a block rather than at the start of an `if` bloc
 Note that, unlike Java's `assert`, which can be disabled at runtime, Ceylon's 
 assertions are always enabled. 
 
-<a name="loops"><!-- old id --></a>
-
 ### For loops
 
 The `for` loop has an optional `else` block, which is executed when the 
@@ -429,8 +418,6 @@ loop completes normally, rather than via a `return` or `break` statement.
     }
     print(hasMinors(Person("john", 34), Person("jake", 47)));
 -->
-<!-- cat: class Person() {shared Integer age = 0;} -->
-<!-- cat: void m(Person[] people) { -->
     variable Boolean minors;
     for (p in people) {
         if (p.age < 18) {
@@ -441,7 +428,6 @@ loop completes normally, rather than via a `return` or `break` statement.
     else {
         minors = false;
     }
-<!-- cat: } -->
 
 There is no C-style `for`. Instead, you can use the lengthwise range 
 operator `:` to produce a sequence of `Integer`s given a starting point 
@@ -474,44 +460,24 @@ The `while` loop is traditional.
 <!-- try-pre:
     value names = { "aap", "noot", "mies" };
 -->
-<!-- cat: void m(String[] names) { -->
     value it = names.iterator();
-    while (is String next = it.next()) {
+    while (!is Finished next = it.next()) {
         print(next);
     }
-<!-- cat: } -->
 
 There is no `do/while` statement.
-
-<a name="exception_handling"><!-- old id --></a>
 
 ### Try statements
 
 The `try/catch/finally` statement works just like Java's:
 
-<!-- implicit-id:tx: 
-    shared interface Message { 
-        shared formal void send(); 
-    } 
-    shared interface Transaction { 
-        shared formal void setRollbackOnly(); 
-    }
-    shared class ConnectionException() extends Exception(null, null) {
-    }
-    shared class MessageException() extends Exception(null, null) {
-    }
--->
-
 <!-- try: -->
-<!-- cat-id:tx -->
-<!-- cat: void m(Message message, Transaction tx) { -->
     try {
         message.send();
     }
     catch (ConnectionException|MessageException e) {
         tx.setRollbackOnly();
     }
-<!-- cat: } -->
 
 To handle all Ceylon exceptions, together with all JavaScript exceptions,
 or all Java exceptions that are subclasses of `java.lang.Exception`, we 
@@ -521,32 +487,25 @@ defined in `ceylon.language`. If we don't explicitly specify a type,
 `Exception` is inferred:
 
 <!-- try: -->
-<!-- cat-id:tx -->
-<!-- cat: void m(Message message, Transaction tx) { -->
     try {
         message.send();
     }
     catch (e) {  //equivalent to "catch (Exception e)"
         tx.setRollbackOnly();
     }
-<!-- cat: } -->
 
 To handle all exceptions, including subtypes of `java.lang.Error`,
 we can catch the root exception class 
 [`Throwable`](#{site.urls.apidoc_1_2}/Throwable.type.html).
 
-The `try` statement may optionally specify a "resource" expression, just
-like in Java. The resource is a 
-[`Destroyable`](#{site.urls.apidoc_1_2}/Destroyable.type.html) or an
-[`Obtainable`](#{site.urls.apidoc_1_2}/Obtainable.type.html).
+The `try` statement may optionally specify one or more "resource" 
+expressions, just like in Java. The resource is a 
+[`Destroyable`](#{site.urls.apidoc_1_2}/Destroyable.type.html) or 
+an [`Obtainable`](#{site.urls.apidoc_1_2}/Obtainable.type.html).
 
 <!-- try: -->
-<!-- cat-id:tx -->
-<!-- check:parse:Requires try-with-resources -->
-    try (Transaction()) {
-        try (s = Session()) {
-            s.persist(person);
-        }
+    try (Transaction(), s = Session()) {
+        s.persist(person);
     }
 
 There are no Java-style checked exceptions in Ceylon.
@@ -555,33 +514,91 @@ There are no Java-style checked exceptions in Ceylon.
 ## Condition lists
 
 Constructs like `if`, `while`, and `assert` accept a  *condition list*.
-A condition list is simply an ordered list of multiple boolean, `exists`,
-`nonempty`, and `is` conditions. The condition list is satisfied if 
-(and only if) *every one* of the conditions is satisfied. 
+This is one of the most distinctive features of the syntax of Ceylon.
+A condition list is simply an ordered list of :
 
-With plain `Boolean` conditions you could achieve the same thing with the 
-`&&` operator of course. But a condition list lets you use the "structured 
-typecasting" of `exists`, `is`, and friends in conditions appearing later 
-in the same list. 
+- boolean expressions, 
+- `exists` conditions, which we 
+  [already met](../basics#dealing_with_objects_that_arent_there),
+- `nonempty` conditions, which will make sense when we talk about
+  [sequences](../sequences#sequences), 
+- `is` conditions, of which `exists` and `nonempty` conditions are
+  really just abbreviations, which we'll also meet 
+  [later](../types/#narrowing_the_type_of_an_object_reference), and,
+  finally.
+- _negated_ forms if the above condition types, that is, `!exists`,
+  `!nonempty`, and `!is`.
 
-Let's see an example using `assert`:
+A condition list is satisfied if (and only if) *every one* of its 
+conditions is satisfied. Consider the following `if` statement:
 
 <!-- try: -->
-    value url = parserUri("http://ceylon-lang.org/download");
-    assert(exists authority = url.authority,
-           exists host = authority.hostname);
-    // do something with host
+    if (exists arg = process.arguments.first, !arg.empty) {
+        print("Hello " + arg + "!");
+    }
 
-Here you can see two `exists` conditions in the `assert` statement, separated 
-with a comma. The first one declares `authority` (which is inferred to be a 
-`String`, rather than a `String?` because of the `exists`). The second condition
-then uses this in its own `exists` condition. 
+The body of the `if` statement will be executed only if _both_ the
+conditions are satisfied, that is, only if `arg` is non-`null` _and_
+non-`empty`.
 
-The important thing to note is that the compiler lets us use `authority` in the 
-second condition and knows that it's a `String`, not a `String?`. You can't do 
-that by `&&`-ing multiple conditions together. You could do it by nesting several 
-`if`s, but that tends to lead to much less readable code, and doesn't work well 
-in `while` statements or comprehensions. 
+The difference between a Ceylon condition list, and an expression 
+formed by combining boolean expressions with `&&` is that an `exists`,
+`nonempty`, or `is` condition actually narrows the type of the value
+to which the condition is applied.
+
+In our example:
+
+- The first condition declares `arg`, which is inferred to be a 
+  `String`, rather than just a `String?`, because it forms part of 
+  an `exists` condition. 
+- The second condition, a simple boolean expression, makes use of 
+  the fact that `arg` is already known to be non-`null`. 
+
+The important thing to note is that the compiler lets us use `arg` 
+in the second condition, and within the body of the `if` statement,
+and assigns it the type `String`, not just `String?`. We can't 
+achieve this by combining multiple boolean expressions together
+with `&&`. (We _could_ do it by nesting two `if`s, but that leads 
+to somewhat less readable code, and doesn't work well in `while` 
+statements or comprehensions.) 
+
+### Gotcha!
+
+A very common "WTF" moment for programmers new to Ceylon is that there
+are two quite similar-looking constructs which have different semantics
+and occur quite differently within the grammar of the language:
+
+- The prefix forms `exists x`, `nonempty x`, `is X x` represent
+  _conditions_ that narrow the type of `x`, and they may only occur 
+  directly within a condition list.
+- On the other hand, the postfix forms `x exists`, `x nonempty`, `x is X`,
+  are simply expressions of type `Boolean`; they may occur anywhere any
+  other boolean expression may occur, and they don't narrow the type of
+  anything. 
+
+By choosing a different syntax for these two different sorts of things,
+we emphasize the difference in semantics to the reader of the code. It's
+more obvious that this condition list _doesn't_ narrow the type of 
+`whatever`:
+
+<!-- try: -->
+    if (something && whatever exists || somethingElse && whatever exists) { ... }
+
+Whereas this condition list _does_:
+
+<!-- try: -->
+    if (something && somethingElse, exists whatever) { ... }
+
+Additionally, the choice of prefix syntax for conditions accommodates
+the use of a [value declaration within the condition](../../faq/language-design/#prefix_form_for_is_type_exists_and_nonempty), 
+for example:
+
+<!-- try: -->
+    if (exists whatever = dontCare()) { ... }
+
+Condition lists occur not only in `if`, `switch`, `while`, and `assert`
+statements, but also in [comprehensions](../comprehensions), and in `if`
+and `switch` _expressions_.
 
 ## If and switch expressions
 
