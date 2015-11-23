@@ -425,5 +425,9 @@ Here's a couple of limitations to be aware of:
 
 ## There's more ...
 
+In a mixed Java/Ceylon project, you'll probably need to use a build
+system like Gradle, Maven, or Apache `ant`. Ceylon has 
+[plugins](../../reference/tool/) for each of these build systems.
+
 Finally, we're going to learn about interoperation with languages 
 like JavaScript with [dynamic typing](../dynamic).
