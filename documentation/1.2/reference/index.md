@@ -215,6 +215,7 @@ The API documentation for
 
 ## Tools
 
+* [Command line tooling and build tools](tool/) 
 * The `ceylon` command, [`ceylon`](tool/ceylon/)
 * An index of [`ceylon`](#{site.urls.ceylon_tool_current}/index.html) subcommands
 * `ceylon` [command plugins](tool/plugin/)
