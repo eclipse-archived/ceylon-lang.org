@@ -83,24 +83,6 @@ command line tools.
     </tr>
 </table>
 
-You can also install the Ceylon command line tools via [SDKMAN!](http://sdkman.io/):
-
-<!-- lang: none -->
-    sdk install ceylon
-
-Mac OS X users running the [Homebrew package manager](http://mxcl.github.com/homebrew/) 
-can easily install Ceylon:
-
-<!-- lang: none -->
-    brew update
-    brew install ceylon
-
-To upgrade a previous `brew` installation:
-
-<!-- lang: none -->
-    brew update
-    brew upgrade ceylon
-
 Instructions for getting started are contained in the file
 `README.md` in the root directory of the distribution, or
 [right here in GitHub][ceylon-dist readme]. To know what's 
@@ -108,6 +90,42 @@ precisely in the release, read our [announcement][1.2.0].
 
 [ceylon-dist readme]: https://github.com/ceylon/ceylon-dist/blob/master/README.md 
 
+### SDKMAN! users
+
+You can also install the Ceylon command line tools via [SDKMAN!](http://sdkman.io/):
+
+<!-- lang: none -->
+    sdk install ceylon
+
+### OSX users
+
+Mac OS X users running the [Homebrew package manager](http://mxcl.github.com/homebrew/) 
+can easily install Ceylon:
+
+<!-- lang: bash -->
+    brew update
+    brew install ceylon
+
+To upgrade a previous `brew` installation:
+
+<!-- lang: bash -->
+    brew update
+    brew upgrade ceylon
+
+### Debian/Ubuntu users
+
+You can add our Debian repository to use `apt-get` to install Ceylon. First add our signing key (our fingerprint
+is `1E94 7D27 7E60 6F05 B997  4810 40BE A324 5993 5387`) and repository:
+
+<!-- lang: bash -->
+    wget -O - https://downloads.ceylon-lang.org/apt/ceylon-debian-repo.gpg.key | sudo apt-key add -
+    sudo add-apt-repository "deb https://downloads.ceylon-lang.org/apt/ unstable main"
+    sudo apt-get update
+
+Once that is done, you can install any version of Ceylon with `apt-get`:
+
+<!-- lang: bash -->
+    sudo apt-get install ceylon-1.2.0
 
 ## Ceylon IDE
 
