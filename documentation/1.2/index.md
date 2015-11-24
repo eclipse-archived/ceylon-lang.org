@@ -51,7 +51,8 @@ Ceylon Language Module `ceylon.language` is
 
 You can find information about [Ceylon IDE](ide) and how to 
 [install it](ide/install), along with information about the 
-[command line tools](reference/tool/ceylon/).
+[command line tools](reference/tool/ceylon/), and [plugins
+for Ant, Gradle, and Maven](reference/tool/).
 
 There's even [Vim support](resources/vim) available.
 
