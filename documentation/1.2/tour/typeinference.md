@@ -251,7 +251,7 @@ As is the following code:
 
 What about iterables that produce `null`s? Well, do you 
 [remember](../basics#dealing_with_objects_that_arent_there) the type of 
-`null` was [`Null`](#{site.urls.apidoc_1_2}/Nothing.type.html)?
+`null` was [`Null`](#{site.urls.apidoc_1_2}/Null.type.html)?
 
 <!-- try-post:
     print(str);
