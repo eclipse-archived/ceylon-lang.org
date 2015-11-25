@@ -163,10 +163,10 @@ For example:
 
     function parseIntegerOrFloat(String text) {
         if ('.' in text) {
-            return parseInteger(text);
+            return parseFloat(text);
         }
         else {
-            return parseFloat(text);
+            return parseInteger(text);
         }
     }
 
