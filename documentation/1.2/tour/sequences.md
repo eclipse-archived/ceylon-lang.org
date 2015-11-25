@@ -332,7 +332,7 @@ Here, `operators[i]` is a `String?`, which is not directly assignable to
 `String`.
 
 Instead, if we need access to the index, we use the special form of `for` 
-shown above.
+shown below.
 
 <!-- try:
     String[] operators = [ "+", "-", "*", "/" ];
