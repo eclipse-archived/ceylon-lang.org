@@ -127,6 +127,27 @@ Once that is done, you can install any version of Ceylon with `apt-get`:
 <!-- lang: bash -->
     sudo apt-get install ceylon-1.2.0
 
+### RHEL/Fedora users
+
+You can add our RPM repository to use `yum` (or `dnf`) to install Ceylon. First add our signing key (our fingerprint
+is `621E C1A9 6C78 6BE4 583F  3AD3 D4CE B0A4 E024 C8B2`) and repository:
+
+<!-- lang: bash -->
+    sudo wget -O /etc/pki/rpm-gpg/RPM-GPG-KEY-ceylon https://downloads.ceylon-lang.org/rpm/ceylon-rpm-repo.gpg.key
+    sudo rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-ceylon
+    # If you're using yum:
+    sudo yum-config-manager --add-repo https://downloads.ceylon-lang.org/rpm/ceylon.repo
+    # If you're using dnf:
+    sudo dnf config-manager --add-repo https://downloads.ceylon-lang.org/rpm/ceylon.repo
+
+Once that is done, you can install any version of Ceylon with `yum` (or `dnf`):
+
+<!-- lang: bash -->
+    # If you're using yum:
+    sudo yum install ceylon-1.2.0
+    # If you're using dnf:
+    sudo dnf install ceylon-1.2.0
+
 ## Ceylon IDE
 
 [Ceylon IDE][ide] is a suite of plugins for Eclipse, available 
