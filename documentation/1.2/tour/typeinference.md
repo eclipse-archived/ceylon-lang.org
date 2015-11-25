@@ -318,7 +318,7 @@ There's two idioms that we could use to handle this situation. The first uses
 a "wrapper" object for each entry:
 
 <!-- try: -->
-    class Maybe(Item? item) {}
+    class Maybe(shared Item? item) {}
     Map<String,Maybe<Item>> map 
             = HashMap<String,Maybe<Item>>();
     
