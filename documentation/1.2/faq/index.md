@@ -168,6 +168,12 @@ Both Ceylon and Ceylon IDE require Java 7 or Java 8.
 
 You can read up on the [architecture](/code/architecture).
 
+### Can I use a profiler with Ceylon?
+
+Yes you can, at least on the JVM, like any other Java program. If your code runs using JBoss Modules (the
+default for `ceylon run`) then you may have to use the `--define jboss.modules.system.pkgs=com.yourkit` runtime
+flag if you use YourKit.
+
 ## Other
 
 ### What license is Ceylon released under?
