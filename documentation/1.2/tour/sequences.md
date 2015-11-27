@@ -204,7 +204,8 @@ so we can iterate a `Sequential` using a `for` loop:
 ## Ranges
 
 A [`Range`](#{site.urls.apidoc_1_2}/Range.type.html)
-is a kind of `Sequence`. The following:
+is a kind of `Sequence`. The [`span`](#{site.urls.apidoc_1_2}/index.html#span)
+function creates a `Range`. The following:
 
 <!-- try:
     Character[] uppercaseLetters = 'A'..'Z';
@@ -218,13 +219,13 @@ is a kind of `Sequence`. The following:
 Is just sugar for:
 
 <!-- try:
-    Sequential<Character> uppercaseLetters = Range('A','Z');
-    Sequential<Integer> countDown = Range(10,0);
+    Sequential<Character> uppercaseLetters = span('A','Z');
+    Sequential<Integer> countDown = span(10,0);
     print(uppercaseLetters);
     print(countDown);
 -->
-    Sequential<Character> uppercaseLetters = Range('A','Z');
-    Sequential<Integer> countDown = Range(10,0);
+    Sequential<Character> uppercaseLetters = span('A','Z');
+    Sequential<Integer> countDown = span(10,0);
 
 In fact, this is just a sneak preview of the fact that almost all operators 
 in Ceylon are just sugar for method calls upon a type. We'll come back to this 
