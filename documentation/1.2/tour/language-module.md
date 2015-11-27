@@ -560,7 +560,7 @@ The language module isn't by itself a platform for building applications.
 It's a minimal set of basic types that form part of the language definition
 itself. The Ceylon SDK is still under development, but you can already
 start using platform modules including
-[ceylon.collection](http://modules.ceylon-lang.org/modules/ceylon.file), 
+[ceylon.collection](http://modules.ceylon-lang.org/modules/ceylon.collection), 
 [ceylon.file](http://modules.ceylon-lang.org/modules/ceylon.file),
 [ceylon.process](http://modules.ceylon-lang.org/modules/ceylon.process),
 [ceylon.dbc](http://modules.ceylon-lang.org/modules/ceylon.dbc),
