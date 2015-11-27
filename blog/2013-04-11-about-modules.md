@@ -46,7 +46,7 @@ Ceylon support modules in the language, from the start, with:
 
 - a super small `ceylon.language` base module, which is all you need to start using Ceylon
 - a modular SDK
-- a great module repository: [Herd](http://modules.ceylon-lang.org)
+- a great module repository: [Herd](https://herd.ceylon-lang.org)
 - support for module repositories in all the tools, be it the command-line or the IDE. They know how to deal with dependencies, fetch
   or publish modules to/from local or remote repositories
 - superb support for Herd repositories from the IDE, with the ability to search for modules, have auto-completion and all

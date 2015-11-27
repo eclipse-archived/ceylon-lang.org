@@ -8,7 +8,7 @@ tags: [release, progress, M5]
 ---
 
 [M5]: /documentation/1.0/roadmap/?utm_source=blog&utm_medium=web&utm_content=roadmap_m5&utm_campaign=latestrelease#milestone_5_done
-[Ceylon Herd]: http://modules.ceylon-lang.org?utm_source=blog&utm_medium=web&utm_content=ide&utm_campaign=latestrelease
+[Ceylon Herd]: https://herd.ceylon-lang.org?utm_source=blog&utm_medium=web&utm_content=ide&utm_campaign=latestrelease
 [Ceylon IDE]: /documentation/1.0/ide?utm_source=blog&utm_medium=web&utm_content=ide&utm_campaign=latestrelease
 [Eclipse update site]: /documentation/1.0/ide/install?utm_source=blog&utm_medium=web&utm_content=ide&utm_campaign=latestrelease
 [spec]: /documentation/1.0/spec/?utm_source=blog&utm_medium=web&utm_content=introduction&utm_campaign=latestrelease
@@ -99,7 +99,7 @@ information about [getting involved][code].
 The new platform modules are available in the shared community 
 repository, [Ceylon Herd][].
 
-<http://modules.ceylon-lang.org>
+<https://herd.ceylon-lang.org>
 
 ### Acknowledgement
 

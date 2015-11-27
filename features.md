@@ -40,7 +40,7 @@ with elegant, cross-platform APIs for all the most common programming tasks.</p>
 <p>Code is organized into 
 <a href="/documentation/current/introduction/#modularity">packages and modules</a>, 
 and compiled to module archives.The tooling supports a system of module repositories, 
-with <a href="http://modules.ceylon-lang.org">Ceylon Herd</a> as its social focus point.</p>
+with <a href="https://herd.ceylon-lang.org">Ceylon Herd</a> as its social focus point.</p>
 <div style="text-align:right">
 <img src="/images/screenshots/1.2.0/modularity-0.png" width="40%" style="box-shadow: 0 0 15px #888;"/>
 <img src="/images/screenshots/1.2.0/modularity-3.png" width="55%" style="box-shadow: 0 0 15px #888;"/>

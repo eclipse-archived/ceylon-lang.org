@@ -123,7 +123,7 @@ Ceylon Herd is [available here][herd], we can help you [get started][get-started
 and you can even [download its source][source]
 code to run it where you want and [improve it][issues]. Use, follow, share, contribute, have fun!
 
-[herd]: http://modules.ceylon-lang.org
-[get-started]: http://modules.ceylon-lang.org/usage
+[herd]: https://herd.ceylon-lang.org
+[get-started]: https://herd.ceylon-lang.org/usage
 [source]: https://github.com/ceylon/ceylon-herd
 [issues]: https://github.com/ceylon/ceylon-herd/issues

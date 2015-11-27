@@ -811,7 +811,7 @@ the module descriptor:
      find some proper modules in the community 
      repository [Ceylon Herd][Herd].
      
-     [Herd]: http://modules.ceylon-lang.org
+     [Herd]: https://herd.ceylon-lang.org
      
      Happy Herding!"
     module org.jboss.example "1.0.0" {         
@@ -831,7 +831,7 @@ Alternatively, Ceylon modules are compatible with OSGi, and with Vert.x.
 For execution on JavaScript Virtual Machines, the Ceylon compiler produces CommonJS
 modules, which are compatible with `node.js` and `require.js`.
 
-[Ceylon Herd](http://modules.ceylon-lang.org) is a community module repository for
+[Ceylon Herd](https://herd.ceylon-lang.org) is a community module repository for
 sharing open source modules.
 
 ## Interoperation with native Java and JavaScript

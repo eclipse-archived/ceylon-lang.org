@@ -19,7 +19,7 @@ every so often, we want to be able to write new subcommands.
 
 For example, I want to be able to invoke both Java and JavaScript compilers and generate the API documentation
 in a single command `ceylon all`, or I want to be able to invoke the 
-[`ceylon.formatter`](http://modules.ceylon-lang.org/modules/ceylon.formatter) module with
+[`ceylon.formatter`](https://herd.ceylon-lang.org/modules/ceylon.formatter) module with
 `ceylon format` instead of `ceylon run ceylon.formatter`.
 
 Well, with Ceylon 1.1 we now [support custom subcommands](/documentation/1.1/reference/tool/plugin/), 

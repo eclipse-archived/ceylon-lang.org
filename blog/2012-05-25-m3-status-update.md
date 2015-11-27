@@ -68,7 +68,7 @@ Now that we've got so much to demo and talk about, we're
 trying to do more events. There's [several talks coming up in 
 June](http://ceylon-lang.org/community/events/).
 
-[Ceylon Herd]: http://modules.ceylon-lang.org/
+[Ceylon Herd]: https://herd.ceylon-lang.org/
 [Ceylon IDE]: /documentation/1.0/ide/
 [website]: http://ceylon-lang.org
 [team]: /community/team

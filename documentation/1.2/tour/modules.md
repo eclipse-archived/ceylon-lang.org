@@ -326,7 +326,7 @@ commands will work:
 Alternatively if you have some other local repository you can specify it 
 using the `--rep` option.
 
-The [Ceylon Herd](http://modules.ceylon-lang.org/) is an online 
+The [Ceylon Herd](https://herd.ceylon-lang.org/) is an online 
 module repository which contains open source Ceylon modules. As it happens, 
 the Herd is one of the default repositories `ceylon compile` knows about. So if 
 `com.example.bar/3.1.4` is in the Herd then the command to compile 
@@ -426,7 +426,7 @@ module "straight off the internet", just by typing, for example:
 
 And all required dependencies get automatically downloaded as needed.
 
-[Ceylon Herd](http://modules.ceylon-lang.org) is a central community module 
+[Ceylon Herd](https://herd.ceylon-lang.org) is a central community module 
 repository where anyone can contribute reusable modules. Of course, the module 
 repository format is an open standard, so any organization can maintain its own 
 public module repository.

@@ -21,7 +21,7 @@ Did you know you could compile Ceylon to JavaScript? No? Well, you can, we're no
 only available on the JVM platform. We have this 
 [awesome JavaScript compiler](/documentation/1.0/reference/tool/ceylonc-js/)
 that supports the same features as the JVM backend compiler. We even started shipping
-the SDK modules for both JVM and JavaScript backends on [Herd](http://modules.ceylon-lang.org).
+the SDK modules for both JVM and JavaScript backends on [Herd](https://herd.ceylon-lang.org).
 
 Now, you may be wondering why you should care about JavaScript, and here's why: you
 can now try and run Ceylon code in your browser! We have an [online _IDE_](http://try.ceylon-lang.org)

@@ -205,7 +205,7 @@ After installing, go to `Help > Welcome to Ceylon` to get started.
 ## SDK
 
 The Ceylon Platform Modules that make up the Ceylon SDK may be 
-obtained from [Ceylon Herd](http://modules.ceylon-lang.org). 
+obtained from [Ceylon Herd](https://herd.ceylon-lang.org). 
 You don't need to download the modules yourself, since the
 compiler, IDE, or runtime will automatically fetch the modules 
 as needed.

@@ -8,7 +8,7 @@ tags: [release, progress, M4]
 ---
 
 [M4]: /documentation/1.0/roadmap/?utm_source=blog&utm_medium=web&utm_content=roadmap_m4&utm_campaign=latestrelease#milestone_4_done
-[Ceylon Herd]: http://modules.ceylon-lang.org?utm_source=blog&utm_medium=web&utm_content=ide&utm_campaign=latestrelease
+[Ceylon Herd]: https://herd.ceylon-lang.org?utm_source=blog&utm_medium=web&utm_content=ide&utm_campaign=latestrelease
 [Ceylon IDE]: /documentation/1.0/ide?utm_source=blog&utm_medium=web&utm_content=ide&utm_campaign=latestrelease
 [Eclipse update site]: /documentation/1.0/ide/install?utm_source=blog&utm_medium=web&utm_content=ide&utm_campaign=latestrelease
 
@@ -117,7 +117,7 @@ or even Maven repositories for interoperation with Java.
 
 The shared community repository, Ceylon Herd is now online:
 
-<http://modules.ceylon-lang.org>
+<https://herd.ceylon-lang.org>
 
 ### Source code
 

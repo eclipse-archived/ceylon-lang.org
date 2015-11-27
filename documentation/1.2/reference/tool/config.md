@@ -356,11 +356,11 @@ the file that should be used.
 
 The remote repository points to the official Ceylon module repository ("The Herd")
 that contains all the official Ceylon SDK modules and all other freely available
-3rd party modules. By default this is `http://modules.ceylon-lang.org`.
+3rd party modules. By default this is `https://herd.ceylon-lang.org`.
 
 <!-- lang:none -->
     [repository "REMOTE"]
-    url=http://modules.ceylon-lang.org
+    url=https://herd.ceylon-lang.org
 
 
 #### The `[repositories]` section revisited

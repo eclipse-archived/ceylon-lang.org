@@ -560,17 +560,17 @@ The language module isn't by itself a platform for building applications.
 It's a minimal set of basic types that form part of the language definition
 itself. The Ceylon SDK is still under development, but you can already
 start using platform modules including
-[ceylon.collection](http://modules.ceylon-lang.org/modules/ceylon.file), 
-[ceylon.file](http://modules.ceylon-lang.org/modules/ceylon.file),
-[ceylon.process](http://modules.ceylon-lang.org/modules/ceylon.process),
-[ceylon.dbc](http://modules.ceylon-lang.org/modules/ceylon.dbc),
-[ceylon.math](http://modules.ceylon-lang.org/modules/ceylon.math),
-[ceylon.net](http://modules.ceylon-lang.org/modules/ceylon.net),
-[ceylon.logging](http://modules.ceylon-lang.org/modules/ceylon.logging),
-[ceylon.test](http://modules.ceylon-lang.org/modules/ceylon.test),
-[ceylon.time](http://modules.ceylon-lang.org/modules/ceylon.time),
-[ceylon.promise](http://modules.ceylon-lang.org/modules/ceylon.promise), and
-[ceylon.locale](http://modules.ceylon-lang.org/modules/ceylon.locale). 
+[ceylon.collection](https://herd.ceylon-lang.org/modules/ceylon.file), 
+[ceylon.file](https://herd.ceylon-lang.org/modules/ceylon.file),
+[ceylon.process](https://herd.ceylon-lang.org/modules/ceylon.process),
+[ceylon.dbc](https://herd.ceylon-lang.org/modules/ceylon.dbc),
+[ceylon.math](https://herd.ceylon-lang.org/modules/ceylon.math),
+[ceylon.net](https://herd.ceylon-lang.org/modules/ceylon.net),
+[ceylon.logging](https://herd.ceylon-lang.org/modules/ceylon.logging),
+[ceylon.test](https://herd.ceylon-lang.org/modules/ceylon.test),
+[ceylon.time](https://herd.ceylon-lang.org/modules/ceylon.time),
+[ceylon.promise](https://herd.ceylon-lang.org/modules/ceylon.promise), and
+[ceylon.locale](https://herd.ceylon-lang.org/modules/ceylon.locale). 
 
 Next we're going to come back to the subject of [object initialization](../initialization), 
 and deal with a subtle problem affecting languages like Java and C#.

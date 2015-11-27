@@ -43,7 +43,7 @@ Or, if you want to be absolutely certain, you can dive into the
 ## Module APIs
 
 You can find the API documentation for modules, including platform modules, 
-in [Herd](http://modules.ceylon-lang.org/). The API documentation for the 
+in [Herd](https://herd.ceylon-lang.org/). The API documentation for the 
 Ceylon Language Module `ceylon.language` is 
 [right here](#{site.urls.apidoc_1_0}/index.html).
 

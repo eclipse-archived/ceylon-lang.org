@@ -10,7 +10,7 @@ doc_root: ../../..
 # #{page.title_md}
 
 <center>
-<a href=http://modules.ceylon-lang.org" title="Ceylon Herd" alt="Ceylon Herd">
+<a href=https://herd.ceylon-lang.org" title="Ceylon Herd" alt="Ceylon Herd">
 <img src="/images/herd-200.png" srcset="/images/herd-200-2x.png 2x"/> 
 </a>
 </center>
@@ -33,11 +33,11 @@ open-source Ceylon modules. Why is it next-gen? Here's why:
 - Powerful management for module owners, with permissions delegation and transfer of ownership
 
 Not only that, but we're not keeping this next-gen module repository to ourselves: it's
-[completely Free Software](http://modules.ceylon-lang.org/about) so you're encouraged 
+[completely Free Software](https://herd.ceylon-lang.org/about) so you're encouraged 
 to run your own instance, just as powerful as what we're using, and contribute to make it better.
 
-[Start using Herd today](http://modules.ceylon-lang.org/usage) and 
-[publish your first module](http://modules.ceylon-lang.org/publish) to start sharing!
+[Start using Herd today](https://herd.ceylon-lang.org/usage) and 
+[publish your first module](https://herd.ceylon-lang.org/publish) to start sharing!
 
 ## See also
 
