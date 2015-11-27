@@ -93,7 +93,7 @@ imagine that `T` has the supertypes `List<String>` and
 `List<Integer>`. And suppose we want to determine the 
 type of one of the members inherited by `T` from the 
 generic type, say 
-[`List.first`](https://herd.ceylon-lang.org/repo/1/ceylon/language/1.0.0/module-doc/List.type.html#first). 
+[`List.first`](https://modules.ceylon-lang.org/repo/1/ceylon/language/1.0.0/module-doc/List.type.html#first). 
 
 Then we would first need to form a _principal 
 instantiation_ of the generic type `List`. In this case 

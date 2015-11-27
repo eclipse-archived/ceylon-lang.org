@@ -237,7 +237,7 @@ a push of our current application to OpenShift:
     remote: TODO
     remote: Starting Ceylon cart
     remote: Executing /var/lib/openshift/.../ceylon/usr/ceylon-1.2.0/bin/ceylon
-    remote: With params: run   --rep=/var/lib/openshift/.../app-root/runtime/repo/.openshift/config/modules --cacherep=/var/lib/openshift/.../app-root/runtime/repo//cache --rep=https://herd.ceylon-lang.org/repo/1/ --rep=/var/lib/openshift/.../app-root/runtime/repo//modules openshift.bare/1 
+    remote: With params: run   --rep=/var/lib/openshift/.../app-root/runtime/repo/.openshift/config/modules --cacherep=/var/lib/openshift/.../app-root/runtime/repo//cache --rep=https://modules.ceylon-lang.org/repo/1/ --rep=/var/lib/openshift/.../app-root/runtime/repo//modules openshift.bare/1 
     remote: With JAVA_OPTS:  -Dcom.redhat.ceylon.common.tool.terminal.width=9999 -Dceylon.cache.repo=/var/lib/openshift/.../app-root/runtime/repo//cache
     remote: Ceylon started with pid: 350715
     remote: Waiting for http server to boot on 127.5.184.1:8080 ... (1/30)

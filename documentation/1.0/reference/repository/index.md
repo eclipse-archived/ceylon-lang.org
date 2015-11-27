@@ -86,7 +86,7 @@ The Ceylon tools use a number of standard repositories:
   Ceylon tools, and defaults to `modules` in the current directory.
 - The **home repository**, which is located at `$HOME/.ceylon/repo` and contains
   a cache of module artifacts downloaded from remote repositories.
-- The **central repository**, which is located at `https://herd.ceylon-lang.org/repo`
+- The **central repository**, which is located at `https://modules.ceylon-lang.org/repo`
   and will contain every published Ceylon module.
 
 Normally, when looking for a Ceylon module, the tools will use these standard repositories
