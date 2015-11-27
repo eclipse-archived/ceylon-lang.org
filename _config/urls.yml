@@ -1,9 +1,9 @@
 spec_current: /documentation/current/spec/html_single/index.html
 spec_relative: spec/html_single/index.html
-apidoc_current: https://herd.ceylon-lang.org/repo/1/ceylon/language/1.2.0/module-doc
-apidoc_1_0: https://herd.ceylon-lang.org/repo/1/ceylon/language/1.0.0/module-doc
-apidoc_1_1: https://herd.ceylon-lang.org/repo/1/ceylon/language/1.1.0/module-doc
-apidoc_1_2: https://herd.ceylon-lang.org/repo/1/ceylon/language/1.2.0/module-doc
+apidoc_current: https://modules.ceylon-lang.org/repo/1/ceylon/language/1.2.0/module-doc
+apidoc_1_0: https://modules.ceylon-lang.org/repo/1/ceylon/language/1.0.0/module-doc
+apidoc_1_1: https://modules.ceylon-lang.org/repo/1/ceylon/language/1.1.0/module-doc
+apidoc_1_2: https://modules.ceylon-lang.org/repo/1/ceylon/language/1.2.0/module-doc
 ceylon_tool_current: /documentation/current/reference/tool/ceylon/subcommands
 
 apidoc_current_language: https://modules.ceylon-lang.org/repo/1/ceylon/language/1.2.0/module-doc
