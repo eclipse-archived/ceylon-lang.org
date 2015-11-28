@@ -259,7 +259,7 @@ upper bound type constraints on `Output`, then `Producer<Anything>` would not
 be a legal type.)
 
 You're unlikely to spend much time writing your own collection classes, since 
-the Ceylon SDK will soon have a powerful collections framework built in. But 
+the Ceylon SDK has a powerful collections framework built in. But 
 you'll still appreciate Ceylon's approach to covariance as a user of the 
 built-in collection types.
 
