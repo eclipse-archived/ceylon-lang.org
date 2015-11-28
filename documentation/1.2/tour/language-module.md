@@ -558,17 +558,21 @@ and [`MutableSet`](#{site.urls.apidoc_current_collection}/MutableSet.type.html).
 
 The language module isn't by itself a platform for building applications.
 It's a minimal set of basic types that form part of the language definition
-itself. The Ceylon SDK is still under development, but you can already
-start using platform modules including
+itself. The Ceylon SDK provides a set of platform modules&mdash;basic building
+blocks for all sorts of programs&mdash;including
 [ceylon.collection](https://herd.ceylon-lang.org/modules/ceylon.collection), 
 [ceylon.file](https://herd.ceylon-lang.org/modules/ceylon.file),
 [ceylon.process](https://herd.ceylon-lang.org/modules/ceylon.process),
 [ceylon.dbc](https://herd.ceylon-lang.org/modules/ceylon.dbc),
+[ceylon.json](https://herd.ceylon-lang.org/modules/ceylon.json),
 [ceylon.math](https://herd.ceylon-lang.org/modules/ceylon.math),
+[ceylon.unicode](https://herd.ceylon-lang.org/modules/ceylon.unicode),
 [ceylon.net](https://herd.ceylon-lang.org/modules/ceylon.net),
 [ceylon.logging](https://herd.ceylon-lang.org/modules/ceylon.logging),
 [ceylon.test](https://herd.ceylon-lang.org/modules/ceylon.test),
 [ceylon.time](https://herd.ceylon-lang.org/modules/ceylon.time),
+[ceylon.regex](https://herd.ceylon-lang.org/modules/ceylon.regex),
+[ceylon.transaction](https://herd.ceylon-lang.org/modules/ceylon.transaction),
 [ceylon.promise](https://herd.ceylon-lang.org/modules/ceylon.promise), and
 [ceylon.locale](https://herd.ceylon-lang.org/modules/ceylon.locale). 
 
