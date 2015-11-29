@@ -169,7 +169,36 @@ dependencies. You can also exclude them with this:
         </filter>
     </artifact>
 
-## Example (Solution 1)
+## Example (Google Guice)
+
+Here's an `overrides.xml` file that lets you import 
+[Guice](https://github.com/google/guice) from Maven:
+
+<!--lang: xml -->
+    <overrides xmlns="http://www.ceylon-lang.org/xsd/overrides">
+        <module groupId="com.google.inject"
+             artifactId="guice"
+                version="4.0">
+            <share groupId="javax.inject"
+                artifactId="javax.inject"/>
+        </module>
+    </overrides>
+
+You can now `import` Guice like this:
+
+<!-- try: -->
+    native("jvm")
+    module com.my.module "1.0.0" {
+        import "com.google.inject:guice" "4.0";
+    }
+
+Note that you don't need this `overrides.xml` file at all if you
+use the `--auto-export-maven-dependencies` flag which is supported 
+by the command line tools. You can also find this setting on the 
+**Ceylon Build > Module Repositories** page of the
+**Project > Properties** for your Ceylon project.
+
+## Example (Hibernate JPA solution 1)
 
 Here's an `overrides.xml` file that lets you import 
 [Hibernate](http://hibernate.org)'s JPA-compliant API from Maven:
@@ -233,7 +262,7 @@ is your Ceylon resources directory:
     
     </persistence>
 
-## Example (Solution 2)
+## Example (Hibernate JPA solution 2)
 
 Alternatively, instead of using `<share/>` in `overrides.xml`, we can
 do some of the work with the `--auto-export-maven-dependencies` flag
