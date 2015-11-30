@@ -10,10 +10,10 @@ tags: [weld, guice]
 I'm personally ambivalent about the benefits of dependency 
 injection. On the one hand, I recognize its usefulness in 
 certain container environments such as Java EE. (For the
-record, I was the author of the CDI 1.0 specification.) On 
-the other hand, given the nature of what I've been working 
-on for the last few years, I don't really have a use for it 
-in my own programs.
+record, I was the author of the CDI 1.0 specification, with
+my JCP Expert Group.) On the other hand, given the nature of 
+what I've been working on for the last few years, I don't 
+really have a use for it in my own programs.
 
 But there are plenty of folks out there who swear by 
 dependency injection, and ask me what Ceylon offers in this 
@@ -25,10 +25,10 @@ container environment (say, Java EE, vert.x, OSGi, or whatever).
 
 So if you want dependency injection in Ceylon today, you're
 going to have to use a container written in Java. Fortunately,
-Ceylon 1.2 has features excellent interoperation with Java
+Ceylon 1.2 features such excellent interoperation with Java
 that this results in barely any friction at all. Surely 
 someone will write a dependency injection container in Ceylon
-_some day_, but as we're about to see, there's no urgency at
+_some day_, but, as we're about to see, there's no urgency at
 all.
 
 I'm going to explore:
@@ -60,7 +60,7 @@ into my project:
     native("jvm")
     module welder "1.0.0" {
         import "org.jboss.weld.se:weld-se" "2.2.6.Final";
-        import ceylon.interop.java "1.2.1";
+        import ceylon.interop.java "1.2.0";
     }
 
 Where `org.jboss.weld.se` is the Maven _group id_, and `weld-se`
@@ -154,7 +154,7 @@ obtain a `Sender` from the container, and call `send()`:
         value sender 
                 = container.instance()
                     .select(type<Sender>())
-                    .get()
+                    .get();
         
         sender.send("Hello!);
         
@@ -172,7 +172,7 @@ also works for generic types, is to use
     value sender 
             = container.instance()
                 .select(object extends TypeLiteral<Sender>(){})
-                .get()
+                .get();
 
 Unfortunately, that's a little more verbose.
 
@@ -354,7 +354,7 @@ from Maven Central, and imports Guice into the project:
     native("jvm")
     module guicy "1.0.0" {
         import "com.google.inject:guice" "4.0";
-        import ceylon.interop.java "1.2.1";
+        import ceylon.interop.java "1.2.0";
     }
 
 ### Code we can reuse from the Weld example
