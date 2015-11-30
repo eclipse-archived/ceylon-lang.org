@@ -298,7 +298,7 @@ Let's fill in the types, to see what's really going on here:
     Anything(Integer) sayHello = say(Hello("World"));
     sayHello(3);
 
-That is, a static function reference is a function that returns a
+That is, a static method reference is a function that returns a
 function.
 
 A static attribute reference is a reference to an attribute, qualified by
