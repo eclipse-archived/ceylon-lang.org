@@ -245,7 +245,7 @@ use the `produces` annotation on a toplevel function.
                 accept = print;
             };
 
-### CDI qualfiers
+### CDI qualifiers
 
 We can define CDI qualifier annotations in Ceylon:
 
