@@ -298,7 +298,7 @@ Let's fill in the types, to see what's really going on here:
     Anything(Integer) sayHello = say(Hello("World"));
     sayHello(3);
 
-That is, a static function reference is a function that returns a
+That is, a static method reference is a function that returns a
 function.
 
 A static attribute reference is a reference to an attribute, qualified by
@@ -411,8 +411,8 @@ method of `Iterable`.)
 
 As you've probably noticed, all the functions we've defined so far have been 
 declared with a name, using a traditional C-like syntax. There's nothing wrong
-with passing a named function to `map()` or `filter()`, and indeed that is often
-useful: 
+with passing a named function to `map()`, `filter()`, or `fold()`, and indeed
+that is often useful: 
 
 <!-- try-pre:
     value measurements = { 3.4, 8.7, 1.7, 13.1, 7.7, 1.2 };
