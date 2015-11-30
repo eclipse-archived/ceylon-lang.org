@@ -411,8 +411,8 @@ method of `Iterable`.)
 
 As you've probably noticed, all the functions we've defined so far have been 
 declared with a name, using a traditional C-like syntax. There's nothing wrong
-with passing a named function to `map()` or `filter()`, and indeed that is often
-useful: 
+with passing a named function to `map()`, `filter()`, or `fold()`, and indeed
+that is often useful: 
 
 <!-- try-pre:
     value measurements = { 3.4, 8.7, 1.7, 13.1, 7.7, 1.2 };
