@@ -47,12 +47,12 @@ declaration, references from Ceylon code will be renamed.</p>
 <div>
 <img src="/images/screenshots/1.2.0/rename-dialog.png" width="60%" style="box-shadow: 0 0 15px #888;"/>
 </div>
-<p>**Extract** refactorings let you select a containing expression.</p>
+<p>**Extract** refactorings let you select a containing expression, and then allow 
+customization of the extracted function or value in linked mode.</p>
 <div>
 <img src="/images/screenshots/1.2.0/extract-function.png" width="80%" style="box-shadow: 0 0 15px #888;"/>
-</div>
-<p>And then allow customization of the extracted function or value in linked mode.</p>
 <img src="/images/screenshots/1.2.0/extract-linked-mode.png" width="40%" style="box-shadow: 0 0 15px #888;"/>
+</div>
 <p>**Change Parameter List** lets you change the signature of a method, including adding 
 or inlining default arguments.</p>
 <div>
