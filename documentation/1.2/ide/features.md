@@ -37,18 +37,30 @@ the editor features quick fixes for errors, and oodles of contextual quick assis
 **Invert Boolean**, **Move To Unit**, and **Move To New Unit** refactorings. Even better, 
 it fully integrates with Eclipse's tooling for moving and copying files, for renaming and 
 copying packages, and for renaming Java program elements.</p>
-<p>You can rename a declaration using the editor's inline "linked mode".</p>
+<p>You can rename a declaration using the editor's inline "linked mode". References to the
+Ceylon declaration from Java code will also be renamed. Likewise, if you rename a Java 
+declaration, references from Ceylon code will be renamed.</p>
 <div>
 <img src="/images/screenshots/1.2.0/rename.png" width="60%" style="box-shadow: 0 0 15px #888;"/>
+</div>
+<p>Alternatively, you can quickly switch to dialog mode to get additional options.</p>
+<div>
+<img src="/images/screenshots/1.2.0/rename-dialog.png" width="60%" style="box-shadow: 0 0 15px #888;"/>
 </div>
 <p>**Extract** refactorings let you select a containing expression.</p>
 <div>
 <img src="/images/screenshots/1.2.0/extract-function.png" width="80%" style="box-shadow: 0 0 15px #888;"/>
 </div>
+<p>And then allow customization of the extracted function or value in linked mode.</p>
+<img src="/images/screenshots/1.2.0/extract-linked-mode.png" width="40%" style="box-shadow: 0 0 15px #888;"/>
 <p>**Change Parameter List** lets you change the signature of a method, including adding 
 or inlining default arguments.</p>
 <div>
 <img src="/images/screenshots/1.2.0/change-parameters.png" width="70%" style="box-shadow: 0 0 15px #888;"/>
+</div>
+<p>There are refactorings for creating, renaming, and removing aliases.</p>
+<div>
+<img src="/images/screenshots/1.2.0/import-alias.png" width="50%" style="box-shadow: 0 0 15px #888;"/>
 </div>
 <p>The refactoring wizards provide previews of changes before applying them.</p>
 <div>
