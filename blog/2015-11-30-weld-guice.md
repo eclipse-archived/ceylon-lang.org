@@ -47,7 +47,8 @@ it some other day.
 
 ## Weld
 
-I found it extremely straightforward to use Weld in Ceylon.
+I found it extremely straightforward to use Weld in Ceylon,
+except for one caveat, which I'll mention below.
 
 ### Module descriptor for Weld
 
@@ -58,8 +59,8 @@ into my project:
 
 <!-- try: -->
     native("jvm")
-    module welder "1.0.0" {
-        import "org.jboss.weld.se:weld-se" "2.2.6.Final";
+    module weldelicious "1.0.0" {
+        import "org.jboss.weld.se:weld-se" "2.3.1.Final";
         import ceylon.interop.java "1.2.0";
     }
 
@@ -103,7 +104,7 @@ perhaps, but good enough to remind me of this requirement of
 the spec. (Yeah, the spec I wrote.)
 
 To resolve the problem, I added an empty file named 
-`beans.xml` to the directory `resource/welder/ROOT/META-INF`,
+`beans.xml` to the directory `resource/weldelicious/ROOT/META-INF`,
 which is the magical location to use if you want Ceylon to 
 put a file into the `META-INF` directory of a module archive.
 
@@ -156,7 +157,7 @@ obtain a `Sender` from the container, and call `send()`:
                     .select(type<Sender>())
                     .get();
         
-        sender.send("Hello!);
+        sender.send();
         
         weld.shutdown();
         
@@ -484,13 +485,13 @@ where producer methods can be defined as toplevel functions.
 
 Guice's _binding annotations_ work almost exactly like CDI
 qualifier annotations (since that's where CDI copied them from).
+The code to define a binding annotation is exactly the same 
+as for Weld.
 
 <!-- try: -->
-    import com.google.inject {
-        binding = bindingAnnotation
-    }
+    import javax.inject { qualifier }
     
-    annotation Fancy special() => Fancy();
+    annotation Fancy fancy() => Fancy();
     final binding annotation class Fancy() 
             satisfies OptionalAnnotation<Fancy> {}
 
