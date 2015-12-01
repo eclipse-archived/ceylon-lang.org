@@ -45,6 +45,10 @@ These are my favorite containers for Java, though of course
 Spring has legions of fans. Perhaps I'll find time to play with
 it some other day.
 
+You can find the example code in the following Git repository:
+
+<https://github.com/ceylon/ceylon-examples-di>
+
 ## Weld
 
 I found it extremely straightforward to use Weld in Ceylon,
