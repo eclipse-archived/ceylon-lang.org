@@ -301,7 +301,9 @@ For the record, qualifier annotations also work with method
 injection. They don't work with field injection.
 
 This was the only disappointment I had using Weld with Ceylon,
-and we're going to look some way to solve this in Ceylon 1.2.1. 
+and I believe I already know 
+[how to solve this](https://github.com/ceylon/ceylon/issues/5779) 
+in Ceylon 1.2.1. 
 
 ### Scoped beans
 
@@ -477,8 +479,8 @@ We're again using `javaClass()`, but Guice has its own `TypeLiteral`.
 Injection into default constructors works, and looks exactly
 like what it looks like for Weld. However, injection into named
 constructors doesn't work with Ceylon 1.2.0 and Guice 4.0. This
-is pretty easy to fix on our side, and so it should work in 
-Ceylon 1.2.1.
+is [pretty easy to fix](https://github.com/ceylon/ceylon/issues/5777) 
+on our side, and so it should work in Ceylon 1.2.1.
 
 ### Method and field injection
 
