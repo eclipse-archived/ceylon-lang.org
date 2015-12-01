@@ -305,7 +305,7 @@ in Ceylon 1.2.1.
 
 ### Scoped beans
 
-You can define scoped beans (beans with what what the CDI spec
+You can define scoped beans (beans with what the CDI spec
 calls a _normal scope_) in Ceylon, just by applying a scope
 annotation to the bean:
 
