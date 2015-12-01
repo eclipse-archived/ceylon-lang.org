@@ -63,7 +63,7 @@ of the module descriptor is used.</td>
 
 <tr>
 <td id="param-src"><code>src</code></td>
-<td>A source directory. <!-- m3 --></td>
+<td>A source directory.</td>
 <td>No, default is <i>source</i></td>
 </tr>
 

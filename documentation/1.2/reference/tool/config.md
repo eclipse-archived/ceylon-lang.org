@@ -401,8 +401,6 @@ Supported properties include:
 
 ### `[proxy]` section
 
-<!-- m6 -->
-
 The `[proxy]` section defines a HTTP proxy to use when accessing the network. 
 
 Supported properties include:

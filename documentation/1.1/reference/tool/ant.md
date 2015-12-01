@@ -74,8 +74,6 @@ all of them will have to be specified manually using &lt;rep&gt; and/or &lt;repo
 
 #### `<reposet>`
 
-<!-- m5 -->
-
 A `<reposet>` element contains a number of `<repo>` and/or `<reposet>` elements. 
 It can be defined at the 
 top level, and then used by reference in `<ceylon-*>` tasks so you don't have 

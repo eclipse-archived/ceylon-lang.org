@@ -89,13 +89,13 @@ a nested [`<module>`](#module)(s) is required.
 
 <tr>
 <td><code>user</code></td>
-<td>The user name to use when connecting to the output repository. Only used for HTTP output repositories. <!-- m2 --></td>
+<td>The user name to use when connecting to the output repository. Only used for HTTP output repositories.</td>
 <td>No</td>
 </tr>
 
 <tr>
 <td><code>pass</code></td>
-<td>The password to use when connecting to the output repository. Only used for HTTP output repositories. <!-- m2 --></td>
+<td>The password to use when connecting to the output repository. Only used for HTTP output repositories.</td>
 <td>No</td>
 </tr>
 
@@ -105,7 +105,7 @@ a nested [`<module>`](#module)(s) is required.
 whether to document a module. The most recent modification time of the source files
 is compared with the oldest modification time of the output artifacts. 
 This can speed up builds when the source files have not 
-changed but is not able to detect deletion of source files. <!-- m3 --></td>
+changed but is not able to detect deletion of source files.</td>
 <td>No, default is <i>false</i></td>
 </tr>
 
