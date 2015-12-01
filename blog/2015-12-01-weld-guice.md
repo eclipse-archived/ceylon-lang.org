@@ -87,13 +87,12 @@ following code from stackoverflow:
     
     shared void run() {
         
-        value weld = Weld();
-        value container = weld.initialize();
+        value container = Weld().initialize();
         
         //do stuff with beans
         ...
         
-        weld.shutdown();
+        container.shutdown();
         
     }
 
@@ -154,11 +153,10 @@ obtain a `Sender` from the container, and call `send()`:
     
     shared void run() {
         
-        value weld = Weld();
-        value container = weld.initialize();
+        value container = Weld().initialize();
         
         value sender 
-                = container.instance()
+                = container
                     .select(type<Sender>())
                     .get();
         
@@ -176,7 +174,7 @@ also works for generic types, is to use
 
 <!-- try: -->
     value sender 
-            = container.instance()
+            = container
                 .select(object extends TypeLiteral<Sender>(){})
                 .get();
 
