@@ -52,7 +52,8 @@ You can find the example code in the following Git repository:
 ## Weld
 
 I found it extremely straightforward to use Weld in Ceylon,
-except for one caveat, which I'll mention below.
+except for one relatively minor problem, which I'll mention 
+below.
 
 ### Module descriptor for Weld
 
@@ -262,17 +263,45 @@ We can define CDI qualifier annotations in Ceylon:
             satisfies OptionalAnnotation<Fancy> {}
 
 A qualifier annotation must be applied at both the injection
-point and to the bean or producer function. 
+point and to the bean or producer function. First, I annotated
+the bean class:
 
 <!-- try: -->
-    inject class Sender(fancy Receiver receiver) {
-        shared void send() => receiver.accept("Hello!");
-    }
-    
     fancy class FancyReceiver() satisfies Receiver {
         accept(String message) 
                 => print(message + " \{BALLOON}\{PARTY POPPER}");
     }
+
+Next, I tried annotating an injected initializer parameter:
+
+<!-- try: -->
+    //this doesn't work!
+    inject class Sender(fancy Receiver receiver) {
+        shared void send() => receiver.accept("Hello!");
+    }
+
+Unfortunately, this didn't work. When compiled to Java 
+bytecode, Ceylon actually places this `fancy` annotation on 
+a generated getter method of `Sender`, not on the parameter, 
+and Weld only looks for qualifier annotations on injected 
+parameters. I had to use constructor injection to make the 
+qualifier work right:
+
+<!-- try: -->
+    //this does work
+    inject class Sender {
+        Receiver receiver;
+        shared new (fancy Receiver receiver) {
+            this.receiver = receiver;
+        }
+        shared void send() => receiver.accept("Hello!");
+    }
+
+For the record, qualifier annotations also work with method 
+injection. They don't work with field injection.
+
+This was the only disappointment I had using Weld with Ceylon,
+and we're going to look some way to solve this in Ceylon 1.2.1. 
 
 ### Scoped beans
 
@@ -514,6 +543,10 @@ binding:
                     .to(type<FancyReceiver>());
             }
         });
+
+Just like in Weld, qualifier annotations work with constructor
+or method injection, but don't currently work with initializer 
+parameter or field injection.
 
 ### Scoped beans
 
