@@ -30,6 +30,13 @@ of Ceylon in a web browser:
 - The [DDDSample](https://github.com/sgalles/ceylon-dddsample) 
   demonstrates the use of Ceylon in Java EE.
 
+## Simple examples
+
+Learn how to use Ceylon with these Java frameworks:
+
+- [Weld and Guice with Ceylon](https://github.com/ceylon/ceylon-examples-di),
+  based on [this blog post](/blog/2015/12/01/weld-guice/).
+
 ## Examples of libraries
 
 The [Ceylon SDK](https://github.com/ceylon/ceylon-sdk) includes 
