@@ -11,8 +11,6 @@ doc_root: ../../..
 
 ## Usage 
 
-**Note**: In M5 the `<ceyloncjs>` task was renamed `<ceylon-compile-js>`.
-
 **Note**: You must [declare the tasks with a `<typedef>`](../ant).
 
 This task compiles Ceylon code to JavaScript, by means of the

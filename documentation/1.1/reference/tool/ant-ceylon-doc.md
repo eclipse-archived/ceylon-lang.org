@@ -11,8 +11,6 @@ doc_root: ../../..
 
 ## Usage 
 
-**Note**: In M5 the `<ceylond>` task was renamed `<ceylon-doc>`.
-
 **Note**: You must [declare the tasks with a `<typedef>`](../ant).
 
 To compile the documentation for module `com.example.foo` whose 

@@ -11,8 +11,6 @@ doc_root: ../../..
 
 ## Usage 
 
-**Note**: In M5 the `<ceylon>` task was renamed `<ceylon-run>`.
-
 **Note**: You must [declare the tasks with a `<typedef>`](../ant).
 
 To execute the `com.example.foo.lifecycle.start` top level method in 

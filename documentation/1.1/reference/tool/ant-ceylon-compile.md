@@ -11,8 +11,6 @@ doc_root: ../../..
 
 ## Usage 
 
-**Note**: In M5 the `<ceylonc>` task was renamed `<ceylon-compile>`.
-
 **Note**: You must [declare the tasks with a `<typedef>`](../ant).
 
 To compile the module `com.example.foo` whose source code is in the 

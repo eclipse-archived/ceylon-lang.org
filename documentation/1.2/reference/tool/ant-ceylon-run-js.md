@@ -11,8 +11,6 @@ doc_root: ../../..
 
 ## Usage 
 
-**Note**: In M5 the `<ceylonjs>` task was renamed `<ceylon-run-js>`.
-
 **Note**: You must [declare the tasks with a `<typedef>`](../ant).
 
 This task runs a top-level JavaScript method compiled from Ceylon code.
