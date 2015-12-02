@@ -330,7 +330,7 @@ declaration:
                          Currency currency, 
                          Float amount) {}
     
-    Payment payment {
+    Payment payment = Payment {
         method = user.paymentMethod;
         currency = order.currency;
         value amount {
@@ -340,7 +340,7 @@ declaration:
             }
             return total;
         }
-    }
+    };
 
 Finally, here's an example of a named argument list with an inline `object` 
 declaration:
