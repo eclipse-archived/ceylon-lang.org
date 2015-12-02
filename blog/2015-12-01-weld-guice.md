@@ -287,9 +287,9 @@ qualifier work right:
 
 <!-- try: -->
     //this does work
-    inject class Sender {
+    class Sender {
         Receiver receiver;
-        shared new (fancy Receiver receiver) {
+        inject shared new (fancy Receiver receiver) {
             this.receiver = receiver;
         }
         shared void send() => receiver.accept("Hello!");
