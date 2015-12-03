@@ -108,16 +108,10 @@ out in your own browser by clicking the "TRY ONLINE" button!
     CanvasRenderingContext2D ctx;
     
     dynamic {
-        if (exists canvas = document.getElementById("lifegrid")) {
-            canvas.parentNode.removeChild(canvas);
-        }
-        
-        dynamic canvas = document.createElement("canvas");
-        canvas.setAttribute("id", "lifegrid");
-        canvas.setAttribute("width", 300);
-        canvas.setAttribute("height", 120);
-        dynamic corePage = document.getElementById("core-page");
-        corePage.insertBefore(canvas, corePage.childNodes[3]);
+        dynamic win = openCanvasWindow();
+        dynamic canvas = win.ceylonCanvas;
+        canvas.width = 600;
+        canvas.height = 300;
         ctx = canvas.getContext("2d");
     }
     
