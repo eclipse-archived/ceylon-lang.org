@@ -31,6 +31,11 @@ backend? Read [how to work on that project](contribute).
 You might want to start with an 
 [overview of the architecture](architecture) of the project.
 
+## Contribute your own Ceylon modules
+
+Are you working on a nice new module that you want to share with others through the main Ceylon Module Repository aka [the Herd](https://herd.ceylon-lang.org/)? Read the instructions over at the Herd on how to [publish your own module](https://herd.ceylon-lang.org/publish) and the
+[guidelines for modules](https://herd.ceylon-lang.org/guidelines).
+
 ## Contribute to the website
 
 This website, like the rest of Ceylon, is open source. Help us 
