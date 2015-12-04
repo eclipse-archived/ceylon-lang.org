@@ -4,7 +4,7 @@ author: David Festal
 layout: blog
 unique_id: blogpage
 tab: blog
-tags: [osgi]
+tags: [osgi, modularity, interop]
 ---
 ### ... or how to use Ceylon inside Java EE application servers.
 
