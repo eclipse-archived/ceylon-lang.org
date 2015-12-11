@@ -198,10 +198,10 @@ enumeration expression_:
 Note that these expressions are _not_ considered to produce an 
 instance of a Ceylon class.
 
-Assignment to these plain JavaScript objects is (in release 
-1.2) possible only using the `obj.count = 5;` syntax. To do the 
-equivalent of `obj["count"] = 7;` and `arr[3] = 15;` you'll 
-have to use a workaround for now:
+Assignment to properties of these plain JavaScript objects is 
+(in this release) possible only using the `obj.count = 5;` 
+syntax. To do the equivalent of `obj["count"] = 7;` and 
+`arr[3] = 15;` you'll have to use a workaround for now:
 
 <!-- try-pre
     dynamic {
