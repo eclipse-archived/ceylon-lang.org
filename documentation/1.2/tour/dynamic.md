@@ -78,8 +78,18 @@ the compiler:
 
 When a dynamically typed expression is evaluated, certain 
 runtime type checks are performed, which can result in a 
-runtime typing exception.
+runtime typing exception. For example, if you try to log
+a message to the console using
 
+<!-- try: -->
+    dynamic {
+        console.log("Hello");
+    }
+
+.. then there will be a runtime check that there 
+indeed is a global object named `console` that has a 
+non-null/undefined value before calling the log method on 
+it.
 
 ## Interoperating with native JavaScript
 
@@ -165,17 +175,20 @@ declares!
 So, if you're not careful, you can _still_ get runtime type
 exceptions!
 
-## Dynamic instantiation expressions
+## Dynamic instantiation and property assignment expressions
 
 Occasionally it's necessary to instantiate a JavaScript `Array` 
 or plain JavaScript `Object` (which is not the same thing as a 
 Ceylon `Object`!). We may use a special-purpose _dynamic 
 enumeration expression_:
 
+<!-- try: -->
     dynamic {
         dynamic obj = dynamic [ hello="Hello, World"; count=11; ];
         print(obj.hello);
         print(obj.count);
+        value key = "count"; // another way to
+        print(obj[key]);     // access "obj.count"
         
         dynamic arr = dynamic [ 12, 13, 14 ];
         print(arr[0]);
@@ -185,6 +198,26 @@ enumeration expression_:
 Note that these expressions are _not_ considered to produce an 
 instance of a Ceylon class.
 
+Assignment to these plain JavaScript objects is (in release 
+1.2) possible only using the `obj.count = 5;` syntax. To do the 
+equivalent of `obj["count"] = 7;` and `arr[3] = 15;` you'll 
+have to use a workaround for now:
+
+<!-- try-pre
+    dynamic {
+        dynamic obj = dynamic [ hello="Hello, World"; count=11; ];
+        dynamic arr = dynamic [ 12, 13, 14 ];
+    }
+
+-->
+    dynamic {
+        dynamic set = eval("(function(o,k,v){o[k]=v})");
+        set(obj, "count", 7); // obj["count"] = 7;
+        set(arr, 3, 15);      // arr[3] = 15;
+    }
+
+[Issue #5817](https://github.com/ceylon/ceylon/issues/5817) is
+one of the issues tracking this missing feature.
 
 ## There's more ...
 
