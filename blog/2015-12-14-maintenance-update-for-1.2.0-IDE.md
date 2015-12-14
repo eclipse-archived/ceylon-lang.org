@@ -17,7 +17,7 @@ tags: [release, news, ide, 1.2.0]
 
 ## Introducing the first Ceylon IDE maintenance update
 
-Just after the release of [Ceylon 1.2.0](blog/2015/10/29/ceylon-1-2-0/), we started managing a __maintenance branch__ of the IDE-related
+Just after the release of [Ceylon 1.2.0](/blog/2015/10/29/ceylon-1-2-0/), we started managing a __maintenance branch__ of the IDE-related
 code, that will always be __fully compatible__ with the last release of the Ceylon (Command line distribution and SDK).
 
 This way we've already been able to very easily backport to this branch many bug fixes or enhancements
