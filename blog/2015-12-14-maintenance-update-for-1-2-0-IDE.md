@@ -14,6 +14,7 @@ tags: [release, news, ide, 1.2.0]
 [release-notes]: https://github.com/ceylon/ceylon-ide-eclipse/releases/tag/com.redhat.ceylon.eclipse.feature_1.2.0.v20151214-1608-Final
 [commits]: https://github.com/ceylon/ceylon-ide-eclipse/compare/1.2.0...com.redhat.ceylon.eclipse.feature_1.2.0.v20151214-1608-Final
 [issues]: /code/issues
+[install]: /documentation/1.2/ide/install
 
 ## Introducing the first Ceylon IDE maintenance update
 
@@ -30,9 +31,7 @@ So if you currently use the version 1.2.0 of the Ceylon IDE Eclipse plugin, simp
 `Check For Updates` command in the Eclipse `Help` menu, and Eclipse should propose you to update the Ceylon IDE
 features.
 
-And if you still don't use the Ceylon IDE Eclipse plugin, give it a try now:
-    
-http://www.ceylon-lang.org/documentation/1.2/ide/install.
+And if you still don't use the Ceylon IDE Eclipse plugin, just [install][install] it and give it a try now.
 
 ## Source tracking
 
