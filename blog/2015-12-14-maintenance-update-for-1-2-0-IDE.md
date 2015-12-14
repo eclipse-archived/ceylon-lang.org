@@ -45,7 +45,7 @@ So as soon as we know the version of the `Ceylon IDE` feature, visible from the 
 
 we can immediately checkout the __precise__ source code corresponding to a Ceylon IDE installation.
 
-This will help us __reproduce more easily__, and __fix more quickly__, any issue encountered on the production Ceylon IDE.
+This will help us __reproducing more easily__, and __fixing more quickly__, any issue encountered on the production Ceylon IDE.
 
 ## Maintenance update release notes
 
