@@ -13,7 +13,7 @@ tags: [release, news, ide, 1.2.0]
 [update-site]: /eclipse/updatesite/
 [release-notes]: https://github.com/ceylon/ceylon-ide-eclipse/releases/tag/com.redhat.ceylon.eclipse.feature_1.2.0.v20151214-1608-Final
 [commits]: https://github.com/ceylon/ceylon-ide-eclipse/compare/1.2.0...com.redhat.ceylon.eclipse.feature_1.2.0.v20151214-1608-Final
-[issues]: /code/issues
+[issues]: https://github.com/ceylon/ceylon-ide-eclipse/issues
 [install]: /documentation/1.2/ide/install
 
 ## Introducing the first Ceylon IDE maintenance update
