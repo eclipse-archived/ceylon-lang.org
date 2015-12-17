@@ -625,5 +625,8 @@ Don't forget the `then` keyword in your `if` expression!
 
 ## There's more...
 
+If you're interested, you can read more about 
+[exception handling in Ceylon](/blog/2015/12/14/failure/).
+
 Now that we know enough about classes and their members, we're ready to 
 explore [inheritance and refinement (overriding)](../inheritance).
