@@ -968,6 +968,10 @@ the above in Java, which I suppose provides a partial
 motivation for having checked exceptions in _Java_. But we're 
 talking about Ceylon here.)
 
+In Ceylon, [we distinguish "recoverable" failures from 
+"unrecoverable" errors](/blog/2015/12/14/failure/), using
+exceptions only for the second class of failure. 
+
 
 ### Constructors
 
