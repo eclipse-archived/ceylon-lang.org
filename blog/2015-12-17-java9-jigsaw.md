@@ -65,7 +65,7 @@ involved (among other details) the following things:
 - Dealing with the removal of `rt.jar` and the _boot classpath_.
 - Creating a new tool `ceylon jigsaw` which allows for the creation of a Java 9 _module path_.
 - Making sure we can run Ceylon modules as Java 9 modules as an alternative to the four existing
-  JVM runtimes which are the classpath, OSGi, Java EE or JBoss Modules.
+  JVM runtimes which are the JBoss Modules, classpath, OSGi or Java EE.
 - Make sure we can build and run on any of Java 7,8,9. This means that by default we do not
   generate Java 9 module descriptors, because several tools have problems dealing with them
   at this time.
@@ -112,5 +112,5 @@ and bugs, and in fact we already know of several limitations, such as the follow
   being the first to support Jigsaw ;) For example, the `javax.xml` module has been renamed to
   `java.xml`. We have set up aliases so that it "just" works, but there are modules that have
   been merged, and packages that have changed module, so it will not always work.
-- The Java 9 runtime has been tested, but not as thoroughly as the existing classpath, OSGi,
-  Java EE or JBoss Modules runtimes. We expect a few issues in the Ceylon metamodel.
+- The Java 9 runtime has been tested, but not as thoroughly as the existing JBoss Modules, classpath, 
+  OSGi or Java EE runtimes. We expect a few issues in the Ceylon metamodel.
