@@ -166,7 +166,7 @@ You can think of the `ByteArray` as the actual underlying
 `byte[]` instance, and the `Array<Byte>` as an instance of 
 the Ceylon class `Array` that wraps the `byte[]` instance.
 
-The module `ceylon.interop.java` contains a raft of additional
+The [module `ceylon.interop.java`](https://herd.ceylon-lang.org/modules/ceylon.interop.java) contains a raft of additional
 methods for working with these Java array types.
 
 ### Null values are checked at runtime
