@@ -13,7 +13,7 @@ the following expression.
 
 ## Usage 
 
-    String hw = let (x="hello", y="world") x + " " + y);
+    String hw = let (x="hello", y="world") x + " " + y;
 
 ## Description
 
