@@ -58,7 +58,7 @@ There's even [Vim support](resources/vim) available.
 
 ## Vert.x
 
-There is [extensive documentation](http://vertx.io/core_manual_ceylon.html) 
+There is [extensive documentation](http://vertx.io/docs/vertx-core/ceylon/)
 for using Ceylon on Vert.x.
 
 ## Got questions? We have FAQs
