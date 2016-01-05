@@ -25,7 +25,7 @@ is equally at home on Java and JavaScript virtual machines.
 Ceylon modules may be deployed on Ceylon's own JVM-based module runtime,
 on any OSGi container, on the 
 [Node.js module system](http://nodejs.org/api/modules.html), on 
-[Vert.x](http://vertx.io/core_manual_ceylon.html#vertx-for-ceylon), or in 
+[Vert.x](http://vertx.io/docs/vertx-core/ceylon/), or in 
 a browser using [require.js](http://requirejs.org/).
 
 When cross-platform execution is not a priority, Ceylon is designed to 
