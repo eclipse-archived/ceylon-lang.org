@@ -218,6 +218,20 @@ syntax. To do the equivalent of `obj["count"] = 7;` and
         set(arr, 3, 15);      // arr[3] = 15;
     }
 
+Similarly, deleting properties from a object:
+
+<!-- try-pre
+    dynamic obj;
+    dynamic {
+        obj = dynamic [ hello="Hello, World"; count=11; ];
+    }
+
+-->
+    dynamic {
+        dynamic delete = eval("(function(o,k){var old=o[k];delete o[k];return old;})");
+        delete(obj, "count"); // delete obj["count"];
+    }
+
 [Issue #5817](https://github.com/ceylon/ceylon/issues/5817) is
 one of the issues tracking this missing feature.
 
