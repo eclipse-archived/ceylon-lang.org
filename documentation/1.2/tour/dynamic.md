@@ -204,9 +204,11 @@ syntax. To do the equivalent of `obj["count"] = 7;` and
 `arr[3] = 15;` you'll have to use a workaround for now:
 
 <!-- try-pre
+    dynamic obj;
+    dynamic arr;
     dynamic {
-        dynamic obj = dynamic [ hello="Hello, World"; count=11; ];
-        dynamic arr = dynamic [ 12, 13, 14 ];
+        obj = dynamic [ hello="Hello, World"; count=11; ];
+        arr = dynamic [ 12, 13, 14 ];
     }
 
 -->
