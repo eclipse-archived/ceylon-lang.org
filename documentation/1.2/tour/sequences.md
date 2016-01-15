@@ -31,6 +31,9 @@ Ceylon provides some syntax sugar for working with streams:
 
 We may construct an instance of `Iterable` using braces:
 
+<!-- try-pre:
+    print(moreWords);
+-->
     {String+} words = { "hello", "world" };
     {String+} moreWords = { "hola", "mundo", *words };
 
