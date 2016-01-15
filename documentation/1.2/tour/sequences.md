@@ -115,6 +115,9 @@ comes in handy here:
     }
 <!-- cat: } -->
 
+Now there's one more very important thing to know when you start mixing
+streams with mutable objects, variables, or impure functions. This is
+a common source of error for folks new to Ceylon.
 
 ### Gotcha!
 
