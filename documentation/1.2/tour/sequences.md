@@ -129,9 +129,9 @@ Streams created using the `{ ... }` syntax are always _lazy_. That is:
 Consider this code:
     
     variable value counter = 0;
-    value stream = { for (i in 0:5) counter++ };
-    print(stream);
-    print(stream);
+    value stream = { for (i in 0:5) counter++ }; //curly braces means LAZY!
+    print(stream); //evaluate elements
+    print(stream); //reevaluate elements
 
 The code prints:
 
@@ -143,9 +143,9 @@ If this behavior is _not_ what you're looking for, you'll need a different
 sort of stream! One option is to use a _sequence_ instead.
 
     variable value counter = 0;
-    value stream = [ for (i in 0:5) counter++ ];
-    print(stream);
-    print(stream);
+    value stream = [ for (i in 0:5) counter++ ]; //square brackets means EAGER!
+    print(stream); //elements already evaluated
+    print(stream); //elements already evaluated
 
 This code prints:
 
