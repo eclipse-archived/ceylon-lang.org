@@ -113,6 +113,42 @@ comes in handy here:
 <!-- cat: } -->
 
 
+### Gotcha!
+
+Streams created using the `{ ... }` syntax are always _lazy_. That is:
+
+- their elements are not evaluated until the stream is iterated, and
+- each element is reevaluated each time the stream is iterated.
+
+Consider this code:
+    
+    variable value counter = 0;
+    value stream = { for (i in 0:5) counter++ };
+    print(stream);
+    print(stream);
+
+The code prints:
+
+<!-- lang: none -->
+    { 0, 1, 2, 3, 4 }
+    { 5, 6, 7, 8, 9 }
+
+If this behavior is _not_ what you're looking for, you'll need a different
+sort of stream! One option is to use a _sequence_ instead.
+
+    variable value counter = 0;
+    value stream = [ for (i in 0:5) counter++ ];
+    print(stream);
+    print(stream);
+
+This code prints:
+
+<!-- lang: none -->
+    [0, 1, 2, 3, 4]
+    [0, 1, 2, 3, 4]
+
+So now, naturally, its time to learn about sequences.
+
 ## Sequences
 
 Some kind of array or list construct is a universal feature of all programming 
