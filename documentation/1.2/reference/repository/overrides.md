@@ -295,3 +295,53 @@ _transitive_ dependencies.
         import "org.hibernate.javax.persistence:hibernate-jpa-2.1-api" "1.0.0.Final";
         import "org.hsqldb:hsqldb" "2.3.1";
     }
+
+## Example (Spark Framework)
+
+[Spark](http://sparkjava.com/) depends on 
+[Jetty](http://www.eclipse.org/jetty/).
+
+This `overrides.xml` file allows Spark to be used from Maven:
+
+<!-- lang: xml -->
+    <overrides xmlns="http://www.ceylon-lang.org/xsd/overrides">
+    
+        <module groupId="org.eclipse.jetty" 
+             artifactId="jetty-server"
+                version="9.3.2.v20150730">
+            <share groupId="org.eclipse.jetty" 
+              artifactId="jetty-io" 
+                 version="9.3.2.v20150730"/>
+        </module>
+    
+        <module groupId="org.eclipse.jetty" 
+             artifactId="jetty-io"
+                version="9.3.2.v20150730">
+            <share groupId="org.eclipse.jetty" 
+              artifactId="jetty-util" 
+                 version="9.3.2.v20150730"/>
+        </module>
+    
+        <module groupId="org.eclipse.jetty" 
+             artifactId="jetty-util"
+                version="9.3.2.v20150730">
+            <share groupId="javax.servlet" 
+                artifactId="javax.servlet-api"
+                   version="3.1.0"/>
+        </module>
+        
+    </overrides>
+
+Now we can import Spark like this:
+
+<!-- try: -->
+    native("jvm") 
+    module sparky "1.0.0" {
+        import "com.sparkjava:spark-core" "2.3";
+    }
+
+Alternatively, if we use the `--auto-export-maven-dependencies` 
+flag, we don't need an `overrides.xml` file at all. That's
+probably a more robust solution in this case, given that Jetty
+comprises a number of internal modules with inter-dependencies
+that are not all captured in the Maven metadata.
