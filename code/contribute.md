@@ -62,7 +62,7 @@ If that's not the case you'll have to manually update those projects or first st
 
 ## Setting up Eclipse
 
-- Import all projects you find in the `ceylon` folder into Eclipse (see [README.eclipse](https://github.com/ceylon/ceylon-compiler/blob/master/README.eclipse) in ceylon-compiler)
+- Import all projects you find in the `ceylon` folder into Eclipse (see [README.eclipse](https://github.com/ceylon/ceylon/blob/master/README.eclipse) in ceylon-compiler)
 - Configure Eclipse's code formatting for the project's minimal [coding style](#coding_style).
 - Set your default `Text file encoding` to `UTF-8` and your default `New text file line delimiter` to `Unix` in your Eclipse preferences (`Window` -> `Preferences` -> `General` -> `Workspace`). Or at least set it in the properties for each of the imported projects (Right-click on the project, select `Properties` then `Resource`).
 - In Eclipse, run the unit tests: `com.redhat.ceylon.compiler.test.ConcurrentTests`
