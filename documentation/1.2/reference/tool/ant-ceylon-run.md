@@ -54,15 +54,35 @@ a nested [`<module>`](#module)(s) is required.
 
 <tr>
 <td><code>run</code></td>
-<td>The top level class of function to run. If unspecified the run attribute 
-of the module descriptor is used.</td>
+<td>Equivalent to the `--run` command line option: 
+The top level class or function to run. If unspecified the `run` function 
+of the given module is used.</td>
 <td>No</td>
 </tr>
 
 <tr>
-<td id="param-src"><code>src</code></td>
-<td>A source directory.</td>
-<td>No, default is <i>source</i></td>
+<td><code>flatClasspath</code></td>
+<td>Equivalent to the `--flat-classpath` command line option:
+Launches the Ceylon module using a flat classpath, 
+as opposted to a modular classloader topology.</td>
+<td>No</td>
+</tr>
+
+<tr>
+<td><code>autoExportMavenDependencies</code></td>
+<td>Equivalent to the `--auto-export-maven-dependencies` command line option:
+When `flatClasspath="false"`, treats all module dependencies between 
+Maven modules as shared.</td>
+<td>No</td>
+</tr>
+
+<tr>
+<td><code>linkWithCurrentDistribution</code></td>
+<td>Equivalent to the `--link-with-current-distribution` command line option:
+Link modules which were compiled with a more recent 
+version of the distribution to the version of that module 
+present in this distribution.</td>
+<td>No</td>
 </tr>
 
 <tr>
