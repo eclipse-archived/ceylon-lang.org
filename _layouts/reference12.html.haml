@@ -2,6 +2,7 @@
 layout: default
 tab: to-be-defined
 toc: true
+gh_editable: true
 ---
 #sidebar
   .point-dark-top 
@@ -26,6 +27,16 @@ toc: true
   #text
     Reference
 #core-page
+  - page.source_path_rel = Pathname.new(page.source_path).relative_path_from(site.dir)
+  - page.view_source_url = "https://github.com/ceylon/ceylon-lang.org/blob/master/#{page.source_path_rel}"
+  - page.edit_source_url = "https://github.com/ceylon/ceylon-lang.org/edit/master/#{page.source_path_rel}"
+  .gh-edit
+    %a{ :href => page.view_source_url }
+      View source 
+    - if page.gh_editable
+      |
+      %a{ :href => page.edit_source_url}
+        Edit
   - if ["Milestone 1", "Milestone 2", "Milestone 3", "Milestone 4", "Milestone 4"].index(page.milestone)
     .milestone.check
       :markdown
