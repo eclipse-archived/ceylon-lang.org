@@ -1,0 +1,27 @@
+pages:
+  - 
+    url: /documentation/1.2/spec/html/
+    change_frequency: monthly
+    priority: 0.95
+  -
+    url: /documentation/1.2/spec/html_single/
+    change_frequency: monthly
+    priority: 0.95
+  -
+    url: /documentation/1.2/spec/pdf/ceylon-language-specification.pdf
+    change_frequency: monthly
+    priority: 0.95
+  -
+    url: /documentation/1.2/spec/ceylon-language-specification-1.2.epub
+    change_frequency: monthly
+    priority: 0.95
+
+
+
+excluded_extensions: ['.atom', '.scss', '.css', '.png', '.jpg', '.gif', '.js', '.pdf', '.xml']
+excluded_files: [ '/.htaccess', 
+    '/favicon.ico',
+    '/robots.txt', 
+    '/404.html', 
+    '/README', 
+    '/RELEASE',]

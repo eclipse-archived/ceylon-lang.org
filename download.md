@@ -4,6 +4,8 @@ layout: default
 tab: download
 unique_id: downloadpage
 author: Emmanuel Bernard
+priority: 0.95
+change_frequency: weekly
 ---
 <div id="banner"><div id="text">Download</div></div>
 

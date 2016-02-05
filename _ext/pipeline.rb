@@ -42,6 +42,7 @@ Awestruct::Extensions::Pipeline.new do
   helper Awestruct::Extensions::Partial
   extension TOC.new(:levels => 2)
   extension TitleFix.new
+  extension Awestruct::Extensions::Sitemap.new
   helper Awestruct::Extensions::GoogleAnalytics
   helper Awestruct::Extensions::Sanitizer
 
