@@ -1,6 +1,6 @@
 ---
 layout: reference12
-title_md: '`<ceylon-copy>` Ant task'
+title_md: '`<ceylon-test>` Ant task'
 tab: documentation
 unique_id: docspage
 doc_root: ../../..
@@ -14,22 +14,11 @@ doc_root: ../../..
 
 **Note**: You must [declare the tasks with a `<typedef>`](../ant).
 
-To copy the module `com.example.foo` with all its dependencies
-to a module repository in the `build` directory:
-
-<!-- lang: xml -->
-    <target name="copy" depends="ceylon-ant-taskdefs">
-      <ceylon-copy out="build" recursive="true">
-        <module name="com.example.foo" version="1.5"/>
-      </ceylon-copy>
-    </target>
-
-
 ## Description
 
-Copies modules from one module repository to another
+Executes tests
 
-The `<ceylon-copy>` ant task wraps the [`ceylon copy`](../ceylon/subcommands/ceylon-copy.html) command.
+The `<ceylon-test>` ant task wraps the [`ceylon test`](../ceylon/subcommands/ceylon-test.html) command.
 
 ### Attributes
 
@@ -40,25 +29,33 @@ The `<ceylon-copy>` ant task wraps the [`ceylon copy`](../ceylon/subcommands/cey
 <th>Description</th>
 <th>Required</th>
 </tr>
-<tr id="attribute-all">
-<td><code>all</code></td>
-<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-copy.html#option--all"><code>--all</code></a> command line option.
-Include everything (equivalent to <code>--jvm</code>, <code>--js</code>, <code>--docs</code>, <code>--src</code>, <code>--scripts</code>) (default: <code>false</code>)</p>
+<tr id="attribute-autoExportMavenDependencies">
+<td><code>autoExportMavenDependencies</code></td>
+<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-test.html#option--auto-export-maven-dependencies"><code>--auto-export-maven-dependencies</code></a> command line option.
+When using JBoss Modules (the default), treats all module dependencies between Maven modules as shared.</p>
 </td>
 <td>No</td>
 </tr>
 
 <tr id="attribute-cacheRep">
 <td><code>cacheRep</code></td>
-<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-copy.html#option--cacherep"><code>--cacherep</code></a> command line option.
+<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-test.html#option--cacherep"><code>--cacherep</code></a> command line option.
 Specifies the folder to use for caching downloaded modules. (default: <code>~/.ceylon/cache</code>)</p>
+</td>
+<td>No</td>
+</tr>
+
+<tr id="attribute-compile">
+<td><code>compile</code></td>
+<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-test.html#option--compile"><code>--compile</code></a> command line option.
+Determines if and how compilation should be handled. Allowed flags include: <code>never</code>, <code>once</code>, <code>force</code>, <code>check</code>.</p>
 </td>
 <td>No</td>
 </tr>
 
 <tr id="attribute-config">
 <td><code>config</code></td>
-<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-copy.html#option--config"><code>--config</code></a> command line option.
+<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-test.html#option--config"><code>--config</code></a> command line option.
 Specifies the configuration file to use for this tool. (default: <code>./.ceylon/config</code>)</p>
 </td>
 <td>No</td>
@@ -66,16 +63,8 @@ Specifies the configuration file to use for this tool. (default: <code>./.ceylon
 
 <tr id="attribute-cwd">
 <td><code>cwd</code></td>
-<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-copy.html#option--cwd"><code>--cwd</code></a> command line option.
+<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-test.html#option--cwd"><code>--cwd</code></a> command line option.
 Specifies the current working directory for this tool. (default: the directory where the tool is run from)</p>
-</td>
-<td>No</td>
-</tr>
-
-<tr id="attribute-docs">
-<td><code>docs</code></td>
-<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-copy.html#option--docs"><code>--docs</code></a> command line option.
-Include documentation (default: <code>false</code>)</p>
 </td>
 <td>No</td>
 </tr>
@@ -101,9 +90,17 @@ Include documentation (default: <code>false</code>)</p>
 <td>No</td>
 </tr>
 
+<tr id="attribute-flatClasspath">
+<td><code>flatClasspath</code></td>
+<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-test.html#option--flat-classpath"><code>--flat-classpath</code></a> command line option.
+Launches the Ceylon module using a flat classpath.</p>
+</td>
+<td>No</td>
+</tr>
+
 <tr id="attribute-fork">
 <td><code>fork</code></td>
-<td><p>Whether the task should be run in a separate VM (default: <code>false</code>)</p>
+<td><p>Whether the task should be run in a separate VM (default: <code>true</code>).</p>
 </td>
 <td>No</td>
 </tr>
@@ -115,25 +112,17 @@ Include documentation (default: <code>false</code>)</p>
 <td>No</td>
 </tr>
 
-<tr id="attribute-js">
-<td><code>js</code></td>
-<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-copy.html#option--js"><code>--js</code></a> command line option.
-Include artifacts compiled for JavaScript (<code>.js</code> and <code>-model.js</code>) (default: <code>true</code>)</p>
-</td>
-<td>No</td>
-</tr>
-
-<tr id="attribute-jvm">
-<td><code>jvm</code></td>
-<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-copy.html#option--jvm"><code>--jvm</code></a> command line option.
-Include artifacts compiled for the JVM (<code>.car</code> and <code>.jar</code>) (default: <code>true</code>)</p>
+<tr id="attribute-linkWithCurrentDistribution">
+<td><code>linkWithCurrentDistribution</code></td>
+<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-test.html#option--link-with-current-distribution"><code>--link-with-current-distribution</code></a> command line option.
+Link modules which were compiled with a more recent version of the distribution to the version of that module present in this distribution (1.2.1). This might fail with a linker error at runtime. For example if the module depended on an API present in the more recent version, but absent from 1.2.1. Allowed arguments are upgrade, downgrade or abort. Default: upgrade</p>
 </td>
 <td>No</td>
 </tr>
 
 <tr id="attribute-noDefaultRepositories">
 <td><code>noDefaultRepositories</code></td>
-<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-copy.html#option--no-default-repositories"><code>--no-default-repositories</code></a> command line option.
+<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-test.html#option--no-default-repositories"><code>--no-default-repositories</code></a> command line option.
 Indicates that the default repositories should not be used.</p>
 </td>
 <td>No</td>
@@ -141,32 +130,24 @@ Indicates that the default repositories should not be used.</p>
 
 <tr id="attribute-offline">
 <td><code>offline</code></td>
-<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-copy.html#option--offline"><code>--offline</code></a> command line option.
+<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-test.html#option--offline"><code>--offline</code></a> command line option.
 Enables offline mode that will prevent connections to remote repositories.</p>
-</td>
-<td>No</td>
-</tr>
-
-<tr id="attribute-out">
-<td><code>out</code></td>
-<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-copy.html#option--out"><code>--out</code></a> command line option.
-Specifies the output module repository (which must be publishable). (default: <code>./modules</code>)</p>
 </td>
 <td>No</td>
 </tr>
 
 <tr id="attribute-overrides">
 <td><code>overrides</code></td>
-<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-copy.html#option--overrides"><code>--overrides</code></a> command line option.
+<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-test.html#option--overrides"><code>--overrides</code></a> command line option.
 Specifies the XML file to use to load module overrides. See http://ceylon-lang.org/documentation/current/reference/repository/maven/ for information. <em>Experimental</em>.</p>
 </td>
 <td>No</td>
 </tr>
 
-<tr id="attribute-pass">
-<td><code>pass</code></td>
-<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-copy.html#option--pass"><code>--pass</code></a> command line option.
-Sets the password for use with an authenticated output repository (no default).</p>
+<tr id="attribute-report">
+<td><code>report</code></td>
+<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-test.html#option--report"><code>--report</code></a> command line option.
+Generates the test results report into HTML format, output directory is <code>reports/test</code> (experimental).</p>
 </td>
 <td>No</td>
 </tr>
@@ -178,25 +159,9 @@ Sets the password for use with an authenticated output repository (no default).<
 <td>No</td>
 </tr>
 
-<tr id="attribute-scripts">
-<td><code>scripts</code></td>
-<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-copy.html#option--scripts"><code>--scripts</code></a> command line option.
-Include scripts (default: <code>false</code>)</p>
-</td>
-<td>No</td>
-</tr>
-
-<tr id="attribute-src">
-<td><code>src</code></td>
-<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-copy.html#option--src"><code>--src</code></a> command line option.
-Include sources (default: <code>false</code>)</p>
-</td>
-<td>No</td>
-</tr>
-
 <tr id="attribute-stacktraces">
 <td><code>stacktraces</code></td>
-<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-copy.html#option--stacktraces"><code>--stacktraces</code></a> command line option.
+<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-test.html#option--stacktraces"><code>--stacktraces</code></a> command line option.
 If an error propagates to the top level tool, print its stack trace.</p>
 </td>
 <td>No</td>
@@ -204,32 +169,32 @@ If an error propagates to the top level tool, print its stack trace.</p>
 
 <tr id="attribute-sysRep">
 <td><code>sysRep</code></td>
-<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-copy.html#option--sysrep"><code>--sysrep</code></a> command line option.
+<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-test.html#option--sysrep"><code>--sysrep</code></a> command line option.
 Specifies the system repository containing essential modules. (default: <code>$CEYLON_HOME/repo</code>)</p>
 </td>
 <td>No</td>
 </tr>
 
-<tr id="attribute-user">
-<td><code>user</code></td>
-<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-copy.html#option--user"><code>--user</code></a> command line option.
-Sets the user name for use with an authenticated output repository (no default).</p>
+<tr id="attribute-tap">
+<td><code>tap</code></td>
+<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-test.html#option--tap"><code>--tap</code></a> command line option.
+Enables the Test Anything Protocol v13.</p>
 </td>
 <td>No</td>
 </tr>
 
 <tr id="attribute-verbose">
 <td><code>verbose</code></td>
-<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-copy.html#option--verbose"><code>--verbose</code></a> command line option.
-Produce verbose output. If no <code>flags</code> are given then be verbose about everything, otherwise just be verbose about the flags which are present. Allowed flags include: <code>all</code>, <code>loader</code>, <code>files</code>.</p>
+<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-test.html#option--verbose"><code>--verbose</code></a> command line option.
+Produce verbose output. If no <code>flags</code> are given then be verbose about everything, otherwise just be verbose about the flags which are present. Allowed flags include: <code>all</code>, <code>loader</code>.</p>
 </td>
 <td>No</td>
 </tr>
 
-<tr id="attribute-withDependencies">
-<td><code>withDependencies</code></td>
-<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-copy.html#option--with-dependencies"><code>--with-dependencies</code></a> command line option.
-Recursively copy all dependencies</p>
+<tr id="attribute-version">
+<td><code>version</code></td>
+<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-test.html#option--version"><code>--version</code></a> command line option.
+Specifies which version of the test module to use.</p>
 </td>
 <td>No</td>
 </tr>
@@ -242,7 +207,7 @@ Recursively copy all dependencies</p>
 #### `<define>`
 
 <p>A <code>&lt;define&gt;</code> element is used to set system properties for the ant task being executed.
-Equivalent to the <a href="../ceylon/subcommands/ceylon-copy.html#option--define"><code>--define</code></a> command line option.
+Equivalent to the <a href="../ceylon/subcommands/ceylon-test.html#option--define"><code>--define</code></a> command line option.
 Set a system property</p>
 The value for the system property can either be passed as a `value` attribute:
 
@@ -282,7 +247,7 @@ Alternatively, it is posible to dispense with the attributes and use the syntax
 
 #### `<module>`
 
-<p>A module to copy.</p>
+<p>A module to test</p>
 A `<module>` element must specify a name, and may specify a version. If the relevant ceylon task don't require a version it will be ignored.
 
 <table class="ant-elements">
@@ -309,7 +274,7 @@ A `<module>` element must specify a name, and may specify a version. If the rele
 
 #### `<moduleSet>`
 
-<p>A set of modules to copy.</p>
+<p>Modules to test</p>
 A `<moduleset>` containing a number of `<sourcemodule>`s and/or `<module>` subelements. It can be defined at the top level and then used by reference using the `refid` attribute, so you don't have to repeat the same list of modules all the time.
 
 <table class="ant-elements">
@@ -376,7 +341,7 @@ A `<reposet>` element contains a number of `<repo>` and/or `<reposet>` elements.
 
 #### `<sourceModules>`
 
-<p>A set of modules to copy.</p>
+<p>Modules to test</p>
 Includes all the ceylon modules in a given source directory, as specified by the `dir` attribute. This saves you having to explicitly list all the modules to be compiled, you can instead just compile all the modules in a given directory.
 
 <table class="ant-elements">
@@ -389,6 +354,27 @@ Includes all the ceylon modules in a given source directory, as specified by the
 <tr>
 <td><code>dir</code></td>
 <td><p>The directory containing module source files</p>
+</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+
+#### `<test>`
+
+<p>The name of a test to run. If no <code>&lt;test&gt;</code>s are given then all tests in the given <code>&lt;module&gt;</code>/<code>&lt;moduleset&gt;</code>/<code>&lt;sourcemodule&gt;</code>
+Equivalent to the <a href="../ceylon/subcommands/ceylon-test.html#option--test"><code>--test</code></a> command line option.
+Specifies which tests will be run.</p>
+<table class="ant-elements">
+<tbody>
+<tr>
+<th>Element</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+<tr>
+<td><code>test</code></td>
+<td><p>A test to run.</p>
 </td>
 <td>No</td>
 </tr>

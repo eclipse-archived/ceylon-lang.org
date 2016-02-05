@@ -1,6 +1,6 @@
 ---
 layout: reference12
-title_md: '`<ceylon-run-js>` Ant task'
+title_md: '`<ceylon-test-js>` Ant task'
 tab: documentation
 unique_id: docspage
 doc_root: ../../..
@@ -14,27 +14,11 @@ doc_root: ../../..
 
 **Note**: You must [declare the tasks with a `<typedef>`](../ant).
 
-This task runs a top-level JavaScript method compiled from Ceylon code.
-It requires [node.js](http://nodejs.org/) to run the generated JS code.
-
-To execute the `com.example.foo::start` top level method in
-version 1.1 of module `com.example.foo` residing
-in the `build` directory (repository):
-
-<!-- lang: xml -->
-    <target name="execute" depends="ceylon-ant-taskdefs">
-      <ceylon-run-js run="start"
-        module="com.example.foo/1.1">
-        <rep url="build"/>
-      </ceylon-run-js>
-    </target>
-
-
 ## Description
 
-Executes a Ceylon program
+Executes tests
 
-The `<ceylon-run-js>` ant task wraps the [`ceylon run-js`](../ceylon/subcommands/ceylon-run-js.html) command.
+The `<ceylon-test-js>` ant task wraps the [`ceylon test-js`](../ceylon/subcommands/ceylon-test-js.html) command.
 
 ### Attributes
 
@@ -47,7 +31,7 @@ The `<ceylon-run-js>` ant task wraps the [`ceylon run-js`](../ceylon/subcommands
 </tr>
 <tr id="attribute-cacheRep">
 <td><code>cacheRep</code></td>
-<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-run-js.html#option--cacherep"><code>--cacherep</code></a> command line option.
+<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-test-js.html#option--cacherep"><code>--cacherep</code></a> command line option.
 Specifies the folder to use for caching downloaded modules. (default: <code>~/.ceylon/cache</code>)</p>
 </td>
 <td>No</td>
@@ -55,7 +39,7 @@ Specifies the folder to use for caching downloaded modules. (default: <code>~/.c
 
 <tr id="attribute-compile">
 <td><code>compile</code></td>
-<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-run-js.html#option--compile"><code>--compile</code></a> command line option.
+<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-test-js.html#option--compile"><code>--compile</code></a> command line option.
 Determines if and how compilation should be handled. Allowed flags include: <code>never</code>, <code>once</code>, <code>force</code>, <code>check</code>.</p>
 </td>
 <td>No</td>
@@ -63,7 +47,7 @@ Determines if and how compilation should be handled. Allowed flags include: <cod
 
 <tr id="attribute-config">
 <td><code>config</code></td>
-<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-run-js.html#option--config"><code>--config</code></a> command line option.
+<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-test-js.html#option--config"><code>--config</code></a> command line option.
 Specifies the configuration file to use for this tool. (default: <code>./.ceylon/config</code>)</p>
 </td>
 <td>No</td>
@@ -71,8 +55,16 @@ Specifies the configuration file to use for this tool. (default: <code>./.ceylon
 
 <tr id="attribute-cwd">
 <td><code>cwd</code></td>
-<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-run-js.html#option--cwd"><code>--cwd</code></a> command line option.
+<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-test-js.html#option--cwd"><code>--cwd</code></a> command line option.
 Specifies the current working directory for this tool. (default: the directory where the tool is run from)</p>
+</td>
+<td>No</td>
+</tr>
+
+<tr id="attribute-debug">
+<td><code>debug</code></td>
+<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-test-js.html#option--debug"><code>--debug</code></a> command line option.
+Shows more detailed output in case of errors.</p>
 </td>
 <td>No</td>
 </tr>
@@ -112,16 +104,17 @@ Specifies the current working directory for this tool. (default: the directory w
 <td>No</td>
 </tr>
 
-<tr id="attribute-module">
-<td><code>module</code></td>
-<td><p>The module and optional version to run</p>
+<tr id="attribute-node-exe">
+<td><code>node-exe</code></td>
+<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-test-js.html#option--node-exe"><code>--node-exe</code></a> command line option.
+The path to the node.js executable. Will be searched in standard locations if not specified.</p>
 </td>
 <td>No</td>
 </tr>
 
 <tr id="attribute-noDefaultRepositories">
 <td><code>noDefaultRepositories</code></td>
-<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-run-js.html#option--no-default-repositories"><code>--no-default-repositories</code></a> command line option.
+<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-test-js.html#option--no-default-repositories"><code>--no-default-repositories</code></a> command line option.
 Indicates that the default repositories should not be used.</p>
 </td>
 <td>No</td>
@@ -129,7 +122,7 @@ Indicates that the default repositories should not be used.</p>
 
 <tr id="attribute-offline">
 <td><code>offline</code></td>
-<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-run-js.html#option--offline"><code>--offline</code></a> command line option.
+<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-test-js.html#option--offline"><code>--offline</code></a> command line option.
 Enables offline mode that will prevent connections to remote repositories.</p>
 </td>
 <td>No</td>
@@ -137,8 +130,16 @@ Enables offline mode that will prevent connections to remote repositories.</p>
 
 <tr id="attribute-overrides">
 <td><code>overrides</code></td>
-<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-run-js.html#option--overrides"><code>--overrides</code></a> command line option.
+<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-test-js.html#option--overrides"><code>--overrides</code></a> command line option.
 Specifies the XML file to use to load module overrides. See http://ceylon-lang.org/documentation/current/reference/repository/maven/ for information. <em>Experimental</em>.</p>
+</td>
+<td>No</td>
+</tr>
+
+<tr id="attribute-report">
+<td><code>report</code></td>
+<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-test-js.html#option--report"><code>--report</code></a> command line option.
+Generates the test results report into HTML format, output directory is <code>reports/test</code> (experimental).</p>
 </td>
 <td>No</td>
 </tr>
@@ -150,17 +151,9 @@ Specifies the XML file to use to load module overrides. See http://ceylon-lang.o
 <td>No</td>
 </tr>
 
-<tr id="attribute-run">
-<td><code>run</code></td>
-<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-run-js.html#option--run"><code>--run</code></a> command line option.
-The function to run, which must be exported from the given <code>&lt;module&gt;</code>. (default: <code>run</code>).</p>
-</td>
-<td>No</td>
-</tr>
-
 <tr id="attribute-stacktraces">
 <td><code>stacktraces</code></td>
-<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-run-js.html#option--stacktraces"><code>--stacktraces</code></a> command line option.
+<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-test-js.html#option--stacktraces"><code>--stacktraces</code></a> command line option.
 If an error propagates to the top level tool, print its stack trace.</p>
 </td>
 <td>No</td>
@@ -168,16 +161,32 @@ If an error propagates to the top level tool, print its stack trace.</p>
 
 <tr id="attribute-sysRep">
 <td><code>sysRep</code></td>
-<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-run-js.html#option--sysrep"><code>--sysrep</code></a> command line option.
+<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-test-js.html#option--sysrep"><code>--sysrep</code></a> command line option.
 Specifies the system repository containing essential modules. (default: <code>$CEYLON_HOME/repo</code>)</p>
+</td>
+<td>No</td>
+</tr>
+
+<tr id="attribute-tap">
+<td><code>tap</code></td>
+<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-test-js.html#option--tap"><code>--tap</code></a> command line option.
+Enables the Test Anything Protocol v13.</p>
 </td>
 <td>No</td>
 </tr>
 
 <tr id="attribute-verbose">
 <td><code>verbose</code></td>
-<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-run-js.html#option--verbose"><code>--verbose</code></a> command line option.
+<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-test-js.html#option--verbose"><code>--verbose</code></a> command line option.
 Produce verbose output. If no <code>flags</code> are given then be verbose about everything, otherwise just be verbose about the flags which are present. Allowed flags include: <code>all</code>, <code>loader</code>.</p>
+</td>
+<td>No</td>
+</tr>
+
+<tr id="attribute-version">
+<td><code>version</code></td>
+<td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-test-js.html#option--version"><code>--version</code></a> command line option.
+Specifies which version of the test module to use.</p>
 </td>
 <td>No</td>
 </tr>
@@ -190,7 +199,7 @@ Produce verbose output. If no <code>flags</code> are given then be verbose about
 #### `<define>`
 
 <p>A <code>&lt;define&gt;</code> element is used to set system properties for the ant task being executed.
-Equivalent to the <a href="../ceylon/subcommands/ceylon-run-js.html#option--define"><code>--define</code></a> command line option.
+Equivalent to the <a href="../ceylon/subcommands/ceylon-test-js.html#option--define"><code>--define</code></a> command line option.
 Set a system property</p>
 The value for the system property can either be passed as a `value` attribute:
 
@@ -222,6 +231,54 @@ Alternatively, it is posible to dispense with the attributes and use the syntax
 <tr>
 <td><code>value</code></td>
 <td><p>The value of the define</p>
+</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+
+#### `<module>`
+
+<p>A module to test</p>
+A `<module>` element must specify a name, and may specify a version. If the relevant ceylon task don't require a version it will be ignored.
+
+<table class="ant-elements">
+<tbody>
+<tr>
+<th>Element</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><p>The module name.</p>
+</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>version</code></td>
+<td><p>The module version. Whether this is required depends on the task</p>
+</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+
+#### `<moduleSet>`
+
+<p>Modules to test</p>
+A `<moduleset>` containing a number of `<sourcemodule>`s and/or `<module>` subelements. It can be defined at the top level and then used by reference using the `refid` attribute, so you don't have to repeat the same list of modules all the time.
+
+<table class="ant-elements">
+<tbody>
+<tr>
+<th>Element</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+<tr>
+<td><code>refid</code></td>
+<td><p>A reference to a <a href="../ant/#_moduleset"><code>&lt;moduleset&gt;</code></a> defined elsewhere.</p>
 </td>
 <td>No</td>
 </tr>
@@ -268,6 +325,48 @@ A `<reposet>` element contains a number of `<repo>` and/or `<reposet>` elements.
 <tr>
 <td><code>refid</code></td>
 <td><p>A reference to a <a href="../ant/#_reposet"><code>&lt;reposet&gt;</code></a> defined elsewhere.</p>
+</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+
+#### `<sourceModules>`
+
+<p>Modules to test</p>
+Includes all the ceylon modules in a given source directory, as specified by the `dir` attribute. This saves you having to explicitly list all the modules to be compiled, you can instead just compile all the modules in a given directory.
+
+<table class="ant-elements">
+<tbody>
+<tr>
+<th>Element</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+<tr>
+<td><code>dir</code></td>
+<td><p>The directory containing module source files</p>
+</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+
+#### `<test>`
+
+<p>The name of a test to run. If no <code>&lt;test&gt;</code>s are given then all tests in the given <code>&lt;module&gt;</code>/<code>&lt;moduleset&gt;</code>/<code>&lt;sourcemodule&gt;</code>
+Equivalent to the <a href="../ceylon/subcommands/ceylon-test-js.html#option--test"><code>--test</code></a> command line option.
+Specifies which tests will be run.</p>
+<table class="ant-elements">
+<tbody>
+<tr>
+<th>Element</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+<tr>
+<td><code>test</code></td>
+<td><p>The name of a test to run.</p>
 </td>
 <td>No</td>
 </tr>

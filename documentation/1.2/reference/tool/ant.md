@@ -197,12 +197,15 @@ it is even posible to dispense with the attributes and use the syntax `key=value
 ## See also
 
 * The [`<ceylon-compile>`](../ant-ceylon-compile) task
-* The [`<ceylon-doc>`](../ant-ceylon-doc) task
-* The [`<ceylon-run>`](../ant-ceylon-run) task
 * The [`<ceylon-compile-js>`](../ant-ceylon-compile-js) task
+* The [`<ceylon-test>`](../ant-ceylon-test) task
+* The [`<ceylon-test-js>`](../ant-ceylon-test-js) task
 * The [`<ceylon-run-js>`](../ant-ceylon-run-js) task
+* The [`<ceylon-run>`](../ant-ceylon-run) task
+* The [`<ceylon-doc>`](../ant-ceylon-doc) task
 * The [`<ceylon-import-jar>`](../ant-ceylon-import-jar) task
 * The [`<ceylon-module-descriptor>`](../ant-ceylon-module-descriptor) task
 * The [`<ceylon-copy>`](../ant-ceylon-copy) task
 * The [`<ceylon-war>`](../ant-ceylon-war) task
+* The [`<ceylon-plugin>`](../ant-ceylon-plugin) task
 
