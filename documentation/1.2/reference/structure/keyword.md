@@ -30,7 +30,7 @@ The following are reserved keywords:
 * [`catch`](../../statement/try)
 * [`class`](../class)
 * [`continue`](../../statement/continue)
-* `dynamic`
+* [`dynamic`](../dynamic/)
 * `else` 
    (used with the [`for`](../../statement/for), 
    [`if`](../../statement/if) and 
