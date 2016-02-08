@@ -279,12 +279,46 @@ Wildcard types are unavoidable when interoperating with Java, and
 perhaps occasionally useful in pure Ceylon code. But we recommend
 avoiding them, except where there's a really good reason.  
 
+## Iterables
+
+Since Ceylon 1.2.1 it is possible to use a `java.lang.Iterable` in a Ceylon 
+`for` statement, like this:
+
+    import java.lang{JIterable=Iterable, JString=String}
+
+    JIterable<Object> objects = ...;
+    for (obj in objects) {
+        // ...
+    }
+    
+Note that there is no special handling for type of the iterated elements:
+If the iterable contains Java `String`s they're not magically transformed to 
+Ceylon `String`s:
+
+    JIterable<JString> strings = ...;
+    for (s in strings) {
+        // s is a JString
+    }
+
+Also note this is not supported when using an entry or tuple destructing 
+iterator:
+
+    JIterable<String-String> stringPairs = ...;
+    for (key->item in stringPairs) {
+        // not supported
+    }
+
+In practice it is unusual to have a Java `Iterable` of Ceylon `Entry`s 
+or `Tuple`s.
+
 ## Utility functions and classes
 
 In the module [`ceylon.interop.java`](#{site.urls.apidoc_current_interop_java}/index.html)
 you'll find a suite of useful utility functions and classes for
 Java interoperation. For example, there are classes that adapt
 between Ceylon collection types and Java collection types.
+
+### Converting between `Iterable`s
 
 An especially useful adaptor is 
 [`CeylonIterable`](#{site.urls.apidoc_current_interop_java}/CeylonIterable.type.html), 
@@ -309,6 +343,13 @@ Ceylon, or apply any of the usual operations of a Ceylon
 (Alternatively, we could have used 
 [`CeylonList`](#{site.urls.apidoc_current_interop_java}/CeylonList.type.html)
 in this example.)
+
+Similarly there are `CeylonStringIterable`, `CeylonIntegerIterable`, 
+`CeylonFloatIterable`,`CeylonByteIterable` and `CeylonBooleanIterable` 
+classes which as well as converting the iterable type also convert
+the elements from their Java types to the corresponding Ceylon type.
+
+### Getting a `java.util.Class`
 
 Another especially useful function is [`javaClass`](#{site.urls.apidoc_current_interop_java}/index.html#javaClass),
 which obtains an instance of `java.util.Class` for a given type.
