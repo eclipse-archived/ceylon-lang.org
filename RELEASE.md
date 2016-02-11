@@ -39,7 +39,7 @@ RewriteRule ^download/dist/1_2_0_rpm$ "https\:\/\/downloads\.ceylon-lang\.org\/c
 - Run `ceylon doc-tool` and deploy the output
 - Merge the branch into `master`, delete the old branch
 
-# On the server itself
+## On the server itself
 
 Log on `ceylonlang.org`:
 
@@ -55,7 +55,8 @@ never copy and paste `sudo` commands!!! So read them carefully and type them by 
 5. Put the updated (or new) spec
   -  $ sudo cp -r ceylon-1.2.1/doc/en/spec/{html,html_single,shared,pdf} /var/www/ceylonlang/documentation/1.2/spec/
   -  $ sudo chown -R webhook. /var/www/ceylonlang/documentation/1.2/spec
-  -  $ sudo mv /var/www/ceylonlang/documentation/1.2/spec/pdf/Ceylon* /var/www/ceylonlang/documentation/1.0/spec/pdf/ceylon-language-specification.pdf
+  -  $ sudo mv /var/www/ceylonlang/documentation/1.2/spec/pdf/Ceylon* /var/www/ceylonlang/documentation/1.2/spec/pdf/ceylon-language-specification.pdf
 6. Put the new tooldocs
+  -  $ sudo rm -rf /var/www/ceylonlang/documentation/1.2/reference/tool/ceylon/subcommands
   -  $ sudo cp -r ceylon-1.2.1/doc/en/toolset /var/www/ceylonlang/documentation/1.2/reference/tool/ceylon/subcommands
   -  $ sudo chown -R webhook. /var/www/ceylonlang/documentation/1.2/reference/tool/ceylon/subcommands
