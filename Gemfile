@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'awestruct', '~> 0.5.5'
+gem 'awestruct', '0.5.5'
 #gem 'awestruct', :github => 'awestruct'
 
 # Fix compass dependency as 1.0 no longer has blueprint includes
