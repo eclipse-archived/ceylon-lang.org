@@ -7,9 +7,9 @@ author: Gavin King
 ---
 # #{page.title}
 
-The 1.2.0 release of the Ceylon IDE is available from our Eclipse 
+The 1.2.1 release of the Ceylon IDE is available from our Eclipse 
 plugin update site. Note that the version of the Ceylon compiler embedded 
-in this release is compatible with the Ceylon 1.2.0 command line tools.
+in this release is compatible with the Ceylon 1.2.1 command line tools.
 
 ## Eclipse platform
 

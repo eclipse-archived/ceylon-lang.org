@@ -37,7 +37,7 @@ as a `format` subcommand, which means you can invoke it with `ceylon format`:
 You can install the CLI plugin scripts packaged for the module `ceylon.formatter` with:
 
 <!-- lang:shell -->
-    $ ceylon plugin install ceylon.formatter/1.2.0
+    $ ceylon plugin install ceylon.formatter/1.2.1
 
 This will install the `ceylon-format` plugin script to `~/.ceylon/bin/ceylon.formatter/ceylon-format`
 where the ceylon CLI will look for plugins, as well as from your `PATH` environment variable.
