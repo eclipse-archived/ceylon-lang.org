@@ -12,8 +12,8 @@ change_frequency: weekly
 # #{page.title}
 
 [Ceylon 1.2.1][1.2.1] _&ldquo;Irregular Apocalypse&rdquo;_ 
-is now available for download! This is the fourth production-ready 
-release of the language, command line tools, and IDE.
+is now available for download! This is the first minor update release of
+the 1.2 release of the language, command line tools, and IDE.
 
 ## Command line tools
 
