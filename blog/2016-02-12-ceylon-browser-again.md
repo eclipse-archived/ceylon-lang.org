@@ -1,5 +1,5 @@
 ---
-title: Ceylon in the browser
+title: Ceylon in the browser (again)
 author: Bastien Jansen
 layout: blog
 unique_id: blogpage
