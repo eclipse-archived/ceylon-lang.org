@@ -124,7 +124,7 @@ too heavy because you're basically starting a Ceylon server just to serve static
 a way to create a standard Ceylon repository containing a module and all its dependencies: 
 [`ceylon copy`](http://ceylon-lang.org/documentation/current/reference/tool/ceylon/subcommands/ceylon-copy.html).
 
-<!-- language: bash -->
+<!-- lang: bash -->
     ceylon copy --with-dependencies com.acme.client
 
 This command will copy the module `com.acme.client` and all its dependencies to a given folder (by default 
