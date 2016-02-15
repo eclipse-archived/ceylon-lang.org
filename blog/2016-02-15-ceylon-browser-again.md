@@ -14,7 +14,7 @@ are around the corner.
 
 Having a JS backend means that you can actually write Ceylon code that can be 
 [run in a web browser](/blog/2013/02/26/ceylon-in-the-browser/), giving the opportunity to share code
-between the server and the client. The [web IDE](http://try.ceylon-lang.org) is a very good example of this. Up until now, 
+between the server and the client. The [web IDE](https://try.ceylon-lang.org) is a very good example of this. Up until now, 
 using Ceylon in a browser wasn't really straightforward though. The good news is, Ceylon 1.2.1 brought two major
 features that overcome this problem:
 
@@ -29,7 +29,6 @@ First things first, we need an empty project that will hold two modules:
 
 * `com.acme.client` is a `native("js")` module that imports `ceylon.interop.browser`:
 
-<!-- try: -->
     native("js")
     module com.acme.client "1.0.0" {
         import ceylon.interop.browser "1.2.1-1";
@@ -37,12 +36,10 @@ First things first, we need an empty project that will hold two modules:
 
 * `com.acme.server` is a `native("jvm")` module that imports `ceylon.net`:
 
-<!-- try: -->
     native("jvm")
     module com.acme.server "1.0.0" {
         import ceylon.net "1.2.1";
     }
-    </code></pre>
 
 ## Serving Ceylon modules
 
@@ -82,7 +79,6 @@ we need something on a server that will listen on `/modules`, parse module names
 Ceylon SDK 1.2.1 introduced a new endpoint named `RepositoryEndpoint`, that uses a `RepositoryManager` to look
 up module artifacts in one or more Ceylon repositories, like the compiler or Ceylon IDE do:
 
-<!-- try: -->
     import ceylon.net.http.server.endpoints {
         RepositoryEndpoint
     }
@@ -105,7 +101,6 @@ Ceylon IDE will rebuild the JS artifacts, which can then be immediately refreshe
 Finally, to serve static files (HTML, CSS, images etc), we need a second endpoint that uses `serveStaticFile`
 to look up files in the `www` folder, and serve `index.html` by default:
 
-<!-- try: -->
     function mapper(Request req) 
             => req.path == "/" then "/index.html" else req.path;
 
@@ -155,7 +150,6 @@ introduced in the Ceylon SDK 1.2.1 a few days ago. Basically, it's a set of
 allow wrapping native JS objects returned by the browser in nice typed Ceylon instances. For example, this
 interface represents the browser's `Document`:
 
-<!-- try: -->
     shared dynamic Document satisfies Node & GlobalEventHandlers {
         shared formal String \iURL;
         shared formal String documentURI;
@@ -167,7 +161,6 @@ interface represents the browser's `Document`:
 
 An instance of `Document` can be retrieved via the toplevel object `document`, just like in JavaScript:
 
-<!-- try: -->
     shared Document document => window.document;
 
 Note that `window` is also a toplevel instance of the dynamic interface `Window`.
@@ -181,7 +174,6 @@ Note that `window` is also a toplevel instance of the dynamic interface `Window`
 
 Making an AJAX call, retrieving the result and adding it to a `<div>` is now super easy in Ceylon:
 
-<!-- try: -->
     import ceylon.interop.browser.dom {
         document,
         Event
@@ -216,7 +208,9 @@ similar to TypeScript's [type definitions](https://github.com/DefinitelyTyped/De
 in theory, it is possible to use any JavaScript framework directly from Ceylon, provided that someone writes dynamic
 interfaces for its API.
 
-The Ceylon team is currently looking for ways to [convert TypeScript type definitions to dynamic interfaces](https://github.com/ceylon/ceylon/issues/3041),
+The Ceylon team is currently looking for ways to [load TypeScript definitions and make them available to Ceylon modules](https://github.com/ceylon/ceylon/issues/3041),
 which would greatly simplify the process of adding support for a new framework/API.
 
 The [complete source code](https://github.com/bjansen/ceylon-browser-demo) for this article is available on GitHub.
+
+A [live example](http://try.ceylon-lang.org/?gist=c7e291bc337b5b260de4) is available on the Web IDE.
