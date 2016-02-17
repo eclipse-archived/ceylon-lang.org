@@ -639,65 +639,72 @@ It's also possible to declare a method that returns a function. Let's
 consider adding the ability to remove observers from a `Component`. We could 
 use a `Subscription` interface:
 
-<!-- try-pre:
-    interface Event { }
--->
+    interface Event {}
+    
     interface Subscription {
         shared formal void cancel();
+        shared formal void handle(Event event);
     }
-    abstract class Component() {
-         
-        variable {Anything(Event)*} observers = {};
-         
+    
+    class Component() {
+        
+        variable {Subscription*} subscriptions = {};
+        
         shared Subscription addObserver(void observe(Event event)) {
-            observers = {observe, *observers};
             object subscription satisfies Subscription {
-                cancel() => observers = 
-                        { for (o in observers) if (o!=observe) o };
+                handle = observe;
+                cancel() => subscriptions 
+                        = subscriptions.filter((s) => s!=this);
             }
+            subscriptions = subscriptions.follow(subscription);
             return subscription;
         }
-         
+        
         shared void fire(Event event) {
-            for (observe in observers) {
-                observe(event);
+            for (s in subscriptions) {
+                s.handle(event);
             }
         }
-     
+        
     }
+
 
 But a simpler solution might be to just eliminate the interface and return the 
 `cancel()` method directly:
 
-<!-- try-pre:
-    interface Event { }
--->
-    abstract class Component() {
-         
-        variable {Anything(Event)*} observers = {};
-         
-        shared Anything() addObserver(void observe(Event event)) {
-            observers = {observe, *observers};
-            return void () => observers = 
-                        { for (o in observers) if (o!=observe) o };
+    interface Event {}
+    
+    class Component() {
+        
+        variable {Subscription*} subscriptions = {};
+        
+        class Subscription(shared void handle(Event event)) {
+            shared void cancel() => subscriptions 
+                        = subscriptions.filter((s) => s!=this);
         }
-         
+        
+        shared Anything() addObserver(void observe(Event event)) {
+            value subscription = Subscription(observe);
+            subscriptions = subscriptions.follow(subscription);
+            return subscription.cancel;
+        }
+        
         shared void fire(Event event) {
-            for (observe in observers) {
-                observe(event);
+            for (s in subscriptions) {
+                s.handle(event);
             }
         }
-     
+        
     }
 
-Here, we define an anonymous function inside the body of the `addObserver()` 
-method, and return a reference to this function from the outer method. The 
-reference to the anonymous function returned by `addObserver()` can be called 
+Here, `addObserver()` returns a reference to the method `cancel()` of the
+private nested class `Subscription`. The reference to the method can be called 
 by any code that obtains the reference.
 
 In case you're wondering, the type of the function `addObserver()` is 
 `Anything()(Anything(Event))`.
 
+<!--
 Notice that the anonymous function is able to use the parameter `observe` of 
 `addObserver()`. We say that the inner method receives a *closure* of the 
 non-`variable` locals and parameters of the outer method—just like a method 
@@ -706,6 +713,7 @@ of the class initializer. In general, any inner class, method, or attribute
 declaration always receives the closure of the members of the class, method, or 
 attribute declaration in which it is enclosed. This is an example of how regular 
 the language is.
+-->
 
 We could invoke our method like this:
 
