@@ -231,6 +231,7 @@ The API documentation for
 * [Calling Java from Ceylon](interoperability/java-from-ceylon/)
 * [Type mapping](interoperability/type-mapping/)
 * [The JavaScript compiler](interoperability/js/)
+* [How to use native annotations](interoperability/native/)
 
 ## Module repositories
 
