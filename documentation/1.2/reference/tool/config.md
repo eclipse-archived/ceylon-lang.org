@@ -220,6 +220,7 @@ significance of the lookup (which is fixed) is:
 * `lookup` - Other local repositories
 * `global` - Predefined user and system global repositories
 * `remote` - User defined remote repositories
+* `other`  - Predefined remote repositories
 
 The `[repositories]` section can be used to override the default values for those
 entries thereby changing or extending the lookup order. Take a look at the following
@@ -251,14 +252,14 @@ realize that in the configuration file we can only *override* existing values, w
 change them or append to them, so when overriding a value like `lookup` without changing the
 default behaviour we must take care to include existing values.
 
-The `global` entry isn't mentioned in the above example because in general it is advisable
-to leave it alone, it contains a list of predefined repositories, among which is the main 
-Ceylon repository itself that contains most of the interesting 3rd party modules. You should
-only need to override it if for some reason you do *not* want the default behaviour.
-
 The `remote` entry doesn't have any default value, so it can be easily used without having
 to worry about pre-existing values. It's specifically meant to add extra (normally remote)
 respositories that will be tried after all other options have been exhausted.
+
+The `other` entry isn't mentioned in the above example because in general it is advisable
+to leave it alone, it contains a list of predefined repositories, among which is the main 
+Ceylon repository itself that contains most of the interesting 3rd party modules. You should
+only need to override it if for some reason you do *not* want the default behaviour.
 
 
 ### `[repository]` sections
@@ -363,6 +364,17 @@ that contains all the official Ceylon SDK modules and all other freely available
     url=https://herd.ceylon-lang.org
 
 
+#### `MAVEN` repository
+
+The remote repository points to the official Maven module repository
+that contains so much of the Java eco system's finest contributions.
+By default this is `aether:`.
+
+<!-- lang:none -->
+    [repository "MAVEN"]
+    url=aether:
+
+
 #### The `[repositories]` section revisited
 
 *This paragraph doesn't really contain any infomation necessary to be able to work
@@ -378,7 +390,8 @@ the default `[repositories]` section would look like:
     output=+LOCAL
     lookup=+LOCAL
     global=+USER
-    global=+REMOTE
+    other=+REMOTE
+    other=+MAVEN
 
 This also means that if you define your own `[repository]` section with one of the
 above pre-defined names you will *override* the default location for that repository.
