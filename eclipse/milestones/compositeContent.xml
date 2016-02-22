@@ -5,6 +5,6 @@
    <property name="p2.timestamp" value="1316559185000"/>
  </properties>
  <children size="1">
-   <child location="http://downloads.ceylon-lang.org/ide/eclipse/staging/"/>
+   <child location="https://downloads.ceylon-lang.org/ide/eclipse/staging/"/>
  </children>
 </repository>
