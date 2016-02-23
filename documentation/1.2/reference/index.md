@@ -218,6 +218,7 @@ The API documentation for
 * [Command line tooling and build tools](tool/) 
 * The `ceylon` command, [`ceylon`](tool/ceylon/)
 * An index of [`ceylon`](#{site.urls.ceylon_tool_current}/index.html) subcommands
+* Dealing with [`repositories`](repository/tools/) on the command line
 * `ceylon` [command plugins](tool/plugin/)
 * The Ceylon [`ant`](tool/ant/) tasks
 * The [configuration file format](tool/config/)

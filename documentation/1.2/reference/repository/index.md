@@ -79,21 +79,13 @@ At the moment, the Ceylon tools are able to use the following repository types:
 
 ## Standard repositories
 
-The Ceylon tools use a number of standard repositories:
+The Ceylon tools use a number of standard repositories and support command line arguments
+to add references to your own. All of that is explained in detail on the section on
+[Dealing with repositories on the command line](tools).
 
-- The **distribution repository**, which is located in your distribution at
-  `$CEYLON_HOME/repo`. It contains the modules required by the Ceylon tools:
-  `ceylon.language`, the tools, the ant tasks.
-- The **current repository**, which is specified by the user when invoking the
-  Ceylon tools, and defaults to `modules` in the current directory.
-- The **home repository**, which is located at `$HOME/.ceylon/repo` and contains
-  a cache of module artifacts downloaded from remote repositories.
-- The **central repository**, which is located at `https://modules.ceylon-lang.org/repo/1`
-  and will contain every published Ceylon module.
-
-Normally, when looking for a Ceylon module, the tools will use these standard repositories
-in the order they are listed above. The exact order of lookup and the way you can change it
-is described in the section on [tool configuration](../tool/config).
+If you want to know more about how the Ceylon configuration file can be used to change the
+default behavior of the tools when looking up modules in repositories you can read the
+section on [tool configuration](../tool/config).
 
 ## Legacy repositories
 
