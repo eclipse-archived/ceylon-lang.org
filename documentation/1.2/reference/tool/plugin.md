@@ -59,7 +59,16 @@ And finally, you can uninstall plugins with:
 ## Writing Ceylon CLI plugins
 
 Suppose we want to write a `compile-doc` plugin which runs the JVM and JS compilers, then the
-API documentation. We will call the file `ceylon-compile-doc` for Unices, with the following
+API documentation.
+
+We actually have two options: using a "command scripts" or a "plugin file".
+
+### Using command scripts
+
+Command scripts are OS dependent, they use shell scripts on Unix-derived systems like Linux
+and MacOS and they use batch files on Windows.
+
+We will start with Unices and create a file `ceylon-compile-doc`, with the following
 contents:
 
 <!-- lang:shell -->
@@ -116,7 +125,8 @@ On Windows, your script will be named `ceylon-format.bat` and look like:
     %CEYLON% doc %*
 
 
-## Environment variables given to your script
+
+#### Environment variables given to your script
 
 There are a number of predefined environment variables that the `ceylon` CLI will pass to your
 script:
@@ -131,6 +141,35 @@ script:
 - `SCRIPT` is the absolute path to your plugin script, and
 - `SCRIPT_DIR` is the absolute path to the directory containing your plugin script. 
 
+### Using plugin files
+
+Plugin files are used when the code you're trying to run is available as a Ceylon module and
+contains at least one class that implements the `com.redhat.ceylon.common.tools.Tool` interface.
+Right now the best way to learn how to write a command using `Tool` is to look at the
+[Ceylon tools](https://github.com/ceylon/ceylon/tree/master/compiler-java/src/com/redhat/ceylon/tools)
+included in the distribution.
+
+Writing the plugin file itself is easier luckily: you just need a simple text file, in the case
+of our example called `ceylon-compile-doc.plugin` with the following contents:
+
+<!-- lang: none -->
+    summary=Runs both compilers and the doc tool
+    module=your.module/1.0.0
+    ;class=your.module.CeylonCompileDocTool # This is the default
+
+The first line contains the summary, a short description of the plugin that will show up in the
+list of available commands when you just type `ceylon` without any arguments or when you type
+`ceylon --help`.
+
+The second line is the name and version of the module that contains the code for your plugin.
+
+And the last line is the fully qualified name of the class that is the entry point of your
+plugin. This class *must* implement the above mentioned `com.redhat.ceylon.common.tools.Tool`
+interface. You can leave this line out (or comment it out as in this example) if the name
+adheres to the correct rules (basically you start with the plugin file name, remove the
+`.plugin` extension, remove all the dashes and capitalize the separate words and add `Tool`
+on the end. So `ceylon-compile-doc.plugin` becomes `CeylonCompileDocTool`.)
+
 ## Packaging scripts to make them available for users
 
 CLI plugin scripts for the module `your.module` should be put in the `script/your/module` folder 
@@ -143,3 +182,4 @@ You can generate a script package for the module `your.module` with:
 
 Naturally, you can publish your plugins as part of your module to Herd, so that they are available to
 users.
+
