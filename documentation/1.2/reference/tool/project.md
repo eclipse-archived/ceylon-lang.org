@@ -45,10 +45,10 @@ code into "modules" (see [Packages and modules](../../../tour/modules/) for more
 information).
 
 So if your module is called `com.example.thing`, as in our example
-here, then the code must be located inside a set nested of directories following
+here, then the code must be located inside a set of nested directories following
 the structure of the name. In this case starting from the first element `com`,
-then inside that must be a directory called `example` and finally inside that
-one we have `thing`, which will give us:
+then inside that must be a directory called `example` and finally, inside that
+one, we have `thing`, which will give us:
 
 <!-- lang: none -->
     ./source/com/example/thing
@@ -144,7 +144,7 @@ one or more `--resource` arguments.
 
 Also the special treatment of the `ROOT` sub directory by default can be changed
 using the `--resource-root` option and passing it the name of the folder you want
-to treat aa "root" instead,
+to treat as "root" instead,
 
 ### The `script` directory
 
@@ -160,7 +160,7 @@ must follow the name of your module. So for our example:
     ./script/com/example/thing
 
 And then inside that directory you will either have a `ceylon-mything.plugin` file
-or a couple of `ceylon-mything.sh` and `ceylon-mything.bat` command files (possibly
+or a couple of `ceylon-mything` and `ceylon-mything.bat` command files (possibly
 with other supporting files, depending on your needs).
 
 The [`ceylon plugin pack`](../ceylon/subcommands/ceylon-doc.html) command
@@ -193,8 +193,8 @@ follows the name of the modules being created. So in our example:
 <!-- lang: none -->
     ./modules/com/example/thing
 
-If you then look at what was described for each of the above directories, what are
-their inputs and what do they generate you end up with the following list that matches
+If you then look at what was described for each of the above directories, what their
+inputs are and what they generate, you end up with the following list that matches
 what was shown at the very top:
 
 <!-- lang: none -->
@@ -226,6 +226,6 @@ nor is it an "output" directory like `modules`, it's more like a "control" direc
 can influence and change the workings of the tools that are executed in the project directory.
 
 The most important file it contains is `config` which can contain configuration and preferences
-for all of the [`ceylon` command tools](../ceylon/subcommands/). It's format and many of
+for all of the [`ceylon` command tools](../ceylon/subcommands/). Its format and many of
 its possible settings are explained in [Ceylon toolset configuration](../config).
 
