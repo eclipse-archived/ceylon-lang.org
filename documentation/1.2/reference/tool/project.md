@@ -35,7 +35,7 @@ This might seem like quite a list, but of all these directories only `source` is
 actually required and the `modules` directory is generated for you by the Ceylon
 tools. The others you add only when actually needed.
 
-So what are all these directories for? Let's start from the begining:
+So what are all these directories for? Let's start from the top:
 
 ### The `source` directory
 
