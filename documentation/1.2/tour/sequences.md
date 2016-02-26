@@ -16,7 +16,7 @@ member classes. Now we're going to look at *streams*, *sequences*, and
 we'll come back to talk more about generics [later](../generics).
 
 
-## Iterables
+## Streams (Iterables)
 
 An iterable object, or _stream_, is an object that produces a stream of 
 values. Streams satisfy the interface 
