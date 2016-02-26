@@ -160,7 +160,7 @@ attempt might look like this:
 <!-- try-post:
     print(stream);
 -->
-    variable value stream = {0};
+    variable value stream = { 0 };
     stream = { 1, *stream };
     stream = { 2, *stream };
 
@@ -173,7 +173,7 @@ references to `stream` to be evaluated eagerly:
 <!-- try-post:
     print(stream);
 -->
-    variable value stream = {0};
+    variable value stream = { 0 };
     stream = stream.follow(1);
     stream = stream.follow(2);
 
