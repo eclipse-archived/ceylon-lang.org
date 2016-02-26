@@ -31,7 +31,7 @@ A comprehension may appear:
 
 ### Comprehensions in iterable and sequence instantiation expressions
 
-The brace syntax for [instantiating an iterable](../sequences#iterables)
+The brace syntax for [instantiating an iterable](../sequences#streams_iterables)
 accepts a comprehension, so we can use a comprehension to transform any
 iterable:
 
