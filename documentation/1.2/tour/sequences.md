@@ -153,6 +153,39 @@ This code prints:
     [0, 1, 2, 3, 4]
     [0, 1, 2, 3, 4]
 
+An even more confusing example arises when one attempts to form a stream by
+incrementally "cons"-ing elements at the head of the stream. A first, naive
+attempt might look like this:
+
+<!-- try-post:
+    print(stream);
+-->
+    variable value stream = {0};
+    stream = { 1, *stream };
+    stream = { 2, *stream };
+
+This code results in an infinite stream of `2`s, instead of the stream `{2,1,0}`. 
+That's because the spread references to `stream` is evaluated lazily!
+
+The recommended solution is to use the `follow()` method, which forces the 
+references to `stream` to be evaluated eagerly:
+
+<!-- try-post:
+    print(stream);
+-->
+    variable value stream = {0};
+    stream = stream.follow(1);
+    stream = stream.follow(2);
+
+Alternatively, one could use a sequence:
+
+<!-- try-post:
+    print(sequence);
+-->
+    variable [Integer+] sequence = [0];
+    sequence = [1, *sequence];
+    sequence = [2, *sequence];
+
 So now, naturally, its time to learn about sequences.
 
 ## Sequences
