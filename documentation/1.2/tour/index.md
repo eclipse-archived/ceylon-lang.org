@@ -110,7 +110,7 @@ Let's try it out. Save the above code in the file `./source/hello.ceylon`
 and then run the following command:
 
 <!-- lang: bash -->
-    ceylon-1.2.1/bin/ceylon run --compile --run hello default
+    ceylon-1.2.1/bin/ceylon run --compile=force --run hello default
 
 where `ceylon-1.2.1` is the path to your Ceylon install directory. You should
 see the message `Hello, World!`. You will find the compiled module archive 
@@ -118,8 +118,8 @@ see the message `Hello, World!`. You will find the compiled module archive
 
 Note that:
 
-- The option `--compile` specifies that the program should be 
-  compiled before execution.
+- The option `--compile=force` specifies that the program 
+  should be compiled before execution.
 - The option `--run hello` specifies the name, in this case, 
   `hello`, of the function that should be executed. If this 
   option is missing, the function name defaults to `run`.
