@@ -107,22 +107,39 @@ in a scripting language. This is _not_, on its own, a legal program:
 ## Running the program from the command line
 
 Let's try it out. Save the above code in the file `./source/hello.ceylon` 
-and then run the following commands:
+and then run the following command:
 
 <!-- lang: bash -->
-    ceylon-1.2.1/bin/ceylon compile source/hello.ceylon
-    ceylon-1.2.1/bin/ceylon run --run hello default
+    ceylon-1.2.1/bin/ceylon run --compile --run hello default
 
 where `ceylon-1.2.1` is the path to your Ceylon install directory. You should
 see the message `Hello, World!`. You will find the compiled module archive 
 `default.car` in the directory `./modules/default`.
+
+Note that:
+
+- The option `--compile` specifies that the program should be 
+  compiled before execution.
+- The option `--run hello` specifies the name, in this case, 
+  `hello`, of the function that should be executed. If this 
+  option is missing, the function name defaults to `run`.
+- The parameter `default` specifies the _module_ that should 
+  be executed, in this case, the "default" module, that is, 
+  the module you have if you don't have a module.
+
+Alternatively, you can compile and run in two separate steps,
+with the following commands:
+
+<!-- lang: bash -->
+    ceylon-1.2.1/bin/ceylon compile source/hello.ceylon
+    ceylon-1.2.1/bin/ceylon run --run hello default
 
 A very useful trick is:
 
 <!-- lang: bash -->
     ceylon-1.2.1/bin/ceylon help compile
 
-And:
+Or:
 
 <!-- lang: bash -->
     ceylon-1.2.1/bin/ceylon help run
