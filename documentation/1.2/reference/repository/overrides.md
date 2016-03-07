@@ -173,7 +173,6 @@ dependencies. You can also exclude them with this:
 
 Here's an `overrides.xml` file that lets you import 
 [Guice](https://github.com/google/guice) from Maven:
-
 <!--lang: xml -->
     <overrides xmlns="http://www.ceylon-lang.org/xsd/overrides">
         <module groupId="com.google.inject"
@@ -188,7 +187,7 @@ You can now `import` Guice like this:
 
 <!-- try: -->
     native("jvm")
-    module com.my.module "1.0.0" {
+    module com.my.app "1.0.0" {
         import "com.google.inject:guice" "4.0";
     }
 
@@ -227,7 +226,7 @@ Now you can `import` Hibernate JPA like this:
 
 <!-- try: -->
     native("jvm")
-    module com.my.module "1.0.0" {
+    module com.my.app "1.0.0" {
         import "org.hibernate:hibernate-entitymanager" "5.0.4.Final";
         import "org.hsqldb:hsqldb" "2.3.1";
     }
@@ -243,7 +242,7 @@ is your Ceylon resources directory:
                version="2.0">
     
         <persistence-unit name="sample">
-            <class>com.my.module.Person</class>
+            <class>com.my.app.Person</class>
             <properties>
                 <property name="javax.persistence.jdbc.driver" 
                          value="org.hsqldb.jdbcDriver"/>
@@ -290,7 +289,7 @@ _transitive_ dependencies.
 
 <!-- try: -->
     native("jvm")
-    module hib "1.0.0" {
+    module com.my.app "1.0.0" {
         import "org.hibernate:hibernate-entitymanager" "5.0.4.Final";
         import "org.hibernate.javax.persistence:hibernate-jpa-2.1-api" "1.0.0.Final";
         import "org.hsqldb:hsqldb" "2.3.1";
