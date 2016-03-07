@@ -173,6 +173,7 @@ dependencies. You can also exclude them with this:
 
 Here's an `overrides.xml` file that lets you import 
 [Guice](https://github.com/google/guice) from Maven:
+
 <!--lang: xml -->
     <overrides xmlns="http://www.ceylon-lang.org/xsd/overrides">
         <module groupId="com.google.inject"
