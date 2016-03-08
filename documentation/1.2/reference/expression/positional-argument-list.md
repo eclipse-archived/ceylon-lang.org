@@ -169,6 +169,9 @@ Comprehensions support [destructuring](../../statement/destructure):
 
     value distances = {for ([x, y] in points) sqrt(x^2+y^2)};
 
+Since Ceylon 1.2.2 `for` comprehensions support iteration over Java `java.lang::Iterable`s
+and array types.
+
 ## See also
 
 * The reference on [invocation](../invocation)
