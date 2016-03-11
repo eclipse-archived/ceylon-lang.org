@@ -144,6 +144,9 @@ A Ceylon-side `catch (Exception e) { ... }` will catch `java.lang.Exception`
 A Ceylon-side `catch (Throwable e) { ... }` will catch `java.lang.Throwable`. 
 There is no way to catch only `java.lang.Error`.
 
+Since Ceylon 1.2.1 you can use a `java.lang::AutoCloseable` as a resource in 
+a Ceylon [`try`](../../statement/try) statement.
+
 ### Java primitive types
 
 Every Java primitive type (including arrays) is mapped to a Ceylon type as
@@ -237,7 +240,8 @@ Java arrays are supported and mapped to _virtual_ objects in the `java.lang` pac
   </tbody>
 </table>
 
-These virtual types must be imported from the `java.base/7` module, as the rest of the core of the JDK, and
+These virtual types must be imported from the `java.base/7` or `java.base/8` 
+module, as the rest of the core of the JDK, and
 their definition is as follows, for example for `BooleanArray`:
 
 <!-- try: -->
@@ -346,6 +350,19 @@ And:
     a.set(0, 0);
     a.set(1, 1); 
     t.takeThisArray(i);
+
+
+#### Iterating a Java array
+
+Since Ceylon 1.2.2 Java array types are supported in Ceylon's `for` statement 
+and `for` comprehension:
+
+<!-- try: -->
+    IntArray ints = ...;
+    for (int in ints) {
+        print(int);
+    }
+    value squared = {for (int in ints) int^2};
 
 ### Java `enum` types
 
