@@ -223,6 +223,7 @@ The API documentation for
 * `ceylon` [command plugins](tool/plugin/)
 * The Ceylon [`ant`](tool/ant/) tasks
 * The [configuration file format](tool/config/)
+* [Bootstrapping Ceylon](tool/bootstrap/)
 
 ## Interoperability
 
