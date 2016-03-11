@@ -326,8 +326,20 @@ And:
     String first = array.get(0);
     array.set(0, "Updated");
     t.takeThisArray(array);
-    
 
+Ceylon 1.2.2 brought a number of improvements to interoperating with 
+Java arrays:
+
+<!-- try: -->
+    // lookup operator support for arrays
+    value firstViaLookup = array[0];
+    // arrays in a for statement
+    for (string in array) {
+        print(string);
+    }
+    // arrays in a for comprehension
+    value shouty = {for (string in array) uppercased};
+    
 #### Creating your own Java array in Ceylon
 
 You can create Java arrays in Ceylon:
@@ -352,17 +364,6 @@ And:
     t.takeThisArray(i);
 
 
-#### Iterating a Java array
-
-Since Ceylon 1.2.2 Java array types are supported in Ceylon's `for` statement 
-and `for` comprehension:
-
-<!-- try: -->
-    IntArray ints = ...;
-    for (int in ints) {
-        print(int);
-    }
-    value squared = {for (int in ints) int^2};
 
 ### Java `enum` types
 
@@ -403,6 +404,36 @@ Or:
         e.property = e.property;
         e.method();
     }
+
+## Other areas of interoperation
+
+Since Ceylon 1.2.2 there has been some improved support for interop with 
+certain language constructs:
+
+<!-- try: -->
+    import java.lang{ JIterable=Iterable }
+    import java.util{ JMap=Map, JList=List }
+    JIterable<Person> people = ...;
+    JList<Person> peopleList = ...;
+    JMap<Person,Task> tasks = ...;
+    
+    // Use java.lang.Iterable in for statements
+    for (person in people) {
+        print(person.name);
+    }
+    
+    // Use java.lang.Iterable in for comprehensions
+    value adults = {for (person in people) if (person.age > 18) person};
+    
+    // Using the lookup operator with java.util.List
+    value firstPerson = peopleList[0];
+    
+    // Using the lookup operator with java.util.Map
+    value firstTask = tasks[firstPerson];
+    
+    // Using in operator with java.util.Collection
+    assert (firstPerson in peopleList);
+   
 
 ## Calling Java code with unsafe nulls
 
