@@ -85,7 +85,22 @@ Aether. You can find more information [here](../../reference/repository/maven).
 
 ## Deploying Ceylon on OSGi
 
-_TODO: document OSGi interop._
+Ceylon is fully interoperable with OSGI, so that Ceylon modules:
+- can be deployed as pure OSGI bundles in an OSGI container out-of-the-box without any modification of the module archive file,
+- can embed additional OSGI metadata, to declare services for example,
+- can easily use OSGI standard services
+
+This provides a great and straightforward opportunity to run Ceylon code inside a growing number of JEE application servers or enterprise containers that are base upon (or integrated with) OSGI.
+
+### Installing the Ceylon distribution / Ceylon SDK in an OSGI container
+
+
+
+### OSGI Metadata management
+
+### Ceylon Metamodel registering
+
+### Using OSGI standard services
 
 ## Interoperation with Java types
 
