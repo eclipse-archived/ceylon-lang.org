@@ -1,4 +1,12 @@
-## Deploying Ceylon modules in OSGi containers
+---
+layout: reference12
+title_md: Deploying Ceylon modules in OSGi containers
+tab: documentation
+unique_id: docspage
+author: David Festal
+---
+
+# #{page.title_md}
 
 Ceylon is fully interoperable with OSGI, so that Ceylon modules:
 - can be deployed as pure OSGI bundles in an OSGI container out-of-the-box without any modification of the module archive file,
