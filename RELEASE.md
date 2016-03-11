@@ -36,7 +36,6 @@ RewriteRule ^download/dist/1_2_0_rpm$ "https\:\/\/downloads\.ceylon-lang\.org\/c
 - Update the `apidoc_current_*` Herd URLs in `_config/urls.yml` 
 - Run `ceylon ant-task-doc` in `documentation/*release*/reference/tools/` 
   to generate documentation of the `ant` task
-- Run `ceylon doc-tool` and deploy the output
 - Merge the branch into `master`, delete the old branch
 
 ## On the server itself
