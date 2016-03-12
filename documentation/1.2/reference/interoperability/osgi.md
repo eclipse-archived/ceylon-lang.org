@@ -27,36 +27,36 @@ These bundles are available in a dedicated place on the Ceylon language web site
 - as __OBR bundle repositories__:
     - Old-style OBR syntax (still used by Apache Felix):
         
-        https://downloads.ceylon-lang.org/osgi/distribution/1.2.1/repository.xml
+        https://downloads.ceylon-lang.org/osgi/distribution/1.2.2/repository.xml
 
-        https://downloads.ceylon-lang.org/osgi/sdk/1.2.1/repository.xml
+        https://downloads.ceylon-lang.org/osgi/sdk/1.2.2/repository.xml
 
     - New standard R5 OBR syntax:
         
-        https://downloads.ceylon-lang.org/osgi/distribution/1.2.1/index.xml
+        https://downloads.ceylon-lang.org/osgi/distribution/1.2.2/index.xml
         
-        https://downloads.ceylon-lang.org/osgi/sdk/1.2.1/index.xml
+        https://downloads.ceylon-lang.org/osgi/sdk/1.2.2/index.xml
 
 - as __P2 repositories for Eclipse development__ :
   
-  https://downloads.ceylon-lang.org/osgi/distribution/1.2.1/
+  https://downloads.ceylon-lang.org/osgi/distribution/1.2.2/
 
-  https://downloads.ceylon-lang.org/osgi/sdk/1.2.1/
+  https://downloads.ceylon-lang.org/osgi/sdk/1.2.2/
 
 - as __Zip archives for direct deployment inside containers__ :
   
-  https://downloads.ceylon-lang.org/osgi/distribution/1.2.1/ceylon.distribution.osgi.bundles-1.2.1.zip
+  https://downloads.ceylon-lang.org/osgi/distribution/1.2.2/ceylon.distribution.osgi.bundles-1.2.2.zip
   
-  https://downloads.ceylon-lang.org/osgi/sdk/1.2.1/ceylon.sdk.osgi.bundles-1.2.1.zip
+  https://downloads.ceylon-lang.org/osgi/sdk/1.2.2/ceylon.sdk.osgi.bundles-1.2.2.zip
 
 - as __Apache Karaf (aka JBoss Fuse) [features](http://karaf.apache.org/manual/latest/users-guide/provisioning.html)__:
     - `ceylon.distribution.runtime`, available in the following feature repository
     
-        https://downloads.ceylon-lang.org/osgi/distribution/1.2.1/karaf-features.xml
+        https://downloads.ceylon-lang.org/osgi/distribution/1.2.2/karaf-features.xml
     
     - `ceylon.sdk`, available in the following feature repository
       
-        https://downloads.ceylon-lang.org/osgi/distribution/1.2.1/karaf-features.xml
+        https://downloads.ceylon-lang.org/osgi/distribution/1.2.2/karaf-features.xml
 
 #### Installing the Ceylon Distribution and SDK in an OSGI container
 
@@ -76,7 +76,7 @@ These bundles are available in a dedicated place on the Ceylon language web site
 
 5. Add the 2 Ceylon following OBR urls at the end of this property (space-separated):
  
-        https://downloads.ceylon-lang.org/osgi/distribution/1.2.1/repository.xml https://downloads.ceylon-lang.org/osgi/sdk/1.2.1/repository.xml
+        https://downloads.ceylon-lang.org/osgi/distribution/1.2.2/repository.xml https://downloads.ceylon-lang.org/osgi/sdk/1.2.2/repository.xml
 
 6. From the Felix installation directory, Start Felix with the following command:
 
@@ -97,7 +97,7 @@ However the simplest way to install the Ceylon Distribution and SDK bundles is t
 
 Let's assume we start with a fresh installation of Glassfish v4.1
 
-1. Unzip the 2 zip archives mentioned earlier ([distribution](https://downloads.ceylon-lang.org/osgi/distribution/1.2.2/ceylon.distribution.osgi.bundles-1.2.1.zip) and [sdk](https://downloads.ceylon-lang.org/osgi/sdk/1.2.1/ceylon.sdk.osgi.bundles-1.2.1.zip)) into :
+1. Unzip the 2 zip archives mentioned earlier ([distribution](https://downloads.ceylon-lang.org/osgi/distribution/1.2.2/ceylon.distribution.osgi.bundles-1.2.2.zip) and [sdk](https://downloads.ceylon-lang.org/osgi/sdk/1.2.2/ceylon.sdk.osgi.bundles-1.2.2.zip)) into :
 
   `../glassfish4/glassfish/domains/domain1/autodeploy/bundles`
   
@@ -119,11 +119,11 @@ Let's assume we start with a fresh installation of Glassfish v4.1
 
 3. In the karaf shell, add the Ceylon distribution feature repository with the following command:
 
-        feature:repo-add https://downloads.ceylon-lang.org/osgi/distribution/1.2.1/karaf-features.xml
+        feature:repo-add https://downloads.ceylon-lang.org/osgi/distribution/1.2.2/karaf-features.xml
 
 4. In the karaf shell, add the Ceylon SDK feature repository with the following command:
 
-        feature:repo-add https://downloads.ceylon-lang.org/osgi/sdk/1.2.1/karaf-features.xml
+        feature:repo-add https://downloads.ceylon-lang.org/osgi/sdk/1.2.2/karaf-features.xml
 
 5. In the karaf shell, install the Ceylon distribution feature with the following command:
 
