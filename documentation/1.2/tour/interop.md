@@ -178,7 +178,7 @@ shared class Activator() extends DefaultActivator() {
     }
     shared actual void stop(BundleContext context) {
         // do module shutdown stuff
-        super.stop(context);  // will perform the metamodel registering
+        super.stop(context);
     }
 }
 ```
