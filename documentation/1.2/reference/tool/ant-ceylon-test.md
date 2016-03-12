@@ -116,7 +116,7 @@ Launches the Ceylon module using a flat classpath.</p>
 <tr id="attribute-linkWithCurrentDistribution">
 <td><code>linkWithCurrentDistribution</code></td>
 <td><p>Equivalent to the <a href="../ceylon/subcommands/ceylon-test.html#option--link-with-current-distribution"><code>--link-with-current-distribution</code></a> command line option.
-Link modules which were compiled with a more recent version of the distribution to the version of that module present in this distribution (1.2.1). This might fail with a linker error at runtime. For example if the module depended on an API present in the more recent version, but absent from 1.2.1. Allowed arguments are upgrade, downgrade or abort. Default: upgrade</p>
+Link modules which were compiled with a more recent version of the distribution to the version of that module present in this distribution (1.2.2). This might fail with a linker error at runtime. For example if the module depended on an API present in the more recent version, but absent from 1.2.2. Allowed arguments are upgrade, downgrade or abort. Default: upgrade</p>
 </td>
 <td>No</td>
 </tr>

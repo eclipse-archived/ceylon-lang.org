@@ -31,9 +31,9 @@ The `else` clause is optional.
 ### Execution
 
 A `for` statement accepts an expression of type 
-[`Iterable`](#{site.urls.apidoc_1_2}/Iterable.type.html) 
-(or, since Ceylon 1.2.1, a Java `Iterable`), which is evaluated
-to produce an `Iterable` object. 
+[`Iterable`](#{site.urls.apidoc_1_2}/Iterable.type.html).
+Since Ceylon 1.2.1 the `for` statement can accept a Java `java.lang::Iterable` and
+since Ceylon 1.2.2 Java array types as well.
 
 The `for` block is executed repeatedly, with the iteration variable taking the 
 value of each successive item produced by an `Iterator` obtained from the iterable 

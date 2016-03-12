@@ -26,6 +26,9 @@ possibility that seq doesn't have a value for the given key.
 The lookup operator gets an item from a 
 `Correspondence` according to its key.
 
+Since Ceylon 1.2.2 the lookup operator also works with 
+Java `java.util::List` and `java.util::Map` and Java array types.
+
 ### Definition
 
 The `[]` operator is defined as follows:
