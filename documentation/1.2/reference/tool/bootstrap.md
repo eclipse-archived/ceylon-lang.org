@@ -53,9 +53,9 @@ on your system by other means. So even if you already installed the required ver
 system's package manager, or brew, or sdkman, the bootstrap script will *still* download
 its own version**
 
-Instead of a verion it's also possible to pass a URL to the bootstrap command, for
+Instead of a version it's also possible to pass a URL to the bootstrap command, for
 example a URL pointing to a nightly build. In fact when you pass a version number
-what really happens is that a URL will formed by taking `https://downloads.ceylon-lang.org/cli/`
+what really happens is that a URL is formed by taking `https://downloads.ceylon-lang.org/cli/`
 and adding `ceylon-YOURVERSION.zip` to it.
 
 ## The `.properties` file
