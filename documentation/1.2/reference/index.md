@@ -194,10 +194,13 @@ Also see [operators](#operators) and [literals](#literals) below
 The API documentation for 
 
 * [`ceylon.language`](#{site.urls.apidoc_current_language}/api/index.html)
+* [`ceylon.buffer`](#{site.urls.apidoc_current_buffer}/api/index.html)
 * [`ceylon.collection`](#{site.urls.apidoc_current_collection}/api/index.html)
 * [`ceylon.dbc`](#{site.urls.apidoc_current_dbc}/api/index.html)
+* [`ceylon.decimal`](#{site.urls.apidoc_current_decimal}/api/index.html)
 * [`ceylon.file`](#{site.urls.apidoc_current_file}/api/index.html)
 * [`ceylon.html`](#{site.urls.apidoc_current_html}/api/index.html)
+* [`ceylon.interop.browser`](#{site.urls.apidoc_current_interop_browser}/api/index.html)
 * [`ceylon.interop.java`](#{site.urls.apidoc_current_interop_java}/api/index.html)
 * [`ceylon.io`](#{site.urls.apidoc_current_io}/api/index.html)
 * [`ceylon.json`](#{site.urls.apidoc_current_json}/api/index.html)
@@ -205,13 +208,16 @@ The API documentation for
 * [`ceylon.logging`](#{site.urls.apidoc_current_logging}/api/index.html)
 * [`ceylon.math`](#{site.urls.apidoc_current_math}/api/index.html)
 * [`ceylon.net`](#{site.urls.apidoc_current_net}/api/index.html)
+* [`ceylon.numeric`](#{site.urls.apidoc_current_numeric}/api/index.html)
 * [`ceylon.process`](#{site.urls.apidoc_current_process}/api/index.html)
 * [`ceylon.promise`](#{site.urls.apidoc_current_promise}/api/index.html)
+* [`ceylon.random`](#{site.urls.apidoc_current_random}/api/index.html)
 * [`ceylon.regex`](#{site.urls.apidoc_current_regex}/api/index.html)
 * [`ceylon.test`](#{site.urls.apidoc_current_test}/api/index.html)
 * [`ceylon.time`](#{site.urls.apidoc_current_time}/api/index.html)
 * [`ceylon.transaction`](#{site.urls.apidoc_current_transaction}/api/index.html)
 * [`ceylon.unicode`](#{site.urls.apidoc_current_unicode}/api/index.html)
+* [`ceylon.whole`](#{site.urls.apidoc_current_whole}/api/index.html)
 
 ## Tools
 
