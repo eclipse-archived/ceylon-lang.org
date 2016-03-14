@@ -34,6 +34,7 @@ _Some of these pages are incomplete. Want to help? [See how](/code/website)._
   <li><a href="structure/object/"><code>object</code> declarations</a> 
       <small>(c.f. <a href="expression/object/">object expressions</a>)</small></li>
   <li><a href="structure/annotation/">Annotations</a></li>
+  <li><a href="structure/dynamic/">Dynamic interfaces</a></li>
 </ul>
 
 ## Annotations
@@ -72,6 +73,7 @@ _Some of these pages are incomplete. Want to help? [See how](/code/website)._
   <li><a href="statement/break/"><code>break</code></a></li>
   <li><a href="statement/continue/"><code>continue</code></a></li>
   <li><a href="statement/conditions/">Condition lists</a></li>
+
   <li><a href="statement/expression/">Expression statements</a></li>
   <li><a href="statement/for/"><code>for</code></a></li>
   <li><a href="statement/if/"><code>if</code> statement</a></li>
@@ -85,7 +87,8 @@ _Some of these pages are incomplete. Want to help? [See how](/code/website)._
   <li><a href="statement/while/"><code>while</code></a></li>
 </ul>
 
-<p><a href="statement/block/">Statement blocks</a></p>
+<p><a href="statement/block/">Statement blocks</a> and
+<a href="statement/dynamic-block/"><code>dynamic</code> blocks</a>.</p>
 
 ## Expressions
 
