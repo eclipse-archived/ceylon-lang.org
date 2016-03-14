@@ -158,7 +158,7 @@ Alternatively, if you need to perform some sort initialization in your Ceylon mo
 1. Explicitly import the `com.redhat.ceylon.dist` module in your module descriptor:
 
        native("jvm") module example.withActivator "1.0.0" {
-           import com.redhat.ceylon.dist "1.2.2";
+           shared import com.redhat.ceylon.dist "1.2.2";
            import java.base "7";
        }
 
