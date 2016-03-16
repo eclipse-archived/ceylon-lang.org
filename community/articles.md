@@ -21,6 +21,7 @@ Ceylon, not to the current 1.2 release.
 - [Is Ceylon Enterprise Ready?](http://java.dzone.com/articles/ceylon-enterprise-ready)
 - [Top 10 Ceylon Language Features I Wish We Had In Java](http://blog.jooq.org/2013/12/03/top-10-ceylon-language-features-i-wish-we-had-in-java/)
 - [Using Ceylon's Type System to write reliable, extensible software](http://renatoathaydes.github.io/Using-Ceylon-Type-System-To-Write-Reliable-Extensible-Software/)
+- [Ceylon Might Just be the Only Language that Got Nulls Right](http://blog.jooq.org/2016/03/15/ceylon-might-just-be-the-only-language-that-got-nulls-right/)
 - [A (Very) Tiny HTTP Server With Ceylon](https://medium.com/@eldermael/a-very-tiny-http-server-with-ceylon-b7c6f56c0a16)
 - [Ruby, Clojure, and Ceylon: Same goal, three very different results](http://www.infoworld.com/article/2615818/development-environments/ruby--clojure--and-ceylon--same-goal--three-very-different-results.html)
 - [A first look at Gavin King's Ceylon](http://www.infoworld.com/article/2614466/application-development/a-first-look-at-gavin-king-s-ceylon.html)
