@@ -296,8 +296,6 @@ form.bp {
   #code {
     display: block;
     position: absolute;
-    width: 490px;
-    height: 170px;
     background: rgba(47, 30, 46, 0.85);
     top: 62px;
     right: 0;
@@ -309,16 +307,13 @@ form.bp {
     pre {
       background: none;
       margin: 0;
-      margin-left: 0.5em;
       border: none;
       padding: 0;
       code {
         font-weight: bold;
         text-shadow: none;
-        line-height: .96em;
       }
     }
-
   }
 }
 
