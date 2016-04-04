@@ -1,6 +1,6 @@
 ---
 layout: tour12
-title: Initialization and Constructors
+title: Initialization and constructors
 tab: documentation
 unique_id: docspage
 author: Gavin King
