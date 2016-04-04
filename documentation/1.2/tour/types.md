@@ -615,6 +615,8 @@ like this. For that, we need [the metamodel](../annotations/#the_metamodel).
         print(suit);
     }
 
+Later, when we talk about _value constructors_, we'll meet a 
+[different way to emulate a Java `enum`](../initialization/#value_constructor_enumerations).
 
 ## More about disjointness
 
