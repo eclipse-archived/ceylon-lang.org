@@ -54,7 +54,7 @@ at home, kiddies!)
     } 
 
 Hey, I warned you it was going to be contrived. But it's 
-really not uncommon to fund stuff like this in real Java 
+really not uncommon to find stuff like this in real Java 
 code.
 
 The problem here is that even if validation of the input 
