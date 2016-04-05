@@ -218,7 +218,7 @@ The caller is forced by the type system to deal with
 `DateFormatError`:
 
 <!-- try: -->
-    value p = Period(start, end);
+    value p = parsePeriod(start, end);
     if (is DateFormatError p) {
         ...
     }
