@@ -156,7 +156,7 @@ obligated by the compiler to handle the case of invalid
 input by `catch`ing the `DateFormatException` somewhere.
 
 <!-- try: -->
-<!-- lang: java --->
+<!-- lang: java -->
     try {
         Period p = new Period(start, end);
         ...
