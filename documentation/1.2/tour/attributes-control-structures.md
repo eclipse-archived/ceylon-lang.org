@@ -526,7 +526,7 @@ A condition list is simply an ordered list of :
   really just abbreviations, which we'll also meet 
   [later](../types/#narrowing_the_type_of_an_object_reference), and,
   finally.
-- _negated_ forms if the above condition types, that is, `!exists`,
+- _negated_ forms of the above condition types, that is, `!exists`,
   `!nonempty`, and `!is`.
 
 A condition list is satisfied if (and only if) *every one* of its 
