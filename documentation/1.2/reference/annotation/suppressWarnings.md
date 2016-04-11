@@ -16,7 +16,7 @@ given compiler warnings in it and its descendent elements.
 
 <!-- try: -->
     void functionWithWarnings() {
-    suppressWarnings("unusedDeclaration")
+        suppressWarnings("unusedDeclaration")
         String unused = "";
     }
 
