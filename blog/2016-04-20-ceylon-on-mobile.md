@@ -202,7 +202,7 @@ We're left with just invoking our Ceylon function in `www/index.html`:
       // when the document is ready
       jQuery(function(){
         // load our Ceylon module
-        require(['cordova/dmeo/1.0.0/cordova.demo-1.0.0'], function(client) {
+        require(['cordova/demo/1.0.0/cordova.demo-1.0.0'], function(client) {
           // and call our run method
           client.run();
         });
