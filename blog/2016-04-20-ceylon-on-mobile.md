@@ -70,6 +70,8 @@ to feel even more like a native application on Android. No doubt a similar look 
 So let's download [Polymer](https://www.polymer-project.org/1.0/docs/start/getting-the-code.html) in our
 application's HTML sources:
 
+<!-- try: -->
+<!-- lang: bash -->
     $ npm install bower
     $ cd www
     $ bower init
