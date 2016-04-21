@@ -17,13 +17,19 @@ platform, including Android and iOS, using nothing but HTML, CSS and JavaScript.
 compiles to JavaScript this is perfect as it allows us to run our Ceylon applications on iOS,
 via the JavaScript compiler backend.
 
+Note that this article is using Ceylon 1.2.3 which is not yet released, because the JavaScript
+runtime in Cordova on Android had one peculiarity we had to work around in the language module
+JavaScript implementation. Luckily you can get nightly builds of 
+[Ceylon 1.2.3](https://ci-ceylon.rhcloud.com/job/ceylon-distribution/) and the 
+[Ceylon 1.2.3 SDK](https://ci-ceylon.rhcloud.com/job/ceylon-sdk/lastSuccessfulBuild/artifact/). 
+
 # Writing your Ceylon Cordova application
 
 ## Installing Apache Cordova
 
 First, [install Apache Cordova](https://cordova.apache.org/#getstarted) and add two platforms.
 I haven't been able to test the iOS platform since it requires an OSX platform to build and
-and iOS device to test, and I lack both, so I will explain how to package for Android and the
+an iOS device to test, and I lack both, so I will explain how to package for Android and the
 browser, and let you guys try it out for iOS, but I have enough faith in Apache Cordova that
 it will Just Work™.
 
@@ -188,7 +194,11 @@ Cordova permissions in `www/index.html`, so find that line and edit it as such:
 
 <!-- try: -->
 <!-- lang: html -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; connect-src *">
+    <meta http-equiv="Content-Security-Policy" 
+          content="default-src 'self' 'unsafe-inline' 
+                   https://fonts.googleapis.com
+                   https://fonts.gstatic.com;
+                   connect-src *">
 
 We're left with just invoking our Ceylon function in `www/index.html`:
 
