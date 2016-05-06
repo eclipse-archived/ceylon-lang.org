@@ -419,7 +419,7 @@ expression compared to a function declaration? Look again:
 
 The order of parameter lists in the function declaration reflects the order in 
 which we supply arguments when we invoke the function. But in a function type 
-expression, the return type comes always comes before the parameter types, so 
+expression, the return type always comes before the parameter types, 
 therefore the parameters which must be supplied _first_ come at the _last_ in 
 the function type.
 
