@@ -62,7 +62,7 @@ normal listed arguments by a preceeding star (`*`):
 Spread arguments are useful when you have an iterable or 
 sequential reference which you want to pass as the argument to 
 a [variadic parameter](../../structure/parameter-list#variadic_methods_and_varargs). 
-Since you cannot used listed arguments
+Since you cannot use listed arguments
 (because you don't know what the elements of the reference are)
 you have to use a spread.
 
