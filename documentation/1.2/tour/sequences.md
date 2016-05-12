@@ -490,7 +490,7 @@ element in the list. For example:
 -->
     [Float,Float,String] point = [0.0, 0.0, "origin"];
 
-This tuple contains a two `Float`s followed by a `String`. That information
+This tuple contains two `Float`s followed by a `String`. That information
 is captured in its static type, `[Float,Float,String]`.
 
 Each link of the list is an instance of the class
