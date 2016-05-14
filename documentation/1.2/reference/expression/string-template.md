@@ -8,7 +8,7 @@ author: Tom Bentley
 
 # #{page.title_md}
 
-A String template is a easy was to concatenate text and the `string` value of 
+A String template is an easy way to concatenate text and the `string` value of 
 other expressions.
 
 ## Usage 
