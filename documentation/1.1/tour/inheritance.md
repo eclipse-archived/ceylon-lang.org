@@ -376,7 +376,7 @@ different return type:
     class Cartesian(Float x, Float y) 
             extends Point() {
         
-        polar => Polar((x^2+y^2)^0.5, atan(y/x)); 
+        polar => Polar(atan(y/x), (x^2+y^2)^0.5); 
         cartesian => this;
         
         rotate(Float rotation)
