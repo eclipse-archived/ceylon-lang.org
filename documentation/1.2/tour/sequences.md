@@ -567,7 +567,7 @@ And in `if`:
 
 And in `let`:
 
-    print(let [x, y] = [1.0, 2.0]) "(``x``, ``y``)");
+    print(let ([x, y] = [1.0, 2.0]) "(``x``, ``y``)");
 
 We can also destructure `Entry`s. We've already seen this used in a 
 `for` loop:
