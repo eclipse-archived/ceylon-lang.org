@@ -7,7 +7,7 @@ tab: blog
 tags: [interop, mobile, android, modularity]
 ---
 
-In my last post, I explained how you can use Ceylon in Apache Cordova to write applications for
+In [my last post](/blog/2016/04/20/ceylon-on-mobile/), I explained how you can use Ceylon in Apache Cordova to write applications for
 every mobile platform, including iOS and Android. This time, with many apologies for writing it
 late (“next week” turned into next month), I will explain how to use the Ceylon IntelliJ plugin
 to write native Android applications in Ceylon in Android Studio.
