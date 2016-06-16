@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:modules="urn:jboss:module:1.0"
+           targetNamespace="http://www.ceylon-lang.org/xsd/overrides"
+           xmlns="http://www.ceylon-lang.org/xsd/overrides"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="urn:jboss:module:1.0 https://raw.githubusercontent.com/jboss-modules/jboss-modules/master/src/main/resources/schema/module-1_0.xsd">
+
+    <!-- Root element -->
+    <xs:element name='overrides'>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name='define' type='DefineType'
+                            minOccurs='0' maxOccurs='unbounded'/>
+                <xs:element name='artifact' type='ModuleType'
+                            minOccurs='0' maxOccurs='unbounded'>
+                    <xs:annotation>
+                        <xs:documentation>
+                            Deprecated. Use 'module' instead.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name='module' type='ModuleType'
+                            minOccurs='0' maxOccurs='unbounded'/>
+                <xs:element name='remove' type='ArtifactContextType'
+                            minOccurs='0' maxOccurs='unbounded'/>
+                <xs:element name='replace' type='ReplaceType'
+                            minOccurs='0' maxOccurs='unbounded'/>
+                <xs:element name='set' type='ArtifactContextType'
+                            minOccurs='0' maxOccurs='unbounded'/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="DefineType">
+        <xs:attribute name='name' type='xs:string' use="required"/>
+        <xs:attribute name='value' type='xs:string' use="required"/>
+    </xs:complexType>
+
+    <xs:attributeGroup name="MavenAttrGroup">
+        <xs:attribute name='groupId' type='xs:string'/> <!-- Required -->
+        <xs:attribute name='artifactId' type='xs:string'/> <!-- Required -->
+        <xs:attribute name='version' type='xs:string'/> <!-- Optional -->
+        <xs:attribute name='packaging' type='xs:string'/> <!-- Optional -->
+        <xs:attribute name='classifier' type='xs:string'/> <!-- Optional -->
+    </xs:attributeGroup>
+
+    <xs:attributeGroup name="ModuleAttrGroup">
+        <xs:attribute name='module' type='xs:string'/> <!-- Required -->
+        <xs:attribute name='version' type='xs:string'/> <!-- Required -->
+    </xs:attributeGroup>
+
+    <xs:complexType name="ArtifactContextType">
+        <xs:attributeGroup ref="MavenAttrGroup"/>
+        <xs:attributeGroup ref="ModuleAttrGroup"/>
+    </xs:complexType>
+
+    <xs:complexType name="ReplaceType">
+        <xs:complexContent>
+            <xs:extension base="ArtifactContextType">
+                <xs:sequence>
+                    <xs:element name="with" type="ArtifactContextType"
+                                minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="ModuleType">
+        <xs:complexContent>
+            <xs:extension base="ArtifactContextType">
+                <xs:sequence>
+                    <xs:element name="add" type="OverrideType"
+                                minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element name="remove" type="OverrideType"
+                                minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element name="replace" type="OverrideType"
+                                minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element name="filter" type="modules:filterType"
+                                minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="share" type="ArtifactContextType"
+                                minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="unshare" type="ArtifactContextType"
+                                minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="optional" type="ArtifactContextType"
+                                minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="require" type="ArtifactContextType"
+                                minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="OverrideType">
+        <xs:complexContent>
+            <xs:extension base="ArtifactContextType">
+                <xs:attribute name="shared" type="xs:boolean" use="optional"/>
+                <xs:attribute name="optional" type="xs:boolean" use="optional"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+</xs:schema>
+
