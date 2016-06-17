@@ -50,7 +50,7 @@ a module descriptor and an empty activity:
 
 
 At the moment, this requires a Ceylon `1.2.3` distribution to build, and since it's not released yet
-you're going to have to either [build one yourself](code/contribute/#contributing_to_the_compiler_backend) 
+you're going to have to either [build one yourself](/code/contribute/#contributing_to_the_compiler_backend) 
 (just the `Getting the source` part), or 
 [download a nightly build](https://ci-ceylon.rhcloud.com/job/ceylon-distribution/).
 Once you have it, edit
