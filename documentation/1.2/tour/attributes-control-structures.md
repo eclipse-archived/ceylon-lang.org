@@ -526,7 +526,7 @@ A condition list is simply an ordered list of :
   really just abbreviations, which we'll also meet 
   [later](../types/#narrowing_the_type_of_an_object_reference), and,
   finally.
-- _negated_ forms if the above condition types, that is, `!exists`,
+- _negated_ forms of the above condition types, that is, `!exists`,
   `!nonempty`, and `!is`.
 
 A condition list is satisfied if (and only if) *every one* of its 
@@ -605,13 +605,19 @@ and `switch` _expressions_.
 It's possible to write an "inline" `if` or `switch` within an expression, for
 example:
 
+<!-- try-post:
+    print(greeting);
+-->
     value greeting
         => if (exists name = process.arguments.first)
         then "Hello ``name``!" else "Hello world!";
 
 Or:
 
-    print(switch (x <=> 100)
+<!-- try-pre:
+    value length = runtime.name.size;
+-->
+    print(switch (length <=> 100)
           case (smaller) "smaller"
           case (equal) "one hundred"
           case (larger) "larger");

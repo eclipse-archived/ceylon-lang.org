@@ -47,7 +47,8 @@ The `try` clause may optionally have a list of one or more
 are optional, otherwise at least one other of those clauses is required.
 Each resource expressions must have either the type 
 [`Destroyable`](#{site.urls.apidoc_1_2}/Destroyable.type.html)
-or the type [`Obtainable`](#{site.urls.apidoc_1_2}/Obtainable.type.html).
+or the type [`Obtainable`](#{site.urls.apidoc_1_2}/Obtainable.type.html), or
+since Ceylon 1.2.1 Java's `java.lang::AutoCloseable`.
 
 The `catch` clause specifies the [type](../../structure/type) 
 of exception (which must be a subtype of 

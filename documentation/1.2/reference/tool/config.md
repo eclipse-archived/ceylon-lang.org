@@ -184,30 +184,97 @@ and names are separated by a period.
 ### `[defaults]` section
 
 The `[defaults]` section is used to change the default behaviour of the ceylon
-tool chain. The possible settings include:
+tool chain. Recognised settings include:
 
-* `encoding` - the file encoding to use when reading source files (does not have
-a default value, if not specified the default file encoding for the platform
-is assumed)
-* `offline` - when set to `yes` (or `true`) will prevent the tool chains from
-trying to download modules from remote repositories (defaults to `no` (`false`)).
+* `encoding`:
+The character set (e.g. `UTF-8`) to use when reading source files.
+If not specified the default file encoding for the platform is assumed.
 
+* `offline`:
+Prevents the tool chains from trying to download modules 
+from remote repositories. Takes value `yes`, `true` (equivalent to `yes`), 
+`no` or `false` (equivalent to `no`). 
+Defaults to `no` (`false`).
+
+* `timeout`:
+The number of seconds to wait while connecting to a remote host 
+before giving up. Platform specific default.
+
+* `overrides`:
+An file specifying [module overrides](../../repository/overrides/).
 
 ### `[compiler]` section
 
 The `[compiler]` section is mainly used to change the default behaviour of the compile tool.
 The possible settings include:
 
-* `source` - This has the same effect as supplying `--source` on the command line.
-It takes a path to a folder containing sources. Can be specified multiple times.
+* `source`:
+Equivalent to supplying `--source` on the command line.
+It takes a path to a folder containing sources. 
+Can be specified multiple times.
 
-* `resource` - This has the same effect as supplying `--resource` on the command line.
-It takes a path to a folder containing resources. Can be specified multiple times.
+* `resource`:
+Equivalent to supplying `--resource` on the command line.
+It takes a path to a folder containing resources. 
+Can be specified multiple times.
 
-BTW: although it appears in the `[compiler]` section these settings actually affect
-any tools that take `--source` or `--resource` options. If a tool normally takes only
+**Note:** although it appears in the `[compiler]` section these settings actually affect
+*any* tools that take `--source` or `--resource` options. If a tool normally takes only
 a single of these options the first in the list will be used.
 
+* `resourceroot`: 
+Equiavlent to supplying the [`--resource-root`](../ceylon/subcommands/ceylon-compile.html#option--resource-root) option to 
+[`ceylon compile`](../ceylon/subcommands/ceylon-compile.html), 
+[`ceylon compile-js`](../ceylon/subcommands/ceylon-compile-js.html) or 
+[`ceylon src`](../ceylon/subcommands/ceylon-src.html).
+
+* `suppresswarning`: 
+Equiavlent to supplying the [`--suppress-warning`](../ceylon/subcommands/ceylon-compile.html#option--suppress-warning) option to 
+[`ceylon compile`](../ceylon/subcommands/ceylon-compile.html).
+
+* `noosgi`:
+Equiavlent to supplying the [`--no-osgi`](../ceylon/subcommands/ceylon-compile.html#option--no-osgi) option to 
+[`ceylon compile`](../ceylon/subcommands/ceylon-compile.html).
+
+* `osgiprovidedbundles`:
+Equiavlent to supplying the [`--osgi-provided-bundles`](../ceylon/subcommands/ceylon-compile.html#option--osgi-provided-bundles) option to 
+[`ceylon compile`](../ceylon/subcommands/ceylon-compile.html).
+
+* `nopom`:
+Equiavlent to supplying the [`--no-pom`](../ceylon/subcommands/ceylon-compile.html#option--no-pom) option to 
+[`ceylon compile`](../ceylon/subcommands/ceylon-compile.html).
+
+* `generatemoduleinfo`:
+Equiavlent to supplying the [`--generate-module-info`](../ceylon/subcommands/ceylon-compile.html#option--generate-module-info) option to 
+[`ceylon compile`](../ceylon/subcommands/ceylon-compile.html).
+
+* `pack200`:
+Equiavlent to supplying the [`--pack200`](../ceylon/subcommands/ceylon-compile.html#option--pack200) option to 
+[`ceylon compile`](../ceylon/subcommands/ceylon-compile.html).
+
+* `doc`:
+Equiavlent to supplying the [`--doc`](../ceylon/subcommands/ceylon-doc.html#option--doc) option to 
+[`ceylon doc`](../ceylon/subcommands/ceylon-doc.html) or 
+[`ceylon src`](../ceylon/subcommands/ceylon-src.html).
+
+* `script`:
+Equiavlent to supplying the [`--script`](../ceylon/subcommands/ceylon-src.html#option--script) option to 
+[`ceylon src`](../ceylon/subcommands/ceylon-src.html) or 
+[`ceylon plugin`](../ceylon/subcommands/ceylon-plugin.html).
+
+### `[runtool]` section
+
+* `compile`:
+Equiavlent to supplying the [`--compile`](../ceylon/subcommands/ceylon-run.html#option--compile) option to 
+[`ceylon run`](../ceylon/subcommands/ceylon-run.html) or 
+[`ceylon run-js`](../ceylon/subcommands/ceylon-run-js.html).
+
+### `[testtool]` section
+
+* `compile`:
+Equiavlent to supplying the [`--compile`](../ceylon/subcommands/ceylon-test.html#option--compile) option to 
+[`ceylon test`](../ceylon/subcommands/ceylon-test.html) or 
+[`ceylon test-js`](../ceylon/subcommands/ceylon-test-js.html).
 
 ### `[repositories]` section
 

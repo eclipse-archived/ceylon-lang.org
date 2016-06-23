@@ -28,6 +28,9 @@ The `in` operator is defined as follows:
 <!-- try: -->
     lhs.contained(rhs);
 
+Where the `rhs` has type `Category`. Since Ceylon 1.2.2 `rhs` with 
+type `java.util::Collection` is also supported.
+
 See the [language specification](#{site.urls.spec_current}#equalitycomparison) for more details.
 
 ### Polymorphism

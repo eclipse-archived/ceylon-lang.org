@@ -16,7 +16,7 @@ member classes. Now we're going to look at *streams*, *sequences*, and
 we'll come back to talk more about generics [later](../generics).
 
 
-## Iterables
+## Streams (Iterables)
 
 An iterable object, or _stream_, is an object that produces a stream of 
 values. Streams satisfy the interface 
@@ -152,6 +152,39 @@ This code prints:
 <!-- lang: none -->
     [0, 1, 2, 3, 4]
     [0, 1, 2, 3, 4]
+
+An even more confusing example arises when one attempts to form a stream by
+incrementally "cons"-ing elements at the head of the stream. A first, naive
+attempt might look like this:
+
+<!-- try-post:
+    print(stream);
+-->
+    variable value stream = { 0 };
+    stream = { 1, *stream };
+    stream = { 2, *stream };
+
+This code results in an infinite stream of `2`s, instead of the stream `{2,1,0}`. 
+That's because the spread references to `stream` is evaluated lazily!
+
+The recommended solution is to use the `follow()` method, which forces the 
+references to `stream` to be evaluated eagerly:
+
+<!-- try-post:
+    print(stream);
+-->
+    variable value stream = { 0 };
+    stream = stream.follow(1);
+    stream = stream.follow(2);
+
+Alternatively, one could use a sequence:
+
+<!-- try-post:
+    print(sequence);
+-->
+    variable [Integer+] sequence = [0];
+    sequence = [1, *sequence];
+    sequence = [2, *sequence];
 
 So now, naturally, its time to learn about sequences.
 
@@ -457,7 +490,7 @@ element in the list. For example:
 -->
     [Float,Float,String] point = [0.0, 0.0, "origin"];
 
-This tuple contains a two `Float`s followed by a `String`. That information
+This tuple contains two `Float`s followed by a `String`. That information
 is captured in its static type, `[Float,Float,String]`.
 
 Each link of the list is an instance of the class
@@ -534,7 +567,7 @@ And in `if`:
 
 And in `let`:
 
-    print(let [x, y] = [1.0, 2.0]) "(``x``, ``y``)");
+    print(let ([x, y] = [1.0, 2.0]) "(``x``, ``y``)");
 
 We can also destructure `Entry`s. We've already seen this used in a 
 `for` loop:

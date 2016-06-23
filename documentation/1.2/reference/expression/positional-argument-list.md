@@ -62,7 +62,7 @@ normal listed arguments by a preceeding star (`*`):
 Spread arguments are useful when you have an iterable or 
 sequential reference which you want to pass as the argument to 
 a [variadic parameter](../../structure/parameter-list#variadic_methods_and_varargs). 
-Since you cannot used listed arguments
+Since you cannot use listed arguments
 (because you don't know what the elements of the reference are)
 you have to use a spread.
 
@@ -168,6 +168,9 @@ It is common to use a comprehension argument in an
 Comprehensions support [destructuring](../../statement/destructure):
 
     value distances = {for ([x, y] in points) sqrt(x^2+y^2)};
+
+Since Ceylon 1.2.2 `for` comprehensions support iteration over Java `java.lang::Iterable`s
+and array types.
 
 ## See also
 

@@ -61,7 +61,7 @@ The following are reserved keywords:
    [`while`](../../statement/while#special_conditions), and 
    [`case`](../../statement/switch#caseis_assignability_condition) 
    statements and as an [operator](../../operator/is))
-* [`let`](../../expression/let))
+* [`let`](../../expression/let)
 * [`module`](../module#descriptor)
 * [`new`](../class#constructor_declarations)
 * `nonempty` (used in the [`if`](../../statement/if#special_conditions),

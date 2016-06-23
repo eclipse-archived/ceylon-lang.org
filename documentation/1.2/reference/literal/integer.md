@@ -14,7 +14,7 @@ value.
 
 ## Usage 
 
-An `Integer` literal may be written an a variety of ways
+An `Integer` literal may be written in a variety of ways.
 
 <!-- cat: void m() { -->
 <!-- try: -->

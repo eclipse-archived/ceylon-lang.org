@@ -615,6 +615,8 @@ like this. For that, we need [the metamodel](../annotations/#the_metamodel).
         print(suit);
     }
 
+Later, when we talk about _value constructors_, we'll meet a 
+[different way to emulate a Java `enum`](../initialization/#value_constructor_enumerations).
 
 ## More about disjointness
 
@@ -626,7 +628,9 @@ example:
 - if `X` and `Y` are classes, `X` is not a subclass of `Y`, and `Y` is not a 
   subclass of `X`, then `X` and `Y` are disjoint,
 - if `X` is a `final` class and `Y` is an interface not satisfied by `X`, then 
-  `X` and `Y` are disjoint, and
+  `X` and `Y` are disjoint,
+- two [tuple types](../sequences/#tuples) may be disjoint, for example 
+  `[String,Integer]` and `[Integer,Integer]`, and
 - two instantiations of a generic type may be disjoint, for example, 
   `MutableList<String>` and `MutableList<Integer>`.
 

@@ -12,7 +12,7 @@ doc_root: ../../..
 The `sealed` annotation prevents certain kinds of use of the 
 declaration outside the module containing the declaration.
 
-A `sealed` interface cannot by satisfied by a class or interface 
+A `sealed` interface cannot be satisfied by a class or interface 
 outside the module in which it is defined.
 
 A `sealed` class cannot be extended or instantiated 
@@ -31,7 +31,7 @@ On a declaration:
 
 ## Description
 
-The sealed annotation allowed the program author the means to provide 
+The sealed annotation allows the program author the means to provide 
 client modules with access to sealed class and interface types 
 without losing control over their subtypes or instances.
 

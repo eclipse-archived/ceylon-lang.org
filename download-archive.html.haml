@@ -6,8 +6,25 @@ unique_id: downloadpage
 author: Stef
 ---
 
-- latest = "1.2.1"
-- releases = [{"name" => "Irregular Apocalypse",
+- latest = "1.2.2"
+- releases = [{"name" => "Charming But Irrational",
+               "version" => "1.2.2",
+               "date" => "Mar 11 2016",
+               "size" => "18.6MB",
+               "files" => [{"name" => "Zip archive",
+                            "use" => "All Operating Systems",
+                            "href" => "/download/dist/1_2_2",
+                            "image" => "/images/download/package-zip.png"},
+                           {"name" => "RPM",
+                            "use" => "Fedora/Red Hat",
+                            "href" => "/download/dist/1_2_2_rpm",
+                            "image" => "/images/download/package-fedora.png"},
+                           {"name" => "Debian package",
+                            "use" => "Debian/Ubuntu",
+                            "href" => "/download/dist/1_2_2_deb",
+                            "image" => "/images/download/package-debian.png"},
+                            ]},
+              {"name" => "Irregular Apocalypse",
                "version" => "1.2.1",
                "date" => "Feb 11 2016",
                "size" => "18.5MB",
@@ -218,8 +235,8 @@ author: Stef
  = page.title
 
 %p
- %a{ :href => "/blog/2016/02/11/ceylon-1-2-1/" }
- Ceylon 1.2.1 "Irregular Apocalypse" is the latest 
+ %a{ :href => "/blog/2016/02/11/ceylon-1-2-2/" }
+ Ceylon 1.2.2 "Charming But Irrational" is the latest 
  release of the language, command line tools and IDE, but if 
  you need older versions of the Command-line distribution,
  you can find them all here.
@@ -271,3 +288,10 @@ author: Stef
          :onClick => "javascript: _gaq.push(['_trackPageview', '" + file["href"] + "?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);"}
       download
    
+%h2
+ Looking for nightly builds?
+
+%p
+ You can download pre-release builds of Ceylon (distribution, SDK, IDEs) on our
+ %a{ :href => "https://ci-ceylon.rhcloud.com/" }
+  Continuous Integration server.

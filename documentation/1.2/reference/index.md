@@ -34,6 +34,7 @@ _Some of these pages are incomplete. Want to help? [See how](/code/website)._
   <li><a href="structure/object/"><code>object</code> declarations</a> 
       <small>(c.f. <a href="expression/object/">object expressions</a>)</small></li>
   <li><a href="structure/annotation/">Annotations</a></li>
+  <li><a href="structure/dynamic/">Dynamic interfaces</a></li>
 </ul>
 
 ## Annotations
@@ -72,6 +73,7 @@ _Some of these pages are incomplete. Want to help? [See how](/code/website)._
   <li><a href="statement/break/"><code>break</code></a></li>
   <li><a href="statement/continue/"><code>continue</code></a></li>
   <li><a href="statement/conditions/">Condition lists</a></li>
+
   <li><a href="statement/expression/">Expression statements</a></li>
   <li><a href="statement/for/"><code>for</code></a></li>
   <li><a href="statement/if/"><code>if</code> statement</a></li>
@@ -85,7 +87,8 @@ _Some of these pages are incomplete. Want to help? [See how](/code/website)._
   <li><a href="statement/while/"><code>while</code></a></li>
 </ul>
 
-<p><a href="statement/block/">Statement blocks</a></p>
+<p><a href="statement/block/">Statement blocks</a> and
+<a href="statement/dynamic-block/"><code>dynamic</code> blocks</a>.</p>
 
 ## Expressions
 
@@ -194,10 +197,13 @@ Also see [operators](#operators) and [literals](#literals) below
 The API documentation for 
 
 * [`ceylon.language`](#{site.urls.apidoc_current_language}/api/index.html)
+* [`ceylon.buffer`](#{site.urls.apidoc_current_buffer}/api/index.html)
 * [`ceylon.collection`](#{site.urls.apidoc_current_collection}/api/index.html)
 * [`ceylon.dbc`](#{site.urls.apidoc_current_dbc}/api/index.html)
+* [`ceylon.decimal`](#{site.urls.apidoc_current_decimal}/api/index.html)
 * [`ceylon.file`](#{site.urls.apidoc_current_file}/api/index.html)
 * [`ceylon.html`](#{site.urls.apidoc_current_html}/api/index.html)
+* [`ceylon.interop.browser`](#{site.urls.apidoc_current_interop_browser}/api/index.html)
 * [`ceylon.interop.java`](#{site.urls.apidoc_current_interop_java}/api/index.html)
 * [`ceylon.io`](#{site.urls.apidoc_current_io}/api/index.html)
 * [`ceylon.json`](#{site.urls.apidoc_current_json}/api/index.html)
@@ -205,13 +211,16 @@ The API documentation for
 * [`ceylon.logging`](#{site.urls.apidoc_current_logging}/api/index.html)
 * [`ceylon.math`](#{site.urls.apidoc_current_math}/api/index.html)
 * [`ceylon.net`](#{site.urls.apidoc_current_net}/api/index.html)
+* [`ceylon.numeric`](#{site.urls.apidoc_current_numeric}/api/index.html)
 * [`ceylon.process`](#{site.urls.apidoc_current_process}/api/index.html)
 * [`ceylon.promise`](#{site.urls.apidoc_current_promise}/api/index.html)
+* [`ceylon.random`](#{site.urls.apidoc_current_random}/api/index.html)
 * [`ceylon.regex`](#{site.urls.apidoc_current_regex}/api/index.html)
 * [`ceylon.test`](#{site.urls.apidoc_current_test}/api/index.html)
 * [`ceylon.time`](#{site.urls.apidoc_current_time}/api/index.html)
 * [`ceylon.transaction`](#{site.urls.apidoc_current_transaction}/api/index.html)
 * [`ceylon.unicode`](#{site.urls.apidoc_current_unicode}/api/index.html)
+* [`ceylon.whole`](#{site.urls.apidoc_current_whole}/api/index.html)
 
 ## Tools
 
@@ -223,6 +232,7 @@ The API documentation for
 * `ceylon` [command plugins](tool/plugin/)
 * The Ceylon [`ant`](tool/ant/) tasks
 * The [configuration file format](tool/config/)
+* [Bootstrapping Ceylon](tool/bootstrap/)
 
 ## Interoperability
 
@@ -230,6 +240,7 @@ The API documentation for
 * [Calling Ceylon from Java](interoperability/ceylon-from-java/)
 * [Calling Java from Ceylon](interoperability/java-from-ceylon/)
 * [Type mapping](interoperability/type-mapping/)
+* [Running Ceylon modules in OSGI containers](interoperability/osgi/)
 * [The JavaScript compiler](interoperability/js/)
 * [How to use native annotations](interoperability/native/)
 

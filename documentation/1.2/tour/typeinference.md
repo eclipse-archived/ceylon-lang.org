@@ -177,7 +177,7 @@ since `parseInteger()` returns `Integer?` and `parseFloat()` returns
 ## Type inference for iterable constructor expressions
 
 What about iterable enumeration expressions like this, which we first
-[met in the last chapter](../sequences/#iterables):
+[met in the last chapter](../sequences/#streams_iterables):
 
 <!-- try-pre:
     abstract class Point() of Polar | Cartesian { }

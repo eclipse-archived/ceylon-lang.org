@@ -257,6 +257,29 @@ Here the expression `Hello("Gavin").say` has the same type as `print` above.
 It is of type `Anything(Integer)`.
 
 
+## Function references and equality
+
+The interface `Callable` doesn't satisfy 
+[`Identifiable`](#{site.urls.apidoc_1_2}/Identifiable.type.html), so function 
+references can't be 
+[compared for identity](../language-module/#equality_and_identity).
+
+On the other hand, value equality of functions is a notion that is 
+_mathematically_ well-defined&mdash;two functions are equal if the produce 
+the same value for every combination or arguments&mdash;but, unfortunately,
+is in general _computationally undecidable_.
+
+Therefore, comparison of function references using `equals()` or the `==`
+operator always evaluates to `false`! This has some undesirable consequences,
+for example:
+
+- Repeatedly `add()`ing the same function reference to a `MutableSet` results 
+  in a set with multiple elements. 
+- It's impossible to have a `Map` with function references as keys. 
+
+This is, however, the best we can reasonably do.
+
+
 ## Static method and attribute references
 
 A static method reference is a reference to a method, qualified by the type
@@ -396,7 +419,7 @@ expression compared to a function declaration? Look again:
 
 The order of parameter lists in the function declaration reflects the order in 
 which we supply arguments when we invoke the function. But in a function type 
-expression, the return type comes always comes before the parameter types, so 
+expression, the return type always comes before the parameter types, 
 therefore the parameters which must be supplied _first_ come at the _last_ in 
 the function type.
 
@@ -483,6 +506,24 @@ example as follows:
     Float max = measurements.fold(0.0)
             ((max, num) => num>max then num else max);
 
+Here, `max` and `num` have inferred type `Float`.
+
+A similar sort of type inference applies when a reference to a generic function
+occurs in an argument list:
+
+<!-- try-pre:
+    value measurements = { 3.4, 8.7, 1.7, 13.1, 7.7, 1.2 };
+
+-->
+<!-- try-post:
+
+    print(max);
+-->
+    Float max = measurements.fold(0.0)(largest);
+
+Here, the type argument of the function `largest()` is inferred to be `Float`. 
+
+
 ### Gotcha!
 
 You might have noticed that `fold()` is defined in curried form, with two
@@ -501,18 +542,18 @@ Suppose we have some kind of user interface component which can be observed by
 other objects in the system. We could use something like Java's 
 `Observer`/`Observable` pattern:
 
-<!-- try-pre:
     interface Event { }
--->
+
     interface Observer {
         shared formal void observe(Event event);
     }
+    
     abstract class Component() {
          
         variable {Observer*} observers = {};
          
         shared void addObserver(Observer observer) {
-            observers = {observer, *observers};
+            observers = observers.follow(observer);
         }
          
         shared void fire(Event event) {
@@ -528,15 +569,14 @@ observers just register a function object as their event listener? In the
 following code, we define the `addObserver()` method to accept a function as 
 a parameter.
 
-<!-- try-pre:
     interface Event { }
--->
+    
     abstract class Component() {
          
         variable {Anything(Event)*} observers = {};
          
         shared void addObserver(void observe(Event event)) {
-            observers = {observe, *observers};
+            observers = observers.follow(observe);
         }
          
         shared void fire(Event event) {
@@ -557,12 +597,13 @@ Now, any event observer can just pass a reference to one of its own methods to
 
 <!-- try-pre:
     interface Event { }
+    
     abstract class Component() {
          
         variable {Anything(Event)*} observers = {};
          
         shared void addObserver(void observe(Event event)) {
-            observers = {observe, *observers};
+            observers = observers.follow(observe);
         }
          
         shared void fire(Event event) {
@@ -598,12 +639,13 @@ on `Component`:
 
 <!-- try-pre:
     interface Event { }
+    
     abstract class Component() {
          
         variable {Anything(Event)*} observers = {};
          
         shared void addObserver(void observe(Event event)) {
-            observers = {observe, *observers};
+            observers = observers.follow(observe);
         }
          
         shared void fire(Event event) {
@@ -746,6 +788,16 @@ more parameter lists. Either kind of member can be defined by reference, using
 
 Cool, huh? That's more regularity.
 -->
+
+### Gotcha!
+
+Notice that even after eliminating `Subscription` from the external API of
+`Component` class, we still needed to store `Subscription` objects internally.
+The reason for this is that function references don't have any well-defined
+notion of equality (not even identity equality), and so `x==y` always evaluates
+to `false` for any two function references `x` and `y`. Thus, in order to be
+able to _remove_ a function reference from the `subscriptions` using `filter()`,
+we need a wrapping object that defines an identity for the subscription. 
 
 ## Composition and curry
 

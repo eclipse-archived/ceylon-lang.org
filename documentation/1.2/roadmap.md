@@ -7,8 +7,26 @@ author: Emmanuel Bernard
 ---
 # #{page.title}
 
-Ceylon 1.2 [has been released](/download) and we're in the 
-process of preparing a new roadmap for Ceylon 1.3.
+Ceylon 1.2 [has been released](/download) and we've already started
+development of Ceylon 1.3. Being an odd-numbered release, 1.3 won't
+include major new language features. Instead, the goals of the 1.3
+release include:
+
+- Rebasing the compiler on Java 8, including use of new features of
+  the Java 8 platform.
+- Full support for Android.
+- An [IntelliJ-based IDE for Ceylon][], along with a rewrite of much 
+  of Ceylon IDE in Ceylon.
+- Improvements to the Gradle plugin for Ceylon.
+- Support for overriding module dependencies in the Ceylon module
+  descriptor, and deprecation of the existing `overrides.xml` format.
+- Interoperation with [npm][], including support for depending 
+  directly on NPM packages in `module.ceylon`.  
+- Typesafe interoperation with [TypeScript][] in Ceylon JS.
+
+[IntelliJ-based IDE for Ceylon]: http://ceylon-lang.org/blog/2015/11/07/intellij
+[npm]: https://www.npmjs.com
+[TypeScript]: http://www.typescriptlang.org
 
 <!--
 ## Current progress for Ceylon 1.3

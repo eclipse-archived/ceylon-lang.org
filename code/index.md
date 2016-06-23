@@ -15,6 +15,11 @@ code.
 
 Our code is open source, [read more](licenses).
 
+## Looking for nightly builds?
+
+You can download pre-release builds of Ceylon (distribution, SDK, IDEs) on our
+[Continuous Integration server](https://ci-ceylon.rhcloud.com/).
+
 ## Get the source, start hacking
 
 Are you interested in joining the team and helping improve the 
