@@ -285,13 +285,50 @@ can become somewhat complicated so let's look at some examples:
         }
 
         // Native members without implmentation
-        shared String nativeAttribute;
-        shared Integer nativeMethod();
+        native shared String nativeAttribute;
+        native shared Integer nativeMethod();
 
         // Native members with default implmentation
-        shared String nativeAttributeWith = "foobar";
-        shared Integer nativeMethod() => 42;
+        native shared String nativeAttributeWith = "foobar";
+        native shared Integer nativeMethodWith() => 42;
     }
+
+First are those members that are not marked native. They will not be treated in any special
+way, they will just become members of the final declaration. But they can not contain any
+native code nor can they be defined in any of the native implementations.
+
+Then come the native members *without* implementation. They *must* be defined in the native
+implementation of their container and are required to have an implementation.
+
+And finally we have the native members *with* a default implementation. They *can* be redefined
+in the native implementation of their container, but this is not required.
+
+An example of a native implementation of the above class could be:
+
+<!-- try: -->
+    native("jvm") shared class Example() {
+        // Implementation required
+        native("jvm") shared String nativeAttribute => "eg";
+        native("jvm") shared Integer nativeMethod() => 6 * 7;
+
+        // Allowed to be redefined
+        native("jvm") shared Integer nativeMethodWith() => 13; 
+    }   
+
+## Tips & tricks
+
+One very useful trick you can use when dealing with a project with mutiple native modules,
+some of which are written for the JVM backend and some of which are for the JS backend, is
+that you can let the compilers figure out for themselves which modules they should compile
+and which they should skip. When you use:
+
+<!-- try: -->
+    $ ceylon compile '*'
+    $ ceylon compile-js '*'
+
+the compilers will *only* compile those modules that are either not marked native or
+that are marked native for that particular backend. That way you don't have to explicitly
+specify each of the modules to compile on the command line.
 
 ## See also
 
