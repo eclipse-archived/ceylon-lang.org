@@ -146,8 +146,8 @@ clause of the control structure:
 
 ### Variable declaration
 
-Instead of the switch expression also an inline variable declaration (containing an initializing expression) is allowed.
-This declares a new variable name which is then usable inside the case and else blocks (with the correct type in each of them).
+Instead of the `switch` expression also an inline variable declaration (containing an initializing expression) is allowed.
+This declares a new variable `name` which is then usable inside the case and else blocks (with the correct type in each of them).
 
     switch(line = Process.readLine())
     // line has type String?
