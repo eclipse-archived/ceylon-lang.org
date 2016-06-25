@@ -149,7 +149,7 @@ clause of the control structure:
 Instead of the `switch` expression also an inline variable declaration (containing an initializing expression) is allowed.
 This declares a new variable `name` which is then usable inside the case and else blocks (with the correct type in each of them).
 
-    switch(line = Process.readLine())
+    switch(line = process.readLine())
     // line has type String?
     case(is Null) {
         // line has type Null
