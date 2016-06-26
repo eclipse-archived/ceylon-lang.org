@@ -16,7 +16,7 @@ attribute, resulting in a sequence of the attribute values.
 
 <!-- try: -->
     {String+} names = {"foo", "bar", "baz"};
-    {Integer+} sizes = names*.size;
+    [Integer+] sizes = names*.size;
 
 ## Description
 

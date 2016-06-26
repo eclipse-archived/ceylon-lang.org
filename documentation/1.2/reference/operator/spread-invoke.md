@@ -17,13 +17,13 @@ each method invocation.
 
 <!-- try: -->
     {String+} names = {"foo", "bar", "baz"};
-    {String+} initials = names*.initial(1);
+    [String+] initials = names*.initial(1);
 
 You can also spread method references:
 
 <!-- check:none -->
 <!-- try: -->
-    Callable<String[], [Integer]> ref = names*.initial;
+    Callable<[String+], [Integer]> ref = names*.initial;
     
 ### Definition
 
