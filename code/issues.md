@@ -17,7 +17,7 @@ There is a dedicated issue tracker for:
   - [the Eclipse-based IDE](https://github.com/ceylon/ceylon-ide-eclipse),
   - [the work-in-progress IntelliJ-based IDE](https://github.com/ceylon/ceylon-ide-intellij), and
   - [common components for both IDEs](https://github.com/ceylon/ceylon-ide-common) (when in doubt, open an issue for a specific IDE, and it may be moved here if applicable),
-- [the platform modules](https://ceylon/ceylon-sdk/issues) belonging to the Ceylon SDK,
+- [the platform modules](https://github.com/ceylon/ceylon-sdk/issues) belonging to the Ceylon SDK,
 - [Ceylon Herd](https://github.com/ceylon/ceylon-herd/issues), and
 - [this website](https://github.com/ceylon/ceylon-lang.org/issues).
 
