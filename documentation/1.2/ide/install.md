@@ -13,8 +13,8 @@ in this release is compatible with the Ceylon 1.2.2 command line tools.
 
 ## Eclipse platform
 
-You'll need a clean installation of [Eclipse 4.5 Mars][eclipse] or of 
-[Eclipse 4.4 Luna][eclipse].
+You'll need a clean installation of [Eclipse 4.6 Neon][eclipse], 
+[Eclipse 4.5 Mars][eclipse] or of [Eclipse 4.4 Luna][eclipse].
 
 ## Java 7+ requirement
 

@@ -168,7 +168,7 @@ from our [update site][update site].
         </a>
         </td>
         <td>Ceylon IDE</td>
-        <td>Eclipse Luna/Mars</td>
+        <td>Eclipse Luna/Mars/Neon</td>
         <td>
         <a href="/documentation/current/ide/install" 
            title='Install the IDE'
