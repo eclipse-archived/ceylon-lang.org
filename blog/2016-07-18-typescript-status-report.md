@@ -9,6 +9,9 @@ tags: [gsoc, typescript]
 
 TL;DR: coming along, won’t be done in time for official GSoC deadline, I’ll just keep working.
 
+(Note: this is a GSoC status report.
+The entire project is work in progress, and if you’re looking for a something finished, you’ll have to wait until the project is released, at which point there will be a proper announcement.)
+
 For this year’s Google Summer of Code, I am working on adding TypeScript support to the Ceylon JavaScript backend.
 The goal is to have a tool that, given a TypeScript module (one or more files), produces a Ceylon module for the JavaScript backend.
 The JS code of that module will just be the TypeScript compiler’s output (plus possibly some metamodel stuff),
