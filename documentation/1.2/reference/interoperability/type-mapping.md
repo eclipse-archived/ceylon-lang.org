@@ -197,7 +197,7 @@ Notes:
     </tr>
     <tr>
       <td><a name="note5"><sup>5</sup></a></td>
-      <td>See more info on <a href="../java-from-ceylon#java_array_types_milestone_5">Java arrays</a>.</td>
+      <td>See more info on <a href="../java-from-ceylon#java_array_types">Java arrays</a>.</td>
     </tr>
   </tbody>
 </table>
