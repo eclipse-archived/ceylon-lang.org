@@ -301,41 +301,66 @@ and it reads well. We don't think
 `given Element implements Object` would have been as elegant 
 here. A type parameter doesn't "implement" anything. 
 
-### Prefix form for `is Type`, `exists`, and `nonempty`
+### Prefix form and commas for `is Type`, `exists`, and `nonempty`
 
 > Wouldn't it be much more natural to write `name exists`
 > or `person is Employee` instead of `exists name` and
 > `is Employee person`?
+> And why require commas between conditions
+> instead of just `&&`?
 
-Yes, but it would not work well in two situations:
+`is`, `exists` and `nonempty` conditions are written in prefix form
+because they can also introduce new variables, which looks weird in postfix form:
 
-First, when declaring a variable inline in a control structure
-condition, for example:
-  
 <!-- try: -->
+      // looks okay
       if (exists second = seq[1]) { ... }
-      
-The following doesn't work because `exists` has a higher
-precedence than `=`:
+      // looks weird
+      if (second = seq[1] exists)
+      // even worse for destructuring:
+      if ([first, *rest] = process.arguments nonempty) { ... }
+      // negation is potentially confusing because of unclear precedence:
+      if (!person is Employee)
+
+This is also the reason why they are conditions, not boolean expressions,
+and need to be separated from other conditions by commas, not `&&` operators;
+with `&&`, the syntax is ambiguous:
 
 <!-- try: -->
-      if (second = seq[1] exists) { ... } //confusing unsupported syntax
+      value b = b1 && b2;
+      // means: b = (b1 && b2)
+      if (exists b = b1 && b2) { ... }
+      // would mean: (exists b = b1) && b2
 
-And it looks even worse with destructuring:
+The `&&` and `=` operators would need to have a different precedence in conditions than elsewhere,
+which is a big no-no, since context-dependent precedent makes code much harder
+to understand for human readers.
 
-<!-- try: -->
-      if ([first, *rest] = process.arguments nonempty) { ... } //confusing unsupported syntax
-
-Second, when combined with the `!` (not) operator:
-
-<!-- try: -->
-      if (!is Employee person) { ... }
-      
-The following reads ambiguously, because it's not immediately
-clear that `!` has a lower precedence than `is`:
+It would also be difficult to define reasonable semantics for type narrowing
+if these constructs were regular expressions that could be arbitrarily mixed with other conditions:
 
 <!-- try: -->
-      if (!person is Employee) { ... } //confusing unsupported syntax
+      if ((true && false) || ((x exists) || always-false-expression)) {
+          // is x narrowed to non-optional type here?
+      }
+
+To make `x` non-optional in the above code,
+the typechecker would have to solve the [SAT Problem][wiki:sat],
+which is NP-hard, for `always-false-expression`.
+
+However, you don't always need to introduce new variables,
+and you also don't always need type narrowing.
+For these cases, you can use the postfix versions of `is`, `exists`, and `nonempty`,
+which are just regular expressions:
+
+<!-- try: -->
+      Boolean haveName = name exists;
+      value employees = people.filter((p) => p is Employee); // or: p.narrow<Employee>();
+      value nonnullXs = xs.filter((x) => x exists); // or: xs.coalesced;
+      value nonemptyLists = lists.filter((l) => l nonempty);
+      value employeesOfAge = people.filter((p) => p is Employee && p.age >= 18);
+
+[wiki:sat]: https://en.wikipedia.org/wiki/Boolean_satisfiability_problem
 
 ## Declaration modifiers
 
