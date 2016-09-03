@@ -18,7 +18,7 @@ The annotation accepts a list of alternative names for the declaration.
 <!-- try: -->
     aliased("absolute")
     Integer magnitude(Integer n) {
-        return if (n >= zero) then n else -n;
+        return if (n >= 0) then n else -n;
     }
 
 ## Description
