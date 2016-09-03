@@ -499,7 +499,7 @@ Another especially useful function is [`javaClass`](#{site.urls.apidoc_current_i
 which obtains an instance of `java.util.Class` for a given type.
 
 <!-- try: -->
-    import ceylon.interop.java { CeylonIterable }
+    import ceylon.interop.java { javaClass }
     import java.lang { JClass=Class }
     
     JClass<Integer> jc = javaClass<Integer>();

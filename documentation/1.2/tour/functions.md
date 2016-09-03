@@ -265,7 +265,7 @@ references can't be
 [compared for identity](../language-module/#equality_and_identity).
 
 On the other hand, value equality of functions is a notion that is 
-_mathematically_ well-defined&mdash;two functions are equal if the produce 
+_mathematically_ well-defined&mdash;two functions are equal if they produce 
 the same value for every combination or arguments&mdash;but, unfortunately,
 is in general _computationally undecidable_.
 
