@@ -14,7 +14,7 @@ differ in whether the result is assigned before or after the increment.
 
 ## Usage 
 
-Postfix unary `++` operator has the operator after the operand:
+Postfix `++` has the operator after the operand:
 
 <!-- cat: void m() { -->
 <!-- try: -->
@@ -22,7 +22,7 @@ Postfix unary `++` operator has the operator after the operand:
     num++;
 <!-- cat: } -->
     
-Prefix unary `++` operator  puts the operator before the operand:
+Prefix `++` puts the operator before the operand:
 
 <!-- cat: void m() { -->
 <!-- try: -->
@@ -57,7 +57,7 @@ See the [language specification](#{site.urls.spec_current}#arithmetic) for more 
 
 The `++` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `++` depends on the 
-[`Ordinal`](#{site.urls.apidoc_1_2}/Ordinal.type.html).
+[`Ordinal`](#{site.urls.apidoc_1_2}/Ordinal.type.html) interface.
 
 ### Type
 
@@ -65,7 +65,7 @@ The result type of the `++` operator is the same as the `Ordinal` type of its op
 
 ## See also
 
-* * [-- (decrement)](../decrement) operator
+* [-- (decrement)](../decrement) operator
 * [arithmetic operators](#{site.urls.spec_current}#arithmetic) in the 
   language specification
 * [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 
