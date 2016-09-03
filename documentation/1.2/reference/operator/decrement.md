@@ -49,7 +49,7 @@ The postfix `--` is defined as:
 
 <!-- check:none -->
 <!-- try: -->
-    (--lhs).successor
+    let (x = lhs, _ = lhs = lhs.predecessor) x
 
 See the [language specification](#{site.urls.spec_current}#arithmetic) for more details.
 
