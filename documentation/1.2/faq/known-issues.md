@@ -1,5 +1,5 @@
 ---
-title: Known issues in 1.1
+title: Known issues in 1.2
 layout: known-issues12
 toc: true
 tab: documentation
