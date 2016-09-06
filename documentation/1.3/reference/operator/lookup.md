@@ -29,6 +29,10 @@ The lookup operator gets an item from a
 Since Ceylon 1.2.2 the lookup operator also works with 
 Java `java.util::List` and `java.util::Map` and Java array types.
 
+Some `Correspondence` types also satisfy the `CorrespondenceMutator`
+interface and can be mutated with the [lookup assign](../lookup-assign)
+operator.
+
 ### Definition
 
 The `[]` operator is defined as follows:
@@ -54,6 +58,7 @@ The result type of the `lhs[index]` operator is the element type of the `Corresp
 ## See also
 
 * API documentation for [`Correspondence`](#{site.urls.apidoc_1_3}/Correspondence.type.html) 
+* The [lookup assign operator](../lookup-assign)
 * [sequence operators](#{site.urls.spec_current}#listmap) in the 
   language specification
 * [operator precedence](#{site.urls.spec_current}#operatorprecedence) in the 

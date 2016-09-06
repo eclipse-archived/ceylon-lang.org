@@ -156,6 +156,7 @@ Also see [operators](#operators) and [literals](#literals) below
   <li><a href="operator/nullsafe-member/"><code>?.</code>   (null-safe attribute)</a></li>
   <li><a href="operator/nullsafe-method/"><code>?.</code>   (null-safe method)</a></li>
   <li><a href="operator/lookup/"><code>[]</code>  (lookup)</a></li>
+  <li><a href="operator/lookup-assign/"><code>[]=</code>  (lookup assign)</a></li>
   <li><a href="operator/spread/"><code>*</code> (spread)</a></li>
   <li><a href="operator/spread-attribute/"><code>*.</code> (spread attribute)</a></li>
   <li><a href="operator/spread-invoke/"><code>*.</code> (spread method)</a></li>
