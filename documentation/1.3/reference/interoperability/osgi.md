@@ -8,21 +8,20 @@ author: David Festal
 
 # #{page.title_md}
 
-Ceylon is fully interoperable with OSGI, so that Ceylon modules:
-- can be deployed as pure OSGI bundles in an OSGI container out-of-the-box without any modification of the module archive file,
-- can embed additional OSGI metadata, to declare services for example,
-- can easily use OSGI standard services
+In order to be able to resolve and start Ceylon module archives 
+(`.car` files) inside an OSGi container, you will first need to 
+install, in the OSGi container, all the bundles of the Ceylon 
+distribution and SDK.
 
-This provides a great and straightforward opportunity to run Ceylon code inside a growing number of JEE 
-application servers or enterprise containers that are based upon (or integrated with) OSGI.
+#### Retrieving the Ceylon Distribution and SDK for OSGi
 
-In order to be able to resolve and start Ceylon module archives (`.car` files) inside an OSGI container, you will first need to install, in the OSGI container, all the bundles of the Ceylon distribution and SDK.
+In order to be able to resolve and start Ceylon module archives 
+(`.car` files) inside an OSGi container, you will first need to 
+install, in the OSGi container, all the bundles of the Ceylon 
+distribution and SDK.
 
-#### Retrieving the Ceylon Distribution and SDK for OSGI
-
-In order to be able to resolve and start Ceylon module archives (`.car` files) inside an OSGI container, you will first need to install, in the OSGI container, all the bundles of the Ceylon distribution and SDK.
-
-These bundles are available in a dedicated place on the Ceylon language web site :
+These bundles are available in a dedicated place on the Ceylon 
+language web site:
 
 - as __OBR bundle repositories__:
     - Old-style OBR syntax (still used by Apache Felix):
@@ -58,7 +57,7 @@ These bundles are available in a dedicated place on the Ceylon language web site
       
         [https://downloads.ceylon-lang.org/osgi/distribution/1.2.2/karaf-features.xml](https://downloads.ceylon-lang.org/osgi/distribution/1.2.2/karaf-features.xml)
 
-#### Installing the Ceylon Distribution and SDK in an OSGI container
+#### Installing the Ceylon Distribution and SDK in an OSGi container
 
 ##### Apache Felix 5.4.0:
 
@@ -68,7 +67,7 @@ These bundles are available in a dedicated place on the Ceylon language web site
 
        org.osgi.framework.executionenvironment=J2SE-1.7,JavaSE-1.7,J2SE-1.6,JavaSE-1.6,J2SE-1.5,JavaSE-1.5,J2SE-1.4,JavaSE-1.4,J2SE-1.3,JavaSE-1.3,J2SE-1.2,,JavaSE-1.2,CDC-1.1/Foundation-1.1,CDC-1.0/Foundation-1.0,J2ME,OSGi/Minimum-1.1,OSGi/Minimum-1.0
 
-   This is necessary since by default the Felix OSGI container provided execution environments don't include `J2SE-1.7`, which is required by a transitive dependency of the `ceylon.net` module.
+   This is necessary since by default the Felix OSGi container provided execution environments don't include `J2SE-1.7`, which is required by a transitive dependency of the `ceylon.net` module.
 
 3. In the `conf/config.properties` file of the Felix installation directory, find the `obr.repository.url` property.
 

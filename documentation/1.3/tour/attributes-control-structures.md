@@ -395,6 +395,14 @@ assertions are always enabled.
 
 ### For loops
 
+The `for` loop allows iteration over the elements of a Ceylon 
+[`Iterable` stream](../sequences/#streams_iterables), a Java `Iterable`,
+or a Java array.
+
+    for (arg in process.arguments) {
+        print(arg);
+    }
+
 The `for` loop has an optional `else` block, which is executed when the 
 loop completes normally, rather than via a `return` or `break` statement. 
 
@@ -499,9 +507,10 @@ we can catch the root exception class
 [`Throwable`](#{site.urls.apidoc_1_3}/Throwable.type.html).
 
 The `try` statement may optionally specify one or more "resource" 
-expressions, just like in Java. The resource is a 
+expressions, just like in Java. The resource must be 
 [`Destroyable`](#{site.urls.apidoc_1_3}/Destroyable.type.html) or 
-an [`Obtainable`](#{site.urls.apidoc_1_3}/Obtainable.type.html).
+[`Obtainable`](#{site.urls.apidoc_1_3}/Obtainable.type.html),
+or a Java `AutoCloseable`.
 
 <!-- try: -->
     try (Transaction(), s = Session()) {

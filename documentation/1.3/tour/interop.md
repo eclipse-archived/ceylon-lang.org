@@ -76,160 +76,33 @@ information for a `.jar`.
 - the `module.xml` descriptor format is defined 
   [here](https://docs.jboss.org/author/display/MODULES/Module+descriptors).
 
-If you're using Ceylon IDE for Eclipse, and you don't want to write the 
-`module.xml` descriptor by hand, go to 
+If you're using Ceylon IDE for Eclipse, and you don't want to 
+write the `module.xml` descriptor by hand, go to 
 `File > Export ... > Ceylon > Java Archive to Module Repository`.
 
 The Ceylon module architecture interoperates with Maven via
-Aether. You can find more information [here](../../reference/repository/maven).
+Aether. You can find more information 
+[here](../../reference/repository/maven).
 
 ## Deploying Ceylon on OSGi
 
-Ceylon is fully interoperable with OSGI, so that Ceylon modules:
+Ceylon is fully interoperable with OSGI, so that Ceylon 
+modules:
 
 - can be deployed as pure OSGI bundles in an OSGI container 
-  out-of-the-box without any modification of the module archive file,
-- can embed additional OSGI metadata, to declare services for example,
-- can easily use OSGI standard services
+  out-of-the-box, without any modification of the module 
+  archive file,
+- can embed additional OSGI metadata, to declare services for 
+  example, and
+- can easily use OSGI standard services.
 
-This provides a great and straightforward opportunity to run Ceylon 
-code inside a growing number of JEE application servers or enterprise 
-containers that are based upon (or integrated with) OSGI.
+This provides a great and straightforward opportunity to run 
+Ceylon code inside a growing number of JEE application servers 
+or enterprise containers that are based upon (or integrated 
+with) OSGI.
 
-### Installing the Ceylon distribution / Ceylon SDK in an OSGI container
-
-In order to be able to resolve and start Ceylon module archives (`.car` files) 
-inside an OSGI container, you will first need to install, in the OSGI container, 
-all the bundles of the Ceylon distribution and SDK.
-
-These bundles are available in a dedicated location on the Ceylon language web 
-site under various delivery forms:
-
-- OSGI bundle repositories (OBR and R5 XML), for Felix-based containers for example,
-- P2 repositories for Eclipse development or deployment to an Equinox container,
-- Zip archives for direct deployment inside containers,
-- Apache Karaf (aka JBoss Fuse) [features](http://karaf.apache.org/manual/latest/users-guide/provisioning.html)
-
-The OSGI interoperability reference gives more details about the 
-[URLs providing these packages](../../reference/interoperability/osgi#retrieving_the_ceylon_distribution_and_sdk_for_osgi), 
-as well as 
-[how to install](../../reference/interoperability/osgi#installing_the_ceylon_distribution_and_sdk_in_an_osgi_container) 
-these bundles, for various containers
-
-### OSGI metadata management
-
-[Module archives](./modules#module_archives_and_module_repositories) generated
-for execution on the Java virtual machine already contain the OSGI metadata that
-can be deduced from the Ceylon module descriptor.
-
-More precisely, for the following module descriptor:
-
-<!-- try: -->
-    native("jvm") module example.pureCeylon "3.1.0" {
-        import ceylon.locale "1.2.2";
-        import java.base "7";
-        shared import ceylon.net "1.2.2";
-    }
-
-the following OSGI metadata will be automatically generated in the module archive 
-`META-INF/MANIFEST.MF` entry:
-
-<!-- try: -->
-    Bundle-SymbolicName: example.pureCeylon
-    Bundle-Version: 3.1.0.v20160311-1742
-    Export-Package: example.pureCeylon;version=3.1.0
-    Require-Bundle: com.redhat.ceylon.dist;bundle-version=1.2.2;visibility
-     :=reexport,ceylon.locale;bundle-version=1.2.2,ceylon.net;bundle-versi
-     on=1.2.2;visibility:=reexport,ceylon.language;bundle-version=1.2.2;vi
-     sibility:=reexport
-    Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version>=1.7))"
-
-The Ceylon module imports are translated into a `Require-Bundle` header, and 
-`shared` imports are translated into a `reexport` directive.The `java.base "7"` 
-import is translated into a `Require-Capability` header that requires the same 
-Java version.
-
-Note that the `com.redhat.ceylon.dist` bundle is systematically and implicitly 
-added as a dependency to all generated Ceylon archives.
-
-However it is also possible to customize the OSGI metadata of the generated 
-archive in 2 ways:
-
-1. Additional manifest entries or resources (such as a desclarative service 
-descriptor) can be added by simply adding resources as explained 
-[below](#meta_inf_and_web_inf).
-
-2. Module imports that correspond to __dependencies provided by the OSGI container__ 
-(such as the OSGI framework bundle or any bundle assumed to be available in the OSGI 
-container) should be omitted from the generated `Require-Bundle` header. The 
-`--osgi-provided-bundles=<modules>` option of the `ceylon compile` command allows 
-specifying those modules. The same list can also be specified in the 
-[compiler section](http://www.ceylon-lang.org/documentation/1.2/reference/tool/config#_compiler_section) 
-of the configuration file.
-  
-  Generally, once omitted from the `Require-Bundle` header, the dependencies to 
-  provided bundles should be declared in an `Import-Package` header added in the 
-  [`MANIFEST.MF` resource](#meta_inf_and_web_inf), as mentioned in point 1.
- 
-### Ceylon metamodel registration
-
-In order to be able to fully leverage the power of the Ceylon language, the metamodel 
-should be initialized for each module used by a Ceylon application. It is automatically 
-performed when running from the command line through the `ceylon run` command, but in 
-an OSGi container it should be done when starting the Ceylon module. The Ceylon OSGI 
-distribution provides an easy way to register the metamodel for a module, as well as 
-for all the modules transitively imported.
-
-This can be done by adding an OSGI activator class to the Ceylon module, that performs 
-this metamodel registration. The `com.redhat.ceylon.dist` OSGI bundle, implicitly 
-required by all Ceylon modules, already provides such an activator class: 
-`com.redhat.ceylon.dist.osgi.Activator`
-
-So if you don't need to do anything else in your OSGI Ceylon bundle at startup, you can 
-simply add the following line to your [MANIFEST.MF resource](#meta_inf_and_web_inf):
-
-<!-- try: -->
-    Bundle-Activator: com.redhat.ceylon.dist.osgi.Activator
-
-Alternatively, if you need to perform some sort initialization in your Ceylon module 
-bundle startup, you can also define an `Activator` class that will delegate to the default 
-`com.redhat.ceylon.dist.osgi.Activator`. In this case, you'll need to follow these
-three steps.
-
-First, explicitly import the `com.redhat.ceylon.dist` module in your module descriptor:
-
-<!-- try: -->
-    native("jvm") module example.withActivator "1.0.0" {
-        shared import com.redhat.ceylon.dist "1.2.2";
-        import java.base "7";
-    }
-
-Next, add the following class to your module:
-
-<!-- try: -->
-    import com.redhat.ceylon.dist.osgi {
-        DefaultActivator = Activator
-    }
-    import org.osgi.framework {
-        BundleContext
-    }
-    
-    shared class Activator() extends DefaultActivator() {
-        shared actual void start(BundleContext context) {
-            // do module startup stuff
-            super.start(context); // will perform the metamodel registering
-        }
-        shared actual void stop(BundleContext context) {
-            // do module shutdown stuff
-            super.stop(context);
-        }
-    }
-
-Finally, Add the following line to your 
-`example/withActivator/ROOT/META-INF/MANIFEST.MF` resource:
-
-<!-- try: -->
-    Bundle-Activator: example.withActivator.Activator
+You can learn more about Ceylon and OSGi from the 
+[reference documentation](../../reference/interoperability/osgi-overview).
 
 ## Interoperation with Java types
 
@@ -310,8 +183,9 @@ You can think of the `ByteArray` as the actual underlying
 `byte[]` instance, and the `Array<Byte>` as an instance of 
 the Ceylon class `Array` that wraps the `byte[]` instance.
 
-The [module `ceylon.interop.java`](https://herd.ceylon-lang.org/modules/ceylon.interop.java) contains a raft of additional
-methods for working with these Java array types.
+The [module `ceylon.interop.java`](https://herd.ceylon-lang.org/modules/ceylon.interop.java) 
+contains a raft of additional methods for working with these
+Java array types.
 
 ### Null values are checked at runtime
 
@@ -410,50 +284,80 @@ Therefore:
 
 In pure Ceylon code, we almost always use 
 [declaration-site variance](../generics/#covariance_and_contravariance).
-However, this doesn't work when we interoperate with Java generic
-types with wildcards. Therefore, Ceylon supports use-site variance
-(wildcards).
+However, this doesn't work when we interoperate with Java 
+generic types with wildcards. Therefore, Ceylon supports 
+use-site variance (wildcards).
 
-- `List<out Object>` has a covariant wildcard, and is equivalent 
-  to `List<? extends Object>` in Java, and
+- `List<out Object>` has a covariant wildcard, and is 
+  equivalent to `List<? extends Object>` in Java, and
 - `Topic<in Object>` has a contravariant wildcard, and is 
   equivalent to `Topic<? super Object>` in Java.
 
-Wildcard types are unavoidable when interoperating with Java, and 
-perhaps occasionally useful in pure Ceylon code. But we recommend
-avoiding them, except where there's a really good reason.  
+Wildcard types are unavoidable when interoperating with Java, 
+and perhaps occasionally useful in pure Ceylon code. But we 
+recommend avoiding them, except where there's a really good 
+reason.  
 
-## Iterables
+## Java `Iterable`s and `AutoCloseable`s 
 
-Since Ceylon 1.2.1 it is possible to use a `java.lang.Iterable` in a Ceylon 
-`for` statement, like this:
+Since Ceylon 1.2.1 it's possible to use a `java.lang.Iterable`
+or Java array in a Ceylon `for` statement, like this:
 
-    import java.lang{JIterable=Iterable, JString=String}
-
-    JIterable<Object> objects = ...;
-    for (obj in objects) {
-        // ...
-    }
+<-- try: -->
+    import java.lang { JIterable=Iterable }
     
-Note that there is no special handling for type of the iterated elements:
-If the iterable contains Java `String`s they're not magically transformed to 
-Ceylon `String`s:
+    JIterable<Object> objects = ... ;
+    for (obj in objects) {
+        ...
+    }
 
+Similarly, it's possible to use a Java `AutoCloseable` in a
+Ceylon `try` statement.
+
+<-- try: -->
+    import java.io { File, FileInputStream }
+    
+    File file = ... ;
+    try (inputStream = FileInputStream(file)) {
+         ...
+    }
+
+### Gotcha!
+
+Note that there is no special handling for type of the 
+iterated elements: if the iterable contains Java `String`s 
+they're not magically transformed to Ceylon `String`s:
+
+<-- try: -->
+    import java.lang { JIterable=Iterable, JString=String }
+    
     JIterable<JString> strings = ...;
     for (s in strings) {
         // s is a JString
     }
 
-Also note this is not supported when using an entry or tuple destructing 
-iterator:
+### Further gotcha
 
-    JIterable<String-String> stringPairs = ...;
+Also note that `java.lang.Iterable` is not supported together 
+with entry or tuple destructuring:
+
+<-- try: -->
+    JIterable<String->String> stringPairs = ...;
     for (key->item in stringPairs) {
         // not supported
     }
 
-In practice it is unusual to have a Java `Iterable` of Ceylon `Entry`s 
-or `Tuple`s.
+In practice it's unusual to have a Java `Iterable` containing 
+Ceylon `Entry`s or `Tuple`s.
+
+### Java collections and operators 
+
+Finally:
+
+- the element lookup operator (`list[index]`) may be used 
+  with Java arrays and instances of `java.util.List`, and
+- the containment operator (`element in container`) may be 
+  used with instances of `java.util.Collection`. 
 
 ## Utility functions and classes
 
@@ -495,7 +399,8 @@ the elements from their Java types to the corresponding Ceylon type.
 
 ### Getting a `java.util.Class`
 
-Another especially useful function is [`javaClass`](#{site.urls.apidoc_current_interop_java}/index.html#javaClass),
+Another especially useful function is 
+[`javaClass`](#{site.urls.apidoc_current_interop_java}/index.html#javaClass),
 which obtains an instance of `java.util.Class` for a given type.
 
 <!-- try: -->
@@ -577,16 +482,17 @@ then this code would be ambiguous.
 
 ## `META-INF` and `WEB-INF`
 
-Some Java frameworks and environments require metadata packaged in
-the  `META-INF` or `WEB-INF` directory of the module archive, or
-sometimes even in the root directory of the module archive. We've
-already seen how to [package resources](../modules/#resources) in 
-Ceylon module archives by placing the resource files in the modules' 
-subdirectory of the resource directory, named `resource` by default.
+Some Java frameworks and environments require metadata packaged 
+in the `META-INF` or `WEB-INF` directory of the module archive, 
+or sometimes even in the root directory of the module archive. 
+We've already seen how to [package resources](../modules/#resources) 
+in Ceylon module archives by placing the resource files in the 
+module-specific subdirectory of the resource directory, named 
+`resource` by default.
 
 Then, given a module named `net.example.foo`:
 
-- resources to be packaged in the root directory of the  module 
+- resources to be packaged in the root directory of the module 
   archive should be placed in `resource/net/example/foo/ROOT/`,
 - resources to be packaged in the `META-INF` directory of the 
   module archive should be placed in 
@@ -594,25 +500,45 @@ Then, given a module named `net.example.foo`:
 - resources to be packaged in the `WEB-INF` directory of the 
   module archive should be placed in 
   `resource/net/example/foo/ROOT/WEB-INF/`.
-    
+
+## Interoperation with Java's `ServiceLoader`
+
+ Annotating a Ceylon class with the `service` annotation makes
+ the class available to Java's 
+ [service loader architecture](https://docs.oracle.com/javase/8/docs/api/java/util/ServiceLoader.html).
+
+     service (`Manager`)
+     shared class DefautManager() satisfies Manager {}
+ 
+ A Ceylon module may gain access to Java services by calling
+ `Module.findServiceProviders()`.
+
+     {Manager*} managers = `module`.findServiceProviders(`Manager`);
+     assert (exists manager = managers.first);"
+
+The `service` annotation and `Module.findServiceProviders()`
+work portably across the JVM and JavaScript environments.
+
 ## Limitations
 
 Here's a couple of limitations to be aware of:
 
-- You can't call Java methods using the named argument syntax, since
-  Java 7 doesn't expose the names of parameters at runtime (and 
-  Ceylon doesn't yet depend on features of Java 8).
-- You can't obtain a method reference, nor a static method reference,
-  to an overloaded method.
-- Java generic types don't carry reified type arguments at runtime, 
-  so certain operations that depend upon reified generics (for 
-  example, some `is` tests) fail at runtime.
+- You can't call Java methods using the named argument syntax, 
+  since Java 7 doesn't expose the names of parameters at runtime 
+  (and Ceylon doesn't yet depend on features of Java 8).
+- You can't obtain a method reference, nor a static method 
+  reference, to an overloaded method.
+- Java generic types don't carry reified type arguments at 
+  runtime, so certain operations that depend upon reified 
+  generics (for example, some `is` tests) are rejected at 
+  compiletime, or unchecked at runtime.
 
 ## There's more ...
 
-In a mixed Java/Ceylon project, you'll probably need to use a build
-system like Gradle, Maven, or Apache `ant`. Ceylon has 
-[plugins](../../reference/tool/) for each of these build systems.
+In a mixed Java/Ceylon project, you'll probably need to use a 
+build system like Gradle, Maven, or Apache `ant`. Ceylon has 
+[plugins](../../reference/tool/) for each of these build 
+systems.
 
-Finally, we're going to learn about interoperation with languages 
-like JavaScript with [dynamic typing](../dynamic).
+Finally, we're going to learn about interoperation with 
+languages like JavaScript with [dynamic typing](../dynamic).
