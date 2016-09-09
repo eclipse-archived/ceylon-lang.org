@@ -8,6 +8,11 @@ author: David Festal
 
 # #{page.title_md}
 
+Ceylon modules may be deployed in an OSGi container, and may
+interoperate with native OSGi modules. For example, Ceylon IDE
+for Eclipse is partially written in Ceylon, and integrates with 
+the Eclipse environment using OSGi.
+
 ### Installing the Ceylon distribution and SDK in an OSGi container
 
 In order to be able to resolve and start Ceylon module archives 
@@ -24,7 +29,7 @@ Ceylon language web site under various delivery forms:
   an Equinox container,
 - Zip archives for direct deployment inside containers,
 - Apache Karaf (aka JBoss Fuse) 
-  [features](http://karaf.apache.org/manual/latest/users-guide/provisioning.html)
+  [features](http://karaf.apache.org/manual/latest/users-guide/provisioning.html).
 
 The OSGi interoperability reference gives more details about the 
 [URLs providing these packages](../osgi#retrieving_the_ceylon_distribution_and_sdk_for_osgi), 

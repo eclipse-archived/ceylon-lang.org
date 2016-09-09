@@ -106,8 +106,14 @@ You can learn more about Ceylon and OSGi from the
 
 ## Interoperation with Java types
 
+Calling and extending Java types from Ceylon is mostly 
+completely transparent. You don't need to do anything "special"
+to use or extend a Java class or interface in Ceylon, or to
+call its methods.
+
 There's a handful of things to be aware of when writing Ceylon 
-code that calls a Java class or interface.
+code that calls a Java class or interface, arising out of the
+differences between the type systems of the two languages.
 
 ### Java primitive types are mapped to Ceylon types
 
@@ -122,6 +128,9 @@ Java method or field from Ceylon. Instead:
 - `double` and `float` are represented by Ceylon's `Float` 
   type, and
 - `java.lang.String` is represented by Ceylon's `String` type.
+
+Almost all of the time, this behavior is completely intuitive.
+But there's two wrinkles to be aware of...
 
 ### Gotcha!
 
@@ -145,7 +154,7 @@ can result in numeric overflow._
 
 ### Gotcha again!
 
-There is no mapping between Java's *wrapper* classes like 
+There's no mapping between Java's *wrapper* classes like 
 `java.lang.Integer` or `java.lang.Boolean` and Ceylon basic 
 types, so these conversions must be performed explicitly by
 calling, for example, `intValue()` or `booleanValue()`, or
@@ -153,12 +162,45 @@ by explicitly instantiating the wrapper class, just like you
 would do in Java when converting between a Java primitive
 type and its wrapper class.
 
+This is mainly important when working with Java collection
+types. For example, a Java `List<Integer>` doesn't contain
+_Ceylon_ `Integer`s.
+
+<!-- try: -->
+    import java.lang { JInteger=Integer }
+    import java.util { JList=List } 
+    
+    JList<JInteger> integers = ... ;
+    for (integer in integers) { //integer is a JInteger!
+        Integer int = integer.intValue(); //convert to Ceylon Integer
+        ...
+    }
+
+(This isn't really much worse than Java, by the way: a Java
+ `List<Integer>` doesn't contain Java `int`s either!)
+
+Worse, a Java `List<String>` doesn't contain _Ceylon_
+`String`s.
+
+<!-- try: -->
+    import java.lang { JString=String }
+    import java.util { JList=List } 
+    
+    JList<JString> strings = ... ;
+    for (string in strings) { //string is a JString!
+        String str = string.string; //convert to Ceylon String
+        ...
+    }
+
+Watch out for this!
+
 ### Java array types are represented by special Ceylon classes
 
 Since there are no primitively-defined array types in Ceylon, 
 arrays are represented by special classes. These classes are
 considered to belong to the package `java.lang`. (Which belongs
-to the module `java.base`.)
+to the module `java.base`.) So these classes must be explicitly
+imported!
 
 - `boolean[]` is represented by the class `BooleanArray`,
 - `char[]` is represented by the class `CharArray`,
@@ -176,6 +218,8 @@ We can obtain a Ceylon `Array` without losing the identity
 of the underlying Java array.
 
 <!-- try: -->
+    import java.lang { ByteArray }
+    
     ByteArray javaByteArray = ByteArray(10);
     Array<Byte> byteArray = javaByteArray.byteArray;
 
@@ -186,6 +230,28 @@ the Ceylon class `Array` that wraps the `byte[]` instance.
 The [module `ceylon.interop.java`](https://herd.ceylon-lang.org/modules/ceylon.interop.java) 
 contains a raft of additional methods for working with these
 Java array types.
+
+### Wildcards and raw types are represented using use-site variance
+
+In pure Ceylon code, we almost always use 
+[declaration-site variance](../generics/#covariance_and_contravariance).
+However, this doesn't work when we interoperate with Java 
+generic types with wildcards. Therefore, Ceylon supports 
+use-site variance (wildcards).
+
+- `List<out Object>` has a covariant wildcard, and is 
+  equivalent to `List<? extends Object>` in Java, and
+- `Topic<in Object>` has a contravariant wildcard, and is 
+  equivalent to `Topic<? super Object>` in Java.
+
+Java raw types are also represented with a covariant wildcard. 
+The raw type `List` is represented as `List<out Object>` in 
+Ceylon.
+
+Wildcard types are unavoidable when interoperating with Java, 
+and perhaps occasionally useful in pure Ceylon code. But we 
+recommend avoiding them, except where there's a really good 
+reason.
 
 ### Null values are checked at runtime
 
@@ -227,10 +293,21 @@ original call to Java.
 
 ### Gotcha!
 
-The Ceylon compiler doesn't have any information that a Java
-method could return `null`, and so it won't warn you at 
-compile time if you call a Java method that sometimes returns
-`null`.
+The Ceylon compiler doesn't usually have any information that a
+Java method returning a class or interface type could return `null`, 
+and so it won't warn you at compile time if you call a Java method
+that sometimes returns `null`.
+
+### Java types annotated `@Nullable` are exposed as optional types
+
+There are now a number of Java frameworks that provide 
+annotations (`@Nullable` and `@Nonnull`/`@NonNull`/`@NotNull`) 
+for indicating whether a Java type can contain `null` values. 
+The Ceylon compiler understands these annotations.
+
+So, as an exception to the above gotcha, when one of these
+annotations is present, Java null values _are_ checked at
+compile time.
 
 ### Java properties are exposed as Ceylon attributes
 
@@ -280,145 +357,30 @@ Therefore:
 - to call the two-argument setter, use a method call like
   `foo.setBar(bar,baz)`.
 
-## Wildcards
+### Java constants and enum values
 
-In pure Ceylon code, we almost always use 
-[declaration-site variance](../generics/#covariance_and_contravariance).
-However, this doesn't work when we interoperate with Java 
-generic types with wildcards. Therefore, Ceylon supports 
-use-site variance (wildcards).
-
-- `List<out Object>` has a covariant wildcard, and is 
-  equivalent to `List<? extends Object>` in Java, and
-- `Topic<in Object>` has a contravariant wildcard, and is 
-  equivalent to `Topic<? super Object>` in Java.
-
-Wildcard types are unavoidable when interoperating with Java, 
-and perhaps occasionally useful in pure Ceylon code. But we 
-recommend avoiding them, except where there's a really good 
-reason.  
-
-## Java `Iterable`s and `AutoCloseable`s 
-
-Since Ceylon 1.2.1 it's possible to use a `java.lang.Iterable`
-or Java array in a Ceylon `for` statement, like this:
-
-<-- try: -->
-    import java.lang { JIterable=Iterable }
-    
-    JIterable<Object> objects = ... ;
-    for (obj in objects) {
-        ...
-    }
-
-Similarly, it's possible to use a Java `AutoCloseable` in a
-Ceylon `try` statement.
-
-<-- try: -->
-    import java.io { File, FileInputStream }
-    
-    File file = ... ;
-    try (inputStream = FileInputStream(file)) {
-         ...
-    }
-
-### Gotcha!
-
-Note that there is no special handling for type of the 
-iterated elements: if the iterable contains Java `String`s 
-they're not magically transformed to Ceylon `String`s:
-
-<-- try: -->
-    import java.lang { JIterable=Iterable, JString=String }
-    
-    JIterable<JString> strings = ...;
-    for (s in strings) {
-        // s is a JString
-    }
-
-### Further gotcha
-
-Also note that `java.lang.Iterable` is not supported together 
-with entry or tuple destructuring:
-
-<-- try: -->
-    JIterable<String->String> stringPairs = ...;
-    for (key->item in stringPairs) {
-        // not supported
-    }
-
-In practice it's unusual to have a Java `Iterable` containing 
-Ceylon `Entry`s or `Tuple`s.
-
-### Java collections and operators 
-
-Finally:
-
-- the element lookup operator (`list[index]`) may be used 
-  with Java arrays and instances of `java.util.List`, and
-- the containment operator (`element in container`) may be 
-  used with instances of `java.util.Collection`. 
-
-## Utility functions and classes
-
-In the module [`ceylon.interop.java`](#{site.urls.apidoc_current_interop_java}/index.html)
-you'll find a suite of useful utility functions and classes for
-Java interoperation. For example, there are classes that adapt
-between Ceylon collection types and Java collection types.
-
-### Converting between `Iterable`s
-
-An especially useful adaptor is 
-[`CeylonIterable`](#{site.urls.apidoc_current_interop_java}/CeylonIterable.type.html), 
-which lets you iterate any Java `Iterable` from a `for` loop in 
-Ceylon, or apply any of the usual operations of a Ceylon 
-[`Iterable`](#{site.urls.apidoc_1_3}/Iterable.type.html) to it.
+Java constants like `Integer.MAX_VALUE` and enum values, like
+`RetentionPolicy.RUNTIME` follow an all-uppercase naming 
+convention. Since this looks rather alien in Ceylon code, it's
+acceptable to refer to them using camel case. This:
 
 <!-- try: -->
-    import java.util { JList=List, JArrayList=ArrayList }
-    import ceylon.interop.java { CeylonIterable }
-    
-    ...
-    
-    JList<String> strings = JArrayList<String>();
-    strings.add("hello");
-    strings.add("world");
-    
-    for (string in CeylonIterable(strings)) {
-        print(string);
-    }
+    Integer maxInteger = JInteger.maxValue;
+    RetentionPolicy policy = RetentionPolicy.runtime;
 
-(Alternatively, we could have used 
-[`CeylonList`](#{site.urls.apidoc_current_interop_java}/CeylonList.type.html)
-in this example.)
-
-Similarly there are `CeylonStringIterable`, `CeylonIntegerIterable`, 
-`CeylonFloatIterable`,`CeylonByteIterable` and `CeylonBooleanIterable` 
-classes which as well as converting the iterable type also convert
-the elements from their Java types to the corresponding Ceylon type.
-
-### Getting a `java.util.Class`
-
-Another especially useful function is 
-[`javaClass`](#{site.urls.apidoc_current_interop_java}/index.html#javaClass),
-which obtains an instance of `java.util.Class` for a given type.
+is preferred to this:
 
 <!-- try: -->
-    import ceylon.interop.java { javaClass }
-    import java.lang { JClass=Class }
-    
-    JClass<Integer> jc = javaClass<Integer>();
-    print(jc.protectionDomain);
+    Integer maxInteger = JInteger.\iMAX_VALUE;
+    RetentionPolicy policy = RetentionPolicy.\iRUNTIME;
 
-The functions [`javaClassFromInstance`](#{site.urls.apidoc_current_interop_java}/index.html#javaClassFromInstance)
-and [`javaClassFromDeclaration`](#{site.urls.apidoc_current_interop_java}/index.html#javaClassFromDeclaration)
-are also useful.
+However, both options are accepted by the compiler.
 
 ## Java annotations
 
-You can annotate a Ceylon class or interface with Java annotations.
-However, you must use an initial lowercase identifier to refer to
-the Java annotation.
+Java annotations may be applied to Ceylon program elements.
+An initial lowercase identifier must be used to refer to the
+Java annotation type.
 
 For example:
 
@@ -449,36 +411,125 @@ For example:
 
 Note that `id` here refers to the Java annotation `javax.persistence.Id`.
 
+Annotation values of type `java.util.Class` may be specified
+by passing the corresponding Ceylon `ClassDeclaration`. For
+example, you would use `` `Person` `` where you would use 
+`Person.class` in Java.
+
+## Java `Iterable`s and `AutoCloseable`s 
+
+It's possible to use a `java.lang.Iterable` or Java array in 
+a Ceylon `for` statement or comprehension.
+
+<!-- try: -->
+    import java.lang { JIterable=Iterable }
+    
+    JIterable<Object> objects = ... ;
+    for (obj in objects) {
+        ...
+    }
+
+Similarly, it's possible to use a Java `AutoCloseable` in a
+Ceylon `try` statement.
+
+<!-- try: -->
+    import java.io { File, FileInputStream }
+    
+    File file = ... ;
+    try (inputStream = FileInputStream(file)) {
+         ...
+    }
+
 ### Gotcha!
 
-A Java annotation with `@Target(ElementType.METHOD)` may be applied to
-a getter or setter method on Java. Similarly, it may be applied to a
-Ceylon getter or setter. But it _may not_ be applied it to a Ceylon 
-_reference_ declaration.
-
-For example, given the following Java annotation:
-
-<!-- lang: java -->
-    @Target(ElementType.METHOD)
-    public @interface Awesome {}
-
-We may apply the annotation to a getter or setter:
+Note that there is no special handling for type of the 
+iterated elements: if the iterable contains Java `String`s 
+they're not magically transformed to Ceylon `String`s:
 
 <!-- try: -->
-    awesome String name => _name;
-    awesome assign name => _name = name;
+    import java.lang { JIterable=Iterable, JString=String }
+    
+    JIterable<JString> strings = ...;
+    for (s in strings) {
+        // s is a JString
+    }
 
-But the following is _not_ legal:
+### Further gotcha
+
+Also note that `java.lang.Iterable` is not supported together 
+with entry or tuple destructuring:
 
 <!-- try: -->
-    awesome String name = "Trompon"; //compile error!
+    JIterable<String->String> stringPairs = ...;
+    for (key->item in stringPairs) {
+        // not supported
+    }
 
-The reason for this restriction is that if either:
+In practice it's unusual to have a Java `Iterable` containing 
+Ceylon `Entry`s or `Tuple`s.
 
-- the Ceylon reference is `variable`, or
-- the Java annotation is also marked `@Target(ElementType.FIELD)`,
+## Java collections and operators 
 
-then this code would be ambiguous.
+Two of Ceylon's built-in operators may be applied to Java types:
+
+- the element lookup operator (`list[index]`) may be used 
+  with Java arrays, `java.util.List`, and `java.util.Map`, 
+  and
+- the containment operator (`element in container`) may be 
+  used with instances of `java.util.Collection`. 
+
+## Utility functions and classes
+
+In the module [`ceylon.interop.java`](#{site.urls.apidoc_current_interop_java}/index.html)
+you'll find a suite of useful utility functions and classes for
+Java interoperation. For example, there are classes that adapt
+between Ceylon collection types and Java collection types.
+
+### Converting between `Iterable`s
+
+An especially useful adaptor is 
+[`CeylonIterable`](#{site.urls.apidoc_current_interop_java}/CeylonIterable.type.html), 
+which lets you iterate any Java `Iterable` from a `for` loop in 
+Ceylon, or apply any of the usual operations of a Ceylon 
+[`Iterable`](#{site.urls.apidoc_1_3}/Iterable.type.html) to it.
+
+<!-- try: -->
+    import java.util { JList=List, JArrayList=ArrayList }
+    import ceylon.interop.java { CeylonIterable }
+    
+    ...
+    
+    JList<String> strings = JArrayList<String>();
+    strings.add("hello");
+    strings.add("world");
+    
+    CeylonIterable(strings).each(print);
+
+(Alternatively, we could have used 
+[`CeylonList`](#{site.urls.apidoc_current_interop_java}/CeylonList.type.html)
+in this example.)
+
+Similarly there are `CeylonStringIterable`, `CeylonIntegerIterable`, 
+`CeylonFloatIterable`,`CeylonByteIterable` and `CeylonBooleanIterable` 
+classes which as well as converting the iterable type also convert
+the elements from their Java types to the corresponding Ceylon type.
+
+### Getting a `java.util.Class`
+
+Another especially useful function is 
+[`javaClass`](#{site.urls.apidoc_current_interop_java}/index.html#javaClass),
+which obtains an instance of `java.util.Class` for a given type.
+
+<!-- try: -->
+    import ceylon.interop.java { javaClass }
+    import java.lang { JClass=Class }
+    
+    JClass<Integer> jc = javaClass<Integer>();
+    print(jc.protectionDomain);
+
+The functions [`javaClassFromInstance`](#{site.urls.apidoc_current_interop_java}/index.html#javaClassFromInstance)
+and [`javaClassFromDeclaration`](#{site.urls.apidoc_current_interop_java}/index.html#javaClassFromDeclaration)
+are also useful.
 
 ## `META-INF` and `WEB-INF`
 
@@ -507,12 +558,14 @@ Then, given a module named `net.example.foo`:
  the class available to Java's 
  [service loader architecture](https://docs.oracle.com/javase/8/docs/api/java/util/ServiceLoader.html).
 
+<!-- try: -->
      service (`Manager`)
      shared class DefautManager() satisfies Manager {}
  
  A Ceylon module may gain access to Java services by calling
  `Module.findServiceProviders()`.
 
+<!-- try: -->
      {Manager*} managers = `module`.findServiceProviders(`Manager`);
      assert (exists manager = managers.first);"
 
@@ -531,7 +584,7 @@ Here's a couple of limitations to be aware of:
 - Java generic types don't carry reified type arguments at 
   runtime, so certain operations that depend upon reified 
   generics (for example, some `is` tests) are rejected at 
-  compiletime, or unchecked at runtime.
+  compile time, or unchecked at runtime.
 
 ## There's more ...
 
