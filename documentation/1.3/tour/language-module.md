@@ -554,6 +554,10 @@ these interfaces, along with APIs for building and mutating collections:
 [`MutableMap`](#{site.urls.apidoc_current_collection}/MutableMap.type.html), 
 and [`MutableSet`](#{site.urls.apidoc_current_collection}/MutableSet.type.html).
 
+Note: if you only need an immutable `Map` or `Set`, the functions 
+[`map()`](#{site.urls.apidoc_1_3}/index.html#map) and
+[`set()`](#{site.urls.apidoc_1_3}/index.html#map) may be used to create one.
+
 ## There's more...
 
 The language module isn't by itself a platform for building applications.
