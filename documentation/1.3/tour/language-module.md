@@ -367,9 +367,9 @@ Therefore, the precision of these types depends on whether you're running
 your code on the JVM or on a JavaScript virtual machine. 
 
 - When compiling for Java both types have 64-bit precision by default. 
-  Eventually, you'll be able to specify that a value has 32-bit precision 
-  by annotating it `small`. But note that this annotation is really just a 
-  hint that the compiler is free to ignore (as it currently does).
+  You can specify that a value has 32-bit precision by annotating it `small`. 
+  (But note that this annotation is a hint that the compiler is permitted to 
+  ignore.)
 - When compiling for JavaScript, `Float`s have 64-bit precision and
   `Integer`s have 53-bit precision.
 
