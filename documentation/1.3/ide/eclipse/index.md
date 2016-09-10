@@ -10,7 +10,7 @@ author: Gavin King
 [eclipse]: http://www.eclipse.org/downloads/
 
 The Ceylon IDE for Eclipse is a plugin for [Eclipse][eclipse]. The IDE project was 
-initiated by David Festal from [SERLI](http://www.serli.com/), a french 
+initiated by David Festal from [SERLI](http://www.serli.com/), a French 
 software company contributing to the Ceylon project.
 
 <img src="/images/screenshots/1.2.0/teaser.png" style="box-shadow: 0 0 10px #888;margin-left:5px;" width="743" height="330"/>

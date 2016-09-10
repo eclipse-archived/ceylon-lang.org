@@ -19,8 +19,8 @@ some of what you get.</b></p>
 <div class="feature">
 <h2>Intelligent proposals</h2>
 <p>The compiler and IDE work together to find bugs in your code as you're typing and 
-propose solutions: the editor features quick fixes for errors, and oodles of contextual 
-quick assists.</p>
+propose solutions: the editor features quick fixes for errors, and oodles of other
+contextual intention actions.</p>
 <div>
 <img src="/images/screenshots/1.3.0/intellij/quick-fix.png" width="50%" style="box-shadow: 0 0 15px #888;"/>
 <img src="/images/screenshots/1.3.0/intellij/quick-assist.png" width="45%" style="box-shadow: 0 0 15px #888;"/>
