@@ -23,9 +23,10 @@ _If you're new to object-oriented programming,_ you'll still
 be able to learn Ceylon. These concepts aren't difficult to
 pick up! But you might find some chapters of the tour pretty
 hard going first time through. If so, take it slowly: 
-experiment with the language using [Ceylon IDE for Eclipse](../ide/eclipse), and 
-gradually get a feel for how these things work and how they 
-are useful. None of us learned to program from books or 
+experiment with the language using Ceylon IDE 
+[for Eclipse](../ide/eclipse) or [for Intellij](../ide/intellij), 
+and gradually get a feel for how these things work and how 
+they are useful. None of us learned to program from books or 
 tutorials or from other people telling us how to do it. We 
 learned by playing and experimenting and working with other
 people's code.
@@ -36,7 +37,7 @@ There's a lot more rules to know about than in a language like
 Python, Ruby, or Smalltalk. But we promise that the benefits 
 make it worthwhile in the end, especially once you learn to 
 use the IDE effectively. Tools for a dynamic language simply 
-can't reason about your code like Ceylon IDE for Eclipse can! 
+can't reason about your code like Ceylon IDE can! 
 
 ### Help us improve!
 
@@ -110,9 +111,9 @@ Let's try it out. Save the above code in the file `./source/hello.ceylon`
 and then run the following command:
 
 <!-- lang: bash -->
-    ceylon-1.2.1/bin/ceylon run --compile=force --run hello default
+    ceylon-1.3.0/bin/ceylon run --compile=force --run hello default
 
-where `ceylon-1.2.1` is the path to your Ceylon install directory. You should
+where `ceylon-1.3.0` is the path to your Ceylon install directory. You should
 see the message `Hello, World!`. You will find the compiled module archive 
 `default.car` in the directory `./modules/default`.
 
@@ -131,18 +132,18 @@ Alternatively, you can compile and run in two separate steps,
 with the following commands:
 
 <!-- lang: bash -->
-    ceylon-1.2.1/bin/ceylon compile source/hello.ceylon
-    ceylon-1.2.1/bin/ceylon run --run hello default
+    ceylon-1.3.0/bin/ceylon compile source/hello.ceylon
+    ceylon-1.3.0/bin/ceylon run --run hello default
 
 A very useful trick is:
 
 <!-- lang: bash -->
-    ceylon-1.2.1/bin/ceylon help compile
+    ceylon-1.3.0/bin/ceylon help compile
 
 Or:
 
 <!-- lang: bash -->
-    ceylon-1.2.1/bin/ceylon help run
+    ceylon-1.3.0/bin/ceylon help run
 
 The command
 [ceylon help](#{site.urls.ceylon_tool_current}/ceylon-help.html) 
@@ -160,11 +161,11 @@ using a supported version of Java.
 
 <!-- lang: bash -->
     bash$ java -version
-    java version "1.7.0_05"
-    Java(TM) SE Runtime Environment (build 1.7.0_05-b06)
-    Java HotSpot(TM) 64-Bit Server VM (build 23.1-b03, mixed mode)
+    java version "1.8.0_92"
+    Java(TM) SE Runtime Environment (build 1.8.0_92-b14)
+    Java HotSpot(TM) 64-Bit Server VM (build 25.92-b14, mixed mode)
     bash$ javac -version
-    javac 1.7.0_05
+    javac 1.8.0_92
 
 If you're using some other version of Java, you'll need to change to use 
 Java 7 or Java 8:
@@ -188,16 +189,59 @@ encoding on the command line like this:
 <!-- lang: bash -->
     ceylon compile --encoding UTF-8 source/hello.ceylon
 
-## Running the program from the IDE
+## Running the program from the IntelliJ IDE
 
-To run the program in [Ceylon IDE for Eclipse](../ide/eclipse), go to the Ceylon 
-perspective, then:
+To run the program in [Ceylon IDE for IntelliJ](../ide/intellij):
 
-1. create a new project using `File > New > Ceylon Project`, 
-2. create a new `.ceylon` file inside the project using 
-   `File > New > Ceylon Source File`,
-3. paste the definition of `hello()` in this new file, and then 
-4. select the file and run it using `Run > Run As > Ceylon Application`.
+1. Create a new project using `File > New > Project...`, selecting
+   `Ceylon`, clicking `Next` three times, entering a name for the
+   project, and finally clicking `Finish`.
+2. Create a new `.ceylon` file inside the project by selecting the
+   project's `source` folder, and using  
+   `File > New > Ceylon File/Declaration`.
+3. Paste the definition of `hello()` into this new file. 
+4. Finally, select the file and run it using `Run > Run...`.
+
+This executes the program on the JVM.
+
+<div style="text-align:center">
+<img src="/images/screenshots/1.3.0/intellij/hello.png" width="85%" style="box-shadow: 0 0 15px #888;"/>
+</div>
+
+If you have `node.js` installed, you can go to `File > Project Structure...`, 
+select the `Facets` section, select `Ceylon`, enable `Compile project to JavaScript`, 
+then click `OK`, and run the program on node using `Run > Run...`.
+
+If you want to be sure which VM you're executing on, just add this 
+line to your program:
+
+    print(runtime.name);
+
+If it prints `jvm`, you're running on Java. If it prints `node.js`,
+you're running on node.
+
+### Selecting the JDK
+
+You need to make sure that your project is configured to compile using the Java 
+7 or Java 8 compiler. Go to `File > Project Structure...`, select the `Project` 
+section, and make sure that the project is configured to use the Java 7 or
+Java 8 SDK.
+
+### Setting the character encoding
+
+To set the source file character encoding in IntelliJ, go to 
+`File > File > Encoding` and select a `File Encoding`.
+
+## Running the program from the Eclipse IDE
+
+To run the program in [Ceylon IDE for Eclipse](../ide/eclipse), go to the 
+Ceylon perspective, then:
+
+1. Create a new project using `File > New > Ceylon Project`. 
+2. Create a new `.ceylon` file inside the project using 
+   `File > New > Ceylon Source File`.
+3. Paste the definition of `hello()` into this new file. 
+4. Select the file and run it using `Run > Run As > Ceylon Application`.
 
 This executes the program on the JVM.
 

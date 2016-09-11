@@ -34,6 +34,19 @@ smoothly and elegantly with native Java and JavaScript code and libraries,
 and even with Maven and OSGi. Thus, Ceylon programs have access to not one
 but two huge ecosystems of reusable building blocks.
 
+## Choice of IDEs
+
+Ceylon benefits from a completely fully-featured IDE as a plugin for the
+two leading Java development environments:
+
+- the [Eclipse platform](../ide/eclipse/features), and 
+- [IntelliJ IDEA](../ide/intellij/features) or Android Studio.
+
+A major benefit of Ceylon's extremely strong static type system is that it
+enables extremely powerful tooling. You'll need an IDE to take full advantage 
+of this. Fortunately, whether you're an Eclipse user or an IntelliJ fanboy, 
+you'll feel right at home.
+
 ## A familiar, readable syntax
 
 Ceylon's syntax is ultimately derived from C. So if you're a C, Java, or C#
