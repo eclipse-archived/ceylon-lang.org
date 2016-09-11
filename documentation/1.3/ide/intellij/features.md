@@ -18,58 +18,69 @@ some of what you get.</b></p>
 
 <div class="feature">
 <h2>Intelligent proposals</h2>
-<p>The compiler and IDE work together to find bugs in your code as you're typing and 
-propose solutions: the editor features quick fixes for errors, and oodles of other
-contextual intention actions.</p>
+<p>The compiler and IDE work together to find bugs in your code as you're typing and propose 
+solutions.</p>
+<div>
+<img src="/images/screenshots/1.3.0/intellij/error.png" width="80%" style="box-shadow: 0 0 15px #888;"/>
+<img src="/images/screenshots/1.3.0/intellij/error-fixes.png" width="90%" style="box-shadow: 0 0 15px #888;"/>
+</div>
+<p>The editor features quick fixes for errors, and oodles of other contextual intention actions.</p>
 <div>
 <img src="/images/screenshots/1.3.0/intellij/quick-fix.png" width="50%" style="box-shadow: 0 0 15px #888;"/>
 <img src="/images/screenshots/1.3.0/intellij/quick-assist.png" width="45%" style="box-shadow: 0 0 15px #888;"/>
 </div>
-<p>Some proposals offer an interactive linked mode.</p> 
+<p>Some proposals even feature an interactive linked mode.</p> 
 <div>
 <img src="/images/screenshots/1.3.0/intellij/linked-mode.png" width="40%" style="box-shadow: 0 0 15px #888;"/>
-<img src="/images/screenshots/1.3.0/intellij/select-resolution.png" width="55%" style="box-shadow: 0 0 15px #888;"/>
+<img src="/images/screenshots/1.3.0/intellij/select-resolution.png" width="55%" style="box-shadow: 0 0 15px #888;vertical-align:top"/>
 </div>
+<p>All this assistance makes it easier to learn the language, understand error messages, and 
+improve your code.</p>
 </div>
 
 <div class="feature" style="text-align:right">
 <h2>Contextual completion</h2>
 <p>We haven't forgotten everyone's favorite feature of an IDE: contextual autocompletion.
-Completion will even find modules for you, in Herd, or elsewhere!</p>
-<div>
-<img src="/images/screenshots/1.3.0/intellij/complete-module.png" width="60%" style="box-shadow: 0 0 15px #888;"/>
-<!--img src="/images/screenshots/1.2.0/complete-version.png" width="25%" style="box-shadow: 0 0 15px #888;"/-->
-</div>
-<p>Completion supports "linked mode" argument proposals, a feature that's still missing 
-from IntelliJ's Java editor.</p>
+Completion in Ceylon IDE supports "linked mode" argument proposals, a feature available
+in other IDEs that's still missing from IntelliJ's Java editor.</p>
 <div>
 <img src="/images/screenshots/1.3.0/intellij/complete-type.png" width="60%" style="box-shadow: 0 0 15px #888;"/>
 <img src="/images/screenshots/1.3.0/intellij/complete-arg.png" width="35%" style="box-shadow: 0 0 15px #888;"/>
 </div>
 <p>Naturally, chain completion is also available.</p>
 <div>
-<img src="/images/screenshots/1.3.0/intellij/chain-completion.png" width="80%" style="box-shadow: 0 0 15px #888;"/>
+<img src="/images/screenshots/1.3.0/intellij/chain-completion.png" width="70%" style="box-shadow: 0 0 15px #888;"/>
 </div>
+<p>Completion will even find and propose modules for you, searching the Herd, the Java SDK, 
+and any other module repository you're using in your project!</p>
+<div>
+<img src="/images/screenshots/1.3.0/intellij/complete-module-name.png" width="45%" style="box-shadow: 0 0 15px #888;"/>
+<img src="/images/screenshots/1.3.0/intellij/complete-module-version.png" width="45%" style="box-shadow: 0 0 15px #888;"/>
+<img src="/images/screenshots/1.3.0/intellij/complete-module.png" width="60%" style="box-shadow: 0 0 15px #888;"/>
+</div>
+<p>
 </div>
 
 <div class="feature">
 <h2>Refactoring</h2>
 <p>The IDE features **Rename**, **Inline**, **Extract Function**, **Extract Value**, 
-and **Change Signature** refactorings.</p>
+and **Change Signature** refactorings. Rename supports inline "linked mode".</p>
 <div>
-<img src="/images/screenshots/1.3.0/intellij/rename.png" width="70%" style="box-shadow: 0 0 15px #888;"/>
+<img src="/images/screenshots/1.3.0/intellij/rename.png" width="60%" style="box-shadow: 0 0 15px #888;"/>
 </div>
-<p>**Extract** refactorings let you select a containing expression, and then allow 
-customization of the extracted function or value in linked mode.</p>
+<p>n **Extract** refactoring lets you select a containing expression, a target scope,
+in the case of extracting a function, and then allows customization of the extracted 
+function or value name in linked mode.</p>
 <div>
-<img src="/images/screenshots/1.3.0/intellij/select-expression.png" width="25%" style="box-shadow: 0 0 15px #888;"/>
-<img src="/images/screenshots/1.3.0/intellij/target-scope.png" width="45%" style="box-shadow: 0 0 15px #888;vertical-align:top;"/>
-<img src="/images/screenshots/1.3.0/intellij/extract-value.png" width="25%" style="box-shadow: 0 0 15px #888;"/>
+<img src="/images/screenshots/1.3.0/intellij/select-expression.png" width="45%" style="box-shadow: 0 0 15px #888;"/><br/>
+<img src="/images/screenshots/1.3.0/intellij/target-scope.png" width="60%" style="box-shadow: 0 0 15px #888;vertical-align:top;"/>
+<img src="/images/screenshots/1.3.0/intellij/extract-value.png" width="35%" style="box-shadow: 0 0 15px #888;"/>
 </div>
-<p>**Change Signature** lets you change the signature of a function, including adding 
-or inlining default arguments.</p>
+<p>**Change Signature** lets you change the signature of a function, renaming, 
+reordering, adding, and removing parameters, or adding and inlining default 
+arguments.</p>
 <div style="text-align:center">
-<img src="/images/screenshots/1.3.0/intellij/change-signature.png" width="50%" style="box-shadow: 0 0 15px #888;"/>
+<img src="/images/screenshots/1.3.0/intellij/change-signature.png" width="60%" style="box-shadow: 0 0 15px #888;"/>
 </div>
 </div>
 
@@ -78,6 +89,9 @@ or inlining default arguments.</p>
 <p>To understand and maintain a large codebase, there's nothing more important than
 easy navigation between code. Ceylon IDE provides hyperlink-style "go to" navigation 
 to any referenced declaration, package, or module, including Java declarations.</p>
+<div>
+<img src="/images/screenshots/1.3.0/intellij/goto.png" width="90%" style="box-shadow: 0 0 15px #888;"/>
+</div>
 <p>**Navigate > Implementations**, **Navigate > Supertype Declaration**, and
 **Navigate > Type Declaration** let us easily get from one place to another within
 an inheritance hierarchy. Gutter icons indicate member refinement.</p>
@@ -85,15 +99,15 @@ an inheritance hierarchy. Gutter icons indicate member refinement.</p>
 <img src="/images/screenshots/1.3.0/intellij/implementations.png" width="75%" style="box-shadow: 0 0 15px #888;"/>
 <img src="/images/screenshots/1.3.0/intellij/supertypes.png" width="75%" style="box-shadow: 0 0 15px #888;"/>
 </div>
+<p>On the other hand, the **Navigate > Class** and **Navigate > Symbol** popup dialogs 
+are the quickest ways to get to a named declaration from wherever you are.</p>
+<div>
+<img src="/images/screenshots/1.3.0/intellij/navigate-class.png" width="65%" style="box-shadow: 0 0 15px #888;"/>
+</div>
 <p>The **Structure** tool window and **File Structure** popup make it easy to navigate 
 within the current file.</p>
 <div>
 <img src="/images/screenshots/1.3.0/intellij/structure.png" width="40%" style="box-shadow: 0 0 15px #888;"/>
-</div>
-<p>On the other hand, the **Navigate > Class** and **Navigate > Symbol** are the 
-quickest ways to get to a declaration from wherever you are.</p>
-<div>
-<img src="/images/screenshots/1.3.0/intellij/navigate-class.png" width="65%" style="box-shadow: 0 0 15px #888;"/>
 </div>
 </div>
 
@@ -106,7 +120,7 @@ relationships. They even show relationships between Ceylon and Java types.</p>
 </div>
 <p>**Implement Formal Members** and **Refine Inherited Members** are a quick way to
 select and fill in the signature of several supertype members at once.</p>
-<div>
+<div style="text-align:center">
 <img src="/images/screenshots/1.3.0/intellij/implement-members.png" width="55%" style="box-shadow: 0 0 15px #888"/>
 </div>
 </div>
