@@ -18,10 +18,7 @@ Ceylon IDE provides inline error reporting, syntax highlighting, code completion
 refactoring, intention actions, navigation, searching, online documentation,
 and much, much more. 
 
-<div style="text-align:center">
-<img src="/images/screenshots/1.3.0/intellij/intellij-default.png" 
-    style="box-shadow: 0 0 10px #888;margin-left:5px;" width="90%"/>
-</div>
+<img src="/images/screenshots/1.3.0/intellij/intellij-default.png" style="box-shadow: 0 0 10px #888;margin-left:10px" width="95%"/>
 
 Like everything we produce, Ceylon IDE for IntelliJ is [open source](/code/licenses).
 
@@ -30,3 +27,6 @@ Like everything we produce, Ceylon IDE for IntelliJ is [open source](/code/licen
 You can find out what Ceylon IDE for IntelliJ has to offer, together with 
 screenshots, on the [IDE features page](features). Of course, the best way 
 to learn what the IDE provides is to [install it](install).
+
+<img src="/images/screenshots/1.3.0/intellij/intellij-darcula.png" style="box-shadow: 0 0 10px #888;margin-left:10px" width="95%"/>
+
