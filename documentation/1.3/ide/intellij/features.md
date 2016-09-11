@@ -68,7 +68,7 @@ and **Change Signature** refactorings. Rename supports inline "linked mode".</p>
 <div>
 <img src="/images/screenshots/1.3.0/intellij/rename.png" width="60%" style="box-shadow: 0 0 15px #888;"/>
 </div>
-<p>n **Extract** refactoring lets you select a containing expression, a target scope,
+<p>An **Extract** refactoring lets you select a containing expression, a target scope,
 in the case of extracting a function, and then allows customization of the extracted 
 function or value name in linked mode.</p>
 <div>
