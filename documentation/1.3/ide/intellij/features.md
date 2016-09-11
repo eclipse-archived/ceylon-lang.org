@@ -80,12 +80,13 @@ easy navigation between code. Ceylon IDE provides hyperlink-style "go to" naviga
 to any referenced declaration, package, or module, including Java declarations.</p>
 <p>**Navigate > Implementations**, **Navigate > Supertype Declaration**, and
 **Navigate > Type Declaration** let us easily get from one place to another within
-an inheritance hierarchy.</p>
+an inheritance hierarchy. Gutter icons indicate member refinement.</p>
 <div>
 <img src="/images/screenshots/1.3.0/intellij/implementations.png" width="75%" style="box-shadow: 0 0 15px #888;"/>
 <img src="/images/screenshots/1.3.0/intellij/supertypes.png" width="75%" style="box-shadow: 0 0 15px #888;"/>
 </div>
-<p>The **Structure** tool window and popup make it easy to navigate within the current file.</p>
+<p>The **Structure** tool window and **File Structure** popup make it easy to navigate 
+within the current file.</p>
 <div>
 <img src="/images/screenshots/1.3.0/intellij/structure.png" width="40%" style="box-shadow: 0 0 15px #888;"/>
 </div>
@@ -126,7 +127,7 @@ select and fill in the signature of several supertype members at once.</p>
 <div class="feature">
 <h2>Online documentation</h2>
 <p>**Quick Documentation** puts the API documentation, dynamically compiled, for any 
-program element right at your pointer.</p>
+program element right at your pointer. (**Quick Definition** displays the code.)</p>
 <div style="text-align:center">
 <img src="/images/screenshots/1.3.0/intellij/documentation.png" width="60%" style="box-shadow: 0 0 15px #888;"/>
 </div>
@@ -162,9 +163,9 @@ the IDE.</p>
 </div>
 
 <p>Of course, there's much more to Ceylon IDE: customizable syntax highlighting,
-code folding, formatting and auto-indentation, **Optimize Imports**, 
-**Paste Java as Ceylon**, **Surround With**, **Unwrap**, **Move Statement**, 
-not to mention running and debugging.</p>
+code folding, breadcrumbs, formatting and auto-indentation, **Optimize Imports**, 
+insert imports on paste, **Paste Java as Ceylon**, **Surround With**, **Unwrap**, 
+**Move Statement**, **Move Element**, not to mention running and debugging.</p>
 
 <p style="margin-left:15%;margin-right:15%;text-align:center">
 Get Ceylon IDE for IntelliJ from the <a href="../install">download site</a>.</p>
