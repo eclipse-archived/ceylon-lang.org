@@ -23,10 +23,10 @@ the 1.3 release of the language, command line tools, and IDEs.
         <a href="/documentation/current/ide/eclipse/install" 
            title='Install the IDE'
            onClick="javascript: _gaq.push(['_trackPageview', '/documentation/current/ide/eclipse/install?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
-           <img src="/images/download/eclipse-ide.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
+           <img src="/images/eclipse-ide.png" srcset="/images/eclipse-ide@2x.png 64w" width="32px" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
         </a>
         </td>
-        <td><a href="/documentation/current/ide/eclipse">Ceylon IDE for Eclipse</a>.</td>
+        <td><a href="/documentation/current/ide/eclipse">Ceylon IDE for Eclipse</a></td>
         <td>Eclipse Luna/Mars/Neon</td>
         <td>
         <a href="/documentation/current/ide/eclipse/install" 
@@ -42,11 +42,11 @@ the 1.3 release of the language, command line tools, and IDEs.
         <a href="/documentation/current/ide/intellij/install" 
            title='Install the IDE'
            onClick="javascript: _gaq.push(['_trackPageview', '/documentation/current/ide/intellij/install?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
-           <img src="/images/download/intellij-ide.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
+           <img src="/images/intellij-ide.png" srcset="/images/intellij-ide@2x.png 64w" width="32px" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
         </a>
         </td>
-        <td><a href="/documentation/current/ide/intellij">Ceylon IDE for Intellij IDEA</a>.</td>
-        <td>Intellij IDEA 2016.???</td>
+        <td><a href="/documentation/current/ide/intellij">Ceylon IDE for Intellij</a></td>
+        <td>Intellij IDEA 2016.2</td>
         <td>
         <a href="/documentation/current/ide/intellij/install" 
            title='Install the IDE'
