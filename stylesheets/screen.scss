@@ -1315,15 +1315,13 @@ ul.nav-tabs > li {
 }
 
 ul.nav-tabs {
-  padding-left: 0;
-  border-bottom: 1px solid #ddd;
-  margin-bottom: 20px !important;
+  margin-bottom: 5px !important;
   margin-top: 20px !important;
-  padding-bottom: 5px;
 }
 
 .tab-content {
-  margin: 1em 0;
+ border: 1px solid #ddd;
+ padding: 1em;
 }
 
 .tab-content .tab-pane {
