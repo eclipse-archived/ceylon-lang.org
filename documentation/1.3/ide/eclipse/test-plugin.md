@@ -15,7 +15,8 @@ the Ceylon IDE for Eclipse, so no additional installation is needed.
 
 ## Getting started with your first ceylon unit test
 
-The test framework is in the Ceylon SDK module `ceylon.test`, latest version and current documentation can be found [here](https://modules.ceylon-lang.org/modules/ceylon.test).
+The test framework is in the Ceylon SDK module `ceylon.test`, latest version and current documentation can be found 
+[here](https://modules.ceylon-lang.org/modules/ceylon.test).
 
 So let’s start by importing the `ceylon.test` module in our module descriptor and writing our first test.
 
@@ -46,11 +47,11 @@ Now let’s see the IDE integrations!
 Once you have created your tests, you can create a _Ceylon Test Launch Configuration_. 
 In this dialog you can specify the tests to run, their arguments, run-time environment, etc…
 
-![launch-config](/images/screenshots/ceylon-test-plugin/launch-config.png)
+<img src="/images/screenshots/ceylon-test-plugin/launch-config.png" width="80%"/>
 
 In the launch configuration you can directly add test methods or whole containers, like classes, packages, modules, or entire projects.
 
-![select-test](/images/screenshots/ceylon-test-plugin/select-test.png)
+<img src="/images/screenshots/ceylon-test-plugin/select-test.png" width="70%"/>
 
 As you would expect, a quick way to run ceylon tests is to right click in the _Ceylon Explorer_ or in open editor and select _Run-As → Ceylon Test_.
 
@@ -68,7 +69,7 @@ The toolbar has familiar functions:
 - test runs history, and
 - menu for view customisation (show elapsed time or show tests grouped by packages).
 
-![test-result-view](/images/screenshots/ceylon-test-plugin/test-result-view.png)
+<img src="/images/screenshots/ceylon-test-plugin/test-result-view.png" width="50%"/>
 
 
 ## Comparing test results
@@ -80,11 +81,11 @@ where you can see which tests have regressed, which tests have been fixed and
 which tests have been added or removed between two test runs, making it extra
 easy to get an idea of what your recent work did to the test suite.
 
-![test-runs-history](/images/screenshots/ceylon-test-plugin/test-runs-history.png)
+<img src="/images/screenshots/ceylon-test-plugin/test-runs-history.png" width="80%"/>
 
-![compare-test-runs](/images/screenshots/ceylon-test-plugin/compare-test-runs.png)
+<img src="/images/screenshots/ceylon-test-plugin/compare-test-runs.png" width="80%"/>
 
 ## Try it now
 
 You can try it right away by downloading our 
-[Ceylon IDE for Eclipse](/documentation/1.0/ide/eclipse/install).
+[Ceylon IDE for Eclipse](../install).
