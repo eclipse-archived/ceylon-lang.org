@@ -264,11 +264,12 @@ as needed.
 
 The source [code](/code) is available from [GitHub](http://ceylon.github.com).
 
-## Looking for older releases?
-
-You can download every [previous Ceylon release](/download-archive).
-
 ## Looking for nightly builds?
 
 You can download pre-release builds of Ceylon (distribution, SDK, IDEs) on our
 [Continuous Integration server](https://ci-ceylon.rhcloud.com/).
+
+## Looking for older releases?
+
+You can download every [previous Ceylon release](/download-archive).
+
