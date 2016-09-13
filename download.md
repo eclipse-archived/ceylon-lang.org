@@ -15,6 +15,51 @@ change_frequency: weekly
 is now available for download! This is
 the 1.3 release of the language, command line tools, and IDEs.
 
+## Ceylon IDE
+
+<table>
+    <tr>
+        <td>
+        <a href="/documentation/current/ide/eclipse/install" 
+           title='Install the IDE'
+           onClick="javascript: _gaq.push(['_trackPageview', '/documentation/current/ide/eclipse/install?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
+           <img src="/images/download/eclipse-ide.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
+        </a>
+        </td>
+        <td><a href="/documentation/current/ide/eclipse">Ceylon IDE for Eclipse</a>.</td>
+        <td>Eclipse Luna/Mars/Neon</td>
+        <td>
+        <a href="/documentation/current/ide/eclipse/install" 
+           title='Install the IDE'
+           class='bubble-button'
+           onClick="javascript: _gaq.push(['_trackPageview', '/documentation/current/ide/eclipse/install?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
+           FOLLOW THESE INSTRUCTIONS
+        </a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+        <a href="/documentation/current/ide/intellij/install" 
+           title='Install the IDE'
+           onClick="javascript: _gaq.push(['_trackPageview', '/documentation/current/ide/intellij/install?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
+           <img src="/images/download/intellij-ide.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
+        </a>
+        </td>
+        <td><a href="/documentation/current/ide/intellij">Ceylon IDE for Intellij IDEA</a>.</td>
+        <td>Intellij IDEA 2016.???</td>
+        <td>
+        <a href="/documentation/current/ide/intellij/install" 
+           title='Install the IDE'
+           class='bubble-button'
+           onClick="javascript: _gaq.push(['_trackPageview', '/documentation/current/ide/intellij/install?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
+           FOLLOW THESE INSTRUCTIONS
+        </a>
+        </td>
+    </tr>
+</table>
+
+After installing, go to `Help > Welcome to Ceylon` to get started.
+
 ## Command line tools
 
 This package contains the Ceylon command line compiler for 
@@ -184,73 +229,6 @@ sudo yum install ceylon-1.3.0
 sudo dnf install ceylon-1.3.0</code></pre>
   </div>
 </div>
-
-## Ceylon IDE
-
-<table>
-    <tr>
-        <td>
-        <a href="/documentation/current/ide/eclipse/install" 
-           title='Install the IDE'
-           onClick="javascript: _gaq.push(['_trackPageview', '/documentation/current/ide/eclipse/install?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
-           <img src="/images/download/eclipse-ide.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
-        </a>
-        </td>
-        <td><a href="/documentation/current/ide/eclipse">Ceylon IDE for Eclipse</a>.</td>
-        <td>Eclipse Luna/Mars/Neon</td>
-        <td>
-        <a href="/documentation/current/ide/eclipse/install" 
-           title='Install the IDE'
-           class='bubble-button'
-           onClick="javascript: _gaq.push(['_trackPageview', '/documentation/current/ide/eclipse/install?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
-           FOLLOW THESE INSTRUCTIONS
-        </a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-        <a href="/documentation/current/ide/intellij/install" 
-           title='Install the IDE'
-           onClick="javascript: _gaq.push(['_trackPageview', '/documentation/current/ide/intellij/install?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
-           <img src="/images/download/intellij-ide.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
-        </a>
-        </td>
-        <td><a href="/documentation/current/ide/intellij">Ceylon IDE for Intellij IDEA</a>.</td>
-        <td>Intellij IDEA 2016.???</td>
-        <td>
-        <a href="/documentation/current/ide/intellij/install" 
-           title='Install the IDE'
-           class='bubble-button'
-           onClick="javascript: _gaq.push(['_trackPageview', '/documentation/current/ide/intellij/install?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
-           FOLLOW THESE INSTRUCTIONS
-        </a>
-        </td>
-    </tr>
-</table>
-
-<!--
-<table>
-    <tr>
-        <td>
-        <a href='http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=185799' 
-          title='Drag and drop into a running Eclipse Luna workspace to install Ceylon IDE for Eclipse'>
-          <img src='http://marketplace.eclipse.org/misc/installbutton.png' style="vertical-align: middle; float: right; margin-right: 0.5em"/>
-        </a>
-        </td>
-        <td>Ceylon IDE for Eclipse</td>
-        <td>Eclipse Luna</td>
-        <td>
-        <a href='http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=185799' 
-           title='Drag and drop into a running Eclipse Indigo workspace to install Ceylon IDE for Eclipse' 
-           style='font-weight:bold;text-decoration:none'> 
-          drag and drop into a running Eclipse workspace
-        </a>
-        </td>
-    </tr>
-</table>
--->
-
-After installing, go to `Help > Welcome to Ceylon` to get started.
 
 ## SDK
 
