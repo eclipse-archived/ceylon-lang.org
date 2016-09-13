@@ -11,7 +11,7 @@ change_frequency: weekly
 
 # #{page.title}
 
-[Ceylon 1.3.0][1.3.0] _&ldquo;Charming But Irrational&rdquo;_ 
+[Ceylon 1.3.0][1.3.0] _&ldquo;Total Internal Reflection&rdquo;_ 
 is now available for download! This is
 the 1.3 release of the language, command line tools, and IDEs.
 
