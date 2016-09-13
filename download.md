@@ -15,6 +15,38 @@ change_frequency: weekly
 is now available for download! This is the second minor update release of
 the 1.2 release of the language, command line tools, and IDE.
 
+## Ceylon IDE
+
+[Ceylon IDE][ide] is a suite of plugins for Eclipse, available 
+from our [update site][update site].
+
+[ide]: /documentation/current/ide
+[update site]: /documentation/current/ide/install?utm_source=download&utm_medium=web&utm_content=ide-install&utm_campaign=IDE_latestrelease
+
+<table>
+    <tr>
+        <td>
+        <a href="/documentation/current/ide/install" 
+           title='Install the IDE'
+           onClick="javascript: _gaq.push(['_trackPageview', '/documentation/current/ide/install?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
+           <img src="/images/download/eclipse-ide.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
+        </a>
+        </td>
+        <td>Ceylon IDE</td>
+        <td>Eclipse Luna/Mars/Neon</td>
+        <td>
+        <a href="/documentation/current/ide/install" 
+           title='Install the IDE'
+           class='bubble-button'
+           onClick="javascript: _gaq.push(['_trackPageview', '/documentation/current/ide/install?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
+           FOLLOW THESE INSTRUCTIONS
+        </a>
+        </td>
+    </tr>
+</table>
+
+After installing, go to `Help > Welcome to Ceylon` to get started.
+
 ## Command line tools
 
 This package contains the Ceylon command line compiler for 
@@ -184,60 +216,6 @@ sudo yum install ceylon-1.2.2
 sudo dnf install ceylon-1.2.2</code></pre>
   </div>
 </div>
-
-## Ceylon IDE
-
-[Ceylon IDE][ide] is a suite of plugins for Eclipse, available 
-from our [update site][update site].
-
-[ide]: /documentation/current/ide
-[update site]: /documentation/current/ide/install?utm_source=download&utm_medium=web&utm_content=ide-install&utm_campaign=IDE_latestrelease
-
-<table>
-    <tr>
-        <td>
-        <a href="/documentation/current/ide/install" 
-           title='Install the IDE'
-           onClick="javascript: _gaq.push(['_trackPageview', '/documentation/current/ide/install?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
-           <img src="/images/download/eclipse-ide.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
-        </a>
-        </td>
-        <td>Ceylon IDE</td>
-        <td>Eclipse Luna/Mars/Neon</td>
-        <td>
-        <a href="/documentation/current/ide/install" 
-           title='Install the IDE'
-           class='bubble-button'
-           onClick="javascript: _gaq.push(['_trackPageview', '/documentation/current/ide/install?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
-           FOLLOW THESE INSTRUCTIONS
-        </a>
-        </td>
-    </tr>
-</table>
-
-<!--
-<table>
-    <tr>
-        <td>
-        <a href='http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=185799' 
-          title='Drag and drop into a running Eclipse Luna workspace to install Ceylon IDE'>
-          <img src='http://marketplace.eclipse.org/misc/installbutton.png' style="vertical-align: middle; float: right; margin-right: 0.5em"/>
-        </a>
-        </td>
-        <td>Ceylon IDE</td>
-        <td>Eclipse Luna</td>
-        <td>
-        <a href='http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=185799' 
-           title='Drag and drop into a running Eclipse Indigo workspace to install Ceylon IDE' 
-           style='font-weight:bold;text-decoration:none'> 
-          drag and drop into a running Eclipse workspace
-        </a>
-        </td>
-    </tr>
-</table>
--->
-
-After installing, go to `Help > Welcome to Ceylon` to get started.
 
 ## SDK
 
