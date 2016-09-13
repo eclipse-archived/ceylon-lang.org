@@ -238,3 +238,22 @@ jQuery(function($) {
         }
     });
 });
+
+jQuery(function($) {
+    $(".nav-tabs > li > a").each(function(index, elem) {
+        var $elem = $(elem);
+        $elem.click(function() {
+          var $li = $elem.parent();
+          if($li.hasClass("active")){
+            return false;
+          }
+          $li.siblings().removeClass("active");
+          $li.addClass("active");
+          var target = $elem.attr("aria-controls");
+          var $tabs = $li.parent().next();
+          $tabs.children().removeClass("active");
+          $("#"+target).addClass("active");
+          return false;
+        });
+    });
+});

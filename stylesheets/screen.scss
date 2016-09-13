@@ -1284,3 +1284,53 @@ div.gh-edit {
 }
 
 
+ul.nav-tabs > li > a {
+  list-style: none;
+  padding: 15px 15px 17px 15px;
+  border-radius: 4px 4px 0 0;
+  text-decoration: none;
+  /* Disable border on FF */
+  outline: 0;
+}
+
+ul.nav-tabs > li > a:hover {
+  background: #eee;
+}
+
+ul.nav-tabs > li.active > a:hover {
+  background: white;
+  cursor: default;
+}
+
+ul.nav-tabs > li.active > a {
+  border-left: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  color: #8d5e0b !important;
+  background: white;
+}
+
+ul.nav-tabs > li {
+  display: inline-block;
+}
+
+ul.nav-tabs {
+  padding-left: 0;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px !important;
+  margin-top: 20px !important;
+  padding-bottom: 5px;
+}
+
+.tab-content {
+  margin: 1em 0;
+}
+
+.tab-content .tab-pane {
+  display: none;
+}
+
+.tab-content .tab-pane.active {
+  display: block;
+}
+
