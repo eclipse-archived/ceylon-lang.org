@@ -7,6 +7,7 @@ author: Gavin King
 ---
 <p/>
 <h1 style="text-align:center">Features of Ceylon IDE for IntelliJ</h1>
+<img src="/images/intellij.png" style="float:left" width="128px"/>
 <div style="margin-left:15%;margin-right:15%;text-shadow: 0 -1px 1px #ffffff;padding-bottom:10px;">
 <p style="margin-left:15%;margin-right:15%;text-align:center"><b>
 Ceylon IDE for IntelliJ is a full-featured development environment based on IntelliJ IDEA

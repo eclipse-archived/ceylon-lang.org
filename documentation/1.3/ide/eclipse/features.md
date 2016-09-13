@@ -7,6 +7,7 @@ author: Gavin King
 ---
 <p/>
 <h1 style="text-align:center">Features of Ceylon IDE for Eclipse</h1>
+<img src="/images/eclipse.png" style="float:left" width="128px"/>
 <div style="margin-left:15%;margin-right:15%;text-shadow: 0 -1px 1px #ffffff;padding-bottom:10px;">
 <p style="margin-left:15%;margin-right:15%;text-align:center"><b>
 Ceylon IDE for Eclipse is a full-featured development environment based on the Eclipse platform. It's of
