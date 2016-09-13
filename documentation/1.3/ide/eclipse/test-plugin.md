@@ -1,6 +1,6 @@
 ---
 title: Ceylon Test Eclipse Plugin
-layout: default
+layout: eclipse13
 tab: documentation
 unique_id: docspage
 author: Tom&#225;&#353; Hradec

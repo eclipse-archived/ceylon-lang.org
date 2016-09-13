@@ -1,6 +1,6 @@
 ---
 title: Installing Ceylon IDE for IntelliJ
-layout: documentation13
+layout: intellij13
 tab: documentation
 unique_id: docspage
 author: Bastien Jansen

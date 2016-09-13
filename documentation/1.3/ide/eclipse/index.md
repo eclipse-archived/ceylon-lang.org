@@ -1,6 +1,6 @@
 ---
 title: Ceylon IDE for Eclipse
-layout: documentation13
+layout: eclipse13
 tab: documentation
 unique_id: docspage
 author: Gavin King
