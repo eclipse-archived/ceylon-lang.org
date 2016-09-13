@@ -185,13 +185,7 @@ sudo dnf install ceylon-1.3.0</code></pre>
   </div>
 </div>
 
-## Ceylon IDE for Eclipse
-
-[Ceylon IDE for Eclipse][ide for eclipse] is a suite of plugins for Eclipse, available 
-from our [update site][update site].
-
-[ide for eclipse]: /documentation/current/ide/eclipse
-[update site]: /documentation/current/ide/eclipse/install?utm_source=download&utm_medium=web&utm_content=ide-install&utm_campaign=IDE_latestrelease
+## Ceylon IDE
 
 <table>
     <tr>
@@ -202,13 +196,32 @@ from our [update site][update site].
            <img src="/images/download/eclipse-ide.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
         </a>
         </td>
-        <td>Ceylon IDE for Eclipse</td>
+        <td><a href="/documentation/current/ide/eclipse">Ceylon IDE for Eclipse</a>.</td>
         <td>Eclipse Luna/Mars/Neon</td>
         <td>
         <a href="/documentation/current/ide/eclipse/install" 
            title='Install the IDE'
            class='bubble-button'
            onClick="javascript: _gaq.push(['_trackPageview', '/documentation/current/ide/eclipse/install?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
+           FOLLOW THESE INSTRUCTIONS
+        </a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+        <a href="/documentation/current/ide/intellij/install" 
+           title='Install the IDE'
+           onClick="javascript: _gaq.push(['_trackPageview', '/documentation/current/ide/intellij/install?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
+           <img src="/images/download/intellij-ide.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
+        </a>
+        </td>
+        <td><a href="/documentation/current/ide/intellij">Ceylon IDE for Intellij IDEA</a>.</td>
+        <td>Intellij IDEA 2016.???</td>
+        <td>
+        <a href="/documentation/current/ide/intellij/install" 
+           title='Install the IDE'
+           class='bubble-button'
+           onClick="javascript: _gaq.push(['_trackPageview', '/documentation/current/ide/intellij/install?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
            FOLLOW THESE INSTRUCTIONS
         </a>
         </td>
