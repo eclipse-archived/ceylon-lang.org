@@ -8,12 +8,12 @@ author: Tom&#225;&#353; Hradec
 
 # #{page.title}
 
-The Ceylon IDE for Eclipse allows you to run ceylon unit tests and easily monitor their execution and their output.
+The Ceylon IDE for Eclipse allows you to run Ceylon unit tests and easily monitor their execution and their output.
 
 It offers similar comfort and integration with IDE as JUnit and even more. Finally, it is part of 
 the Ceylon IDE for Eclipse, so no additional installation is needed.
 
-## Getting started with your first ceylon unit test
+## Getting started with your first Ceylon unit test
 
 The test framework is in the Ceylon SDK module `ceylon.test`, latest version and current documentation can be found 
 [here](https://modules.ceylon-lang.org/modules/ceylon.test).
@@ -53,7 +53,7 @@ In the launch configuration you can directly add test methods or whole container
 
 <img src="/images/screenshots/ceylon-test-plugin/select-test.png" width="70%"/>
 
-As you would expect, a quick way to run ceylon tests is to right click in the _Ceylon Explorer_ or in open editor and select _Run-As → Ceylon Test_.
+As you would expect, a quick way to run Ceylon tests is to right click in the _Ceylon Explorer_ or in open editor and select _Run-As → Ceylon Test_.
 
 
 ## Viewing test results
