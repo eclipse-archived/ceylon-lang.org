@@ -228,7 +228,7 @@ pacaur -S ceylon
 git clone https://aur.archlinux.org/ceylon
 cd ceylon
 makepkg
-sudo pacman -U ceylon-1.2.2-1-any.pkg.tar</code></pre>
+sudo pacman -U ceylon-1.2.2-*.pkg*</code></pre>
   </div>
 
 </div>
