@@ -68,7 +68,7 @@ compiler, the test runner, the language module, the module
 runtimes for the JVM and Node.js, and a suite of additional 
 command line tools.
 
-[1.3.0]: /blog/2016/09/13/ceylon-1-3-0/
+[1.3.0]: /blog/2016/09/16/ceylon-1-3-0/
 
 <table>
     <tr>
