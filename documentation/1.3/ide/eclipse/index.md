@@ -13,7 +13,7 @@ The Ceylon IDE for Eclipse is a plugin for [Eclipse][eclipse]. The IDE project w
 initiated by David Festal from [SERLI](http://www.serli.com/), a French 
 software company contributing to the Ceylon project.
 
-<img src="/images/screenshots/1.2.0/teaser.png" style="box-shadow: 0 0 10px #888;margin-left:5px;" width="743" height="330"/>
+<img src="/images/screenshots/1.3.0/eclipse/teaser.png" style="box-shadow: 0 0 10px #888;margin-left:5px;" width="758" height="387"/>
 
 Like everything we produce, Ceylon IDE for Eclipse is [open source](/code/licenses).
 
