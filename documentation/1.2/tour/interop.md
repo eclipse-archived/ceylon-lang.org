@@ -164,7 +164,7 @@ descriptor) can be added by simply adding resources as explained
 container) should be omitted from the generated `Require-Bundle` header. The 
 `--osgi-provided-bundles=<modules>` option of the `ceylon compile` command allows 
 specifying those modules. The same list can also be specified in the 
-[compiler section](http://www.ceylon-lang.org/documentation/1.2/reference/tool/config#_compiler_section) 
+[compiler section](../../reference/tool/config#_compiler_section) 
 of the configuration file.
   
   Generally, once omitted from the `Require-Bundle` header, the dependencies to 
