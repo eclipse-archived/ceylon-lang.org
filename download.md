@@ -162,6 +162,11 @@ Ceylon can also be installed using your favorite package manager.
      ><img src="/images/download/package-fedora.png" style="vertical-align: middle; margin-right: 0.5em"
       />RHEL/Fedora</a>
   </li>
+  <li role="presentation">
+    <a href="#messages" aria-controls="arch" role="tab" data-toggle="tab"
+     ><img src="/images/download/package-arch.png" srcset="/images/download/package-arch@2x.png 64w" width="32px" style="vertical-align: middle; margin-right: 0.5em"
+      />Arch Linux</a>
+  </li>
 </ul>
 
 <div class="tab-content">
@@ -228,6 +233,17 @@ sudo yum install ceylon-1.3.0
 # If you're using dnf:
 sudo dnf install ceylon-1.3.0</code></pre>
   </div>
+
+  <div role="tabpanel" class="tab-pane fade" id="arch">
+    <pre data-language="shell"><code class="rainbow"># with an AUR helper, e.&nbsp;g. pacaur:
+pacaur -S ceylon
+# manually:
+git clone https://aur.archlinux.org/ceylon
+cd ceylon
+makepkg
+sudo pacman -U ceylon-1.2.2-*.pkg*</code></pre>
+  </div>
+
 </div>
 
 ## SDK
