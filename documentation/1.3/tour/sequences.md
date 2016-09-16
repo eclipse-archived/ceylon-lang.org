@@ -565,6 +565,14 @@ And in `if`:
         print("Hello ``name``!");
     }
 
+And in `case`:
+    
+<!-- try: -->
+    Float[2]|Float[3] coord = ... ;
+    switch (coord)
+    case ([Float x, Float y]) { ... }
+    case ([Float x, Float y, Float z]) { ... }
+
 And in `let`:
 
     print(let ([x, y] = [1.0, 2.0]) "(``x``, ``y``)");
@@ -589,9 +597,17 @@ and entry patterns, for example:
         print("``i``: ``en`` ``es``");
     }
 
-Ceylon doesn't yet support destructuring in the `case`s of a `switch`,
-but that's something that will definitely be added to a future release
-of the language.
+## Destructuring anonymous function parameters
+
+Finally, destructuring may be used in the parameter list of an
+anonymous function.
+
+    "hello world".indexed.each((index -> char) {
+        print("``index`` : ``char``");
+    });
+
+Destructuring in the parameter list of a named function is not
+yet allowed.
 
 ## There's more...
 
