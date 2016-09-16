@@ -27,7 +27,8 @@ Here's what you need to do to install Ceylon IDE:
 
 1. Start IntelliJ or Android Studio.
 2. Go to `Preferences > Plugins > Browse repositories...`.
-3. Type `Ceylon IDE` in the search box and click Install.
+3. Type `Ceylon IDE` in the search box and click Install.<br/>
+   <img src="/images/screenshots/intellij/installation.png" alt="Plugin repository" width="80%" height="auto"/>
 4. After the plugin is downloaded, restart the IDE when prompted.
 
 [intellij]: https://www.jetbrains.com/idea/
