@@ -60,38 +60,6 @@ the 1.3 release of the language, command line tools, and IDEs.
 
 After installing, go to `Help > Welcome to Ceylon` to get started.
 
-## Ceylon IDE
-
-[Ceylon IDE][ide] is a suite of plugins for Eclipse, available 
-from our [update site][update site].
-
-[ide]: /documentation/current/ide
-[update site]: /documentation/current/ide/install?utm_source=download&utm_medium=web&utm_content=ide-install&utm_campaign=IDE_latestrelease
-
-<table>
-    <tr>
-        <td>
-        <a href="/documentation/current/ide/install" 
-           title='Install the IDE'
-           onClick="javascript: _gaq.push(['_trackPageview', '/documentation/current/ide/install?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
-           <img src="/images/download/eclipse-ide.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
-        </a>
-        </td>
-        <td>Ceylon IDE</td>
-        <td>Eclipse Luna/Mars/Neon</td>
-        <td>
-        <a href="/documentation/current/ide/install" 
-           title='Install the IDE'
-           class='bubble-button'
-           onClick="javascript: _gaq.push(['_trackPageview', '/documentation/current/ide/install?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
-           FOLLOW THESE INSTRUCTIONS
-        </a>
-        </td>
-    </tr>
-</table>
-
-After installing, go to `Help > Welcome to Ceylon` to get started.
-
 ## Command line tools
 
 This package contains the Ceylon command line compiler for 
