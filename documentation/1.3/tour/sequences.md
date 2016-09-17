@@ -83,8 +83,8 @@ To iterate an instance of `Iterable`, we can use a
 above, it's just part of the syntax of the `for` loop.) 
 
 If, for any reason, we need an index for each element produced by a stream, 
-we can use a special variation of the `for` loop that is designed for 
-iterating streams of [`Entry`s](#{site.urls.apidoc_1_3}/Entry.type.html):
+we can use the following idiom to iterate a streams of 
+[`Entry`s](#{site.urls.apidoc_1_3}/Entry.type.html):
 
 <!-- try-pre:
     {String+} words = { "hello", "world" };
@@ -93,6 +93,9 @@ iterating streams of [`Entry`s](#{site.urls.apidoc_1_3}/Entry.type.html):
     for (i -> word in moreWords.indexed) {
         print("``i``: ``word``");
     }
+
+This idiom makes use of _destructuring_, which we'll learn about at the 
+[end of this leg of the tour](#destructuring).
 
 The [`indexed`](#{site.urls.apidoc_1_3}/Iterable.type.html#indexed) 
 attribute returns a stream of entries containing the indexed elements of 
@@ -407,8 +410,7 @@ not compile:
 Here, `operators[i]` is a `String?`, which is not directly assignable to 
 `String`.
 
-Instead, if we need access to the index, we use the special form of `for` 
-shown below.
+Instead, if we need access to the index, we use the the idiom we saw above:
 
 <!-- try:
     String[] operators = [ "+", "-", "*", "/" ];
