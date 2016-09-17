@@ -578,10 +578,19 @@ Then, given a module named `net.example.foo`:
      shared class DefautManager() satisfies Manager {}
  
  A Ceylon module may gain access to Java services by calling
- `Module.findServiceProviders()`.
+ [`Module.findServiceProviders()`](#{site.urls.apidoc_1_3}/meta/declaration/Module.type.html#findServiceProviders).
 
 <!-- try: -->
      {Manager*} managers = `module`.findServiceProviders(`Manager`);
+     assert (exists manager = managers.first);"
+
+This code will find the first `service` which implements 
+`Manager` and is defined in the dependencies of the module in 
+which this code occurs. To search a different module and its 
+dependencies, specify the module explicitly:
+
+<!-- try: -->
+     {Manager*} managers = `module com.acme.manager`.findServiceProviders(`Manager`);
      assert (exists manager = managers.first);"
 
 The `service` annotation and `Module.findServiceProviders()`
