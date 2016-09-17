@@ -454,7 +454,7 @@ they're not magically transformed to Ceylon `String`s:
         // s is a JString
     }
 
-### Further gotcha
+### Gotcha again!
 
 Also note that `java.lang.Iterable` is not supported together 
 with entry or tuple destructuring:
@@ -476,7 +476,7 @@ Two of Ceylon's built-in operators may be applied to Java types:
   with Java arrays, `java.util.List`, and `java.util.Map`, 
   and
 - the containment operator (`element in container`) may be 
-  used with instances of `java.util.Collection`. 
+  used with instances of `java.util.Collection`.
 
 ## Utility functions and classes
 
@@ -484,6 +484,21 @@ In the module [`ceylon.interop.java`](#{site.urls.apidoc_current_interop_java}/i
 you'll find a suite of useful utility functions and classes for
 Java interoperation. For example, there are classes that adapt
 between Ceylon collection types and Java collection types.
+
+### Tip
+
+The following idioms are very useful for instantiating Java 
+`List`s:
+
+<!-- try: -->
+    import java.util { Arrays }
+    
+    value words = Arrays.asList("hello", "world");
+    value squares = Arrays.asList(for (x in 0..100) x^2);
+    value args = Arrays.asList(*process.arguments);
+
+(Note that these code examples work because `Arrays.asList()`
+has a variadic parameter.)
 
 ### Converting between `Iterable`s
 
