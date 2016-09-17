@@ -420,21 +420,7 @@ Finally, the `?.` operator lets us call operations on optional types:
     Integer length = name?.size else 0;
 
 If `name` is null, `name?.size` evaluates to `null`. Otherwise, the
-`size` attribute of `String` is evaluated. 
-
-If we need to squeeze a whole chain of `then`s/`else`s into a single 
-expression, we can use the "poorman's switch" idiom:
-
-<!-- try-pre:
-    Integer int = 1;
--->
-<!-- try-post:
-    print(sign);
--->
-    String sign = (int>1P then "enormous")
-             else (int<0 then "negative")
-             else (int>0 then "positive")
-             else "zero";
+`size` attribute of `String` is evaluated.
 
 Using `else`, we can finally simplify our original example to something 
 reasonable:
