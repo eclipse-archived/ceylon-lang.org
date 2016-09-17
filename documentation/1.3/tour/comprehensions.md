@@ -269,12 +269,24 @@ comprehension:
     [ if (x>=0.0) x^0.5 ]
 
 Produces the singleton `[2.0]` if `x==4.0`, and the empty tuple
-`[]` if `x<0.0`. Likewise, the comprehension:
+`[]` if `x<0.0`. It's similar to the following `if` expression:
+
+<!-- try: -->
+    if (x>=0.0) then [x^0.5] else []
+
+Likewise, the comprehension:
 
 <!-- try: -->
     { if (exists list) for (x in list) x.string }
 
-Produces an empty stream if `list` is `null`.
+Produces an empty stream if `list` is `null`. It's similar to
+this `if` expression:
+
+<!-- try: -->
+    if (exists list) then { for (x in list) x.string } else {}
+
+However, there's one important difference: conditions inside
+brace-delimited comprehensions are evaluated _lazily_.
 
 ## There's more...
 
