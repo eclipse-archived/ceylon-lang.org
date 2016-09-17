@@ -548,9 +548,15 @@ this:
 This introduces three new values, `x` and `y` of inferred type `Float`,
 and `label` of inferred type `String`.
 
-The syntax `[x, y, label]` is called a _tuple pattern_.
+The syntax `[x, y, label]` is called a _tuple pattern_. A tuple pattern 
+may include explicit element types:
 
-We can even use destructuring in `for` loops:
+<!-- try-pre:
+    value point = [0.0, 0.0, "origin"];
+-->
+    value [Float x, Float y, String label] = point;
+
+We can use destructuring in `for` loops:
 
 <!-- try-pre:
     value points = {[0.0, 0.0, "origin"], [1.0, 2.5, "whatever"]};
@@ -559,13 +565,13 @@ We can even use destructuring in `for` loops:
         print("``label``: (``x``, ``y``)");
     }
 
-And in `if`:
+And in `if` and `while` conditions:
 
     if (nonempty [name, *rest] = process.arguments) {
         print("Hello ``name``!");
     }
 
-And in `case`:
+And in `case`s of a `switch`:
     
 <!-- try: -->
     Float[2]|Float[3] coord = ... ;
@@ -573,7 +579,7 @@ And in `case`:
     case ([Float x, Float y]) { ... }
     case ([Float x, Float y, Float z]) { ... }
 
-And in `let`:
+And even in `let`:
 
     print(let ([x, y] = [1.0, 2.0]) "(``x``, ``y``)");
 
@@ -585,7 +591,13 @@ We can also destructure `Entry`s. We've already seen this used in a
         // ...
     }
 
-The syntax `i -> op` is called an _entry pattern_.
+The syntax `i -> op` is called an _entry pattern_. An entry pattern
+may include explicit key and item types:
+
+<!-- try: -->
+    for (Integer i -> String op in operators.indexed) {
+        // ...
+    }
 
 More complex destructuring patterns may be formed by nesting tuple
 and entry patterns, for example:
@@ -601,6 +613,15 @@ and entry patterns, for example:
 
 Finally, destructuring may be used in the parameter list of an
 anonymous function.
+
+    value magnitude 
+        = ([Float x, Float y, Float z]) 
+            => (x^2 + y^2 + z^2) ^ 0.5;
+    
+    print(magnitude([1.0, 2.0, -1.0]));
+
+This is most useful when the anonymous function occurs as a
+function argument.
 
     "hello world".indexed.each((index -> char) {
         print("``index`` : ``char``");
