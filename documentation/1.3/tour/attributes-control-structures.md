@@ -329,8 +329,10 @@ behavior and irregular syntax:
     case (equal) { print("one hundred"); }
     case (larger) { print("larger"); }
 
-The type of the `switch`ed expression may be an enumerated type, `String`,
-`Character`, or `Integer`.
+The type of the `switch`ed expression may be an 
+[enumerated type](../types/#enumerated_types), `String`,
+`Character`, or `Integer`. Or it may be a 
+[union](../types/#union_types) of such types.
 
 A `switch` statement may declare a value:
 
