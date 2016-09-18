@@ -189,7 +189,7 @@ Alternatively, one could use a sequence:
     sequence = [1, *sequence];
     sequence = [2, *sequence];
 
-So now, naturally, its time to learn about sequences.
+So now, naturally, it's time to learn about sequences.
 
 ## Sequences
 
