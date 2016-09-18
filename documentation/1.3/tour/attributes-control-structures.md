@@ -414,8 +414,9 @@ assertions are always enabled.
 ### For loops
 
 The `for` loop allows iteration over the elements of a Ceylon 
-[`Iterable` stream](../sequences/#streams_iterables), a Java `Iterable`,
-or a Java array.
+[`Iterable` stream](../sequences/#streams_iterables), a Java 
+[`Iterable`](https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html),
+or a [Java array](../interop/#java_array_types_are_represented_by_special_ceylon_classes).
 
     for (arg in process.arguments) {
         print(arg);
@@ -528,7 +529,7 @@ The `try` statement may optionally specify one or more "resource"
 expressions, just like in Java. The resource must be 
 [`Destroyable`](#{site.urls.apidoc_1_3}/Destroyable.type.html) or 
 [`Obtainable`](#{site.urls.apidoc_1_3}/Obtainable.type.html),
-or a Java `AutoCloseable`.
+or a Java [`AutoCloseable`](https://docs.oracle.com/javase/8/docs/api/java/lang/AutoCloseable.html).
 
 <!-- try: -->
     try (Transaction(), s = Session()) {
