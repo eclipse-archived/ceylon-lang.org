@@ -558,7 +558,8 @@ may include explicit element types:
 -->
     value [Float x, Float y, String label] = point;
 
-We can use destructuring in `for` loops:
+We can use destructuring in `for` 
+[loops](../attributes-control-structures/#for_loops):
 
 <!-- try-pre:
     value points = {[0.0, 0.0, "origin"], [1.0, 2.5, "whatever"]};
@@ -567,13 +568,16 @@ We can use destructuring in `for` loops:
         print("``label``: (``x``, ``y``)");
     }
 
-And in `if` and `while` conditions:
+And in `if` and `while` 
+[conditions](../attributes-control-structures/#condition_lists):
 
     if (nonempty [name, *rest] = process.arguments) {
         print("Hello ``name``!");
     }
 
-And in `case`s of a `switch`:
+And in `case`s of a `switch` 
+[statement](../attributes-control-structures/#switch_conditionals) or 
+[expression](../attributes-control-structures/#if_and_switch_expressions):
     
 <!-- try: -->
     Float[2]|Float[3] coord = ... ;
@@ -581,7 +585,8 @@ And in `case`s of a `switch`:
     case ([Float x, Float y]) { ... }
     case ([Float x, Float y, Float z]) { ... }
 
-And even in `let`:
+And even in a `let` 
+[expression](../attributes-control-structures/#let_expressions):
 
     print(let ([x, y] = [1.0, 2.0]) "(``x``, ``y``)");
 
@@ -611,26 +616,10 @@ and entry patterns, for example:
         print("``i``: ``en`` ``es``");
     }
 
-## Destructuring anonymous function parameters
-
 Finally, destructuring may be used in the parameter list of an
-anonymous function.
-
-    value magnitude 
-        = ([Float x, Float y, Float z]) 
-            => (x^2 + y^2 + z^2) ^ 0.5;
-    
-    print(magnitude([1.0, 2.0, -1.0]));
-
-This is most useful when the anonymous function occurs as a
-function argument.
-
-    "hello world".indexed.each((index -> char) {
-        print("``index`` : ``char``");
-    });
-
-Destructuring in the parameter list of a named function is not
-yet allowed.
+[anonymous function](../functions/#anonymous_functions). But we'll
+discuss that
+[later in the tour](../functions/#destructuring_anonymous_function_parameters).
 
 ## There's more...
 

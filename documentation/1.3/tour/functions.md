@@ -270,8 +270,11 @@ the same value for every combination or arguments&mdash;but, unfortunately,
 is in general _computationally undecidable_.
 
 Therefore, comparison of function references using `equals()` or the `==`
-operator always evaluates to `false`! This has some undesirable consequences,
-for example:
+operator always evaluates to `false`.
+
+### Gotcha!
+
+This has some undesirable consequences, for example:
 
 - Repeatedly `add()`ing the same function reference to a `MutableSet` results 
   in a set with multiple elements. 
@@ -459,9 +462,10 @@ we can declare an *anonymous function* inline, as part of the argument list:
 
     print(max);
 -->
-    Float max = measurements.fold(0.0)
-            ((Float max, Float num) => 
-                    num>max then num else max);
+    Float max 
+        = measurements.fold(0.0)
+            ((Float max, Float num) 
+                    => num>max then num else max);
 
 An anonymous function has:
 
@@ -480,14 +484,29 @@ So we could rewrite the above using a block
 
     print(max);
 -->
-    Float max = measurements.fold(0.0) 
+    Float max 
+        = measurements.fold(0.0) 
             ((Float max, Float num) {
-                return num>max then num else max;
+                value tooBig = num > max;
+                if (tooBig) {
+                    return num;
+                }
+                else {
+                    return max;
+                }
             });
 
-Note that it's quite difficult to come up with a good way to format anonymous
-functions with blocks, so it's usually better to just give the function a 
-name and use it by reference.
+Note that it can sometimes be a bit tricky to come up with a good way to 
+format anonymous functions with blocks in a readable way, so it's often 
+better to just give the function a name and use it by reference.
+
+### Tip
+
+You're probably thinking that, since `map()`, `filter()` are so powerful
+(and so popular in other languages), that we must use `map()` and `filter()`
+together with anonymous functions _all the time_ in Ceylon. Actually, we 
+use them a little less often than you might expect! The reason is that we
+very often use [comprehensions](../comprehensions) instead.
 
 ## Anonymous function parameter type inference
 
@@ -503,13 +522,14 @@ example as follows:
 
     print(max);
 -->
-    Float max = measurements.fold(0.0)
+    Float max 
+        = measurements.fold(0.0)
             ((max, num) => num>max then num else max);
 
 Here, `max` and `num` have inferred type `Float`.
 
-A similar sort of type inference applies when a reference to a generic function
-occurs in an argument list:
+A similar sort of type inference applies when a reference to a generic 
+function occurs in an argument list:
 
 <!-- try-pre:
     value measurements = { 3.4, 8.7, 1.7, 13.1, 7.7, 1.2 };
@@ -523,7 +543,6 @@ occurs in an argument list:
 
 Here, the type argument of the function `largest()` is inferred to be `Float`. 
 
-
 ### Gotcha!
 
 You might have noticed that `fold()` is defined in curried form, with two
@@ -532,6 +551,26 @@ the parameter types of its function argument. If it weren't defined in
 curried form, we would have to explicitly specify the anonymous function
 parameter types, since the type of the first argument of `fold()` would
 not be taken into account when inferring parameter types.
+
+## Destructuring anonymous function parameters
+
+Tuple or entry [destructuring](../sequences/#destructuring) may be used in 
+the parameter list of an anonymous function.
+
+    value magnitude 
+        = ([Float x, Float y, Float z]) 
+                => (x^2 + y^2 + z^2) ^ 0.5;
+    
+    print(magnitude([1.0, 2.0, -1.0]));
+
+This is most useful when the anonymous function occurs as a function argument,
+in which case it may be used together with parameter type inference.
+
+    "hello world".indexed.each((index -> char) {
+        print("``index`` : ``char``");
+    });
+
+Destructuring in the parameter list of a named function is not yet allowed.
 
 ## More about higher-order functions
 
