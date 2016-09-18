@@ -334,6 +334,17 @@ The type of the `switch`ed expression may be an
 `Character`, or `Integer`. Or it may be a 
 [union](../types/#union_types) of such types.
 
+A case can handle multiple values, in which case the values
+are separated by the `|` symbol:
+
+<!-- try: -->
+    Character? ch = ... ;
+    switch (ch)
+    case (null) {}
+    case ('.'|'?'|'!') { print("punctuation"); }
+    case (' '|'\t'|'\n'|'\r'|'\f') { print("whitespace"); }
+    else { print("something else"); }
+
 A `switch` statement may declare a value:
 
     switch (name = process.arguments.first)
@@ -391,6 +402,11 @@ This is really just the same behavior we saw
 it's happening in the middle of a block rather than at the start of an `if` block. 
 (Don't worry, there's 
 [more on this later](../types#narrowing_the_type_of_an_object_reference).)
+
+A value may be declared directly within the `assert`:
+
+    assert (exists x = parseInteger("1"));
+    value y = x + 10;
 
 Note that, unlike Java's `assert`, which can be disabled at runtime, Ceylon's 
 assertions are always enabled. 
