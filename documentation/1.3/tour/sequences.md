@@ -590,8 +590,8 @@ And even in a `let`
 
     print(let ([x, y] = [1.0, 2.0]) "(``x``, ``y``)");
 
-We can also destructure `Entry`s. We've already seen this used in a 
-`for` loop:
+We can also destructure [`Entry`s](#{site.urls.apidoc_1_3}/Entry.type.html). 
+We've [already seen](#iterating_a_stream) this used in a `for` loop:
 
 <!-- try: -->
     for (i -> op in operators.indexed) {
