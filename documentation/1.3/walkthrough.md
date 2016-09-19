@@ -16,12 +16,16 @@ the basics of the language.
 ## Before you start
 
 To try the walkthrough, first install Java 7 or 8, Eclipse Mars, Luna 
-or Neon, and [Ceylon IDE for Eclipse 1.3](../ide/eclipse/install).
+or Neon, and Ceylon IDE 1.3 [for Eclipse](../ide/eclipse/install) or
+[for IntelliJ](../ide/intellij/install).
 
 ## Getting the code
 
 The walkthrough project is 
 [in github](https://github.com/ceylon/ceylon-walkthrough).
+
+### Importing into Eclipse
+
 To import the project into Eclipse:
 
 1. Select `File > Import...`, then `Git > Projects from Git`, and 
@@ -32,6 +36,14 @@ To import the project into Eclipse:
 4. Select _only_ the branch `master`, and click `Next`.
 5. Enter a directory on the local file system, click `Next` twice, 
    and then `Finish`.
+
+### Importing into IntelliJ IDEA
+
+To import the project into IntelliJ:
+
+1. Select `File > New Project From Version Control > Git`.
+2. Enter the URL `https://github.com/ceylon/ceylon-walkthrough.git`,
+   and click `Clone`.
 
 ## Try it
 
