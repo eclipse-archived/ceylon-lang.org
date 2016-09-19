@@ -1303,9 +1303,8 @@ ul.nav-tabs > li.active > a:hover {
 }
 
 ul.nav-tabs > li.active > a {
-  border-left: 1px solid #ddd;
-  border-top: 1px solid #ddd;
-  border-right: 1px solid #ddd;
+  border: 1px solid #ddd;
+  border-bottom-color: white;
   color: #8d5e0b !important;
   background: white;
 }
