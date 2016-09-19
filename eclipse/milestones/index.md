@@ -13,7 +13,7 @@ Eclipse do the following:
 
 1. Run [Eclipse 4.5 Mars](http://eclipse.org/downloads) of above.
 2. Go to *Help > Install Software...*
-3. Type in `http://ceylon-lang.org/eclipse/milestones` to the 
+3. Type in `https://ceylon-lang.org/eclipse/milestones` to the 
    "Work With" field and Hit Enter.
 4. Eclipse will load the updatesite and when it finish, select 
    the plugin

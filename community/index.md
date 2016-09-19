@@ -53,7 +53,7 @@ Come hear about Ceylon at a [conference or user group near you](events).
 
 ## Google+ and Twitter
 
-Ceylon even has a [Google+ page](http://ceylon-lang.org/+) and a
+Ceylon even has a [Google+ page](https://ceylon-lang.org/+) and a
 [Twitter account](http://twitter.com/ceylonlang).
 
 ## Reddit

@@ -12,7 +12,7 @@ To install Ceylon IDE:
 
 1. Run [Eclipse 4.5 Mars](http://eclipse.org/downloads) or above.
 2. Go to `Help > Install Software...`
-3. Type the URL <http://ceylon-lang.org/eclipse/development> in the 
+3. Type the URL <https://ceylon-lang.org/eclipse/development> in the 
    `Work With` field and hit Enter.
 4. Click `Select All` and then `Finish`.
 

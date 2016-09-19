@@ -78,7 +78,7 @@ without even getting started on any of
 [our other goals and principles](/blog/2012/01/10/goals).
 
 If you're not convinced, we've written a longer post on 
-[why you might want to choose Ceylon](http://ceylon-lang.org/blog/2015/10/27/why/). 
+[why you might want to choose Ceylon](/blog/2015/10/27/why/). 
 
 ### How about Java interoperability?
 

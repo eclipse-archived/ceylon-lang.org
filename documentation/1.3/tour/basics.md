@@ -140,7 +140,7 @@ formatting.
      in the IDE.
      
      [helloworld]: http://en.wikipedia.org/wiki/Hello_world_program
-     [Ceylon]: http://ceylon-lang.org"
+     [Ceylon]: https://ceylon-lang.org"
     
     shared void hello() {
         print("Hello, World!");

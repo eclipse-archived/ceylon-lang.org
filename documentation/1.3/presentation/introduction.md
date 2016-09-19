@@ -578,7 +578,7 @@ area being spoken of__
 ### Q&A
 
 - Questions! Answers?
-- <http://ceylon-lang.org>
+- <https://ceylon-lang.org>
   - coming very soon!
 - <http://in.relation.to/Tutorials/IntroductionToCeylon>
   - 12 parts tutorial

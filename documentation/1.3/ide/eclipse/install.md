@@ -27,7 +27,7 @@ Here's what you need to do to install the IDE:
 
 1. Start Eclipse.
 2. Go to `Help > Install New Software...`.
-3. Enter the URL <http://ceylon-lang.org/eclipse/updatesite/>
+3. Enter the URL <https://ceylon-lang.org/eclipse/updatesite/>
    in the `Work with` field and hit Enter.<br/>
    <img src="/images/eclipseupdatesite.png" alt="Update Site" width="80%" height="auto"/>
 4. Click `Select All` and then `Finish`.
@@ -43,7 +43,7 @@ Here's what you need to do to install the IDE:
 If you want to try the latest build of the IDE before it is released, you
 have to use the _development_ update site:
 
-<http://ceylon-lang.org/eclipse/development/>
+<https://ceylon-lang.org/eclipse/development/>
 
 Beware that this is an unstable and unfinished version.
 
