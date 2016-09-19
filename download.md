@@ -45,8 +45,8 @@ the 1.3 release of the language, command line tools, and IDEs.
            <img src="/images/intellij-ide.png" srcset="/images/intellij-ide@2x.png 64w" width="32px" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
         </a>
         </td>
-        <td><a href="/documentation/current/ide/intellij">Ceylon IDE for Intellij</a></td>
-        <td>Intellij IDEA 2016.2</td>
+        <td><a href="/documentation/current/ide/intellij">Ceylon IDE for IntelliJ</a></td>
+        <td>IntelliJ IDEA 2016.2</td>
         <td>
         <a href="/documentation/current/ide/intellij/install" 
            title='Install the IDE'

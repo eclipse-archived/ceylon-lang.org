@@ -24,7 +24,7 @@ be able to learn Ceylon. These concepts aren't difficult to
 pick up! But you might find some chapters of the tour pretty
 hard going first time through. If so, take it slowly: 
 experiment with the language using Ceylon IDE 
-[for Eclipse](../ide/eclipse) or [for Intellij](../ide/intellij), 
+[for Eclipse](../ide/eclipse) or [for IntelliJ](../ide/intellij), 
 and gradually get a feel for how these things work and how 
 they are useful. None of us learned to program from books or 
 tutorials or from other people telling us how to do it. We 
