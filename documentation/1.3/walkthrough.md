@@ -23,6 +23,9 @@ or Neon, and Ceylon IDE 1.3 [for Eclipse](../ide/eclipse/install) or
 
 The walkthrough project is 
 [in github](https://github.com/ceylon/ceylon-walkthrough).
+
+### Importing into Eclipse
+
 To import the project into Eclipse:
 
 1. Select `File > Import...`, then `Git > Projects from Git`, and 
@@ -33,6 +36,8 @@ To import the project into Eclipse:
 4. Select _only_ the branch `master`, and click `Next`.
 5. Enter a directory on the local file system, click `Next` twice, 
    and then `Finish`.
+
+### Importing into IntelliJ IDEA
 
 To import the project into IntelliJ:
 
