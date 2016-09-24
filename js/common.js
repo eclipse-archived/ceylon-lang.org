@@ -142,7 +142,7 @@ function addTryButtons(){
 					// Chrome would be "chromium-browser --disable-web-security" for example
 					if(document.domain != "localhost")
 						document.domain = "ceylon-lang.org";
-					$editorIFrame = jQuery("<iframe class='code-editor' src='http://try.ceylon-lang.org/index.html?embedded=true'>");
+					$editorIFrame = jQuery("<iframe class='code-editor' src='https://try.ceylon-lang.org/index.html?embedded=true'>");
 					$editorIFrame.load(function(){
 						updateEditor(src);
 					});
