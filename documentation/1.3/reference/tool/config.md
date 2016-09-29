@@ -222,6 +222,10 @@ Can be specified multiple times.
 *any* tools that take `--source` or `--resource` options. If a tool normally takes only
 a single of these options the first in the list will be used.
 
+* `module`:
+Equivalent to supplying a `module` name on the command line.
+Can be specified multiple times.
+
 * `resourceroot`: 
 Equivalent to supplying the [`--resource-root`](../ceylon/subcommands/ceylon-compile.html#option--resource-root) option to 
 [`ceylon compile`](../ceylon/subcommands/ceylon-compile.html), 
@@ -252,6 +256,14 @@ Equivalent to supplying the [`--generate-module-info`](../ceylon/subcommands/cey
 Equivalent to supplying the [`--pack200`](../ceylon/subcommands/ceylon-compile.html#option--pack200) option to 
 [`ceylon compile`](../ceylon/subcommands/ceylon-compile.html).
 
+* `progress`:
+Equivalent to supplying the [`--progress`](../ceylon/subcommands/ceylon-compile.html#option--progress) option to 
+[`ceylon compile`](../ceylon/subcommands/ceylon-compile.html).
+
+* `jdkprovider`:
+Equivalent to supplying the [`--jdk-provider`](../ceylon/subcommands/ceylon-compile.html#option--jdk-provider) option to 
+[`ceylon compile`](../ceylon/subcommands/ceylon-compile.html).
+
 * `doc`:
 Equivalent to supplying the [`--doc`](../ceylon/subcommands/ceylon-doc.html#option--doc) option to 
 [`ceylon doc`](../ceylon/subcommands/ceylon-doc.html) or 
@@ -261,6 +273,12 @@ Equivalent to supplying the [`--doc`](../ceylon/subcommands/ceylon-doc.html#opti
 Equivalent to supplying the [`--script`](../ceylon/subcommands/ceylon-src.html#option--script) option to 
 [`ceylon src`](../ceylon/subcommands/ceylon-src.html) or 
 [`ceylon plugin`](../ceylon/subcommands/ceylon-plugin.html).
+
+### `[compiler.BACKEND]` section
+
+These are a special sections for the compile tool that are specific to each backend. So there is a `compiler.jvm`
+section for the Java backend and a `[compiler.js]` section for the JavaScript backend and so forth.
+The available option for these sections is: `module` and it has the same meaning as above.
 
 ### `[runtool]` section
 
