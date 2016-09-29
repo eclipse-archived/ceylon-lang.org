@@ -269,6 +269,29 @@ Equivalent to supplying the [`--compile`](../ceylon/subcommands/ceylon-run.html#
 [`ceylon run`](../ceylon/subcommands/ceylon-run.html) or 
 [`ceylon run-js`](../ceylon/subcommands/ceylon-run-js.html).
 
+* `module`:
+Equivalent to supplying the `module` argument to [`ceylon run`](../ceylon/subcommands/ceylon-run.html) or 
+[`ceylon run-js`](../ceylon/subcommands/ceylon-run-js.html).
+
+* `run`:
+Equivalent to supplying the [`--run`](../ceylon/subcommands/ceylon-run.html#option--run) option to 
+[`ceylon run`](../ceylon/subcommands/ceylon-run.html) or 
+[`ceylon run-js`](../ceylon/subcommands/ceylon-run-js.html).
+Is only taken into account when the `module` option is also specified, otherwise it's ignored.
+
+* `arg`:
+Equivalent to supplying arguments to the Ceylon application being run using
+[`ceylon run`](../ceylon/subcommands/ceylon-run.html) or 
+[`ceylon run-js`](../ceylon/subcommands/ceylon-run-js.html).
+Can be specified multiple times. 
+Is only taken into account when the `module` option is also specified, otherwise it's ignored.
+
+### `[runtool.BACKEND]` section
+
+These are a special sections for the run tool that are specific to each backend. So there is a `runtool.jvm`
+section for the Java backend and a `[runtool.js]` section for the JavaScript backend and so forth.
+The available options for these sections are: `module`, `run` and `arg` and they have the same meaning as above.
+
 ### `[testtool]` section
 
 * `compile`:
