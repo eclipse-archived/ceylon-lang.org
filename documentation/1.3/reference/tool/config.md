@@ -223,56 +223,56 @@ Can be specified multiple times.
 a single of these options the first in the list will be used.
 
 * `resourceroot`: 
-Equiavlent to supplying the [`--resource-root`](../ceylon/subcommands/ceylon-compile.html#option--resource-root) option to 
+Equivalent to supplying the [`--resource-root`](../ceylon/subcommands/ceylon-compile.html#option--resource-root) option to 
 [`ceylon compile`](../ceylon/subcommands/ceylon-compile.html), 
 [`ceylon compile-js`](../ceylon/subcommands/ceylon-compile-js.html) or 
 [`ceylon src`](../ceylon/subcommands/ceylon-src.html).
 
 * `suppresswarning`: 
-Equiavlent to supplying the [`--suppress-warning`](../ceylon/subcommands/ceylon-compile.html#option--suppress-warning) option to 
+Equivalent to supplying the [`--suppress-warning`](../ceylon/subcommands/ceylon-compile.html#option--suppress-warning) option to 
 [`ceylon compile`](../ceylon/subcommands/ceylon-compile.html).
 
 * `noosgi`:
-Equiavlent to supplying the [`--no-osgi`](../ceylon/subcommands/ceylon-compile.html#option--no-osgi) option to 
+Equivalent to supplying the [`--no-osgi`](../ceylon/subcommands/ceylon-compile.html#option--no-osgi) option to 
 [`ceylon compile`](../ceylon/subcommands/ceylon-compile.html).
 
 * `osgiprovidedbundles`:
-Equiavlent to supplying the [`--osgi-provided-bundles`](../ceylon/subcommands/ceylon-compile.html#option--osgi-provided-bundles) option to 
+Equivalent to supplying the [`--osgi-provided-bundles`](../ceylon/subcommands/ceylon-compile.html#option--osgi-provided-bundles) option to 
 [`ceylon compile`](../ceylon/subcommands/ceylon-compile.html).
 
 * `nopom`:
-Equiavlent to supplying the [`--no-pom`](../ceylon/subcommands/ceylon-compile.html#option--no-pom) option to 
+Equivalent to supplying the [`--no-pom`](../ceylon/subcommands/ceylon-compile.html#option--no-pom) option to 
 [`ceylon compile`](../ceylon/subcommands/ceylon-compile.html).
 
 * `generatemoduleinfo`:
-Equiavlent to supplying the [`--generate-module-info`](../ceylon/subcommands/ceylon-compile.html#option--generate-module-info) option to 
+Equivalent to supplying the [`--generate-module-info`](../ceylon/subcommands/ceylon-compile.html#option--generate-module-info) option to 
 [`ceylon compile`](../ceylon/subcommands/ceylon-compile.html).
 
 * `pack200`:
-Equiavlent to supplying the [`--pack200`](../ceylon/subcommands/ceylon-compile.html#option--pack200) option to 
+Equivalent to supplying the [`--pack200`](../ceylon/subcommands/ceylon-compile.html#option--pack200) option to 
 [`ceylon compile`](../ceylon/subcommands/ceylon-compile.html).
 
 * `doc`:
-Equiavlent to supplying the [`--doc`](../ceylon/subcommands/ceylon-doc.html#option--doc) option to 
+Equivalent to supplying the [`--doc`](../ceylon/subcommands/ceylon-doc.html#option--doc) option to 
 [`ceylon doc`](../ceylon/subcommands/ceylon-doc.html) or 
 [`ceylon src`](../ceylon/subcommands/ceylon-src.html).
 
 * `script`:
-Equiavlent to supplying the [`--script`](../ceylon/subcommands/ceylon-src.html#option--script) option to 
+Equivalent to supplying the [`--script`](../ceylon/subcommands/ceylon-src.html#option--script) option to 
 [`ceylon src`](../ceylon/subcommands/ceylon-src.html) or 
 [`ceylon plugin`](../ceylon/subcommands/ceylon-plugin.html).
 
 ### `[runtool]` section
 
 * `compile`:
-Equiavlent to supplying the [`--compile`](../ceylon/subcommands/ceylon-run.html#option--compile) option to 
+Equivalent to supplying the [`--compile`](../ceylon/subcommands/ceylon-run.html#option--compile) option to 
 [`ceylon run`](../ceylon/subcommands/ceylon-run.html) or 
 [`ceylon run-js`](../ceylon/subcommands/ceylon-run-js.html).
 
 ### `[testtool]` section
 
 * `compile`:
-Equiavlent to supplying the [`--compile`](../ceylon/subcommands/ceylon-test.html#option--compile) option to 
+Equivalent to supplying the [`--compile`](../ceylon/subcommands/ceylon-test.html#option--compile) option to 
 [`ceylon test`](../ceylon/subcommands/ceylon-test.html) or 
 [`ceylon test-js`](../ceylon/subcommands/ceylon-test-js.html).
 
