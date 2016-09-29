@@ -58,8 +58,9 @@ the 1.3 release of the language, command line tools, and IDEs.
     </tr>
 </table>
 
-After installing, get started in [IntelliJ][get-started-intellij] 
-or in [Eclipse][get-started-eclipse].
+After installing, get started with Ceylon 
+[in IntelliJ][get-started-intellij] or 
+[in Eclipse][get-started-eclipse].
 
 [get-started-intellij]: https://ceylon-lang.org/documentation/1.3/tour/#running_the_program_from_the_intellij_ide
 [get-started-eclipse]: https://ceylon-lang.org/documentation/1.3/tour/#running_the_program_from_the_eclipse_ide
