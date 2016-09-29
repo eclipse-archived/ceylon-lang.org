@@ -264,6 +264,10 @@ Equivalent to supplying the [`--progress`](../ceylon/subcommands/ceylon-compile.
 Equivalent to supplying the [`--jdk-provider`](../ceylon/subcommands/ceylon-compile.html#option--jdk-provider) option to 
 [`ceylon compile`](../ceylon/subcommands/ceylon-compile.html).
 
+* `javac`:
+Equivalent to supplying the [`--javac`](../ceylon/subcommands/ceylon-compile.html#option--javac) option to 
+[`ceylon compile`](../ceylon/subcommands/ceylon-compile.html).
+
 * `doc`:
 Equivalent to supplying the [`--doc`](../ceylon/subcommands/ceylon-doc.html#option--doc) option to 
 [`ceylon doc`](../ceylon/subcommands/ceylon-doc.html) or 
