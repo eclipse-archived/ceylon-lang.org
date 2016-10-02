@@ -17,6 +17,7 @@ dependencies (Java `jar` archives) from a Maven repository via Aether.
 Maven modules are seamlessly supported in the Ceylon module descriptor,
 but:
 
+- the repository type `maven:` should be explicitly specified,
 - the module name must be quoted, and
 - the `:` separator must be used to separate Maven group and artifact ids.
 
