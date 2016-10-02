@@ -135,6 +135,7 @@ used to list the modules currently loaded in the virtual machine.
 
 * Modules contain [packages](../package)
 * [Module repositories](../../repository)
+* Support for [Maven repositories](../../repository/maven)
 * [Module system](#{site.urls.spec_current}#modulesystem)
   in the Ceylon specification
 * You can [override dependencies](../../repository/overrides) for Maven or Ceylon modules
