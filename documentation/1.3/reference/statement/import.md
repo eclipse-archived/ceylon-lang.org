@@ -9,12 +9,13 @@ doc_root: ../../..
 
 # #{page.title_md}
 
-The `import` statement is used to express a dependency on a type defined 
-in another package. All `import` statements for a compilation unit must
-occur in a list at the top of the file.
+In a regular source file, the `import` statement is used to express a 
+dependency on a declaration defined in another package. All `import` 
+statements for a compilation unit must occur in a list at the top of 
+the file.
 
-**Note:** This page is *not* about module `import` statements occurring 
-in a [module descriptor](../../structure/module#descriptor).
+In a [module descriptor](../../structure/module#descriptor), the
+`import` statement declares a dependency on another module.
 
 ## Usage 
 
@@ -37,9 +38,11 @@ declarations belonging to that package, with an optional wildcard:
     // assigning a different name to a member of an imported type
     import org.example.metasyntax { Foo { b = bar } }
 
-It is also possible to import the members of a top level `object`, or a 
-constructor from a toplevel class:
+It's also possible to import the members of a top level `object`, or a 
+constructor of a toplevel class:
 
+<!-- check:none -->
+<!-- try: -->
     import org.example.person {
         Person { 
             // import the Person.fromName constructor
@@ -53,7 +56,22 @@ constructor from a toplevel class:
             beethoven
         }
     }
-    
+
+In a module descriptor, the `import` statement specifies the name
+and version of the imported module, and, optionally, a repository
+type, when the module belongs to a foreign module repository system 
+such as Maven or npm.
+
+<!-- check:none -->
+<!-- try: -->
+    import ceylon.collection "1.3.0";
+    import maven:"org.hibernate:hibernate-core" "5.0.4.Final";
+
+Module versions are must be quoted. Module names must be quoted if
+they contain characters like `:` or `-` which aren't legal in a
+Ceylon package name.
+
+A module `import` statement may be annotated `shared` and/or `optional`.
 
 ## Description
 
