@@ -189,7 +189,7 @@ You can now `import` Guice like this:
 <!-- try: -->
     native("jvm")
     module com.my.app "1.0.0" {
-        import "com.google.inject:guice" "4.0";
+        import maven:"com.google.inject:guice" "4.0";
     }
 
 Note that you don't need this `overrides.xml` file at all if you
@@ -228,8 +228,8 @@ Now you can `import` Hibernate JPA like this:
 <!-- try: -->
     native("jvm")
     module com.my.app "1.0.0" {
-        import "org.hibernate:hibernate-entitymanager" "5.0.4.Final";
-        import "org.hsqldb:hsqldb" "2.3.1";
+        import maven:"org.hibernate:hibernate-entitymanager" "5.0.4.Final";
+        import maven:"org.hsqldb:hsqldb" "2.3.1";
     }
 
 And define a persistence unit by placing this XML configuration in 
@@ -291,9 +291,9 @@ _transitive_ dependencies.
 <!-- try: -->
     native("jvm")
     module com.my.app "1.0.0" {
-        import "org.hibernate:hibernate-entitymanager" "5.0.4.Final";
-        import "org.hibernate.javax.persistence:hibernate-jpa-2.1-api" "1.0.0.Final";
-        import "org.hsqldb:hsqldb" "2.3.1";
+        import maven:"org.hibernate:hibernate-entitymanager" "5.0.4.Final";
+        import maven:"org.hibernate.javax.persistence:hibernate-jpa-2.1-api" "1.0.0.Final";
+        import maven:"org.hsqldb:hsqldb" "2.3.1";
     }
 
 ## Example (Spark Framework)
@@ -337,7 +337,7 @@ Now we can import Spark like this:
 <!-- try: -->
     native("jvm") 
     module sparky "1.0.0" {
-        import "com.sparkjava:spark-core" "2.3";
+        import maven:"com.sparkjava:spark-core" "2.3";
     }
 
 Alternatively, if we use the `--auto-export-maven-dependencies` 
