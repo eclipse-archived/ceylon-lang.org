@@ -23,7 +23,7 @@ but:
 For example:
 
 <!-- try: -->
-    import "org.hibernate:hibernate-core" "5.0.4.Final";
+    import maven:"org.hibernate:hibernate-core" "5.0.4.Final";
 
 ### Maven group and artifact ids 
 
