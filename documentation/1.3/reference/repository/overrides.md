@@ -50,10 +50,22 @@ allows us to:
 - edit a module dependency, for example making it `shared` (per module)
 - include/exclude parts of the jar (for example, to exclude certain packages from a jar)
 
+## Alternatives to the overrides file
+
+The `--use-flat-classpath` and `--auto-export-maven-dependencies` options to the `ceylon`
+command sometimes allow us to avoid the need to specify an overrides file, or allow us
+to significantly simplify it.
+
+### Gotcha!
+
+Note that `--auto-export-maven-dependencies` does _not_ automatically make all transitive
+dependencies of any Maven module visible to Ceylon modules that import the Maven module!
+It only makes all transitive dependencies visible to _Maven modules themselves_.
+
 ## Overrides file syntax
 
-The overrides file must be a valid XML file named `overrides.xml`
-or `maven-overrides.xml` (the name is not significant).
+The overrides file must be a valid XML file named `overrides.xml` or `maven-overrides.xml` 
+(the name is not significant).
 
 For example:
 
@@ -90,7 +102,7 @@ For example:
         </artifact>
     </overrides>
 
-Most command-line commands accept the `--overrides` argument to specify this file.
+Most `ceylon` commands accept the `--overrides` argument to specify this file.
 
 ### Artifact coordinates or module names
 
