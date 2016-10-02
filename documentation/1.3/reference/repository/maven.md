@@ -21,7 +21,8 @@ but:
 - the module name must be quoted, and
 - the `:` separator must be used to separate Maven group and artifact ids.
 
-For example:
+For example, this line, occurring in `module.ceylon`, specifies a 
+dependency on Hibernate ORM:
 
 <!-- try: -->
     import maven:"org.hibernate:hibernate-core" "5.0.4.Final";
