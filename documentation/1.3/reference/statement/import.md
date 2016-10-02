@@ -18,7 +18,8 @@ in a [module descriptor](../../structure/module#descriptor).
 
 ## Usage 
 
-The `import` statement has several variations:
+The `import` statement specifies a source package, and a list of
+declarations belonging to that package, with an optional wildcard:
 
 <!-- check:none -->
 <!-- try: -->
@@ -31,10 +32,10 @@ The `import` statement has several variations:
     
     // assigning a different name to an imported declaration
     // (an 'alias' import)
-    import org.example.metasyntax { ExampleFoo=Foo, Bar }
+    import org.example.metasyntax { ExampleFoo = Foo, Bar }
 
     // assigning a different name to a member of an imported type
-    import org.example.metasyntax { Foo { b=bar } }
+    import org.example.metasyntax { Foo { b = bar } }
 
 It is also possible to import the members of a top level `object`, or a 
 constructor from a toplevel class:
@@ -43,7 +44,7 @@ constructor from a toplevel class:
         Person { 
             // import the Person.fromName constructor
             // so code can just do namedPerson("Alan", "Turing")
-            namedPerson=fromName 
+            namedPerson = fromName 
         },
         famousPeople {
             // import values from the famousPeople object
