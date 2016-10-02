@@ -94,5 +94,9 @@ is discouraged, since:
 
 ## See also
 
+* [Packages and modules](/documentation/tour/modules/) in the Tour of Ceylon
+* [Module descriptors](../../structure/module#descriptor)
 * [Imports](#{site.urls.spec_current}#imports) in the Ceylon language 
+  specification
+* [Module system](#{site.urls.spec_current}#modulesystem) in the Ceylon language 
   specification
