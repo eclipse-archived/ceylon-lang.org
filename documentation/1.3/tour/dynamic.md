@@ -55,9 +55,9 @@ we use a _native header_.
     native ("jvm") void hello() 
         => System.out.println("hello");
     
-    native (\"js\") void hello() {
+    native ("js") void hello() {
         dynamic {
-            console.log(\"hello\");
+            console.log("hello");
         }
     }
 
