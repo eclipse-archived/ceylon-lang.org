@@ -139,6 +139,6 @@ used to list the modules currently loaded in the virtual machine.
 * [Module system](#{site.urls.spec_current}#modulesystem)
   in the Ceylon specification
 * You can [override dependencies](../../repository/overrides) for Maven or Ceylon modules
-* [Packages and modules](/documentation/1.3/tour/modules/) in the tour
+* [Packages and modules](/documentation/tour/modules/) in the tour
 * [`ceylon import-jar`](#{site.urls.ceylon_tool_current}/ceylon-import-jar.html) command
 * [`<ceylon-import-jar>`](../../tool/ant-ceylon-import-jar) ant task
