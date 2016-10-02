@@ -56,6 +56,13 @@ The `--use-flat-classpath` and `--auto-export-maven-dependencies` options to the
 command sometimes allow us to avoid the need to specify an overrides file, or allow us
 to significantly simplify it.
 
+You can also find these options in Ceylon IDE:
+
+- on the **Ceylon Build > Module Repositories** page of the **Project > Properties** for 
+  your Ceylon project in Ceylon IDE for Eclipse, and 
+- on the **Repositores** tab of the Ceylon settings in the **Project Structure** in 
+  Ceylon IDE for IntelliJ.
+
 ### Gotcha!
 
 Note that `--auto-export-maven-dependencies` does _not_ automatically make all transitive
@@ -226,9 +233,7 @@ You can now `import` Guice like this:
 
 Note that you don't need this `overrides.xml` file at all if you
 use the `--auto-export-maven-dependencies` flag which is supported 
-by the command line tools. You can also find this setting on the 
-**Ceylon Build > Module Repositories** page of the
-**Project > Properties** for your Ceylon project.
+by the command line tools.
 
 ## Example (Hibernate JPA solution 1)
 
@@ -298,9 +303,7 @@ is your Ceylon resources directory:
 
 Alternatively, instead of using `<share/>` in `overrides.xml`, we can
 do some of the work with the `--auto-export-maven-dependencies` flag
-which is supported by the command line tools. You can also find this
-setting on the **Ceylon Build > Module Repositories** page of the
-**Project > Properties** for your Ceylon project.
+which is supported by the command line tools.
 
 With this flag enabled, we can use the following simplified
 `overrides.xml` file:
