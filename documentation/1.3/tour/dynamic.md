@@ -50,16 +50,23 @@ we use a _native header_.
 <!-- try: -->
     import java.lang { System }
     
+    //native header
     native void hello();
     
+    //native implementation for the JVM
     native ("jvm") void hello() 
         => System.out.println("hello");
     
+    //native implementation for JavaScript
     native ("js") void hello() {
         dynamic {
             console.log("hello");
         }
     }
+    
+    //cross-platform function that calls
+    //the native function
+    shared void run() => hello();
 
 Once we have a native header, we can safely call the `native`
 functions from non-`native` cross-platform Ceylon code.
