@@ -653,6 +653,9 @@ Here's a couple of limitations to be aware of:
 
 ## There's more ...
 
+You can learn more about `native` declarations from the 
+[reference documentation](/documentation/reference/interoperability/native/).
+
 In a mixed Java/Ceylon project, you'll probably need to use a 
 build system like Gradle, Maven, or Apache `ant`. Ceylon has 
 [plugins](../../reference/tool/) for each of these build 

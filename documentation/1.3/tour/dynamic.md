@@ -38,14 +38,14 @@ class within a regular cross-platform module.
 
 We've already seen how to define a 
 [native Java module](../interop/#defining_a_native_java_module)
-in the previous chapter, and the approach here is very similar. 
+in the previous chapter, and the approach here is very similar.
 
 ### Tip
 
 When writing a cross-platform module that interacts with native
 Java and JavaScript code, we usually need to define `native`
 functions and classes that work on both platforms. In this case,
-we use a _native header_.
+we use a _[native header](/documentation/reference/interoperability/native/)_.
 
 <!-- try: -->
     import java.lang { System }
