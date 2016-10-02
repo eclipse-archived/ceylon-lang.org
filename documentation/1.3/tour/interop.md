@@ -58,7 +58,7 @@ make use of the Java classes in these archives.
     import java.lang { System }
     
     native ("jvm")
-    void hello() => System.out.printn("Hello, world!");
+    void hello() => System.out.println("Hello, world!");
 
 It's *not* necessary to annotate individual declarations in a
 module that is already declared as a native JVM module.
