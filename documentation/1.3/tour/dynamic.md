@@ -40,6 +40,30 @@ We've already seen how to define a
 [native Java module](../interop/#defining_a_native_java_module)
 in the previous chapter, and the approach here is very similar. 
 
+### Tip
+
+When writing a cross-platform module that interacts with native
+Java and JavaScript code, we usually need to define `native`
+functions and classes that work on both platforms. In this case,
+we use a _native header_.
+
+<!-- try: -->
+    import java.lang { System }
+    
+    native void hello();
+    
+    native ("jvm") void hello() 
+        => Systm.out.println("hello");
+    
+    native (\"js\") void hello() {
+        dynamic {
+            console.log(\"hello\");
+        }
+    }
+
+Once we have a native header, we can safely call the `native`
+functions from non-`native` cross-platform Ceylon code.
+
 ## Partially typed declarations
 
 The keyword `dynamic` may be used to declare a function or 
