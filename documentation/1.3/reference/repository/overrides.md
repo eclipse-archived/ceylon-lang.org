@@ -11,21 +11,34 @@ doc_root: ../..
 
 ## Resolving module conflicts
 
-Sometimes module descriptors are not correct, especially when dealing with interop and Maven, but
-sometimes you may even want to override Ceylon module descriptors at compile-time or run-time.
+Sometimes the information in a module descriptor is not correct, or must be customized.
 
-Maven module descriptors are notoriously unchecked, and so a lot of module descriptors will miss direct
-dependencies because they happen to compile and run by accident when using Maven, which uses a flat
-classpath containing all the transitive module dependencies. Ceylon uses `ClassLoader` isolation, and
-as such needs module descriptors to be correct. Also Maven does not support the notion of _sharing_
-module imports, so if a module `A` makes types from its imported module `B` visible to the users of
-`A`, the import of `B` must be made `shared`. Furthermore, Maven supports module version conflict resolution
-by design, luck or overrides, while Ceylon uses strict module version imports. And last but not least,
-Maven modules frequently bundles things that should not be made visible, such as other modules or tests,
-that you may want to exclude.
+- This is especially common when dealing with modules obtained from a Maven repository.
+- It's also sometimes necessary when assemblying a Ceylon application from third-party
+  modules.
 
-For all these reasons, we created an experimental measure that lets you override Maven or Ceylon module descriptors
-in a single location, called the `overrides.xml` file, which lets you:
+## Issues affecting Maven module dependencies
+
+Maven module descriptors are notoriously unchecked, and many Maven module descriptors 
+are missing information about direct dependencies. These modules just happen to compile 
+and run by accident when using Maven, with its flat classpath containing all transitive 
+module dependencies. By contrast, Ceylon has `ClassLoader` isolation, and therefore 
+requires correct and complete dependency information.
+
+Furthermore, Maven does not support the notion of _sharing_ module imports, so if a 
+module `A` makes types from its imported module `B` visible to the users of `A`, the 
+import of `B` must be made `shared`.
+
+Finally, Maven supports module version conflict resolution by design, luck, or overrides, 
+while Ceylon uses strict module version imports. Sadly, Maven modules frequently bundle 
+things that should not be made visible, such as other modules or tests, that you surely 
+want to exclude.
+
+## The overrides file
+
+For all these reasons, we created an experimental measure that lets you override the
+depdency information in a Maven or Ceylon module descriptor. The `overrides.xml` file
+allows us to:
 
 - define constants and use them in interpolated XML attributes
 - set a module version (for all modules)
@@ -35,7 +48,12 @@ in a single location, called the `overrides.xml` file, which lets you:
 - edit a module dependency, for example making it `shared` (per module)
 - include/exclude parts of the jar (for example, to exclude certain packages from a jar)
 
-The syntax is as follows:
+## Overrides file syntax
+
+The overrides file must be a valid XML file, with a root named `overrides` 
+or `maven-overrides` (in fact, the root name is ignored).
+
+For example:
 
 <!--lang: xml -->
     <overrides>
@@ -71,12 +89,6 @@ The syntax is as follows:
     </overrides>
 
 Most command-line commands accept the `--overrides` argument to specify this file.
-
-## Overrides file syntax
-
-The overrides file must be a valid XML file, with a root named `overrides` 
-or `maven-overrides` (the root name is ignored in fact), and containing any of
-the following elements:
 
 ### Artifact coordinates or module names
 
