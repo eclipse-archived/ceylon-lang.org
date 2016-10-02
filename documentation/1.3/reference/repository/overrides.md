@@ -13,9 +13,10 @@ doc_root: ../..
 
 Sometimes the information in a module descriptor is not correct, or must be customized.
 
-- This is especially common when dealing with modules obtained from a Maven repository.
-- It's also sometimes necessary when assemblying a Ceylon application from third-party
-  modules.
+- This is especially common when dealing with modules obtained from a 
+  [Maven repository](../maven).
+- It's also sometimes necessary when assembling a Ceylon application from third-party
+  modules with conflicting dependencies.
 
 ## Issues affecting Maven module dependencies
 
