@@ -16,6 +16,30 @@ compiler can't validate the usual typing rules of the language.
 Therefore, Ceylon lets us write dynamically typed code where 
 typechecking is performed at _runtime_.
 
+## Defining a native Java module
+
+Before we can start writing code that interacts with 
+dynamically-types JavaScript code, we must declare a 
+_native JavaScript module_ using the `native` annotation.
+
+<!-- try: -->
+    native ("js") module hello {}
+
+Or, alternatively, we must declare a `native` function or
+class within a regular cross-platform module.
+
+<!-- try: -->
+    native ("js")
+    void hello() {
+        dynamic {
+            ...
+        }
+    }
+
+We've already seen how to define a 
+[native Java module](../interop/#defining_a_native_java_module)
+in the previous chapter, and the approach here is very similar. 
+
 ## Partially typed declarations
 
 The keyword `dynamic` may be used to declare a function or 

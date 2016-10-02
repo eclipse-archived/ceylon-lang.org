@@ -20,7 +20,48 @@ language. For now the options are:
 
 In this chapter, we're going to learn about how to interoperate 
 with native code running on the Java Virtual Machine. In the
-[next chapter](../dynamic) we'll discuss JavaScript. 
+[next chapter](../dynamic) we'll discuss JavaScript.
+
+## Defining a native Java module
+
+Many Ceylon modules that call native Java code are designed
+to execute only no the JVM. In this case, we declare the whole
+Ceylon module as a _native JVM module_ using the `native`
+annotation.
+
+<!-- try: -->
+    native ("jvm") 
+    module ceylon.formatter "1.3.1" {
+        shared import java.base "7";
+        shared import com.redhat.ceylon.typechecker "1.3.1";
+        import ceylon.collection "1.3.1";
+        ...
+    }
+
+A cross-platform module may call native Java code too, but in
+this case we need to apply the `native` import to `import`
+statements that declare dependencies on native Java `jar`
+archives.
+
+<!-- try: -->
+    module ceylon.formatter "1.3.1" {
+        native ("jvm") shared import java.base "7";
+        shared ("jvm") import com.redhat.ceylon.typechecker "1.3.1";
+        import ceylon.collection "1.3.1";
+        ...
+    }
+
+Furthermore, in this case, we must annotate declarations which 
+make use of the Java classes in these archives.
+
+<!-- try: -->
+    import java.lang { System }
+    
+    native ("jvm")
+    void hello() => System.out.printn("Hello, world!");
+
+It's *not* necessary to annotate individual declarations in a
+module that is already declared as a native JVM module.
 
 ## Depending on the Java SDK
 
