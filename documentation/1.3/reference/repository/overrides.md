@@ -39,7 +39,7 @@ while Ceylon uses strict module version imports.
 ## The overrides file
 
 For all these reasons, we created an experimental measure that lets you override the
-depdency information in a Maven or Ceylon module descriptor. The `overrides.xml` file
+dependency information in a Maven or Ceylon module descriptor. The `overrides.xml` file
 allows us to:
 
 - define constants and use them in interpolated XML attributes
@@ -52,8 +52,8 @@ allows us to:
 
 ## Overrides file syntax
 
-The overrides file must be a valid XML file, with a root named `overrides` 
-or `maven-overrides` (in fact, the root name is ignored).
+The overrides file must be a valid XML file named `overrides.xml`
+or `maven-overrides.xml` (the name is not significant).
 
 For example:
 
@@ -129,7 +129,9 @@ You can replace every import of a given module to use a specific version:
 <!--lang: xml -->
     <set module="com.foo.bar" version="2"/>
 
-This element accepts the common [Artifact coordinates or module names](#artifact_coordinates_or_module_names) attributes.
+This element accepts the common 
+[Artifact coordinates or module names](#artifact_coordinates_or_module_names) 
+attributes.
 
 ### Replacing a module globally
 
@@ -140,7 +142,9 @@ You can replace every import of a given module to use another module:
         <with module="com.foo.gee" version="3"/>
     </replace>
 
-These elements accept the common [Artifact coordinates or module names](#artifact_coordinates_or_module_names) attributes.
+These elements accept the common 
+[Artifact coordinates or module names](#artifact_coordinates_or_module_names) 
+attributes.
 
 ### Overriding a single module's dependencies
 
@@ -164,7 +168,9 @@ Or for Maven artifacts:
         <share groupId="com.foo" artifactId="dep"/>
     </artifact>
 
-These elements accept the common [Artifact coordinates or module names](#artifact_coordinates_or_module_names) attributes.
+These elements accept the common 
+[Artifact coordinates or module names](#artifact_coordinates_or_module_names) 
+attributes.
 
 ### Filtering a single module's contents
 
