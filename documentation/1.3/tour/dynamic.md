@@ -145,7 +145,7 @@ illustrates the use of a native JavaScript API. Try it:
 
     dynamic { 
         dynamic req = XMLHttpRequest();
-        req.open("HEAD", "http://try.ceylon-lang.org/", true);
+        req.open("HEAD", "https://try.ceylon-lang.org/", true);
         req.onreadystatechange = void () {
             if (req.readyState==4) {
                 print(req.getAllResponseHeaders());
@@ -198,7 +198,7 @@ Now we can rewrite the example above, without the use of `dynamic`:
     
 -->
     IXMLHttpRequest req = newXMLHttpRequest();
-    req.open("HEAD", "http://try.ceylon-lang.org/", true);
+    req.open("HEAD", "https://try.ceylon-lang.org/", true);
     req.onreadystatechange = void () {
         if (req.readyState==4) {
             print(req.getAllResponseHeaders());
