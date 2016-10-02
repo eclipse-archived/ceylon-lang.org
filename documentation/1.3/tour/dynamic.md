@@ -53,7 +53,7 @@ we use a _native header_.
     native void hello();
     
     native ("jvm") void hello() 
-        => Systm.out.println("hello");
+        => System.out.println("hello");
     
     native (\"js\") void hello() {
         dynamic {
