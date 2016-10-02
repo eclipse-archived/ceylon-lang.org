@@ -25,7 +25,7 @@ Here are some examples:
     X->Y        // Entry<X,Y>
 
 Certain abbreviations have a 
-[recursive definition](/documentation/1.0/spec/html_single/#typenameabbreviations),
+[recursive definition](#{site.urls.spec_current}#typenameabbreviations),
 so we can't enumerate all the possibilities here.
 
 There are abbreviations for tuple types:
