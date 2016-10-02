@@ -28,12 +28,13 @@ requires correct and complete dependency information.
 
 Furthermore, Maven does not support the notion of _sharing_ module imports, so if a 
 module `A` makes types from its imported module `B` visible to the users of `A`, the 
-import of `B` must be made `shared`.
+import of `B` must be made `shared`.  Sadly, Maven modules frequently bundle things 
+that should not be made visible, such as other modules or tests, that you surely 
+want to exclude, so making transitive dependencies `shared` by default would be
+inappropriate.
 
 Finally, Maven supports module version conflict resolution by design, luck, or overrides, 
-while Ceylon uses strict module version imports. Sadly, Maven modules frequently bundle 
-things that should not be made visible, such as other modules or tests, that you surely 
-want to exclude.
+while Ceylon uses strict module version imports.
 
 ## The overrides file
 
