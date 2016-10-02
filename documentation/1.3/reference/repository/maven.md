@@ -48,6 +48,9 @@ you can specify the file using the `rep` flag:
 <!--lang: none -->
     ceylon compile --rep aether:/path/to/special/setting.xml com.example.foo
 
+In Ceylon IDE, this option may be specified via `Lookup repositories on build path`
+in the `Module Repositories` tab of the project-level compiler settings.
+
 ### Resolving Maven conflicts
 
 Very often, when working with legacy Maven repositories, we encounter one or
