@@ -19,7 +19,7 @@ typechecking is performed at _runtime_.
 ## Defining a native JavaScript module
 
 Before we can start writing code that interacts with 
-dynamically-types JavaScript code, we must declare a 
+dynamically-typed JavaScript code, we must declare a 
 _native JavaScript module_ using the `native` annotation.
 
 <!-- try: -->
