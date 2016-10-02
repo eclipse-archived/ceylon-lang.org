@@ -80,11 +80,10 @@ Thus, you occasionally see the following pattern in Ceylon:
 If `Unit` and `unit` are toplevel declarations, then `Unit` is called a 
 _unit type_, since it has exactly one instance. 
 
-### Gotcha!
+### Tip
 
-Later, we'll see that
-it's usually better to write a class like `Unit` as a class with a 
-[value constructor](../initialization/#value_constructors):
+Later, we'll see that it's usually better to write a class like `Unit` as 
+a class with a [value constructor](../initialization/#value_constructors):
 
 <!-- try: -->
     class Unit {
@@ -180,6 +179,8 @@ for example:
             cancel() => subscribers.remove(s);
         };
     }
+
+In this case, we don't give the `object` a name.
 
 ## Member classes and member class refinement
 
