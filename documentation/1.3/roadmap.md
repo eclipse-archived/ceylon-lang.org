@@ -8,7 +8,7 @@ author: Emmanuel Bernard
 # #{page.title}
 
 Ceylon 1.3.0 [has been released](/download) and we've already started
-development of Ceylon 1.3.1. Tthe goals of the 1.3.1 release include:
+development of Ceylon 1.3.1. Goals of the 1.3.1 release include:
 
 - [#6515](https://github.com/ceylon/ceylon/issues/6515) `static` 
   members in Ceylon classes
