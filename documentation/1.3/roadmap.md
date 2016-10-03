@@ -21,6 +21,8 @@ development of Ceylon 1.3.1. Tthe goals of the 1.3.1 release include:
 - [#4127](https://github.com/ceylon/ceylon/issues/4127) literal tuples
   in `case`s of a `switch`
 
+We're prioritizing improvements to Android support and Ceylon IDE for 
+IntelliJ.
 
 <!--
 ## Current progress for Ceylon 1.3
