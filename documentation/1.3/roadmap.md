@@ -12,7 +12,16 @@ development of Ceylon 1.3.1. Being an odd-numbered release, 1.3.1 won't
 include major new language features. Instead, the goals of the 1.3.1
 release include:
 
-- TODO: FILL ME IN
+- [#6515](https://github.com/ceylon/ceylon/issues/6515) `static` 
+  members in Ceylon classes
+- [#1617](https://github.com/ceylon/ceylon/issues/1617) interop with 
+  Java 8 lambdas (ability to pass Ceylon `Callable`s to Java SAM types)
+- [#5954](https://github.com/ceylon/ceylon/issues/5954) support spread
+  operators `*` and `*.` with `java.lang.Iterable`
+- [#6000](https://github.com/ceylon/ceylon/issues/6000) `assert` clause
+  in comprehensions
+- [#4127](https://github.com/ceylon/ceylon/issues/4127) literal tuples
+  in `case`s of a `switch`
 
 
 <!--
