@@ -157,7 +157,7 @@ of named argument lists. This invocation:
 
     printAll { "hello" };
 
-Means something quite different Is quite different to this
+Is quite different to this
 one, with a terminating semicolon:
 
     printAll { "hello"; };
