@@ -228,7 +228,7 @@ Ceylon `Object`!). We may use a special-purpose _dynamic
 enumeration expression_:
 
     dynamic {
-        dynamic obj = dynamic [ hello="Hello, World"; count=11; ];
+        dynamic obj = dynamic [ hello = "Hello, World"; count = 11; ];
         print(obj.hello);
         print(obj.count);
         
