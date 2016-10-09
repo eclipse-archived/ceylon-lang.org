@@ -388,6 +388,7 @@ Java generic type, you can use an _unchecked_ type assertion:
     Object something = JArrayList<JString>();
     if (is JList<out Anything> something) { //ok
         assert (is JList<JString> something); //warning: type condition might not be fully checked at runtime
+        ...
     }
 
 This code is essentially the same as what you would do in Java:
