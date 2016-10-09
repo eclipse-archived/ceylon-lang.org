@@ -308,6 +308,31 @@ The [module `ceylon.interop.java`](https://herd.ceylon-lang.org/modules/ceylon.i
 contains a raft of additional methods for working with these
 Java array types.
 
+### Java generic types are represented without change
+
+A generic instantiation of a Java type like `java.util.List<E>` 
+is representable without any special mapping rules. A Java 
+`List<String>` may be written as `List<String>` in Ceylon, 
+after importing `List` and `String` from the module `java.base`.
+
+<!-- try: -->
+    import java.lang { String }
+    import java.util { List, ArrayList }
+    
+    List<String> strings = ArrayList<String>();
+
+### Tip: disambiguating Java types using aliases
+
+Note that it's a good idea to distinguish a Java type with
+the same name as a common Ceylon type using an `import` alias.
+So we would rewrite the code fragment above like this:
+
+<!-- try: -->
+    import java.lang { JString = String }
+    import java.util { JList = List, JArrayList = ArrayList }
+    
+    JList<JString> strings = JArrayList<JString>();
+
 ### Wildcards and raw types are represented using use-site variance
 
 In pure Ceylon code, we almost always use 
@@ -329,6 +354,49 @@ Wildcard types are unavoidable when interoperating with Java,
 and perhaps occasionally useful in pure Ceylon code. But we 
 recommend avoiding them, except where there's a really good 
 reason.
+
+### Gotcha!
+
+Instances of Java generic types don't carry information about
+generic type arguments at runtime. So certain operations which
+are legal in Ceylon are rejected by the Ceylon compiler when
+a Java generic type is involved. For example, the following code
+is illegal, since `JList` is a Java generic type, with erased
+type arguments:
+
+<!-- try: -->
+    import java.lang { JString = String }
+    import java.util { JList = List, JArrayList = ArrayList }
+    
+    Object something = JArrayList<JString>();
+    if (is JList<JString> something) { //error: type condition cannot be fully checked at runtime
+        ... 
+    }
+
+This isn't a limitation of Ceylon; the equivalent code is also
+illegal in Java!
+
+### Tip: dealing with Java type erasure
+
+When you encounter the need to narrow to an instantiation of a
+Java generic type, you can use an _unchecked_ type assertion:
+
+<!-- try: -->
+    import java.lang { JString = String }
+    import java.util { JList = List, JArrayList = ArrayList }
+    
+    Object something = JArrayList<JString>();
+    if (is JList<out Anything> something) { //ok
+        assert (is JList<JString> something); //warning: type condition might not be fully checked at runtime
+    }
+
+This code is essentially the same as what you would do in Java:
+
+1. test against the raw type `List` using `instanceof`, and then
+2. narrow to `List<String>` using an unchecked typecast.
+
+Just like in Java, the above code produces a warning, since the
+type arguments in the assertion cannot be checked at runtime.
 
 ### Null values are checked at runtime
 
@@ -577,13 +645,12 @@ The following idioms are very useful for instantiating Java
 (Note that these code examples work because `Arrays.asList()`
 has a variadic parameter.)
 
-### Converting between `Iterable`s
+### Tip: xonverting between `Iterable`s
 
 An especially useful adaptor is 
 [`CeylonIterable`](#{site.urls.apidoc_current_interop_java}/CeylonIterable.type.html), 
-which lets you iterate any Java `Iterable` from a `for` loop in 
-Ceylon, or apply any of the usual operations of a Ceylon 
-[`Iterable`](#{site.urls.apidoc_1_3}/Iterable.type.html) to it.
+which lets you apply any of the usual operations of a Ceylon 
+[stream](#{site.urls.apidoc_1_3}/Iterable.type.html) to it.
 
 <!-- try: -->
     import java.util { JList=List, JArrayList=ArrayList }
@@ -606,7 +673,7 @@ Similarly there are `CeylonStringIterable`, `CeylonIntegerIterable`,
 classes which as well as converting the iterable type also convert
 the elements from their Java types to the corresponding Ceylon type.
 
-### Getting a `java.util.Class`
+### Tip: getting a `java.util.Class`
 
 Another especially useful function is 
 [`javaClass`](#{site.urls.apidoc_current_interop_java}/index.html#javaClass),
