@@ -321,6 +321,10 @@ after importing `List` and `String` from the module `java.base`.
     
     List<String> strings = ArrayList<String>();
 
+The only problem here is that it's really easy to mix up
+`String', `List`, and `ArrayList` with the Ceylon types
+with the same names!
+
 ### Tip: disambiguating Java types using aliases
 
 Note that it's a good idea to distinguish a Java type with
@@ -332,6 +336,8 @@ So we would rewrite the code fragment above like this:
     import java.util { JList = List, JArrayList = ArrayList }
     
     JList<JString> strings = JArrayList<JString>();
+
+That's much less likely to cause confusion!
 
 ### Wildcards and raw types are represented using use-site variance
 
