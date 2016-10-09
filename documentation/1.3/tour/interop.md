@@ -661,7 +661,7 @@ The following idioms are very useful for instantiating Java
 (Note that these code examples work because `Arrays.asList()`
 has a variadic parameter.)
 
-### Tip: xonverting between `Iterable`s
+### Tip: converting between `Iterable`s
 
 An especially useful adaptor is 
 [`CeylonIterable`](#{site.urls.apidoc_current_interop_java}/CeylonIterable.type.html), 
