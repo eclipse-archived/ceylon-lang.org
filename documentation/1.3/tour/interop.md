@@ -327,9 +327,9 @@ with the same names!
 
 ### Tip: disambiguating Java types using aliases
 
-Note that it's a good idea to distinguish a Java type with
-the same name as a common Ceylon type using an `import` alias.
-So we would rewrite the code fragment above like this:
+It's usually a good idea to distinguish a Java type with the 
+same name as a common Ceylon type using an `import` alias. So 
+we would rewrite the code fragment above like this:
 
 <!-- try: -->
     import java.lang { JString = String }
