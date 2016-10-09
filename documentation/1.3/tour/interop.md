@@ -265,6 +265,7 @@ or `float` at the bytecode level, instead of the 64-bit `long`
 or `double` that the Ceylon compiler uses by default, you can
 use the `small` annotation.
 
+<!-- try: -->
     small Integer int = string.hash;
 
 Note that `small` is defined as a _hint_, and may be ignored
