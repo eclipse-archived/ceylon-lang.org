@@ -311,8 +311,8 @@ Java array types.
 ### Java generic types are represented without change
 
 A generic instantiation of a Java type like `java.util.List<E>` 
-is representable without any special mapping rules. A Java 
-`List<String>` may be written as `List<String>` in Ceylon, 
+is representable without any special mapping rules. The Java 
+type `List<String>` may be written as `List<String>` in Ceylon, 
 after importing `List` and `String` from the module `java.base`.
 
 <!-- try: -->
@@ -343,9 +343,13 @@ That's much less likely to cause confusion!
 
 In pure Ceylon code, we almost always use 
 [declaration-site variance](../generics/#covariance_and_contravariance).
-However, this doesn't work when we interoperate with Java 
-generic types with wildcards. Therefore, Ceylon supports 
-use-site variance (wildcards).
+However, this approach doesn't work when we interoperate with 
+Java generic types, which are by nature all invariant. In Java, 
+covariance or contravariance is represented at the point of use 
+of the generic type, using _wildcards_. Therefore, Ceylon 
+also supports use-site variance (wildcards).
+
+Use-site variance is indicated using the keywords `out` and `in`:
 
 - `List<out Object>` has a covariant wildcard, and is 
   equivalent to `List<? extends Object>` in Java, and
@@ -355,6 +359,11 @@ use-site variance (wildcards).
 Java raw types are also represented with a covariant wildcard. 
 The raw type `List` is represented as `List<out Object>` in 
 Ceylon.
+
+Note that for any invariant generic type `T<X>`, the 
+instantiations `T<Anything>` and `T<Nothing>` are exactly
+equivalent, and are supertypes of all other instantiations
+of `T`.
 
 Wildcard types are unavoidable when interoperating with Java, 
 and perhaps occasionally useful in pure Ceylon code. But we 
