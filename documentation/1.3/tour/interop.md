@@ -235,6 +235,41 @@ Worse, a Java `List<String>` doesn't contain _Ceylon_
 
 Watch out for this!
 
+### Tip: converting Java strings
+
+Explicitly converting between `String` and Java `String` is
+easy:
+
+- the `.string` attribute of a Java string returns a Ceylon
+  string, and
+- one of the constructors of  `java.lang.String` accepts a
+  Ceylon `String`, or, alternatively,
+- the function [`javaString`](#{site.urls.apidoc_current_interop_java}/index.html#javaString) 
+  in the module `ceylon.interop.java` converts a Ceylon string
+  to a Java string without requiring an instantiation.
+
+### Tip: converting Java primitive wrapper types
+
+Likewise, conversions between Ceylon types and Java primitive
+wrapper types are just as trivial, for example:
+
+- the `.intValue()` method of `java.lang.Integer` returns a
+  Ceylon `Integer`, and
+- the constructor of `java.lang.Integer` accepts a Ceylon 
+  `Integer`.
+
+### Tip: using the `small` annotation
+
+If, for some strange reason, you _really_ need a 32-bit `int` 
+or `float` at the bytecode level, instead of the 64-bit `long`
+or `double` that the Ceylon compiler uses by default, you can
+use the `small` annotation.
+
+    small Integer int = string.hash;
+
+Note that `small` is defined as a _hint_, and may be ignored
+by the compiler. 
+
 ### Java array types are represented by special Ceylon classes
 
 Since there are no primitively-defined array types in Ceylon, 
@@ -526,7 +561,7 @@ you'll find a suite of useful utility functions and classes for
 Java interoperation. For example, there are classes that adapt
 between Ceylon collection types and Java collection types.
 
-### Tip
+### Tip: creating Java lists
 
 The following idioms are very useful for instantiating Java 
 `List`s:
