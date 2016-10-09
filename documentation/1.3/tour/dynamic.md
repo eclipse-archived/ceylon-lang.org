@@ -40,7 +40,7 @@ We've already seen how to define a
 [native Java module](../interop/#defining_a_native_java_module)
 in the previous chapter, and the approach here is very similar.
 
-### Tip
+### Tip: defining an operation with a `native` header
 
 When writing a cross-platform module that interacts with native
 Java and JavaScript code, we usually need to define `native`

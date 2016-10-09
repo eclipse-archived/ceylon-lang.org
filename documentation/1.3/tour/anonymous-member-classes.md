@@ -69,6 +69,8 @@ code that refers to the concrete type of `origin` or `consoleWriter`, we
 must use the very ugly syntax `\Iorigin` or `\IconsoleWriter` as the type
 name.
 
+### Tip: defining a unit type
+
 Thus, you occasionally see the following pattern in Ceylon:
 
 <!-- try: -->
@@ -80,7 +82,7 @@ Thus, you occasionally see the following pattern in Ceylon:
 If `Unit` and `unit` are toplevel declarations, then `Unit` is called a 
 _unit type_, since it has exactly one instance. 
 
-### Tip
+### Tip: use a value constructor instead
 
 Later, we'll see that it's usually better to write a class like `Unit` as 
 a class with a [value constructor](../initialization/#value_constructors):

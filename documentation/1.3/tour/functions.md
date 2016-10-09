@@ -500,7 +500,7 @@ Note that it can sometimes be a bit tricky to come up with a good way to
 format anonymous functions with blocks in a readable way, so it's often 
 better to just give the function a name and use it by reference.
 
-### Tip
+### Tip: use a comprehension instead
 
 You're probably thinking that, since `map()`, `filter()` are so powerful
 (and so popular in other languages), that we must use `map()` and `filter()`
