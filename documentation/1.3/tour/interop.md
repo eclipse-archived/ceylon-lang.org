@@ -322,8 +322,8 @@ after importing `List` and `String` from the module `java.base`.
     List<String> strings = ArrayList<String>();
 
 The only problem here is that it's really easy to mix up
-`String', `List`, and `ArrayList` with the Ceylon types
-with the same names!
+Java's `String`, `List`, and `ArrayList` with the Ceylon 
+types with the same names!
 
 ### Tip: disambiguating Java types using aliases
 
