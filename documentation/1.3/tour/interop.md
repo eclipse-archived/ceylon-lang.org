@@ -116,10 +116,14 @@ _TODO: instructions for using JavaFX here._
 
 For Android development, it's necessary to use the 
 [Ceylon Android plugin for Gradle][android gradle] to create 
-a module repository containing the Android SDK. Then, this
-repository must be specified as the provider of the Java SDK, 
-using the command-line argument [`--jdk-provider`][] of
-`ceylon compile`.
+a Ceylon module repository containing the bits of the Android 
+SDK that are needed to compile an app written in Ceylon.
+You'll find this repository in the subdirectory
+`build/intermediates/ceylon-android/repository` of your
+Ceylon Android project. This repository must be specified as 
+the source of all Android-related Java modules using `--rep`, 
+and as the provider of the Java SDK using the command-line 
+argument [`--jdk-provider`][] of `ceylon compile`.
 
 However, when compiling using Gradle, or from inside Android 
 Studio, the repository is created by the build, and the 
