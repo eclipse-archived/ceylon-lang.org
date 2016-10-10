@@ -136,8 +136,8 @@ or `module.properties` file specifies dependency information for
 a `.jar`.
 
 - The format of the `module.properties` file is documented
-  [here][], and
-- the `module.xml` descriptor format is defined [here][].
+  [here][module.properties], and
+- the `module.xml` descriptor format is defined [here][module.xml].
 
 The command line tool [`ceylon import-jar`][] can help make this 
 task easier.
