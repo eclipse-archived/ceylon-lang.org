@@ -705,8 +705,8 @@ Note that `id` here refers to the Java annotation
 
 Annotation values of type `java.util.Class` may be specified
 by passing the corresponding Ceylon `ClassDeclaration`. For
-example, you would use `` `Person` `` where you would use 
-`Person.class` in Java.
+example, you would use `` type = `class Person` `` where you 
+would have used `type = Person.class` in Java.
 
 ## Java `Iterable`s and `AutoCloseable`s 
 
