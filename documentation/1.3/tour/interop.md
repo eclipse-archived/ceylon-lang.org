@@ -63,7 +63,7 @@ make use of the Java classes in these archives.
 It's *not* necessary to annotate individual declarations in a
 module that is already declared as a native JVM module.
 
-[`native`](/documentation/1.3/reference/annotation/native/)
+[`native`]: /documentation/current/reference/annotation/native/
 
 ## Importing Java modules containing native code
 
