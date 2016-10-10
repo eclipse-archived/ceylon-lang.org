@@ -26,7 +26,7 @@ with native code running on the Java Virtual Machine. In the
 
 Many Ceylon modules that call native Java code are designed
 to execute only on the JVM. In this case, we declare the whole
-Ceylon module as a _native JVM module_ using the `native`
+Ceylon module as a _native JVM module_ using the [`native`][]
 annotation.
 
 <!-- try: -->
@@ -62,6 +62,8 @@ make use of the Java classes in these archives.
 
 It's *not* necessary to annotate individual declarations in a
 module that is already declared as a native JVM module.
+
+[`native`](/documentation/1.3/reference/annotation/native/)
 
 ## Importing Java modules containing native code
 
