@@ -798,7 +798,8 @@ Here's a couple of limitations to be aware of:
 When you execute a Ceylon program using `ceylon run`, it
 executes on a lightweight module container that is based on
 JBoss Modules. But it's also possible to execute a Ceylon 
-module in certain other module containers.
+module in certain other module containers, or without any
+module container at all.
 
 ### Deploying Ceylon on OSGi
 
