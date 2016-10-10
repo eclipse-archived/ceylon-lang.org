@@ -214,6 +214,33 @@ There's a handful of things to be aware of when writing Ceylon
 code that calls a Java class or interface, arising out of the
 differences between the type systems of the two languages.
 
+### Certain very abstract Java supertypes are mapped to Ceylon types
+
+There are three Java classes and one interface which simply 
+can't be used at all in Ceylon code, because Ceylon provides
+a type that is exactly equivalent in the package 
+[`ceylon.language`][]. When these types occur in the signature
+of an operation in Java, they're always represented by the
+equivalent Ceylon type:
+
+- `java.lang.Object` is represented by Ceylon's 
+  [`Object`][] class,
+- `java.lang.Exception` is represented by Ceylon's 
+  [`Exception`][] class,
+- `java.lang.Throwable` is represented by Ceylon's 
+  [`Throwable`][] class, and
+- `java.lang.annotation.Annotation` is represented by the
+  interface [`Annotation`][].
+
+It's an error to attempt to `import` one of these Java types
+in Ceylon code. 
+
+[`ceylon.language`]: #{site.urls.apidoc_1_3}/index.html
+[`Object`]: #{site.urls.apidoc_1_3}/Object.type.html
+[`Exception`]: #{site.urls.apidoc_1_3}/Exception.type.html
+[`Throwable`]: #{site.urls.apidoc_1_3}/Throwable.type.html
+[`Annotation`]: #{site.urls.apidoc_1_3}/Annotation.type.html
+
 ### Java primitive types are mapped to Ceylon types
 
 You're never exposed to Java primitive types when calling a
