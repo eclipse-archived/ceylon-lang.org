@@ -615,8 +615,8 @@ the attribute using `=`, the assignment operator:
 <!-- try: -->
     calendar.timeInMillis = system.milliseconds;
 
-However, if there is no matching getter method for a setter,
-the setter is treated as a regular method.
+However, if there is no exactly-matching getter method for a 
+setter, the setter is treated as a regular method.
 
 ### Gotcha!
 
