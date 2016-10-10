@@ -63,9 +63,16 @@ make use of the Java classes in these archives.
 It's *not* necessary to annotate individual declarations in a
 module that is already declared as a native JVM module.
 
-## Depending on the Java SDK
+## Importing Java modules containing native code
 
-A Ceylon program can only use native code belonging to a module. 
+A Ceylon program can only use native code belonging to a module.
+Ceylon doesn't have the notion of a global class path, and not
+every Ceylon program can be assumed to be executing on the JVM, 
+so dependencies to native Java code must always be expressed 
+explicitly in the module descriptor.
+
+### Depending on the Java SDK
+
 In particular, the Java SE SDK is available as a set of modules, 
 according to the modularization proposed by the Jigsaw project.
 So to make use of the Java SE SDK we need to import one or more
@@ -98,7 +105,7 @@ and use it like any ordinary Ceylon class:
 
 _TODO: instructions for using JavaFX here._
 
-## Depending on a Java archive
+### Depending on a Java archive
 
 To make use of native code belonging to a packaged `.jar`
 archive, you have two options:
@@ -124,26 +131,6 @@ write the `module.xml` descriptor by hand, go to
 The Ceylon module architecture interoperates with Maven via
 Aether. You can find more information 
 [here](../../reference/repository/maven).
-
-## Deploying Ceylon on OSGi
-
-Ceylon is fully interoperable with OSGI, so that Ceylon 
-modules:
-
-- can be deployed as pure OSGI bundles in an OSGI container 
-  out-of-the-box, without any modification of the module 
-  archive file,
-- can embed additional OSGI metadata, to declare services for 
-  example, and
-- can easily use OSGI standard services.
-
-This provides a great and straightforward opportunity to run 
-Ceylon code inside a growing number of JEE application servers 
-or enterprise containers that are based upon (or integrated 
-with) OSGI.
-
-You can learn more about Ceylon and OSGi from the 
-[reference documentation](../../reference/interoperability/osgi-overview).
 
 ## Interoperation with Java types
 
@@ -315,9 +302,10 @@ You can think of the `ByteArray` as the actual underlying
 `byte[]` instance, and the `Array<Byte>` as an instance of 
 the Ceylon class `Array` that wraps the `byte[]` instance.
 
-The [module `ceylon.interop.java`](https://herd.ceylon-lang.org/modules/ceylon.interop.java) 
-contains a raft of additional methods for working with these
-Java array types.
+The module [`ceylon.interop.java`][] contains a raft of 
+additional methods for working with these Java array types.
+
+[`ceylon.interop.java`]: https://herd.ceylon-lang.org/modules/ceylon.interop.java
 
 ### Java generic types are represented without change
 
@@ -581,7 +569,10 @@ For example:
         string => "Person(``_id``, ``firstName`` ``lastName``, ``city.name``)";
     }
 
-Note that `id` here refers to the Java annotation `javax.persistence.Id`.
+Note that `id` here refers to the Java annotation 
+`javax.persistence.Id`.
+
+### Tip: specifying arguments to anotation parameters of type `Class`
 
 Annotation values of type `java.util.Class` may be specified
 by passing the corresponding Ceylon `ClassDeclaration`. For
@@ -644,18 +635,25 @@ Ceylon `Entry`s or `Tuple`s.
 
 Two of Ceylon's built-in operators may be applied to Java types:
 
-- the element lookup operator (`list[index]`) may be used 
-  with Java arrays, `java.util.List`, and `java.util.Map`, 
-  and
-- the containment operator (`element in container`) may be 
-  used with instances of `java.util.Collection`.
+- the element lookup operator (`list[index]`) may be used with 
+  Java arrays, `java.util.List`, and `java.util.Map`, and
+- the containment operator (`element in container`) may be used 
+  with the type `java.util.Collection`.
 
-## Utility functions and classes
+<!-- try: -->
+    import java.util { JArrayList=ArrayList }
+    
+    value list = JArrayList<String>();
+    list.add("hello");
+    list.add("world");
+    
+    list[0] = "goodbye";
+    assert ("world" in list);
+    printAll { for (word in list) word };
 
-In the module [`ceylon.interop.java`](#{site.urls.apidoc_current_interop_java}/index.html)
-you'll find a suite of useful utility functions and classes for
-Java interoperation. For example, there are classes that adapt
-between Ceylon collection types and Java collection types.
+There's almost no friction here; if you prefer to use Java's
+collection types instead of the mutable collection types 
+defined by the module `ceylon.collection`, go right ahead!
 
 ### Tip: creating Java lists
 
@@ -672,12 +670,18 @@ The following idioms are very useful for instantiating Java
 (Note that these code examples work because `Arrays.asList()`
 has a variadic parameter.)
 
+## Utility functions and classes
+
+In the module [`ceylon.interop.java`][] you'll find a suite 
+of useful utility functions and classes for Java interoperation. 
+For example, there are classes that adapt between Ceylon 
+collection types and Java collection types.
+
 ### Tip: converting between `Iterable`s
 
-An especially useful adaptor is 
-[`CeylonIterable`](#{site.urls.apidoc_current_interop_java}/CeylonIterable.type.html), 
-which lets you apply any of the usual operations of a Ceylon 
-[stream](#{site.urls.apidoc_1_3}/Iterable.type.html) to it.
+An especially useful adaptor is [`CeylonIterable`][], which lets 
+you apply any of the usual operations of a Ceylon [stream][] to a 
+Java `Iterable`.
 
 <!-- try: -->
     import java.util { JList=List, JArrayList=ArrayList }
@@ -691,20 +695,21 @@ which lets you apply any of the usual operations of a Ceylon
     
     CeylonIterable(strings).each(print);
 
-(Alternatively, we could have used 
-[`CeylonList`](#{site.urls.apidoc_current_interop_java}/CeylonList.type.html)
-in this example.)
+(Alternatively, we could have used [`CeylonList`][] in this example.)
 
 Similarly there are `CeylonStringIterable`, `CeylonIntegerIterable`, 
 `CeylonFloatIterable`,`CeylonByteIterable` and `CeylonBooleanIterable` 
 classes which as well as converting the iterable type also convert
 the elements from their Java types to the corresponding Ceylon type.
 
+[`CeylonIterable`]: #{site.urls.apidoc_current_interop_java}/CeylonIterable.type.html
+[`CeylonList`]: #{site.urls.apidoc_current_interop_java}/CeylonList.type.html
+[stream]: #{site.urls.apidoc_1_3}/Iterable.type.html
+
 ### Tip: getting a `java.util.Class`
 
-Another especially useful function is 
-[`javaClass`](#{site.urls.apidoc_current_interop_java}/index.html#javaClass),
-which obtains an instance of `java.util.Class` for a given type.
+Another especially useful function is [`javaClass`][], which obtains 
+an instance of `java.util.Class` for a given type.
 
 <!-- try: -->
     import ceylon.interop.java { javaClass }
@@ -713,9 +718,12 @@ which obtains an instance of `java.util.Class` for a given type.
     JClass<Integer> jc = javaClass<Integer>();
     print(jc.protectionDomain);
 
-The functions [`javaClassFromInstance`](#{site.urls.apidoc_current_interop_java}/index.html#javaClassFromInstance)
-and [`javaClassFromDeclaration`](#{site.urls.apidoc_current_interop_java}/index.html#javaClassFromDeclaration)
-are also useful.
+The functions [`javaClassFromInstance`][] and 
+[`javaClassFromDeclaration`][] are also useful.
+
+[`javaClass`]: #{site.urls.apidoc_current_interop_java}/index.html#javaClass
+[`javaClassFromInstance`]: #{site.urls.apidoc_current_interop_java}/index.html#javaClassFromInstance
+[`javaClassFromDeclaration`]: #{site.urls.apidoc_current_interop_java}/index.html#javaClassFromDeclaration
 
 ## `META-INF` and `WEB-INF`
 
@@ -740,16 +748,17 @@ Then, given a module named `net.example.foo`:
 
 ## Interoperation with Java's `ServiceLoader`
 
- Annotating a Ceylon class with the `service` annotation makes
- the class available to Java's 
- [service loader architecture](https://docs.oracle.com/javase/8/docs/api/java/util/ServiceLoader.html).
+Annotating a Ceylon class with the `service` annotation makes
+the class available to Java's [service loader architecture][].
+
+[service loader architecture]: https://docs.oracle.com/javase/8/docs/api/java/util/ServiceLoader.html
 
 <!-- try: -->
      service (`Manager`)
      shared class DefautManager() satisfies Manager {}
  
- A Ceylon module may gain access to Java services by calling
- [`Module.findServiceProviders()`](#{site.urls.apidoc_1_3}/meta/declaration/Module.type.html#findServiceProviders).
+A Ceylon module may gain access to Java services by calling
+[`Module.findServiceProviders()`][].
 
 <!-- try: -->
      {Manager*} managers = `module`.findServiceProviders(`Manager`);
@@ -767,13 +776,16 @@ dependencies, specify the module explicitly:
 The `service` annotation and `Module.findServiceProviders()`
 work portably across the JVM and JavaScript environments.
 
+[`Module.findServiceProviders()`]: #{site.urls.apidoc_1_3}/meta/declaration/Module.type.html#findServiceProviders
+
 ## Limitations
 
 Here's a couple of limitations to be aware of:
 
-- You can't call Java methods using the named argument syntax, 
-  since Java 7 doesn't expose the names of parameters at runtime 
-  (and Ceylon doesn't yet depend on features of Java 8).
+- You can't call Java methods using the named argument 
+  syntax, since Java 7 doesn't expose the names of 
+  parameters at runtime, and Ceylon doesn't yet depend on 
+  language features only available in Java 8.
 - You can't obtain a method reference, nor a static method 
   reference, to an overloaded method.
 - Java generic types don't carry reified type arguments at 
@@ -781,10 +793,62 @@ Here's a couple of limitations to be aware of:
   generics (for example, some `is` tests) are rejected at 
   compile time, or unchecked at runtime.
 
+## Alternative module runtimes
+
+When you execute a Ceylon program using `ceylon run`, it
+executes on a lightweight module container that is based on
+JBoss Modules. But it's also possible to execute a Ceylon 
+module in certain other module containers.
+
+### Deploying Ceylon on OSGi
+
+Ceylon is fully interoperable with OSGi, so that Ceylon 
+modules:
+
+- can be deployed as pure OSGi bundles in an OSGi container 
+  out-of-the-box, without any modification of the module 
+  archive file,
+- can embed additional OSGi metadata, to declare services for 
+  example, and
+- can easily use OSGi standard services.
+
+This provides a great and straightforward way to run Ceylon 
+modules inside Java EE application servers or enterprise 
+containers that support or are are built around OSGi.
+
+You can learn more about Ceylon and OSGi from the 
+[reference documentation](../../reference/interoperability/osgi-overview).
+
+[OSGi]: https://www.osgi.org/
+
+### Deploying Ceylon on Jigsaw
+
+The command line tool [`ceylon jigsaw`] deploys a module and
+all its dependencies to a Jigsaw-style `mlib/` directory. Since
+Jigsaw is not yet released, and is still undergoing changes, this
+functionality is considered experimental.
+
+[`ceylon jigsaw`]: /documentation/current/reference/tool/ceylon/subcommands/ceylon-jigsaw.html
+[Jigsaw]: http://openjdk.java.net/projects/jigsaw/
+
+### Deploying Ceylon as a fat jar
+
+Finally, if you wish to run a Ceylon program on a machine with
+no Ceylon distribution available, and without the runtome module 
+isolation provided by JBoss Modules, the command line tool
+[`ceylon fat-jar`][] is indispensible. The command simply produces
+a Java `.jar` archive that contains a Ceylon module and everything
+it depends on at runtime.
+
+[`ceylon fat-jar`]: https://ceylon-lang.org/documentation/1.3/reference/tool/ceylon/subcommands/ceylon-fat-jar.html
+
 ## There's more ...
 
 You can learn more about `native` declarations from the 
 [reference documentation](/documentation/reference/interoperability/native/).
+
+Ceylon's experimental support for [Jigsaw][] is covered in 
+greater detail in [this blog post](/blog/2015/12/17/java9-jigsaw/).
 
 In a mixed Java/Ceylon project, you'll probably need to use a 
 build system like Gradle, Maven, or Apache `ant`. Ceylon has 
