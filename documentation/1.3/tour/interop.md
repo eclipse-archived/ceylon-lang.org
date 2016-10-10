@@ -466,7 +466,8 @@ optional type:
     import java.lang { System }
     
     void printUserHome() {
-        String? home = System.getProperty("user.home");
+        String? home  //optional type
+                = System.getProperty("user.home");
         print(home);
     }
 
@@ -477,8 +478,10 @@ non-optional type `String`:
 <!-- try: -->
     import java.lang { System }
     
-    String getUserHome() {
-        return System.getProperty("user.home");
+    void printUserHome() {
+        String home  //non-optional type, possible runtime exception
+                = System.getProperty("user.home");
+        print(home);
     }
 
 The runtime check ensures that `null` can never unsoundly 
@@ -489,10 +492,25 @@ original call to Java.
 
 ### Gotcha!
 
-The Ceylon compiler doesn't usually have any information that a
-Java method returning a class or interface type could return `null`, 
-and so it won't warn you at compile time if you call a Java method
-that sometimes returns `null`.
+The Ceylon compiler doesn't usually have any information that 
+a Java method returning a class or interface type could return 
+`null`, and so it won't warn you at compile time if you call a 
+Java method that sometimes returns `null`.
+
+You need to be especially careful with inferred types when 
+calling native Java methods. In this code, the type `String`
+is inferred for `home`:
+
+<!-- try: -->
+    import java.lang { System }
+    
+    void printUserHome() {
+        value home  //inferred type String, not String?
+                = System.getProperty("user.home");
+        print(home);
+    }
+
+It's a good idea to be explicit here.
 
 ### Java types annotated `@Nullable` are exposed as optional types
 
