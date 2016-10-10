@@ -294,8 +294,15 @@ use the `small` annotation.
 <!-- try: -->
     small Integer int = string.hash;
 
-Note that `small` is defined as a _hint_, and may be ignored
-by the compiler. 
+It's important to understand that `small Integer` isn't a 
+different type to `Integer`. So any `Integer` is directly
+assignable to a declaration of type `small Integer`, and
+the compiler will silently produce a narrowing conversion,
+which could result in silent overflow or loss of precision
+at runtime.
+
+Note also that `small` is defined as a _hint_, and may be 
+completely ignored by the compiler.
 
 ### Java array types are represented by special Ceylon classes
 
