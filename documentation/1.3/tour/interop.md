@@ -132,10 +132,12 @@ using the command-line argument [`--jdk-provider`][].
 (When compiling using Gradle, or from inside Android Studio,
 this option is set automatically.)
 
-[`--jdk-provider`]: documentation/reference/tool/ceylon/subcommands/ceylon-compile.html#option--jdk-provider
-
 You can get started with Ceylon on Android by following 
-this [getting started guide](/blog/2016/06/02/ceylon-on-android/).
+this [getting started guide][android blog].
+
+[`--jdk-provider`]: /documentation/reference/tool/ceylon/subcommands/ceylon-compile.html#option--jdk-provider
+[android blog]: /blog/2016/06/02/ceylon-on-android/
+
 
 ### Depending on a Java archive
 
