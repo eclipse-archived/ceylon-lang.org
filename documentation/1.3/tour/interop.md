@@ -121,13 +121,23 @@ repository must be specified as the provider of the Java SDK,
 using the command-line argument [`--jdk-provider`][] of
 `ceylon compile`.
 
-<!-- lang: bash -->
-    ceylon compile --jdk-provider=android/24 ...
-
 However, when compiling using Gradle, or from inside Android 
 Studio, the repository is created by the build, and the 
 compiler option is set automatically, so you don't need to 
-mess with it explicitly.
+mess with it explicitly. You can find it in `.ceylon/config`,
+if you're interested:
+
+<!-- lang: none -->
+    [compiler]
+    jdkprovider=android/24
+
+    [repositories]
+    lookup=./build/intermediates/ceylon-android/repository
+
+_Note: Android itself has an immensely complicated toolchain, 
+and Android apps cannot reasonably be compiled using only 
+commmand line tools. In practice, you'll always use Gradle to
+build an Android app._
 
 A basic boilerplate module descriptor for Android development 
 looks like this:
