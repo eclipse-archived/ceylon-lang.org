@@ -192,7 +192,7 @@ conversion. For example, if:
 - a Ceylon `Integer` is assigned to a Java `int` or `short`,
 - a Ceylon `Float` is assigned to a Java `float`, or if
 - a Ceylon UTF-32 `Character` is assigned to a Java 16-bit
-  `char`
+  `char`,
 
 the assignment can result in _silent_ overflow or loss of
 precision at runtime.
@@ -253,9 +253,11 @@ easy:
   string, and
 - one of the constructors of  `java.lang.String` accepts a
   Ceylon `String`, or, alternatively,
-- the function [`javaString`](#{site.urls.apidoc_current_interop_java}/index.html#javaString) 
-  in the module `ceylon.interop.java` converts a Ceylon string
-  to a Java string without requiring an instantiation.
+- the function [`javaString`][] in the module 
+  `ceylon.interop.java` converts a Ceylon string to a Java 
+  string without requiring an object instantiation.
+
+[`javaString`]: #{site.urls.apidoc_current_interop_java}/index.html#javaString
 
 ### Tip: converting Java primitive wrapper types
 
