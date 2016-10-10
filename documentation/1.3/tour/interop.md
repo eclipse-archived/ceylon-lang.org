@@ -161,17 +161,25 @@ differences between the type systems of the two languages.
 You're never exposed to Java primitive types when calling a
 Java method or field from Ceylon. Instead:
 
-- `boolean` is represented by Ceylon's `Boolean` type,
-- `char` is represented by Ceylon's `Character` type,
-- `long`, `int`, and `short` are represented by 
-  Ceylon's `Integer` type,
-- `byte` is represented by Ceylon's `Byte` type,
-- `double` and `float` are represented by Ceylon's `Float` 
-  type, and
-- `java.lang.String` is represented by Ceylon's `String` type.
+- `boolean` is represented by Ceylon's [`Boolean`][] class,
+- `char` is represented by Ceylon's [`Character`][] class,
+- `long`, `int`, and `short` are represented by Ceylon's 
+  [`Integer`][] class,
+- `byte` is represented by Ceylon's [`Byte`][] class,
+- `double` and `float` are represented by Ceylon's [`Float`][]
+  class, and
+- `java.lang.String` is represented by Ceylon's [`String`][] 
+  class.
 
 Almost all of the time, this behavior is completely intuitive.
 But there's two wrinkles to be aware of...
+
+[`Boolean`]: #{site.urls.apidoc_1_3}/Boolean.type.html
+[`Character`]: #{site.urls.apidoc_1_3}/Character.type.html
+[`Integer`]: #{site.urls.apidoc_1_3}/Integer.type.html
+[`Byte`]: #{site.urls.apidoc_1_3}/Byte.type.html
+[`Float`]: #{site.urls.apidoc_1_3}/Float.type.html
+[`String`]: #{site.urls.apidoc_1_3}/String.type.html
 
 ### Gotcha!
 
@@ -186,7 +194,8 @@ conversion. For example, if:
 - a Ceylon UTF-32 `Character` is assigned to a Java 16-bit
   `char`
 
-the assignment can fail at runtime, producing an exception.
+the assignment can result in _silent_ overflow or loss of
+precision at runtime.
 
 _Note: it is not a goal of Ceylon's type system to warn about
 operations which might result in numeric overflow. In general,
