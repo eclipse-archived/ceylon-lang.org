@@ -25,7 +25,7 @@ with native code running on the Java Virtual Machine. In the
 ## Defining a native Java module
 
 Many Ceylon modules that call native Java code are designed
-to execute only no the JVM. In this case, we declare the whole
+to execute only on the JVM. In this case, we declare the whole
 Ceylon module as a _native JVM module_ using the `native`
 annotation.
 
