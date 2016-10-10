@@ -30,7 +30,7 @@ Ceylon module as a _native JVM module_ using the [`native`][]
 annotation.
 
 <!-- try: -->
-    native ("jvm") 
+    native ("jvm")
     module ceylon.formatter "1.3.1" {
         shared import java.base "7";
         shared import com.redhat.ceylon.typechecker "1.3.1";
@@ -95,6 +95,7 @@ Ceylon program, we need to create a Ceylon module that depends
 on `java.base`.
 
 <!-- try: -->
+    native ("jvm")
     module org.jboss.example "1.0.0" {
         import java.base "7";
     }
