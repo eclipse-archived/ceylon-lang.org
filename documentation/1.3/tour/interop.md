@@ -73,10 +73,14 @@ every Ceylon program can be assumed to be executing on the JVM,
 so dependencies to native Java code must always be expressed 
 explicitly in the module descriptor.
 
+The native Java modules your Ceylon program depends on might 
+come from a Ceylon module repository, from a Maven repository,
+or they might be part of the Java or Android SDK.
+
 ### Depending on the Java SDK
 
 In particular, the Java SE SDK is available as a set of modules, 
-according to the modularization proposed by the Jigsaw project.
+according to the modularization proposed by the [Jigsaw][] project.
 So to make use of the Java SE SDK we need to import one or more
 of these modules. For example:
 
@@ -107,6 +111,13 @@ and use it like any ordinary Ceylon class:
 
 _TODO: instructions for using JavaFX here._
 
+### Depending on the Android SDK
+
+TODO!!
+
+You can get started with Ceylon on Android by following 
+this [getting started guide](/blog/2016/06/02/ceylon-on-android/).
+
 ### Depending on a Java archive
 
 To make use of native code belonging to a packaged `.jar`
@@ -118,21 +129,29 @@ archive, you have two options:
 - import the archive directly from a 
   [legacy Maven repository](../../reference/repository/maven).
 
-A `module.xml` or `module.properties` file specifies dependency
-information for a `.jar`.
+To add a Java `.jar` to a Ceylon module repository, you need to
+provide some metadata describing its dependencies. A `module.xml` 
+or `module.properties` file specifies dependency information for 
+a `.jar`.
 
 - The format of the `module.properties` file is documented
-  [here](../../reference/structure/module-properties/), and 
-- the `module.xml` descriptor format is defined 
-  [here](https://docs.jboss.org/author/display/MODULES/Module+descriptors).
+  [here][], and
+- the `module.xml` descriptor format is defined [here][].
+
+The command line tool [`ceylon import-jar`][] can help make this 
+task easier.
 
 If you're using Ceylon IDE for Eclipse, and you don't want to 
 write the `module.xml` descriptor by hand, go to 
 `File > Export ... > Ceylon > Java Archive to Module Repository`.
 
-The Ceylon module architecture interoperates with Maven via
-Aether. You can find more information 
+Alternatively, the Ceylon module architecture interoperates with 
+Maven via Aether. You can find more information 
 [here](../../reference/repository/maven).
+
+[`ceylon import-jar`]: /documentation/current/reference/tool/ceylon/subcommands/ceylon-import-jar.html
+[module.properties]: /documentation/current/reference/structure/module-properties/
+[module.xml]: https://docs.jboss.org/author/display/MODULES/Module+descriptors
 
 ## Interoperation with Java types
 
