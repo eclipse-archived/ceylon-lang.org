@@ -708,7 +708,18 @@ by passing the corresponding Ceylon `ClassDeclaration`. For
 example, you would use `` type = `class Person` `` where you 
 would have used `type = Person.class` in Java.
 
-## Java `Iterable`s and `AutoCloseable`s 
+## Syntax sugar that applies to Java types
+
+Certain syntactic constructs that are defined by the language 
+specification in terms of types defined in `ceylon.language` 
+are also supported for similar Java types. These constructs
+are:
+
+- the `for` loop and comprehensions,
+- resource expressions in `try`, and
+- the element lookup and `in` operators.
+
+### Java `Iterable` or array in `for` 
 
 It's possible to use a `java.lang.Iterable` or Java array in 
 a Ceylon `for` statement or comprehension.
@@ -719,17 +730,6 @@ a Ceylon `for` statement or comprehension.
     JIterable<Object> objects = ... ;
     for (obj in objects) {
         ...
-    }
-
-Similarly, it's possible to use a Java `AutoCloseable` in a
-Ceylon `try` statement.
-
-<!-- try: -->
-    import java.io { File, FileInputStream }
-    
-    File file = ... ;
-    try (inputStream = FileInputStream(file)) {
-         ...
     }
 
 Wait, a quick reminder...
@@ -767,7 +767,23 @@ with entry or tuple destructuring:
 In practice it's unusual to have a Java `Iterable` containing 
 Ceylon `Entry`s or `Tuple`s.
 
-## Java collections and operators 
+### Java `AutoCloseable` in `try`
+
+Similarly, it's possible to use a Java `AutoCloseable` in a
+Ceylon `try` statement.
+
+<!-- try: -->
+    import java.io { File, FileInputStream }
+    
+    File file = ... ;
+    try (inputStream = FileInputStream(file)) {
+         ...
+    }
+
+The semantics, naturally, are identical to what you get in
+Java.
+
+### Java collections and operators 
 
 Two of Ceylon's built-in operators may be applied to Java types:
 
