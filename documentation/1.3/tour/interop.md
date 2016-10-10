@@ -114,7 +114,25 @@ _TODO: instructions for using JavaFX here._
 
 ### Depending on the Android SDK
 
-TODO!!
+A basic module descriptor for Android development looks
+like this:
+
+<!-- try: -->
+    native ("jvm")
+    module com.acme.example.androidapp "1.0" {
+        import java.base "7";
+        import android "24";
+        import "com.android.support.appcompat-v7" "24.2.1";
+        import "com.android.support.design" "24.2.1";
+    }
+
+When compiling from the command line, it's necessary to 
+explicitly specify that Android provides the Java SDK, 
+using the command-line argument [`--jdk-provider`][].
+(When compiling using Gradle, or from inside Android Studio,
+this option is set automatically.)
+
+[`--jdk-provider`]: documentation/reference/tool/ceylon/subcommands/ceylon-compile.html#option--jdk-provider
 
 You can get started with Ceylon on Android by following 
 this [getting started guide](/blog/2016/06/02/ceylon-on-android/).
