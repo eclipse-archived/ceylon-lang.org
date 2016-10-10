@@ -125,8 +125,8 @@ To make use of native code belonging to a packaged `.jar`
 archive, you have two options:
 
 - add the archive to a Ceylon module repository, along with
-  JBoss Modules metadata defined in a `module.xml` or 
-  `module.properties` file, or
+  JBoss Modules metadata defined in a [`module.xml`][] or 
+  [`module.properties`][] file, or
 - import the archive directly from a 
   [legacy Maven repository](../../reference/repository/maven).
 
@@ -135,9 +135,10 @@ provide some metadata describing its dependencies. A `module.xml`
 or `module.properties` file specifies dependency information for 
 a `.jar`.
 
-- The format of the `module.properties` file is documented
+- The format of the Ceylon `module.properties` file is documented
   [here][module.properties], and
-- the `module.xml` descriptor format is defined [here][module.xml].
+- the JBoss Modules `module.xml` descriptor format is defined 
+  [here][module.xml].
 
 The command line tool [`ceylon import-jar`][] can help make this 
 task easier.
