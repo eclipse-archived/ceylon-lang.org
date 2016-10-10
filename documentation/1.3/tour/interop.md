@@ -136,9 +136,9 @@ or `module.properties` file specifies dependency information for
 a `.jar`.
 
 - The format of the Ceylon `module.properties` file is documented
-  [here][module.properties], and
+  [here][`module.properties`], and
 - the JBoss Modules `module.xml` descriptor format is defined 
-  [here][module.xml].
+  [here][`module.xml`].
 
 The command line tool [`ceylon import-jar`][] can help make this 
 task easier.
@@ -152,8 +152,8 @@ Maven via Aether. You can find more information
 [here](../../reference/repository/maven).
 
 [`ceylon import-jar`]: /documentation/current/reference/tool/ceylon/subcommands/ceylon-import-jar.html
-[module.properties]: /documentation/current/reference/structure/module-properties/
-[module.xml]: https://docs.jboss.org/author/display/MODULES/Module+descriptors
+[`module.properties`]: /documentation/current/reference/structure/module-properties/
+[`module.xml`]: https://docs.jboss.org/author/display/MODULES/Module+descriptors
 
 ## Interoperation with Java types
 
@@ -256,16 +256,16 @@ Watch out for this!
 
 ### Tip: converting Java strings
 
-Explicitly converting between `String` and Java `String` is
-easy:
+Explicitly converting between [`String`][] and Java's 
+`java.lang.String` is easy:
 
 - the `.string` attribute of a Java string returns a Ceylon
   string, and
 - one of the constructors of  `java.lang.String` accepts a
   Ceylon `String`, or, alternatively,
 - the function [`javaString`][] in the module 
-  `ceylon.interop.java` converts a Ceylon string to a Java 
-  string without requiring an object instantiation.
+  [`ceylon.interop.java`][] converts a Ceylon string to a 
+  Java string without requiring an object instantiation.
 
 [`javaString`]: #{site.urls.apidoc_current_interop_java}/index.html#javaString
 
