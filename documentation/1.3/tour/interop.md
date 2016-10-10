@@ -595,8 +595,10 @@ compile time.
 
 ### Java properties are exposed as Ceylon attributes
 
-A Java getter/setter pair will appear to a Ceylon program as
-a Ceylon attribute. For example:
+A getter or getter/setter pair belonging to a Java class will 
+appear to a Ceylon program as an 
+[attribute](../classes/#abstracting_state_using_attributes). 
+For example:
 
 <!-- try: -->
     import java.util { Calendar, TimeZone } 
@@ -607,11 +609,14 @@ a Ceylon attribute. For example:
         Integer timeInMillis = calendar.timeInMillis;
     }
 
-If you want to call a Java setter method, assign a value to
-it using `=`:
+If you want to call the Java setter method, assign a value to
+the attribute using `=`, the assignment operator:
 
 <!-- try: -->
     calendar.timeInMillis = system.milliseconds;
+
+However, if there is no matching getter method for a setter,
+the setter is treated as a regular method.
 
 ### Gotcha!
 
