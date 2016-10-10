@@ -148,8 +148,13 @@ write the `module.xml` descriptor by hand, go to
 `File > Export ... > Ceylon > Java Archive to Module Repository`.
 
 Alternatively, the Ceylon module architecture interoperates with 
-Maven via Aether. You can find more information 
-[here](../../reference/repository/maven).
+Maven via Aether. You can import a module from maven by specifying
+the `maven:` repository type:
+
+<!-- try: -->
+    import maven:"org.hibernate:hibernate-core" "5.0.4.Final";
+
+You can find more information [here](../../reference/repository/maven).
 
 [`ceylon import-jar`]: /documentation/current/reference/tool/ceylon/subcommands/ceylon-import-jar.html
 [`module.properties`]: /documentation/current/reference/structure/module-properties/
@@ -864,7 +869,7 @@ isolation provided by JBoss Modules, the command line tool
 a Java `.jar` archive that contains a Ceylon module and everything
 it depends on at runtime.
 
-[`ceylon fat-jar`]: https://ceylon-lang.org/documentation/1.3/reference/tool/ceylon/subcommands/ceylon-fat-jar.html
+[`ceylon fat-jar`]: /documentation/current/reference/tool/ceylon/subcommands/ceylon-fat-jar.html
 
 ## There's more ...
 
