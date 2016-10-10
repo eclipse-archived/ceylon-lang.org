@@ -732,19 +732,26 @@ Ceylon `try` statement.
          ...
     }
 
-### Gotcha!
+Wait, a quick reminder...
 
-Note that there is no special handling for type of the 
-iterated elements: if the iterable contains Java `String`s 
-they're not magically transformed to Ceylon `String`s:
+### Gotcha! (redux)
+
+As we already noted above, `for` does nothing special to the
+type of the iterated elements of a Java array or `Iterable`: 
+if the elements are Java `String`s, they're _not_ magically 
+transformed to Ceylon `String`s:
 
 <!-- try: -->
-    import java.lang { JIterable=Iterable, JString=String }
+    import java.lang { ObjectArray, JString=String }
     
-    JIterable<JString> strings = ...;
-    for (s in strings) {
-        // s is a JString
+    ObjectArray<JString> strings = ...;
+    for (s in strings) {  // s is a JString
+        String string = s.string;  //string is a Ceylon String
+        ...
     }
+
+Just don't forget to use `s.string` to get the Ceylon `String` 
+if that's what you need!
 
 ### Gotcha again!
 
