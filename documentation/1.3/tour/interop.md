@@ -218,7 +218,7 @@ differences between the type systems of the two languages.
 
 There are three Java classes and one interface which simply 
 can't be used at all in Ceylon code, because Ceylon provides
-a type that is exactly equivalent in the package 
+types which are exactly equivalent in the package 
 [`ceylon.language`][]. When these types occur in the signature
 of an operation in Java, they're always represented by the
 equivalent Ceylon type:
@@ -411,7 +411,7 @@ The module [`ceylon.interop.java`][] contains a raft of
 additional methods for working with these Java array types.
 
 [`Array`]: #{site.urls.apidoc_1_3}/Array.type.html
-[`ceylon.interop.java`]: https://herd.ceylon-lang.org/modules/ceylon.interop.java
+[`ceylon.interop.java`]: #{site.urls.apidoc_current_interop_java}/index.html
 
 ### Java generic types are represented without change
 
