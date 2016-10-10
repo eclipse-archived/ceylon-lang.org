@@ -324,7 +324,7 @@ imported!
 - `T[]` for any object type `T` is represented by the class 
   `ObjectArray<T>`.
 
-We can obtain a Ceylon `Array` without losing the identity 
+We can obtain a Ceylon [`Array`][] without losing the identity 
 of the underlying Java array.
 
 <!-- try: -->
@@ -340,6 +340,7 @@ the Ceylon class `Array` that wraps the `byte[]` instance.
 The module [`ceylon.interop.java`][] contains a raft of 
 additional methods for working with these Java array types.
 
+[`Array`]: #{site.urls.apidoc_1_3}/Array.type.html
 [`ceylon.interop.java`]: https://herd.ceylon-lang.org/modules/ceylon.interop.java
 
 ### Java generic types are represented without change
