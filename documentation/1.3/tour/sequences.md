@@ -568,8 +568,9 @@ We can use destructuring in `for`
         print("``label``: (``x``, ``y``)");
     }
 
-And in `if` and `while` 
-[conditions](../attributes-control-structures/#condition_lists):
+And in `exists` and `nonempty` 
+[conditions](../attributes-control-structures/#condition_lists) 
+in `if` or `while` :
 
     if (nonempty [name, *rest] = process.arguments) {
         print("Hello ``name``!");
