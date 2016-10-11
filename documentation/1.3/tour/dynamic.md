@@ -245,22 +245,29 @@ enumeration expression_. This comes in two flavors:
   or
 - with positional arguments, to instantiate a JavaScript `Array`.
 
-The example shows demonstrates both flavors:
+The example demonstrates both flavors:
 
     dynamic {
         dynamic obj = dynamic [ hello = "Hello, World"; count = 11; ];
         print(obj.hello);
         print(obj.count);
+        print(obj["hello"]);
         
         dynamic arr = dynamic [ 12, 13, 14 ];
         print(arr[0]);
-        print(arr[2]);
+        for (n in arr) {
+            print(n^2);
+        }
     }
 
-Note that a dynamic enumeration expression is _not_ considered 
-to produce an instance of a Ceylon class, and the resulting 
-value is not even considered an instance of Ceylon's `Object`
-type.
+Notice how we've used the lookup operator `[]` to obtain 
+elements of JavaScript arrays and objects, and `for` to
+iterate the elements of a JavaScript array.
+
+Note also that a dynamic enumeration expression is _not_ 
+considered to produce an instance of a Ceylon class, and that
+the resulting value is not even considered an instance of 
+Ceylon's `Object`type.
 
 ## There's more ...
 
