@@ -581,7 +581,7 @@ And in `case`s of a `switch`
 [expression](../attributes-control-structures/#if_and_switch_expressions):
     
 <!-- try: 
-    Float[2]|Float[3] coord = [1,2,3];
+    Float[2]|Float[3] coord = [1.0,2.0,3.0];
     switch (coord)
     case ([Float x, Float y]) {
         print((x^2+y^2)^0.5);
