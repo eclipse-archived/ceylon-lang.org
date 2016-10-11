@@ -71,6 +71,12 @@ we use a _[native header](/documentation/reference/interoperability/native/)_.
 Once we have a native header, we can safely call the `native`
 functions from non-`native` cross-platform Ceylon code.
 
+We're not going to delve further into the topic of `native`
+code in cross-platform modules as part of this tour, but
+you can read more [here](/documentation/reference/interoperability/native/),
+and find lots of examples in the source code of the language 
+module and other Ceylon platform modules.
+
 ## Partially typed declarations
 
 The keyword `dynamic` may be used to declare a function or 
