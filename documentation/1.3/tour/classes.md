@@ -513,6 +513,10 @@ when the class has more than two parameters:
     Polar coord = Polar { radius = r; angle = theta; };
 <!-- cat: } -->
 
+Finally, it's worth noting that very many uses cases for overloading in Java
+involve the use of primitive types, which we can't abstract over in Java's
+type system. In Ceylon, there are no primitive types, and so we can often use
+[generics](../generics) instead of overloading.
 
 ### Gotcha!
 
@@ -520,6 +524,12 @@ Even with these "emulation" techniques, not _every_ case of a legal overloaded
 Java method can be represented directly in Ceylon. In such situations it's
 necessary to exert a little more effort to come up with distinct names.
 
+### Tip: using named constructors instead of overloading
+
+When we have multiple ways to create a class, and none of the above techniques
+for "emulating" overloading works out, we probably need to give the class one 
+or more [named constructors](../initialization/#constructors). We'll learn
+about constructors much later in this tour, because they're only rarely used.
 
 ## There's more...
 
