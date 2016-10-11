@@ -99,7 +99,8 @@ called _partially typed_.
 Note that `dynamic` is not itself a type. Rather, it represents 
 the _absence_ of typing information. Therefore any value is 
 considered assignable to a `dynamic` value or returnable by a 
-`dynamic` function.
+`dynamic` function, whatever its type, and _whether we know its
+type or not_.
 
 ## Dynamically typed expressions
 
