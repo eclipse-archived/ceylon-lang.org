@@ -32,7 +32,7 @@ class within a regular cross-platform module.
     native ("js")
     void hello() {
         dynamic {
-            ...
+            console.log("hello")
         }
     }
 
