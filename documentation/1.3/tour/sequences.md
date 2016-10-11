@@ -580,11 +580,24 @@ And in `case`s of a `switch`
 [statement](../attributes-control-structures/#switch_conditionals) or 
 [expression](../attributes-control-structures/#if_and_switch_expressions):
     
-<!-- try: -->
+<!-- try: 
+    Float[2]|Float[3] coord = [1,2,3];
+    switch (coord)
+    case ([Float x, Float y]) {
+        print((x^2+y^2)^0.5);
+    }
+    case ([Float x, Float y, Float z]) {
+        print((x^2+y^2+z^2)^0.5);
+    }
+-->
     Float[2]|Float[3] coord = ... ;
     switch (coord)
-    case ([Float x, Float y]) { ... }
-    case ([Float x, Float y, Float z]) { ... }
+    case ([Float x, Float y]) { 
+        print((x^2+y^2)^0.5);
+    }
+    case ([Float x, Float y, Float z]) {
+        print((x^2+y^2+z^2)^0.5);
+    }
 
 And even in a `let` 
 [expression](../attributes-control-structures/#let_expressions):
