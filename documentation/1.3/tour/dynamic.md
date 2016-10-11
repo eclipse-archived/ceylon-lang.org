@@ -142,7 +142,6 @@ When a dynamically typed expression is evaluated, certain
 runtime type checks are performed, which can result in a 
 runtime typing exception.
 
-
 ## Interoperating with native JavaScript
 
 The reason Ceylon supports partially typed declarations and
@@ -193,7 +192,8 @@ from a JavaScript API. For example:
         dynamic { return XMLHttpRequest(); }
     }
 
-Now we can rewrite the example above, without the use of `dynamic`:
+Now we can rewrite the example above, without the use of 
+`dynamic`, using regular static typing:
 
 <!-- try-pre:
     dynamic IXMLHttpRequest {
@@ -212,7 +212,7 @@ Now we can rewrite the example above, without the use of `dynamic`:
 -->
     IXMLHttpRequest req = newXMLHttpRequest();
     req.open("HEAD", "https://try.ceylon-lang.org/", true);
-    req.onreadystatechange = void () {
+    req.onreadystatechange = () {
         if (req.readyState==4) {
             print(req.getAllResponseHeaders());
         }
@@ -225,20 +225,27 @@ typesafe view of native JavaScript APIs.
 ### Gotcha!
 
 Note that a `dynamic` interface is a convenient fiction! The
-Ceylon compiler can't do anything to ensure that the native
-JavaScript object you assign to the `dynamic` interface type
-_actually implements the operations_ that the interface
-declares!
+Ceylon compiler can't do anything at compilation time to ensure 
+that the native JavaScript object you assign to the `dynamic` 
+interface type _actually implements the operations_ that the 
+interface declares!
 
-So, if you're not careful, you can _still_ get runtime type
-exceptions!
+So, if you're not careful when writing your `dynamic` interface,
+or when assigning a dynamically typed value to a `dynamic` 
+interface type, you can _still_ get runtime type exceptions!
 
 ## Dynamic instantiation expressions
 
 Occasionally it's necessary to instantiate a JavaScript `Array` 
 or plain JavaScript `Object` (which is not the same thing as a 
 Ceylon `Object`!). We may use a special-purpose _dynamic 
-enumeration expression_:
+enumeration expression_. This comes in two flavors:
+
+- with named arguments, to instantiate a JavaScript `Object`, 
+  or
+- with positional arguments, to instantiate a JavaScript `Array`.
+
+The example shows demonstrates both flavors:
 
     dynamic {
         dynamic obj = dynamic [ hello = "Hello, World"; count = 11; ];
@@ -250,9 +257,10 @@ enumeration expression_:
         print(arr[2]);
     }
 
-Note that these expressions are _not_ considered to produce an 
-instance of a Ceylon class.
-
+Note that a dynamic enumeration expression is _not_ considered 
+to produce an instance of a Ceylon class, and the resulting 
+value is not even considered an instance of Ceylon's `Object`
+type.
 
 ## There's more ...
 
@@ -262,5 +270,6 @@ You should now know enough to start writing Ceylon code for
 yourself, and start getting to know the platform modules.
 
 Alternatively, if you want to keep reading you can browse the 
-[reference documentation](#{page.doc_root}/reference) or (if you're sitting 
-comfortably) read the [specification](#{site.urls.spec_current}).
+[reference documentation](#{page.doc_root}/reference) or (if 
+you're sitting comfortably) read the 
+[specification](#{site.urls.spec_current}).
