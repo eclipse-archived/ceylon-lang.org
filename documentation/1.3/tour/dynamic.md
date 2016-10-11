@@ -258,14 +258,19 @@ The example demonstrates both flavors:
         for (n in arr) {
             print(n^2);
         }
+        print(13 in arr);
+        print(15 in arr);
     }
 
-Notice how we've used the lookup operator `[]` to obtain 
-elements of JavaScript arrays and objects, and `for` to
-iterate the elements of a JavaScript array.
+Notice how we've used:
+
+- the lookup operator `[]` to obtain elements of the JavaScript 
+  array and attributes of the JavaScript object, 
+- `for` to iterate the elements of the JavaScript array, and 
+- `in` to determine if a value belongs to the array.
 
 Note also that a dynamic enumeration expression is _not_ 
-considered to produce an instance of a Ceylon class, and that
+considered to produce an instance of a Ceylon class, and that 
 the resulting value is not even considered an instance of 
 Ceylon's `Object`type.
 
