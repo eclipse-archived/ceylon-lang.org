@@ -269,10 +269,11 @@ Notice how we've used:
 - `for` to iterate the elements of the JavaScript array, and 
 - `in` to determine if a value belongs to the array.
 
-Note also that a dynamic enumeration expression is _not_ 
-considered to produce an instance of a Ceylon class, and that 
-the resulting value is not even considered an instance of 
-Ceylon's `Object`type.
+### Gotcha!
+
+A dynamic enumeration expression is _not_ considered to produce 
+an instance of a Ceylon class, and the resulting value is not 
+even considered an instance of Ceylon's `Object` type.
 
 ## There's more ...
 
