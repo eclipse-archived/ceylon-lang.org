@@ -275,6 +275,28 @@ A dynamic enumeration expression is _not_ considered to produce
 an instance of a Ceylon class, and the resulting value is not 
 even considered an instance of Ceylon's `Object` type.
 
+### Tip: assigning a dynamic enumeration to a dynamic interface type
+
+On the other hand, if you assign the value produced by a dynamic 
+enumeration expression to a `dynamic` interface type, you'll get 
+something that _is_ a Ceylon `Object`.
+
+    dynamic Named {
+        shared formal String name;
+    }
+    
+    dynamic {
+        dynamic obj = dynamic [ name = "Ceylon"; ];
+        print(obj is Object);
+        print(obj is Named);
+        Named named = obj;  //assigns a Ceylon type to obj
+        print(obj is Named);
+        print(obj is Object);
+    }
+ 
+Run this code to see the effect of the assignment to the dynamic
+interface type `Named`.
+
 ## There's more ...
 
 Well, no, actually, we've finished the tour! Of course, there's 
