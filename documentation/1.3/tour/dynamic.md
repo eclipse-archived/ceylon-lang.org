@@ -153,13 +153,19 @@ illustrates the use of a native JavaScript API. Try it:
     dynamic { 
         dynamic req = XMLHttpRequest();
         req.open("HEAD", "https://try.ceylon-lang.org/", true);
-        req.onreadystatechange = void () {
+        req.onreadystatechange = () {
             if (req.readyState==4) {
                 print(req.getAllResponseHeaders());
             }
         };
         req.send();
     }
+
+Note that this code isn't very different in appearence or
+semantics to what one would write in JavaScript itself. To
+port a fragment of JavaScript code to Ceylon, often the 
+only thing you need to do is replace `var` and `function`
+with `dynamic`!
 
 ## Dynamic interfaces
 
