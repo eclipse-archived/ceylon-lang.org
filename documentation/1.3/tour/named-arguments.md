@@ -90,7 +90,6 @@ name of each parameter.
 
 We usually format named argument invocations across multiple lines.
 
-
 ## Iterable arguments
 
 Since the parameter `values` is of type `Iterable`, we're allowed to abbreviate
@@ -110,24 +109,11 @@ construction expression:
     };
 <!-- cat: } -->
 
-Indeed, we can usually leave out the parameter names entirely.
+Later we'll see that we can even use a [comprehension](../comprehensions) 
+or [spread operator](../functions/#the_spread_operator) here. 
 
-## Named arguments to variadic parameters
-
-To pass a named argument to a variadic parameter, just wrap the arguments in
-a sequence:
-
-    Float product(Float+ floats) {
-        variable value product = floats.first;
-        for (float in floats.rest) {
-            product *= float;
-        }
-        return product;
-    }
-    
-    print(product(2.0, 3.0, 4.0));              //positional args
-    print(product { floats = [2.0, 3.0, 4.0]; }); //same thing, with a named arg
-
+Actually, we can even leave out the parameter names of the other 
+arguments!
 
 ## Leaving out the parameter names
 
@@ -174,6 +160,21 @@ Whereas the second example is an abbreviation for:
 
 Mind the punctuation! 
 
+## Named arguments to variadic parameters
+
+To pass a named argument to a variadic parameter, just wrap the arguments in
+a sequence:
+
+    Float product(Float+ floats) {
+        variable value product = floats.first;
+        for (float in floats.rest) {
+            product *= float;
+        }
+        return product;
+    }
+    
+    print(product(2.0, 3.0, 4.0));                //positional args
+    print(product { floats = [2.0, 3.0, 4.0]; }); //same thing, with a named arg
 
 ## Declarative object instantiation syntax
 

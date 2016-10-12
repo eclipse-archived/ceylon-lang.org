@@ -269,6 +269,19 @@ Notice how we've used:
 - `for` to iterate the elements of the JavaScript array, and 
 - `in` to determine if a value belongs to the array.
 
+It's even possible to use the
+ [spread operator](../functions/#the_spread_operator), or a 
+[comprehension](../comprehensions) inside a dynamic enumeration 
+expression:
+
+    dynamic {
+        dynamic oneToTen = dynamic [*(1..10)];
+        dynamic letters = dynamic [for (ch in "hello") ch.uppercased];
+    }
+
+Thus, dynamic enumeration expressions accept the full syntax of 
+a [named argument list](../named-arguments).
+
 ### Gotcha!
 
 A dynamic enumeration expression is _not_ considered to produce 
