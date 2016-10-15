@@ -43,14 +43,17 @@ the resulting identifier, resulting in the module name
 
 ### Specifying explicit Maven settings 
 
-If you have special requirements and need a specific Maven `setting.xml`, 
-you can specify the file using the `rep` flag:
+If you have special requirements&mdash;for example, if you need to specify an 
+additional Maven respository&mdash;and need a Maven [`settings.xml`][], you can 
+specify the file using the `--rep` flag:
 
 <!--lang: none -->
     ceylon compile --rep aether:/path/to/special/setting.xml com.example.foo
 
 In Ceylon IDE, this option may be specified via `Lookup repositories on build path`
 in the `Module Repositories` tab of the project-level compiler settings.
+
+[`settings.xml`]: https://maven.apache.org/settings.html
 
 ### Resolving Maven conflicts
 
