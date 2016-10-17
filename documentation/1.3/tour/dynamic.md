@@ -272,9 +272,9 @@ never satisfied.
     }
     
     dynamic {
-       print(window is Window);
-       Window w = window;
-       print(window is Window);
+        print(window is Window);
+        Window w = window;
+        print(window is Window);
     }
 
 This behavior is unintuitive but reasonable.
@@ -373,8 +373,8 @@ something that _is_ a Ceylon `Object`.
 Run this code to see the effect of the assignment to the dynamic
 interface type `Named`.
 
-Now try removing the definition of `greet` from the dynamic value, 
-leaving the following unsound code:
+Now try removing the definition of `greet` from the dynamic 
+value, leaving the following unsound code:
 
     dynamic Named {
         shared formal String name;
