@@ -344,7 +344,7 @@ leaving the following unsound code:
         Named named = obj;  //runtime error!
     }
 
-Run this code to see it how fail it fails at runtime. 
+Run this code to see it how cleanly it fails at runtime. 
 
 ## There's more ...
 
