@@ -23,9 +23,7 @@ We're also prioritizing improvements to Android support, Ceylon IDE for
 IntelliJ, and integration with Java EE.
 
 <div id="milestones-progress">
-    <div id="milestone-overall">Loading…</div>
-    <h3>Detail</h3>
-    <div data-title="Ceylon 1.3.1" data-repo="ceylon-spec" data-milestone="16">Loading…</div>
+    <div data-title="Ceylon 1.3.1" data-repo="ceylon" data-milestone="16">Loading…</div>
 </div>
 
 Proposed improvements scheduled for Ceylon 1.3.2 include:
@@ -41,7 +39,5 @@ Proposed improvements scheduled for Ceylon 1.3.2 include:
   pattern to match any `Sequence`
 
 <div id="milestones-progress">
-    <div id="milestone-overall">Loading…</div>
-    <h3>Detail</h3>
-    <div data-title="Ceylon 1.3.2" data-repo="ceylon-spec" data-milestone="17">Loading…</div>
+    <div data-title="Ceylon 1.3.2" data-repo="ceylon" data-milestone="17">Loading…</div>
 </div>
