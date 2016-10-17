@@ -16,34 +16,32 @@ development of Ceylon 1.3.1. Goals of the 1.3.1 release include:
   Java 8 lambdas (ability to pass Ceylon `Callable`s to Java SAM types)
 - [#5954](https://github.com/ceylon/ceylon/issues/5954) support spread
   operators `*` and `*.` with `java.lang.Iterable`
-- [#6000](https://github.com/ceylon/ceylon/issues/6000) `assert` clause
-  in comprehensions
 - [#4127](https://github.com/ceylon/ceylon/issues/4127) literal tuples
   in `case`s of a `switch`
 
-We're also prioritizing improvements to Android support and Ceylon IDE 
-for IntelliJ.
-
-<!--
-## Current progress for Ceylon 1.3
+We're also prioritizing improvements to Android support, Ceylon IDE for
+IntelliJ, and integration with Java EE.
 
 <div id="milestones-progress">
     <div id="milestone-overall">Loading…</div>
     <h3>Detail</h3>
-    <div data-title="Typechecker / language specification" data-repo="ceylon-spec" data-milestone="12">Loading…</div>
-    <div data-title="Model" data-repo="ceylon-model" data-milestone="2">Loading…</div>
-    <div data-title="JVM compiler / documentation compiler" data-repo="ceylon-compiler" data-milestone="12">Loading…</div>
-    <div data-title="JS compiler" data-repo="ceylon-js" data-milestone="9">Loading…</div>
-    <div data-title="Language module" data-repo="ceylon.language" data-milestone="11">Loading…</div>
-    <div data-title="Module resolver" data-repo="ceylon-module-resolver" data-milestone="11">Loading…</div>
-    <div data-title="Runtime" data-repo="ceylon-runtime" data-milestone="12">Loading…</div>
-    <div data-title="Common" data-repo="ceylon-common" data-milestone="8">Loading…</div>
-    <div data-title="Eclipse IDE" data-repo="ceylon-ide-eclipse" data-milestone="12">Loading…</div>
-    <div data-title="IntelliJ IDE" data-repo="ceylon-ide-intellij" data-milestone="1">Loading…</div>
-    <div data-title="Common IDE code" data-repo="ceylon-ide-common" data-milestone="1">Loading…</div>
-    <div data-title="SDK" data-repo="ceylon-sdk" data-milestone="9">Loading…</div>
-    <div data-title="Formatter" data-repo="ceylon.formatter" data-milestone="7">Loading…</div>
-    <div data-title="Distribution" data-repo="ceylon-dist" data-milestone="9">Loading…</div>
+    <div data-title="Ceylon 1.3.1" data-repo="ceylon-spec" data-milestone="16">Loading…</div>
 </div>
--->
 
+Proposed improvements scheduled for Ceylon 1.3.2 include:
+
+- [#6000](https://github.com/ceylon/ceylon/issues/6000) `assert` clause
+  in comprehensions
+- [#6605](https://github.com/ceylon/ceylon/issues/6505) make `assert` 
+  coerce to dynamic interface type
+- [#6610](https://github.com/ceylon/ceylon/issues/6610) automatic 
+  registration of JPA and JAXB converters
+- [#6558](https://github.com/ceylon/ceylon/issues/6558) `small Character`s
+- [#6583](https://github.com/ceylon/ceylon/issues/6583) change tuple 
+  pattern to match any `Sequence`
+
+<div id="milestones-progress">
+    <div id="milestone-overall">Loading…</div>
+    <h3>Detail</h3>
+    <div data-title="Ceylon 1.3.2" data-repo="ceylon-spec" data-milestone="17">Loading…</div>
+</div>
