@@ -340,7 +340,7 @@ something that _is_ a Ceylon `Object`.
     dynamic {
         dynamic obj = dynamic [
             name = "Ceylon"; 
-            void greet() => print("Hello;");
+            void greet() => print("Hello!");
         ];
         print(obj is Object);
         print(obj is Named);
