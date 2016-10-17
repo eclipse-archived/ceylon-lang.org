@@ -336,7 +336,7 @@ Explicitly converting between [`String`][] and Java's
 
 - the `.string` attribute of a Java string returns a Ceylon
   string, and
-- one of the constructors of  `java.lang.String` accepts a
+- one of the constructors of `java.lang.String` accepts a
   Ceylon `String`, or, alternatively,
 - the function [`javaString`][] in the module 
   [`ceylon.interop.java`][] converts a Ceylon string to a 
@@ -357,7 +357,7 @@ wrapper types are just as trivial, for example:
 Likewise:
 
 - the `.doubleValue()` methods of `java.lang.Double` and
-  `java.lang.Float` returns a Ceylon `Float`, and
+  `java.lang.Float` return a Ceylon `Float`, and
 - the constructors of `java.lang.Double` and `java.lang.Float`
   accept a Ceylon `Float`.
 
