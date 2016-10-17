@@ -119,6 +119,6 @@ different approach to implementing tooling in Ceylon.
 [Ceylon plugin for VS Code]: https://github.com/jvasileff/vscode-ceylon
 
 The [Ceylon Dart][] project shows that it's possible to write a 
-whole backend for the Ceylon compiler in Ceylon:
+whole backend for the Ceylon compiler in Ceylon.
 
 [Ceylon Dart]: https://github.com/jvasileff/ceylon-dart 
