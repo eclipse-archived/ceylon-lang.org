@@ -36,7 +36,7 @@ Proposed improvements scheduled for Ceylon 1.3.2 include:
 
 - [#6000](https://github.com/ceylon/ceylon/issues/6000) `assert` clause
   in comprehensions
-- [#6605](https://github.com/ceylon/ceylon/issues/6505) make `assert` 
+- [#6605](https://github.com/ceylon/ceylon/issues/6605) make `assert` 
   coerce to dynamic interface type
 - [#6610](https://github.com/ceylon/ceylon/issues/6610) automatic 
   registration of JPA and JAXB converters
