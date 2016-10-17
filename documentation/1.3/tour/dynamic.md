@@ -270,7 +270,7 @@ Notice how we've used:
 - `in` to determine if a value belongs to the array.
 
 It's even possible to use the
- [spread operator](../functions/#the_spread_operator), or a 
+[spread operator](../functions/#the_spread_operator), or a 
 [comprehension](../comprehensions) inside a dynamic enumeration 
 expression:
 
@@ -279,7 +279,21 @@ expression:
         dynamic letters = dynamic [for (ch in "hello") ch.uppercased];
     }
 
-Thus, dynamic enumeration expressions accept the full syntax of 
+Furthermore, we can define named `function`s, `value`s and 
+`object`s in a dynamic enumeration:
+
+    dynamic {
+        dynamic obj = dynamic [ 
+            void greet() => print("Hello!");
+            value time = system.milliseconds;
+            object thing { string => "Just some object"; }
+        ];
+        obj.greet();
+        print(obj.time);
+        print(obj.thing);
+    }
+
+Thus, a dynamic enumeration expression accepts the full syntax of 
 a [named argument list](../named-arguments).
 
 ### Gotcha!
@@ -296,10 +310,14 @@ something that _is_ a Ceylon `Object`.
 
     dynamic Named {
         shared formal String name;
+        shared formal void greet();
     }
     
     dynamic {
-        dynamic obj = dynamic [ name = "Ceylon"; ];
+        dynamic obj = dynamic [
+            name = "Ceylon"; 
+            void greet() => print("Hello;");
+        ];
         print(obj is Object);
         print(obj is Named);
         Named named = obj;  //assigns a Ceylon type to obj
@@ -309,6 +327,24 @@ something that _is_ a Ceylon `Object`.
  
 Run this code to see the effect of the assignment to the dynamic
 interface type `Named`.
+
+Now try removing the definition of `greet` from the dynamic value, 
+leaving the following unsound code:
+
+    dynamic Named {
+        shared formal String name;
+        shared formal void greet();
+    }
+    
+    dynamic {
+        dynamic obj = dynamic [
+            name = "Ceylon";
+            //missing definition of greet()
+        ];
+        Named named = obj;  //runtime error!
+    }
+
+Run this code to see it how fail it fails at runtime. 
 
 ## There's more ...
 
