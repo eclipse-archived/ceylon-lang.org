@@ -292,7 +292,7 @@ can result in numeric overflow._
 There's no mapping between Java's *wrapper* classes like 
 `java.lang.Integer` or `java.lang.Boolean` and Ceylon basic 
 types, so these conversions must be performed explicitly by
-calling, for example, `intValue()` or `booleanValue()`, or
+calling, for example, `longValue()` or `booleanValue()`, or
 by explicitly instantiating the wrapper class, just like you
 would do in Java when converting between a Java primitive
 type and its wrapper class.
@@ -307,7 +307,7 @@ _Ceylon_ `Integer`s.
     
     JList<JInteger> integers = ... ;
     for (integer in integers) { //integer is a JInteger!
-        Integer int = integer.intValue(); //convert to Ceylon Integer
+        Integer int = integer.longValue(); //convert to Ceylon Integer
         ...
     }
 
@@ -349,10 +349,19 @@ Explicitly converting between [`String`][] and Java's
 Likewise, conversions between Ceylon types and Java primitive
 wrapper types are just as trivial, for example:
 
-- the `.intValue()` method of `java.lang.Integer` returns a
-  Ceylon `Integer`, and
-- the constructor of `java.lang.Integer` accepts a Ceylon 
-  `Integer`.
+- the `.longValue()` methods of `java.lang.Long` and
+  `java.lang.Integer` return a Ceylon `Integer`, and
+- the constructors of `java.lang.Integer` and `java.lang.Long`
+  accept a Ceylon `Integer`.
+
+Likewise:
+
+- the `.doubleValue()` methods of `java.lang.Double` and
+  `java.lang.Float` returns a Ceylon `Float`, and
+- the constructors of `java.lang.Double` and `java.lang.Float`
+  accept a Ceylon `Float`.
+
+The story is similar for other primitive wrapper types.
 
 ### Tip: using the `small` annotation
 
