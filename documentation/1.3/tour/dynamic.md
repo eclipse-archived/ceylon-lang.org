@@ -234,6 +234,30 @@ So, if you're not careful when writing your `dynamic` interface,
 or when assigning a dynamically typed value to a `dynamic` 
 interface type, you can _still_ get runtime type exceptions!
 
+### Runtime type checks for assignment to dynamic interfaces
+
+When, at runtime, a dynamically typed expression is evaluates 
+and assigned to a dynamic interface type, a runtime type check
+is performed to verify that either:
+
+- the value is already "known" to be an instance of the type 
+  (it has previously been "tagged" as an instance of the 
+  dynamic interface type), or, if not, that
+- the value has a member with the right name for every member
+  of the dynamic interface, and that that member has the
+  expected type.
+
+In the second case, the value may be tagged as an instance of 
+the dynamic interface type.
+
+### Gotcha!
+
+Note that this runtime typecheck is far from foolproof! In an 
+environment as dynamic as JavaScript, there are all sorts of 
+ways to defeat it. However, it's a basic sanity check that will
+help you find bugs faster, and make it easier to trace them to
+their root cause.
+
 ## Dynamic instantiation expressions
 
 Occasionally it's necessary to instantiate a JavaScript `Array` 
