@@ -91,6 +91,18 @@ plenty of good examples of Ceylon code, including:
 [`ceylon.json`]: https://github.com/ceylon/ceylon-sdk/blob/master/source/ceylon/json/
 [ceylon.json::Value]: https://github.com/ceylon/ceylon-sdk/blob/master/source/ceylon/json/Value.ceylon
 
+## Example `ceylon` plugins
+
+A plugin for the `ceylon` command is a great way to improve
+your productivity.
+
+- [`ceylon swarm`][] is a super-simple plugin that just wraps an
+  existing Java library.
+- [`ceylon format`][] is much more elaborate.
+
+[`ceylon swarm`]: https://github.com/ceylon/ceylon.swarm
+[`ceylon format`]: https://github.com/ceylon/ceylon.formatter
+
 ## Examples of real life warts-'n-all production code
 
 The [Ceylon IDE Common][] and [Ceylon IDE for IntelliJ][] 
