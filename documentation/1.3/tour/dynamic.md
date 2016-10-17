@@ -236,16 +236,16 @@ interface type, you can _still_ get runtime type exceptions!
 
 ### Runtime type checks for assignment to dynamic interfaces
 
-When, at runtime, a dynamically typed expression is evaluates 
+When, at runtime, a dynamically typed expression is evaluated 
 and assigned to a dynamic interface type, a runtime type check
-is performed to verify that either:
+is performed to verify that either the assigned value:
 
-- the value is already "known" to be an instance of the type 
-  (it has previously been "tagged" as an instance of the 
-  dynamic interface type), or, if not, that
-- the value has a member with the right name for every member
-  of the dynamic interface, and that that member has the
-  expected type.
+- is already "known" to be an instance of the type (it has 
+  previously been "tagged" as an instance of the dynamic 
+  interface type), or, if not, that it
+- has a member with the right name for every member of the 
+  dynamic interface, and that each member has the expected 
+  type.
 
 In the second case, the value may be tagged as an instance of 
 the dynamic interface type.
@@ -257,6 +257,27 @@ environment as dynamic as JavaScript, there are all sorts of
 ways to defeat it. However, it's a basic sanity check that will
 help you find bugs faster, and make it easier to trace them to
 their root cause.
+
+### Dynamic interfaces in `is` conditions
+
+An `is` condition for a dynamic interface, for example,
+`is IXMLHttpRequest val`, is only satisfied if the value 
+`val` has previously been assigned to the dynamic interface 
+type. For a native JavaScript object that has never been 
+assigned to a dynamic interface type, an `is` condition is 
+never satisfied.
+
+    dynamic Window {
+        shared formal void alert(String message);
+    }
+    
+    dynamic {
+       print(window is Window);
+       Window w = window;
+       print(window is Window);
+    }
+
+This behavior is unintuitive but reasonable.
 
 ## Dynamic instantiation expressions
 
