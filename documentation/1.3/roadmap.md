@@ -24,10 +24,10 @@ Goals of the 1.3.1 release include:
   in `case`s of a `switch`
 
 We're also prioritizing improvements to Android support, Ceylon IDE for
-IntelliJ, and integration with Java EE.
+IntelliJ, and integration with Java EE and WildFly Swarm.
 
 <div id="milestones-progress">
-    <div data-title="Progress" data-repo="ceylon" data-milestone="16">Loading…</div>
+    <div data-title="View all issue for milestone" data-repo="ceylon" data-milestone="16">Loading…</div>
 </div>
 
 ## Ceylon 1.3.2
@@ -46,5 +46,5 @@ Proposed improvements scheduled for Ceylon 1.3.2 include:
 - [#3851](https://github.com/ceylon/ceylon/issues/3851) labeled tuple types
 
 <div id="milestones-progress">
-    <div data-title="Progress" data-repo="ceylon" data-milestone="17">Loading…</div>
+    <div data-title="View all issues for milestone" data-repo="ceylon" data-milestone="17">Loading…</div>
 </div>
