@@ -314,7 +314,7 @@ attribute as a getter, without affecting any code that uses it.
     print(Polar(0.37, 10.0, null).description);
 -->
     "A polar coordinate, with an optional label"
-    class Polar(angle, radius, String? label) {
+    class Polar(angle, radius, String? label=null) {
         
         shared Float angle;
         shared Float radius;
