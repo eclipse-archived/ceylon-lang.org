@@ -657,8 +657,8 @@ Therefore:
 
 ### Java constants and enum values
 
-Java constants like `Integer.MAX_VALUE` and enum values, like
-`RetentionPolicy.RUNTIME` follow an all-uppercase naming 
+Java constants like `Integer.MAX_VALUE` and Java enum values, 
+like `RetentionPolicy.RUNTIME`, follow an all-uppercase naming 
 convention. Since this looks rather alien in Ceylon code, it's
 acceptable to refer to them using camel case. This:
 
@@ -673,6 +673,117 @@ is preferred to this:
     RetentionPolicy policy = RetentionPolicy.\iRUNTIME;
 
 However, both options are accepted by the compiler.
+
+Java enum types are treated as enumerated classes with no 
+visible constructor. Each enumerated value of the enum type 
+is treated as a static member `object` belonging to the enum 
+type. Thus, it's possible to `switch` over the members of
+a Java `enum`, just like you can in Java.
+
+### Methods accepting a SAM interface
+
+_Warning: this subsection describes new pre-release 
+functionality that will be made available in Ceylon 1.3.1._
+
+Java has no true function types, so there's no equivalent to
+Ceylon's `Callable` interface in Java. Instead, Java features
+SAM (Single Abstract Method) conversion where an anonymous
+function is converted by the compiler to an instance of an
+interface type like `java.util.function.Predicate` which 
+declares only one abstract method.
+
+Thus, there are many operations in the Java SDK and other
+Java libraries which accept a SAM interface. For example, 
+`Stream.filter()` accepts a `Predicate`. Such methods are 
+represented in Ceylon as an overloaded method:
+
+- one overload accepts the SAM, like
+  `Stream<T> filter(Predicate<in T> predicate)`, and
+- the second overload accepts a Ceylon function type, like
+  `Stream<T> filter(Boolean(T) predicate)`.
+
+Thus, we can pass anonymous functions and function references
+to such Java APIs without needing to explicitly implement the
+SAM interface type.
+
+<!-- try: -->
+    import java.util {
+        Arrays
+    }
+    import java.util.stream {
+        Collectors { toList }
+    }
+    
+    value list
+        = Arrays.asList("hello", "world", "goodbye")
+            .stream()
+            .filter((s) => s.longerThan(2))
+            .map(String.uppercased)
+            .collect(toList<String>());
+
+As you can see, use of the Java streams API is completely 
+natural in Ceylon.
+
+### Tip: getting a function from a SAM
+
+There's no inverse conversion from a SAM type to a Ceylon
+function type. A `Predicate<T>` can't be passed directly to 
+an operation that expects a `Boolean(T)`. But this is 
+perfectly fine, because it's completely trivial to perform
+the conversion explicitly, just by taking a reference to the
+`test` method of `Predicate`:
+
+<!-- try: -->
+    Predicate<String> javaPredicate = ... ;
+    Boolean(String) ceylonPredicate = javaPredicate.test;
+
+Remember, the Ceylon language defines no implicit type 
+conversions _anywhere_!
+
+## Inheriting Java types
+
+A Ceylon class may extend a Java class and/or implement Java
+interfaces, even if the Java types are generic. There's 
+nothing particularly interesting to say about this topic, 
+except to point out one small wrinkle. In Java, the following 
+inheritance hierarchy is legal:
+
+<!-- try: -->
+<!-- lang: java -->
+    interface Foo {
+        public boolean test();
+    }
+    
+    interface Bar {
+        public boolean test();
+    }
+    
+    class Baz implements Foo, Bar {
+        @Override
+        public void boolean() {
+            return true;
+        }
+    }
+
+However, a Ceylon class which implements the Java types `Foo`
+and `Bar` [is _not_ legal](/inheritance/#ambiguities_in_mixin_inheritance), 
+since a Ceylon class may not define an operation that refines 
+two completely different but same-named operations unless they 
+both descend from a common supertype definition:
+    
+    class Baz() satisfies Foo & Bar {
+        //error: May not inherit two declarations with the 
+        //same name that do not share a common supertype
+        test() => true;
+    }
+
+In this case, it's necessary to either:
+
+- split `Baz` into two classes, 
+- define an intermediate Java interface that inherits `Foo` 
+  and `Bar`, or
+- define a common superinterface of `Foo` and `Bar` that
+  declares `test()`.
 
 ## Java annotations
 
