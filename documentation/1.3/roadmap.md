@@ -34,7 +34,7 @@ IntelliJ, and integration with Java EE and WildFly Swarm.
 
 Proposed improvements scheduled for Ceylon 1.3.2 include:
 
-- [6622](https://github.com/ceylon/ceylon/issues/6622) Java EE-friendly
+- [#6622](https://github.com/ceylon/ceylon/issues/6622) Java EE-friendly
   compiler mode
 - [#6000](https://github.com/ceylon/ceylon/issues/6000) `assert` clause
   in comprehensions
