@@ -771,6 +771,7 @@ since a Ceylon class may not define an operation that refines
 two completely different but same-named operations unless they 
 both descend from a common supertype definition:
     
+<!-- try: -->
     class Baz() satisfies Foo & Bar {
         //error: May not inherit two declarations with the 
         //same name that do not share a common supertype
