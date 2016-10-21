@@ -1,6 +1,6 @@
 ---
 layout: tour13
-title: Dynamic typing
+title: Dynamic typing and interoperation with JavaScript
 tab: documentation
 unique_id: docspage
 author: Gavin King
@@ -390,6 +390,40 @@ value, leaving the following unsound code:
     }
 
 Run this code to see it how cleanly it fails at runtime. 
+
+## Importing npm modules containing native JavaScript code
+
+A Ceylon module may express a dependency on a native 
+JavaScript module by importing the module from npm (the node 
+package manager), specifying the `npm:` repository type:
+
+<!-- try: -->
+    native ("jvm")
+    module com.example.npm {
+        import npm:"left-pad" "1.1.3";
+    }
+
+Functions defined by the JavaScript module are considered to
+belong to a package formed by replacing every `-` in the npm
+module name with a `.`. Naturally, such functions may only be
+called from within a `dynamic` block.
+
+<!-- try: -->
+    import left.pad {
+        leftPad
+    }
+    
+    void run() {
+        dynamic {
+            for (i in 1..10) {
+                print(leftPad("hello", i));
+            }
+        }
+    }
+
+You can find more information about the representation of npm 
+modules in Ceylon 
+[right here](https://github.com/ceylon/ceylon/wiki/NPM-and-Ceylon-JS).
 
 ## There's more ...
 
