@@ -404,9 +404,9 @@ package manager), specifying the `npm:` repository type:
     }
 
 Functions defined by the JavaScript module are considered to
-belong to a package formed by replacing every `-` in the npm
-module name with a `.`. Naturally, such functions may only be
-called from within a `dynamic` block.
+belong to a package formed by replacing every `-` (dash) in the 
+npm module name with a `.` (period). Naturally, such functions 
+may only be called from within a `dynamic` block.
 
 <!-- try: -->
     import left.pad {
