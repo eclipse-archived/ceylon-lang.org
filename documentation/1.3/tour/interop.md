@@ -760,7 +760,7 @@ inheritance hierarchy is legal:
     
     class Baz implements Foo, Bar {
         @Override
-        public void boolean() {
+        public boolean test() {
             return true;
         }
     }
