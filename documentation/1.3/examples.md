@@ -32,10 +32,15 @@ Furthermore:
 Ceylon is a fantastic language for writing microservices:
 
 - [Wildfly Swarm and Ceylon][] demonstrates the use of Ceylon 
-  to write a Java EE-based microservice and of the `ceylon swarm` 
-  command to package it as a "fat" jar.
+  to write a Java EE-based microservice for [Swarm][], and of 
+  the `ceylon swarm` command to package it as a "fat" jar.
+- The [Vert.x examples][] include several samples showing how
+  to use Ceylon in [Vert.x][]. 
 
 [Wildfly Swarm and Ceylon]: https://github.com/DiegoCoronel/ceylon-jboss-swarm/
+[Vert.x examples]: https://github.com/vert-x3/vertx-examples/tree/master/ceylon
+[Swarm]: http://wildfly-swarm.io/
+[Vert.x]: http://vertx.io/
 
 ## Examples of full-stack applications
 
