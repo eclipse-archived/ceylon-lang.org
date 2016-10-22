@@ -58,8 +58,12 @@ Learn how to use Ceylon with these Java frameworks:
 - For Java-style dependency injection, check out 
   [Weld and Guice with Ceylon][], based on 
   [this blog post](/blog/2015/12/01/weld-guice/).
+- This [IntelliJ UI designer example][] shows how to use
+  Ceylon together with IntelliJ IDEA's [GUI Designer][].
 
 [Weld and Guice with Ceylon]: https://github.com/ceylon/ceylon-examples-di
+[GUI Designer]: https://www.jetbrains.com/help/idea/2016.2/gui-designer-reference.html
+[IntelliJ UI designer example]: https://github.com/xkr47/ceylon-swing-with-intellij-ui-designer
 
 ## Examples of libraries
 
