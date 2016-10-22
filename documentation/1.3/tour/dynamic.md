@@ -398,7 +398,7 @@ JavaScript module by importing the module from npm (the node
 package manager), specifying the `npm:` repository type:
 
 <!-- try: -->
-    native ("jvm")
+    native ("js")
     module com.example.npm {
         import npm:"left-pad" "1.1.3";
     }
