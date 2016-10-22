@@ -37,6 +37,9 @@ Ceylon is a fantastic language for writing microservices:
 - The [Vert.x examples][] include several samples showing how
   to use Ceylon in [Vert.x][]. 
 
+Documentation for Ceylon and Vert.x can be found at the 
+[Vert.x site](http://vertx.io/docs/vertx-core/ceylon/).
+
 [Wildfly Swarm and Ceylon]: https://github.com/DiegoCoronel/ceylon-jboss-swarm/
 [Vert.x examples]: https://github.com/vert-x3/vertx-examples/tree/master/ceylon
 [Swarm]: http://wildfly-swarm.io/
