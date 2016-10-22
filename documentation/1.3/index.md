@@ -30,6 +30,9 @@ If you want to get your hands a little dirty, the [walkthrough](walkthrough)
 is a guided set of exercises introducing many of the basic features of the 
 language.
 
+You'll find lots of links to little (and not so little) examples on the
+[examples page](examples).
+
 [Learn Programming in Ceylon]: http://renatoathaydes.github.io/Learn-Programming-In-Ceylon-Part-1/
 
 ## Reference
@@ -49,8 +52,8 @@ Ceylon Language Module `ceylon.language` is
 
 ## Tools
 
-You can find information about [Ceylon IDE for Eclipse](ide/eclipse) and how to 
-[install it](ide/eclipse/install), along with information about the 
+You can find information about [Ceylon IDE for Eclipse](ide/eclipse) and how 
+to [install it](ide/eclipse/install), along with information about the 
 [command line tools](reference/tool/ceylon/), and [plugins
 for Ant, Gradle, and Maven](reference/tool/).
 
