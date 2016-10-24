@@ -388,7 +388,8 @@ which could result in silent overflow or loss of precision
 at runtime.
 
 Note also that `small` is defined as a _hint_, and may be 
-completely ignored by the compiler.
+completely ignored by the compiler. (And, indeed, it is 
+always ignored when compiling to JavaScript.)
 
 ### Java array types are represented by special Ceylon classes
 
