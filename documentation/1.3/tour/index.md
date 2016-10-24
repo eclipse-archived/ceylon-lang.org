@@ -249,10 +249,6 @@ If you have `node.js` installed, you can go to `Project > Properties`, select
 the `Ceylon` section, enable `Compile project to JavaScript`, then click `OK`, 
 and run the program using `Run > Run As > Ceylon JavaScript Application`.
 
-Or, if you're unfamiliar with Eclipse, go to `Help > Cheat Sheets`, open the 
-`Ceylon` item, and run the `Hello World with Ceylon` cheat sheet which takes 
-you step by step through the process.
-
 ### Selecting the JDK
 
 Ceylon IDE for Eclipse requires Java 7 or Java 8, so you might need to verify that Eclipse 

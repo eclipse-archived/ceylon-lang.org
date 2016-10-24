@@ -269,21 +269,19 @@ module documentation directories.
 
 ### Developing modules in Ceylon IDE for Eclipse
 
-To get started with modules in Ceylon IDE for Eclipse, go to `Help > Cheat Sheets...`, 
-open the `Ceylon` item, and run the `Introduction to Ceylon Modules` cheat sheet, 
-which will guide you step-by-step through the process of creating a module,
-defining its dependencies, and exporting it to a module repository.
+A wizard to create a new module, and add its dependencies can be found
+at `File > New > Ceylon Module`.
 
 The Ceylon Repository Explorer may be accessed via 
 `Window > Show View > Ceylon Repository Explorer` when in the Ceylon
 perspective.  
 
-A wizard to create a new module, and add its dependencies can be found
-at `File > New > Ceylon Module`.
-
 To change the imports of an existing module, you can select the module 
 in the Ceylon Explorer, got to `File > Properties`, and select the
 `Ceylon Module` properties page.
+
+To view the full dependency graph for a project, select the project, 
+and go to `Navigate > Show In > Ceylon Module Dependencies`.  
 
 Under `File > Export... > Ceylon`, you'll find two very useful wizards:
 
