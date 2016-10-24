@@ -609,9 +609,9 @@ annotations (`@Nullable` and `@Nonnull`/`@NonNull`/`@NotNull`)
 for indicating whether a Java type can contain `null` values. 
 The Ceylon compiler understands these annotations.
 
-So, as an exception to the above gotcha, when one of these
-annotations is present, Java null values _are_ checked at
-compile time.
+So, as an exception to the above discussion, when one of 
+these annotations is present, Java null values _are_ checked 
+at compile time, and no runtime checks are necessary.
 
 ### Java properties are exposed as Ceylon attributes
 
