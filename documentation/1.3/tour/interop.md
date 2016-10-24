@@ -1033,34 +1033,20 @@ Then, given a module named `net.example.foo`:
 
 ## Interoperation with Java's `ServiceLoader`
 
-Annotating a Ceylon class with the `service` annotation makes
-the class available to Java's [service loader architecture][].
+Ceylon [services and service providers](../modules/#services_and_service_providers) 
+work transparently with Java's [service loader architecture][],
+having been designed and implemented as a simple abstraction
+of Java's `ServiceLoader`.
 
-[service loader architecture]: https://docs.oracle.com/javase/8/docs/api/java/util/ServiceLoader.html
-
-<!-- try: -->
-     service (`Manager`)
-     shared class DefautManager() satisfies Manager {}
- 
-A Ceylon module may gain access to Java services by calling
-[`Module.findServiceProviders()`][].
-
-<!-- try: -->
-     {Manager*} managers = `module`.findServiceProviders(`Manager`);
-     assert (exists manager = managers.first);"
-
-This code will find the first `service` which implements 
-`Manager` and is defined in the dependencies of the module in 
-which this code occurs. To search a different module and its 
-dependencies, specify the module explicitly:
-
-<!-- try: -->
-     {Manager*} managers = `module com.acme.manager`.findServiceProviders(`Manager`);
-     assert (exists manager = managers.first);"
+- Annotating a Ceylon class with the `service` annotation makes
+  the class available to Java's `ServiceLoader`.
+- Similarly, a Ceylon module may gain access to Java services 
+  just by calling [`Module.findServiceProviders()`][].
 
 The `service` annotation and `Module.findServiceProviders()`
 work portably across the JVM and JavaScript environments.
 
+[service loader architecture]: https://docs.oracle.com/javase/8/docs/api/java/util/ServiceLoader.html
 [`Module.findServiceProviders()`]: #{site.urls.apidoc_1_3}/meta/declaration/Module.type.html#findServiceProviders
 
 ## Limitations
@@ -1073,10 +1059,10 @@ Here's a couple of limitations to be aware of:
   language features only available in Java 8.
 - You can't obtain a method reference, nor a static method 
   reference, to an overloaded method.
-- Java generic types don't carry reified type arguments at 
-  runtime, so certain operations that depend upon reified 
-  generics (for example, some `is` tests) are rejected at 
-  compile time, or unchecked at runtime.
+- As detailed above, Java generic types don't carry reified 
+  type arguments at runtime, so certain operations that 
+  depend upon reified generics (for example, some `is` tests) 
+  are rejected at compile time, or unchecked at runtime.
 
 ## Alternative module runtimes
 

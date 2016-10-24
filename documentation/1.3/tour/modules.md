@@ -471,6 +471,47 @@ with `/`, for example:
     assert (exists Resource resource 
             = `module net.example.foo`.resourceByPath("/net/example/foo/foo.properties");
 
+## Services and service providers
+
+_Services_ provide a lightweight way to achieve loose 
+coupling between the client and implementation(s) of an API. 
+
+Annotating a Ceylon class with the `service` annotation 
+defines a _service provider_ for a specified _service type_.
+
+Here, `DefaultManager` is declared as a service provider for
+the service type `Manager`: 
+
+<!-- try: -->
+     service (`Manager`)
+     shared class DefaultManager() satisfies Manager {}
+ 
+Typically, the service type, service provider, and the client
+of the service are defined in three separate modules. But this
+is not a requirement.
+
+Clients of a given service type may obtain a service provider 
+by calling [`Module.findServiceProviders()`][].
+
+<!-- try: -->
+     {Manager*} managers = `module`.findServiceProviders(`Manager`);
+     assert (exists manager = managers.first);"
+
+This code will find the first `service` which implements 
+`Manager` and is defined in the dependencies of the module in 
+which this code occurs. To search a different module and its 
+dependencies, specify the module explicitly:
+
+<!-- try: -->
+     {Manager*} managers = `module com.acme.manager`.findServiceProviders(`Manager`);
+     assert (exists manager = managers.first);"
+
+On the JVM, Ceylon services and service providers interoperate 
+with Java's [service loader architecture][], as we'll see 
+[later in the tour](../interop/#interoperation_with_javas_serviceloader).
+
+[`Module.findServiceProviders()`]: #{site.urls.apidoc_1_3}/meta/declaration/Module.type.html#findServiceProviders
+[service loader architecture]: https://docs.oracle.com/javase/8/docs/api/java/util/ServiceLoader.html
 
 
 ## There's more
