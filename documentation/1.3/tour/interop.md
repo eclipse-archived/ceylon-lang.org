@@ -373,6 +373,13 @@ use the `small` annotation.
 <!-- try: -->
     small Integer int = string.hash;
 
+You can also use `small` to represent a `Character` as a 
+16-bit `char` at the bytecode level, instead of as a 32-bit 
+`int`.
+
+<!-- try: -->
+   small Character char = charArray.get(0);
+
 It's important to understand that `small Integer` isn't a 
 different type to `Integer`. So any `Integer` is directly
 assignable to a declaration of type `small Integer`, and
