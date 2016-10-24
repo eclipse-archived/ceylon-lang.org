@@ -471,14 +471,21 @@ with `/`, for example:
     assert (exists Resource resource 
             = `module net.example.foo`.resourceByPath("/net/example/foo/foo.properties");
 
+The contents of a text resource may be obtained using
+[`Resource.textContent()`](#{site.urls.apidoc_1_3}/Resource.type.html#textContent).
+The URI of a binary resource may be obtained using
+[`Resource.uri`](#{site.urls.apidoc_1_3}/Resource.type.html#uri).
+
+
 ## Services and service providers
 
 _Services_ provide a lightweight way to achieve loose 
-coupling between the client and implementation(s) of an API. 
+coupling between the client and the implementation or
+implementations of an API, allowing the provider of an API
+to change. 
 
 Annotating a Ceylon class with the `service` annotation 
 defines a _service provider_ for a specified _service type_.
-
 Here, `DefaultManager` is declared as a service provider for
 the service type `Manager`: 
 
