@@ -475,10 +475,10 @@ with `/`, for example:
 
 ## There's more
 
-Later in the tour, we'll learn how to  
-[interoperate with native Java `.jar`s](../interop/#depending_on_a_java_archive),
-including Java `.jar`s imported from Maven, and how to 
-[interoperate with native JavaScript modules](../dynamic/#importing_npm_modules_containing_native_javascript_code) 
-imported from npm.
+Later in the tour, we'll learn how to interoperate with
+[native Java archives](../interop/#depending_on_a_java_archive),
+including Java modules imported from [Maven](https://maven.apache.org/), and 
+[native JavaScript modules](../dynamic/#importing_npm_modules_containing_native_javascript_code) 
+imported from [npm](https://www.npmjs.com/).
 
 Next we're going to look at Ceylon's support for [higher order functions](../functions).
