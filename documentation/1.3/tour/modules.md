@@ -93,7 +93,7 @@ instead of being visible to the whole source file.
 
 This, local imports can be used to resolve name collisions:
 
-<!-- try -->
+<!-- try: -->
     void usesCeylonHashMap() {
         import ceylon.collection { HashMap }
         
@@ -112,7 +112,7 @@ However, we don't especially recommend this; we prefer to use
 toplevel import aliases to resolve name collisions, since this
 provides much less potential for confusion:
 
-<!-- try -->
+<!-- try: -->
     import ceylon.collection { HashMap }
     import java.util { JMap=Map, JHashMap=HashMap }
     
