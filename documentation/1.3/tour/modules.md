@@ -19,8 +19,8 @@ We're going to learn about *packages* and *modules*.
 
 There's no `package` statement in Ceylon source files. The compiler determines 
 the package and module to which a toplevel program element belongs by the 
-location of the source file in which it is declared. A class named `Hello` in 
-the package `org.jboss.hello` must be defined in the file 
+location of the source file in which it is declared. For example, a class 
+named `Hello` in the package `org.jboss.hello` must be defined in the file 
 `source/org/jboss/hello/Hello.ceylon` where `source` is the source directory.
 
 When a source file in one package refers to a toplevel program element in 
@@ -80,6 +80,54 @@ occurring outside a well-defined module (code in the "default" module).
 
 With that in mind, it's definitely time to learn how to define modules 
 and dependencies between modules.
+
+### Tip: local `import` statements
+
+_Warning: this subsection describes new pre-release functionality that 
+will be made available in Ceylon 1.3.1._
+
+Unlike Java, Ceylon lets you write a local `import` statement at the 
+start of the body of a class, interface, or function. Local imports
+are only visible within the program element in which they occur, 
+instead of being visible to the whole source file.
+
+This, local imports can be used to resolve name collisions:
+
+<!-- try -->
+    void usesCeylonHashMap() {
+        import ceylon.collection { HashMap }
+        
+        Map<String,String> map = HashMap<String,String>();
+        ...
+    }
+    
+    void usesJavaHashMap() {
+        import java.util { Map, HashMap }
+        
+        Map<String,String> map = HashMap<String,String();
+        ...
+    }
+
+However, we don't especially recommend this; we prefer to use
+toplevel import aliases to resolve name collisions, since this
+provides much less potential for confusion:
+
+<!-- try -->
+    import ceylon.collection { HashMap }
+    import java.util { JMap=Map, JHashMap=HashMap }
+    
+    void usesCeylonHashMap() {
+        Map<String,String> map = HashMap<String,String>();
+        ...
+    }
+    
+    void usesJavaHashMap() {
+        JMap<String,String> map = JHashMap<String,String();
+        ...
+    }
+
+On the other hand, local `import`s are very useful when writing
+[`native` code in a cross-platform module](../dynamic/#tip_defining_an_operation_with_a_native_header).
 
 
 ## Modularity
