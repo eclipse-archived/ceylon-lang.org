@@ -378,7 +378,7 @@ module at the command line.
 ### Examples: Running against a local or remote repository
 
 Let's continue the example we had before where `net.example.foo` version 1.0
-was published to http://ceylon.example.net/repo. Now suppose you want to run 
+was published to `http://ceylon.example.net/repo`. Now suppose you want to run 
 the module (possibly from another computer). 
 
 If the dependencies (`com.example.bar/3.1.4` from before) can be 
@@ -433,7 +433,8 @@ public module repository.
 
 ## Resources
 
-To include resources in a module archive, you must place them in a _resource directory_, named `resource` by default:
+To include resources in a module archive, you must place them in a 
+_resource directory_, named `resource` by default:
 
 <!-- lang: none -->
     README
@@ -450,9 +451,9 @@ To include resources in a module archive, you must place them in a _resource dir
           foo/
             foo.properties
 
-Resources in the subdirectory `resource/net/example/foo` are packaged into 
-the module archive for the module `net.example.foo`, and into a directory 
-of the module respository where they're accessible to the JavaScript runtime.
+Resources in the subdirectory `resource/net/example/foo` are packaged into the 
+module archive for the module `net.example.foo`, and into a directory of the 
+module repository where they're accessible to the JavaScript runtime.
 
 At runtime, the resource may be loaded by calling 
 [`resourceByPath()`](#{site.urls.apidoc_1_3}/meta/declaration/Module.type.html#resourceByPath) 
@@ -470,6 +471,14 @@ with `/`, for example:
     assert (exists Resource resource 
             = `module net.example.foo`.resourceByPath("/net/example/foo/foo.properties");
 
+
+
 ## There's more
+
+Later in the tour, we'll learn how to  
+[interoperate with native Java `.jar`s](../interop/#depending_on_a_java_archive),
+including Java `.jar`s imported from Maven, and how to 
+[interoperate with native JavaScript modules](../dynamic/#importing_npm_modules_containing_native_javascript_code) 
+imported from npm.
 
 Next we're going to look at Ceylon's support for [higher order functions](../functions).
