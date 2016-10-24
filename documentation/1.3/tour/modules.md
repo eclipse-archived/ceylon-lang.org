@@ -51,14 +51,14 @@ To resolve a name conflict, we can rename an imported declaration:
 
 <!-- try: -->
 <!-- check:none:pedagogical -->
-    import com.redhat.polar.core { PolarCoord=Polar }
+    import com.redhat.polar.core { PolarCoord = Polar }
 
 We think renaming is a much cleaner solution than the use of qualified 
 names. We can even rename members of type:
 
 <!-- try: -->
 <!-- check:none:pedagogical -->
-    import com.redhat.polar.core { Polar { r=radius, theta=angle } }
+    import com.redhat.polar.core { Polar { r = radius, theta = angle } }
 
 Now here's a big gotcha for folks new to Ceylon.
 
