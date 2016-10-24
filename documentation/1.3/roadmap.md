@@ -25,6 +25,8 @@ Goals of the 1.3.1 release include:
 - [#4127](https://github.com/ceylon/ceylon/issues/4127) literal tuples
   in `case`s of a `switch`
 - [#6558](https://github.com/ceylon/ceylon/issues/6558) `small Character`s
+- [#6605](https://github.com/ceylon/ceylon/issues/6605) make `assert` 
+  coerce to dynamic interface type
 
 We're also prioritizing improvements to Android support, Ceylon IDE for
 IntelliJ, and integration with Java EE and WildFly Swarm.
@@ -43,8 +45,6 @@ Proposed improvements scheduled for Ceylon 1.3.2 include:
   for Java UI libraries
 - [#6000](https://github.com/ceylon/ceylon/issues/6000) `assert` clause
   in comprehensions
-- [#6605](https://github.com/ceylon/ceylon/issues/6605) make `assert` 
-  coerce to dynamic interface type
 - [#6583](https://github.com/ceylon/ceylon/issues/6583) change tuple 
   pattern to match any `Sequence`
 - [#3851](https://github.com/ceylon/ceylon/issues/3851) labeled tuple types
