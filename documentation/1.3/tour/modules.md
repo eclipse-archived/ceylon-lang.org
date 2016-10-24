@@ -291,7 +291,7 @@ Under `File > Export... > Ceylon`, you'll find two very useful wizards:
 
 Now let's learn a little bit about using the command line.
 
-### Examples: Compiling against a local or remote repository
+### Examples: compiling against a local or remote repository
 
 Let's suppose you are writing `net.example.foo`. Your project 
 directory might be layed out like this:
@@ -431,7 +431,7 @@ remote repositories if necessary.
 Normally, the Ceylon runtime is invoked by specifying the name of a runnable 
 module at the command line.
 
-### Examples: Running against a local or remote repository
+### Examples: running against a local or remote repository
 
 Let's continue the example we had before where `net.example.foo` version 1.0
 was published to `http://ceylon.example.net/repo`. Now suppose you want to run 
