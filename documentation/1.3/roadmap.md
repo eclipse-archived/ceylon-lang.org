@@ -32,7 +32,7 @@ We're also prioritizing improvements to Android support, Ceylon IDE for
 IntelliJ, and integration with Java EE and WildFly Swarm.
 
 <div id="milestones-progress">
-    <div data-title="View all issue for milestone" data-repo="ceylon" data-milestone="16">Loading…</div>
+    <div data-title="View all issues for milestone" data-repo="ceylon" data-milestone="16">Loading…</div>
 </div>
 
 ## Ceylon 1.3.2
