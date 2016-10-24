@@ -514,6 +514,38 @@ with Java's [service loader architecture][], as we'll see
 [service loader architecture]: https://docs.oracle.com/javase/8/docs/api/java/util/ServiceLoader.html
 
 
+## Repackaging tools
+
+Certain environments, for example, Java EE, or [Wildfly Swarm][],
+define their own packaging format, along with a bootstrap process
+that isn't compatible with `ceylon run`. In such cases, it's most 
+convenient to have a _repackaging tool_ that accepts a compiled 
+Ceylon module archive and repackages it for execution in the 
+target environment.
+
+At present, there are three such tools, all implemented as
+plugins for the `ceylon` command:
+
+- [`ceylon fat-jar`][] repackages a module and its dependencies
+  into a single archive, for execution via the `java` command.
+- [`ceylon war`][] repackages a module and its dependencies as
+  a Java EE `.war` archive, for execution in a Java servlet
+  engine or Java EE application server.
+- [`ceylon swarm`][] repackages a module and its dependencies,
+  along with the WildFly Swarm environment, for execution via
+  the `java` command.
+
+Note that when repackaged by one of these tools, the runtime
+execution, classloading, and classloader isolation model is
+that of the given platform, and may not fully respect the 
+semantics of Ceylon's native module system. 
+
+[`ceylon fat-jar`]: /documentation/current/reference/tool/ceylon/subcommands/ceylon-fat-jar.html
+[`ceylon war`]: /documentation/1.3/reference/tool/ceylon/subcommands/ceylon-war.html
+[`ceylon swarm`]: https://github.com/ceylon/ceylon.swarm
+[Wildfly Swarm]: http://wildfly-swarm.io/
+
+
 ## There's more
 
 Later in the tour, we'll learn how to interoperate with
