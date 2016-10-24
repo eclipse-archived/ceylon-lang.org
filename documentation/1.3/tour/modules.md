@@ -289,6 +289,8 @@ Under `File > Export... > Ceylon`, you'll find two very useful wizards:
   a local module repository, and
 - a wizard to add a Java `.jar` archive to a Ceylon module repository.
 
+Now let's learn a little bit about using the command line.
+
 ### Examples: Compiling against a local or remote repository
 
 Let's suppose you are writing `net.example.foo`. Your project 
@@ -411,6 +413,9 @@ You can just compile again, this time specifying an `--out` option
       --out http://ceylon.example.net/repo
       net.example.foo
 
+Or, if your module is already compiled, you can publish it using `ceylon copy`
+to replicate the existing artifacts to a the output repository. 
+
 It's worth noting that by taking advantage of the sensible defaults for 
 things like source code directory and output repository, as we have here, 
 you save yourself a lot of typing.
@@ -466,6 +471,13 @@ The easiest case though, is where the module and its dependencies are all in one
 <!-- lang: bash -->
     ceylon run net.example.foo/1.0
 
+### Tip: using a config file
+
+You can save yourself the trouble of explicitly specifying module repositories
+with `--rep`, or of explicitly overriding other defaults such as the name of
+the source directory using a [config file](/documentation/1.3/reference/tool/config/)
+to specify settings that are understood by both the command line toolset and
+by the Ceylon IDEs.
 
 ## Module repository ecosystem
 
@@ -480,7 +492,7 @@ And all required dependencies get automatically downloaded as needed.
 [Ceylon Herd](https://herd.ceylon-lang.org) is a central community module 
 repository where anyone can contribute reusable modules. Of course, the module 
 repository format is an open standard, so any organization can maintain its own 
-public module repository.
+public module repository. You can even run your own internal instance of Herd!
 
 ## Resources
 
