@@ -18,6 +18,8 @@ Goals of the 1.3.1 release include:
   members in Ceylon classes
 - [#1617](https://github.com/ceylon/ceylon/issues/1617) interop with 
   Java 8 lambdas (ability to pass Ceylon `Callable`s to Java SAM types)
+- [#6646](https://github.com/ceylon/ceylon/issues/6646) local `import` 
+  statements
 - [#5954](https://github.com/ceylon/ceylon/issues/5954) support spread
   operators `*` and `*.` with `java.lang.Iterable`
 - [#4127](https://github.com/ceylon/ceylon/issues/4127) literal tuples
