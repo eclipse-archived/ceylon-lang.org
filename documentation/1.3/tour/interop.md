@@ -378,7 +378,7 @@ You can also use `small` to represent a `Character` as a
 `int`.
 
 <!-- try: -->
-   small Character char = charArray.get(0);
+    small Character char = charArray.get(0);
 
 It's important to understand that `small Integer` isn't a 
 different type to `Integer`. So any `Integer` is directly
