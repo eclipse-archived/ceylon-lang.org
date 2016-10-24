@@ -602,28 +602,6 @@ into Ceylon code with checked null values, resulting in an
 eventual `NullPointerException` in Ceylon code far from the
 original call to Java.
 
-### Gotcha!
-
-The Ceylon compiler doesn't usually have any information that 
-a Java method returning a class or interface type could return 
-`null`, and so it won't warn you at compile time if you call a 
-Java method that sometimes returns `null`.
-
-You need to be especially careful with inferred types when 
-calling native Java methods. In this code, the type `String`
-is inferred for `home`:
-
-<!-- try: -->
-    import java.lang { System }
-    
-    void printUserHome() {
-        value home  //inferred type String, not String?
-                = System.getProperty("user.home");
-        print(home);
-    }
-
-It's a good idea to be explicit here.
-
 ### Java types annotated `@Nullable` are exposed as optional types
 
 There are now a number of Java frameworks that provide 
