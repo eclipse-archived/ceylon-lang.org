@@ -190,12 +190,18 @@ If you're using Ceylon IDE for Eclipse, and you don't want to
 write the `module.xml` descriptor by hand, go to 
 `File > Export ... > Ceylon > Java Archive to Module Repository`.
 
+### Depending on a Maven module
+
 Alternatively, the Ceylon module architecture interoperates with 
 Maven via Aether. You can import a module from maven by specifying
 the `maven:` repository type:
 
 <!-- try: -->
     import maven:"org.hibernate:hibernate-core" "5.0.4.Final";
+
+The module name is composed from the Maven group id and artifact id,
+and must be quoted because `:` and `-` aren't legal in a Ceylon
+module name.
 
 You can find more information [here](../../reference/repository/maven).
 

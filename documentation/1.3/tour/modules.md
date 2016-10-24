@@ -248,7 +248,8 @@ The Ceylon compiler never produces individual `.class` files in a directory.
 When compiled for execution on a JavaScript virtual machine, the module
 compiles to a `.js` file, called a _module script_. This module script
 follows a standard called Common JS Modules, which allows the script to
-be used in node.js or with require.js.
+be used in [node.js](https://nodejs.org/) or with 
+[require.js](http://requirejs.org/).
 
 Module archives and module scripts live in *module repositories*. A module 
 repository is a well-defined directory structure with a well-defined location 
@@ -259,8 +260,12 @@ descriptor of the module it is compiling. And when it finishes compiling the
 module, it puts the resulting module archive in the right place in a local 
 module repository.
 
-The architecture also includes support for source directories, source 
-archives, and module documentation directories.
+The Ceylon module system may even interoperate with
+[Maven repositories](../interop/#depending_on_a_maven_module) and
+[npm](../dynamic/#importing_npm_modules_containing_native_javascript_code).
+
+The repository architecture also includes support for source archives and 
+module documentation directories.
 
 ### Developing modules in Ceylon IDE for Eclipse
 
