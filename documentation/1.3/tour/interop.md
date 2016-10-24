@@ -567,10 +567,36 @@ non-optional type `String`:
     void printUserHome() {
         String home  //non-optional type, possible runtime exception
                 = System.getProperty("user.home");
+        print("home: " + home);
+    }
+
+However, no runtime check occurs upon assignment to a 
+`value` or `function` with inferred type. Thus, there is no 
+runtime check at all in this code:
+
+<!-- try: -->
+    import java.lang { System }
+    
+    void printUserHome() {
+        value home  //inferred non-optional type, no runtime check!
+                = System.getProperty("user.home");
         print(home);
     }
 
-The runtime check ensures that `null` can never unsoundly 
+Instead, a runtime check is inserted when the  `value` or 
+`function` with inferred type is used in a way which 
+indicates it must be non-`null`:
+
+<!-- try: -->
+    import java.lang { System }
+    
+    void printUserHome() {
+        value home  //no runtime check
+                = System.getProperty("user.home");
+        print("home: " + home); //runtime check here instead
+    }
+
+These runtime checks ensure that `null` can never unsoundly 
 propagate from native Java code with unchecked null values 
 into Ceylon code with checked null values, resulting in an 
 eventual `NullPointerException` in Ceylon code far from the
