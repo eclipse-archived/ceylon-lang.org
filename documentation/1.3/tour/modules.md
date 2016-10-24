@@ -465,11 +465,14 @@ need to specify a repository that contains it using another `--rep`:
       net.example.foo/1.0
       my options
 
-The easiest case though, is where the module and its dependencies are all in one 
-(or more) of the default repositories (such as the Herd or `~/.ceylon/repo`):
+The easiest case, of course, is where the module and its dependencies are all 
+in available in the default repositories (such as the Herd or `~/.ceylon/repo`):
 
 <!-- lang: bash -->
     ceylon run net.example.foo/1.0
+
+But when you really do need to override the defaults, there's a great way to
+do it just once.
 
 ### Tip: using a config file
 
@@ -478,6 +481,7 @@ with `--rep`, or of explicitly overriding other defaults such as the name of
 the source directory using a [config file](/documentation/1.3/reference/tool/config/)
 to specify settings that are understood by both the command line toolset and
 by the Ceylon IDEs.
+
 
 ## Module repository ecosystem
 
@@ -493,6 +497,7 @@ And all required dependencies get automatically downloaded as needed.
 repository where anyone can contribute reusable modules. Of course, the module 
 repository format is an open standard, so any organization can maintain its own 
 public module repository. You can even run your own internal instance of Herd!
+
 
 ## Resources
 
