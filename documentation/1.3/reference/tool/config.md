@@ -393,7 +393,7 @@ are actually sub-sections of `[repository]` they require a name. An example coul
 
 Supported properties include:
 
-* `url` - the URL of the repository. Besides remote URLs like `http://repo.example.com` and `aether`,
+* `url` - the URL of the repository. Besides remote URLs like `http://repo.example.com` and `maven:`,
 this includes references to folders on the local file system, either absolute like `/huge-disk/tom/ceylon/repocache`
 or relative to the project folder like `modules` or `./my-modules`. This property is required.
 * `user` - the user name if the repository requires authentication
@@ -480,11 +480,11 @@ that contains all the official Ceylon SDK modules and all other freely available
 
 The remote repository points to the official Maven module repository
 that contains so much of the Java eco system's finest contributions.
-By default this is `aether:`.
+By default this is `maven::`.
 
 <!-- lang:none -->
     [repository "MAVEN"]
-    url=aether:
+    url=maven:
 
 
 #### The `[repositories]` section revisited

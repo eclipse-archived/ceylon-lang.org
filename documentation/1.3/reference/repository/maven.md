@@ -48,7 +48,7 @@ additional Maven respository&mdash;and need a Maven [`settings.xml`][], you can
 specify the file using the `--rep` flag:
 
 <!--lang: none -->
-    ceylon compile --rep aether:/path/to/special/setting.xml com.example.foo
+    ceylon compile --rep maven:/path/to/special/setting.xml com.example.foo
 
 In Ceylon IDE, this option may be specified via `Lookup repositories on build path`
 in the `Module Repositories` tab of the project-level compiler settings.
