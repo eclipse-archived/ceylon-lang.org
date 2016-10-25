@@ -51,10 +51,10 @@ Just like Java, Ceylon has a class named [`Object`][].
         
     }
 
-Ceylon's, `Object` *isn't* the root of the type system. An expression 
-of type `Object` has a definite, well-defined, non-`null` value. As 
-we've seen, Ceylon type system also has the class [`Null`][], which is 
-the type of `null`.
+Ceylon's, `Object` *isn't* the root of the type system. An expression of 
+type `Object` has a definite, well-defined, non-`null` value. As we've 
+seen, Ceylon type system also has the class [`Null`][], which is the 
+type of `null`.
 
 <!-- try: -->
 <!-- check:none:decl from ceylon.language -->
@@ -109,7 +109,7 @@ implementations of `equals()` and `hash`.
 [`Anything`]: #{site.urls.apidoc_1_3}/Anything.type.html
 [`Null`]: #{site.urls.apidoc_1_3}/Null.type.html
 [`Boolean`]: #{site.urls.apidoc_1_3}/Boolean.type.html
-[`Integer`]: (#{site.urls.apidoc_1_3}/Integer.type.html
+[`Integer`]: #{site.urls.apidoc_1_3}/Integer.type.html
 [`Float`]: #{site.urls.apidoc_1_3}/Float.type.html
 [`Byte`]: #{site.urls.apidoc_1_3}/Byte.type.html
 [`Character`]: #{site.urls.apidoc_1_3}/Character.type.html
@@ -124,7 +124,7 @@ The following is not allowed:
     Integer x = 1;
     assert (x===1); //compile error: Integer is not Identifiable 
 
-Instead, `===` is defined to act on instances of the interface 
+Instead, `===` is defined to act only on instances of the interface 
 [`Identifiable`][]. `Integer`, `Float`, `Character`, and `String` _don't_ 
 satisfy this interface, but most classes do.
 
