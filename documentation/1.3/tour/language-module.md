@@ -315,7 +315,7 @@ Both [`List`][]s and [`Map`][]s are instances of `Correspondence`:
     "string must start with a \""
     assert (exists ch = text[0], ch=='"');
 
-_Mutable_ lists and maps are instances of [`MutableCorrespondence`][], which allows
+_Mutable_ lists and maps are instances of [`CorrespondenceMutator`][], which allows
 indexed assignment to element. One example of a mutable list is [`Array`][]:
 
     value array = Array.ofSize(5, 0);
