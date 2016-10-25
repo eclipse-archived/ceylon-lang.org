@@ -445,10 +445,8 @@ groups of four digits.
 
 The platform modules `ceylon.whole` and `ceylon.decimal` define the types 
 
-- [`Whole`](#{site.urls.apidoc_current_whole}/Whole.type.html), which 
-  represents arbitrary precision integers, and 
-- [`Decimal`](#{site.urls.apidoc_current_decimal}/Decimal.type.html), 
-  which represents arbitrary precision decimals numbers.
+- [`Whole`][], which represents arbitrary precision integers, and 
+- [`Decimal`][], which represents arbitrary precision decimals numbers.
 
 Both classes are subtypes of `Numeric`, so we can use all the usual numeric 
 operators with them:
@@ -459,6 +457,9 @@ operators with them:
     Decimal ratio = num / denom;
 
 Note that `ceylon.decimal` is currently JVM-only.
+
+[`Whole`]: #{site.urls.apidoc_current_whole}/Whole.type.html
+[`Decimal`]: #{site.urls.apidoc_current_decimal}/Decimal.type.html
 
 ### Tip: abstracting over numeric types
 
