@@ -872,10 +872,13 @@ a Ceylon `for` statement or comprehension.
     import java.lang { JIterable=Iterable }
     
     JIterable<Object> objects = ... ;
+    
+    //for statement
     for (obj in objects) {
         ...
     }
     
+    //comprehension
     print(", ".join { for (obj in objects) if (exists obj) obj.string.trimmed });
 
 Imagine how great it would be to be able to write a 
