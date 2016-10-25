@@ -279,6 +279,14 @@ never satisfied.
 
 This behavior is unintuitive but reasonable.
 
+As a special exception, an `is` condition _in an `assert` 
+statement_ will first attempt to coerce a value which has 
+not been tagged as an instance of any Ceylon type to the 
+specified dynamic interface type by performing the runtime 
+checks outlined above, and then tagging the value as an 
+instance of the type. This coercion *never* occurs in `if`, 
+`while`, or `switch` conditions!
+
 ## Dynamic instantiation expressions
 
 Occasionally it's necessary to instantiate a JavaScript `Array` 
