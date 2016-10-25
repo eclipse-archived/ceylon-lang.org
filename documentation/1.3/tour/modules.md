@@ -598,7 +598,7 @@ convenient to have a _repackaging tool_ that accepts a compiled
 Ceylon module archive and repackages it for execution in the 
 target environment.
 
-At present, there are three such tools, all implemented as
+At present, there are four such tools, all implemented as
 plugins for the `ceylon` command:
 
 - [`ceylon fat-jar`][] repackages a module and its dependencies
@@ -609,6 +609,8 @@ plugins for the `ceylon` command:
 - [`ceylon swarm`][] repackages a module and its dependencies,
   along with the WildFly Swarm environment, for execution via
   the `java` command.
+- [`ceylon jigsaw`][] deploys a module and all its dependencies 
+  to a [Jigsaw][]-style `mlib/` directory.
 
 Note that when repackaged by one of these tools, the runtime
 execution, classloading, and classloader isolation model is
@@ -617,8 +619,10 @@ semantics of Ceylon's native module system.
 
 [`ceylon fat-jar`]: /documentation/current/reference/tool/ceylon/subcommands/ceylon-fat-jar.html
 [`ceylon war`]: /documentation/1.3/reference/tool/ceylon/subcommands/ceylon-war.html
+[`ceylon jigsaw`]: /documentation/current/reference/tool/ceylon/subcommands/ceylon-jigsaw.html
 [`ceylon swarm`]: https://github.com/ceylon/ceylon.swarm
 [Wildfly Swarm]: http://wildfly-swarm.io/
+[Jigsaw]: http://openjdk.java.net/projects/jigsaw/
 
 
 ## There's more

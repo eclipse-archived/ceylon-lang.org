@@ -1039,7 +1039,7 @@ Then, given a module named `net.example.foo`:
 
 ## Interoperation with Java's `ServiceLoader`
 
-Ceylon [services and service providers](../modules/#services_and_service_providers) 
+Ceylon [services and service providers](../modules/#services_and_service_providers)
 work transparently with Java's [service loader architecture][],
 having been designed and implemented as a simple abstraction
 of Java's `ServiceLoader`.
@@ -1101,7 +1101,7 @@ You can learn more about Ceylon and OSGi from the
 
 ### Deploying Ceylon on Jigsaw
 
-The command line tool [`ceylon jigsaw`] deploys a module and
+The command line tool [`ceylon jigsaw`][] deploys a module and
 all its dependencies to a Jigsaw-style `mlib/` directory. Since
 Jigsaw is not yet released, and is still undergoing changes, this
 functionality is considered experimental.
@@ -1109,16 +1109,31 @@ functionality is considered experimental.
 [`ceylon jigsaw`]: /documentation/current/reference/tool/ceylon/subcommands/ceylon-jigsaw.html
 [Jigsaw]: http://openjdk.java.net/projects/jigsaw/
 
+### Deploying Ceylon on Java EE or WildFly Swarm
+
+These command line tools make it easy to deploy a Ceylon module
+that makes use of Java EE APis in a Java EE environment:
+
+- [`ceylon war`][] repackages a module and its dependencies as
+  a Java EE `.war` web archive, and
+- [`ceylon swarm`][] repackages a module, its dependencies, and
+  the [Wildfly Swarm][] environment as a `.jar` archive.
+
+[`ceylon war`]: /documentation/1.3/reference/tool/ceylon/subcommands/ceylon-war.html
+[`ceylon swarm`]: https://github.com/ceylon/ceylon.swarm
+[Wildfly Swarm]: http://wildfly-swarm.io/
+
 ### Deploying Ceylon as a fat jar
 
 Finally, if you wish to run a Ceylon program on a machine with
-no Ceylon distribution available, and without the runtome module 
+no Ceylon distribution available, and without the runtime module 
 isolation provided by JBoss Modules, the command line tool
-[`ceylon fat-jar`][] is indispensible. The command simply produces
+[`ceylon fat-jar`][] is indispensable. The command simply produces
 a Java `.jar` archive that contains a Ceylon module and everything
 it depends on at runtime.
 
 [`ceylon fat-jar`]: /documentation/current/reference/tool/ceylon/subcommands/ceylon-fat-jar.html
+
 
 ## There's more ...
 
