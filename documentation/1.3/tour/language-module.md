@@ -96,9 +96,10 @@ All types that represent well-defined values extend `Object`, including:
   [`Boolean`][], [`Integer`][], [`Float`][],[`Byte`][], and  
   [`Character`][].
 
-Since an expression of type `Object` always evaluates to a definite, 
-well-defined value, it's possible to obtain the runtime type of an `Object`, 
-or narrow an expression of type `Object` to a more specific type.
+The only things that aren't assignable to `Object` are the
+value `null`, and untyped values produced by a 
+[dynamically typed expression](../dynamic/#dynamically_typed_expressions)
+when interoperating with JavaScript.
 
 [`ceylon.language`]: #{site.urls.apidoc_1_3}/index.html
 [`Object`]: #{site.urls.apidoc_1_3}/Object.type.html
