@@ -857,8 +857,9 @@ are also supported for similar Java types. These constructs
 are:
 
 - the `for` loop and comprehensions,
-- resource expressions in `try`, and
-- the element lookup and `in` operators.
+- resource expressions in `try`,
+- the element lookup and `in` operators, and
+- the "spread" operators `*` and `*.`.
 
 ### Java `Iterable` or array in `for` 
 
@@ -962,6 +963,31 @@ The following idioms are very useful for instantiating Java
 
 (Note that these code examples work because `Arrays.asList()`
 has a variadic parameter.)
+
+### Tip: copying Java collection elements into Ceylon collections
+
+You can use the spread operator to obtain a Ceylon collection
+with the same elements as a Java collection:
+
+<!-- try: -->
+    import java.util { JList=List }
+    
+    JList<Object> objects = .... ;
+    value sequenceOfObjects = [*objects];
+    value setOfObjects = set { *objects };
+
+A comprehension gives you even more power:
+
+<!-- try: -->
+    import java.util { JList=List }
+    import java.lang { JString=String }
+    
+    JList<JString> strings = .... ;
+    value sequenceOfStrings = [ for (str in strings) str.string ];
+
+However, copying collections by nature involves memory allocation
+and this can be slow. A more efficient approach is to wrap the
+Java collection. Fortunately, Ceylon has a library for that.
 
 ## Utility functions and classes
 
