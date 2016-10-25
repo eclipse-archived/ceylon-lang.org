@@ -471,8 +471,8 @@ generic code that treats numeric values polymorphically.
 
 <!-- try-post:
     
-    print(ratio(1.0, 3.0);
-    print(ratio(7, 2);
+    print(ratio(1.0, 3.0));
+    print(ratio(7, 2));
 -->
     Value ratio<Value>(Value num, Value denom) 
             given Value satisfies Numeric<Value>
