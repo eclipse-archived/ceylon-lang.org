@@ -93,11 +93,11 @@ All types that represent well-defined values extend `Object`, including:
 - all interfaces, including, 
 - function types, and even
 - the types that are considered primitive in Java, such as 
-  [`Boolean`][], [`Integer`][], [`Float`][],[`Byte`][], and  
+  [`Boolean`][], [`Integer`][], [`Float`][], [`Byte`][], and  
   [`Character`][].
 
-The only things that aren't assignable to `Object` are the
-value `null`, and untyped values produced by a 
+The only things that aren't assignable to `Object` are the value `null`, 
+along with untyped values produced by a 
 [dynamically typed expression](../dynamic/#dynamically_typed_expressions)
 when interoperating with JavaScript.
 
