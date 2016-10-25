@@ -19,8 +19,10 @@ language. For now the options are:
 - a JavaScript virtual machine. 
 
 In this chapter, we're going to learn about how to interoperate 
-with native code running on the Java Virtual Machine. In the
-[next chapter](../dynamic) we'll discuss JavaScript.
+with native code running on the Java Virtual Machine, and focus
+on all the nitty-gritty details and corner cases involved in
+inter-language interop. In the [next chapter](../dynamic) we'll 
+discuss JavaScript.
 
 ## Defining a native Java module
 
@@ -859,7 +861,7 @@ are:
 - the `for` loop and comprehensions,
 - resource expressions in `try`,
 - the element lookup and `in` operators, and
-- the "spread" operators `*` and `*.`.
+- the "spread" operators `*.` and `*`.
 
 ### Java `Iterable` or array in `for` 
 
