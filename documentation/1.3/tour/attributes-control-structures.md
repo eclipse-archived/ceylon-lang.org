@@ -353,12 +353,14 @@ Each `case` of a `switch` must be:
 - a [tuple](../sequences/#tuples) formed from literals and 
   enumerated instances.
 
+(Don't worry, we'll learn about tuples later in this tour.)
+
 <!-- try-pre:
     value pair = [1, "one"];
 -->
     switch (pair)
     case ([0,"zero"]) { print("Zero"); }
-    case ([1, "one") { print("One"); }
+    case ([1, "one"]) { print("One"); }
     else { print("something else"); }
 
 A `case` can handle multiple values, in which case the values are 
