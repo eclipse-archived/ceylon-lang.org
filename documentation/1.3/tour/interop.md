@@ -381,14 +381,14 @@ or `double` that the Ceylon compiler uses by default, you can
 use the `small` annotation.
 
 <!-- try: -->
-    small Integer int = string.hash;
+    small Integer int = string.hash; //a 32-bit int
 
 You can also use `small` to represent a `Character` as a 
 16-bit `char` at the bytecode level, instead of as a 32-bit 
 `int`.
 
 <!-- try: -->
-    small Character char = charArray.get(0);
+    small Character char = charArray.get(0); //a 16-bit char
 
 It's important to understand that `small Integer` isn't a 
 different type to `Integer`. So any `Integer` is directly
@@ -875,6 +875,11 @@ a Ceylon `for` statement or comprehension.
     for (obj in objects) {
         ...
     }
+    
+    print(", ".join { for (obj in objects) if (exists obj) obj.string.trimmed });
+
+Imagine how great it would be to be able to write a 
+comprehension involving a Java collection in Java itself!
 
 Wait, a quick reminder...
 
@@ -935,6 +940,8 @@ Two of Ceylon's built-in operators may be applied to Java types:
   Java arrays, `java.util.List`, and `java.util.Map`, and
 - the containment operator (`element in container`) may be used 
   with the type `java.util.Collection`.
+
+This is syntax sugar you don't even have in Java itself!
 
 <!-- try: -->
     import java.util { JArrayList=ArrayList }
