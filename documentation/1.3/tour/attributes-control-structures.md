@@ -309,17 +309,23 @@ The `if/else` statement is totally traditional:
         print("small");
     }
 
-Later we will learn how `if` can [narrow the type](../types#narrowing_the_type_of_an_object_reference) 
-of references in its block. We've already seen an example of that, 
-back when we talked about [optional types](../basics/#dealing_with_objects_that_arent_there).
+Later in this tour, we will learn how `if` can
+[narrow the type](../types#narrowing_the_type_of_an_object_reference) of 
+references in its block. We've already seen an example of that, back when 
+we talked about [optional types](../basics/#dealing_with_objects_that_arent_there).
 
-We often use [the operators `then` and `else`](../basics/#you_can_chain_an_else...)
-instead of `if`. 
+### Tip: using `then`/`else` instead of `if`
+
+We sometimes use [the operators `then` and `else`](../basics/#you_can_chain_an_else...)
+instead of `if`. Remember, that's Ceylon's replacement for C's ternary
+operator.
 
 ### Switch conditionals
 
-The `switch/case` statement eliminates C's much-criticized "fall through" 
-behavior and irregular syntax:
+The `switch/case` statement eliminates C's much-criticized "fall-through" 
+behavior and irregular syntax. Each branch of the `switch` statement is
+enclosed in braces, just like in any other control structure:
+
 
 <!-- try-pre:
     Integer x = 100;
@@ -329,23 +335,7 @@ behavior and irregular syntax:
     case (equal) { print("one hundred"); }
     case (larger) { print("larger"); }
 
-The type of the `switch`ed expression may be an 
-[enumerated type](../types/#enumerated_types), `String`,
-`Character`, or `Integer`. Or it may be a 
-[union](../types/#union_types) of such types.
-
-A case can handle multiple values, in which case the values
-are separated by the `|` symbol:
-
-<!-- try: -->
-    Character? ch = ... ;
-    switch (ch)
-    case (null) {}
-    case ('.'|'?'|'!') { print("punctuation"); }
-    case (' '|'\t'|'\n'|'\r'|'\f') { print("whitespace"); }
-    else { print("something else"); }
-
-A `switch` statement may declare a value:
+A `switch` statement may declare a name for the switched value:
 
     switch (name = process.arguments.first)
     case (null) {
@@ -355,7 +345,41 @@ A `switch` statement may declare a value:
         print("Hello ``name``!");
     }
 
-We'll have much more to say about `switch` when we discuss 
+Each `case` of a `switch` must be:
+
+- a literal `String`, `Character`, or `Integer`,
+- an instance of an [enumerated type](../types/#enumerated_types),
+  for example, `true`, `false`, or `null`,
+- a [tuple](../sequences/#tuples) formed from literals and 
+  enumerated instances.
+
+<!-- try-pre:
+    value pair = [1, "one"];
+-->
+    switch (pair)
+    case ([0,"zero"]) { print("Zero"); }
+    case ([1, "one") { print("One"); }
+    else { print("something else"); }
+
+A `case` can handle multiple values, in which case the values are 
+separated by the `|` symbol:
+
+<!-- try: -->
+    Character? ch = ... ;
+    switch (ch)
+    case (null) {}
+    case ('.'|'?'|'!') { print("punctuation"); }
+    case (' '|'\t'|'\n'|'\r'|'\f') { print("whitespace"); }
+    else { print("something else"); }
+
+As we'll see later, a `case` may even be:
+
+- a [type case](../types/#narrowing_the_type_of_an_object_reference),
+  or even
+- a [pattern](../sequences/#destructuring).
+
+And, indeed, type cases are the most common sort of `case` Ceylon. So 
+we'll have much more to say about `switch` when we discuss 
 [enumerated types](../types/#enumerated_types).
 
 ### Assertions
