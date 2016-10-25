@@ -101,6 +101,9 @@ along with untyped values produced by a
 [dynamically typed expression](../dynamic/#dynamically_typed_expressions)
 when interoperating with JavaScript.
 
+All `Object`s have a definition of value equality, expressed in their
+implementations of `equals()` and `hash`.
+
 [`ceylon.language`]: #{site.urls.apidoc_1_3}/index.html
 [`Object`]: #{site.urls.apidoc_1_3}/Object.type.html
 [`Anything`]: #{site.urls.apidoc_1_3}/Anything.type.html
@@ -109,7 +112,7 @@ when interoperating with JavaScript.
 [`Integer`]: (#{site.urls.apidoc_1_3}/Integer.type.html
 [`Float`]: #{site.urls.apidoc_1_3}/Float.type.html
 [`Byte`]: #{site.urls.apidoc_1_3}/Byte.type.html
-[`Character`]: #{site.urls.apidoc_1_3}/Character.type.html
+,[`Character`]: #{site.urls.apidoc_1_3}/Character.type.html
 
 ## Equality and identity
 
