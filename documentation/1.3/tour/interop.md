@@ -358,14 +358,16 @@ wrapper types are just as trivial, for example:
 - the `.longValue()` methods of `java.lang.Long` and
   `java.lang.Integer` return a Ceylon `Integer`, and
 - the constructors of `java.lang.Integer` and `java.lang.Long`
-  accept a Ceylon `Integer`.
+  accept a Ceylon `Integer`, as do the static `valueOf()` 
+  methods of these types.
 
 Likewise:
 
 - the `.doubleValue()` methods of `java.lang.Double` and
   `java.lang.Float` return a Ceylon `Float`, and
 - the constructors of `java.lang.Double` and `java.lang.Float`
-  accept a Ceylon `Float`.
+  accept a Ceylon `Float`, as do the static `valueOf()` 
+  methods of these types.
 
 The story is similar for other primitive wrapper types.
 
