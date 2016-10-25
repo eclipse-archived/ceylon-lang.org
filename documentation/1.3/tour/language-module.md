@@ -23,13 +23,12 @@ especially in [this chapter](../sequences).
 
 ## An overview of the language module
 
-The module [`ceylon.language`](#{site.urls.apidoc_1_3}/index.html) 
-contains classes and interfaces that are referred to in the language 
-specification, other declarations *they* refer to, and a number of 
-related useful functions and types. Let's meet the main characters.
+The module [`ceylon.language`][] contains classes and interfaces that are 
+referred to in the language specification, other declarations *they* refer 
+to, and a number of related useful functions and types. Let's meet the 
+main characters.
 
-Just like Java, Ceylon has a class named 
-[`Object`](#{site.urls.apidoc_1_3}/Object.type.html).
+Just like Java, Ceylon has a class named [`Object`][].
 
 <!-- try: -->
 <!-- check:none:decl from ceylon.language -->
@@ -54,9 +53,8 @@ Just like Java, Ceylon has a class named
 
 Ceylon's, `Object` *isn't* the root of the type system. An expression 
 of type `Object` has a definite, well-defined, non-`null` value. As 
-we've seen, Ceylon type system also has the class 
-[`Null`](#{site.urls.apidoc_1_3}/Null.type.html), 
-which is the type of `null`.
+we've seen, Ceylon type system also has the class [`Null`][], which is 
+the type of `null`.
 
 <!-- try: -->
 <!-- check:none:decl from ceylon.language -->
@@ -71,8 +69,7 @@ which is the type of `null`.
 
 The object `null` is the only instance of this class.
 
-Therefore, `Object` and `Null` share a superclass, named 
-[`Anything`](#{site.urls.apidoc_1_3}/Anything.type.html).
+Therefore, `Object` and `Null` share a superclass, named [`Anything`][].
 
 <!-- try: -->
 <!-- check:none:decl from ceylon.language -->
@@ -92,35 +89,40 @@ a method when you don't care about the return type, since a method declared
 
 All types that represent well-defined values extend `Object`, including:
 
-* user-written classes,
-* all interfaces, including, 
-* function types, and even
-* the types that are considered primitive in Java, such as 
-  [`Boolean`](#{site.urls.apidoc_1_3}/Boolean.type.html),
-  [`Integer`](#{site.urls.apidoc_1_3}/Integer.type.html),
-  [`Float`](#{site.urls.apidoc_1_3}/Float.type.html),
-  [`Byte`](#{site.urls.apidoc_1_3}/Byte.type.html), and  
-  [`Character`](#{site.urls.apidoc_1_3}/Character.type.html).
+- user-written classes,
+- all interfaces, including, 
+- function types, and even
+- the types that are considered primitive in Java, such as 
+  [`Boolean`][], [`Integer`][], [`Float`][],[`Byte`][], and  
+  [`Character`][].
 
 Since an expression of type `Object` always evaluates to a definite, 
-well-defined value, it's possible to obtain the runtime type of an 
-`Object`, or narrow an expression of type `Object` to a more specific 
-type.
+well-defined value, it's possible to obtain the runtime type of an `Object`, 
+or narrow an expression of type `Object` to a more specific type.
+
+[`ceylon.language`]: #{site.urls.apidoc_1_3}/index.html
+[`Object`]: #{site.urls.apidoc_1_3}/Object.type.html
+[`Anything`]: #{site.urls.apidoc_1_3}/Anything.type.html
+[`Null`]: #{site.urls.apidoc_1_3}/Null.type.html
+[`Boolean`]: #{site.urls.apidoc_1_3}/Boolean.type.html
+[`Integer`]: (#{site.urls.apidoc_1_3}/Integer.type.html
+[`Float`]: #{site.urls.apidoc_1_3}/Float.type.html
+[`Byte`]: #{site.urls.apidoc_1_3}/Byte.type.html
+[`Character`]: #{site.urls.apidoc_1_3}/Character.type.html
 
 ## Equality and identity
 
 On the other hand, since `Object` is a supertype of types like `Float` 
-which are passed by value at the level of the virtual machine, you 
-can't use the `===` operator to test the identity of two values of type 
-`Object`. The following is not allowed: 
+which are passed by value at the level of the virtual machine, you can't 
+use the `===` operator to test the identity of two values of type `Object`. 
+The following is not allowed: 
 
     Integer x = 1;
     assert (x===1); //compile error: Integer is not Identifiable 
 
 Instead, `===` is defined to act on instances of the interface 
-[`Identifiable`](#{site.urls.apidoc_1_3}/Identifiable.type.html).
-`Integer`, `Float`, `Character`, and `String` _don't_ satisfy this
-interface, but most classes do.
+[`Identifiable`][]. `Integer`, `Float`, `Character`, and `String` _don't_ 
+satisfy this interface, but most classes do.
 
 <!-- try: -->
 <!-- check:none:decl from ceylon.language -->
@@ -149,17 +151,16 @@ interface, but most classes do.
     }
 
 `Identifiable` implements the `hash` attribute and `equals()` method of
-`Object`, which are very similar to the `equals()` and `hashCode()` methods 
-defined by `java.lang.Object`.
+`Object`, which are very similar to the `equals()` and `hashCode()` 
+methods defined by `java.lang.Object`.
 
 Just like in Java, you can refine this default implementation in your own 
 classes. This is the normal way to get a customized behavior for the `==` 
 operator, the only constraint being, that for subtypes of `Identifiable`, 
 `x===y` should imply `x==y`— equality should be consistent with identity.
 
-By default, a user-written class extends the class 
-[`Basic`](#{site.urls.apidoc_1_3}/Basic.type.html), 
-which extends `Object` and satisfies `Identifiable`. It's possible for a 
+By default, a user-written class extends the class [`Basic`][], which 
+extends `Object` and satisfies `Identifiable`. It's possible for a 
 user-written class to directly extend `Object`, but most of the classes 
 you write will be subclasses of `Basic`. All classes with `variable` 
 attributes must extend `Basic`.
@@ -171,18 +172,21 @@ attributes must extend `Basic`.
     shared abstract class Basic() 
             extends Object() satisfies Identifiable {}
 
+[`Identifiable`]: #{site.urls.apidoc_1_3}/Identifiable.type.html
+[`Basic`]: #{site.urls.apidoc_1_3}/Basic.type.html
+
 ## Operator polymorphism
 
 Ceylon discourages the creation of intriguing executable ASCII art. 
 Therefore, true operator overloading is *not* supported by the language. 
 Instead, almost every operator (every one except the primitive `.`, `()`, 
 `is`, `=`, `===`, and `of` operators) is considered a shortcut way of 
-writing some more complex expression involving other operators and ordinary 
-function calls.
+writing some more complex expression involving other operators and 
+ordinary function calls.
  
 For example, the `<` operator is defined in terms of the interface 
-[`Comparable`](#{site.urls.apidoc_1_3}/Comparable.type.html), 
-which has a method named `compare()`. The operator expression
+[`Comparable`][], which has a method named `compare()`. The operator 
+expression
 
 <!-- try: -->
 <!-- check:none -->
@@ -216,35 +220,39 @@ Apart from `Comparable` and `Object`, which provide the underlying
 definition of comparison and equality operators, the following interfaces 
 are also important in the definition of Ceylon's polymorphic operators:
 
-* [`Summable`](#{site.urls.apidoc_1_3}/Summable.type.html) 
-  supports the infix `+` operator,
-* [`Invertible`](#{site.urls.apidoc_1_3}/Invertible.type.html) 
-  supports the prefix and infix `-` operators,
-* [`Ordinal`](#{site.urls.apidoc_1_3}/Ordinal.type.html) 
-  supports the unary `++` and `--` operators,
-* [`Numeric`](#{site.urls.apidoc_1_3}/Numeric.type.html) 
-  supports the infix `*` and `/` operators,
-* [`Exponentiable`](#{site.urls.apidoc_1_3}/Exponentiable.type.html) 
-  supports the power operator `^`,
-* [`Comparable`](#{site.urls.apidoc_1_3}/Comparable.type.html) 
-  supports the comparison operators `<`, `>`, `<=`, `>=`, and `<=>`,
-* [`Enumerable`](#{site.urls.apidoc_1_3}/Enumerable.type.html) 
-  supports the range operators `..` and `:`,
-* [`Correspondence`](#{site.urls.apidoc_1_3}/Correspondence.type.html) 
-  supports the index operator, 
-* [`Ranged`](#{site.urls.apidoc_1_3}/Ranged.type.html) 
-  supports the subrange operators, 
-* [`Boolean`](#{site.urls.apidoc_1_3}/Boolean.type.html)
-  is the basis of the logical operators `&&`, `||`, `!`, and
-* [`Set`](#{site.urls.apidoc_1_3}/Set.type.html) 
-  is the basis of the set operators `|`, `&`, and, `~`.
+* [`Summable`][] supports the infix `+` operator,
+* [`Invertible`][] supports the prefix and infix `-` operators,
+* [`Ordinal`][] supports the unary `++` and `--` operators,
+* [`Numeric`][] supports the infix `*` and `/` operators,
+* [`Exponentiable`][] supports the power operator `^`,
+* [`Scalable`][] supports the scalar multiplication operator `**`,
+* [`Comparable`][] supports the comparison operators `<`, `>`, `<=`, `>=`, 
+  and `<=>`,
+* [`Enumerable`][] supports the range operators `..` and `:`,
+* [`Correspondence`][] and [`MutableCorrespondence`][] support the index 
+  operator, 
+* [`Ranged`][] supports the subrange operators, 
+* [`Boolean`][] is the basis of the logical operators `&&`, `||`, `!`, and
+* [`Set`][] is the basis of the set operators `|`, `&`, and, `~`.
+
+[`Comparable`]: #{site.urls.apidoc_1_3}/Comparable.type.html
+[`Summable`]: #{site.urls.apidoc_1_3}/Summable.type.html
+[`Invertible`]: #{site.urls.apidoc_1_3}/Invertible.type.html
+[`Ordinal`]: #{site.urls.apidoc_1_3}/Ordinal.type.html
+[`Numeric`]: #{site.urls.apidoc_1_3}/Numeric.type.html
+[`Exponentiable`]: #{site.urls.apidoc_1_3}/Exponentiable.type.html
+[`Scalable`]: #{site.urls.apidoc_1_3}/Scalable.type.html
+[`Enumerable`]: #{site.urls.apidoc_1_3}/Enumerable.type.html
+[`Correspondence`]: #{site.urls.apidoc_1_3}/Correspondence.type.html
+[`MutableCorrespondence`]: #{site.urls.apidoc_1_3}/MutableCorrespondence.type.html
+[`Ranged`]: #{site.urls.apidoc_1_3}/Ranged.type.html
+[`Boolean`]: #{site.urls.apidoc_1_3}/Boolean.type.html
 
 ## Comparison operators
 
 In addition to the traditional `<`, `>`, `<=`, and `>=` operators, which 
 evaluate to `Boolean`, there is a `<=>` operator, which produces an instance
-of the enumerated type 
-[`Comparison`](#{site.urls.apidoc_1_3}/Comparison.type.html).
+of the enumerated type [`Comparison`][].
 
 <!-- try: -->
     switch(x<=>0)
@@ -263,6 +271,8 @@ a range:
 
 <!-- try: -->
     assert(0<quantity<=100);
+
+[`Comparison`]: #{site.urls.apidoc_1_3}/Comparison.type.html
 
 ## Set operators
 
@@ -285,17 +295,32 @@ the two kinds of union/intersection:
 
 The binary `~` operator represents complement (set subtraction).
 
+These operators may only be used with expressions of type [`Set`][].
+
+### Gotcha!
+
+There's no operators representing bitwise operations like NOT, AND, OR, XOR,
+so we might write these operations as method calls.
+
 ## Indexed operations
 
-We can access an element of a `Correspondence` by using the index operator. Both
-`List`s and `Map`s are instances of `Correspondence`:
+We can access an element of a [`Correspondence`][] by using the index operator. 
+Both [`List`][]s and [`Map`][]s are instances of `Correspondence`:
 
 <!-- try: -->
     "string must start with a \""
     assert (exists ch = text[0], ch=='"');
 
-All `List`s are also instances of `Ranged`. We can produce a subrange of a `Ranged` 
-by providing two endpoints:
+_Mutable_ lists and maps are instances of [`MutableCorrespondence`][], which allows
+indexed assignment to element. One example of a mutable list is [`Array`][]:
+
+    value array = Array.ofSize(5, 0);
+    for (i in 0:4) {
+        array[i] = i;
+    }
+
+All `List`s are also instances of [`Ranged`][]. We can produce a subrange of a 
+`Ranged` object by providing two endpoints:
 
 <!-- try: -->
     if (text[i..i]=="/") {
@@ -303,14 +328,14 @@ by providing two endpoints:
         //...
     }
 
-We can also produce a subrange of a `Ranged` by providing a starting point and a 
-length.
+We can also produce a subrange of a `Ranged` object by providing a starting point 
+and a length.
 
 <!-- try: -->
     String selectedText = text[selection.offset:selection.length];
 
-Please take careful note the difference between `..` and `:`, they have quite distinct
-purposes:
+Please take careful note the difference between `..` and `:`, they have quite 
+distinct purposes:
 
     print("hello"[2..2]); //prints "l"
     print("hello"[2:2]);  //prints "ll"
@@ -318,13 +343,14 @@ purposes:
     print("hello"[2..0]); //prints "leh"
     print("hello"[2:0]);  //prints ""
 
+[`Array`]: #{site.urls.apidoc_1_3}/Arrau.type.html
+
 ## Characters and character strings
 
-We've already met the class `String`, way back in 
-[the first leg of the tour](../basics/#string_literals). Ceylon strings are composed of 
-[`Character`](#{site.urls.apidoc_1_3}/Character.type.html)s&mdash;indeed, 
-a `String` is a [`List`](#{site.urls.apidoc_1_3}/List.type.html)
-of `Character`s.
+We've already met the class [`String`][], way back in 
+[the first leg of the tour](../basics/#string_literals). Ceylon strings 
+are made of [`Character`][]s&mdash;indeed, a `String` is a [`List`][] of 
+`Character`s.
 
 A character literal is written between single quotes.
 
@@ -347,6 +373,8 @@ To avoid the cost of calling `size()`, try to use the more efficient
 `empty`, `longerThan()` and `shorterThan()` when the string might be 
 very long.
 
+[`String`]: #{site.urls.apidoc_1_3}/String.type.html
+
 ## Numeric types
 
 As we've mentioned several times before, Ceylon doesn't have anything like 
@@ -354,10 +382,8 @@ Java's primitive types. The types that represent numeric values are just
 ordinary classes. Ceylon has fewer built-in numeric types than other C-like 
 languages:
 
-* [`Integer`](#{site.urls.apidoc_1_3}/Integer.type.html)
-  represents signed integers, and
-* [`Float`](#{site.urls.apidoc_1_3}/Float.type.html)
-  represents floating point approximations to the real numbers.
+* [`Integer`][] represents signed integers, and
+* [`Float`][] represents floating point approximations of real numbers.
 
 However, the compiler magically eliminates these classes, wherever possible,
 in order to take advantage of the high performance of the platform's native
@@ -429,7 +455,7 @@ usual numeric operators with them:
 
 Note that `ceylon.math` is currently JVM-only.
 
-## Abstracting over numeric types
+### Tip: abstracting over numeric types
 
 Since all numeric types are subtypes of `Numeric`, it's possible to write
 generic code that treats numeric values polymorphically.
@@ -493,8 +519,8 @@ only thing approaching an implicit type conversion in the whole language.
 
 ## Bytes
 
-The class [`Byte`](#{site.urls.apidoc_1_3}/Byte.type.html) is very different 
-from `byte`s in Java, C#, or C. A `Byte` is considered to represent a 
+The class [`Byte`][] is very different from `byte`s in Java, C#, or C. 
+A `Byte` is considered to represent a 
 [congruence class](http://en.wikipedia.org/wiki/Modular_arithmetic) of 
 integers modulo 256. That is to say, a `Byte` doesn't represent just one 
 integer value, but a whole infinite set of them!
@@ -523,17 +549,15 @@ possible.
 The language module includes several interfaces that represent container
 types:
 
-- [`Collection`](#{site.urls.apidoc_1_3}/Collection.type.html),
-- [`List`](#{site.urls.apidoc_1_3}/List.type.html),
-- [`Map`](#{site.urls.apidoc_1_3}/Map.type.html), and
-- [`Set`](#{site.urls.apidoc_1_3}/Set.type.html).
+- [`Collection`][],
+- [`List`][],
+- [`Map`][], and
+- [`Set`][].
 
 You might be disappointed to discover that there are no general-purpose 
 implementations of these interfaces in the language module itself. In fact,
-they're only declared here so that `String`, `Sequential`, 
-[`Array`](#{site.urls.apidoc_1_3}/Array.type.html), and
-[`Tuple`](#{site.urls.apidoc_1_3}/Tuple.type.html)
-can be subtypes of `List`.
+they're only declared here so that `String`, `Sequential`, [`Array`][], and
+[`Tuple`][] can be subtypes of `List`.
 
 You might be even more disappointed when you look at these interfaces and
 discover that they're missing half the useful operations you're used to 
@@ -550,13 +574,25 @@ mutating the collection. Actually, there's a couple of good reasons for this:
 
 The module `ceylon.collection` contains general-purpose implementations of
 these interfaces, along with APIs for building and mutating collections:
-[`MutableList`](#{site.urls.apidoc_current_collection}/MutableList.type.html), 
-[`MutableMap`](#{site.urls.apidoc_current_collection}/MutableMap.type.html), 
-and [`MutableSet`](#{site.urls.apidoc_current_collection}/MutableSet.type.html).
+[`MutableList`][], [`MutableMap`][], and [`MutableSet`][].
 
-Note: if you only need an immutable `Map` or `Set`, the functions 
-[`map()`](#{site.urls.apidoc_1_3}/index.html#map) and
-[`set()`](#{site.urls.apidoc_1_3}/index.html#set) may be used to create one.
+[`Collection`]: #{site.urls.apidoc_1_3}/Collection.type.html
+[`List`]: #{site.urls.apidoc_1_3}/List.type.html
+[`Map`]: #{site.urls.apidoc_1_3}/Map.type.html
+[`Set`]: #{site.urls.apidoc_1_3}/Set.type.html
+[`MutableList`]: #{site.urls.apidoc_current_collection}/MutableList.type.html
+[`MutableMap`]: #{site.urls.apidoc_current_collection}/MutableMap.type.html
+[`MutableSet`]: #{site.urls.apidoc_current_collection}/MutableSet.type.html
+[`Array`]: #{site.urls.apidoc_1_3}/Array.type.html
+[`Tuple`]: #{site.urls.apidoc_1_3}/Tuple.type.html
+
+### Tip: creating an immutable `Map` or `Set`
+
+If you only need an immutable `Map` or `Set`, the language module functions 
+[`map()`][] and [`set()`][] may be used to create one.
+
+[`map()`]: #{site.urls.apidoc_1_3}/index.html#map
+[`set()`]: #{site.urls.apidoc_1_3}/index.html#set
 
 ## There's more...
 
