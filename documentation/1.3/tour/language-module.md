@@ -307,7 +307,7 @@ These operators may only be used with expressions of type [`Set`][].
 ### Gotcha!
 
 There's no operators representing bitwise operations like NOT, AND, OR, XOR,
-so we might write these operations as method calls.
+so we must write these operations as method calls.
 
 ## Indexed operations
 
