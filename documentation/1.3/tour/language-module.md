@@ -443,21 +443,22 @@ groups of four digits.
 
 ## Arbitrary precision numeric types
 
-The platform module `ceylon.math` defines the types 
+The platform modules `ceylon.whole` and `ceylon.decimal` define the types 
 
-- [`Whole`](#{site.urls.apidoc_current_math}/whole/Whole.type.html) and 
-- [`Decimal`](#{site.urls.apidoc_current_math}/decimal/Decimal.type.html), 
+- [`Whole`](#{site.urls.apidoc_current_whole}/Whole.type.html), which 
+  represents arbitrary precision integers, and 
+- [`Decimal`](#{site.urls.apidoc_current_decimal}/Decimal.type.html), 
+  which represents arbitrary precision decimals numbers.
 
-which represent arbitrary precision integers and arbitrary precision 
-decimals. Both classes are subtypes of `Numeric`, so you can use all the 
-usual numeric operators with them:
+Both classes are subtypes of `Numeric`, so we can use all the usual numeric 
+operators with them:
 
 <!-- try: -->
     Decimal num = ... ;
     Decimal denom = ... ;
     Decimal ratio = num / denom;
 
-Note that `ceylon.math` is currently JVM-only.
+Note that `ceylon.decimal` is currently JVM-only.
 
 ### Tip: abstracting over numeric types
 
