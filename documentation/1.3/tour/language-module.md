@@ -466,8 +466,8 @@ Note that `ceylon.decimal` is currently JVM-only.
 
 ### Tip: abstracting over numeric types
 
-Since all numeric types are subtypes of `Numeric`, it's possible to write
-generic code that treats numeric values polymorphically.
+Since all numeric types are subtypes of [`Numeric`][], it's possible to 
+write generic code that treats numeric values polymorphically.
 
 <!-- try-post:
     
