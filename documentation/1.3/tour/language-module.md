@@ -318,9 +318,12 @@ Both [`List`][]s and [`Map`][]s are instances of `Correspondence`:
 _Mutable_ lists and maps are instances of [`CorrespondenceMutator`][], which allows
 indexed assignment to element. One example of a mutable list is [`Array`][]:
 
+<!-- try-post:
+    print(array); 
+-->
     value array = Array.ofSize(5, 0);
-    for (i in 0:4) {
-        array[i] = i;
+    for (i in 0:5) {
+        array[i] = i^2;
     }
 
 All `List`s are also instances of [`Ranged`][]. We can produce a subrange of a 
