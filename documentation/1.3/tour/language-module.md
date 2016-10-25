@@ -47,7 +47,8 @@ Just like Java, Ceylon has a class named [`Object`][].
         "A developer-friendly string representing the 
          instance..."
         shared default String string
-                => className(this) + "@" + hash.string;
+                => className(this) + "@" + 
+                   Integer.format(hash, #10);
         
     }
 
@@ -138,14 +139,10 @@ satisfy this interface, but most classes do.
         
         "Identity equality comparing the identity of the two 
          values..."
-        shared default actual Boolean equals(Object that) {
-            if (is Identifiable that) {
-                return this===that;
-            }
-            else {
-                return false;
-            }
-        }
+        shared default actual Boolean equals(Object that)
+                => if (is Identifiable that)
+                    then this===that
+                    else false;
         
         "The system-defined identity hash value of the 
          instance..."
