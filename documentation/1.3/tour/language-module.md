@@ -469,6 +469,11 @@ Note that `ceylon.decimal` is currently JVM-only.
 Since all numeric types are subtypes of `Numeric`, it's possible to write
 generic code that treats numeric values polymorphically.
 
+<!-- try-post:
+    
+    print(ratio(1.0, 3.0);
+    print(ratio(7, 2);
+-->
     Value ratio<Value>(Value num, Value denom) 
             given Value satisfies Numeric<Value>
             => num/denom;
