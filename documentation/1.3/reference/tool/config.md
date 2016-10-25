@@ -480,7 +480,7 @@ that contains all the official Ceylon SDK modules and all other freely available
 
 The remote repository points to the official Maven module repository
 that contains so much of the Java eco system's finest contributions.
-By default this is `maven::`.
+By default this is `maven:`.
 
 <!-- lang:none -->
     [repository "MAVEN"]
