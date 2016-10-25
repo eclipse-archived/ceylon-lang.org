@@ -236,7 +236,7 @@ are also important in the definition of Ceylon's polymorphic operators:
 * [`Comparable`][] supports the comparison operators `<`, `>`, `<=`, `>=`, 
   and `<=>`,
 * [`Enumerable`][] supports the range operators `..` and `:`,
-* [`Correspondence`][] and [`MutableCorrespondence`][] support the index 
+* [`Correspondence`][] and [`CorrespondenceMutator`][] support the index 
   operator, 
 * [`Ranged`][] supports the subrange operators, 
 * [`Boolean`][] is the basis of the logical operators `&&`, `||`, `!`, and
@@ -251,7 +251,7 @@ are also important in the definition of Ceylon's polymorphic operators:
 [`Scalable`]: #{site.urls.apidoc_1_3}/Scalable.type.html
 [`Enumerable`]: #{site.urls.apidoc_1_3}/Enumerable.type.html
 [`Correspondence`]: #{site.urls.apidoc_1_3}/Correspondence.type.html
-[`MutableCorrespondence`]: #{site.urls.apidoc_1_3}/MutableCorrespondence.type.html
+[`CorrespondenceMutator`]: #{site.urls.apidoc_1_3}/CorrespondenceMutator.type.html
 [`Ranged`]: #{site.urls.apidoc_1_3}/Ranged.type.html
 [`Boolean`]: #{site.urls.apidoc_1_3}/Boolean.type.html
 
