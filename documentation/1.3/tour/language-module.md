@@ -112,7 +112,7 @@ implementations of `equals()` and `hash`.
 [`Integer`]: (#{site.urls.apidoc_1_3}/Integer.type.html
 [`Float`]: #{site.urls.apidoc_1_3}/Float.type.html
 [`Byte`]: #{site.urls.apidoc_1_3}/Byte.type.html
-,[`Character`]: #{site.urls.apidoc_1_3}/Character.type.html
+[`Character`]: #{site.urls.apidoc_1_3}/Character.type.html
 
 ## Equality and identity
 
