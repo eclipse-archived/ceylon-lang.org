@@ -176,6 +176,9 @@ attributes must extend `Basic`.
     shared abstract class Basic() 
             extends Object() satisfies Identifiable {}
 
+An interface never has a definition of identity equality unless it 
+explicitly satisfies `Identifiable`.
+
 [`Identifiable`]: #{site.urls.apidoc_1_3}/Identifiable.type.html
 [`Basic`]: #{site.urls.apidoc_1_3}/Basic.type.html
 
