@@ -486,22 +486,24 @@ type to `ratio()`.
 Since polymorphic numeric functions can't be optimized to use VM-level 
 primitive types, when executed on the JVM, the generic function above is 
 likely to be _much_ slower than a function which accepts two `Float`s or two 
-`Integer`s. (On a JavaScript VM, you can expect a much smaller performance
-penalty.)
+`Integer`s. Assignment of an `Integer` or `Float` to a generic type like
+`Numeric` or `Summable` necessarily involves boxing. That's invisible at the
+level of the Ceylon _code_, but it's significant at runtime.
+
+(On a JavaScript VM, you can expect a much smaller performance penalty.)
 
 ## Numeric widening
 
-As mentioned earlier, Ceylon doesn't have implicit type conversions, not even 
-built-in conversions for numeric types. Assignment does not automatically 
-widen (or narrow) numeric values. Instead, we usually need to call one of the 
-operations (well, attributes, actually) defined by the interface 
-[`Number`](#{site.urls.apidoc_1_3}/Number.type.html).
+As mentioned earlier, Ceylon doesn't have implicit type conversions, not 
+even built-in conversions for numeric types. Thus, assignment to the type
+`Float` does not automatically widen an expression of type `Integer`. 
+Instead, we have to perform the type conversion _explicitly_:
 
     Float zero = 0.float; // explicitly widen from Integer
 
 You can use all the operators you're used to from other C-style languages 
-with the numeric types. You can also use the `^` operator to raise a 
-number to a power:
+with the numeric types. You can also use the `^` operator to raise a number 
+to a power:
 
 <!-- try-pre:
     Float length = 2.0;
