@@ -48,7 +48,7 @@ archives.
 <!-- try: -->
     module ceylon.formatter "1.3.1" {
         native ("jvm") shared import java.base "7";
-        shared ("jvm") import com.redhat.ceylon.typechecker "1.3.1";
+        native ("jvm") shared import com.redhat.ceylon.typechecker "1.3.1";
         import ceylon.collection "1.3.1";
         ...
     }
