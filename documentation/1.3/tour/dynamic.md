@@ -83,7 +83,7 @@ module and other Ceylon platform modules.
 
 [`StringBuilder`][] is a great starting point.
 
-But now, let's on with the topic of dynamic typing.
+But now, let's get on with the topic of dynamic typing.
 
 [`StringBuilder`]: https://modules.ceylon-lang.org/repo/1/ceylon/language/1.3.0/module-doc/api/StringBuilder.ceylon.html
 
