@@ -546,18 +546,37 @@ This code is essentially the same as what you would do in Java:
 Just like in Java, the above code produces a warning, since the
 type arguments in the assertion cannot be checked at runtime.
 
-### Null values are checked at runtime
+### Non-primitive parameter types are treated as nullable
 
-Java types offer no information about whether a field or method
-can produce a null value, except in the very special case of a
-primitive type. Therefore, the compiler inserts runtime null 
-value checks wherever Ceylon code calls a Java function that 
-returns an object type, or evaluates a Java field of object 
-type, and assigns the result to an non-optional Ceylon type.
+Java method signatures offer no information about whether a 
+method parameter accepts a null value, except in the very 
+special case of a parameter with primitive type. Therefore,
+Ceylon assigns an optional type to every parameter of 
+non-primitive type.
 
-In this example, no runtime null value check is performed, since
-the return value of `System.getProperty()` is assigned to an 
-optional type:
+### Null return values are checked at runtime
+
+Likewise, Java field or method types offer no information about 
+whether a field or method can produce a null value, except,
+again, in the special case of a primitive type. But it would be 
+unacceptably intrusive for Ceylon to treat almost *every* Java 
+method or field as returning an optional type, forcing you to 
+explicitly check for `null` every time you call Java! So Ceylon 
+doesn't do that. Instead, it treats Java methods and fields as 
+having non-optional type.
+
+But that's, of course, _unsound_ from the point of view of the
+type system of Ceylon. A method can still return `null` at 
+runtime!
+
+Therefore, the compiler must insert runtime null value checks 
+wherever Ceylon code calls a Java function that returns an 
+object type, or evaluates a Java field of object type, and 
+assigns the result to an non-optional Ceylon type.
+
+In this example, no runtime null value check is performed, 
+since the return value of `System.getProperty()` is assigned to 
+an optional type:
     
 <!-- try: -->
     import java.lang { System }
@@ -762,13 +781,38 @@ the conversion explicitly, just by taking a reference to the
 Remember, the Ceylon language defines no implicit type 
 conversions _anywhere_!
 
-## Inheriting Java types
+## Inheriting Java types and refining Java methods
 
 A Ceylon class may extend a Java class and/or implement Java
-interfaces, even if the Java types are generic. There's 
-nothing particularly interesting to say about this topic, 
-except to point out one small wrinkle. In Java, the following 
-inheritance hierarchy is legal:
+interfaces, even if the Java types are generic. 
+
+As we saw [above](#non_primitive_parameter_types_are_treated_as_nullable),
+Java method parameter types are treated as optional. However,
+when _refining_ a Java method in a Ceylon class, we're allowed
+to redeclare the parameter as non-optional, for example:
+
+<!-- try: -->
+<!-- lang:java -->
+    //java interface
+    public interface Stringifier<T> {
+        public String stringify(T thing);
+    }
+
+<!-- try: -->
+    //ceylon implementation
+    class EntryStringifier<Key,Item>()
+            satisfies Stringifier<Key->Item> {
+        stringify(Key->Item entry) 
+                => "``entry.key``->``entry.item``";
+    }
+
+Here, we did not have to declare `entry` as being of type
+`<Key->Item>?`, though we could have, if we expected our
+method to be called with a `null` argument.
+
+There's nothing else particularly interesting to say about 
+this topic, except to point out one small wrinkle. In Java, 
+the following inheritance hierarchy is legal:
 
 <!-- try: -->
 <!-- lang: java -->
