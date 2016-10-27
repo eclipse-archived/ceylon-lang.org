@@ -77,6 +77,10 @@ you can read more [here](/documentation/reference/interoperability/native/),
 and find lots of examples in the source code of the language 
 module and other Ceylon platform modules.
 
+[`StringBuilder`][] is a great starting point.
+
+[`StringBuilder`]: https://modules.ceylon-lang.org/repo/1/ceylon/language/1.3.0/module-doc/api/StringBuilder.ceylon.html
+
 ## Partially typed declarations
 
 The keyword `dynamic` may be used to declare a function or 
