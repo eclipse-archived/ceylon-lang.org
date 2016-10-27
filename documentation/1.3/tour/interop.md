@@ -337,7 +337,7 @@ _Ceylon_ `Integer`s.
     }
 
 (This isn't really much worse than Java, by the way: a Java
- `List<Integer>` doesn't contain Java `int`s either!)
+ `List<Integer>` doesn't hold primitive Java `int`s either!)
 
 Worse, a Java `List<String>` doesn't contain _Ceylon_
 `String`s.
