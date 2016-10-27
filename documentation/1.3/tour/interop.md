@@ -82,10 +82,10 @@ or they might be part of the Java or Android SDK.
 
 ### Depending on the Java SDK
 
-In particular, the Java SE SDK is available as a set of modules, 
-according to the modularization proposed by the [Jigsaw][] project.
-So to make use of the Java SE SDK we need to import one or more
-of these modules. For example:
+The Java SE SDK is available as a set of modules, according to 
+the modularization proposed by the [Jigsaw][] project. So to 
+make use of the Java SE SDK we need to import one or more of 
+these modules. For example:
 
 - the module `java.base` contains core packages including
   `java.lang`, `java.util`, and `javax.security`,
@@ -93,7 +93,7 @@ of these modules. For example:
   UI frameworks, and
 - `java.jdbc` contains the JDBC API.
 
-So, if we need to use the Java collections framework in our
+Thus, if we need to use the Java collections framework in our 
 Ceylon program, we need to create a Ceylon module that depends
 on `java.base`.
 
