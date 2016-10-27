@@ -41,22 +41,29 @@ body.bp {
   }
   
   h1 {
-    color: $h1_text_color;
     font-size: 1.6em;
+  }
+  h1, h1 a, h1 a:visited {
+    color: $h1_text_color;
   }
   h2 {
     font-size:1.3em;
+    margin-top: 1.0em;
+    margin-bottom: 0.6em;
     color: #255A5F;
     clear: left;
-    margin-top: 0.6em;
+  }
+  h2, h2 a, h2 a:visited {
+    color: #255A5F;
   }
   h3, h4, h5, h6,
-  h3 a, h4 a, h5 a, h6 a {
+  h3 a, h4 a, h5 a, h6 a 
+  h3 a:visited, h4 a:visited, h5 a:visited, h6 a:visited {
     color: $h3plus_text_color;
   }
   h3 {
     font-size:1.2em;
-    margin-top: 0.6em;
+    margin-top: 1.0em;
     margin-bottom: 0.6em;
   }
   h4, h5 {
