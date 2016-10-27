@@ -16,6 +16,10 @@ compiler can't validate the usual typing rules of the language.
 Therefore, Ceylon lets us write dynamically typed code where 
 typechecking is performed at _runtime_.
 
+We're not allowed to write dynamically typed code in a regular
+pure-Ceylon module, so let's see how to define a module that 
+interoperates with native JavaScript code.
+
 ## Defining a native JavaScript module
 
 Before we can start writing code that interacts with 
@@ -78,6 +82,8 @@ and find lots of examples in the source code of the language
 module and other Ceylon platform modules.
 
 [`StringBuilder`][] is a great starting point.
+
+But now, let's on with the topic of dynamic typing.
 
 [`StringBuilder`]: https://modules.ceylon-lang.org/repo/1/ceylon/language/1.3.0/module-doc/api/StringBuilder.ceylon.html
 
