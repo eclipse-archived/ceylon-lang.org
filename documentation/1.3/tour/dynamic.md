@@ -47,15 +47,15 @@ Java and JavaScript code, we usually need to define `native`
 functions and classes that work on both platforms. In this case,
 we use a _[native header](/documentation/reference/interoperability/native/)_.
 
-<!-- try: -->
-    import java.lang { System }
-    
+<!-- try: -->    
     //native header
     native void hello();
     
     //native implementation for the JVM
-    native ("jvm") void hello() 
-        => System.out.println("hello");
+    native ("jvm") void hello() {
+        import java.lang { System }
+        System.out.println("hello");
+    }
     
     //native implementation for JavaScript
     native ("js") void hello() {

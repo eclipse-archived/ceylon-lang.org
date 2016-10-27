@@ -56,11 +56,12 @@ archives.
 Furthermore, in this case, we must annotate declarations which 
 make use of the Java classes in these archives.
 
-<!-- try: -->
-    import java.lang { System }
-    
+<!-- try: -->    
     native ("jvm")
-    void hello() => System.out.println("Hello, world!");
+    void hello() {
+        import java.lang { System }
+        System.out.println("Hello, world!");
+    }
 
 It's *not* necessary to annotate individual declarations in a
 module that is already declared as a native JVM module.
