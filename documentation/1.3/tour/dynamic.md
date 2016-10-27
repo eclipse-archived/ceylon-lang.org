@@ -47,7 +47,7 @@ Java and JavaScript code, we usually need to define `native`
 functions and classes that work on both platforms. In this case,
 we use a _[native header](/documentation/reference/interoperability/native/)_.
 
-<!-- try: -->    
+<!-- try: -->
     //native header
     native void hello();
     
