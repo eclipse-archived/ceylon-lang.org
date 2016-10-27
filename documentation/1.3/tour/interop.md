@@ -495,8 +495,8 @@ In pure Ceylon code, we almost always use
 However, this approach doesn't work when we interoperate with 
 Java generic types, which are by nature all invariant. In Java, 
 covariance or contravariance is represented at the point of use 
-of the generic type, using _wildcards_. Therefore, Ceylon 
-also supports use-site variance (wildcards).
+of the generic type, using _wildcards_. Therefore, Ceylon also 
+supports use-site variance (wildcards).
 
 Use-site variance is indicated using the keywords `out` and `in`:
 
@@ -509,10 +509,10 @@ Java raw types are also represented with a covariant wildcard.
 The raw type `List` is represented as `List<out Object>` in 
 Ceylon.
 
-Note that for any invariant generic type `T<X>`, the 
-instantiations `T<Anything>` and `T<Nothing>` are exactly
-equivalent, and are supertypes of all other instantiations
-of `T`.
+Note that for any invariant generic type `Type<X>`, the 
+instantiations `Type<out Anything>` and `Type<in Nothing>` are 
+exactly equivalent, and are supertypes of every other 
+instantiation of `Type`.
 
 Wildcard types are unavoidable when interoperating with Java, 
 and perhaps occasionally useful in pure Ceylon code. But we 
