@@ -212,6 +212,22 @@ You can find more information [here](../../reference/repository/maven).
 [`module.properties`]: /documentation/current/reference/structure/module-properties/
 [`module.xml`]: https://docs.jboss.org/author/display/MODULES/Module+descriptors
 
+### Depending on Java EE
+
+The Java EE APIs are available in Ceylon Herd, so you can import
+them like this:
+
+<!-- try: -->
+    import javax.javaeeapi "7.0";
+
+Alternatively, you can get them from Maven:
+
+<!-- try: -->
+    import maven:"javax:javaee-api" "7.0";
+
+The second approach might work better if you're also importing 
+other related Java modules from Maven.
+
 ## Interoperation with Java types
 
 Calling and extending Java types from Ceylon is mostly 
