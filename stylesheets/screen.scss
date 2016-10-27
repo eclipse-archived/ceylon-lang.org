@@ -43,7 +43,8 @@ body.bp {
   h1 {
     font-size: 1.6em;
   }
-  h1, h1 a, h1 a:visited {
+  h1, h1 a, h1 a:visited,
+  body.bp h1, body.bp h1 a, body.bp h1 a:visited {
     color: $h1_text_color;
   }
   h2 {
@@ -53,12 +54,15 @@ body.bp {
     color: #255A5F;
     clear: left;
   }
-  h2, h2 a, h2 a:visited {
+  h2, h2 a, h2 a:visited,
+  body.bp h2, body.bp h2 a, body.bp h2 a:visited {
     color: #255A5F;
   }
   h3, h4, h5, h6,
   h3 a, h4 a, h5 a, h6 a,
-  h3 a:visited, h4 a:visited, h5 a:visited, h6 a:visited {
+  h3 a:visited, h4 a:visited, h5 a:visited, h6 a:visited,
+  body.bp h3 a, body.bp h4 a, body.bp h5 a, body.bp h6 a,
+  body.bp h3 a:visited, body.bp h4 a:visited, body.bp h5 a:visited, body.bp h6 a:visited {
     color: $h3plus_text_color;
   }
   h3 {
