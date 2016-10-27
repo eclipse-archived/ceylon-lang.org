@@ -49,7 +49,7 @@ in the previous chapter, and the approach here is very similar.
 When writing a cross-platform module that interacts with native
 Java and JavaScript code, we usually need to define `native`
 functions and classes that work on both platforms. In this case,
-we use a _[native header](/documentation/reference/interoperability/native/)_.
+we use a _[native header][native reference]_.
 
 <!-- try: -->
     //native header
@@ -77,14 +77,15 @@ functions from non-`native` cross-platform Ceylon code.
 
 We're not going to delve further into the topic of `native`
 code in cross-platform modules as part of this tour, but
-you can read more [here](/documentation/reference/interoperability/native/),
-and find lots of examples in the source code of the language 
-module and other Ceylon platform modules.
+you can read more [here][native reference], and find lots of 
+examples in the source code of the language module and other 
+Ceylon platform modules.
 
 [`StringBuilder`][] is a great starting point.
 
 But now, let's get on with the topic of dynamic typing.
 
+[native reference]: /documentation/reference/interoperability/native/
 [`StringBuilder`]: https://modules.ceylon-lang.org/repo/1/ceylon/language/1.3.0/module-doc/api/StringBuilder.ceylon.html
 
 ## Partially typed declarations
@@ -440,8 +441,9 @@ may only be called from within a `dynamic` block.
     }
 
 You can find more information about the representation of npm 
-modules in Ceylon 
-[right here](https://github.com/ceylon/ceylon/wiki/NPM-and-Ceylon-JS).
+modules in Ceylon [right here][npm and Ceylon].
+
+[npm and Ceylon]: https://github.com/ceylon/ceylon/wiki/NPM-and-Ceylon-JS
 
 ## There's more ...
 
