@@ -78,14 +78,14 @@ explicitly in the module descriptor.
 
 The native Java modules your Ceylon program depends on might 
 come from a Ceylon module repository, from a Maven repository,
-or they might be part of the Java or Android SDK.
+or they might be part of the JDK or Android SDK.
 
-### Depending on the Java SDK
+### Depending on the JDK
 
-The Java SE SDK is available as a set of modules, according to 
-the modularization proposed by the [Jigsaw][] project. So to 
-make use of the Java SE SDK we need to import one or more of 
-these modules. For example:
+The Java SE Development Kit (JDK) is represented in Ceylon as 
+a set of modules, according to the modularization proposed by 
+the [Jigsaw][] project. So to make use of the JDK we need to 
+import one or more of these modules. For example:
 
 - the module `java.base` contains core packages including
   `java.lang`, `java.util`, and `javax.security`,
