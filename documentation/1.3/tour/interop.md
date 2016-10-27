@@ -56,7 +56,7 @@ archives.
 Furthermore, in this case, we must annotate declarations which 
 make use of the Java classes in these archives.
 
-<!-- try: -->    
+<!-- try: -->
     native ("jvm")
     void hello() {
         import java.lang { System }
