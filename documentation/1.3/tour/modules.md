@@ -244,22 +244,63 @@ using a more comfortable syntax based on the format of the module descriptor.
 
 [module overrides]: /documentation/reference/repository/overrides/
 
-## Module archives and module repositories
+## Artifacts produced by the Ceylon compiler
 
-When compiled for execution on the Java virtual machine, a module compiles
-to a _module archive_. The module archive packages together compiled `.class` 
-files, package descriptors, and module descriptors into a Java-style `jar` 
-archive with the extension `.car`. 
+The output of the Ceylon compiler depends upon the virtual machine platform 
+we're compiling for:
 
-A `.car` module archive also includes OSGi and Maven metadata.
+- `ceylon compile` compiles module archives for execution on the JVM,
+- `ceylon compile-js` compiles module scripts and model descriptors for
+  execution on JavaScript virtual machines, and
+- `ceylon compile-dart` produces artifacts that can be executed on the
+  Dart VM.
+
+### Module archives
+
+When compiled for execution on the Java virtual machine, using the
+command `ceylon compile`, a module compiles to a _module archive_. The 
+module archive packages together: 
+
+- compiled `.class` files, 
+- package descriptors, and module descriptors, and
+- resources (text files, properties files, images, etc)
+
+into a Java-style `jar` archive with the extension `.car`. 
 
 The Ceylon compiler never produces individual `.class` files in a directory. 
 
-When compiled for execution on a JavaScript virtual machine, the module
-compiles to a `.js` file, called a _module script_. This module script
-follows a standard called Common JS Modules, which allows the script to
-be used in [node.js](https://nodejs.org/) or with 
+A `.car` module archive also includes OSGi and Maven metadata, and service
+provider configuration files for interoperation with Java's 
+[`ServiceLoader`][service loader architecture]. These artifacts are 
+generated automatically by the compiler without any manual intervention.
+
+### Module scripts and model descriptors
+
+When compiled for execution on a JavaScript virtual machine, using, the 
+command `ceylon compile-js` the module compiles to:
+
+- a `.js` file, called a _module script_, containing the executable 
+  JavaScript code,
+- a `-model.js` file, called the _model file_, containing a description of 
+  the program elements in the module in a JSON-like format,
+- a `module-resources` directory containing resources.
+
+This module script follows a standard called Common JS Modules, which allows 
+the script to be used in [node.js](https://nodejs.org/) or with 
 [require.js](http://requirejs.org/).
+
+The model descriptor is used: 
+
+- when code that uses the Ceylon module is compiled to JavaScript without 
+  access to the source code of the library, or
+- when the [metamodel][] of the module is accessed at runtime.
+
+All the artifacts produced by the compiler are grouped together in a directory 
+of the output module repository. 
+
+[metamodel]: ../annotations/#the_metamodel
+
+## Module repositories
 
 Module archives and module scripts live in *module repositories*. A module 
 repository is a well-defined directory structure with a well-defined location 
@@ -277,7 +318,7 @@ The Ceylon module system may even interoperate with
 The repository architecture also includes support for source archives and 
 module documentation directories.
 
-### Developing modules in Ceylon IDE for Eclipse
+### Tip: developing modules in Ceylon IDE for Eclipse
 
 A wizard to create a new module, and add its dependencies can be found
 at `File > New > Ceylon Module`.
