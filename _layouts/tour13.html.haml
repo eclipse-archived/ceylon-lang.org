@@ -59,4 +59,7 @@ change_frequency: monthly
       |
       %a{ :href => page.edit_source_url}
         Edit
+  #sidebar{ :style => "float:right" }
+    .sidebar-block  
+      #{page.table_of_contents}   
   ~ content
