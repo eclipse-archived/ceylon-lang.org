@@ -242,8 +242,50 @@ using a more comfortable syntax based on the format of the module descriptor.
 
 [module overrides]: /documentation/reference/repository/overrides/
 
+### Module repositories
 
-## Artifacts produced by the Ceylon compiler
+Compiled modules live in *module repositories*. A module repository is a 
+well-defined directory structure with a well-defined location for each module. 
+A module repository may be either local (on the filesystem) or remote (on the 
+Internet). Given a list of module repositories, the Ceylon compiler can 
+automatically locate dependencies mentioned in the module descriptor of the 
+module it is compiling. And when it finishes compiling the module, it puts 
+the resulting module archive in the right place in a local module repository.
+Likewise, given a similar list of module repositories, the Ceylon module 
+runtime can automatically locate dependencies of the compiled module it is
+executing.
+
+The Ceylon module system may even interoperate with
+[Maven repositories](../interop/#depending_on_a_maven_module) and
+[npm](../dynamic/#importing_npm_modules_containing_native_javascript_code).
+
+The repository architecture also includes support for source archives and 
+module documentation directories.
+
+### Tip: developing modules in Ceylon IDE for Eclipse
+
+A wizard to create a new module, and add its dependencies can be found
+at `File > New > Ceylon Module`.
+
+The Ceylon Repository Explorer may be accessed via 
+`Window > Show View > Ceylon Repository Explorer` when in the Ceylon
+perspective.  
+
+To change the imports of an existing module, you can select the module 
+in the Ceylon Explorer, got to `File > Properties`, and select the
+`Ceylon Module` properties page.
+
+To view the full dependency graph for a project, select the project, 
+and go to `Navigate > Show In > Ceylon Module Dependencies`.  
+
+Under `File > Export... > Ceylon`, you'll find two very useful wizards:
+
+- a wizard to export a Ceylon module defined in a workspace project to
+  a local module repository, and
+- a wizard to add a Java `.jar` archive to a Ceylon module repository.
+
+
+## Compiling modules
 
 The output of the Ceylon compiler depends upon the virtual machine platform 
 we're compiling for:
@@ -253,10 +295,14 @@ we're compiling for:
   execution on JavaScript virtual machines, and
 - [`ceylon compile-dart`][] produces artifacts that can be executed on the
   Dart VM.
-  
+
+Finally, [`ceylon doc`][] compiles HTML-format API documentation for a 
+module.
+
 [`ceylon compile`]: #{site.urls.ceylon_tool_current}/ceylon-compile.html
 [`ceylon compile-js`]: #{site.urls.ceylon_tool_current}/ceylon-compile-js.html
 [`ceylon compile-dart`]: https://github.com/jvasileff/ceylon-dart
+[`ceylon doc`]: #{site.urls.ceylon_tool_current}/ceylon-doc.html 
 
 ### Module archives
 
@@ -298,59 +344,16 @@ The model file is used:
   access to the source code of the library, or
 - when the [metamodel][] of the module is accessed at runtime.
 
-All the artifacts produced by the compiler are grouped together in a directory 
-of the output module repository. 
+All the artifacts produced by the compiler are grouped together in a 
+directory of the output module repository. 
 
 [metamodel]: ../annotations/#the_metamodel
 [node.js]: https://nodejs.org/
 [require.js]: http://requirejs.org/
 
+### Example: compiling a module with no dependencies
 
-## Module repositories
-
-Module archives and module scripts live in *module repositories*. A module 
-repository is a well-defined directory structure with a well-defined location 
-for each module. A module repository may be either local (on the filesystem) 
-or remote (on the Internet). Given a list of module repositories, the Ceylon 
-compiler can automatically locate dependencies mentioned in the module 
-descriptor of the module it is compiling. And when it finishes compiling the 
-module, it puts the resulting module archive in the right place in a local 
-module repository.
-
-The Ceylon module system may even interoperate with
-[Maven repositories](../interop/#depending_on_a_maven_module) and
-[npm](../dynamic/#importing_npm_modules_containing_native_javascript_code).
-
-The repository architecture also includes support for source archives and 
-module documentation directories.
-
-### Tip: developing modules in Ceylon IDE for Eclipse
-
-A wizard to create a new module, and add its dependencies can be found
-at `File > New > Ceylon Module`.
-
-The Ceylon Repository Explorer may be accessed via 
-`Window > Show View > Ceylon Repository Explorer` when in the Ceylon
-perspective.  
-
-To change the imports of an existing module, you can select the module 
-in the Ceylon Explorer, got to `File > Properties`, and select the
-`Ceylon Module` properties page.
-
-To view the full dependency graph for a project, select the project, 
-and go to `Navigate > Show In > Ceylon Module Dependencies`.  
-
-Under `File > Export... > Ceylon`, you'll find two very useful wizards:
-
-- a wizard to export a Ceylon module defined in a workspace project to
-  a local module repository, and
-- a wizard to add a Java `.jar` archive to a Ceylon module repository.
-
-Now let's learn a little bit about using the command line.
-
-### Examples: compiling against a local or remote repository
-
-Let's suppose you are writing `net.example.foo`. Your project directory 
+Let's suppose you're writing `net.example.foo`. Your project directory 
 might be layed out like this:
 
 <!-- lang: none -->
@@ -405,25 +408,13 @@ as the IDE, for source code browsing. The `.sha1` files each contains a
 checksum of the like-named `.car` file and can be used to detect corrupted 
 archives.
 
-You can generate API documentation using 
-[`ceylon doc`](#{site.urls.ceylon_tool_current}/ceylon-doc.html) 
-like this:
-
-<!-- lang: bash -->
-    ceylon doc net.example.foo
-    
-This will create a
-
-<!-- lang: bash -->
-    modules/net/example/foo/1.0/module-doc/
-    
-directory containing the documentation.
+### Example: compiling a module with dependencies
 
 Now, let's suppose your project gains a dependency on `com.example.bar` 
-version 3.1.4. 
-Having declared that module and version as a dependency in your `module.ceylon` 
-[descriptor](#dependencies_and_module_descriptors) you'd need to tell 
-`ceylon compile` which repositories to look in to find the dependencies. 
+version 3.1.4. Having declared that module and version as a dependency in 
+your `module.ceylon` [descriptor](#dependencies_and_module_descriptors) 
+you'd need to tell `ceylon compile` which repositories to look in to find 
+the dependencies. 
 
 One possibility is that you already have a repository containing 
 `com.example.bar/3.1.4` locally on your machine. If it's in your default 
@@ -462,6 +453,22 @@ would need to write the command on a single line.) You can specify multiple
 `--rep` options as necessary if you have dependencies coming from multiple 
 repositories.
 
+### Example: compiling API documentation
+
+You can generate API documentation using [`ceylon doc`][] like this:
+
+<!-- lang: bash -->
+    ceylon doc net.example.foo
+    
+This will create a
+
+<!-- lang: bash -->
+    modules/net/example/foo/1.0/module-doc/
+    
+directory containing the documentation.
+
+### Example: publishing to a local or remote repository
+
 When you are ready, you can publish the module somewhere other people can 
 use it. Let's say that you want to publish to `http://ceylon.example.net/repo`. 
 You can just compile again, this time specifying an `--out` option:
@@ -481,7 +488,7 @@ things like source code directory and output repository, as we have here,
 you save yourself a lot of typing.
 
 
-## Module runtime
+## Running modules
 
 When we actually run a Ceylon program, our program is usually executed by
 some sort of module system.
@@ -567,7 +574,7 @@ repositories, including [`ceylon copy`][], [`ceylon info`][],
 [`ceylon import-jar`]: #{site.urls.ceylon_tool_current}/ceylon-import-jar.html
 [subcommands]: /documentation/reference/tool/ceylon/subcommands/
 
-### Examples: running against a local or remote repository
+### Example: running a module
 
 Let's continue the example we had before where `net.example.foo` version 
 1.0 was published to `http://ceylon.example.net/repo`. Now suppose you want 
