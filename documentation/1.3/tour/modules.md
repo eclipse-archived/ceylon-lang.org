@@ -225,7 +225,7 @@ of the module. In this case, the module descriptor must occur in the file
 
 ### Gotcha!
 
-Unlike some other module systems like OSGi and Maven, Ceylon does not 
+Unlike some other module systems such as OSGi and Maven, Ceylon does not 
 support version ranges in module dependencies, and the Ceylon module system
 never attempts to resolve version conflicts in transitive dependencies
 automatically. Instead Ceylon requires you to _explicitly_ override 
@@ -242,7 +242,7 @@ Note that `overrides.xml` is considered a temporary stopgap measure. In a
 future version of Ceylon, it will be possible to specify module overrides
 using a more comfortable syntax based on the format of the module descriptor.
 
-[module overrides]: https://ceylon-lang.org/documentation/reference/repository/overrides/
+[module overrides]: /documentation/reference/repository/overrides/
 
 ## Module archives and module repositories
 
