@@ -150,7 +150,7 @@ by looking at how the program is maintained, released, and distributed.
 
 A module has:
 
-- has a well-defined public API, and an inaccessible internal 
+- a well-defined public API, and an inaccessible internal 
   implementation,
 - a well-defined version, and
 - well-defined dependencies upon versions of collaborating modules.
