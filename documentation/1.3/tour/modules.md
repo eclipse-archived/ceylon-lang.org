@@ -295,8 +295,10 @@ these tools, by the compiler, and by the module runtime. These are:
 - `$CEYLON_HOME/repo`, the distribution repository
 - `~/.ceylon/cache`, the local cache, 
 - `~/.ceylon/repo`, the user repository,
-- `maven:`, the maven repository, and
-- `https://herd.ceylon-lang.org`.
+- `https://herd.ceylon-lang.org/repo/1`, the community repository,
+- `maven:`, which refers to the maven repositories specified in
+  the Maven `~/.m2/settings.xml` file, and
+- `npm:`, the npm registry.
 
 We don't need to specify these repositories explicitly. Additional 
 repositories may be [specified][specifying repos] using `--rep`.
