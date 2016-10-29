@@ -299,9 +299,10 @@ these tools, by the compiler, and by the module runtime. These are:
 - `https://herd.ceylon-lang.org`.
 
 We don't need to specify these repositories explicitly. Additional 
-repositories are specified using `--rep`.
+repositories may be [specified][specifying repos] using `--rep`.
 
 [default repos]: /documentation/1.3/reference/repository/tools/#default_repository_lookup
+[specifying repos]: /documentation/1.3/reference/repository/tools/#specifying_repositories
 
 ### Module repository ecosystem
 
