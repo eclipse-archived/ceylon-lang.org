@@ -244,6 +244,7 @@ using a more comfortable syntax based on the format of the module descriptor.
 
 [module overrides]: /documentation/reference/repository/overrides/
 
+
 ## Artifacts produced by the Ceylon compiler
 
 The output of the Ceylon compiler depends upon the virtual machine platform 
@@ -299,6 +300,7 @@ All the artifacts produced by the compiler are grouped together in a directory
 of the output module repository. 
 
 [metamodel]: ../annotations/#the_metamodel
+
 
 ## Module repositories
 
@@ -394,10 +396,10 @@ directory looks something like this:
     documentation/
       manual.html
 
-The `.src` is file is the source archive 
-which can be used by tools such as the IDE, for source code browsing. The 
-`.sha1` files each contains a checksum of the like-named `.car` file and can 
-be used to detect corrupted archives.
+The `.src` is file is the source archive which can be used by tools such 
+as the IDE, for source code browsing. The `.sha1` files each contains a 
+checksum of the like-named `.car` file and can be used to detect corrupted 
+archives.
 
 You can generate API documentation using 
 [`ceylon doc`](#{site.urls.ceylon_tool_current}/ceylon-doc.html) 
@@ -430,17 +432,18 @@ commands will work:
 Alternatively if you have some other local repository you can specify it 
 using the `--rep` option.
 
-The [Ceylon Herd](https://herd.ceylon-lang.org/) is an online 
-module repository which contains open source Ceylon modules. As it happens, 
-the Herd is one of the default repositories `ceylon compile` knows about. So if 
-`com.example.bar/3.1.4` is in the Herd then the command to compile 
-`net.example.foo` would remain pleasingly short
+The [Ceylon Herd](https://herd.ceylon-lang.org/) is an online module 
+repository which contains open source Ceylon modules. As it happens, the 
+Herd is one of the default repositories `ceylon compile` knows about. So 
+if `com.example.bar/3.1.4` is in the Herd then the command to compile 
+`net.example.foo` would remain pleasingly short:
 
 <!-- lang: bash -->
     ceylon compile net.example.foo
 
-(that's right, it's the same as before). By the way, you can disable the default 
-repositories with the `--no-default-repositories` option if you want to.
+(That's right, it's the same as before.) By the way, you can disable the 
+default repositories with the `--no-default-repositories` option if you 
+want to.
 
 If `com.example.bar/3.1.4` were in *another* repository, say `http://repo.example.com`,
 then the command would become
@@ -450,13 +453,14 @@ then the command would become
       --rep http://repo.example.com 
       net.example.foo
 
-(we're breaking the command across multiple lines for clarity here, you would
-need to write the command on a single line). You can specify multiple `--rep` 
-options as necessary if you have dependencies coming from multiple repositories.
+(We're breaking the command across multiple lines for clarity here, you 
+would need to write the command on a single line.) You can specify multiple 
+`--rep` options as necessary if you have dependencies coming from multiple 
+repositories.
 
 When you are ready, you can publish the module somewhere other people can use 
 it. Let's say that you want to publish to `http://ceylon.example.net/repo`. 
-You can just compile again, this time specifying an `--out` option
+You can just compile again, this time specifying an `--out` option:
 
 <!-- lang: bash -->
     ceylon compile
@@ -471,25 +475,36 @@ It's worth noting that by taking advantage of the sensible defaults for
 things like source code directory and output repository, as we have here, 
 you save yourself a lot of typing.
 
+
 ## Module runtime
 
-Ceylon's module runtime is based on JBoss Modules, a technology that also 
-exists at the very core of JBoss AS 7. Given a list of module repositories, 
-the runtime automatically locates a module archive and its versioned 
-dependencies in the repositories, even downloading module archives from 
-remote repositories if necessary.
+When we actually run a Ceylon program, our program is usually executed by
+some sort of module system. 
+
+- When executing on the JVM, Ceylon's module runtime is based on JBoss 
+  Modules, a technology that also exists at the very core of the WildFly 
+  application server.
+- When executing on a JavaScript virtual machine, the module runtime
+  might be module system of [node.js](https://nodejs.org/) or it might
+  be [require.js](http://requirejs.org/)
+- When executing on the Dart VM, the module runtime is provided by Dart
+  itself.
+
+Given a list of module repositories, the runtime automatically locates a 
+module archive and its versioned dependencies in the repositories, even 
+downloading module archives from remote repositories if necessary.
 
 Normally, the Ceylon runtime is invoked by specifying the name of a runnable 
 module at the command line.
 
 ### Examples: running against a local or remote repository
 
-Let's continue the example we had before where `net.example.foo` version 1.0
-was published to `http://ceylon.example.net/repo`. Now suppose you want to run 
-the module (possibly from another computer). 
+Let's continue the example we had before where `net.example.foo` version 
+1.0 was published to `http://ceylon.example.net/repo`. Now suppose you want 
+to run the module (possibly from another computer). 
 
-If the dependencies (`com.example.bar/3.1.4` from before) can be 
-found in the default repositories the 
+If the dependencies (`com.example.bar/3.1.4` from before) can be found in 
+the default repositories the 
 [`ceylon run`](#{site.urls.ceylon_tool_current}/ceylon-run.html) command is:
 
 <!-- lang: bash -->
@@ -497,8 +512,8 @@ found in the default repositories the
       --rep http://ceylon.example.net/repo
       net.example.foo/1.0
       
-You can pass options too (which are available to the program via the 
-top level `process` object):
+You can pass options too (which are available to the program via the top level 
+`process` object):
 
 <!-- lang: bash -->
     ceylon run
@@ -544,10 +559,12 @@ module "straight off the internet", just by typing, for example:
 
 And all required dependencies get automatically downloaded as needed.
 
-[Ceylon Herd](https://herd.ceylon-lang.org) is a central community module 
-repository where anyone can contribute reusable modules. Of course, the module 
-repository format is an open standard, so any organization can maintain its own 
-public module repository. You can even run your own internal instance of Herd!
+[Ceylon Herd][] is a central community module repository where anyone can 
+contribute reusable modules. Of course, the module repository format is an open 
+standard, so any organization can maintain its own public module repository. 
+You can even run your own internal instance of Herd!
+
+[Ceylon Herd]: https://herd.ceylon-lang.org
 
 
 ## Resources
