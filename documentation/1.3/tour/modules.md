@@ -602,6 +602,8 @@ where it's necessary to write some boilerplate JavaScript code to bootstrap
 `require.js` and invoke the Ceylon module. It's even possible to execute a
 Ceylon module programmatically on the JVM, using the [`Main` API][].
 
+### Resolving dependencies at runtime
+
 When a Ceylon module is executed via `run`, `run-js`, or `run-dart`, and 
 provided with a list of module repositories using `--rep`, the runtime 
 automatically locates the module archive and its versioned dependencies in 
