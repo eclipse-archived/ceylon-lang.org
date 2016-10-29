@@ -332,16 +332,22 @@ repository. You can even [run your own][run Herd] internal instance of Herd!
 A wizard to create a new module, and add its dependencies can be found
 at `File > New > Ceylon Module`.
 
-The Ceylon Repository Explorer may be accessed via 
-`Window > Show View > Ceylon Repository Explorer` when in the Ceylon
-perspective.  
-
-To change the imports of an existing module, you can select the module 
-in the Ceylon Explorer, got to `File > Properties`, and select the
-`Ceylon Module` properties page.
+To change the dependencies of an existing module, you can select the 
+module in the Ceylon Explorer, go to `File > Properties`, and select 
+the `Ceylon Module` properties page. (Or, of course, you can just edit 
+the module descriptor directly.)
 
 To view the full dependency graph for a project, select the project, 
 and go to `Navigate > Show In > Ceylon Module Dependencies`.  
+
+To view or change the module repositories configured for your project,
+select the project, go to `Project > Properties`, and then navigate 
+to `Ceylon Build > Module Repositories`.
+
+The Ceylon Repository Explorer helps you find modules available in 
+the configured module repositories. It may be accessed via 
+`Window > Show View > Ceylon Repository Explorer` when in the Ceylon
+perspective.  
 
 Under `File > Export... > Ceylon`, you'll find two very useful wizards:
 
@@ -349,6 +355,17 @@ Under `File > Export... > Ceylon`, you'll find two very useful wizards:
   a local module repository, and
 - a wizard to add a Java `.jar` archive to a Ceylon module repository.
 
+### Tip: developing modules in Ceylon IDE for IntelliJ
+
+To create a new module, select the source directory, and go to 
+`File > New > Ceylon Module`.
+
+To change the dependencies of a module, edit the module descriptor
+directly.
+
+To view or change the module repositories configured for your project,
+go to `File > Project Structure`, navigate to `Facets > Ceylon`, and
+select the `Repositories` tab.
 
 ## Compiling modules
 
