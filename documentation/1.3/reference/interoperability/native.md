@@ -190,7 +190,7 @@ And:
 
 Non-native code is cross-platform and should be able to run anywhere, accessing code
 specifically meant for a single backend (it has no header and therefore no other
-implementations) is therfore prohibited:
+implementations) is therefore prohibited:
 
 <!-- try: -->
     native("js") String time() {
