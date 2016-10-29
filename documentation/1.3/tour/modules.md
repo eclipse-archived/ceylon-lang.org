@@ -119,7 +119,7 @@ provides much less potential for confusion:
 
 <!-- try: -->
     import ceylon.collection { HashMap }
-    import java.util { JMap=Map, JHashMap=HashMap }
+    import java.util { JMap = Map, JHashMap = HashMap }
     
     void usesCeylonHashMap() {
         Map<String,String> map = HashMap<String,String>();
