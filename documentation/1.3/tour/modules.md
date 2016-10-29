@@ -223,21 +223,26 @@ placed in the same directory as the other source files for the root package
 of the module. In this case, the module descriptor must occur in the file 
 `source/org/hibernate/module.ceylon.`
 
+### Gotcha!
 
-<!--
-A module may be *runnable*. A runnable module must specify a `run()` method in 
-the module descriptor:
+Unlike some other module systems like OSGi and Maven, Ceylon does not 
+support version ranges in module dependencies, and the Ceylon module system
+never attempts to resolve version conflicts in transitive dependencies
+automatically. Instead Ceylon requires you to _explicitly_ override 
+conflicting module versions of dependencies when assembling an application.
 
---><!-- check:none:Quoted--><!--
-    "The test suite for Hibernate"
-    license ("http://www.gnu.org/licenses/lgpl.html")
-    module org.hibernate.test "3.0.0.beta" {
-        import org.hibernate "3.0.0.beta";
-        void run() {
-            TestSuite().run();
-        }
-    }
--->
+### Tip: overriding module imports
+
+To resolve conflicting module versions in the transitive dependencies of
+a module, we can specify _module overrides_ in an XML file, usually named
+`overrides.xml`. The format of this file is described in the reference 
+documentation for [module overrides][].
+
+Note that `overrides.xml` is considered a temporary stopgap measure. In a
+future version of Ceylon, it will be possible to specify module overrides
+using a more comfortable syntax based on the format of the module descriptor.
+
+[module overrides]: https://ceylon-lang.org/documentation/reference/repository/overrides/
 
 ## Module archives and module repositories
 
