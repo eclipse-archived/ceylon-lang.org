@@ -281,20 +281,20 @@ generated automatically by the compiler without any manual intervention.
 
 ### Module scripts and model descriptors
 
-When compiled for execution on a JavaScript virtual machine, using, the 
-command `ceylon compile-js` the module compiles to:
+When compiled for execution on a JavaScript virtual machine, using the 
+command `ceylon compile-js`, the module compiles to:
 
 - a `.js` file, called a _module script_, containing the executable 
   JavaScript code,
 - a `-model.js` file, called the _model file_, containing a description of 
-  the program elements in the module in a JSON-like format,
+  the program elements in the module in a JSON-like format, and
 - a `module-resources` directory containing resources.
 
-This module script follows a standard called Common JS Modules, which allows 
-the script to be used in [node.js](https://nodejs.org/) or with 
-[require.js](http://requirejs.org/).
+The module script follows a standard called Common JS Modules, which allows 
+the script to be used in [node.js][], with [require.js][], or with some 
+other JavaScript module loaders.
 
-The model descriptor is used: 
+The model file is used: 
 
 - when code that uses the Ceylon module is compiled to JavaScript without 
   access to the source code of the library, or
@@ -304,6 +304,8 @@ All the artifacts produced by the compiler are grouped together in a directory
 of the output module repository. 
 
 [metamodel]: ../annotations/#the_metamodel
+[node.js]: https://nodejs.org/
+[require.js]: http://requirejs.org/
 
 
 ## Module repositories
@@ -350,8 +352,8 @@ Now let's learn a little bit about using the command line.
 
 ### Examples: compiling against a local or remote repository
 
-Let's suppose you are writing `net.example.foo`. Your project 
-directory might be layed out like this:
+Let's suppose you are writing `net.example.foo`. Your project directory 
+might be layed out like this:
 
 <!-- lang: none -->
     README
@@ -365,18 +367,19 @@ directory might be layed out like this:
     documentation/
       manual.html
 
-Here, the source code is in a directory called `source` (which is the default and 
-saves us having to pass a `--src` command line option to [`ceylon compile`][]). 
-From the project directory (the directory which contains the `source` directory) 
-you can compile using the command
+Here, the source code is in a directory called `source` (which is the 
+default and saves us having to pass a `--src` command line option to 
+[`ceylon compile`][]). From the project directory (the directory which 
+contains the `source` directory) you can compile using the command
     
 <!-- lang: bash -->
     ceylon compile net.example.foo
     
-This command will compile the source code files (`Foo.ceylon` and `FooService.ceylon`)
-into a module archive and publish it to the default output repository, `modules`.
-(you'd use the `--out build` option to publish to `build` instead). Now your project 
-directory looks something like this:
+This command will compile the source code files (`Foo.ceylon` and 
+`FooService.ceylon`) into a module archive and publish it to the default 
+output repository, `modules`. (You'd use the `--out build` option to 
+publish to `build` instead). Now your project directory looks something 
+like this:
 
 <!-- lang: none -->
     README
@@ -435,11 +438,11 @@ commands will work:
 Alternatively if you have some other local repository you can specify it 
 using the `--rep` option.
 
-The [Ceylon Herd](https://herd.ceylon-lang.org/) is an online module 
-repository which contains open source Ceylon modules. As it happens, the 
-Herd is one of the default repositories `ceylon compile` knows about. So 
-if `com.example.bar/3.1.4` is in the Herd then the command to compile 
-`net.example.foo` would remain pleasingly short:
+The [Ceylon Herd][] is an online module repository which contains open 
+source Ceylon modules. As it happens, the Herd is one of the default 
+repositories `ceylon compile` knows about. So if `com.example.bar/3.1.4` 
+is in the Herd then the command to compile `net.example.foo` would remain 
+pleasingly short:
 
 <!-- lang: bash -->
     ceylon compile net.example.foo
@@ -448,8 +451,8 @@ if `com.example.bar/3.1.4` is in the Herd then the command to compile
 default repositories with the `--no-default-repositories` option if you 
 want to.
 
-If `com.example.bar/3.1.4` were in *another* repository, say `http://repo.example.com`,
-then the command would become
+If `com.example.bar/3.1.4` were in *another* repository, let's say 
+`http://repo.example.com`, then the command would be:
 
 <!-- lang: bash -->
     ceylon compile
@@ -461,8 +464,8 @@ would need to write the command on a single line.) You can specify multiple
 `--rep` options as necessary if you have dependencies coming from multiple 
 repositories.
 
-When you are ready, you can publish the module somewhere other people can use 
-it. Let's say that you want to publish to `http://ceylon.example.net/repo`. 
+When you are ready, you can publish the module somewhere other people can 
+use it. Let's say that you want to publish to `http://ceylon.example.net/repo`. 
 You can just compile again, this time specifying an `--out` option:
 
 <!-- lang: bash -->
@@ -471,8 +474,9 @@ You can just compile again, this time specifying an `--out` option:
       --out http://ceylon.example.net/repo
       net.example.foo
 
-Or, if your module is already compiled, you can publish it using `ceylon copy`
-to replicate the existing artifacts to a the output repository. 
+Or, if your module is already compiled, you can publish it using 
+[`ceylon copy`][] to replicate the existing artifacts to a the output 
+repository. 
 
 It's worth noting that by taking advantage of the sensible defaults for 
 things like source code directory and output repository, as we have here, 
@@ -482,23 +486,86 @@ you save yourself a lot of typing.
 ## Module runtime
 
 When we actually run a Ceylon program, our program is usually executed by
-some sort of module system. 
+some sort of module system.
 
-- When executing on the JVM, Ceylon's module runtime is based on JBoss 
-  Modules, a technology that also exists at the very core of the WildFly 
-  application server.
-- When executing on a JavaScript virtual machine, the module runtime
-  might be module system of [node.js](https://nodejs.org/) or it might
-  be [require.js](http://requirejs.org/)
-- When executing on the Dart VM, the module runtime is provided by Dart
-  itself.
+- When executing on the JVM, using [`ceylon run`][], Ceylon's module runtime 
+  is based on JBoss Modules, a technology that also exists at the very core 
+  of the WildFly application server.
+- When executing on a JavaScript virtual machine using [`ceylon run-js`][], 
+  the module runtime is the module system of [node.js][]. 
+- When executed in a web browser, the module system is typically [require.js][], 
+  though other options exist.
+- When executing on the Dart VM via [`ceylon run-dart`][], the module runtime 
+  is provided by Dart itself.
 
-Given a list of module repositories, the runtime automatically locates a 
-module archive and its versioned dependencies in the repositories, even 
-downloading module archives from remote repositories if necessary.
+[`ceylon run`]: #{site.urls.ceylon_tool_current}/ceylon-run.html
+[`ceylon run-js`]: #{site.urls.ceylon_tool_current}/ceylon-run-js.html
+[`ceylon run-dart`]: https://github.com/jvasileff/ceylon-dart
 
-Normally, the Ceylon runtime is invoked by specifying the name of a runnable 
-module at the command line.
+Naturally, the capabilities of the module runtime vary somewhat depending on 
+the virtual machine platform. The JBoss Modules-based runtime for the JVM is 
+the most powerful.
+
+Usually, the Ceylon runtime is invoked by specifying the name of a runnable 
+module at the command line. But of course that can't work in a web browser,
+where it's necessary to write some boilerplate JavaScript code to bootstrap
+`require.js` and invoke the Ceylon module.
+
+When a Ceylon module is executed via `run`, `run-js`, or `run-dart`, and 
+provided with a list of module repositories using `--rep`, the runtime 
+automatically locates the module archive and its versioned dependencies in 
+the repositories, even downloading modules from remote repositories if 
+necessary.
+
+When a Ceylon module runs in the browser, using `require.js`, module loading
+is a bit less transparent. It's up to the developer to either:
+
+- collect together all the module artifacts into a single repository 
+  accessible to `require.js`, or
+- set up a proxy repository server on the server side.
+
+To collect artifacts for a module and its dependencies, you can use
+[`ceylon copy --dependencies`][`ceylon copy`]. Typically, you would
+locate the resulting repository somewhere under the document root of your 
+web server.
+
+Alternatively, to set up a server-side proxy repository, you could use the 
+[`RepositoryEndpoint`][] provided for this purpose by the module 
+[`ceylon.http.server`][]. This requires a process executing the Ceylon
+HTTP server to exist on the server side.
+
+Finally, not every Ceylon program executes on a modular runtime. As we'll 
+see [below](#repackaging_tools), Ceylon provides tooling for assembling a
+Ceylon program for execution in other environments which require that 
+programs be packaged as a single monolithic artifact.
+
+[`RepositoryEndpoint`]: #{site.urls.apidoc_current_http_server}/endpoints/RepositoryEndpoint.type.html
+[`ceylon.http.server`]: #{site.urls.apidoc_current_http_server}/index.html
+
+### Module repository ecosystem
+
+One of the nice advantages of this architecture is that it's possible to run a 
+module "straight off the internet", just by typing, for example:
+
+<!-- lang: bash -->
+    ceylon run --rep http://jboss.org/ceylon/modules org.jboss.ceylon.demo/1.0
+
+And all required dependencies get automatically downloaded as needed.
+
+[Ceylon Herd][] is a central community module repository where anyone can 
+contribute reusable modules. Of course, the module repository format is an open 
+standard, so any organization can maintain its own public module repository. 
+You can even run your own internal instance of Herd!
+
+Ceylon comes with a suite of command-line tools for managing modules and module
+repositories, including [`ceylon copy`][], [`ceylon info`][], 
+[`ceylon import-jar`][], and [more][subcommands].
+
+[Ceylon Herd]: https://herd.ceylon-lang.org
+[`ceylon copy`]: #{site.urls.ceylon_tool_current}/ceylon-copy.html
+[`ceylon info`]: #{site.urls.ceylon_tool_current}/ceylon-info.html
+[`ceylon import-jar`]: #{site.urls.ceylon_tool_current}/ceylon-import-jar.html
+[subcommands]: /documentation/reference/tool/ceylon/subcommands/
 
 ### Examples: running against a local or remote repository
 
@@ -507,8 +574,7 @@ Let's continue the example we had before where `net.example.foo` version
 to run the module (possibly from another computer). 
 
 If the dependencies (`com.example.bar/3.1.4` from before) can be found in 
-the default repositories the 
-[`ceylon run`](#{site.urls.ceylon_tool_current}/ceylon-run.html) command is:
+the default repositories the [`ceylon run`][] command is:
 
 <!-- lang: bash -->
     ceylon run
@@ -547,27 +613,10 @@ do it just once.
 
 You can save yourself the trouble of explicitly specifying module repositories
 with `--rep`, or of explicitly overriding other defaults such as the name of
-the source directory using a [config file](/documentation/1.3/reference/tool/config/)
-to specify settings that are understood by both the command line toolset and
-by the Ceylon IDEs.
+the source directory using a [config file][] to specify settings that are 
+understood by both the command line toolset and by the Ceylon IDEs.
 
-
-## Module repository ecosystem
-
-One of the nice advantages of this architecture is that it's possible to run a 
-module "straight off the internet", just by typing, for example:
-
-<!-- lang: bash -->
-    ceylon run --rep http://jboss.org/ceylon/modules org.jboss.ceylon.demo/1.0
-
-And all required dependencies get automatically downloaded as needed.
-
-[Ceylon Herd][] is a central community module repository where anyone can 
-contribute reusable modules. Of course, the module repository format is an open 
-standard, so any organization can maintain its own public module repository. 
-You can even run your own internal instance of Herd!
-
-[Ceylon Herd]: https://herd.ceylon-lang.org
+[config file]: /documentation/1.3/reference/tool/config/
 
 
 ## Resources
@@ -594,13 +643,13 @@ Resources in the subdirectory `resource/net/example/foo` are packaged into the
 module archive for the module `net.example.foo`, and into a directory of the 
 module repository where they're accessible to the JavaScript runtime.
 
-At runtime, the resource may be loaded by calling 
-[`resourceByPath()`](#{site.urls.apidoc_1_3}/meta/declaration/Module.type.html#resourceByPath) 
-on the `Module` object representing the module to which the resource belongs:
+At runtime, the resource may be loaded by calling [`resourceByPath()`][] on the 
+`Module` object representing the module to which the resource belongs:
 
 <!-- try: -->
     assert (exists Resource resource 
-            = `module net.example.foo`.resourceByPath("foo.properties"));
+            = `module net.example.foo`
+                .resourceByPath("foo.properties"));
     String text = resource.textContent();
 
 Alternatively, you may identify the resource by a fully qualified path beginning 
@@ -608,12 +657,15 @@ with `/`, for example:
 
 <!-- try: -->
     assert (exists Resource resource 
-            = `module net.example.foo`.resourceByPath("/net/example/foo/foo.properties");
+            = `module net.example.foo`
+                .resourceByPath("/net/example/foo/foo.properties");
 
-The contents of a text resource may be obtained using
-[`Resource.textContent()`](#{site.urls.apidoc_1_3}/Resource.type.html#textContent).
-The URI of a binary resource may be obtained using
-[`Resource.uri`](#{site.urls.apidoc_1_3}/Resource.type.html#uri).
+The contents of a text resource may be obtained using [`Resource.textContent()`][].
+The URI of a binary resource may be obtained using [`Resource.uri`][].
+
+[`resourceByPath()`]: #{site.urls.apidoc_1_3}/meta/declaration/Module.type.html#resourceByPath
+[`Resource.textContent()`]: #{site.urls.apidoc_1_3}/Resource.type.html#textContent
+[`Resource.uri`]: #{site.urls.apidoc_1_3}/Resource.type.html#uri
 
 
 ## Services and service providers
