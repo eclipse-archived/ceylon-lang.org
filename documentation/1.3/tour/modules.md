@@ -322,9 +322,10 @@ applications.
 [Ceylon Herd][] is a central community module repository where anyone can 
 contribute reusable modules. Of course, the module repository format is an 
 open standard, so any organization can maintain its own public module 
-repository. You can even run your own internal instance of Herd!
+repository. You can even [run your own][run Herd] internal instance of Herd!
 
 [Ceylon Herd]: https://herd.ceylon-lang.org
+[run Herd]: https://github.com/ceylon/ceylon-herd
 
 ### Tip: developing modules in Ceylon IDE for Eclipse
 
