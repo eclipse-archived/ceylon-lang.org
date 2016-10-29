@@ -249,10 +249,21 @@ well-defined directory structure with a well-defined location for each
 module. A module repository may be either local (on the filesystem) or 
 remote (on the Internet).
 
+If you've installed ceylon and compiled a program, you might already have
+some module repositories on your machine:
+
+- `ceylon-1.3.x/repo` is a repository containing the Ceylon compiler and
+  all its dependencies,
+- `~/.ceylon/cache` is a repository containing locally cached versions of 
+  other modules you've used in your programs, and
+- the `modules` directory of any Ceylon project is, by default, a repository 
+  containing the compiled project modules.
+
 Given a list of module repositories, the Ceylon compiler can automatically 
 locate dependencies mentioned in the module descriptor of the module it is 
 compiling. And when it finishes compiling the module, it puts the resulting 
-module archive in the right place in a local module repository.
+module archive in the right place in a local module repository (`./modules`,
+by default).
 
 Likewise, given a similar list of module repositories, the Ceylon module 
 runtime can automatically locate dependencies of the compiled module it is
@@ -262,19 +273,35 @@ The repository architecture also includes well-defined locations for source
 archives produced by the Ceylon compiler, and for module API documentation 
 produced by the [`ceylon doc`][] command.
 
-Ceylon comes with a suite of command-line tools for managing modules and 
-module repositories, including [`ceylon copy`][], [`ceylon info`][], 
-[`ceylon import-jar`][], and [more][subcommands].
-
 The Ceylon module system even interoperates with
 [Maven repositories](../interop/#depending_on_a_maven_module) and
 [npm](../dynamic/#importing_npm_modules_containing_native_javascript_code).
+
+### Module tools
+
+Ceylon comes with a suite of command-line tools for managing modules and 
+module repositories, including [`ceylon copy`][], [`ceylon info`][], 
+[`ceylon import-jar`][], and [more][subcommands].
 
 [`ceylon doc`]: #{site.urls.ceylon_tool_current}/ceylon-doc.html
 [`ceylon copy`]: #{site.urls.ceylon_tool_current}/ceylon-copy.html
 [`ceylon info`]: #{site.urls.ceylon_tool_current}/ceylon-info.html
 [`ceylon import-jar`]: #{site.urls.ceylon_tool_current}/ceylon-import-jar.html
 [subcommands]: /documentation/reference/tool/ceylon/subcommands/
+
+[Certain module repositories][default repos] are searched by default by 
+these tools, by the compiler, and by the module runtime. These are:
+
+- `$CEYLON_HOME/repo`, the distribution repository
+- `~/.ceylon/cache`, the local cache, 
+- `~/.ceylon/repo`, the user repository,
+- `maven:`, the maven repository, and
+- `https://herd.ceylon-lang.org`.
+
+We don't need to specify these repositories explicitly. Additional 
+repositories are specified using `--rep`.
+
+[default repos]: /documentation/1.3/reference/repository/tools/#default_repository_lookup
 
 ### Module repository ecosystem
 
@@ -407,7 +434,7 @@ might be layed out like this:
 Here, the source code is in a directory called `source` (which is the 
 default and saves us having to pass a `--src` command line option to 
 [`ceylon compile`][]). From the project directory (the directory which 
-contains the `source` directory) you can compile using the command
+contains the `source` directory) you can compile using the command:
     
 <!-- lang: bash -->
     ceylon compile net.example.foo
@@ -447,8 +474,8 @@ archives.
 ### Example: compiling a module with dependencies
 
 Now, let's suppose your project gains a dependency on `com.example.bar` 
-version 3.1.4. Having declared that module and version as a dependency in 
-your `module.ceylon` [descriptor](#dependencies_and_module_descriptors) 
+version `3.1.4`. Having declared that module and version as a dependency 
+in your `module.ceylon` [descriptor](#dependencies_and_module_descriptors) 
 you'd need to tell `ceylon compile` which repositories to look in to find 
 the dependencies. 
 
@@ -496,12 +523,8 @@ You can generate API documentation using [`ceylon doc`][] like this:
 <!-- lang: bash -->
     ceylon doc net.example.foo
     
-This will create a
-
-<!-- lang: bash -->
-    modules/net/example/foo/1.0/module-doc/
-    
-directory containing the documentation.
+This will create a the directory `modules/net/example/foo/1.0/module-doc/`
+containing the HTML-format documentation.
 
 ### Example: publishing to a local or remote repository
 
@@ -518,6 +541,11 @@ You can just compile again, this time specifying an `--out` option:
 Or, if your module is already compiled, you can publish it using 
 [`ceylon copy`][] to replicate the existing artifacts to a the output 
 repository. 
+
+<!-- lang: bash -->
+    ceylon copy
+      --out http://ceylon.example.net/repo
+      net.example.foo/1.0
 
 It's worth noting that by taking advantage of the sensible defaults for 
 things like source code directory and output repository, as we have here, 
@@ -587,12 +615,12 @@ programs be packaged as a single monolithic artifact.
 
 ### Example: running a module
 
-Let's continue the example we had before where `net.example.foo` version 
-1.0 was published to `http://ceylon.example.net/repo`. Now suppose you want 
-to run the module (possibly from another computer). 
+Let's continue the example we had before where `net.example.foo` version `1.0` 
+was published to `http://ceylon.example.net/repo`. Now suppose you want to 
+actually run the module (possibly from another computer). 
 
-If the dependencies (`com.example.bar/3.1.4` from before) can be found in 
-the default repositories the [`ceylon run`][] command is:
+If the dependencies (`com.example.bar/3.1.4`, from before) can be found in the 
+default repositories the [`ceylon run`][] command is:
 
 <!-- lang: bash -->
     ceylon run
@@ -619,7 +647,7 @@ need to specify a repository that contains it using another `--rep`:
       my options
 
 The easiest case, of course, is where the module and its dependencies are all 
-in available in the default repositories (such as the Herd or `~/.ceylon/repo`):
+available in the default repositories (such as the Herd, or `~/.ceylon/repo`):
 
 <!-- lang: bash -->
     ceylon run net.example.foo/1.0
