@@ -52,7 +52,7 @@ To import all toplevel program elements of a package, we write:
 <!-- check:none:pedagogical -->
     import com.redhat.polar.core { ... }
 
-To resolve a name conflict, we can rename an imported declaration:
+To resolve a name collision, we can rename an imported declaration:
 
 <!-- try: -->
 <!-- check:none:pedagogical -->
