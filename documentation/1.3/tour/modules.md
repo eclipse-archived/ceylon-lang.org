@@ -507,7 +507,8 @@ the most powerful.
 Usually, the Ceylon runtime is invoked by specifying the name of a runnable 
 module at the command line. But of course that can't work in a web browser,
 where it's necessary to write some boilerplate JavaScript code to bootstrap
-`require.js` and invoke the Ceylon module.
+`require.js` and invoke the Ceylon module. It's even possible to execute a
+Ceylon module programmatically on the JVM, using the [`Main` API][].
 
 When a Ceylon module is executed via `run`, `run-js`, or `run-dart`, and 
 provided with a list of module repositories using `--rep`, the runtime 
@@ -537,6 +538,7 @@ see [below](#repackaging_tools), Ceylon provides tooling for assembling a
 Ceylon program for execution in other environments which require that 
 programs be packaged as a single monolithic artifact.
 
+[`Main` API]: /documentation/reference/interoperability/ceylon-on-jvm/
 [`RepositoryEndpoint`]: #{site.urls.apidoc_current_http_server}/endpoints/RepositoryEndpoint.type.html
 [`ceylon.http.server`]: #{site.urls.apidoc_current_http_server}/index.html
 
