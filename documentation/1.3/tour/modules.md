@@ -19,7 +19,7 @@ We're going to learn about *packages* and *modules*.
 
 There's no `package` statement in Ceylon source files. The compiler determines 
 the package and module to which a toplevel program element belongs by the 
-location of the source file in which it is declared. For example, is `source` 
+location of the source file in which it is declared. For example, if `source` 
 is a source directory, and if a class named `Hello` is defined in the file 
 `source/org/jboss/hello/Hello.ceylon`, then `Hello` belongs to the package 
 `org.jboss.hello`.
