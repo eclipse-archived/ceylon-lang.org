@@ -179,8 +179,7 @@ acceptable for a module to have just one package. But more complex
 modules, with their own internal subsystems, often benefit from the 
 additional level of granularity.
 
-
-## Module-level visibility and package descriptors
+### Module-level visibility and package descriptors
 
 A package in Ceylon may be shared or unshared. An unshared package 
 (the default) is visible only to the module which contains the package. 
@@ -199,8 +198,7 @@ placed in the same directory as the other source files for the package. In
 this case, the package descriptor must occur in the file 
 `source/org/hibernate/query/package.ceylon.`
 
-
-## Dependencies and module descriptors
+### Dependencies and module descriptors
 
 A module must explicitly specify the other modules on which it depends.
 This is accomplished via a _module descriptor_:
