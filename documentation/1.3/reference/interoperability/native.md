@@ -153,7 +153,7 @@ like `shared`, `actual`, `formal` etc must also be duplicated (a notable excepti
         // And wrong number of parameters
     }
 
-### A header and its implementations mus be declared in the same file
+### A header and its implementations must be declared in the same file
 
 This is a restriction we hope to lift at some point in the future but for now it's required
 that a header and all its associated implementations be declarared in the same file.
