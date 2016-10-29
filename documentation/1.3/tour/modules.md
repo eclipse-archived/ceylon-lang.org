@@ -250,11 +250,15 @@ using a more comfortable syntax based on the format of the module descriptor.
 The output of the Ceylon compiler depends upon the virtual machine platform 
 we're compiling for:
 
-- `ceylon compile` compiles module archives for execution on the JVM,
-- `ceylon compile-js` compiles module scripts and model descriptors for
+- [`ceylon compile`][] compiles module archives for execution on the JVM,
+- [`ceylon compile-js`][] compiles module scripts and model descriptors for
   execution on JavaScript virtual machines, and
-- `ceylon compile-dart` produces artifacts that can be executed on the
+- [`ceylon compile-dart`][] produces artifacts that can be executed on the
   Dart VM.
+  
+[`ceylon compile`]: #{site.urls.ceylon_tool_current}/ceylon-compile.html
+[`ceylon compile-js`]: #{site.urls.ceylon_tool_current}/ceylon-compile-js.html
+[`ceylon compile-dart`]: https://github.com/jvasileff/ceylon-dart
 
 ### Module archives
 
@@ -362,8 +366,7 @@ directory might be layed out like this:
       manual.html
 
 Here, the source code is in a directory called `source` (which is the default and 
-saves us having to pass a `--src` command line option to 
-[`ceylon compile`](#{site.urls.ceylon_tool_current}/ceylon-compile.html)). 
+saves us having to pass a `--src` command line option to [`ceylon compile`][]). 
 From the project directory (the directory which contains the `source` directory) 
 you can compile using the command
     
