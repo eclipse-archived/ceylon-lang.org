@@ -112,7 +112,7 @@ for example, `$int`.
 
 A `shared` Ceylon attribute compiles into a JavaBean-style getter 
 and&mdash;if the attribute is `variable` or has an `assign` 
-block&mdash;a JavaBeans-styel setter.
+block&mdash;a JavaBeans-style setter.
 
 For example, this class has `getName()`, `getAge()`, and `setAge()`:
 
