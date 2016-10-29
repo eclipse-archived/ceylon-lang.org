@@ -167,8 +167,8 @@ There are several layers to the module system in Ceylon:
 * A built-in module archive format and module repository layout that is 
   understood by all tools written for the language, from the compiler, 
   to the IDE, to the runtime.
-* A runtime that features peer-to-peer classloading (one classloader per 
-  module) and the ability to manage multiple versions of the same module.
+* A runtime that features module isolation and the ability to manage 
+  multiple versions of the same module.
 * An ecosystem of remote module repositories where folks can share code 
   with others.
 
@@ -245,22 +245,58 @@ using a more comfortable syntax based on the format of the module descriptor.
 ### Module repositories
 
 Compiled modules live in *module repositories*. A module repository is a 
-well-defined directory structure with a well-defined location for each module. 
-A module repository may be either local (on the filesystem) or remote (on the 
-Internet). Given a list of module repositories, the Ceylon compiler can 
-automatically locate dependencies mentioned in the module descriptor of the 
-module it is compiling. And when it finishes compiling the module, it puts 
-the resulting module archive in the right place in a local module repository.
+well-defined directory structure with a well-defined location for each 
+module. A module repository may be either local (on the filesystem) or 
+remote (on the Internet).
+
+Given a list of module repositories, the Ceylon compiler can automatically 
+locate dependencies mentioned in the module descriptor of the module it is 
+compiling. And when it finishes compiling the module, it puts the resulting 
+module archive in the right place in a local module repository.
+
 Likewise, given a similar list of module repositories, the Ceylon module 
 runtime can automatically locate dependencies of the compiled module it is
 executing.
 
-The Ceylon module system may even interoperate with
+The repository architecture also includes well-defined locations for source 
+archives produced by the Ceylon compiler, and for module API documentation 
+produced by the [`ceylon doc`][] command.
+
+Ceylon comes with a suite of command-line tools for managing modules and 
+module repositories, including [`ceylon copy`][], [`ceylon info`][], 
+[`ceylon import-jar`][], and [more][subcommands].
+
+The Ceylon module system even interoperates with
 [Maven repositories](../interop/#depending_on_a_maven_module) and
 [npm](../dynamic/#importing_npm_modules_containing_native_javascript_code).
 
-The repository architecture also includes support for source archives and 
-module documentation directories.
+[`ceylon doc`]: #{site.urls.ceylon_tool_current}/ceylon-doc.html
+[`ceylon copy`]: #{site.urls.ceylon_tool_current}/ceylon-copy.html
+[`ceylon info`]: #{site.urls.ceylon_tool_current}/ceylon-info.html
+[`ceylon import-jar`]: #{site.urls.ceylon_tool_current}/ceylon-import-jar.html
+[subcommands]: /documentation/reference/tool/ceylon/subcommands/
+
+### Module repository ecosystem
+
+One nice feature of this architecture is that it's possible to run a module 
+"straight off the internet", just by typing, for example:
+
+<!-- lang: bash -->
+    ceylon run --rep http://jboss.org/ceylon/modules org.jboss.ceylon.demo/1.0
+
+It does not matter if the program is installed locally, as long as it's
+available in some accessible repository. And all required dependencies get 
+automatically downloaded as needed.
+
+This feature makes it extremely easy to distribute libraries and assemble 
+applications.
+
+[Ceylon Herd][] is a central community module repository where anyone can 
+contribute reusable modules. Of course, the module repository format is an 
+open standard, so any organization can maintain its own public module 
+repository. You can even run your own internal instance of Herd!
+
+[Ceylon Herd]: https://herd.ceylon-lang.org
 
 ### Tip: developing modules in Ceylon IDE for Eclipse
 
@@ -548,31 +584,6 @@ programs be packaged as a single monolithic artifact.
 [`Main` API]: /documentation/reference/interoperability/ceylon-on-jvm/
 [`RepositoryEndpoint`]: #{site.urls.apidoc_current_http_server}/endpoints/RepositoryEndpoint.type.html
 [`ceylon.http.server`]: #{site.urls.apidoc_current_http_server}/index.html
-
-### Module repository ecosystem
-
-One of the nice advantages of this architecture is that it's possible to run a 
-module "straight off the internet", just by typing, for example:
-
-<!-- lang: bash -->
-    ceylon run --rep http://jboss.org/ceylon/modules org.jboss.ceylon.demo/1.0
-
-And all required dependencies get automatically downloaded as needed.
-
-[Ceylon Herd][] is a central community module repository where anyone can 
-contribute reusable modules. Of course, the module repository format is an open 
-standard, so any organization can maintain its own public module repository. 
-You can even run your own internal instance of Herd!
-
-Ceylon comes with a suite of command-line tools for managing modules and module
-repositories, including [`ceylon copy`][], [`ceylon info`][], 
-[`ceylon import-jar`][], and [more][subcommands].
-
-[Ceylon Herd]: https://herd.ceylon-lang.org
-[`ceylon copy`]: #{site.urls.ceylon_tool_current}/ceylon-copy.html
-[`ceylon info`]: #{site.urls.ceylon_tool_current}/ceylon-info.html
-[`ceylon import-jar`]: #{site.urls.ceylon_tool_current}/ceylon-import-jar.html
-[subcommands]: /documentation/reference/tool/ceylon/subcommands/
 
 ### Example: running a module
 
