@@ -90,9 +90,8 @@ There's two things in particular to notice here:
 1. The parameters used to instantiate a class are specified as part 
    of the class declaration, right after the name of the class. This 
    syntax is less verbose and more regular than Java, C#, or C++. We 
-   do have [constructors](../initialization#constructors) in Ceylon, 
-   but we rarely need them, and they shouldn't be the first thing 
-   you reach for.
+   do have [constructors][] in Ceylon, but we rarely need them, and 
+   they shouldn't be the first thing you reach for.
    
 2. We make use of the parameters of a class anywhere within the body   
    of the class. In Ceylon, we often don't need to define explicit 
@@ -102,12 +101,16 @@ There's two things in particular to notice here:
    specifies the value of `description`.
 
 Notice also that Ceylon doesn't have a `new` keyword to indicate 
-instantiation, we just "invoke the class", writing 
-`Polar(angle, radius)`.
+instantiation, we just "invoke the class", writing:
+
+<!-- try: -->
+    Polar(angle, radius)
 
 The `shared` annotation determines the accessibility of the annotated 
 type, attribute, or method. Before we go any further, let's see how 
 we can hide the internal implementation of a class from other code.
+
+[constructors]: ../initialization#constructors
 
 
 ## Hiding implementation details
@@ -116,9 +119,9 @@ Ceylon doesn't make a distinction between `public`, `protected` and
 "default" visibility like Java does; [here's why][no protected]. 
 Instead, the language distinguishes between: 
 
-* program elements which are visible only inside the scope in which 
+- program elements which are visible only inside the scope in which 
   they are defined, and
-* program elements which are visible wherever the thing they belong 
+- program elements which are visible wherever the thing they belong 
   to (a type, package, or module) is visible.
 
 By default, members of a class are hidden from code outside the body 
@@ -140,10 +143,18 @@ Got the idea? We're playing Russian dolls here.
 
 [no protected]: #{page.doc_root}/faq/language-design/#no_protected_modifier
 
-## Exposing parameters as attributes
+## Class attributes
+
+An _attribute_ is a member of a class that represents state. Very 
+often, particularly in the very important case of an immutable class, 
+the state of a class is derived from the arguments used to instantiate 
+a class. Therefore, there is a close relationship between class 
+parameters and attributes. 
+
+### Exposing parameters as attributes
 
 If we want to expose the `angle` and `radius` of our `Polar` 
-coordinate to other code, we need to define attributes of the class. 
+coordinate to other code, we'll need to define attributes of the class. 
 It's very common to assign parameters of a class directly to a `shared` 
 attribute of the class, so Ceylon provides a streamlined syntax for 
 this.
@@ -210,7 +221,7 @@ Instead of declaring the attributes in the body of the class, we
 simply annotated the parameters `shared`. We encourage you to avoid 
 this shortcut when you have more than one or two parameters.
 
-## Initializing attributes
+### Initializing attributes
 
 The attributes `angle` and `radius` are _references_, the closest 
 thing Ceylon has to a Java field. Usually we specify the value of a 
@@ -282,7 +293,7 @@ before making use of the reference in an expression.
 
 We'll learn more about this [later in the tour](../initialization).
 
-## Abstracting state using attributes
+### Abstracting state using attributes
 
 If you're used to writing JavaBeans, you can think of a reference as 
 a combination of several things:
