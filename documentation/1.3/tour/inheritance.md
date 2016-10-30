@@ -24,13 +24,21 @@ and, indeed, that's kinda true of multiple inheritance in C++. But mixin
 inheritance in Ceylon comes with certain restrictions that strike a
 good balance between power and harmlessness. 
 
-## Inheritance and refinement
+## Class inheritance
 
 In object-oriented programming, we often replace conditionals (`if`, and 
 especially `switch`) with subtyping. Indeed, according to some folks, this 
-is what makes a program object-oriented. Let's try refactoring the `Polar` 
-class [from the previous leg of the tour](../classes) into two classes, 
-with two different implementations of `description`. Here's the superclass:
+is what makes a program object-oriented.
+
+The simplest way to introduce subtype polymorphism into our program is by
+using subclasses. Subclassing in Ceylon follows a _single inheritance_ 
+model, just like in Java; a subclass may inherit exactly one superclass.
+
+### Refinement
+
+Let's try refactoring the `Polar` class 
+[from the previous leg of the tour](../classes) into two classes, with two 
+different implementations of `description`. Here's the superclass:
 
 <!-- try-post:
     print(Polar(0.31, 13.0).description);
@@ -276,7 +284,7 @@ abbreviate the above code like this:
 
 (But in this case, the shortcut syntax is perhaps _not_ an improvement.)
 
-## Abstract classes
+### Abstract classes
 
 Now let's consider a much more interesting problem: abstracting over the 
 polar and cartesian coordinate systems. Since a cartesian coordinate isn't 
