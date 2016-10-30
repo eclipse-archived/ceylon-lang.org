@@ -16,23 +16,25 @@ using named arguments. We're now ready to learn about _comprehensions_.
 
 ## Comprehensions
 
-A comprehension is a convenient way to transform, filter, or combine a
-stream or streams of values before passing the result to a function.
-Comprehensions act upon, and produce, instances of 
-[`Iterable`](#{site.urls.apidoc_1_3}/Iterable.type.html).
-A comprehension may appear:
+A comprehension is a convenient way to transform, filter, or combine 
+a stream or streams of values before passing the result to a function.
+Comprehensions act upon, and produce, instances of [`Iterable`][]. A 
+comprehension may appear:
 
-- inside braces, producing an iterable,
+- inside braces, producing an stream,
 - inside brackets, producing a sequence, 
 - inside a positional argument list, as an argument to a 
-  [variadic parameter](../basics/#variadic_parameters), or
-- inside a named argument list, as an 
-  [iterable argument](../named-arguments/#iterable_arguments). 
+  [variadic parameter][], or
+- inside a named argument list, as an [iterable argument][]. 
 
-### Comprehensions in iterable and sequence instantiation expressions
+[`Iterable`]: #{site.urls.apidoc_1_3}/Iterable.type.html
+[variadic parameter]: ../basics/#variadic_parameters
+[iterable argument]: ../named-arguments/#iterable_arguments
 
-The brace syntax for [instantiating an iterable](../sequences#streams_iterables)
-accepts a comprehension, so we can use a comprehension to transform any
+### Comprehensions in stream and sequence instantiation expressions
+
+The brace syntax for [instantiating a stream][] accepts a 
+comprehension, so we can use a comprehension to transform any 
 iterable:
 
 <!-- try-pre:
@@ -46,13 +48,13 @@ iterable:
 -->
     {String*} names = { for (p in people) p.name };
 
-Executing the above line of code doesn't actually _do_ very much. In 
-particular it doesn't actually iterate the collection `people`, or 
-evaluate the `name` attribute. That's because elements of the resulting 
-`Iterable` are evaluated _lazily_.
+Executing the above line of code doesn't actually _do_ very much. 
+In particular it doesn't actually iterate the collection `people`, 
+or evaluate the `name` attribute. That's because elements of the 
+resulting `Iterable` are evaluated _lazily_.
 
-The bracket syntax for [instantiating a sequence](../sequences#sequence_syntax_sugar)
-also accepts a comprehension, so we can use a comprehension to build a sequence:
+The bracket syntax for [instantiating a sequence][] also accepts a 
+comprehension, so we can use a comprehension to build a sequence:
 
 <!-- try-pre:
     class Person(shared String name) {}
@@ -66,9 +68,9 @@ also accepts a comprehension, so we can use a comprehension to build a sequence:
     String[] names = [ for (p in people) p.name ];
 
 Since sequences are by nature immutable, executing the previous 
-statement _does_ iterate the `people` and evaluate their 
-`name`s. But it's best to think of that as the effect of the
-bracket syntax, not of the comprehension itself.
+statement _does_ iterate the `people` and evaluate their `name`s. 
+But it's best to think of that as the effect of the bracket syntax, 
+not of the comprehension itself.
 
 Now, comprehensions aren't only useful for building iterables and 
 sequences! They're a significantly more general purpose construct. 
@@ -85,6 +87,9 @@ _precisely_ how the language specification defines these constructs,
 but it's a useful mental model to keep handy. So the idea is that 
 anything we can write inside braces or brackets should also be 
 syntactically legal inside a named argument list.)
+
+[instantiating a stream]: ../sequences#streams_iterables
+[instantiating a sequence]: ../sequences#sequence_syntax_sugar
 
 ### Gotcha!
 
@@ -130,9 +135,8 @@ Suppose we had a class `HashMap`, with the following signature:
 <!-- try: -->
     class HashMap<Key,Item>({Key->Item*} entries) { ... }
 
-According to the [previous chapter](../named-arguments/#iterable_arguments), 
-we can pass multiple values to this parameter using a named argument
-list:
+According to the [previous chapter][iterable argument], we can pass 
+multiple values to this parameter using a named argument list:
 
 <!-- try: -->
     value numbersByName = HashMap { "one"->1, "two"->2, "three"->3 };
@@ -143,8 +147,8 @@ If multiple values are acceptable, so is a comprehension:
     value numNames = ["one", "two", "three"];
     value numbersByName = HashMap { for (i->w in numNames.indexed) w->i };
 
-Going back to our previous example, we could construct a `HashMap<String,Person>` 
-like this:
+Going back to our previous example, we could construct a 
+`HashMap<String,Person>` like this:
 
 <!-- try: -->
     value peopleByName = HashMap { for (p in people) p.name->p };
@@ -167,13 +171,27 @@ evaluated. This is extremely useful for functions like `every()` and
 -->
     if (every { for (p in people) p.age>=18 }) { ... }
 
-The function [`every()`](#{site.urls.apidoc_1_3}/index.html#every) 
-in `ceylon.language` accepts a stream of `Boolean` values, and stops 
-iterating the stream as soon as it encounters `false`.
+The function [`every()`][] in `ceylon.language` accepts a stream of 
+`Boolean` values, and stops iterating the stream as soon as it 
+encounters `false`.
 
 Now let's see what the various bits of a comprehension do.
 
-## Transformation
+[`every()`]: #{site.urls.apidoc_1_3}/index.html#every 
+
+
+## Comprehension clauses
+
+A comprehension is a series of:
+
+- `for` clauses, and 
+- `if` clauses,
+- followed by an expression.
+
+You're allowed to freely mix `if` and `for` clauses. But there must
+be exactly one expression, and it must come last.
+
+### Transformation
 
 The first thing we can do with a comprehension is transform the
 elements of the stream using an expression to produce a new value
@@ -194,7 +212,7 @@ For example, this comprehension
 results in an `Iterable<String->Person>`. For each element of `people`,
 a new `Entry<String,Person>` is constructed by the `->` operator.
 
-## Filtering
+### Filtering
 
 The `if` clause of a comprehension allows us to skip certain elements
 of the stream. This comprehension produces a stream of numbers which
@@ -224,7 +242,7 @@ It's especially useful to filter using `if (exists ...)`.
 -->
     for (p in people) if (exists s = p.spouse) p->s
 
-You can even use [multiple `if` conditions](../attributes-control-structures#condition_lists):
+You can even use [multiple `if` conditions][conditions]:
 
 <!-- try: -->
     for (p in people) 
@@ -232,7 +250,9 @@ You can even use [multiple `if` conditions](../attributes-control-structures#con
             nonempty inlaws = s.parents) 
                     p->inlaws
 
-## Products and joins
+[conditions]: ../attributes-control-structures#condition_lists
+
+### Products and joins
 
 A comprehension may have more than one `for` clause. This allows us
 to combine two streams to obtain a stream of the values in their 
@@ -260,7 +280,7 @@ a lot like a `join` in SQL.
 -->
     for (o in orgs) for (e in o.employees) e.name
 
-## Comprehensions beginning in `if`
+### Comprehensions beginning in `if`
 
 A comprehension may begin with an `if` clause. For example, this
 comprehension:
@@ -287,6 +307,7 @@ this `if` expression:
 
 However, there's one important difference: conditions inside
 brace-delimited comprehensions are evaluated _lazily_.
+
 
 ## There's more...
 
