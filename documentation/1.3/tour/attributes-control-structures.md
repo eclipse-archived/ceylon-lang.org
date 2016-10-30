@@ -34,7 +34,10 @@ local variable in a constructor doesn't outlive the invocation of the
 constructor. But a field lives until the object it belongs to is garbage
 collected.
 
-This distinction is much less meaningful in Ceylon, and often irrelevant. 
+This distinction is much less meaningful in Ceylon, and often irrelevant.
+
+### Is it a field or is it a local variable?
+
 An _attribute_ is really just a value declared in the parameter list or 
 body of the class that happens to be captured by some `shared` declaration.
 
@@ -119,7 +122,7 @@ between the things these terms refer to. Any named value might be captured by
 some other declaration in the same containing scope. A local value is just an 
 attribute that happens to not be captured by anything.
 
-## Let expressions
+### Tip: let expressions
 
 It's possible to declare a local value within an expression using `let`, for
 example:
@@ -134,7 +137,7 @@ example:
 Let expressions are especially useful in combination with tuple and entry 
 [destructuring](../sequences/#destructuring). 
 
-## Variables
+### Variables
 
 Ceylon encourages you to use *immutable* references as much as possible. 
 Therefore, immutability is the default! An immutable reference has its value 
@@ -187,7 +190,7 @@ been [initialized](../classes/#initializing_attributes), we need to annotate it
 Idiomatic Ceylon code uses mutable references relatively less often than in most 
 other languages. 
 
-## Setters
+### Setters
 
 We've already met the concept of a [getter](../classes/#abstracting_state_using_attributes).
 

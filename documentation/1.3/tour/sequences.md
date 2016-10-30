@@ -600,7 +600,7 @@ And in `case`s of a `switch`
     }
 
 And even in a `let` 
-[expression](../attributes-control-structures/#let_expressions):
+[expression](../attributes-control-structures/#tip_let_expressions):
 
     print(let ([x, y] = [1.0, 2.0]) "(``x``, ``y``)");
 
