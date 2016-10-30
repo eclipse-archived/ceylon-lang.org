@@ -396,6 +396,11 @@ To avoid the cost of calling `size()`, try to use the more efficient
 `empty`, `longerThan()` and `shorterThan()` when the string might be 
 very long.
 
+<!-- try: -->
+    String long = ... ;
+    if (long.size<10) { ... } //slow!
+    if (long.shorterThan(10)) { ... } //faster
+
 ## Numeric types
 
 As we've mentioned several times before, Ceylon doesn't have anything like 
