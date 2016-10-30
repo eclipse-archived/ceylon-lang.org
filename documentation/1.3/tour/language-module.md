@@ -358,7 +358,8 @@ have quite distinct purposes:
 ## Characters and character strings
 
 We've already met the class [`String`][], way back in 
-[the first leg of the tour](../basics/#string_literals).
+[the first leg of the tour](../basics/#string_literals). Ceylon strings 
+are made of [`Character`][]s.
 
 A character literal is written between single quotes.
 
@@ -369,10 +370,9 @@ A character literal is written between single quotes.
 An instance of `Character` represents a 32-bit Unicode character, not a 
 Java-style UTF-16 `char`. 
 
-Ceylon strings are made of [`Character`][]s&mdash;indeed, a `String` 
-is a [`List`][] of `Character`s. And therefore a `String` is a `List` 
-of 32-bit Unicode codepoints. That's really nice, but it has one unusual 
-consequence.
+A `String` is a [`List`][] of `Character`s. And therefore a `String` is 
+a `List` of 32-bit Unicode codepoints, not a list of `char`s. That's 
+really nice, but it has one unusual consequence.
 
 [`String`]: #{site.urls.apidoc_1_3}/String.type.html
 
