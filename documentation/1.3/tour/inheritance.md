@@ -105,7 +105,7 @@ in `Duck`. We don't believe that the name of a method or attribute alone is
 sufficient to identify its semantics. And, more importantly, [structural
 typing doesn't work properly with tools](#{page.doc_root}/faq/language-design/#structural_typing).
 
-## Shortcut syntax for refinement
+### Shortcut syntax for refinement
 
 There's a more compact way to refine a `default` member of a superclass: 
 simply specify its refined implementation using `=>`, like this:
@@ -177,7 +177,7 @@ Note that this shortcut syntax does not allow annotations. If you need to
 add documentation or other annotations to the refining member, you must
 use the more verbose syntax.
 
-## Refining a member of `Object`
+### Refining a member of `Object`
 
 Our `Polar` class is an implicit subtype of the class 
 [`Object`](#{site.urls.apidoc_1_3}/Object.type.html)
@@ -495,8 +495,7 @@ be specified by the interface itself. Even better, it's possible to add a
 new member to an interface without breaking existing implementations of the 
 interface.
 
-
-## Ambiguities in mixin inheritance
+### Ambiguities in mixin inheritance
 
 It's illegal for a type to inherit two members with the same name, unless the 
 two members both (directly or indirectly) refine a common member of a common 
