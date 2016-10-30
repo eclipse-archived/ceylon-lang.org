@@ -20,13 +20,19 @@ We've seen plenty of parameterized types already&mdash;for example,
 [iterables, sequences, and tuples](../sequences)&mdash;but now let's explore a 
 few more details.
 
-
-## Defining generic types
+## Generic types
 
 Programming with generic types is one of the most difficult parts of Java. 
 That's still true, to some extent, in Ceylon. But because the Ceylon language 
 and SDK were designed for generics from the ground up, Ceylon is able to 
 alleviate the most painful aspects of Java's bolted-on-later model.
+
+There are two kinds of things which may be generic:
+
+- a class, interface, or type alias, or
+- a function.
+
+### Defining generic types
 
 Just like in Java, only types and methods may declare type parameters. Also 
 just like in Java, type parameters are listed before ordinary parameters, 
@@ -56,15 +62,14 @@ enclosed in angle brackets.
             given Key satisfies Object
             given Item satisfies Object { ... }
 
-As you can see, the convention in Ceylon is to use meaningful names for 
-type parameters (in other languages the usual convention is to use single 
-letter names).
+As you can see, the convention in Ceylon is to use meaningful names for type 
+parameters (in other languages the usual convention is to use single letter 
+names).
 
 A type parameter may have a default argument.
 
 <!-- try: -->
     shared interface Iterable<out Element, out Absent=Null> ...
-
 
 ## Type arguments
 
