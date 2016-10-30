@@ -817,7 +817,7 @@ semantics of Ceylon's native module system.
 [Jigsaw]: http://openjdk.java.net/projects/jigsaw/
 
 
-## There's more
+## There's more...
 
 Later in the tour, we'll learn how to interoperate with
 [native Java archives](../interop/#depending_on_a_java_archive),

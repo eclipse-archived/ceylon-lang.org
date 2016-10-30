@@ -47,8 +47,8 @@ class TOC
   end
 
   def parse_markdown_headers(content)
-    toc = "<div class='toc'><h2>Contents</h2>"
-    last_depth = 0
+    toc = ""
+    last_depth = 1
     content.gsub!(/^(\#{2,6})[ ]+(.+?)[ ]*\#*\n+/) do |match|
       number = $1.size.to_i
       name = $2.strip
@@ -80,7 +80,7 @@ class TOC
       end
     end
 
-    toc << "</div>"
+    toc << ""
 
     toc
   end

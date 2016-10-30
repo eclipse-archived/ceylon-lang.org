@@ -623,6 +623,38 @@ form.bp {
     }
   }
 
+  .toc {
+    width: 260px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    font-size: 14px;
+    text-shadow: white 1px 1px 0px;
+    padding:1em 0em;
+    margin:0em 1.75em;
+    border-top: 0;
+    border-bottom: 0; 
+    border-left: 1px solid #c7d8d8;
+    border-right: 1px solid #c7d8d8;
+    background: url("../images/sidebar_bkg_elephant.png") no-repeat 0px 0px #d4e5e5;
+    
+  /* for high resolution display */
+  @media only screen and (min--moz-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min-device-pixel-ratio: 2) {
+    background: url("../images/sidebar_bkg_elephant-2x.png") no-repeat 0px 0px #d4e5e5;
+    background-size: 220px 450px;
+  }
+  
+    ul {
+      margin-left: 2em;
+      margin-right: 0.5em;
+      padding-left: 0em;
+      padding-right: 0em;
+    }
+  
+  }
+
   .sidebar-block {
     -moz-border-radius: 15px;
     border-radius: 15px;
