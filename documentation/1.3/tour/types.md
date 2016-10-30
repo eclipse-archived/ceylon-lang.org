@@ -305,8 +305,7 @@ However, there is a class of problems where this kind of refactoring isn't
 appropriate. In most object-oriented languages, these problems are usually 
 solved using the "visitor" pattern.
 
-
-## Visitors
+### Visitors
 
 Let's consider the following tree visitor implementation:
 
@@ -419,7 +418,7 @@ of "breaking" when a new subtype of `Node` is added.
         }
     }
 
-## Enumerated interfaces
+### Enumerated interfaces
 
 Ordinarily, Ceylon won't let us use interface types as `case`s of a `switch`.
 If `File`, `Directory`, and `Link` are interfaces, we ordinarily can't write:
@@ -559,8 +558,7 @@ As is this, still assuming the above declaration of `Resource`:
 If you're interested in knowing more about how this works, 
 [read this](/blog/2012/01/25/enumerated-types/#how_the_compiler_reasons_about_enumerated_types).
 
-
-## Enumerated instances
+### Enumerated instances
 
 Ceylon doesn't have anything exactly like Java's `enum` declaration. But we 
 can emulate the effect using the `of` clause.
