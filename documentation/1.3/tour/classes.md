@@ -9,19 +9,25 @@ doc_root: ../..
 
 # #{page.title}
 
-This is the second step in our tour of the Ceylon language. In 
-the [previous leg](../basics) you learned some of the basics of 
-the syntax of Ceylon. In this leg we're going to learn how to
-define classes with methods and attributes.
+This is the second step in our tour of the Ceylon language. In the 
+[previous leg](../basics) you learned some of the basics of the 
+syntax of Ceylon. In this leg we're going to learn how to define 
+classes with methods and attributes.
+
+First, we need to know about one little restriction that's quite 
+specific to Ceylon.
 
 ## Identifier naming
 
-The case of the first character of an identifier is significant.
-Type (interface, class, and type parameter) names must start 
-with an initial capital letter. Function and value names start 
-with an initial lowercase letter or underscore. The Ceylon 
-compiler is very fussy about this. You'll get a compilation error 
-if you write:
+The case of the first character of an identifier is significant:
+
+- Type (interface, class, and type parameter) names must start with 
+  an initial capital letter. 
+- Function and value names start with an initial lowercase letter 
+  or underscore.
+
+The Ceylon compiler is very fussy about this. You'll get a error if 
+you write:
 
 <!-- try:
     class hello() { } //compile error
@@ -35,15 +41,15 @@ or:
 -->
     String Name = .... //compile error
 
-There is a way to work around this restriction, which is 
-mainly useful when calling legacy Java code. You can "force"
-the compiler to understand that an identifier is a type name
-by prefixing it with `\I`, or that it is a function or value
-name by prefixing it with `\i`. For example, `\iRED` is 
-considered an initial lowercase identifier.
+There is a way to work around this restriction, which is mainly 
+useful when calling legacy Java code. You can "force" the compiler 
+to understand that an identifier is a type name by prefixing it with 
+`\I`, or that it is a function or value name by prefixing it with 
+`\i`. For example, `\iRED` is considered an initial lowercase 
+identifier.
 
-So the following declarations are acceptable, but definitely 
-not recommended, except in the interop scenario: 
+So the following declarations are acceptable, but definitely not 
+recommended, except in the interop scenario: 
 
 <!-- try:
     class \Ihello() { } //OK, but not recommended
@@ -81,60 +87,66 @@ system. Our class has two parameters, two methods, and an attribute.
 
 There's two things in particular to notice here:
 
-1. The parameters used to instantiate a class are specified as part of the 
-   class declaration, right after the name of the class. This syntax is less 
-   verbose and more regular than Java, C#, or C++. We do have
-   [constructors](../initialization#constructors) in Ceylon, but we rarely
-   need them, and they shouldn't be the first thing you reach for.
+1. The parameters used to instantiate a class are specified as part 
+   of the class declaration, right after the name of the class. This 
+   syntax is less verbose and more regular than Java, C#, or C++. We 
+   do have [constructors](../initialization#constructors) in Ceylon, 
+   but we rarely need them, and they shouldn't be the first thing 
+   you reach for.
    
-2. We make use of the parameters of a class anywhere within the body of 
-   the class. In Ceylon, we often don't need to define explicit members of the 
-   class to hold the parameter values. Instead, we can access the parameters
-   `angle` and `radius` directly from the `rotate()` and `dilate()` methods, 
-   and from the expression which specifies the value of `description`.
+2. We make use of the parameters of a class anywhere within the body   
+   of the class. In Ceylon, we often don't need to define explicit 
+   members of the class to hold the parameter values. Instead, we 
+   can access the parameters `angle` and `radius` directly from the 
+   `rotate()` and `dilate()` methods, and from the expression which 
+   specifies the value of `description`.
 
-Notice also that Ceylon doesn't have a `new` keyword to indicate instantiation,
-we just "invoke the class", writing `Polar(angle, radius)`.
+Notice also that Ceylon doesn't have a `new` keyword to indicate 
+instantiation, we just "invoke the class", writing 
+`Polar(angle, radius)`.
 
-The `shared` annotation determines the accessibility of the annotated type, 
-attribute, or method. Before we go any further, let's see how we can hide the 
-internal implementation of a class from other code.
+The `shared` annotation determines the accessibility of the annotated 
+type, attribute, or method. Before we go any further, let's see how 
+we can hide the internal implementation of a class from other code.
 
 
 ## Hiding implementation details
 
-Ceylon doesn't make a distinction between `public`, `protected` and "default" 
-visibility like Java does; 
-[here's why](#{page.doc_root}/faq/language-design/#no_protected_modifier). 
+Ceylon doesn't make a distinction between `public`, `protected` and 
+"default" visibility like Java does; [here's why][no protected]. 
 Instead, the language distinguishes between: 
 
-* program elements which are visible only inside the scope in which they are 
-  defined, and
-* program elements which are visible wherever the thing they belong to (a type, 
-  package, or module) is visible.
+* program elements which are visible only inside the scope in which 
+  they are defined, and
+* program elements which are visible wherever the thing they belong 
+  to (a type, package, or module) is visible.
 
-By default, members of a class are hidden from code outside the body of the 
-class. By annotating a member with the `shared` annotation, we declare that 
-the member is visible to any code to which the class itself is visible.
+By default, members of a class are hidden from code outside the body 
+of the class. By annotating a member with the `shared` annotation, 
+we declare that the member is visible to any code to which the class 
+itself is visible.
 
-And, of course, a class itself may be hidden from other code. By default, a 
-toplevel class is hidden from code outside the package in which the class is 
-defined. Annotating a top level class with `shared` makes it visible to any 
-code to which the package containing the class is visible.
+And, of course, a class itself may be hidden from other code. By 
+default, a toplevel class is hidden from code outside the package in 
+which the class is defined. Annotating a top level class with `shared` 
+makes it visible to any code to which the package containing the class 
+is visible.
 
-Finally, packages are hidden from code outside the module to which the 
-package belongs by default. Only explicitly shared packages are visible to 
-other modules.
+Finally, packages are hidden from code outside the module to which 
+the package belongs by default. Only explicitly shared packages are 
+visible to other modules.
 
 Got the idea? We're playing Russian dolls here.
 
+[no protected]: #{page.doc_root}/faq/language-design/#no_protected_modifier
 
 ## Exposing parameters as attributes
 
-If we want to expose the `angle` and `radius` of our `Polar` coordinate to
-other code, we need to define attributes of the class. It's very common to 
-assign parameters of a class directly to a `shared` attribute of the class, 
-so Ceylon provides a streamlined syntax for this.
+If we want to expose the `angle` and `radius` of our `Polar` 
+coordinate to other code, we need to define attributes of the class. 
+It's very common to assign parameters of a class directly to a `shared` 
+attribute of the class, so Ceylon provides a streamlined syntax for 
+this.
 
 <!-- try-post:
     print(Polar(0.37, 10.0).description);
@@ -157,8 +169,8 @@ so Ceylon provides a streamlined syntax for this.
         
     }
 
-Code that uses `Polar` can access the attributes of the class using a very
-convenient syntax.
+Code that uses `Polar` can access the attributes of the class using a 
+very convenient syntax.
 
 <!-- try: -->
 <!-- check:none:Requires Math -->
@@ -169,8 +181,8 @@ convenient syntax.
             => Cartesian(polar.radius*cos(polar.angle), 
                          polar.radius*sin(polar.angle));
 
-There's an even more compact way to write the code above, though it's often
-less readable:
+There's an even more compact way to write the code above, though it's 
+often less readable:
 
 <!-- try-post:
     print(Polar(0.37, 10.0).description);
@@ -191,18 +203,18 @@ less readable:
     }
 
 This illustrates an important feature of Ceylon: there is almost no 
-essential difference, aside from syntax, between a parameter of a class,
-and a value declared in the body of the class.
+essential difference, aside from syntax, between a parameter of a 
+class, and a value declared in the body of the class.
 
-Instead of declaring the attributes in the body of the class, we simply
-annotated the parameters `shared`. We encourage you to avoid this shortcut 
-when you have more than one or two parameters.
+Instead of declaring the attributes in the body of the class, we 
+simply annotated the parameters `shared`. We encourage you to avoid 
+this shortcut when you have more than one or two parameters.
 
 ## Initializing attributes
 
-The attributes `angle` and `radius` are _references_, the closest thing 
-Ceylon has to a Java field. Usually we specify the value of a reference
-when we declare it.
+The attributes `angle` and `radius` are _references_, the closest 
+thing Ceylon has to a Java field. Usually we specify the value of a 
+reference when we declare it.
 
 <!-- try: -->
 <!-- check:none:Requires Math -->
@@ -234,8 +246,8 @@ assignment.
     }
 <!-- cat: } -->
 
-But if there's no constructors in Ceylon, where precisely should we put this
-code? We put it directly in the body of the class!
+But if there's no constructors in Ceylon, where precisely should we 
+put this code? We put it directly in the body of the class!
 
 <!-- try-post:
     print(Polar(0.37, 10.0, null).description);
@@ -259,8 +271,8 @@ code? We put it directly in the body of the class!
         
     }
 
-The Ceylon compiler forces you to specify a value of any reference before 
-making use of the reference in an expression.
+The Ceylon compiler forces you to specify a value of any reference 
+before making use of the reference in an expression.
 
 <!-- check:none:Demoing error -->
     Integer count;
@@ -272,21 +284,21 @@ We'll learn more about this [later in the tour](../initialization).
 
 ## Abstracting state using attributes
 
-If you're used to writing JavaBeans, you can think of a reference as a
-combination of several things:
+If you're used to writing JavaBeans, you can think of a reference as 
+a combination of several things:
 
 * a field,
 * a getter, and, sometimes, 
 * a setter. 
 
-That's because not every value is a reference like the one we've just seen; 
-others are more like a getter method, or, sometimes, like a getter and 
-setter method pair.
+That's because not every value is a reference like the one we've 
+just seen; others are more like a getter method, or, sometimes, like 
+a getter and setter method pair.
 
-We'll need to expose the equivalent cartesian coordinates of a `Polar`.
-Since the cartesian coordinates can be computed from the polar coordinates,
-we don't need to define state-holding references. Instead, we can define 
-the attributes as _getters_.
+We'll need to expose the equivalent cartesian coordinates of a 
+`Polar`. Since the cartesian coordinates can be computed from the 
+polar coordinates, we don't need to define state-holding references. 
+Instead, we can define the attributes as _getters_.
 
 <!-- try: -->
 <!-- check:none:Requires Math -->
@@ -305,13 +317,14 @@ the attributes as _getters_.
         
     }
 
-Notice that the syntax of a getter declaration looks a lot like a method 
-declaration with no parameter list.
+Notice that the syntax of a getter declaration looks a lot like a 
+method declaration with no parameter list.
 
-So in what way are attributes "abstracting state"? Well, code that uses 
-`Polar` never needs to know if an attribute is a reference or a getter. 
-Now that we know about getters, we could rewrite our `description` 
-attribute as a getter, without affecting any code that uses it.
+So in what way are attributes "abstracting state"? Well, code that 
+uses `Polar` never needs to know if an attribute is a reference or a 
+getter. Now that we know about getters, we could rewrite our 
+`description` attribute as a getter, without affecting any code that 
+uses it.
 
 <!-- try-post:
     print(Polar(0.37, 10.0, null).description);
@@ -334,16 +347,18 @@ attribute as a getter, without affecting any code that uses it.
 
 ## Living without static members
 
-Right at the beginning of the tour, we mentioned that Ceylon doesn't have
-`static` members like in Java, C#, or C++. Instead of a `static` member, 
-we either:
+Right at the beginning of the tour, we mentioned that Ceylon doesn't 
+have `static` members like in Java, C#, or C++. Instead of a `static` 
+member, we either:
 
 - use a toplevel function or value declaration, or
-- in the case where several "static" declarations need to share some private
-  stuff, members of a singleton `object` declaration, which we'll meet right
-  [at the start of the next chapter](../anonymous-member-classes/#anonymous_classes).
+- in the case where several "static" declarations need to share some 
+  private stuff, members of a singleton `object` declaration, which 
+  we'll meet right [at the start of the next chapter][anonymous classes].
 
 The lack of static members results in a minor gotcha for newcomers.
+
+[anonymous classes]: ../anonymous-member-classes/#anonymous_classes
 
 ### Gotcha!
 
@@ -352,8 +367,8 @@ The syntax `Polar.radius` is legal in Ceylon, and we even call it a
 but it does not usually mean what you think it means!
 
 Sure, if you're taking advantage of Ceylon's Java interop, you can call 
-a static member of a Java class using this syntax, just like you would in
-Java:
+a static member of a Java class using this syntax, just like you would 
+in Java:
 
 <!-- try: -->
     import java.lang { Runtime }
@@ -368,25 +383,26 @@ the static member:
     
     Integer procs = runtime.availableProcessors(); 
 
-But in regular Ceylon code, an expression like `Polar.radius` is _not_ a
-reference to a static member of the class `Polar`. We'll come back to the 
-question of what a "static reference" really is, when we discuss 
+But in regular Ceylon code, an expression like `Polar.radius` is _not_ 
+a reference to a static member of the class `Polar`. We'll come back to 
+the question of what a "static reference" really is, when we discuss 
 [higher-order functions](../functions).
 
 
 ## Living without overloading
 
 It's time for some bad news: Ceylon doesn't have method or constructor 
-overloading (the truth is that overloading is the source of various problems 
-in Java, especially when generics come into play). However we can emulate 
-most non-harmful uses of constructor or method overloading using:
+overloading (the truth is that overloading is the source of various 
+problems in Java, especially when generics come into play). However we 
+can emulate most non-harmful uses of constructor or method overloading 
+using:
 
 * defaulted parameters, 
 * variadic parameters (varargs), and
 * union types or enumerated type constraints.
 
-We're not going to get into all the details of these workarounds right now, 
-but here's a quick example of each of the three techniques:
+We're not going to get into all the details of these workarounds right 
+now, but here's a quick example of each of the three techniques:
 
 <!-- try: -->
     //defaulted parameter
@@ -415,8 +431,8 @@ but here's a quick example of each of the three techniques:
         }
     }
 
-Don't worry if you don't completely understand the third example just yet, 
-we'll come back to it [later in the tour](../types#union_types). 
+Don't worry if you don't completely understand the third example just 
+yet, we'll come back to it [later in the tour](../types#union_types). 
 
 Let's make use of this idea to "overload" the "constructor" of `Polar`.
 
@@ -476,8 +492,8 @@ Now we can create `Polar` coordinates with or without labels:
     Polar coord = Polar(r, theta);
 <!-- cat: } -->
 
-Later, we'll learn about [named arguments](../named-arguments), which we
-often use to make instantiation expressions more readable, especially
+Later, we'll learn about [named arguments](../named-arguments), which 
+we often use to make instantiation expressions more readable, especially
 when the class has more than two parameters:
 
 <!-- try-pre:
@@ -513,28 +529,32 @@ when the class has more than two parameters:
     Polar coord = Polar { radius = r; angle = theta; };
 <!-- cat: } -->
 
-Finally, it's worth noting that very many uses cases for overloading in Java
-involve the use of primitive types, which we can't abstract over in Java's
-type system. In Ceylon, there are no primitive types, and so we can often use
-[generics](../generics) instead of overloading.
+Finally, it's worth noting that very many uses cases for overloading 
+in Java involve the use of primitive types, which we can't abstract 
+over in Java's type system. In Ceylon, there are no primitive types, 
+and so we can often use [generics](../generics) instead of overloading.
 
 ### Gotcha!
 
-Even with these "emulation" techniques, not _every_ case of a legal overloaded 
-Java method can be represented directly in Ceylon. In such situations it's
-necessary to exert a little more effort to come up with distinct names.
+Even with these "emulation" techniques, not _every_ case of a legal 
+overloaded Java method can be represented directly in Ceylon. In such 
+situations it's necessary to exert a little more effort to come up 
+with distinct names.
 
 ### Tip: using named constructors instead of overloading
 
-When we have multiple ways to create a class, and none of the above techniques
-for "emulating" overloading works out, we probably need to give the class one 
-or more [named constructors](../initialization/#constructors). We'll learn
-about constructors much later in this tour, because they're only rarely used.
+When we have multiple ways to create a class, and none of the above 
+techniques for "emulating" overloading works out, we probably need to 
+give the class one or more [named constructors][]. We'll learn about 
+constructors much later in this tour, because they're only rarely used.
+
+[named constructors]: ../initialization/#constructors
 
 ## There's more...
 
-In the [next chapter](../attributes-control-structures), we'll continue our 
-investigation of attributes, and especially _variable_ attributes. We'll also
-meet Ceylon's [control structures](../attributes-control-structures/#control_structures).
+In the [next chapter](../attributes-control-structures), we'll continue 
+our investigation of attributes, and especially _variable_ attributes. 
+We'll also meet Ceylon's 
+[control structures](../attributes-control-structures/#control_structures).
 
 (We'll wait until a later chapter to learn more about [methods](../functions).)
