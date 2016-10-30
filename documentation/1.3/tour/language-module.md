@@ -215,10 +215,10 @@ means, by definition,
 <!-- check:none -->
     x.equals(y)
 
-Therefore, it's easy to customize operators like `<` and `==` with specific 
-behavior for our own classes, just by implementing or refining methods like 
-`compare()` and `equals()`. Thus, we say that operators are _polymorphic_ 
-in Ceylon.
+Therefore, it's easy to customize operators like `<` and `==` with 
+specific behavior for our own classes, just by implementing or refining 
+methods like `compare()` and `equals()`. Thus, we say that operators are 
+_polymorphic_ in Ceylon.
 
 Apart from `Comparable` and `Object`, which provide the underlying 
 definition of comparison and equality operators, the following interfaces 
@@ -255,8 +255,8 @@ are also important in the definition of Ceylon's polymorphic operators:
 ## Comparison operators
 
 In addition to the traditional `<`, `>`, `<=`, and `>=` operators, which 
-evaluate to `Boolean`, there is a `<=>` operator, which produces an instance
-of the enumerated type [`Comparison`][].
+evaluate to `Boolean`, there is a `<=>` operator, which produces an 
+instance of the enumerated type [`Comparison`][].
 
 <!-- try: -->
     switch(x<=>0)
@@ -270,8 +270,8 @@ of the enumerated type [`Comparison`][].
         return sqrt(x);
     }
 
-Two `<` or `<=` operators may be combined to determine if a value falls withing
-a range:
+Two `<` or `<=` operators may be combined to determine if a value falls 
+within a range:
 
 <!-- try: -->
     assert(0<quantity<=100);
@@ -280,10 +280,11 @@ a range:
 
 ## Set operators
 
-The operators `|` and `&` represent set union and intersection when they appear in a
-value expression. But, as we've already seen, when they appear in a type expression 
-they represent _type_ union and intersection! Indeed, there is a relationship between
-the two kinds of union/intersection:
+The operators `|` and `&` represent set union and intersection when 
+they occur in a value expression. But, as we've already seen, when 
+they occur in a type expression they represent _type_ union and 
+intersection! Indeed, there's a relationship between the two kinds of 
+union/intersection:
 
 <!-- try: -->
     Set<Integer> integers = ... ;
@@ -303,20 +304,22 @@ These operators may only be used with expressions of type [`Set`][].
 
 ### Gotcha!
 
-There's no operators representing bitwise operations like NOT, AND, OR, XOR,
-so we must write these operations as method calls.
+There's no operators representing bitwise operations like NOT, AND, 
+OR, XOR, so we must write these operations as method calls.
 
 ## Indexed operations
 
-We can access an element of a [`Correspondence`][] by using the index operator. 
-Both [`List`][]s and [`Map`][]s are instances of `Correspondence`:
+We can access an element of a [`Correspondence`][] by using the 
+index operator. Both [`List`][]s and [`Map`][]s are instances of 
+`Correspondence`:
 
 <!-- try: -->
     "string must start with a \""
     assert (exists ch = text[0], ch=='"');
 
-_Mutable_ lists and maps are instances of [`CorrespondenceMutator`][], which allows
-indexed assignment to element. One example of a mutable list is [`Array`][]:
+_Mutable_ lists and maps are instances of [`CorrespondenceMutator`][], 
+which allows indexed assignment to element. One example of a mutable 
+list is [`Array`][]:
 
 <!-- try-post:
     print(array); 
@@ -326,8 +329,8 @@ indexed assignment to element. One example of a mutable list is [`Array`][]:
         array[i] = i^2;
     }
 
-All `List`s are also instances of [`Ranged`][]. We can produce a subrange of a 
-`Ranged` object by providing two endpoints:
+All `List`s are also instances of [`Ranged`][]. We can produce a 
+subrange of a `Ranged` object by providing two endpoints:
 
 <!-- try: -->
     if (text[i..i]=="/") {
@@ -335,14 +338,14 @@ All `List`s are also instances of [`Ranged`][]. We can produce a subrange of a
         //...
     }
 
-We can also produce a subrange of a `Ranged` object by providing a starting point 
-and a length.
+We can also produce a subrange of a `Ranged` object by providing a 
+starting point and a length.
 
 <!-- try: -->
     String selectedText = text[selection.offset:selection.length];
 
-Please take careful note the difference between `..` and `:`, they have quite 
-distinct purposes:
+Please take careful note the difference between `..` and `:`, they 
+have quite distinct purposes:
 
     print("hello"[2..2]); //prints "l"
     print("hello"[2:2]);  //prints "ll"
@@ -355,9 +358,7 @@ distinct purposes:
 ## Characters and character strings
 
 We've already met the class [`String`][], way back in 
-[the first leg of the tour](../basics/#string_literals). Ceylon strings 
-are made of [`Character`][]s&mdash;indeed, a `String` is a [`List`][] of 
-`Character`s.
+[the first leg of the tour](../basics/#string_literals).
 
 A character literal is written between single quotes.
 
@@ -365,22 +366,35 @@ A character literal is written between single quotes.
     Character newline = '\n';
     Character pi = '\{#0001D452}';
 
-An instance of `Character` represents a 32-bit Unicode character, not a
-Java-style UTF-16 `char`. However, under the covers, Ceylon strings are
-implemented using a Java `char[]` array (in fact, they are implemented
-using a Java string). So some operations on Ceylon strings are much
-slower than you might expect, since they must take four-byte characters
-into account. This includes `size` and `item()`. We think it's much better
-that these operations be slow, like in Ceylon, than that they sometimes
-give the wrong answer, like in Java. And
+An instance of `Character` represents a 32-bit Unicode character, not a 
+Java-style UTF-16 `char`. 
+
+Ceylon strings are made of [`Character`][]s&mdash;indeed, a `String` 
+is a [`List`][] of `Character`s. And therefore a `String` is a `List` 
+of 32-bit Unicode codepoints. That's really nice, but it has one unusual 
+consequence.
+
+[`String`]: #{site.urls.apidoc_1_3}/String.type.html
+
+### Gotcha!
+
+Under the covers, Ceylon strings are implemented using a Java `char[]` 
+array (in fact, they are implemented using a Java string).
+
+Therefore, some operations on Ceylon strings are much slower than you 
+might expect, since they must take four-byte characters into account. 
+This includes `size` and `get()`. 
+
+We think it's much better that these operations be slow, as in Ceylon, 
+than that they sometimes give the wrong answer, like in Java. And
 [remember](../sequences/#sequence_gotchas_for_java_developers), it's 
-never correct to iterate a list using `size` and `item()` in Ceylon!
+never correct to iterate a list using `size` and `get()` in Ceylon!
+
+### Tip: avoiding `String.size()`
 
 To avoid the cost of calling `size()`, try to use the more efficient
 `empty`, `longerThan()` and `shorterThan()` when the string might be 
 very long.
-
-[`String`]: #{site.urls.apidoc_1_3}/String.type.html
 
 ## Numeric types
 
