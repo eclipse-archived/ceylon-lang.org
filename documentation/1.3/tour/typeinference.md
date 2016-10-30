@@ -145,6 +145,8 @@ or `function`:
 (Note, this last restriction will be removed in a future version of the 
 language!)
 
+### "Left to right" type inference
+
 These restrictions mean that Ceylon's type inference rules are quite simple. 
 Type inference is purely "right-to-left" and "top-to-bottom". The type of any 
 expression is already known without needing to look to any types declared 
@@ -174,7 +176,7 @@ The inferred return type of `parseIntegerOrFloat()` is `Integer|Float?`,
 since `parseInteger()` returns `Integer?` and `parseFloat()` returns
 `Float?`.
 
-### Type inference for iterable constructor expressions
+### Type inference for streams
 
 What about iterable enumeration expressions like this, which we first
 [met in the last chapter](../sequences/#streams_iterables):
@@ -370,6 +372,8 @@ supertypes when performing type inference:
     value fb = foobar; //inferred type Basic&Foo&Bar
     value fbs = { foobar, foobar }; //inferred type {Basic&Foo&Bar+}
 
+If we want to avoid this behavior, we can't use type inference.
+
 ### Tip: explicitly specifying an anonymous class type
 
 If you *really* need to the exact type of the the anonymous class,
@@ -378,6 +382,8 @@ you'll need to specify the type explicitly.
 <!-- try: -->
     \Ifoobar fb = foobar; //inferred type Basic&Foo&Bar
     {\Ifoobar+} fbs = { foobar, foobar }; //inferred type {Basic&Foo&Bar+}
+
+It's _extremely_ rare that this is useful.
 
 
 ## There's more...

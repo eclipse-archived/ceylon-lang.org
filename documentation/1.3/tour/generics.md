@@ -273,7 +273,6 @@ signatures.
 Therefore, Ceylon also supports Java-style wildcards, albeit with a cleaner
 syntax. 
 
-
 ### Wildcard types
 
 We don't recommend the use of wildcard types in pure Ceylon code, but you 
@@ -310,7 +309,6 @@ of `Widget`, `Map<Object,MoveableWidget>` is assignable to the wildcard type
 
 If you didn't follow this section, don't worry. You might not ever even 
 need to use a wildcard type in Ceylon. We have bigger fish to fry.
-
 
 ### Covariance and contravariance with unions and intersections
 
