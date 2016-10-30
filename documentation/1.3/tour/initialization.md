@@ -196,7 +196,7 @@ is perhaps one of the main reasons why object-oriented languages have never
 featured typesafe handling of `null` values.
 
 
-## Class bodies
+### Class bodies
 
 In order to make it possible for the compiler to guarantee definite 
 initialization of attributes, Ceylon imposes some restrictions on the body 
@@ -227,7 +227,7 @@ write code. Only very rarely will you need to think about the "initializer
 section" and "declaration section" in explicit terms. The compiler will let 
 you know when you break the rules, and force you to fix your code.
 
-## Initializer section
+### Initializer section
 
 The initializer section is responsible for initializing the state of the 
 new instance of the class, before a reference to the new instance is available 
@@ -329,7 +329,7 @@ Now, according to the language spec:
 
 (The spec mentions a couple of other restrictions that we'll gloss over here.)
 
-## Declaration section
+### Declaration section
 
 The declaration section contains the definition of members that don't 
 hold state, and that are never called until the instance to which they 
@@ -353,7 +353,7 @@ essentially the same rules governing the body of an interface. That makes
 sense, because interfaces don't have initialization logic—what interfaces 
 and declaration sections have in common is _statelessness_.
 
-## Circular references
+### Gotcha!
 
 Unfortunately, these rules make it a little tricky to set up circular 
 references between two objects. This is a problem Ceylon has in common 
@@ -369,6 +369,11 @@ following code produces an error:
         shared Child child = 
                 Child(this); //compile error: leaks self reference
     }
+
+Fortunately, there's a way around this, though it does sacrifice
+some compile-time safety.
+
+### Tip: using `late` to create circular references
 
 As a slightly adhoc workaround for this problem, we can annotate the 
 reference `parent`, suppressing the usual definite initialization 
@@ -387,7 +392,28 @@ checks, using the `late` annotation:
 When a reference is annotated `late`, the checks which normally happen
 at compile time are delayed until runtime.
 
-## Definite initialization of functions
+### Tip: lazy initialization
+
+We can abuse the `variable` annotation to arrive at the following idiom for 
+lazy initialization of an attribute:
+
+<!-- try-pre:
+    Float calculatePi() => 3.14159;
+    
+-->
+<!-- try-post:
+
+    print(HaveYourPi().pi);
+-->
+    class HaveYourPi() {
+        variable Float? _pi = null;
+        shared Float pi
+            => _pi else (_pi=calculatePi());
+    }
+
+A future version of the language will likely offer a better way to do this.
+
+### Definite initialization of functions
 
 Ceylon lets us separate the declaration of a function from the actual 
 specification statement that specifies the function implementation.
@@ -468,27 +494,6 @@ But the following code results in an error at compile time:
         //or otherwise? what now?
     }
 
-## Lazy initialization
-
-We can abuse the `variable` annotation to arrive at the following idiom for 
-lazy initialization of an attribute:
-
-<!-- try-pre:
-    Float calculatePi() => 3.14159;
-    
--->
-<!-- try-post:
-
-    print(HaveYourPi().pi);
--->
-    class HaveYourPi() {
-        variable Float? _pi = null;
-        shared Float pi
-            => _pi else (_pi=calculatePi());
-    }
-
-A future version of the language will likely offer a better way to do this.
-
 ## Constructors
 
 Classes with [initializer parameters](../classes/#creating_your_own_class) 
@@ -503,7 +508,7 @@ A class with initializer parameters can't have constructors, so if we need
 to add a constructor to a class, the first thing we need to do is rewrite it
 without initializer parameters.
 
-## Default constructors
+### Default constructors
 
 Let's take our [trusty `Polar` class](../classes/#creating_your_own_class),
 and rewrite it to use a _default constructor_:
@@ -577,7 +582,7 @@ initialization are still in force, and the compiler will make sure
 that every constructor of a class leaves all members of the class
 fully initialized. 
 
-## Named constructors
+### Named constructors
 
 A named constructor declaration looks just like a default constructor,
 except that it declares an initial-lowercase name:
@@ -619,7 +624,7 @@ class name, except within the body of the class itself:
     value pt = Polar(0.37, 10.0);
     print(Polar.copy(pt));
 
-## Constructor delegation
+### Constructor delegation
 
 A constructor may delegate to:
 
@@ -675,7 +680,7 @@ the class, and each member must be initialized before it is
 used. The gory details are covered 
 [here](../../../../blog/2015/06/21/constructors/#ordering_of_initialization_logic).
 
-## Constructors and extension
+### Constructors and extension
 
 When a class with a constructor extends a class with an 
 initializer or default constructor, it specifies just the name 
@@ -754,7 +759,7 @@ delegate to a _different_ constructor of the superclass:
     }
 
 
-## Value constructors
+### Value constructors
 
 A _value constructor_ is a constructor that:
 
@@ -803,7 +808,7 @@ class name, except within the body of the class itself:
 <!-- try: -->
     print(Polar.origin);
 
-## Value constructor enumerations
+### Value constructor enumerations
 
 Finally we've arrived at an alternative, more satisfying, way 
 to emulate a Java `enum`. We've already seen how to do it

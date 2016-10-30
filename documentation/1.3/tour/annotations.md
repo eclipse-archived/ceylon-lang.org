@@ -26,7 +26,7 @@ toplevel function that returns a subtype of
 [`ConstrainedAnnotation`](#{site.urls.apidoc_1_3}/ConstrainedAnnotation.type.html).
 We call the function an _annotation constructor_.
 
-## Annotation constructors
+### Annotation constructors
 
 Here's the definition of a some of our old friends, first `shared`:
 
@@ -66,8 +66,7 @@ Or:
 Since annotation constructors are functions, annotation names always begin 
 with a lowercase letter.
 
-
-## Annotation arguments
+### Annotation arguments
 
 When we specify an annotation with a non-empty parameter list on a program 
 element, we need to specify arguments for the parameters of the annotation. 
@@ -108,8 +107,7 @@ If an annotation has no arguments, we can just write the annotation name
 and leave it at that. We do this all the time with annotations like `shared`, 
 `formal`, `default`, `actual`, `abstract`, `deprecated`, and `variable`.
 
-
-## Annotation types
+### Annotation types
 
 The return type of an annotation constructor is called the *annotation type*.
 The `shared` annotation produces a `SharedAnnotation`:
@@ -180,8 +178,7 @@ The type arguments of this interface express constraints upon how annotations
 which return the annotation type occur. The first type parameter, `Value`, is 
 simply the annotation type itself.
 
-
-## Annotation constraints
+### Annotation constraints
 
 The second type parameter, `Values`, governs how many different annotations 
 of given program element may return the annotation type. Ceylon provides two 
@@ -230,8 +227,7 @@ The argument to `ProgramElement` must be a metamodel type. So the argument
 only at interface and `alias` declarations. The argument `ValueDeclaration` would 
 constrain the annotation to occur only at value or attribute declarations.
 
-
-## Restrictions on annotation parameters and annotation arguments
+### Restrictions on annotation parameters and annotation arguments
 
 The specification defines a number of restrictions on annotation parameter
 types:
