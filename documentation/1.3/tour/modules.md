@@ -109,7 +109,7 @@ This, local imports can be used to resolve name collisions:
     void usesJavaHashMap() {
         import java.util { Map, HashMap }
         
-        Map<String,String> map = HashMap<String,String();
+        Map<String,String> map = HashMap<String,String>();
         ...
     }
 
@@ -127,7 +127,7 @@ provides much less potential for confusion:
     }
     
     void usesJavaHashMap() {
-        JMap<String,String> map = JHashMap<String,String();
+        JMap<String,String> map = JHashMap<String,String>();
         ...
     }
 
