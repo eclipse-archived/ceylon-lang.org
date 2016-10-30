@@ -408,7 +408,7 @@ your code on the JVM or on a JavaScript virtual machine.
 
 Overflow (on the JVM), or loss of precision (in JavaScript) occurs silently.
 
-## Numeric literals
+### Numeric literals
 
 In their simplest form the literals for `Integer`s, and 
 literals for `Float`s look as you might expect from other languages:
@@ -444,7 +444,7 @@ groups of four digits.
 
     Integer sixtyNine = $0100_0101;
 
-## Arbitrary precision numeric types
+### Arbitrary precision numeric types
 
 The platform modules `ceylon.whole` and `ceylon.decimal` define the types 
 
@@ -492,7 +492,7 @@ level of the Ceylon _code_, but it's significant at runtime.
 
 (On a JavaScript VM, you can expect a much smaller performance penalty.)
 
-## Numeric widening
+### Numeric widening
 
 As mentioned earlier, Ceylon doesn't have implicit type conversions, not 
 even built-in conversions for numeric types. Thus, assignment to the type
@@ -536,10 +536,9 @@ only thing approaching an implicit type conversion in the whole language.
 ## Bytes
 
 The class [`Byte`][] is very different from `byte`s in Java, C#, or C. 
-A `Byte` is considered to represent a 
-[congruence class](http://en.wikipedia.org/wiki/Modular_arithmetic) of 
-integers modulo 256. That is to say, a `Byte` doesn't represent just one 
-integer value, but a whole infinite set of them!
+A `Byte` is considered to represent a [congruence class][] of integers 
+modulo 256. That is to say, a `Byte` doesn't represent just one integer 
+value, but a whole infinite set of them!
 
 Therefore:
 
@@ -559,6 +558,8 @@ You'll need to use either `signed` or `unsigned` if you want to treat a
 
 `Byte` is optimized by the compiler to a Java `byte` on the JVM, where
 possible.
+
+[congruence class]: http://en.wikipedia.org/wiki/Modular_arithmetic
 
 ## Collections
 
