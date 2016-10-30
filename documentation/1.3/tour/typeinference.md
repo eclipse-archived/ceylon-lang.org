@@ -174,7 +174,7 @@ The inferred return type of `parseIntegerOrFloat()` is `Integer|Float?`,
 since `parseInteger()` returns `Integer?` and `parseFloat()` returns
 `Float?`.
 
-## Type inference for iterable constructor expressions
+### Type inference for iterable constructor expressions
 
 What about iterable enumeration expressions like this, which we first
 [met in the last chapter](../sequences/#streams_iterables):
@@ -358,16 +358,26 @@ The second idiom is more efficient. It uses the unit type pattern:
 
 These idioms sometimes arise in problems like caching.
 
-## Anonymous classes and type inference
+### Anonymous classes and type inference
 
-Since an anonymous class doesn't have a name, Ceylon replaces anonymous classes 
-with the intersection of their supertypes when performing type inference:
+Since an anonymous class aren't supposed to be referred to be name, 
+Ceylon replaces anonymous classes with the intersection of their 
+supertypes when performing type inference:
 
     interface Foo {}
     interface Bar {}
     object foobar satisfies Foo & Bar {}
     value fb = foobar; //inferred type Basic&Foo&Bar
     value fbs = { foobar, foobar }; //inferred type {Basic&Foo&Bar+}
+
+### Tip: explicitly specifying an anonymous class type
+
+If you *really* need to the exact type of the the anonymous class,
+you'll need to specify the type explicitly.
+
+<!-- try: -->
+    \Ifoobar fb = foobar; //inferred type Basic&Foo&Bar
+    {\Ifoobar+} fbs = { foobar, foobar }; //inferred type {Basic&Foo&Bar+}
 
 
 ## There's more...
