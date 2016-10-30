@@ -96,7 +96,7 @@ a class with a [value constructor](../initialization/#value_constructors):
 And we'll also learn that `object` declarations are really just a syntax 
 sugar for a value constructor after all. 
 
-## Is an anonymous class a singleton?
+### Is an anonymous class a singleton?
 
 You might be tempted to think of `object` declarations as defining singletons, 
 but that's not quite right:
@@ -157,7 +157,7 @@ as long as it is a subtype of the declared type of the attribute.
 
 However, an `object` may not itself be declared `formal` or `default`.
 
-## Anonymous class expressions
+### Anonymous class expressions
 
 We can even write an anonymous class "inline" in an expression, 
 for example:
@@ -238,7 +238,7 @@ our code.
 Notice how, unlike in Java or C#, where polymorphism is only for _methods_, 
 Ceylon features polymorphism for attributes, methods, and member classes.
 
-## Formal member classes
+### Formal member classes
 
 It's even possible to define a `formal` member class of an `abstract` class. A 
 `formal` member class can declare `formal` members.

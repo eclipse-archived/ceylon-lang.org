@@ -37,13 +37,12 @@ The output is:
 
 Note that because the second line of the string literal contained whitespace 
 right up until the first character of the first line of the string literal,
-all that whitespace was automatically removed. This helps us format our
-code nicely.
+all that whitespace was automatically removed. This helps us format our code 
+nicely.
 
 It's often useful to collapse whitespace in a multiline string literal. The
-[`String`](#{site.urls.apidoc_1_3}/String.type.html)
-class has an attribute called 
-[`normalized`](#{site.urls.apidoc_1_3}/String.type.html#normalized). 
+[`String`](#{site.urls.apidoc_1_3}/String.type.html) class has an attribute 
+called [`normalized`](#{site.urls.apidoc_1_3}/String.type.html#normalized). 
 We can use it like this:
 
     value message = "Hello, 
@@ -55,7 +54,61 @@ Which results in the output:
 <!-- lang: none -->
     Hello, World!
 
-Multiline strings are especially useful for adding documentation to a 
+Certain characters in a string literal have a special interpretation.
+
+### Escape sequences
+
+Inside a string literal, you can use the escape sequences `\n`, `\t`, `\\`,
+`\"` and friends that you're used to from other C-like languages.
+
+    print("\"Hello!\", said the program.");
+
+You can also use 2-byte and 4-byte hexadecimal escape sequences to embed
+Unicode characters in your text.
+
+<!-- try-pre:
+    Float calculateE() => 2.71828;
+    Float calculatePi() => 3.14159;
+    
+-->
+    "The mathematical constant \{#03C0}, the
+     ratio of the circumference of a circle
+     to its diameter."
+    Float pi = calculatePi();
+    
+    "The mathematical constant \{#0001D452},
+     the base of the natural logarithm."
+    Float e = calculateE();
+
+Even better, you can identity a Unicode character by its name.
+
+<!-- try-pre:
+    Float calculateE() => 2.71828;
+    Float calculatePi() => 3.14159;
+    
+-->
+    "The mathematical constant \{GREEK SMALL LETTER PI}, the 
+     ratio of the circumference of a circle to its diameter."
+    Float pi = calculatePi();
+    
+    "The mathematical constant \{MATHEMATICAL ITALIC SMALL E},
+     the base of the natural logarithm."
+    Float e = calculateE();
+
+Ceylon strings are composed of UTF-32 characters, as we'll see 
+[later in the tour](../language-module/#characters_and_character_strings).
+
+### Verbatim strings
+
+Sometimes, escape sequence interpolation is annoying, for example, when
+embedding code in a string literal. If we use three double-quotes, `"""`, 
+to delimit our string, we get a _verbatim string_, which may contain
+unescaped backslash and double-quote characters:
+
+    print(""""Hello!", said the program.""");
+
+Verbatim strings literals may also span multiple lines. Verbatim strings
+and multiline strings are especially useful for adding documentation to a 
 program.
 
 
@@ -115,10 +168,9 @@ program element:
     }
 
 
-## Formatting inline documentation
+### Formatting inline documentation
 
-The `doc` annotation may contain [Markdown](http://daringfireball.net/projects/markdown/syntax)
-formatting.
+The `doc` annotation may contain [Markdown][] formatting.
 
 <!-- try: -->
     "The classic [Hello World program][helloworld]
@@ -150,58 +202,7 @@ Since Markdown is sensitive to the initial column in which text appears,
 you need to be careful to indent the lines of the multiline string literal 
 correctly, as we've done here.
 
-
-## Escape sequences
-
-Inside a string literal, you can use the escape sequences `\n`, `\t`, `\\`,
-`\"` and friends that you're used to from other C-like languages.
-
-    print("\"Hello!\", said the program.");
-
-You can also use 2-byte and 4-byte hexadecimal escape sequences to embed
-Unicode characters in your text.
-
-<!-- try-pre:
-    Float calculateE() => 2.71828;
-    Float calculatePi() => 3.14159;
-    
--->
-    "The mathematical constant \{#03C0}, the
-     ratio of the circumference of a circle
-     to its diameter."
-    Float pi = calculatePi();
-    
-    "The mathematical constant \{#0001D452},
-     the base of the natural logarithm."
-    Float e = calculateE();
-
-Even better, you can identity a Unicode character by its name.
-
-<!-- try-pre:
-    Float calculateE() => 2.71828;
-    Float calculatePi() => 3.14159;
-    
--->
-    "The mathematical constant \{GREEK SMALL LETTER PI}, the 
-     ratio of the circumference of a circle to its diameter."
-    Float pi = calculatePi();
-    
-    "The mathematical constant \{MATHEMATICAL ITALIC SMALL E},
-     the base of the natural logarithm."
-    Float e = calculateE();
-
-Ceylon strings are composed of UTF-32 characters, as we'll see 
-[later in the tour](../language-module/#characters_and_character_strings).
-
-
-## Verbatim strings
-
-Sometimes, escape sequence interpolation is annoying, for example, when
-embedding code in a string literal. If we use three double-quotes, `"""`, 
-to delimit our string, we get a _verbatim string_, which may contain
-unescaped backslash and double-quote characters:
-
-    print(""""Hello!", said the program.""");
+[Markdown]: http://daringfireball.net/projects/markdown/syntax
 
 
 ## String interpolation and concatenation
@@ -300,7 +301,7 @@ This is the preferred style most of the time, since we can't actually use
 (But this still isn't the most compact way to write this code.)
 
 
-## Optional types
+### Optional types
 
 Local variables, parameters, and attributes that may contain `null` values 
 must be explicitly declared as being of optional type (the `T?` syntax). 
@@ -350,7 +351,7 @@ inside the `if` block, allowing us to treat `name` as a `String` there.
 the Ceylon compiler does some special magic to transform this value to a virtual 
 machine-level null, all under the covers.)
 
-## Operators for handling null values
+### Operators for handling null values
 
 There are a couple of operators that will make your life easier when dealing 
 with `null` values. The first is `else`:
@@ -490,7 +491,7 @@ Ceylon has:
 - defaulted parameters, and
 - variadic parameters.  
 
-## Defaulted parameters
+### Defaulted parameters
 
 A function parameter may specify a default value.
 
@@ -517,7 +518,7 @@ Defaulted parameters must be declared after all required parameters
 in the parameter list of a function.
 
 
-## Variadic parameters
+### Variadic parameters
 
 A variadic parameter of a function or class is declared using a postfix
 asterisk, for example, `String*`. There may be only one variadic parameter 
@@ -588,7 +589,7 @@ We'll come back to the third case, [comprehensions](../comprehensions),
 later in the tour.
 
 
-## Fat arrows and forward declaration
+### Fat arrows and forward declaration
 
 Ceylon's expression syntax is much more powerful than Java's, and 
 it's therefore possible to express a lot more in a single compact 

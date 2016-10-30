@@ -274,7 +274,7 @@ Therefore, Ceylon also supports Java-style wildcards, albeit with a cleaner
 syntax. 
 
 
-## Wildcard types
+### Wildcard types
 
 We don't recommend the use of wildcard types in pure Ceylon code, but you 
 still need to be aware of their existence if you ever plan to call native
@@ -312,7 +312,7 @@ If you didn't follow this section, don't worry. You might not ever even
 need to use a wildcard type in Ceylon. We have bigger fish to fry.
 
 
-## Covariance and contravariance with unions and intersections
+### Covariance and contravariance with unions and intersections
 
 There's a couple of interesting relationships that arise when we introduce
 union and intersection types into the picture.

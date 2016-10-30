@@ -66,7 +66,7 @@ The `in` operator is just syntactic sugar for the method
 `Category`.
 
 
-## Iterating a stream
+### Iterating a stream
 
 To iterate an instance of `Iterable`, we can use a 
 [`for` loop](../attributes-control-structures/#for):
@@ -235,7 +235,7 @@ abbreviations for type narrowing:
 - `if (exists name)` is an abbreviation for `if (is Object name)`.
 
 
-## Sequence syntax sugar
+### Sequence syntax sugar
 
 There's lots more syntactic sugar for sequences. We can use a bunch of 
 familiar Java-like syntax:
@@ -279,7 +279,7 @@ so we can iterate a `Sequential` using a `for` loop:
 <!-- cat: } -->
 
 
-## Ranges
+### Ranges
 
 A [`Range`](#{site.urls.apidoc_1_3}/Range.type.html)
 is a kind of `Sequence`. The [`span`](#{site.urls.apidoc_1_3}/index.html#span)
@@ -320,7 +320,7 @@ range operator:
     }
 <!-- cat: } -->
 
-## Sequence and its supertypes
+### Sequence and its supertypes
 
 It's probably a good time to see some more advanced Ceylon code. What better 
 place to find some than in the language module itself?
@@ -341,7 +341,7 @@ and [`Iterable`](#{site.urls.apidoc_1_3}/Iterable.type.html).
 Now open the class [`Range`](#{site.urls.apidoc_1_3}/Range.type.html)
 in the IDE, to see a concrete implementation of the `Sequence` interface.
 
-## Empty sequences and the bottom type
+### Empty sequences and the bottom type
 
 Finally, check out the definition of 
 [`Empty`](#{site.urls.apidoc_1_3}/Empty.type.html).
@@ -378,7 +378,7 @@ it sees an `Iterable<Nothing>`, it knows that the operation `first` is of type
 Cool, huh?
 
 
-## Sequence gotchas for Java developers
+### Sequence gotchas for Java developers
 
 Superficially, a sequence type looks a lot like a Java array, but really it's 
 very, very different! First, of course, a sequence type `Sequential<String>` is 

@@ -257,12 +257,10 @@ Here the expression `Hello("Gavin").say` has the same type as `print` above.
 It is of type `Anything(Integer)`.
 
 
-## Function references and equality
+### Function references and equality
 
-The interface `Callable` doesn't satisfy 
-[`Identifiable`](#{site.urls.apidoc_1_3}/Identifiable.type.html), so function 
-references can't be 
-[compared for identity](../language-module/#equality_and_identity).
+The interface `Callable` doesn't satisfy [`Identifiable`][], so function 
+references can't be [compared for identity][equality and identity].
 
 On the other hand, value equality of functions is a notion that is 
 _mathematically_ well-defined&mdash;two functions are equal if they produce 
@@ -271,6 +269,9 @@ is in general _computationally undecidable_.
 
 Therefore, comparison of function references using `equals()` or the `==`
 operator always evaluates to `false`.
+
+[`Identifiable`]: #{site.urls.apidoc_1_3}/Identifiable.type.html
+[equality and identity]: ../language-module/#equality_and_identity
 
 ### Gotcha!
 
@@ -283,7 +284,7 @@ This has some undesirable consequences, for example:
 This is, however, the best we can reasonably do.
 
 
-## Static method and attribute references
+### Static method and attribute references
 
 A static method reference is a reference to a method, qualified by the type
 which declares the method.
@@ -508,7 +509,7 @@ together with anonymous functions _all the time_ in Ceylon. Actually, we
 use them a little less often than you might expect! The reason is that we
 very often use [comprehensions](../comprehensions) instead.
 
-## Anonymous function parameter type inference
+### Anonymous function parameter type inference
 
 When an anonymous function occurs in an argument list, it's usually, but not
 always, possible to infer the parameter types. We can write the previous 
@@ -552,7 +553,7 @@ curried form, we would have to explicitly specify the anonymous function
 parameter types, since the type of the first argument of `fold()` would
 not be taken into account when inferring parameter types.
 
-## Destructuring anonymous function parameters
+### Destructuring anonymous function parameters
 
 Tuple or entry [destructuring](../sequences/#destructuring) may be used in 
 the parameter list of an anonymous function.
@@ -938,7 +939,7 @@ This demonstrates the relationship between tuples and function argument!
 
 
 <!--
-## Curry, uncurry and function composition
+Curry, uncurry and function composition:
 
 A method reference like `Float.times` is represented in "curried" form in Ceylon. 
 I can write:
