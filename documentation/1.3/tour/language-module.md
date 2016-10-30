@@ -361,6 +361,11 @@ We've already met the class [`String`][], way back in
 [the first leg of the tour](../basics/#string_literals). Ceylon strings 
 are made of [`Character`][]s.
 
+    String hello = "hello \{SPARKLING HEART}";
+    for (ch in hello) {
+        print("U+``formatInteger(ch.integer, #10).padLeading(4, '0')`` '``ch``'");
+    }
+
 A character literal is written between single quotes.
 
     Character[] latinLetters = concatenate('a'..'z', 'A'..'Z');
