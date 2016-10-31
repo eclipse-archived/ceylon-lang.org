@@ -84,6 +84,8 @@ For example:
         <set groupId="org.jboss.weld" artifactId="weld-osgi-bundle" version="1.1.4.Final"/>
         <!-- Remove all uses of a module -->
         <remove groupId="org.jboss.weld" artifactId="weld-osgi-bundle"/>
+        <!-- Add a module as a module root, to force it being loaded despite removal overrides in Maven -->
+        <add groupId="com.fasterxml.jackson.dataformat"  artifactId="jackson-dataformat-xml" version="2.6.5"/>
         <!-- Edit dependencies of org.restlet.jse:org.restlet/2.0.10 -->
         <artifact groupId="org.restlet.jse" artifactId="org.restlet" version="${restletVersion}">
             <!-- Add/replace a dependency -->
@@ -138,6 +140,17 @@ You can remove a module entirely from every import:
 
 <!--lang: xml -->
     <remove module="com.foo.bar"/>
+
+This element accepts the common [Artifact coordinates or module names](#artifact_coordinates_or_module_names) attributes.
+
+### Adding a module root
+
+You can force a module being loaded as a module root, and prevent it from being
+removed by Maven overrides. This is useful to add modules to the classpath at
+run-time.
+
+<!--lang: xml -->
+     <add groupId="com.fasterxml.jackson.dataformat"  artifactId="jackson-dataformat-xml" version="2.6.5"/>
 
 This element accepts the common [Artifact coordinates or module names](#artifact_coordinates_or_module_names) attributes.
 
