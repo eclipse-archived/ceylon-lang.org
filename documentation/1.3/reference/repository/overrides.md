@@ -94,6 +94,8 @@ For example:
             <remove groupId="org.osgi" artifactId="org.osgi.core" version="4.0.0"/>
             <!-- Share a dependency -->
             <share groupId="org.slf4j" artifactId="slf4j-impl"/>
+            <!-- Override the default classifier, if required -->
+            <classifier>jar</classifier>
         </artifact>
         <!-- Replace all uses of org.apache.camel:camel-core/2.9.2 with version 2.10 -->
         <replace groupId="org.apache.camel" artifactId="camel-core" version="2.9.2">
@@ -203,6 +205,16 @@ Or for Maven artifacts:
 These elements accept the common 
 [Artifact coordinates or module names](#artifact_coordinates_or_module_names) 
 attributes.
+
+### Overriding a single module's classifier
+
+Some Maven modules require a custom classifier to be resolved properly:
+
+<!--lang: xml -->
+    <artifact groupId="org.wildfly.swarm" artifactId="swarmtool">
+        <!-- This will download the "-standalone" jar instead of the normal jar --> 
+        <classifier>standalone</classifier>
+    </artifact>
 
 ### Filtering a single module's contents
 
