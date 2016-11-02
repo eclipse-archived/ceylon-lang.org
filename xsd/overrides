@@ -223,7 +223,8 @@
                 </xsd:element>
                 <xsd:element type="ovr:addType" name="add">
                     <xsd:annotation><xsd:documentation><![CDATA[
-            Forces a module being loaded as a module root, and prevents it from being removed by Maven overrides.
+            Forces a module to be loaded as a module root, and prevents it from being removed 
+            by Maven overrides. This is useful to add modules to the classpath at run-time.
             ]]></xsd:documentation></xsd:annotation>
                 </xsd:element>
                 <xsd:element type="ovr:removeType" name="remove">
