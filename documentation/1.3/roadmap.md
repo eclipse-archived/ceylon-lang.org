@@ -30,6 +30,8 @@ Goals of the 1.3.1 release include:
 - [#6597](https://github.com/ceylon/ceylon/issues/6597) new Maven interop 
   mode `--fully-export-maven-dependencies` for projects depending on 
   multi-module platforms like Spring Boot
+- [#6485](https://github.com/ceylon/ceylon/issues/6485) support POM-only
+  artifacts in Maven interop
 - [#6622](https://github.com/ceylon/ceylon/issues/6622) Java EE-friendly
   compiler mode
 - [#6599](https://github.com/ceylon/ceylon/issues/6599) ability to pass
@@ -53,6 +55,8 @@ Proposed improvements scheduled for Ceylon 1.3.2 include:
 - [#6583](https://github.com/ceylon/ceylon/issues/6583) change tuple 
   pattern to match any `Sequence`
 - [#3851](https://github.com/ceylon/ceylon/issues/3851) labeled tuple types
+- [#6674](https://github.com/ceylon/ceylon/issues/6674) support BOMs in
+  Maven interop
 
 <div id="milestones-progress">
     <div data-title="View all issues for milestone" data-repo="ceylon" data-milestone="17">Loading…</div>
