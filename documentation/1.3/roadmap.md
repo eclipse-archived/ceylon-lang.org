@@ -27,6 +27,11 @@ Goals of the 1.3.1 release include:
 - [#6558](https://github.com/ceylon/ceylon/issues/6558) `small Character`s
 - [#6605](https://github.com/ceylon/ceylon/issues/6605) make `assert` 
   coerce to dynamic interface type
+- [#6597](https://github.com/ceylon/ceylon/issues/6597) new Maven 
+  interop mode `--fully-export-maven-dependencies` for projects 
+  depending on multi-module platforms like Spring Boot
+- [#6622](https://github.com/ceylon/ceylon/issues/6622) Java EE-friendly
+  compiler mode
 
 We're also prioritizing improvements to Android support, Ceylon IDE for
 IntelliJ, and integration with Java EE and WildFly Swarm.
@@ -39,8 +44,6 @@ IntelliJ, and integration with Java EE and WildFly Swarm.
 
 Proposed improvements scheduled for Ceylon 1.3.2 include:
 
-- [#6622](https://github.com/ceylon/ceylon/issues/6622) Java EE-friendly
-  compiler mode
 - [#6368](https://github.com/ceylon/ceylon/issues/6368) factory functions
   for Java UI libraries
 - [#6000](https://github.com/ceylon/ceylon/issues/6000) `assert` clause
