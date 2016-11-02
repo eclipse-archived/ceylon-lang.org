@@ -223,11 +223,7 @@
                 </xsd:element>
                 <xsd:element type="ovr:addType" name="add">
                     <xsd:annotation><xsd:documentation><![CDATA[
-            <br/><br>Global import addition</br>
-            <br/>
-            <br/>Globally add every import of a module or artifact.
-            <br/>
-            <br/>If a version is specified, only the imports of the specific version will be added.
+            Forces a module being loaded as a module root, and prevents it from being removed by Maven overrides.
             ]]></xsd:documentation></xsd:annotation>
                 </xsd:element>
                 <xsd:element type="ovr:removeType" name="remove">
