@@ -490,9 +490,12 @@ is a bit less transparent. It's up to the developer to either:
 - set up a proxy repository server on the server side.
 
 To collect artifacts for a module and its dependencies, you can use
-[`ceylon copy --dependencies`][`ceylon copy`]. Typically, you would
-locate the resulting repository somewhere under the document root of your 
-web server.
+[`ceylon copy --dependencies --include-language`][`ceylon copy`]. 
+Typically, you would locate the resulting repository somewhere under 
+the document root of your web server.
+
+<!-- lang:bash -->
+    ceylon copy --out=web-content/scripts/repo --with-dependencies --include-language org.jboss.demo/1.0
 
 Alternatively, to set up a server-side proxy repository, you could use the 
 [`RepositoryEndpoint`][] provided for this purpose by the module 
