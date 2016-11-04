@@ -68,7 +68,7 @@ like this:
     documentation/
       manual.html
 
-The `.src` is file is the source archive which can be used by tools such 
+The `.src` file is the source archive which can be used by tools such 
 as the IDE, for source code browsing. The `.sha1` files each contains a 
 checksum of the like-named `.car` file and can be used to detect corrupted 
 archives.
