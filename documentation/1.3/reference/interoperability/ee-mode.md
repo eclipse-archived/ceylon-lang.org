@@ -12,7 +12,7 @@ Since Ceylon 1.3.1 the JVM compiler has had a special "EE-mode" to ease interope
 with Java-EE-like environments where classes are instantiated and manipulated by 
 frameworks.
 
-## `final` modifier
+## `final` method modifier
 
 Normally the ceylon compiler wil generate `final` methods for elements which subclasses should 
 not be able to override. This makes it safer to subclass a Ceylon class in Java.
@@ -96,6 +96,7 @@ Alternatively the option `--ee` can be used to enable EE mode for the entire com
 
 These options can also be specified in your `.ceylon/config` file, for example
 
+<!-- lang: none -->
     [compiler.jvm]
     eeimport=mvn:"org.springframework.boot:spring-boot"
     eeannotation=org.springframework.beans.factory.annotation.Autowired
