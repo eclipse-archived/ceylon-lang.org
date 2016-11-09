@@ -83,3 +83,21 @@ For example:
 
 The rationale for this is that frameworks injecting field state typcially understand these types without 
 needing special adapter classes to be written.
+
+## Activating EE mode
+
+EE mode is usually activated automatically, in the presence of certain annotations on classes, 
+or certain imports in a `module.ceylon`.
+
+If necessary, the compiler options `--ee-annotation` and `--ee-import` can be used to replace
+the fully qualified annotation type names and module names which trigger activation.
+
+Alternatively the option `--ee` can be used to enable EE mode for the entire compilation.
+
+These options can also be specified in your `.ceylon/config` file, for example
+
+    [compiler.jvm]
+    eeimport=mvn:"org.springframework.boot:spring-boot"
+    eeannotation=org.springframework.beans.factory.annotation.Autowired
+    
+
