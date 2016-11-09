@@ -86,8 +86,17 @@ needing special adapter classes to be written.
 
 ## Activating EE mode
 
-EE mode is usually activated automatically, in the presence of certain annotations on classes, 
-or certain imports in a `module.ceylon`.
+EE mode is activated for all classes in a module when `javax.javaeeapi` or equivalently  `maven:"javax:javaee-api"` (any version) is imported in the `module.ceylon`.
+
+EE mode is also activated for a class when that class is annotated with any of the following:
+
+*  `javax.xml.bind.annotation.XmlAccessorType`
+* `javax.persistence.Entity`
+* `javax.inject.Inject`
+* `javax.ejb.Stateless`
+* `javax.ejb.Stateful`
+* `javax.ejb.MessageDriven`
+* `javax.ejb.Singleton`
 
 If necessary, the compiler options `--ee-annotation` and `--ee-import` can be used to replace
 the fully qualified annotation type names and module names which trigger activation.
