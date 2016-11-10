@@ -23,8 +23,9 @@ The rationale for this to make these classes proxiable by runtime bytecode gener
 
 ## `public ` nullary constructor
 
-Normally the Ceylon compiler will generate a nullary constructor because Ceylon classes are 
-implcitly `java.io.Serializable`, and so must have a non-private nullary constructor.
+Normally the Ceylon compiler will generate a nullary constructor because 
+[Ceylon classes are implicitly `java.io.Serializable`](../java-from-ceylon/#java.io.Serializable], 
+and so must have a non-`private` nullary constructor.
 
 In EE mode, this constructor is made `public`.
 
@@ -52,7 +53,8 @@ incorrectly throw an initialization exception.
 
 Normally the Ceylon compiler will tranform an attribute of type `Integer` to a `long` field, and an attribute of type
 `Integer?` to a field of type `ceylon.language.Integer` (which, being a reference type, can be null). Similarly Ceylon 
-boxes are also used for `String?`, `Float?`, `Character?`, `Boolean?` and `Byte?`.
+boxes are also used for `String?`, `Float?`, `Character?`, `Boolean?` and `Byte?` 
+(see [type mapping](../type-mapping/) for details).
 
 In EE mode such fields are of the equivalent Java boxed primitive types
 `java.lang.Long`, `java.lang.String`, `java.lang.Double`, `java.lang.Character`, 
@@ -100,12 +102,17 @@ EE mode is also activated for a class when that class is annotated with any of t
 * `javax.ejb.MessageDriven`
 * `javax.ejb.Singleton`
 
-If necessary, the compiler options `--ee-annotation` and `--ee-import` can be used to replace
+If necessary, the compiler options 
+[`--ee-annotation`](../../tool/ceylon/subcommands/ceylon-compile.html#option--ee-annotation) and 
+[`--ee-import`](../../tool/ceylon/subcommands/ceylon-compile.html#option--ee-import) can be used to replace
 the fully qualified annotation type names and module names which trigger activation.
 
-Alternatively the option `--ee` can be used to enable EE mode for the entire compilation.
+Alternatively the option 
+[`--ee`](../../tool/ceylon/subcommands/ceylon-compile.html#option--ee)
+can be used to enable EE mode for the entire compilation.
 
-These options can also be specified in your `.ceylon/config` file, for example
+These options can also be specified in your 
+[`.ceylon/config`](../../tool/config/#_compiler_backend_section) file, for example
 
 <!-- lang: none -->
     [compiler.jvm]
