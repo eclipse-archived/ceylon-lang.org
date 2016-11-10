@@ -30,6 +30,8 @@ You can also spread method references:
 See the [language specification](#{site.urls.spec_current}#listmap) for 
 more details.
 
+Since Ceylon 1.3.1 it is possible to spread a Java `Iterable` or Java array. 
+
 ### Polymorphism
 
 The `*.` operator is not [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 

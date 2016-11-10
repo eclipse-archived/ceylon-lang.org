@@ -177,6 +177,7 @@ There is specific documentation on each of the language module annotations
   <li><a href="../../annotation/see/"><code>see</code></a></li>
   <li><a href="../../annotation/serializable/"><code>serializable</code></a></li>
   <li><a href="../../annotation/shared/"><code>shared</code></a></li>
+<li><a href="../../annotation/static/"><code>static</code></a></li>
   <li><a href="../../annotation/suppressWarnings/"><code>suppressWarnings</code></a></li>
   <li><a href="../../annotation/throws/"><code>throws</code></a></li>
   <li><a href="../../annotation/tagged/"><code>tagged</code></a></li>
