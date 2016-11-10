@@ -550,8 +550,15 @@ this:
 This introduces three new values, `x` and `y` of inferred type `Float`,
 and `label` of inferred type `String`.
 
-The syntax `[x, y, label]` is called a _tuple pattern_. A tuple pattern 
-may include explicit element types:
+The syntax `[x, y, label]` is called a _tuple pattern_. Tuple patterns
+are used to destructure nonempty sequences. A tuple pattern is a list 
+of value names, the last of which may be a _tail_ value, indicated using 
+the spread operator:
+
+    value labeled = ["one two three", 1.0, 2.0, 3.0];
+    value [label, *point] = labeled; //point is a tail with type Float[3]
+
+A tuple pattern may include explicit element types:
 
 <!-- try-pre:
     value point = [0.0, 0.0, "origin"];
