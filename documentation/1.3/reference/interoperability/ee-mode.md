@@ -34,12 +34,14 @@ The rationale for this is to make classes usable with JAX-RS.
 
 Normally the Ceylon compiler will add runtime checks to the getters and setters for `late`
 attributes to prevent those attributes from being used before they've been initialized, 
-or to prevent them from being reinitialized if they're not `variable`. In some cases, such as 
-when the attribute gets generated as a primitive, or is nullable, it is necessary to use an 
-extra `boolean` field to track the initialization of the attribute's field.
+or to prevent them from being reinitialized if they're not `variable`. 
+In many cases this runtime check can simply use the null-ness of the underlying field to 
+detect access before initialization, or reinitialization. In other cases, specifically
+when the attribute gets transformed into a primitive-typed field, or the attribute has a nullable type, 
+it is necessary to use an extra `boolean` field to track the initialization of the attribute's field.
 
-In EE mode all runtime initialization checks are disabled, including those which could be 
-implemented without the extra `boolean` field.
+In EE mode the compiler omits runtime initialization checks which would require an 
+extra `boolean` field.
 
 The rationale for this is that frameworks will inject the attribute directly into the field 
 (not via the setter), and don't know about the boolean state tracking field, meaning that 
