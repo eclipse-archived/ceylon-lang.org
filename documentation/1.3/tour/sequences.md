@@ -555,6 +555,10 @@ are used to destructure nonempty sequences. A tuple pattern is a list
 of value names, the last of which may be a _tail_ value, indicated using 
 the spread operator:
 
+<!-- try-post:
+    print(label);
+    print(point);
+-->
     value labeled = ["one two three", 1.0, 2.0, 3.0];
     value [label, *point] = labeled; //point is a tail with type Float[3]
 
