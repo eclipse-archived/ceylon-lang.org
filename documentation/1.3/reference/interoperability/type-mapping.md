@@ -75,7 +75,7 @@ Please note: **These mapping rules are subject to change as the compiler develop
     </tr>
     <tr>
       <td><code>ceylon.language.Boolean?</code></td>
-      <td><code>ceylon.language.Boolean</code></td>
+      <td><code>ceylon.language.Boolean</code><a href="#note6"><sup>6</sup></a></td>
     </tr>
     <tr>
       <td><code>ceylon.language.Byte</code></td>
@@ -83,31 +83,31 @@ Please note: **These mapping rules are subject to change as the compiler develop
     </tr>
     <tr>
       <td><code>ceylon.language.Byte?</code></td>
-      <td><code>ceylon.language.Byte</code> <!--1.1--></td>
+      <td><code>ceylon.language.Byte</code><a href="#note6"><sup>6</sup></a> <!--1.3.1--> <!--1.1--></td>
     </tr>
     <tr>
       <td><code>ceylon.language.Integer</code></td>
-      <td><code>long</code><a href="#note1"><sup>1</sup></a></td>
+      <td><code>long</code><a href="#note1"><sup>1</sup></a> (or <code>int</code> if <code>small</code>)</td>
     </tr>
     <tr>
       <td><code>ceylon.language.Integer?</code></td>
-      <td><code>ceylon.language.Integer</code></td>
+      <td><code>ceylon.language.Integer</code><a href="#note6"><sup>6</sup></a> <!--1.3.1--></td>
     </tr>
     <tr>
       <td><code>ceylon.language.Float</code></td>
-      <td><code>double</code><a href="#note1"><sup>1</sup></a></td>
+      <td><code>double</code><a href="#note1"><sup>1</sup></a> (or <code>float</code> if <code>small</code>)</td>
     </tr>
     <tr>
       <td><code>ceylon.language.Float?</code></td>
-      <td><code>ceylon.language.Float</code></td>
+      <td><code>ceylon.language.Float</code><a href="#note6"><sup>6</sup></a> <!--1.3.1--></td>
     </tr>
     <tr>
       <td><code>ceylon.language.Character</code></td>
-      <td><code>int</code><sup><a href="#note1">1</a>, <a href="#note2">2</a></sup></td>
+      <td><code>int</code><sup><a href="#note1">1</a>, <a href="#note2">2</a></sup> (or <code>char</code> if <code>small</code>)</td>
     </tr>
     <tr>
       <td><code>ceylon.language.Character?</code></td>
-      <td><code>ceylon.language.Character</code></td>
+      <td><code>ceylon.language.Character</code><a href="#note6"><sup>6</sup></a> <!--1.3.1--></td>
     </tr>
     <tr>
       <td><code>ceylon.language.String</code></td>
@@ -115,7 +115,7 @@ Please note: **These mapping rules are subject to change as the compiler develop
     </tr>
     <tr>
       <td><code>ceylon.language.String?</code></td>
-      <td><code>ceylon.language.String</code></td>
+      <td><code>ceylon.language.String</code><a href="#note6"><sup>6</sup></a> <!--1.3.1--></td>
     </tr>
     <tr>
       <td><code>ceylon.language.Exception</code></td>
@@ -155,15 +155,15 @@ In addition, we map the following Java types to certain Ceylon types:
     </tr>
     <tr>
       <td><code>int</code></td>
-      <td><code>ceylon.language.Integer</code></td>
+      <td><code>small ceylon.language.Integer</code></td>
     </tr>
     <tr>
       <td><code>float</code></td>
-      <td><code>ceylon.language.Float</code></td>
+      <td><code>small ceylon.language.Float</code></td>
     </tr>
     <tr>
       <td><code>char</code></td>
-      <td><code>ceylon.language.Character</code><a href="#note4"><sup>4</sup></a></td>
+      <td><code>small ceylon.language.Character</code><a href="#note4"><sup>4</sup></a></td>
     </tr>
     <tr>
       <td><code>boolean[], byte[], short[], int[], long[], float[], double[], char[]</code></td>
@@ -198,6 +198,10 @@ Notes:
     <tr>
       <td><a name="note5"><sup>5</sup></a></td>
       <td>See more info on <a href="../java-from-ceylon#java_array_types">Java arrays</a>.</td>
+    </tr>
+    <tr>
+      <td><a name="note6"><sup>6</sup></a></td>
+      <td>Except, since Ceylon 1.3.1, for field types when in <a href="../ee-mode/">EE mode</a>.</td>
     </tr>
   </tbody>
 </table>

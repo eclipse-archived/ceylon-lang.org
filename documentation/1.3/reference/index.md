@@ -241,6 +241,7 @@ The API documentation for
 * [Calling Ceylon from Java](interoperability/ceylon-from-java/)
 * [Calling Java from Ceylon](interoperability/java-from-ceylon/)
 * [Type mapping](interoperability/type-mapping/)
+* [EE mode](interoperability/ee-mode/)
 * [Running Ceylon modules in OSGI containers](interoperability/osgi/)
 * [The JavaScript compiler](interoperability/js/)
 * [How to use native annotations](interoperability/native/)
