@@ -927,7 +927,7 @@ are:
 ### Java `Iterable` or array in `for` 
 
 It's possible to use a `java.lang.Iterable` or Java array in 
-a Ceylon `for` statement or comprehension.
+a Ceylon `for` statement, comprehension, or spread
 
 <!-- try: -->
     import java.lang { JIterable=Iterable }
@@ -941,6 +941,9 @@ a Ceylon `for` statement or comprehension.
     
     //comprehension
     print(", ".join { for (obj in objects) if (exists obj) obj.string.trimmed });
+    
+    //spread
+    value strings = objects*.string;
 
 Imagine how great it would be to be able to write a 
 comprehension involving a Java collection in Java itself!
