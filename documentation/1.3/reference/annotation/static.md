@@ -35,6 +35,16 @@ toplevel classes.
 A `static` member is one that conceptually belongs to the class itself, and consequently 
 does not need an instance of the class in order to access the member. 
 
+Unlike in Java, type parameters of the containing class are in scope of `static` members:
+
+    class GenericStatic<Element> {
+        shared static GenericStatic<Element> factory(Element element) {
+            // ...
+        }
+        new create() {
+        }
+    }
+
 ## See also
 
 * API documentation for [`static`](#{site.urls.apidoc_1_3}/index.html#static)
