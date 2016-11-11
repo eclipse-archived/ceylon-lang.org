@@ -67,4 +67,4 @@ code across operating systems with different default character encodings.
 ## See also
 
 * [Character literals in the language specification](#{site.urls.spec_current}#characterliterals)
-
+* [Official index of Unicode character names](http://unicode.org/charts/charindex.html)
