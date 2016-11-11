@@ -71,24 +71,21 @@ names).
 Unlike Java, we always do need to specify type arguments in a type declaration 
 (there are no _raw types_ in Ceylon). The following will not compile:
 
-<!-- try:
-    Iterator it = {"hello"}.iterator();   //error: missing type argument to parameter Element of Iterable
--->
-<!-- check:none:Demoing error -->
-    Iterator it = ...;   //error: missing type argument to parameter Element of Iterable
+    value strings = {"hello", "world"};
+    Iterator it = strings.iterator();   //error: missing type argument to parameter Element of Iterable
 
 Instead, we have to provide a type argument like this:
 
-<!-- try:
-    Iterator<String> it = {"hello"}.iterator();
--->
-<!-- check:none -->
-    Iterator<String> it = ...;
+    value strings = {"hello", "world"};
+    Iterator<String> it = strings.iterator();
+
+On the other hand, it would be very annoying if we always had to specify all
+type arguments explicitly everywhere.
 
 ### Type argument inference 
 
-On the other hand, we don't need to explicitly specify type arguments in most 
-method invocations or class instantiations. We don't usually need to write:
+Fortunately, we don't need to explicitly specify type arguments in most method 
+invocations or class instantiations. We don't usually need to write:
 
 <!-- check:none -->
     Array<String> strings = Array<String> { "Hello", "World" };
@@ -118,6 +115,8 @@ in the case of a contravariant type parameter.
 <!-- check:none -->
     value points = Array { Polar(pi/4, 0.5), Cartesian(-1.0, 2.5) }; // type Array<Polar|Cartesian>
     value entries = zipEntries(1..points.size, points); // type {<Integer->Polar|Cartesian>*}
+
+There's one more way to avoid having to write in type arguments explicitly.
 
 [type argument inference]: #{site.urls.spec_current}#typeargumentinference
 
