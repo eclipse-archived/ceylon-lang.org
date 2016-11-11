@@ -320,11 +320,11 @@ need to use a wildcard type in Ceylon. We have bigger fish to fry.
 There's a couple of interesting relationships that arise when we introduce
 union and intersection types into the picture.
 
-First, consider a covariant type like `List<Element>`. Then for any types 
+First, consider a covariant type like `Producer<Element>`. Then for any types 
 `X` and `Y`:
 
-- `List<X>|List<Y>` is a subtype of `List<X|Y>` , and
-- `List<X>&List<Y>` is a supertype of `List<X&Y>`.
+- `Producer<X>|Producer<Y>` is a subtype of `Producer<X|Y>` , and
+- `Producer<X>&Producer<Y>` is a supertype of `Producer<X&Y>`.
 
 Next, consider a contravariant type like `Consumer<Element>`. Then for any 
 types `X` and `Y`:
