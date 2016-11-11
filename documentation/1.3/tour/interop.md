@@ -266,6 +266,19 @@ in Ceylon code.
 [`Throwable`]: #{site.urls.apidoc_1_3}/Throwable.type.html
 [`Annotation`]: #{site.urls.apidoc_1_3}/Annotation.type.html
 
+### Ceylon classes are implicitly serializable
+
+When compiling a Ceylon class, the compiler adds the supertype 
+`java.io.Serializable` to the generated Java class, along with
+a package-private default constructor. Neither the supertype, 
+nor the constructor, are visible to other Ceylon code. But 
+they're enough to make the Ceylon class serializable via 
+Java's built-in binary serialization APIs.
+
+Of course, if your Ceylon object holds a reference to some
+other object that's not serializable, you still won't be able 
+to serialize the Ceylon object!
+
 ### Java primitive types are mapped to Ceylon types
 
 You're never exposed to Java primitive types when calling a
