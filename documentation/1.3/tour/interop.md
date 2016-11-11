@@ -1172,6 +1172,35 @@ work portably across the JVM and JavaScript environments.
 [service loader architecture]: https://docs.oracle.com/javase/8/docs/api/java/util/ServiceLoader.html
 [`Module.findServiceProviders()`]: #{site.urls.apidoc_1_3}/meta/declaration/Module.type.html#findServiceProviders
 
+## Java EE and other annotation-driven frameworks
+
+There are a number of widely-used Java frameworks that depend
+upon direct reflection-based access to the fields of annotated 
+classes.
+
+For example, the following libraries and frameworks use this
+approach extensively:
+
+- Java EE (JPA, JAXB, JAX-RS, CDI, EJB, etc)
+- [Hibernate]
+- [Spring Framework]
+
+When using this sort of framework in Ceylon, you'll probably
+need to enable a [special compiler mode][EE mode] which 
+slightly changes the way the compiled Ceylon class represents 
+its internal state using Java fields.
+
+With _EE mode_ activated, Ceylon classes should work
+transparently with these frameworks and libraries.  
+
+In many cases _EE mode_ is [activated implicitly][] when you 
+import a Java module or use a Java EE annotation.
+
+[EE mode]: /documentation/reference/interoperability/ee-mode
+[activated implicitly]: /documentation/reference/interoperability/ee-mode/#activating_ee_mode
+[Hibernate]: http://hibernate.org
+[Spring Framework]: http://spring.io/projects
+
 ## Limitations
 
 Here's a couple of limitations to be aware of:
