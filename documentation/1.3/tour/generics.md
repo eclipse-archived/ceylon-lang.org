@@ -66,11 +66,6 @@ As you can see, the convention in Ceylon is to use meaningful names for type
 parameters (in other languages the usual convention is to use single letter 
 names).
 
-A type parameter may have a default argument.
-
-<!-- try: -->
-    shared interface Iterable<out Element, out Absent=Null> ...
-
 ## Type arguments
 
 Unlike Java, we always do need to specify type arguments in a type declaration 
@@ -90,6 +85,8 @@ Instead, we have to provide a type argument like this:
 <!-- check:none -->
     Iterator<String> it = ...;
 
+### Type argument inference 
+
 On the other hand, we don't need to explicitly specify type arguments in most 
 method invocations or class instantiations. We don't usually need to write:
 
@@ -105,7 +102,7 @@ arguments.
     value things = interleave(strings, 0..2); // type {String|Integer*}
 
 The generic type argument inference algorithm is slightly involved, so you
-should refer to the [language specification](#{site.urls.spec_current}#typeargumentinference) 
+should refer to the [language specification][type argument inference] 
 for a complete definition. But essentially what happens is that Ceylon 
 infers a type argument by combining the types of corresponding arguments 
 using union in the case of a covariant type parameter, or intersection
@@ -122,10 +119,55 @@ in the case of a contravariant type parameter.
     value points = Array { Polar(pi/4, 0.5), Cartesian(-1.0, 2.5) }; // type Array<Polar|Cartesian>
     value entries = zipEntries(1..points.size, points); // type {<Integer->Polar|Cartesian>*}
 
+[type argument inference]: #{site.urls.spec_current}#typeargumentinference
+
+### Default type arguments
+
+A type parameter may have a default argument.
+
+<!-- try: -->
+    shared interface Iterable<out Element, out Absent=Null> ...
+
 If a type parameter has a default argument, we're allowed to leave out the
 type argument to that type parameter when we supply a type argument list.
-Therefore `Iterable<String>` means `Iterable<String,Null`>.
+Therefore:
 
+- `Iterable<String>` means `Iterable<String,Null>`, and
+- `Iterable<>` means `Iterable<Anything,Null>`.
+
+Note that we needed to explicitly specify the pointy brackets
+in `Iterable<>`.
+
+### Gotcha!
+
+Default type arguments are always ignored when type arguments are inferred.
+
+Suppose I have a generic class with a default argument:
+
+<!-- try: -->
+   class Container<out Element=Anything>(Element* elements) {}
+
+Let's instantiate this class without any arguments:
+
+<!-- try-pre:
+   class Container<out Element=Anything>(Element* elements) {}
+-->
+   value container = Container();
+
+You might imagine that this instantiation would produce a
+`Container<Anything>`, since `Anything` is the default type 
+argument for `Element`. But that's not correct. In fact, the
+instantiation produces a `Container<Nothing>`, according to the
+usual rules for type argument inference of a covariant type 
+parameter. To get a `Container<Anything>`, we could need to 
+write:
+
+<!-- try-pre:
+   class Container<out Element=Anything>(Element* elements) {}
+-->
+   value container = Container<>();
+
+Where the pointy brackets act to disable type inference.
 
 ## Covariance and contravariance
 
