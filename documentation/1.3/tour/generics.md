@@ -144,14 +144,14 @@ Default type arguments are always ignored when type arguments are inferred.
 Suppose I have a generic class with a default argument:
 
 <!-- try: -->
-   class Container<out Element=Anything>(Element* elements) {}
+    class Container<out Element=Anything>(Element* elements) {}
 
 Let's instantiate this class without any arguments:
 
 <!-- try-pre:
    class Container<out Element=Anything>(Element* elements) {}
 -->
-   value container = Container();
+    value container = Container();
 
 You might imagine that this instantiation would produce a
 `Container<Anything>`, since `Anything` is the default type 
@@ -162,9 +162,9 @@ parameter. To get a `Container<Anything>`, we could need to
 write:
 
 <!-- try-pre:
-   class Container<out Element=Anything>(Element* elements) {}
+    class Container<out Element=Anything>(Element* elements) {}
 -->
-   value container = Container<>();
+    value container = Container<>();
 
 Where the pointy brackets act to disable type inference.
 
