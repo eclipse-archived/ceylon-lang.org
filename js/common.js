@@ -219,7 +219,7 @@ jQuery(function (){
  For example:
  
      <h2 id="a_really_simple_program">A <em>really</em> simple program</h2>
-     <h2 id="a_really_simple_program"><a class="anchor" href="http://localhost:4242/documentation/1.0/tour#a_really_simple_program">A <em>really</em> simple program</a></h2>
+     <h2 id="a_really_simple_program"><a class="anchor" href="#a_really_simple_program">A <em>really</em> simple program</a></h2>
  
  TODO: This should be done by the Markdown processor; see #308.
  */
@@ -234,7 +234,7 @@ jQuery(function($) {
         if(!anyLink) {
             var html = $elem.html();
             $elem.empty();
-            $elem.append($("<a>").attr("href", document.URL.replace(/\/?(\#.*)?$/, "") + '#' + $elem.attr("id")).attr("class", "anchor").html(html));
+            $elem.append($("<a>").attr("href", '#' + $elem.attr("id")).attr("class", "anchor").html(html));
         }
     });
 });
