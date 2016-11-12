@@ -1178,9 +1178,10 @@ classes.
 For example, the following libraries and frameworks use this
 approach extensively:
 
-- Java EE (JPA, JAXB, JAX-RS, CDI, EJB, etc)
-- [Hibernate]
-- [Spring Framework]
+- [javax.inject][]
+- [Java EE][] ([CDI], [JPA], [JAXB], [JAX-RS], [EJB], etc)
+- [Hibernate][]
+- [Spring Framework][]
 
 When using this sort of framework in Ceylon, you'll probably
 need to enable a [special compiler mode][EE mode] which 
@@ -1188,15 +1189,28 @@ slightly changes the way the compiled Ceylon class represents
 its internal state using Java fields.
 
 With _EE mode_ activated, Ceylon classes should work
-transparently with these frameworks and libraries.  
+transparently with these frameworks and libraries. (Note: 
+we've already tested all the above listed technologies with 
+Ceylon, to be sure they work correctly!)
 
 In many cases _EE mode_ is [activated implicitly][] when you 
 import a Java module or use a Java EE annotation.
 
+You'll often need to [use the `late` annotation] in conjunction
+with EE mode.
+
 [EE mode]: /documentation/reference/interoperability/ee-mode
 [activated implicitly]: /documentation/reference/interoperability/ee-mode/#activating_ee_mode
+[javax.inject]: http://javax-inject.github.io/javax-inject/
 [Hibernate]: http://hibernate.org
 [Spring Framework]: http://spring.io/projects
+[Java EE]: https://docs.oracle.com/javaee/7/tutorial/
+[JPA]: https://docs.oracle.com/javaee/7/tutorial/partpersist.htm
+[CDI]: https://docs.oracle.com/javaee/7/tutorial/partcdi.htm
+[JAX-RS]: https://docs.oracle.com/javaee/7/tutorial/partwebsvcs.htm
+[EJB]: https://docs.oracle.com/javaee/7/tutorial/partentbeans.htm
+[JAXB]: https://docs.oracle.com/javase/tutorial/jaxb/intro/
+[use the `late` annotation]: ../initialization/#tip_using_late_with_annotation_driven_frameworks
 
 ## Limitations
 
