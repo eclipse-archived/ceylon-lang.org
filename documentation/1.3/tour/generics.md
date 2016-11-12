@@ -223,15 +223,13 @@ we're not trying to impress people with opaque terminology, we say that
 Now, in Java, we can use a _wildcard_ to obtain:
 
 - a covariant type, for example, `Collection<? extends Person>`, one that only 
-  produces `Elements`s, or
+  produces `Element`s, or
 - a contravariant type, for example, `Collection<? super Geek>`, one that only 
-  consumes `Elements`s.
+  consumes `Element`s.
 
-Ceylon also has wildcard types, though with a [much nicer syntax][wildcards],
+Ceylon also has wildcard types, though with a [much nicer syntax](#wildcards),
 but they're mainly used for interoperation with Java. In pure Ceylon code, we
 use a different approach to produce covariance or contravariance.
-
-[wildcards]: ../interop/#wildcards_and_raw_types_are_represented_using_use_site_variance
 
 ### Using declaration-site variance
 
@@ -248,9 +246,9 @@ consumer interface:
 
 Notice that we've annotated the type parameters of these interfaces.
 
-* The `out` annotation specifies that `Producer` is covariant in `Output`; 
+- The `out` annotation specifies that `Producer` is covariant in `Output`; 
   that it produces instances of `Output`, but never consumes instances of `Output`.
-* The `in` annotation specifies that `Consumer` is contravariant in `Input`; 
+- The `in` annotation specifies that `Consumer` is contravariant in `Input`; 
   that it consumes instances of `Input`, but never produces instances of `Input`.
 
 The Ceylon compiler validates the schema of the type declaration to ensure 
@@ -260,10 +258,10 @@ method on `Producer`, a compilation error results. If you try to declare an
 
 Now, let's see what that buys us:
 
-* Since `Producer` is covariant in its type parameter `Output`, and since 
+- Since `Producer` is covariant in its type parameter `Output`, and since 
   `Geek` is a subtype of `Person`, Ceylon lets you assign `Producer<Geek>` to 
   `Producer<Person>`.
-* Furthermore, since `Consumer` is contravariant in its type parameter `Input`, 
+- Furthermore, since `Consumer` is contravariant in its type parameter `Input`, 
   and since `Geek` is a subtype of `Person`, Ceylon lets you assign 
   `Consumer<Person>` to `Consumer<Geek>`.
 
@@ -310,11 +308,11 @@ Which is also intuitively correct—`James` is most certainly a `Person`!
 There's two additional things that follow from the definition of covariance 
 and contravariance:
 
-* `Producer<Anything>` is a supertype of `Producer<T>` for any type `T`, and
-* `Consumer<Nothing>` is a supertype of `Consumer<T>` for any type `T`.
+- `Producer<Anything>` is a supertype of `Producer<T>` for any type `T`, and
+- `Consumer<Nothing>` is a supertype of `Consumer<T>` for any type `T`.
 
 These invariants can be very helpful if you need to abstract over all 
-`Producers` or all `Consumers`.
+`Producer`s or all `Consumer`s.
 
 You're unlikely to spend much time writing your own collection classes, since 
 the Ceylon SDK has a powerful collections framework built in. But you'll still 
@@ -328,7 +326,7 @@ native Java code, where all generic classes and interfaces are invariant, and
 _wildcards_ are used to recover covariance or contravariance in method 
 signatures.
 
-Therefore, you'll sometimes need to use [wildcards][] when interoperating with 
+Therefore, you'll sometimes need to use wildcards when interoperating with 
 Java libraries.
 
 ### Wildcard types
