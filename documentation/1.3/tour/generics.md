@@ -32,7 +32,7 @@ There are two kinds of things which may be generic:
 - a class, interface, or type alias, or
 - a function.
 
-### Defining generic types
+### Type parameters
 
 Just like in Java, only types and methods may declare type parameters. Also 
 just like in Java, type parameters are listed before ordinary parameters, 
@@ -66,7 +66,7 @@ As you can see, the convention in Ceylon is to use meaningful names for type
 parameters (in other languages the usual convention is to use single letter 
 names).
 
-## Type arguments
+### Type arguments
 
 Unlike Java, we always do need to specify type arguments in a type declaration 
 (there are no _raw types_ in Ceylon). The following will not compile:
@@ -176,6 +176,8 @@ types were Java's solution to the problem of *covariance* in a generic type
 system. Let's meet the idea of covariance, and then see how covariance works 
 in Ceylon.
 
+### Variant and invariant generic types
+
 It all starts with the intuitive expectation that a collection of `Geek`s is 
 a collection of `Person`s. That's a reasonable intuition, but, if collections 
 are be mutable, it turns out to be incorrect. Consider the following possible 
@@ -211,18 +213,30 @@ compile:
 
 We can't let that code by—Fonzie isn't a `Geek`!
 
-Using big words, we say that `Collection` is *invariant* in `Element`. Or, 
-when we're not trying to impress people with opaque terminology, we say that 
-`Collection` both produces—via the `iterator()` method—and consumes—
-via the `add()` method—the type `Element`.
+Using big words, we say that `Collection` is *invariant* in `Element`. Or, when 
+we're not trying to impress people with opaque terminology, we say that 
+`Collection` both:
 
-Here's where Java goes off and dives down a rabbit hole, introducing 
-_wildcards_ to wrangle a covariant or contravariant type out of an invariant 
-type, but also succeeding in thoroughly confusing everybody. We're not going 
-to follow Java down the hole.
+- _produces_ `Element`s, via the `iterator()` method, and 
+- _consumes_ `Element`s, via the `add()` method.
 
-Instead, we're going to refactor `Collection` into a pure producer interface 
-and a pure consumer interface:
+Now, in Java, we can use a _wildcard_ to obtain:
+
+- a covariant type, for example, `Collection<? extends Person>`, one that only 
+  produces `Elements`s, or
+- a contravariant type, for example, `Collection<? super Geek>`, one that only 
+  consumes `Elements`s.
+
+Ceylon also has wildcard types, though with a [much nicer syntax][wildcards],
+but they're mainly used for interoperation with Java. In pure Ceylon code, we
+use a different approach to produce covariance or contravariance.
+
+[wildcards]: ../interop/#wildcards_and_raw_types_are_represented_using_use_site_variance
+
+### Using declaration-site variance
+
+We're going to refactor `Collection` into a pure producer interface and a pure 
+consumer interface:
 
 <!-- check:none -->
     interface Producer<out Output> {
@@ -300,24 +314,22 @@ and contravariance:
 * `Consumer<Nothing>` is a supertype of `Consumer<T>` for any type `T`.
 
 These invariants can be very helpful if you need to abstract over all 
-`Producers` or all `Consumers`. (Note, however, that if `Producer` declared 
-upper bound type constraints on `Output`, then `Producer<Anything>` would not 
-be a legal type.)
+`Producers` or all `Consumers`.
 
 You're unlikely to spend much time writing your own collection classes, since 
-the Ceylon SDK has a powerful collections framework built in. But 
-you'll still appreciate Ceylon's approach to covariance as a user of the 
-built-in collection types.
+the Ceylon SDK has a powerful collections framework built in. But you'll still 
+appreciate Ceylon's approach to covariance as a user of the built-in collection 
+types.
 
 ### Gotcha!
 
 Sadly, declaration site variance doesn't help us when we interoperate with
-native Java code, where all generic types are invariant by default, and
+native Java code, where all generic classes and interfaces are invariant, and
 _wildcards_ are used to recover covariance or contravariance in method 
 signatures.
 
-Therefore, Ceylon also supports Java-style wildcards, albeit with a cleaner
-syntax. 
+Therefore, you'll sometimes need to use [wildcards][] when interoperating with 
+Java libraries.
 
 ### Wildcard types
 
