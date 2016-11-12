@@ -370,47 +370,54 @@ following code produces an error:
                 Child(this); //compile error: leaks self reference
     }
 
-Fortunately, there's a way around this, though it does sacrifice
-some compile-time safety.
+Fortunately, there's a way around this, though it does sacrifice some 
+compile-time safety.
 
 ### Tip: using `late` to create circular references
 
 As a slightly adhoc workaround for this problem, we can annotate the 
-reference `parent`, suppressing the usual definite initialization 
-checks, using the `late` annotation: 
+reference `parent`, suppressing the usual definite initialization checks, 
+using the `late` annotation: 
 
 <!-- check:none:#94 -->
     class Child() {
-        shared late Parent parent;
+        shared late Parent parent; //no initializer
     }
      
     class Parent() {
         shared Child child = Child();
-        child.parent = this; //ok, since parent is late
+        child.parent = this; //ok, since Child.parent is late
     }
 
-When a reference is annotated `late`, the checks which normally happen
-at compile time are delayed until runtime.
+When a reference is annotated `late`, the checks which normally happen at 
+compile time are delayed until runtime.
 
 ### Tip: using `late` with annotation-driven frameworks
 
-There are a [number of widely-used Java frameworks][frameworks] that 
-depend on direct reflection-based access to initialize the fields of 
-annotated classes. Examples include [Hibernate], [CDI], and [Spring].
+Certain [widely-used Java frameworks][Java frameworks] depend on direct 
+reflection-based access to initialize the fields of annotated classes. 
+Examples include [Hibernate][], [CDI][], and [Spring][].
 
-When an attribute of a Ceylon class is initialized by a framework
-like this, you'll probably need to annotate it `late` in order to
-suppress the compile-time initialization checks.
+If your Ceylon class has an attribute that is meant to be initialized by 
+a framework like this, you'll probably need to annotate it `late` in order 
+to suppress the compile-time initialization checks.
 
 A common use-case is dependency injection using `java.inject`:
 
 <!-- try: -->
-    inject late EntityManager em;
+    class Bean() {
+        inject late EntityManager em; //no initializer
+    }
 
-(This isn't necessary if you use constructor injection instead of 
-field injection.)
+On the other hand, use of the `late` annotation isn't necessary if you use 
+constructor injection instead of field injection.
 
-[frameworks]: ../interop/#java_ee_and_other_annotation_driven_frameworks
+<!-- try: -->
+    inject
+    class Bean(EntityManager em) {
+    }
+
+[Java frameworks]: ../interop/#java_ee_and_other_annotation_driven_frameworks
 [Hibernate]: http://hibernate.org
 [Spring Framework]: http://spring.io/projects
 [CDI]: https://docs.oracle.com/javaee/7/tutorial/partcdi.htm
