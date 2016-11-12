@@ -62,7 +62,7 @@ The semantics are exactly the same as what you're used to in Java, with
 one exception: a reference to a member of `super` might refer to a member 
 inherited from an interface, instead of from a superclass. 
 
-### Disambiguating `super` references
+### Tip: disambiguating `super` references
 
 Consider this class:
 
@@ -81,6 +81,10 @@ the member reference:
 
 <!-- try: -->
     (super of Interface).ambiguous() //ambiguity resolved!
+
+Here, the `of` operator is used to widen the type of the expression `super`
+from `Class & Interface` to just `Interface`, thus resolving the ambiguity
+as to which `ambiguous()` method is being called.
 
 [of]: /documentation/reference/operator/of/
 
