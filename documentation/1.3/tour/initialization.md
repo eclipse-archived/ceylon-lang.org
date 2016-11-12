@@ -21,13 +21,48 @@ object.
 
 ## Self references and outer instance references
 
-Ceylon features the keywords `this` and `super`, which refer to the current 
-instance of a class—the receiving instance of an operation (method 
-invocation, member class instantiation, or attribute evaluation/assignment), 
-within the body of the definition of the operation. The semantics are exactly 
-the same as what you're used to in Java, with one exception: a reference to 
-a member of `super` might refer to a member inherited from an interface, 
-instead of from a superclass. 
+When a method of a class is invoked upon an instance of the class, the body 
+if the method is executed with an implicit reference to the instance. This
+reference is called the _current instance_ of the class. Usually, we can
+refer to any other member of the current instance without needing to 
+explicitly specify the current instance.
+
+    class Greeting(String name) {
+        shared void greet()
+            = print("Hello ``name``!"); //implicitly refers to this.name
+    } 
+
+However, it's possible for a name collision to hide a member of the class.
+
+    class Greeting(String name) {
+        shared void greet(String name) {
+            print("``name`` says 'Hello ``name``!'"); //oops, local name hides this.name!
+        }
+    } 
+
+We can resolve the name collision using the keyword `this`.
+
+### Self references
+
+Ceylon features the keywords `this` and `super`, which refer to:
+
+- the instance that is being initialized, within the initializer of the 
+  class, or to
+- the current instance of a class, within the body of any operation
+  (method invocation, member class instantiation, or attribute 
+  evaluation/assignment) of the class.
+
+    class Greeting(String name) {
+        shared void greet(String name) {
+            print("``name`` says 'Hello ``this.name``!'"); //oops, local name hides this.name!
+        }
+    } 
+
+The semantics are exactly the same as what you're used to in Java, with 
+one exception: a reference to a member of `super` might refer to a member 
+inherited from an interface, instead of from a superclass. 
+
+### Disambiguating `super` references
 
 Consider this class:
 
@@ -46,6 +81,10 @@ the member reference:
 
 <!-- try: -->
     (super of Interface).ambiguous() //ambiguity resolved!
+
+[of]: /documentation/reference/operator/of/
+
+### Outer instance references
 
 In addition to `this` and `super`, Ceylon features the keyword `outer`, which 
 refers to the parent instance of the current instance of a nested class.
@@ -66,6 +105,8 @@ refers to the parent instance of the current instance of a nested class.
 There are some restrictions on the use of `this`, `super`, and `outer`, which 
 we'll explore below.
 
+### Containing package references
+
 Finally, the keyword `package` may be used to refer to the toplevel declarations
 in the current package.
 
@@ -75,8 +116,6 @@ in the current package.
     class Elephant(name = package.name) {
         String name;
     }
-
-[of]: /documentation/reference/operator/of/
 
 ## Multiple inheritance and "linearization"
 
