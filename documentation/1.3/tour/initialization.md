@@ -947,6 +947,99 @@ That's really just a syntactic abbreviation for:
     }
     \Ithing thing => \Ithing.thing;
 
+## Static members
+
+You're probably familiar with the idea of a _static member_ 
+which comes up in many object-oriented languages, including 
+C++, Java, and C#. Languages like Smalltalk and Ruby feature 
+an almost identical concept called _class members_.
+
+We don't have nearly as much use for static members in Ceylon
+as in Java, since we usually just use toplevel methods or
+values instead. However, there are occasionally good reasons 
+for preferring a static member to a toplevel:
+
+- when a function needs to access private members of a class,
+- when a class needs to define private state or constants
+  that are shared by all instances, without polluting the
+  namespace of the whole package, or
+- to define "factory functions".
+
+In order to respect the block structure of the language, 
+there's two important restrictions:
+
+- only a class with constructors may define _static members_,
+  and
+- static members must be defined right at the start of the
+  class, _before_ the initializer section, and before the
+  constructors of the class.
+
+We indicate that a method, value, or nested class is `static`
+by annotating it:
+
+<!-- try-post:
+    
+    Greeting.sayHello();
+ -->
+    shared class Greeting {
+        //static members
+        static String hello = "Hello";
+        shared static void sayHello() => print(hello);
+        
+        //initializer section
+        String name;
+        shared new (String name) {
+            this.name = name;
+        }
+        
+        //instance method
+        shared void greet() => print(hello + " " + name);
+    }
+
+Static members are invoked directly on the class itself:
+
+<!-- try: -->
+    Greeting.sayHello();
+
+### Tip: using `static` to define a factory
+
+We can use the `static` in conjunction with the idiom for
+[lazy initialization](#tip_lazy_initialization) to define
+a _factory_:
+
+<!-- try-post:
+    
+    Greeting.forWholeWorld.greet();
+ -->
+    shared class Greeting {
+        //static member
+        static String hello = "Hello";
+        
+        //a static factory
+        shared static variable Greeting? forWorld = null;
+        shared static Greeting forWholeWorld
+                => forWorld else (forWorld = Greeting("world"));
+    
+        //initializer section
+        String name;
+        shared new (String name) {
+            this.name = name;
+        }
+    
+        //instance method
+        shared void greet() => print(hello + " " + name);
+    }
+
+We can call the factory as if it were a constructor:
+
+<!-- try: -->
+    Greeting.forWholeWorld.greet();
+
+Unlike in Java, the type parameters of class are considered 
+in scope within the definition of a static member. This lets
+us call factory functions for generic classes using the same
+syntax we just to call a constructor. 
+
 ## There's more...
 
 You can read more about constructors [here](/blog/2015/06/21/constructors/).
