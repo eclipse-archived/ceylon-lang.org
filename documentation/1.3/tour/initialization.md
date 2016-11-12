@@ -419,7 +419,7 @@ constructor injection instead of field injection.
 
 [Java frameworks]: ../interop/#java_ee_and_other_annotation_driven_frameworks
 [Hibernate]: http://hibernate.org
-[Spring Framework]: http://spring.io/projects
+[Spring]: http://spring.io/projects
 [CDI]: https://docs.oracle.com/javaee/7/tutorial/partcdi.htm
 
 ### Tip: lazy initialization
