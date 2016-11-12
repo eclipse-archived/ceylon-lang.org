@@ -58,6 +58,10 @@ Ceylon features the keywords `this` and `super`, which refer to:
   (method invocation, member class instantiation, or attribute 
   evaluation/assignment) of the class.
 
+The difference between `this` and `super` is that `super` bypasses any
+`actual` operation defined in the current class, and directly calls the
+operation it refines.
+
 The semantics are exactly the same as what you're used to in Java, with 
 one exception: a reference to a member of `super` might refer to a member 
 inherited from an interface, instead of from a superclass. 
