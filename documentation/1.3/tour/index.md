@@ -24,7 +24,7 @@ be able to learn Ceylon. These concepts aren't difficult to
 pick up! But you might find some chapters of the tour pretty
 hard going first time through. If so, take it slowly: 
 experiment with the language using Ceylon IDE 
-[for Eclipse](../ide/eclipse) or [for IntelliJ](../ide/intellij), 
+[for Eclipse][Eclipse IDE] or [for IntelliJ][IntelliJ IDE], 
 and gradually get a feel for how these things work and how 
 they are useful. None of us learned to program from books or 
 tutorials or from other people telling us how to do it. We 
@@ -71,12 +71,13 @@ Here's a classic example program:
         print("Hello, World!");
     }
 
-This code declares a function named `hello()` that prints `Hello, World!` on 
-the console.
+This code declares a function named `hello()` that prints 
+`Hello, World!` on the console.
 
-We call this function a _toplevel_ function because it's not a member of a type. 
-So we don't need a receiving object to invoke a toplevel function. Instead, we 
-can just call it like this:
+We call this function a _toplevel_ function because it's not 
+a member of a type. So we don't need a receiving object to 
+invoke a toplevel function. Instead, we can just call it like 
+this:
 
 <!-- try-pre:
     void hello() {
@@ -86,20 +87,20 @@ can just call it like this:
 -->
     hello();
 
-Or, since this toplevel function is annotated `shared`, we can run it directly 
-from the command line or IDE.
+Or, since this toplevel function is annotated `shared`, we can 
+run it directly from the command line or IDE.
 
-Ceylon doesn't have `static` methods like Java, C++, or C#, but you can think 
-of toplevel functions as filling the same role. The reason for this difference
-is that Ceylon has a very strict block structure&mdash;a nested block always has 
-access to declarations in all containing blocks. This isn't the case with Java's 
-`static` methods, which break the usual block structure of the language.
+Ceylon does have [`static` methods][], just like Java, C++, or 
+C#, but we usually use toplevel functions instead.
+
+[`static` methods]: ../initialization/#static_members
 
 ### Gotcha!
 
-Note that Ceylon doesn't (yet) support _scripting_. You can't write statements 
-like `print("Hello, World!");` outside of a function or class, like you would
-in a scripting language. This is _not_, on its own, a legal program:
+Note that Ceylon doesn't (yet) support _scripting_. You can't 
+write statements like `print("Hello, World!");` outside of a 
+function or class, like you would in a scripting language. 
+This is _not_, on its own, a legal program:
 
 <!-- try: -->
     print("Hello, World!");  //error: must occur inside a function or class
@@ -107,15 +108,16 @@ in a scripting language. This is _not_, on its own, a legal program:
 
 ## Running the program from the command line
 
-Let's try it out. Save the above code in the file `./source/hello.ceylon` 
-and then run the following command:
+Let's try it out. Save the above code in the file 
+`./source/hello.ceylon` and then run the following command:
 
 <!-- lang: bash -->
     ceylon-1.3.0/bin/ceylon run --compile=force --run hello default
 
-where `ceylon-1.3.0` is the path to your Ceylon install directory. You should
-see the message `Hello, World!`. You will find the compiled module archive 
-`default.car` in the directory `./modules/default`.
+where `ceylon-1.3.0` is the path to your Ceylon install directory. 
+You should see the message `Hello, World!`. You will find the 
+compiled module archive `default.car` in the directory 
+`./modules/default`.
 
 Note that:
 
@@ -145,19 +147,21 @@ Or:
 <!-- lang: bash -->
     ceylon-1.3.0/bin/ceylon help run
 
-The command
-[ceylon help](#{site.urls.ceylon_tool_current}/ceylon-help.html) 
-outputs usage information about any of the 
-[`ceylon` subcommands](#{site.urls.ceylon_tool_current}/index.html).
+The command [`ceylon help`][] outputs usage information about 
+any of the [`ceylon` subcommands][].
 
-*If you're still having trouble getting started with the command line tools, 
-try [compiling and running the samples](#before_you_start) if you haven't 
-already.*
+*If you're still having trouble getting started with the 
+command line tools, try [compiling and running the samples][] 
+if you haven't already.*
+
+[`ceylon help`]: #{site.urls.ceylon_tool_current}/ceylon-help.html
+[`ceylon` subcommands]: #{site.urls.ceylon_tool_current}/index.html
+[compiling and running the samples]: #before_you_start
 
 ### Selecting the JDK
 
-Ceylon requires Java 7 or Java 8, so you might need to verify that you're 
-using a supported version of Java.
+Ceylon requires Java 7 or Java 8, so you might need to verify 
+that you're using a supported version of Java.
 
 <!-- lang: bash -->
     bash$ java -version
@@ -167,37 +171,40 @@ using a supported version of Java.
     bash$ javac -version
     javac 1.8.0_92
 
-If you're using some other version of Java, you'll need to change to use 
-Java 7 or Java 8:
+If you're using some other version of Java, you'll need to 
+change to use Java 7 or Java 8:
 
 - on Linux, use `update-java-alternatives`,
-- on Mac, use the `System Preferences` 
-  [applet](http://www.java.com/en/download/help/mac_controlpanel.xml), or
+- on Mac, use the `System Preferences` [applet][], or
 - on Windows, set the `JAVA_HOME` environment variable.
+
+[applet]: http://www.java.com/en/download/help/mac_controlpanel.xml
 
 ### Setting the character encoding
 
-If you see the following error, or similar, when compiling a Ceylon program:
+If you see the following error, or similar, when compiling a 
+Ceylon program:
 
 <!-- lang: none -->
     unmappable character for encoding ASCII
 
-Then you have a source file whose character encoding doesn't match the default
-character encoding for your OS. You'll need to explicitly specify the character
-encoding on the command line like this:
+Then you have a source file whose character encoding doesn't 
+match the default character encoding for your OS. You'll need 
+to explicitly specify the character encoding on the command line 
+like this:
 
 <!-- lang: bash -->
     ceylon compile --encoding UTF-8 source/hello.ceylon
 
 ## Running the program from the IntelliJ IDE
 
-To run the program in [Ceylon IDE for IntelliJ](../ide/intellij):
+To run the program in [Ceylon IDE for IntelliJ][IntelliJ IDE]:
 
 1. Create a new project using `File > New > Project...`, selecting
    `Ceylon`, clicking `Next` three times, entering a name for the
    project, and finally clicking `Finish`.
-2. Create a new `.ceylon` file inside the project by selecting the
-   project's `source` folder, and using  
+2. Create a new `.ceylon` file inside the project by selecting 
+   the project's `source` folder, and using  
    `File > New > Ceylon File/Declaration`.
 3. Paste the definition of `hello()` into this new file. 
 4. Finally, select the file and run it using `Run > Run...`.
@@ -212,20 +219,22 @@ If you have `node.js` installed, you can go to `File > Project Structure...`,
 select the `Facets` section, select `Ceylon`, enable `Compile project to JavaScript`, 
 then click `OK`, and run the program on node using `Run > Run...`.
 
-If you want to be sure which VM you're executing on, just add this 
-line to your program:
+If you want to be sure which VM you're executing on, just add 
+this line to your program:
 
     print(runtime.name);
 
 If it prints `jvm`, you're running on Java. If it prints `node.js`,
 you're running on node.
 
+[IntelliJ IDE]: ../ide/intellij
+
 ### Selecting the JDK
 
-You need to make sure that your project is configured to compile using the Java 
-7 or Java 8 compiler. Go to `File > Project Structure...`, select the `Project` 
-section, and make sure that the project is configured to use the Java 7 or
-Java 8 SDK.
+You need to make sure that your project is configured to compile 
+using the Java 7 or Java 8 compiler. Go to `File > Project Structure...`, 
+select the `Project` section, and make sure that the project is 
+configured to use the Java 7 or Java 8 SDK.
 
 ### Setting the character encoding
 
@@ -234,8 +243,8 @@ To set the source file character encoding in IntelliJ, go to
 
 ## Running the program from the Eclipse IDE
 
-To run the program in [Ceylon IDE for Eclipse](../ide/eclipse), go to the 
-Ceylon perspective, then:
+To run the program in [Ceylon IDE for Eclipse][Eclipse IDE], 
+go to the Ceylon perspective, then:
 
 1. Create a new project using `File > New > Ceylon Project`. 
 2. Create a new `.ceylon` file inside the project using 
@@ -245,29 +254,33 @@ Ceylon perspective, then:
 
 This executes the program on the JVM.
 
-If you have `node.js` installed, you can go to `Project > Properties`, select 
-the `Ceylon` section, enable `Compile project to JavaScript`, then click `OK`, 
-and run the program using `Run > Run As > Ceylon JavaScript Application`.
+If you have `node.js` installed, you can go to `Project > Properties`, 
+select the `Ceylon` section, enable `Compile project to JavaScript`, 
+then click `OK`, and run the program using 
+`Run > Run As > Ceylon JavaScript Application`.
+
+[Eclipse IDE]: ../ide/eclipse
 
 ### Selecting the JDK
 
-Ceylon IDE for Eclipse requires Java 7 or Java 8, so you might need to verify that Eclipse 
-is running on a Java 7 or Java 8 VM. Go to `Eclipse > About Eclipse`, click 
-`Installation Details`, and go to the `Configuration` tab. You'll see the Java 
-version listed among the other system properties. See the 
-[instructions above](#selecting_the_jdk) to change the version of Java. You 
-might need to edit `eclipse.ini`.
+Ceylon IDE for Eclipse requires Java 7 or Java 8, so you might 
+need to verify that Eclipse is running on a Java 7 or Java 8 VM. 
+Go to `Eclipse > About Eclipse`, click `Installation Details`, and go 
+to the `Configuration` tab. You'll see the Java version listed 
+among the other system properties. See the 
+[instructions above](#selecting_the_jdk) to change the version 
+of Java. You might need to edit `eclipse.ini`.
 
-You need to make sure that your project is configured to compile using the Java 
-7 or Java 8 compiler. Go to `Project > Properties`, select the `Java Compiler` 
-section, and make sure that the project is configured to use the Java 7 or
-Java 8 compiler.
+You need to make sure that your project is configured to compile 
+using the Java 7 or Java 8 compiler. Go to `Project > Properties`, 
+select the `Java Compiler` section, and make sure that the project 
+is configured to use the Java 7 or Java 8 compiler.
 
 ### Setting the character encoding
 
 To set the source file character encoding in Eclipse, go to 
-`Project > Properties`, select the `Resource` section, and select a
-`Text file encoding`, for example, `UTF-8`.
+`Project > Properties`, select the `Resource` section, and select 
+a `Text file encoding`, for example, `UTF-8`.
 
 ## Continue the tour
 

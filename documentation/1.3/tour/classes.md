@@ -356,18 +356,21 @@ uses it.
         }
     }
 
-## Living without static members
+## Avoiding static members
 
-Right at the beginning of the tour, we mentioned that Ceylon doesn't 
-have `static` members like in Java, C#, or C++. Instead of a `static` 
-member, we either:
+Ceylon does feature [static members](../initialization/#static_members),
+just like Java, C#, or C++. However, `static` was added very late in the 
+evolution of the language, and is barely used in idiomatic Ceylon code.
+Instead of a `static` member, we usually:
 
 - use a toplevel function or value declaration, or
 - in the case where several "static" declarations need to share some 
-  private stuff, members of a singleton `object` declaration, which 
-  we'll meet right [at the start of the next chapter][anonymous classes].
+  private stuff, regular members of a singleton `object` declaration, 
+  which we'll meet right [at the start of the next chapter][anonymous classes].
 
-The lack of static members results in a minor gotcha for newcomers.
+However, it's very common to see something that looks a whole lot like a
+reference to a static member, but isn't. This results in a minor gotcha 
+for newcomers.
 
 [anonymous classes]: ../anonymous-member-classes/#anonymous_classes
 
@@ -394,10 +397,10 @@ the static member:
     
     Integer procs = runtime.availableProcessors(); 
 
-But in regular Ceylon code, an expression like `Polar.radius` is _not_ 
-a reference to a static member of the class `Polar`. We'll come back to 
-the question of what a "static reference" really is, when we discuss 
-[higher-order functions](../functions).
+But in regular Ceylon code, an expression like `Polar.radius` is not 
+_usually_ a reference to a static member of the class `Polar`. We'll 
+come back to the question of what a "static reference" really is, when 
+we discuss [higher-order functions](../functions).
 
 
 ## Living without overloading
