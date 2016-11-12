@@ -12,7 +12,7 @@ doc_root: ../..
 This is the fifteenth part of the Tour of Ceylon. In the 
 [last part](../language-module) we learned about the language module, 
 [`ceylon.language`](#{site.urls.apidoc_1_3}/index.html). Now we're going to 
-go into the details of *initialization*, and the restrictions that Ceylon 
+get into the details of *initialization*, and the restrictions that Ceylon 
 places upon your code to ensure that you never experience anything like 
 Java's infamous `NullPointerException`.
 
@@ -41,8 +41,8 @@ inherits two different implementations of `ambiguous()`, one from `Class`,
 and one from `Interface`? Then the expression `super.ambiguous()` would be, 
 well, super-ambiguous.
 
-In this case, the widening operator `of` may be used to disambiguate the 
-member reference:
+In this case, the [widening operator][of] `of` may be used to disambiguate 
+the member reference:
 
 <!-- try: -->
     (super of Interface).ambiguous() //ambiguity resolved!
@@ -76,6 +76,7 @@ in the current package.
         String name;
     }
 
+[of]: /documentation/reference/operator/of/
 
 ## Multiple inheritance and "linearization"
 
