@@ -227,7 +227,7 @@ Now, in Java, we can use a _wildcard_ to obtain:
 - a contravariant type, for example, `Collection<? super Geek>`, one that only 
   consumes `Element`s.
 
-Ceylon also has wildcard types, though with a [much nicer syntax](#wildcards),
+Ceylon also has wildcard types, though with a [much nicer syntax](#wildcard_types),
 but they're mainly used for interoperation with Java. In pure Ceylon code, we
 use a different approach to produce covariance or contravariance.
 
