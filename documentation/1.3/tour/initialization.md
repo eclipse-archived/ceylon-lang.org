@@ -392,6 +392,29 @@ checks, using the `late` annotation:
 When a reference is annotated `late`, the checks which normally happen
 at compile time are delayed until runtime.
 
+### Tip: using `late` with annotation-driven frameworks
+
+There are a [number of widely-used Java frameworks][frameworks] that 
+depend on direct reflection-based access to initialize the fields of 
+annotated classes. Examples include [Hibernate], [CDI], and [Spring].
+
+When an attribute of a Ceylon class is initialized by a framework
+like this, you'll probably need to annotate it `late` in order to
+suppress the compile-time initialization checks.
+
+A common use-case is dependency injection using `java.inject`:
+
+<!-- try: -->
+    inject late EntityManager em;
+
+(This isn't necessary if you use constructor injection instead of 
+field injection.)
+
+[frameworks]: ../interop/#java_ee_and_other_annotation_driven_frameworks
+[Hibernate]: http://hibernate.org
+[Spring Framework]: http://spring.io/projects
+[CDI]: https://docs.oracle.com/javaee/7/tutorial/partcdi.htm
+
 ### Tip: lazy initialization
 
 We can abuse the `variable` annotation to arrive at the following idiom for 
