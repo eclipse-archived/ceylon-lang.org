@@ -29,7 +29,7 @@ explicitly specify the current instance.
 
     class Greeting(String name) {
         shared void greet()
-            = print("Hello ``name``!"); //implicitly refers to this.name
+            => print("Hello ``name``!"); //implicitly refers to this.name
     } 
 
 However, it's possible for a name collision to hide a member of the class.
@@ -42,6 +42,12 @@ However, it's possible for a name collision to hide a member of the class.
 
 We can resolve the name collision using the keyword `this`.
 
+    class Greeting(String name) {
+        shared void greet(String name) {
+            print("``name`` says 'Hello ``this.name``!'"); //oops, local name hides this.name!
+        }
+    } 
+
 ### Self references
 
 Ceylon features the keywords `this` and `super`, which refer to:
@@ -51,12 +57,6 @@ Ceylon features the keywords `this` and `super`, which refer to:
 - the current instance of a class, within the body of any operation
   (method invocation, member class instantiation, or attribute 
   evaluation/assignment) of the class.
-
-    class Greeting(String name) {
-        shared void greet(String name) {
-            print("``name`` says 'Hello ``this.name``!'"); //oops, local name hides this.name!
-        }
-    } 
 
 The semantics are exactly the same as what you're used to in Java, with 
 one exception: a reference to a member of `super` might refer to a member 
