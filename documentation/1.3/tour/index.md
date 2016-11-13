@@ -93,7 +93,7 @@ run it directly from the command line or IDE.
 Ceylon does have [`static` methods][], just like Java, C++, or 
 C#, but we usually use toplevel functions instead.
 
-[`static` methods]: ../initialization/#static_members
+[`static` methods]: initialization/#static_members
 
 ### Gotcha!
 

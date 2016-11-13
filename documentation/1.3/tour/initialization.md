@@ -949,6 +949,9 @@ That's really just a syntactic abbreviation for:
 
 ## Static members
 
+_Warning: this subsection describes new pre-release 
+functionality that will be made available in Ceylon 1.3.1._
+
 You're probably familiar with the idea of a _static member_ 
 which comes up in many object-oriented languages, including 
 C++, Java, and C#. Languages like Smalltalk and Ruby feature 

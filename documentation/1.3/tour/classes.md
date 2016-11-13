@@ -358,31 +358,32 @@ uses it.
 
 ## Avoiding static members
 
-Ceylon does feature [static members](../initialization/#static_members),
-just like Java, C#, or C++. However, `static` was added very late in the 
-evolution of the language, and is barely used in idiomatic Ceylon code.
-Instead of a `static` member, we usually:
+Ceylon does feature [static members][], just like Java, C#, or C++. 
+However, `static` was added very late in the evolution of the 
+language, and is barely used in idiomatic Ceylon code. Instead of a 
+`static` member, we usually:
 
 - use a toplevel function or value declaration, or
 - in the case where several "static" declarations need to share some 
   private stuff, regular members of a singleton `object` declaration, 
   which we'll meet right [at the start of the next chapter][anonymous classes].
 
-However, it's very common to see something that looks a whole lot like a
-reference to a static member, but isn't. This results in a minor gotcha 
-for newcomers.
+However, it's very common to see something that looks a whole lot 
+like a reference to a static member, but isn't. This results in a 
+minor gotcha for newcomers.
 
+[static members]: ../initialization/#static_members
 [anonymous classes]: ../anonymous-member-classes/#anonymous_classes
 
 ### Gotcha!
 
 The syntax `Polar.radius` is legal in Ceylon, and we even call it a 
-[static reference](../functions/#static_method_and_attribute_references), 
-but it does not usually mean what you think it means!
+[static reference][], but it does not usually mean what you think it 
+means!
 
-Sure, if you're taking advantage of Ceylon's Java interop, you can call 
-a static member of a Java class using this syntax, just like you would 
-in Java:
+Sure, if you're taking advantage of Ceylon's Java interop, you can 
+call a static member of a Java class using this syntax, just like 
+you would in Java:
 
 <!-- try: -->
     import java.lang { Runtime }
@@ -399,9 +400,11 @@ the static member:
 
 But in regular Ceylon code, an expression like `Polar.radius` is not 
 _usually_ a reference to a static member of the class `Polar`. We'll 
-come back to the question of what a "static reference" really is, when 
-we discuss [higher-order functions](../functions).
+come back to the question of what a "static reference" really is, 
+when we discuss [higher-order functions][].
 
+[static reference]: ../functions/#static_method_and_attribute_references
+[higher-order functions]: ../functions
 
 ## Living without overloading
 
