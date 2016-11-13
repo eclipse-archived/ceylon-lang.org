@@ -90,11 +90,6 @@ this:
 Or, since this toplevel function is annotated `shared`, we can 
 run it directly from the command line or IDE.
 
-Ceylon does have [`static` methods][], just like Java, C++, or 
-C#, but we usually use toplevel functions instead.
-
-[`static` methods]: initialization/#static_members
-
 ### Gotcha!
 
 Note that Ceylon doesn't (yet) support _scripting_. You can't 
