@@ -786,8 +786,9 @@ uncomfortable, and are not well-supported by tooling.
 
 In Ceylon, toplevel functions are a totally natural and
 comfortable part of the language, this discomfort simply
-doesn't arise. Ceylon IDE for Eclipse can even suggest the toplevel 
-functions applying to a type from the completion popup. 
+doesn't arise. Ceylon IDE for Eclipse can even suggest the 
+toplevel functions applying to a type from the completion 
+popup. 
 
 ### Variance
 
