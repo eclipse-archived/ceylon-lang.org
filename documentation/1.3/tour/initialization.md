@@ -968,14 +968,45 @@ for preferring a static member to a toplevel:
   namespace of the whole package, or
 - to define "factory functions".
 
-In order to respect the block structure of the language, 
+### Restrictions on static members
+
+Now, of course, there's no [current instance][] for a static 
+member, so within a static member we can't:
+
+- make use of `this` or `super`,
+- use parameters of the class itself, or
+- call non-static members without providing an instance of
+  the class.
+
+Therefore, Ceylon doesn't let us write something like this:
+
+<!-- try: -->
+    class Class(String name) {
+        void instanceMethod() {}
+        static void staticMethod() {} //error!
+    }
+
+In this code, it looks like `staticMethod()` should have 
+access to both the parameter `name`, and the method 
+`instanceMethod()`, since they're both in scope, according to 
+the usual scoping rules of the language.
+
+So, in order to respect the block structure of the language, 
 there's two important restrictions:
 
 - only a class with constructors may define _static members_,
   and
 - static members must be defined right at the start of the
-  class, _before_ the initializer section, and before the
-  constructors of the class.
+  class, _before_ the initializer section, before the
+  constructors of the class, and before any regular non-static
+  members of the class.
+
+A nested class or anonymous class may not declare static 
+members.
+
+[current instance]: #self_references_and_outer_instance_references
+
+### Declaring a static member
 
 We indicate that a method, value, or nested class is `static`
 by annotating it:
@@ -999,10 +1030,30 @@ by annotating it:
         shared void greet() => print(hello + " " + name);
     }
 
+Notice how the body of the class is laid out as *three*
+different sections:
+
+- static member declarations come first,
+- followed by the initializer, along with constructors, 
+- and then the declaration section.
+
+### References to static members
+
 Static members are invoked directly on the class itself:
 
 <!-- try: -->
     Greeting.sayHello();
+
+This is a sort of [static reference][], just like what we met 
+earlier in the tour. The difference here is that:
+
+- whereas, if `sayHello()` where a regular non-`static` method,
+  the type of `Greeting.sayHello` would be `Anything(Greeting)()`,
+- in this case, since `sayHello()` is `static`, it has the type
+  `Anything()`, allowing us to invoke the method without 
+  providing an instance of `Greeting`.
+
+[static reference]: ../functions/#static_method_and_attribute_references
 
 ### Tip: using `static` to define a factory
 
