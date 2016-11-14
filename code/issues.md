@@ -7,22 +7,30 @@ author: Emmanuel Bernard
 ---
 # #{page.title}
 
-We use GitHub's issue tracker. If you have found a bug or have 
-an enhancement proposal, open an issue.
+We use GitHub's issue tracker. If you have found a bug or have an 
+enhancement proposal, open an issue.
 
 There is a dedicated issue tracker for:
 
-- [the distribution: compiler, runtime, language module, specification](https://github.com/ceylon/ceylon/issues),
+- [the distribution: compiler, runtime, language module, specification][ceylon],
 - the IDE:
-  - [the Eclipse-based IDE](https://github.com/ceylon/ceylon-ide-eclipse),
-  - [the work-in-progress IntelliJ-based IDE](https://github.com/ceylon/ceylon-ide-intellij), and
-  - [common components for both IDEs](https://github.com/ceylon/ceylon-ide-common) (when in doubt, open an issue for a specific IDE, and it may be moved here if applicable),
-- [the platform modules](https://github.com/ceylon/ceylon-sdk/issues) belonging to the Ceylon SDK,
-- [Ceylon Herd](https://github.com/ceylon/ceylon-herd/issues), and
-- [this website](https://github.com/ceylon/ceylon-lang.org/issues).
+  - [the Eclipse-based IDE][ceylon-ide-eclipse],
+  - [the IntelliJ-based IDE][ceylon-ide-intellij], and
+  - [common components for both IDEs][ceylon-ide-common] 
+    (when in doubt, open an issue for a specific IDE, and it may be 
+    moved here if applicable),
+- [the platform modules][ceylon-sdk] belonging to the Ceylon SDK,
+- [Ceylon Herd][ceylon-herd], and
+- [this website][].
 
-If your issue doesn't fall into one of these categories, it 
-might be better to send email to the 
-[development mailing list](https://groups.google.com/forum/?fromgroups#!forum/ceylon-dev).
+If your issue doesn't fall into one of these categories, it might be 
+better to send email to the [development mailing list][ceylon-dev].
 
-
+[ceylon]: https://github.com/ceylon/ceylon/issues
+[ceylon-sdk]: https://github.com/ceylon/ceylon-sdk/issues
+[ceylon-ide-eclipse]: https://github.com/ceylon/ceylon-ide-eclipse/issues
+[ceylon-ide-intellij]: https://github.com/ceylon/ceylon-ide-intellij/issues
+[ceylon-ide-common]: https://github.com/ceylon/ceylon-ide-common/issues
+[ceylon-herd]: https://github.com/ceylon/ceylon-herd/issues
+[this website]: https://github.com/ceylon/ceylon-lang.org/issues
+[ceylon-dev]: https://groups.google.com/forum/?fromgroups#!forum/ceylon-dev
