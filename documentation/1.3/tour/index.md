@@ -107,9 +107,9 @@ Let's try it out. Save the above code in the file
 `./source/hello.ceylon` and then run the following command:
 
 <!-- lang: bash -->
-    ceylon-1.3.0/bin/ceylon run --compile=force --run=hello default
+    ceylon-1.3.1/bin/ceylon run --compile=force --run=hello default
 
-where `ceylon-1.3.0` is the path to your Ceylon install directory. 
+where `ceylon-1.3.1` is the path to your Ceylon install directory. 
 You should see the message `Hello, World!`. You will find the 
 compiled module archive `default.car` in the directory 
 `./modules/default`.
@@ -129,32 +129,32 @@ Alternatively, you can compile and run in two separate steps,
 with the following commands:
 
 <!-- lang: bash -->
-    ceylon-1.3.0/bin/ceylon compile
-    ceylon-1.3.0/bin/ceylon run --run=hello default
+    ceylon-1.3.1/bin/ceylon compile
+    ceylon-1.3.1/bin/ceylon run --run=hello default
 
 If you need to, you can explicitly specify the source file
 you wish to compile:
 
 <!-- lang: bash -->
-    ceylon-1.3.0/bin/ceylon compile source/hello.ceylon
+    ceylon-1.3.1/bin/ceylon compile source/hello.ceylon
 
 Or, alternatively, the name of the _module_ you wish to 
 compile:
 
 <!-- lang: bash -->
-    ceylon-1.3.0/bin/ceylon compile default
+    ceylon-1.3.1/bin/ceylon compile default
 
 ### Getting help
 
 A very useful trick is:
 
 <!-- lang: bash -->
-    ceylon-1.3.0/bin/ceylon help compile
+    ceylon-1.3.1/bin/ceylon help compile
 
 Or:
 
 <!-- lang: bash -->
-    ceylon-1.3.0/bin/ceylon help run
+    ceylon-1.3.1/bin/ceylon help run
 
 The command [`ceylon help`][] outputs usage information about 
 any of the [`ceylon` subcommands][].
@@ -212,7 +212,7 @@ of using `ceylon run`, you can use the `ceylon fat-jar` command to
 package your program as a Java `.jar` archive:
 
 <!-- lang: bash -->
-    ceylon-1.3.0/bin/ceylon fat-jar --run=hello default
+    ceylon-1.3.1/bin/ceylon fat-jar --run=hello default
 
 This will create a file named `default-unversioned.jar`, which you
 can run using `java`:
