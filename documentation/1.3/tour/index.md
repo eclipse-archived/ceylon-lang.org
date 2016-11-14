@@ -107,7 +107,7 @@ Let's try it out. Save the above code in the file
 `./source/hello.ceylon` and then run the following command:
 
 <!-- lang: bash -->
-    ceylon-1.3.0/bin/ceylon run --compile=force --run hello default
+    ceylon-1.3.0/bin/ceylon run --compile=force --run=hello default
 
 where `ceylon-1.3.0` is the path to your Ceylon install directory. 
 You should see the message `Hello, World!`. You will find the 
@@ -129,8 +129,22 @@ Alternatively, you can compile and run in two separate steps,
 with the following commands:
 
 <!-- lang: bash -->
+    ceylon-1.3.0/bin/ceylon compile
+    ceylon-1.3.0/bin/ceylon run --run=hello default
+
+If you need to, you can explicitly specify the source file
+you wish to compile:
+
+<!-- lang: bash -->
     ceylon-1.3.0/bin/ceylon compile source/hello.ceylon
-    ceylon-1.3.0/bin/ceylon run --run hello default
+
+Or, alternatively, the name of the _module_ you wish to 
+compile:
+
+<!-- lang: bash -->
+    ceylon-1.3.0/bin/ceylon compile default
+
+### Getting help
 
 A very useful trick is:
 
@@ -189,7 +203,25 @@ to explicitly specify the character encoding on the command line
 like this:
 
 <!-- lang: bash -->
-    ceylon compile --encoding UTF-8 source/hello.ceylon
+    ceylon compile --encoding=UTF-8
+
+## Running the program using plain Java
+
+If you want to run the program using the `java` command, instead
+of using `ceylon run`, you can use the `ceylon fat-jar` command to
+package your program as a Java `.jar` archive:
+
+<!-- lang: bash -->
+    ceylon-1.3.0/bin/ceylon fat-jar --run=hello default
+
+This will create a file named `default-unversioned.jar`, which you
+can run using `java`:
+
+<!-- lang: bash -->
+    java -jar default-unversioned.jar
+
+This is very useful if you ever need to run a Ceylon program in
+an environment where Ceylon itself is not installed.
 
 ## Running the program from the IntelliJ IDE
 
