@@ -214,14 +214,16 @@ package your program as a Java `.jar` archive:
 <!-- lang: bash -->
     ceylon-1.3.1/bin/ceylon fat-jar --run=hello default
 
-This will create a file named `default-unversioned.jar`, which you
-can run using `java`:
+This will create a file named `default.jar` in the working directory, 
+which you can run using `java`:
 
 <!-- lang: bash -->
-    java -jar default-unversioned.jar
+    java -jar default.jar
 
 This is very useful if you ever need to run a Ceylon program in
-an environment where Ceylon itself is not installed.
+an environment where Ceylon itself is not installed. The "fat"
+`.jar` file contains everything needed to run the Ceylon program,
+including its dependencies.
 
 ## Running the program from the IntelliJ IDE
 
