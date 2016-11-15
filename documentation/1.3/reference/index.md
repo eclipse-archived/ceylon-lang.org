@@ -204,6 +204,9 @@ The API documentation for
 * [`ceylon.decimal`](#{site.urls.apidoc_current_decimal}/api/index.html)
 * [`ceylon.file`](#{site.urls.apidoc_current_file}/api/index.html)
 * [`ceylon.html`](#{site.urls.apidoc_current_html}/api/index.html)
+* [`ceylon.http.client`](#{site.urls.apidoc_current_http_client}/api/index.html)
+* [`ceylon.http.common`](#{site.urls.apidoc_current_http_common}/api/index.html)
+* [`ceylon.http.server`](#{site.urls.apidoc_current_http_server}/api/index.html)
 * [`ceylon.interop.browser`](#{site.urls.apidoc_current_interop_browser}/api/index.html)
 * [`ceylon.interop.java`](#{site.urls.apidoc_current_interop_java}/api/index.html)
 * [`ceylon.io`](#{site.urls.apidoc_current_io}/api/index.html)
@@ -211,7 +214,6 @@ The API documentation for
 * [`ceylon.locale`](#{site.urls.apidoc_current_locale}/api/index.html)
 * [`ceylon.logging`](#{site.urls.apidoc_current_logging}/api/index.html)
 * [`ceylon.math`](#{site.urls.apidoc_current_math}/api/index.html)
-* [`ceylon.net`](#{site.urls.apidoc_current_net}/api/index.html)
 * [`ceylon.numeric`](#{site.urls.apidoc_current_numeric}/api/index.html)
 * [`ceylon.process`](#{site.urls.apidoc_current_process}/api/index.html)
 * [`ceylon.promise`](#{site.urls.apidoc_current_promise}/api/index.html)
@@ -221,6 +223,7 @@ The API documentation for
 * [`ceylon.time`](#{site.urls.apidoc_current_time}/api/index.html)
 * [`ceylon.transaction`](#{site.urls.apidoc_current_transaction}/api/index.html)
 * [`ceylon.unicode`](#{site.urls.apidoc_current_unicode}/api/index.html)
+* [`ceylon.uri`](#{site.urls.apidoc_current_uri}/api/index.html)
 * [`ceylon.whole`](#{site.urls.apidoc_current_whole}/api/index.html)
 
 ## Tools
