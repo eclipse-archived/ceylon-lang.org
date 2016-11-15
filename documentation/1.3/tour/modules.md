@@ -608,7 +608,8 @@ At present, there are four such tools, all implemented as
 plugins for the `ceylon` command:
 
 - [`ceylon fat-jar`][] repackages a module and its dependencies
-  into a single archive, for execution via the `java` command.
+  into a single archive, for execution via the `java` command,
+  as already we saw, [right at the beginning of the tour][].
 - [`ceylon war`][] repackages a module and its dependencies as
   a Java EE `.war` archive, for execution in a Java servlet
   engine or Java EE application server.
@@ -623,6 +624,7 @@ execution, classloading, and classloader isolation model is
 that of the given platform, and may not fully respect the 
 semantics of Ceylon's native module system. 
 
+[right at the beginning of the tour]: ../#running_the_program_using_plain_java
 [`ceylon fat-jar`]: /documentation/current/reference/tool/ceylon/subcommands/ceylon-fat-jar.html
 [`ceylon war`]: /documentation/1.3/reference/tool/ceylon/subcommands/ceylon-war.html
 [`ceylon jigsaw`]: /documentation/current/reference/tool/ceylon/subcommands/ceylon-jigsaw.html
