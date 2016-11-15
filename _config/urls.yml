@@ -21,7 +21,7 @@ apidoc_current_json: https://modules.ceylon-lang.org/repo/1/ceylon/json/1.3.0/mo
 apidoc_current_locale: https://modules.ceylon-lang.org/repo/1/ceylon/locale/1.3.0/module-doc
 apidoc_current_logging: https://modules.ceylon-lang.org/repo/1/ceylon/logging/1.3.0/module-doc
 apidoc_current_math: https://modules.ceylon-lang.org/repo/1/ceylon/math/1.3.0/module-doc
-apidoc_current_net: https://modules.ceylon-lang.org/repo/1/ceylon/net/1.3.0/module-doc
+apidoc_current_net: https://modules.ceylon-lang.org/repo/1/ceylon/net/1.2.2/module-doc
 apidoc_current_http_server: https://modules.ceylon-lang.org/repo/1/ceylon/http/server/1.3.0/module-doc
 apidoc_current_http_client: https://modules.ceylon-lang.org/repo/1/ceylon/http/client/1.3.0/module-doc
 apidoc_current_numeric: https://modules.ceylon-lang.org/repo/1/ceylon/numeric/1.3.0/module-doc
