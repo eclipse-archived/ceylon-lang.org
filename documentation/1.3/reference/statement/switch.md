@@ -126,6 +126,28 @@ If the `switch` expression is of type [`Integer`](#{site.urls.apidoc_1_3}/Intege
 Since it's impossible to enumerate every value of any of these types, the `else` 
 clause is required.
 
+### `case(...)` with tuple literals
+
+Since Ceylon 1.3.1 it is possible to switch over a `Tuple` (and `Empty`) expression using 
+tuple literals
+
+<!-- try: -->
+    String formatComplex([Integer, Integer] complex) {
+        switch(complex)
+        case ([0, 0]) {
+            return "origin";
+        }
+        case ([1, 0]) {
+            return "1";
+        }
+        case ([0, 1]) {
+            return "i";
+        } 
+        else {
+            return "``complex[0]``+``complex[1]``i";
+        }
+    }
+
 ### Flow typing
 
 Note that `case (is ...)` narrows the type of the switch value within the 

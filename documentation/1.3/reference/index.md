@@ -58,6 +58,7 @@ _Some of these pages are incomplete. Want to help? [See how](/code/website)._
   <li><a href="annotation/see/"><code>see</code></a></li>
   <li><a href="annotation/serializable/"><code>serializable</code></a></li>
   <li><a href="annotation/shared/"><code>shared</code></a></li>
+    <li><a href="annotation/static/"><code>static</code></a></li>
   <li><a href="annotation/suppressWarnings/"><code>suppressWarnings</code></a></li>
   <li><a href="annotation/throws/"><code>throws</code></a></li>
   <li><a href="annotation/tagged/"><code>tagged</code></a></li>
@@ -195,48 +196,26 @@ Also see [operators](#operators) and [literals](#literals) below
 
 ## API docs for `ceylon.language` and the Ceylon SDK
 
-The API documentation for 
+The API documentation for the Ceylon platform modules, including
+the [language module][] can be found on [the Herd][].
 
-* [`ceylon.language`](#{site.urls.apidoc_current_language}/api/index.html)
-* [`ceylon.buffer`](#{site.urls.apidoc_current_buffer}/api/index.html)
-* [`ceylon.collection`](#{site.urls.apidoc_current_collection}/api/index.html)
-* [`ceylon.dbc`](#{site.urls.apidoc_current_dbc}/api/index.html)
-* [`ceylon.decimal`](#{site.urls.apidoc_current_decimal}/api/index.html)
-* [`ceylon.file`](#{site.urls.apidoc_current_file}/api/index.html)
-* [`ceylon.html`](#{site.urls.apidoc_current_html}/api/index.html)
-* [`ceylon.http.client`](#{site.urls.apidoc_current_http_client}/api/index.html)
-* [`ceylon.http.common`](#{site.urls.apidoc_current_http_common}/api/index.html)
-* [`ceylon.http.server`](#{site.urls.apidoc_current_http_server}/api/index.html)
-* [`ceylon.interop.browser`](#{site.urls.apidoc_current_interop_browser}/api/index.html)
-* [`ceylon.interop.java`](#{site.urls.apidoc_current_interop_java}/api/index.html)
-* [`ceylon.io`](#{site.urls.apidoc_current_io}/api/index.html)
-* [`ceylon.json`](#{site.urls.apidoc_current_json}/api/index.html)
-* [`ceylon.locale`](#{site.urls.apidoc_current_locale}/api/index.html)
-* [`ceylon.logging`](#{site.urls.apidoc_current_logging}/api/index.html)
-* [`ceylon.math`](#{site.urls.apidoc_current_math}/api/index.html)
-* [`ceylon.numeric`](#{site.urls.apidoc_current_numeric}/api/index.html)
-* [`ceylon.process`](#{site.urls.apidoc_current_process}/api/index.html)
-* [`ceylon.promise`](#{site.urls.apidoc_current_promise}/api/index.html)
-* [`ceylon.random`](#{site.urls.apidoc_current_random}/api/index.html)
-* [`ceylon.regex`](#{site.urls.apidoc_current_regex}/api/index.html)
-* [`ceylon.test`](#{site.urls.apidoc_current_test}/api/index.html)
-* [`ceylon.time`](#{site.urls.apidoc_current_time}/api/index.html)
-* [`ceylon.transaction`](#{site.urls.apidoc_current_transaction}/api/index.html)
-* [`ceylon.unicode`](#{site.urls.apidoc_current_unicode}/api/index.html)
-* [`ceylon.uri`](#{site.urls.apidoc_current_uri}/api/index.html)
-* [`ceylon.whole`](#{site.urls.apidoc_current_whole}/api/index.html)
+[language module]: #{site.urls.apidoc_1_3}/index.html
+[the Herd]: https://herd.ceylon-lang.org/categories/SDK
 
 ## Tools
 
 * [Command line tooling and build tools](tool/) 
 * The `ceylon` command, [`ceylon`](tool/ceylon/)
-* An index of [`ceylon`](#{site.urls.ceylon_tool_current}/index.html) subcommands
-* Dealing with [`repositories`](repository/tools/) on the command line
+* An index of [`ceylon`][] subcommands
+* Dealing with [`repositories`](repository/tools/) 
+  on the command line
 * The Ceylon [project structure](tool/project)
 * `ceylon` [command plugins](tool/plugin/)
 * The Ceylon [`ant`](tool/ant/) tasks
 * The [configuration file format](tool/config/)
 * [Bootstrapping Ceylon](tool/bootstrap/)
+
+[`ceylon`]: #{site.urls.ceylon_tool_current}/index.html
 
 ## Interoperability
 
@@ -244,6 +223,7 @@ The API documentation for
 * [Calling Ceylon from Java](interoperability/ceylon-from-java/)
 * [Calling Java from Ceylon](interoperability/java-from-ceylon/)
 * [Type mapping](interoperability/type-mapping/)
+* [EE mode](interoperability/ee-mode/)
 * [Running Ceylon modules in OSGI containers](interoperability/osgi/)
 * [The JavaScript compiler](interoperability/js/)
 * [How to use native annotations](interoperability/native/)
