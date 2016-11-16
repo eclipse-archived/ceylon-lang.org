@@ -705,19 +705,6 @@ without:
     Integer one = 1;
     Float zero = 0.0;
 
-When writing a literal with lots of digits you can separate groups of digits using underscores. 
-Also helpful for large or small numbers, you can use the [metric unit prefixes](https://en.wikipedia.org/wiki/Metric_prefix) as 
-suffixes:
-
-    Integer oneMillion = 1_000_000;
-    Integer oneBillion = 1G; // Giga
-    Float oneThousanth  = 1.0m; // milli
-
-You can also write an `Integer` literal in binary or hexadecimal notation:
-
-    Integer mask = $1000;
-    Integer white = #ff_ff_ff;
-
 Even though they're classes, you can use all the usual numeric literals and
 operators with them. For example, the following function efficiently determines 
 if an `Integer` represents a prime number:
