@@ -11,16 +11,16 @@ doc_root: ../..
 
 Let's get started!
 
-Before we can get into any of the really interesting and powerful features of 
-this language, we need to get comfortable with some of the basic syntax, so
-we'll know what we're looking at later on, when we get up to the really good 
-stuff. 
+Before we can get into any of the really interesting and powerful 
+features of this language, we need to get comfortable with some of 
+the basic syntax, so we'll know what we're looking at later on, 
+when we get up to the really good stuff. 
 
 
 ## String literals
 
-As we [just saw](../#a_really_simple_program), a _string literal_ is text 
-enclosed in double-quotes:
+As we [just saw](../#a_really_simple_program), a _string literal_ 
+is text enclosed in double-quotes:
 
     print("Hello, World!");
 
@@ -35,15 +35,14 @@ The output is:
     Hello, 
     World!
 
-Note that because the second line of the string literal contained whitespace 
-right up until the first character of the first line of the string literal,
-all that whitespace was automatically removed. This helps us format our code 
-nicely.
+Note that because the second line of the string literal contained 
+whitespace right up until the first character of the first line 
+of the string literal, all that whitespace was automatically 
+removed. This helps us format our code nicely.
 
-It's often useful to collapse whitespace in a multiline string literal. The
-[`String`](#{site.urls.apidoc_1_3}/String.type.html) class has an attribute 
-called [`normalized`](#{site.urls.apidoc_1_3}/String.type.html#normalized). 
-We can use it like this:
+It's often useful to collapse whitespace in a multiline string 
+literal. The [`String`][] class has an attribute called 
+[`normalized`][]. We can use it like this:
 
     value message = "Hello, 
                      World!";
@@ -54,17 +53,22 @@ Which results in the output:
 <!-- lang: none -->
     Hello, World!
 
-Certain characters in a string literal have a special interpretation.
+Certain characters in a string literal have a special 
+interpretation.
+
+[`String`]: #{site.urls.apidoc_1_3}/String.type.html
+[`normalized`]: #{site.urls.apidoc_1_3}/String.type.html#normalized
 
 ### Escape sequences
 
-Inside a string literal, you can use the escape sequences `\n`, `\t`, `\\`,
-`\"` and friends that you're used to from other C-like languages.
+Inside a string literal, you can use the escape sequences 
+`\n`, `\t`, `\\`, `\"` and friends that you're used to from other 
+C-like languages.
 
     print("\"Hello!\", said the program.");
 
-You can also use 2-byte and 4-byte hexadecimal escape sequences to embed
-Unicode characters in your text.
+You can also use 2-byte and 4-byte hexadecimal escape sequences 
+to embed Unicode characters in your text.
 
 <!-- try-pre:
     Float calculateE() => 2.71828;
@@ -96,27 +100,30 @@ Even better, you can identity a Unicode character by its name.
     Float e = calculateE();
 
 Ceylon strings are composed of UTF-32 characters, as we'll see 
-[later in the tour](../language-module/#characters_and_character_strings).
+[later in the tour][strings].
+
+[strings]: ../language-module/#characters_and_character_strings
 
 ### Verbatim strings
 
-Sometimes, escape sequence interpolation is annoying, for example, when
-embedding code in a string literal. If we use three double-quotes, `"""`, 
-to delimit our string, we get a _verbatim string_, which may contain
-unescaped backslash and double-quote characters:
+Sometimes, escape sequence interpolation is annoying, for 
+example, when embedding code in a string literal. If we use 
+three double-quotes, `"""`, to delimit our string, we get a 
+_verbatim string_, which may contain unescaped backslash and 
+double-quote characters:
 
     print(""""Hello!", said the program.""");
 
-Verbatim strings literals may also span multiple lines. Verbatim strings
-and multiline strings are especially useful for adding documentation to a 
-program.
+Verbatim strings literals may also span multiple lines. Verbatim 
+strings and multiline strings are especially useful for adding 
+documentation to a program.
 
 
 ## Adding inline documentation
 
-It's usually a good idea to add some kind of documentation to important 
-functions like `hello()`. One way we could do this is by using a C-style 
-comment, either like this:
+It's usually a good idea to add some kind of documentation to 
+important functions like `hello()`. One way we could do this is 
+by using a C-style comment, either like this:
 
 <!-- try: -->
     /* The classic Hello World program */
@@ -132,8 +139,8 @@ Or like this:
         print("Hello, World!");
     }
 
-But it's much better to use the `doc` annotation for comments that describe 
-declarations.
+But it's much better to use the `doc` annotation for comments 
+that describe declarations.
 
 <!-- try: -->
 	doc ("The classic Hello World program")
@@ -144,19 +151,20 @@ declarations.
 	    print("Hello, World!");
 	}
 
-The `doc`, `by`, `see`, `throws`, and `tagged` annotations contain documentation 
-that is included in the output of the Ceylon documentation compiler, 
-[`ceylon doc`](#{site.urls.ceylon_tool_current}/ceylon-doc.html).
+The `doc`, `by`, `see`, `throws`, and `tagged` annotations contain 
+documentation that is included in the output of the Ceylon 
+documentation compiler, [`ceylon doc`][].
 
-Annotations like `doc`, `by`, `see`, and `throws`, aren't keywords. They're 
-just ordinary identifiers. The same is true for annotations which are part of 
-the language definition, for example: `abstract`, `variable`, `shared`, `formal`, 
-`default`, `actual`, etc. This is quite different to other C-like languages. (On 
-the other hand, `void` _is_ a keyword, just like in C or Java.)
+Annotations like `doc`, `by`, `see`, and `throws`, aren't 
+keywords. They're just ordinary identifiers. The same is true 
+for annotations which are part of the language definition, for 
+example: `abstract`, `variable`, `shared`, `formal`, `default`, `actual`, 
+etc. This is quite different to other C-like languages. (On the 
+other hand, `void` _is_ a keyword, just like in C or Java.)
 
-Since the `doc` annotation is ubiquitous, its name and parentheses may be left 
-out whenever it occurs as the first annotation in the list of annotations of a 
-program element:
+Since the `doc` annotation is ubiquitous, its name and 
+parentheses may be left out whenever it occurs as the first 
+annotation in the list of annotations of a program element:
 
 <!-- try: -->
     "The classic Hello World program"
@@ -167,6 +175,7 @@ program element:
         print("Hello, World!");
     }
 
+[`ceylon doc`]: #{site.urls.ceylon_tool_current}/ceylon-doc.html
 
 ### Formatting inline documentation
 
@@ -198,9 +207,9 @@ The `doc` annotation may contain [Markdown][] formatting.
         print("Hello, World!");
     }
 
-Since Markdown is sensitive to the initial column in which text appears, 
-you need to be careful to indent the lines of the multiline string literal 
-correctly, as we've done here.
+Since Markdown is sensitive to the initial column in which 
+text appears, you need to be careful to indent the lines of 
+the multiline string literal correctly, as we've done here.
 
 [Markdown]: http://daringfireball.net/projects/markdown/syntax
 
@@ -214,8 +223,9 @@ Let's make our program tell us a little more about itself.
            You ran me at ``system.milliseconds`` ms, 
            with ``process.arguments.size`` arguments.");
 
-Notice how our message contains interpolated expressions, delimited using
-"doublebacks", that is, two backticks. This is called a _string template_. 
+Notice how our message contains interpolated expressions, 
+delimited using "doublebacks", that is, two backticks. This 
+is called a _string template_. 
 
 On my machine, this program results in the following output:
 
@@ -226,8 +236,8 @@ On my machine, this program results in the following output:
     You ran me at 1362763185067 ms,
     with 0 arguments.
 
-The `+` operator you're probably used to is an alternative way to concatenate
-strings, and more flexible in many cases:
+The `+` operator you're probably used to is an alternative way 
+to concatenate strings, and more flexible in many cases:
 
     print("Hello, this is Ceylon " + language.version +  
           " running on " + runtime.name + " " + runtime.version + "!\n" +
@@ -235,11 +245,10 @@ strings, and more flexible in many cases:
           " ms, with " + process.arguments.size.string + 
           " arguments.");
 
-Note that when we use `+` to concatenate strings, we have to explicitly 
-invoke the 
-[`string`](#{site.urls.apidoc_1_3}/Object.type.html#string) 
-attribute to convert numeric expressions to strings. The 
-`+` operator does not automatically convert its operands to strings, so the 
+Note that when we use `+` to concatenate strings, we have to 
+explicitly invoke the [`string`][] attribute to convert 
+numeric expressions to strings. The `+` operator does not 
+automatically convert its operands to strings, so the 
 following does not compile:  
 
     print("Hello, this is Ceylon " + language.version +  
@@ -248,16 +257,18 @@ following does not compile:
           " ms, with " + process.arguments.size +    //compile error!
           " arguments.");
 
+[`string`]: #{site.urls.apidoc_1_3}/Object.type.html#string
 
 ## Dealing with objects that aren't there
 
-Let's take a name as input from the command line. We have to account for 
-the case where nothing was specified at the command line, which gives us 
-an opportunity to explore how `null` values are treated in Ceylon, which 
-is quite different to what you're probably used to in Java or C#.
+Let's take a name as input from the command line. We have to 
+account for the case where nothing was specified at the 
+command line, which gives us an opportunity to explore how 
+`null` values are treated in Ceylon, which is quite different 
+to what you're probably used to in Java or C#.
 
-Let's consider an overly-verbose example to start with. (We'll work our 
-way up to a more convenient form.)
+Let's consider an overly-verbose example to start with. (We'll 
+work our way up to a more convenient form.)
 
 This _doesn't_ compile:
 
@@ -265,8 +276,8 @@ This _doesn't_ compile:
     String greeting = "Hello, ``name``!";
     print(greeting);
 
-Instead, we have to explicitly accommodate the possibility that there are
-no arguments:
+Instead, we have to explicitly accommodate the possibility 
+that there are no arguments:
 
     String? name 
             = process.arguments.first;
@@ -279,12 +290,13 @@ no arguments:
     }
     print(greeting);
 
-The type `String?` indicates that `name` may reference a `null` value. We 
-use the `if (exists ... )` control structure to handle the case of a `null` 
-name separately from the case of a non-`null` name.
+The type `String?` indicates that `name` may reference a `null` 
+value. We use the `if (exists ... )` control structure to handle 
+the case of a `null` name separately from the case of a 
+non-`null` name.
 
-It's possible to abbreviate the code we just saw by declaring the local `name` 
-inside the `if (exists ... )` condition:
+It's possible to abbreviate the code we just saw by declaring 
+the local `name` inside the `if (exists ... )` condition:
 
     String greeting;
     if (exists name 
@@ -296,30 +308,33 @@ inside the `if (exists ... )` condition:
     }
     print(greeting);
 
-This is the preferred style most of the time, since we can't actually use 
-`name` for anything useful outside of the `if (exists ... )` construct.
-(But this still isn't the most compact way to write this code.)
+This is the preferred style most of the time, since we can't 
+actually use `name` for anything useful outside of the 
+`if (exists ... )` construct. (But this still isn't the most 
+compact way to write this code.)
 
 
 ### Optional types
 
-Local variables, parameters, and attributes that may contain `null` values 
-must be explicitly declared as being of optional type (the `T?` syntax). 
-There's simply no way to assign `null` to a local that isn't of optional type. 
-The compiler won't let you. This is an error:
+Local variables, parameters, and attributes that may contain 
+`null` values must be explicitly declared as being of optional 
+type (the `T?` syntax). There's simply no way to assign `null` 
+to a local that isn't of optional type. The compiler won't 
+let you. This is an error:
 
     String name = null; //compile error: null is not an instance of String
 
-Nor will the Ceylon compiler let you do anything dangerous with a value of 
-type `T?` - that is, anything that could cause a `NullPointerException` in 
-Java - without first checking that the value is not `null` using 
-`if (exists ... )`. The following is also an error:
+Nor will the Ceylon compiler let you do anything dangerous 
+with a value of type `T?` - that is, anything that could cause 
+a `NullPointerException` in Java - without first checking that 
+the value is not `null` using `if (exists ... )`. The following 
+is also an error:
 
     String? name = process.arguments.first;
     print("Hello " + name + "!"); //compile error: name is not Summable
 
-In fact, it's not even possible to use the equality operator `==` with an 
-expression of optional type. We can't write: 
+In fact, it's not even possible to use the equality operator 
+`==` with an expression of optional type. We can't write: 
 
 <!-- try:
     String? name = process.arguments.first;
@@ -328,33 +343,40 @@ expression of optional type. We can't write:
     String? name = process.arguments.first;
     if (name==null) { ... } //compile error: name is not Object
     
-like we can in Java. This helps avoid the undesirable behavior of `==` in 
-Java where `x==y` evaluates to true if `x` and `y` both evaluate to `null`.
+like we can in Java. This helps avoid the undesirable behavior 
+of `==` in Java where `x==y` evaluates to true if `x` and `y` 
+both evaluate to `null`.
 
-In a language with static typing, we're always wanting to know what the type 
-of something is. So what's the type of `null`? 
+In a language with static typing, we're always wanting to 
+know what the type of something is. So what's the type of 
+`null`? 
 
-That's easy to answer: `null` is a [`Null`](#{site.urls.apidoc_1_3}/Null.type.html).
+That's easy to answer: `null` is a [`Null`][].
 
-Yes, that's right: the value `null` isn't a primitive value in Ceylon, it's 
-just a perfectly ordinary instance of the perfectly ordinary class `Null`, 
-at least from the point of view of Ceylon's type system. 
+Yes, that's right: the value `null` isn't a primitive value 
+in Ceylon, it's just a perfectly ordinary instance of the 
+perfectly ordinary class `Null`, at least from the point of 
+view of Ceylon's type system. 
 
 And the syntax `String?` is just an abbreviation for the 
 [union type](../types/#union_types) `Null|String`. 
 
-That's why we can't call operations of `String` on a `String?`. It's simply 
-a different type! The `if (exists ...)` construct narrowed the type of `name` 
-inside the `if` block, allowing us to treat `name` as a `String` there.
+That's why we can't call operations of `String` on a `String?`. 
+It's simply a different type! The `if (exists ...)` construct 
+narrowed the type of `name` inside the `if` block, allowing us 
+to treat `name` as a `String` there.
 
-(As an aside, if you're concerned about performance, it's worth mentioning that 
-the Ceylon compiler does some special magic to transform this value to a virtual 
-machine-level null, all under the covers.)
+(As an aside, if you're concerned about performance, it's 
+orth mentioning that the Ceylon compiler does some special 
+magic to transform this value to a virtual machine-level null, 
+all under the covers.)
+
+[`Null`]: #{site.urls.apidoc_1_3}/Null.type.html
 
 ### Operators for handling null values
 
-There are a couple of operators that will make your life easier when dealing 
-with `null` values. The first is `else`:
+There are a couple of operators that will make your life 
+easier when dealing with `null` values. The first is `else`:
 
 <!-- try-pre:
     String? name = null;
@@ -369,8 +391,8 @@ The `else` operator produces:
 - its first operand if the first operand is not `null`, or 
 - its second operand otherwise. 
 
-It's a more convenient way to handle `null` values in simple cases. You 
-can chain multiple `else`s:
+It's a more convenient way to handle `null` values in simple 
+cases. You can chain multiple `else`s:
 
 <!-- try-pre:
     String? firstName = null;
@@ -393,11 +415,12 @@ There's also an operator for _producing_ a null value:
 
 The `then` operator produces 
 
-- its second operand if its first operand evaluates to `true`, or
+- its second operand if its first operand evaluates to `true`, 
+  or
 - `null` otherwise.
 
-You can chain an `else` after a `then` to reproduce the behavior of 
-C's ternary `?:` operator:
+You can chain an `else` after a `then` to reproduce the 
+behavior of C's ternary `?:` operator:
 
 <!-- try-pre:
     String arg = "hello";
@@ -407,10 +430,11 @@ C's ternary `?:` operator:
 -->
     String name = !arg.trimmed.empty then arg else "World";
 
-However, for more complex conditions, it's better to use an [inline `if`
-expression](../attributes-control-structures/#if_and_switch_expressions).
+However, for more complex conditions, it's better to use an 
+[inline `if` expression][if expressions].
 
-Finally, the `?.` operator lets us call operations on optional types:
+Finally, the `?.` operator lets us call operations on optional 
+types:
 
 <!-- try-pre:
     String? name = null;
@@ -420,25 +444,27 @@ Finally, the `?.` operator lets us call operations on optional types:
 -->
     Integer length = name?.size else 0;
 
-If `name` is null, `name?.size` evaluates to `null`. Otherwise, the
-`size` attribute of `String` is evaluated.
+If `name` is null, `name?.size` evaluates to `null`. Otherwise, 
+the `size` attribute of `String` is evaluated.
 
-Using `else`, we can finally simplify our original example to something 
-reasonable:
+Using `else`, we can finally simplify our original example to 
+something reasonable:
 
     print("Hello, ``process.arguments.first else "World"``!");
 
 Yes, after all that, it's a one-liner ;-)
 
+[if expressions]: ../attributes-control-structures/#if_and_switch_expressions
 
 ## Functions and values
 
-The two most basic constructs found in almost every programming language 
-are functions and variables. In Ceylon, "variables" are, by default, 
-assignable exactly once. That is, they can't be assigned a new value after 
-an initial value has been assigned. Therefore, we use the word _value_ to 
-talk about "variables" collectively, and reserve the word _variable_ to 
-mean a value which is explicitly defined to be reassignable.
+The two most basic constructs found in almost every 
+programming language are functions and variables. In Ceylon, 
+"variables" are, by default, assignable exactly once. That is, 
+they can't be assigned a new value after an initial value has 
+been assigned. Therefore, we use the word _value_ to talk 
+about "variables" collectively, and reserve the word _variable_ 
+to mean a value which is explicitly defined to be reassignable.
 
     String bye = "Adios";        //a value
     variable Integer count = 0;  //a variable
@@ -446,9 +472,10 @@ mean a value which is explicitly defined to be reassignable.
     bye = "Adieu";  //compile error
     count = 1;      //allowed
 
-Note that even a value which isn't a variable in this sense, may still be
-"variable" in the sense that its value varies between different runs of
-the program, or between contexts within a single execution of the program.
+Note that even a value which isn't a variable in this sense, 
+may still be "variable" in the sense that its value varies 
+between different runs of the program, or between contexts 
+within a single execution of the program.
 
 A value may even be recalculated every time it is evaluated.
 
@@ -461,35 +488,38 @@ A value may even be recalculated every time it is evaluated.
 -->
     String name { return firstName + " " + lastName; } 
 
-If the values of `firstName` and `lastName` vary, then the value of 
-`name` also varies between evaluations.
+If the values of `firstName` and `lastName` vary, then the value 
+of `name` also varies between evaluations.
 
-A function takes this idea one step further. The value of a function
-depends not only upon the context in which it is evaluated, but also
-upon the arguments to its parameters.
+A function takes this idea one step further. The value of a 
+function depends not only upon the context in which it is 
+evaluated, but also upon the arguments to its parameters.
 
 <!-- try-post:
     print(sqr(3.5));
 -->
     Float sqr(Float x) { return x*x; }
 
-In Ceylon, a value or function declaration can occur almost anywhere: 
+In Ceylon, a value or function declaration can occur almost 
+anywhere: 
 
 - as a _toplevel_, belonging directly to a package, 
 - as an _attribute_ or _method_ of a class, or 
-- as a _block-local_ declaration inside a different value or function 
-  body.
+- as a _block-local_ declaration inside a different value or 
+  function body.
 
-Indeed, [as we'll see later](../functions/#anonymous_functions), a 
-value or function declaration may even occur _inside an expression_ 
+Indeed, [as we'll see later][anonymous functions], a value 
+or function declaration may even occur _inside an expression_ 
 in some cases.
 
-Functions declarations look pretty similar to what you're probably 
-already used to from other C-like languages, with two exceptions. 
-Ceylon has:
+Functions declarations look pretty similar to what you're 
+probably already used to from other C-like languages, with 
+two exceptions. Ceylon has:
 
 - defaulted parameters, and
 - variadic parameters.  
+
+[anonymous functions]: ../functions/#anonymous_functions
 
 ### Defaulted parameters
 
@@ -503,8 +533,8 @@ A function parameter may specify a default value.
         print("Hello, ``name``!");
     }
 
-Then we don't need to specify an argument to the parameter when we 
-call the function:
+Then we don't need to specify an argument to the parameter 
+when we call the function:
 
 <!-- try-pre:
     void hello(String name="World") {
@@ -514,25 +544,26 @@ call the function:
     hello(); //Hello, World!
     hello("JBoss"); //Hello, JBoss!
 
-Defaulted parameters must be declared after all required parameters 
-in the parameter list of a function.
+Defaulted parameters must be declared after all required 
+parameters in the parameter list of a function.
 
 
 ### Variadic parameters
 
-A variadic parameter of a function or class is declared using a postfix
-asterisk, for example, `String*`. There may be only one variadic parameter 
-for a function or class, and it must be the last parameter.
+A variadic parameter of a function or class is declared using 
+a postfix asterisk, for example, `String*`. There may be only 
+one variadic parameter for a function or class, and it must 
+be the last parameter.
 
 <!-- try: -->
     void helloEveryone(String* names) { 
         // ... 
     }
 
-Inside the function body, the parameter `names` has type `[String*]`, 
-a [sequence type](../sequences), which we'll learn about later. Thus, 
-we can iterate the parameter using a `for` loop to get at the individual 
-arguments.
+Inside the function body, the parameter `names` has type 
+`[String*]`, a [sequence type](../sequences), which we'll 
+learn about later. Thus, we can iterate the parameter using 
+a `for` loop to get at the individual arguments.
 
 <!-- try-pre:
     void hello(String name) {
@@ -548,9 +579,9 @@ arguments.
         }
     }
 
-A _nonempty_ variadic parameter is declared using a postfix plus sign,
-for example, `String+`. In this case, the caller must supply at least
-one argument.
+A _nonempty_ variadic parameter is declared using a postfix 
+plus sign, for example, `String+`. In this case, the caller 
+must supply at least one argument.
 
 <!-- try-pre:
     void hello(String name) {
@@ -566,8 +597,8 @@ one argument.
         }
     }
 
-To pass an argument to a variadic parameter we have three choices. We
-could:
+To pass an argument to a variadic parameter we have three 
+choices. We could:
 
 - provide an explicit list of enumerated arguments,
 - pass an iterable object producing the arguments, or
@@ -585,18 +616,19 @@ For the second case, Ceylon requires us to use the
     String[] everyone = ["world", "mars", "saturn"];
     helloEveryone(*everyone);
 
-We'll come back to the third case, [comprehensions](../comprehensions),
-later in the tour.
+We'll come back to the third case, [comprehensions][], later 
+in the tour.
 
+[comprehensions]: ../comprehensions
 
 ### Fat arrows and forward declaration
 
-Ceylon's expression syntax is much more powerful than Java's, and 
-it's therefore possible to express a lot more in a single compact 
-expression. So it's _extremely_ common to encounter functions and 
-values which simply evaluate and return an expression. So Ceylon 
-lets us abbreviate such function and value definitions using a 
-"fat arrow", `=>`. For example:
+Ceylon's expression syntax is much more powerful than Java's, 
+and it's therefore possible to express a lot more in a single 
+compact expression. So it's _extremely_ common to encounter 
+functions and values which simply evaluate and return an 
+expression. So Ceylon lets us abbreviate such function and 
+value definitions using a "fat arrow", `=>`. For example:
 
 <!-- try-pre:
     value firstName = "David";
@@ -614,9 +646,9 @@ Or:
 -->
     Float sqr(Float x) => x*x;
 
-Now's the time to get comfortable with this syntax, because you're going 
-to be seeing quite a lot of it. Take careful note of the difference between 
-a fat arrow:
+Now's the time to get comfortable with this syntax, because 
+you're going to be seeing quite a lot of it. Take careful 
+note of the difference between a fat arrow:
 
 <!-- try-pre:
     value firstName = "David";
@@ -638,22 +670,22 @@ And an assignment:
 -->
     String name = firstName + " " + lastName;
 
-In the first example, the expression is recomputed every time `name` is
-evaluated. In the second example, the expression is computed once and the 
-result assigned to `name`.
+In the first example, the expression is recomputed every 
+time `name` is evaluated. In the second example, the 
+expression is computed once and the result assigned to `name`.
 
-We're even allowed to define a `void` function using a fat arrow. Earlier,
-we could have written `hello()` like this:
+We're even allowed to define a `void` function using a fat 
+arrow. Earlier, we could have written `hello()` like this:
 
 <!-- try-post:
     hello();
 -->
     void hello() => print("Hello, World!");
 
-In Java and C#, we're allowed to separate the declaration of a variable
-from the initialization of its value. We've 
-[already seen](#dealing_with_objects_that_arent_there) that this is also
-allowed in Ceylon. So we can write:
+In Java and C#, we're allowed to separate the declaration of 
+a variable from the initialization of its value. We've 
+[already seen](#dealing_with_objects_that_arent_there) that 
+this is also allowed in Ceylon. So we can write:
 
 <!-- try-pre:
     value firstName = "Walter";
@@ -683,31 +715,34 @@ And even functions:
     hello() => print("Hello, World!");
     hello();
 
-The compiler makes sure we don't evaluate a value or invoke a function
-before assigning it a value or specifying its implementation, as we'll see 
-[later](../initialization/#definite_assignment_and_definite_initialization).
-(Because if we did, it would result in a `NullPointerException`, which
-Ceylon doesn't have!)
+The compiler makes sure we don't evaluate a value or invoke 
+a function before assigning it a value or specifying its 
+implementation, as we'll see [later][definite initialization]. 
+(Because if we did, it would result in a `NullPointerException`, 
+which Ceylon doesn't have!)
+
+[definite initialization]: ../initialization/#definite_assignment_and_definite_initialization
 
 ## Numbers
 
-Unfortunately, not every program is as simple and elegant as "hello world".
-In business or scientific computing, we often encounter programs that do 
-fiendishly complicated stuff with numbers. Ceylon doesn't have any primitive 
-types, so numeric values are usually represented by the classes 
-[`Integer`](#{site.urls.apidoc_1_3}/Integer.type.html)
-and [`Float`](#{site.urls.apidoc_1_3}/Float.type.html),
-which we'll come back to [later in the tour](../language-module/#numeric_types).
+Unfortunately, not every program is as simple and elegant as 
+"hello world". In business or scientific computing, we often 
+encounter programs that do fiendishly complicated stuff with 
+numbers. Ceylon doesn't have any primitive types, so numeric 
+values are usually represented by the classes [`Integer`][] 
+and [`Float`][], which we'll come back to 
+[later in the tour][numeric types].
 
-`Float` literals are written with a decimal point, and `Integer` literals 
-without:
+`Float` literals are written with a decimal point, and `Integer` 
+literals without:
 
     Integer one = 1;
     Float zero = 0.0;
 
-Even though they're classes, you can use all the usual numeric literals and
-operators with them. For example, the following function efficiently determines 
-if an `Integer` represents a prime number:
+Even though they're classes, you can use all the usual numeric 
+literals and operators with them. For example, the following 
+function efficiently determines if an `Integer` represents a 
+prime number:
 
 <!-- try-post:
     print(prime(17));
@@ -774,13 +809,18 @@ Try it, by running the following function:
     void findPrimes()
         => printAll { for (i in 2..99) if (prime(i)) i };
 
-Heh, this was just a little teaser to keep you interested. We'll explain 
-the syntax we're using here a bit [later in the tour](../comprehensions).
+Heh, this was just a little teaser to keep you interested. 
+We'll explain the syntax we're using here a bit 
+[later in the tour][comprehensions].
 
+[numeric types]: ../language-module/#numeric_types
+[`Integer`]: #{site.urls.apidoc_1_3}/Integer.type.html
+[`Float`]: #{site.urls.apidoc_1_3}/Float.type.html
 
 ## There's more...
 
-Ceylon is an object-oriented language, so an awful lot of the code we write 
-in Ceylon is contained in a _class_. Let's [learn about classes](../classes)
-right now, before we come back to [more of the basic stuff](../attributes-control-structures).
+Ceylon is an object-oriented language, so an awful lot of the 
+code we write in Ceylon is contained in a _class_. Let's 
+[learn about classes](../classes) right now, before we come 
+back to [more of the basic stuff](../attributes-control-structures).
 
