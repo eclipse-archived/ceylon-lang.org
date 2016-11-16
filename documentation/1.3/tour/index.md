@@ -225,6 +225,7 @@ an environment where Ceylon itself is not installed. The "fat"
 `.jar` file contains everything needed to run the Ceylon program,
 including its dependencies.
 
+
 ## Running the program from the IntelliJ IDE
 
 To run the program in [Ceylon IDE for IntelliJ][IntelliJ IDE]:
