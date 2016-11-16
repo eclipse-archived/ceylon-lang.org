@@ -176,4 +176,4 @@ for `PossiblyEmpty<T>` and `NonEmpty<T>`, the type abbreviations `{T*}` and
 * [`function` declaration](../function/)
 * [Generic type parameters](#{site.urls.spec_current}#generictypeparameters) 
   in the Ceylon language spec
-   [Generics on the Tour of Ceylon](/documentation/tour/generics/)
+* [Generics on the Tour of Ceylon](/documentation/tour/generics/)
