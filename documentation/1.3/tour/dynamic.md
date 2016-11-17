@@ -86,7 +86,7 @@ Ceylon platform modules.
 But now, let's get on with the topic of dynamic typing.
 
 [native reference]: /documentation/reference/interoperability/native/
-[`StringBuilder`]: https://modules.ceylon-lang.org/repo/1/ceylon/language/1.3.0/module-doc/api/StringBuilder.ceylon.html
+[`StringBuilder`]: https://modules.ceylon-lang.org/repo/1/ceylon/language/1.3.1/module-doc/api/StringBuilder.ceylon.html
 
 ## Partially typed declarations
 
