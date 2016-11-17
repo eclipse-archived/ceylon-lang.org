@@ -783,11 +783,11 @@ SAM interface type.
     }
     import java.util.stream {
         Collectors { toList }
+        Stream { with=\iof }
     }
     
     value list
-        = Arrays.asList("hello", "world", "goodbye")
-            .stream()
+        = Stream.with("hello", "world", "goodbye")
             .filter((s) => s.longerThan(2))
             .map(String.uppercased)
             .collect(toList<String>());
