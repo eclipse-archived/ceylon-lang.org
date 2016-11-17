@@ -40,13 +40,14 @@ value is extracted from a `Tuple` or `Entry`.
 
 Destructuring specification is supported:
 
-* In [value declarations](../../structure/value/) (` value [x, y] = point`),
-* In [`for` iteration]](../../statement/for/) variables (`for[x, y] in points) { ... }`),
+* In [`value` declarations](../../structure/value/) (` value [x, y] = point`),
+* In [`for` iteration](../../statement/for/) variables (`for ([x, y] in points) { ... }`),
 * In [condition lists](../../statement/condition_list/) (`if (exists [x, y]=maybePoint) { ... }`, `assert(exists [x, y]=maybePoint);`, `assert(nonempty [first, *rest]=seq);` etc),
+* In [`cases` of a `switch`](../../statement/switch/) (`case ([Float x, Float  y]) { ... }`),
 * In [`let` expressions](../../expression/let/) (`let ([x, y] = point) sqrt(x^2+y^2)`),
 * In [comprehensions](../../expression/comprehension/) (`{ for[x, y] in points) sqrt(x^2+y^2) }`),
 
-It is not supported with types other than `Tuple` or `Entry`.
+It is not supported for types other than `Tuple` or `Entry`.
 
 ## See also
 
