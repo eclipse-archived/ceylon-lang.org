@@ -91,7 +91,7 @@ Flow typing can also affect the rest of the control structure:
 
 ### Destructuring in `exists` and `nonempty` conditions
 
-Since ceylon 1.3, `exists` and `nonempty` conditions support destructuring. For example:
+Since Ceylon 1.3, `exists` and `nonempty` conditions support destructuring. For example:
 
     if (nonempty [name, *rest] = process.arguments) {
         print("Hello ``name``!");
