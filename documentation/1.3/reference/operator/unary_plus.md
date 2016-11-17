@@ -26,30 +26,13 @@ Note that `+` does not change the sign of a negative number:
 
 ### Definition 
 
-The `+` operator is defined as follows:
-
-<!-- check:none -->
-<!-- try: -->
-    rhs.positiveValue;
+The `+` operator is a no-op.
 
 See the [language specification](#{site.urls.spec_current}#arithmetic) for more details.
 
-### Polymorphism
-
-The unary `+` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
-The meaning of `+` depends on 
-[`Invertible`](#{site.urls.apidoc_1_3}/Invertible.type.html) interface 
-
 ### Type
 
-The result type of the `-` operator is the same as the `Invertible` type of its operand.
-
-### Meaning of unary plus for built-in types
-
-For the built-in numeric types
-[`Integer`](#{site.urls.apidoc_1_3}/Integer.type.html) and
-[`Float`](#{site.urls.apidoc_1_3}/Float.type.html), `+` 
-is essentially a no-op.
+The result type of the `+` operator is the same as the `Invertible` type of its operand.
 
 ## See also
 
