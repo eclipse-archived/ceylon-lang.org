@@ -126,10 +126,22 @@ If the `switch` expression is of type [`Integer`](#{site.urls.apidoc_1_3}/Intege
 Since it's impossible to enumerate every value of any of these types, the `else` 
 clause is required.
 
-### `case(...)` with tuple literals
+### `case(...)` with tuples
 
 Since Ceylon 1.3.1 it is possible to switch over a `Tuple` (and `Empty`) expression using 
-tuple literals
+tuples:
+
+<!-- try: -->
+    Float[2]|Float[3] coord = ... ;
+    switch (coord)
+    case ([Float x, Float y]) { 
+        print((x^2+y^2)^0.5);
+    }
+    case ([Float x, Float y, Float z]) {
+        print((x^2+y^2+z^2)^0.5);
+    }
+
+It is also possible to match tuples with literal elements
 
 <!-- try: -->
     String formatComplex([Integer, Integer] complex) {

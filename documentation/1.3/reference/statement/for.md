@@ -80,7 +80,7 @@ not been found:
         return minors;
     }
 
-### Iterating entries and tuples
+### Destructuring
 
 The `for` statement supports [destructuring](../destructure) for iterating instances
 of `Entry` and `Tuple`:

@@ -54,7 +54,7 @@ The conditions in an `if` statement occur in
 [condition lists](../conditions#condition_lists).
 
 Any expression of type [`Boolean`](#{site.urls.apidoc_1_3}/Boolean.type.html) 
-may be occur in the condition list of an `if` statement. The `if` 
+may occur in the condition list of an `if` statement. The `if` 
 statement also supports the use of typing conditions:
 
 * [`is` conditions](../conditions/#is_conditions), 
@@ -87,6 +87,14 @@ Flow typing can also affect the rest of the control structure:
             // vehicle has type Bicycle
             vehicle.ride();
         }
+    }
+
+### Destructuring in `exists` and `nonempty` conditions
+
+Since ceylon 1.3, `exists` and `nonempty` conditions support destructuring. For example:
+
+    if (nonempty [name, *rest] = process.arguments) {
+        print("Hello ``name``!");
     }
 
 ## See also
