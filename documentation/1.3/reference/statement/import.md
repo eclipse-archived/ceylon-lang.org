@@ -64,7 +64,7 @@ such as Maven or npm.
 
 <!-- check:none -->
 <!-- try: -->
-    import ceylon.collection "1.3.0";
+    import ceylon.collection "1.3.1";
     import maven:"org.hibernate:hibernate-core" "5.0.4.Final";
 
 Module versions are must be quoted. Module names must be quoted if
