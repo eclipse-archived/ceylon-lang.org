@@ -88,9 +88,6 @@ and dependencies between modules.
 
 ### Tip: local `import` statements
 
-_Warning: this subsection describes new pre-release functionality that 
-will be made available in Ceylon 1.3.1._
-
 Unlike Java, Ceylon lets you write a local `import` statement at the 
 start of the body of a class, interface, or function. Local imports
 are only visible within the program element in which they occur, 

@@ -753,9 +753,6 @@ a Java `enum`, just like you can in Java.
 
 ### Methods accepting a SAM interface
 
-_Warning: this subsection describes new pre-release 
-functionality that will be made available in Ceylon 1.3.1._
-
 Java has no true function types, so there's no equivalent to
 Ceylon's `Callable` interface in Java. Instead, Java features
 SAM (Single Abstract Method) conversion where an anonymous
