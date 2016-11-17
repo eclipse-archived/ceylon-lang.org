@@ -89,7 +89,7 @@ Flow typing can also affect the rest of the control structure:
         }
     }
 
-### Destructuring in `exists` and `nonempty` conditions
+#### Destructuring in `exists` and `nonempty` conditions
 
 Since Ceylon 1.3, `exists` and `nonempty` conditions support destructuring. For example:
 

@@ -66,6 +66,15 @@ block, and in later conditions in the condition list.
             // ...
         }
     }
+    
+#### Destructuring in `exists` and `nonempty` conditions
+
+Since ceylon 1.3, `exists` and `nonempty` conditions support destructuring. For example:
+
+    while (exists line = fd.readLine(),
+            nonempty [name, *rest] = tokenize(line)) {
+        process(name, rest);
+    }
 
 ### Notes
 

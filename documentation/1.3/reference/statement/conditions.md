@@ -124,6 +124,21 @@ which case it is the new local reference that has the narrowed type:
 **Note**: Do not confuse the `exists` *condition* of form `exists t` 
 with an [`exists` *operator*](../../operator/exists) of form `t exists`.
 
+#### `exists` conditions with destructuring
+
+In [`if`](../if) and [`while` statement](../while) 
+you can perform destructuring in an `exists` condition:
+    
+    [Float, Float]? point = nothing;
+    if (exists [x, y] = point) {
+        plotPoint(x,y);
+    }
+    
+    [Float, Float]? nextPoint() => nothing;
+    while (exists [x, y] = nextPoint()) {
+        plotPoint(x,y);
+    }
+
 ### `nonempty` conditions
 
 A condition of form `nonempty xs` means `is [X+] xs`, where `X` is the 
@@ -151,6 +166,15 @@ case it is the new local reference which has the narrowed type:
         }
         return 0;
     } 
+    
+#### `nonempty` conditions with destructuring
+
+In [`if`](../if) and [`while` statement](../while) 
+you can perform destructuring in a `nonempty` condition
+
+    if (nonempty [name, *rest] = process.arguments) {
+        print("Hello ``name``!");
+    }
 
 **Note**: Do not confuse the `nonempty` *condition* of form `nonempty xs` 
 with a [`nonempty` *operator*](../../operator/nonempty) of form `xs nonempty`.
@@ -161,5 +185,6 @@ with a [`nonempty` *operator*](../../operator/nonempty) of form `xs nonempty`.
 * [`while` statement](../while), 
 * [`assert` statement](../assert) 
 * [comprehensions](/documentation/current/tour/comprehensions)
+* [destructuring](/documentation/current/tour/sequences/#destructuring)
 * [Control structure conditions](#{site.urls.spec_current}#controlstructureconditions) 
   in the Ceylon language spec 
