@@ -1182,6 +1182,7 @@ approach extensively:
 - [Java EE][] ([CDI], [JPA], [JAXB], [JAX-RS], [EJB], etc)
 - [Hibernate][]
 - [Spring Framework][]
+- [Google Guice][]
 
 When using this sort of framework in Ceylon, you'll probably
 need to enable a [special compiler mode][EE mode] which 
@@ -1204,6 +1205,7 @@ with EE mode.
 [javax.inject]: http://javax-inject.github.io/javax-inject/
 [Hibernate]: http://hibernate.org
 [Spring Framework]: http://spring.io/projects
+[Google Guice]: https://github.com/google/guice
 [Java EE]: https://docs.oracle.com/javaee/7/tutorial/
 [JPA]: https://docs.oracle.com/javaee/7/tutorial/partpersist.htm
 [CDI]: https://docs.oracle.com/javaee/7/tutorial/partcdi.htm
