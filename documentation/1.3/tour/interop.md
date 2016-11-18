@@ -1270,7 +1270,7 @@ functionality is considered experimental.
 
 ### Deploying Ceylon on Java EE or WildFly Swarm
 
-These command line tools make it easy to deploy a Ceylon module
+These command line tools make it easy to assemble a Ceylon module
 that makes use of Java EE APis in a Java EE environment:
 
 - [`ceylon war`][] repackages a module and its dependencies as
@@ -1284,10 +1284,10 @@ that makes use of Java EE APis in a Java EE environment:
 
 ### Deploying Ceylon as a fat jar
 
-Finally, if you wish to run a Ceylon program on a machine with
-no Ceylon distribution available, and without the runtime module 
+Finally, if you wish to run a Ceylon program on a machine with no 
+Ceylon distribution available, and without the runtime module 
 isolation provided by JBoss Modules, the command line tool
-[`ceylon fat-jar`][] is indispensable. The command simply produces
+[`ceylon fat-jar`][] is indispensable. The command simply assembles
 a Java `.jar` archive that contains a Ceylon module and everything
 it depends on at runtime.
 
