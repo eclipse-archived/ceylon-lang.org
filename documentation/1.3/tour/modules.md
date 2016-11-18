@@ -10,12 +10,20 @@ doc_root: ../..
 # #{page.title}
 
 This is the tenth part of the Tour of Ceylon. If you found the 
-[previous part](../generics) on generic types a little overwhelming, don't 
+[previous section](../generics) on generic types a little overwhelming, don't 
 worry; this part is going to cover some material which should be much easier 
 going. We're turning our attention to a very different subject: modularity. 
 We're going to learn about *packages* and *modules*.
 
 ## Packages and imports
+
+Every source file&mdash;along with everything declared in the 
+file&mdash;belongs to a package. Even source files that don't belong to a 
+named package are considered to belong to the "default" package. It's the 
+location of a source file within a source directory that determines which 
+package a source file belongs to.
+
+### Source files and packages
 
 There's no `package` statement in Ceylon source files. The compiler determines 
 the package and module to which a toplevel program element belongs by the 
@@ -27,6 +35,8 @@ is a source directory, and if a class named `Hello` is defined in the file
 Note that the name of the source file itself is not significant, as long as
 it has the extension `.ceylon`. It's only the directory in which the source 
 file is located that matters to the compiler.
+
+### Imports
 
 When a source file in one package refers to a toplevel program element in 
 another package, it must explicitly import that program element. Ceylon, 
@@ -171,6 +181,8 @@ There are several layers to the module system in Ceylon:
   multiple versions of the same module.
 * An ecosystem of remote module repositories where folks can share code 
   with others.
+* A suite of *assemblers*&mdash;tools for packaging a module and its
+  dependencies into a standalone runnable archive.
 
 Ceylon's module system has two levels of granularity: packages and modules.
 Each package within a module has its own namespace and well-defined API.
@@ -178,6 +190,9 @@ For many simple modules, this is overkill, and thus it's perfectly
 acceptable for a module to have just one package. But more complex
 modules, with their own internal subsystems, often benefit from the 
 additional level of granularity.
+
+A third level of granularity is an *assembly*, a package of several modules
+that form a runnable program or application.
 
 ### Module-level visibility and package descriptors
 
@@ -503,7 +518,7 @@ Alternatively, to set up a server-side proxy repository, you could use the
 HTTP server to exist on the server side.
 
 Finally, not every Ceylon program executes on a modular runtime. As we'll 
-see [below](#repackaging_tools), Ceylon provides tooling for assembling a
+see [below](#assembler_tools), Ceylon provides tooling for assembling a
 Ceylon program for execution in other environments which require that 
 programs be packaged as a single monolithic artifact.
 
@@ -595,17 +610,17 @@ with Java's [service loader architecture][], as we'll see
 [service loader architecture]: https://docs.oracle.com/javase/8/docs/api/java/util/ServiceLoader.html
 
 
-## Repackaging tools
+## Assembler tools
 
 Certain environments, for example, Java EE, or [Wildfly Swarm][],
 define their own packaging format, along with a bootstrap process
 that isn't compatible with `ceylon run`. In such cases, it's most 
-convenient to have a _repackaging tool_ that accepts a compiled 
-Ceylon module archive and repackages it for execution in the 
-target environment.
+convenient to have an _assembler_ that accepts a compiled Ceylon 
+module archive and repackages it, along with its dependencies, 
+for execution in the target environment.
 
-At present, there are four such tools, all implemented as
-plugins for the `ceylon` command:
+At present, there are four such tools, all implemented as plugins 
+for the `ceylon` command:
 
 - [`ceylon fat-jar`][] repackages a module and its dependencies
   into a single archive, for execution via the `java` command,
@@ -620,9 +635,9 @@ plugins for the `ceylon` command:
   to a [Jigsaw][]-style `mlib/` directory.
 
 Note that when repackaged by one of these tools, the runtime
-execution, classloading, and classloader isolation model is
-that of the given platform, and may not fully respect the 
-semantics of Ceylon's native module system. 
+execution, classloading, and classloader isolation model is that 
+of the given platform, and may not fully respect the semantics of 
+Ceylon's native module system. 
 
 [right at the beginning of the tour]: ../#running_the_program_using_plain_java
 [`ceylon fat-jar`]: /documentation/current/reference/tool/ceylon/subcommands/ceylon-fat-jar.html
