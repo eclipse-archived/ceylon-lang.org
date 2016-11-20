@@ -32,10 +32,11 @@ Furthermore:
 Ceylon is a fantastic language for writing microservices:
 
 - [Wildfly Swarm and Ceylon][] demonstrates the use of Ceylon 
-  to write a Java EE-based microservice for [Swarm][], and of 
-  the `ceylon swarm` command to package it as a "fat" jar.
+  to write a Java EE-based microservice for [Swarm][], using
+  JPA and JAX-RS, and of the `ceylon swarm` command to package 
+  it as a "fat" jar.
 - [Spring Boot and Ceylon][] demonstrates the use of Ceylon
-  with [Spring Boot][].
+  with [Spring Boot][] and Spring Data.
 - The [Vert.x examples][] include several samples showing how
   to use Ceylon in [Vert.x][]. 
 - [Spark with Ceylon][] demonstrates how to use the Spark web
