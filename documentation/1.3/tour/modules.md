@@ -616,7 +616,7 @@ convenient to have an _assembler_ that accepts a compiled Ceylon
 module archive and repackages it, along with its dependencies, 
 for execution in the target environment.
 
-At present, there are four such tools, all implemented as plugins 
+At present, there are five such tools, all implemented as plugins 
 for the `ceylon` command:
 
 - [`ceylon fat-jar`][] repackages a module and its dependencies
@@ -630,6 +630,9 @@ for the `ceylon` command:
   the `java` command.
 - [`ceylon jigsaw`][] deploys a module and all its dependencies 
   to a [Jigsaw][]-style `mlib/` directory.
+- [`ceylon assemble-dart`][] packages a Ceylon module compiled
+  using `ceylon compile-dart` as a standalone executable for the 
+  Dart VM.
 
 Note that when repackaged by one of these tools, the runtime
 execution, classloading, and classloader isolation model is that 
@@ -641,6 +644,7 @@ Ceylon's native module system.
 [`ceylon war`]: /documentation/1.3/reference/tool/ceylon/subcommands/ceylon-war.html
 [`ceylon jigsaw`]: /documentation/current/reference/tool/ceylon/subcommands/ceylon-jigsaw.html
 [`ceylon swarm`]: https://github.com/ceylon/ceylon.swarm
+[`ceylon assemble-dart`]: https://github.com/jvasileff/ceylon-dart
 [Wildfly Swarm]: http://wildfly-swarm.io/
 [Jigsaw]: http://openjdk.java.net/projects/jigsaw/
 
