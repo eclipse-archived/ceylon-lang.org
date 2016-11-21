@@ -73,6 +73,9 @@ Documentation for Ceylon and Vert.x can be found at the
 
 Learn how to use Ceylon with these Java frameworks:
 
+- [JDK Collections and Streams in Ceylon][] shows how easy
+  and natural it is to use Java's collections and streams
+  APIs directly from Ceylon.
 - For Java-style dependency injection, check out 
   [Weld and Guice with Ceylon][], based on 
   [this blog post](/blog/2015/12/01/weld-guice/).
@@ -82,6 +85,7 @@ Learn how to use Ceylon with these Java frameworks:
 - This [IntelliJ UI designer example][] shows how to use
   Ceylon together with IntelliJ IDEA's [GUI Designer][].
 
+[JDK Collections and Streams in Ceylon]: https://github.com/ceylon/ceylon-examples-jdk
 [Weld and Guice with Ceylon]: https://github.com/ceylon/ceylon-examples-di
 [GUI Designer]: https://www.jetbrains.com/help/idea/2016.2/gui-designer-reference.html
 [IntelliJ UI designer example]: https://github.com/xkr47/ceylon-swing-with-intellij-ui-designer
