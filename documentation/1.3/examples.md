@@ -85,17 +85,21 @@ Learn how to use Ceylon with these Java frameworks:
 - The [RxJava examples][] project is a port of the basic
   [RxJava][] examples from the [RxJava documentation][] to 
   Ceylon.
+- [OpenGL in Ceylon][] shows the use of [JOGL][] in a Swing 
+  application.
 - This [IntelliJ UI designer example][] shows how to use
   IntelliJ IDEA's [GUI Designer][].
 
 [JDK Collections and Streams in Ceylon]: https://github.com/ceylon/ceylon-examples-jdk
 [Java Persistence in Ceylon]: https://github.com/ceylon/ceylon-examples-jpa
 [Weld and Guice with Ceylon]: https://github.com/ceylon/ceylon-examples-di
+[OpenGL in Ceylon]: https://github.com/ceylon/ceylon-examples-jogl
 [GUI Designer]: https://www.jetbrains.com/help/idea/2016.2/gui-designer-reference.html
 [IntelliJ UI designer example]: https://github.com/xkr47/ceylon-swing-with-intellij-ui-designer
 [RxJava examples]: https://github.com/ceylon/ceylon-examples-rx
 [RxJava]: https://github.com/ReactiveX/RxJava
 [RxJava documentation]: https://github.com/ReactiveX/RxJava/wiki/How-To-Use-RxJava
+[JOGL]: http://jogamp.org/
 
 ## Examples of libraries
 
