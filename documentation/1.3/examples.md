@@ -22,10 +22,11 @@ of Ceylon in a web browser:
 
 Furthermore:
 
-- The [Ceylon Services Example](http://try.ceylon-lang.org/?gist=796bc92790af4cd3db54a88853518c56)
-  demonstrates the use of Ceylon service providers, an 
-  abstraction of the Java service loader facility, on the 
-  JavaScript platform.
+- The [Ceylon Services Example][] demonstrates the use of 
+  Ceylon service providers, an abstraction of the Java 
+  service loader facility, on the JavaScript platform.
+
+[Ceylon Services Example]: http://try.ceylon-lang.org/?gist=796bc92790af4cd3db54a88853518c56
 
 ## Examples of server-side Ceylon
 
@@ -76,6 +77,8 @@ Learn how to use Ceylon with these Java frameworks:
 - [JDK Collections and Streams in Ceylon][] shows how easy
   and natural it is to use Java's collections and streams
   APIs directly from Ceylon.
+- [Java Persistence in Ceylon][] demonstrates the use of JPA
+  for Object/Relational Mapping.
 - For Java-style dependency injection, check out 
   [Weld and Guice with Ceylon][], based on 
   [this blog post](/blog/2015/12/01/weld-guice/).
@@ -83,9 +86,10 @@ Learn how to use Ceylon with these Java frameworks:
   [RxJava][] examples from the [RxJava documentation][] to 
   Ceylon.
 - This [IntelliJ UI designer example][] shows how to use
-  Ceylon together with IntelliJ IDEA's [GUI Designer][].
+  IntelliJ IDEA's [GUI Designer][].
 
 [JDK Collections and Streams in Ceylon]: https://github.com/ceylon/ceylon-examples-jdk
+[Java Persistence in Ceylon]: https://github.com/ceylon/ceylon-examples-jpa
 [Weld and Guice with Ceylon]: https://github.com/ceylon/ceylon-examples-di
 [GUI Designer]: https://www.jetbrains.com/help/idea/2016.2/gui-designer-reference.html
 [IntelliJ UI designer example]: https://github.com/xkr47/ceylon-swing-with-intellij-ui-designer
