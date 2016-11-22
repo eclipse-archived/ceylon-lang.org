@@ -65,6 +65,7 @@ language web site:
 
 2. In the `conf/config.properties` file of the Felix installation directory, add the following property:
 
+   <!--try-->
        org.osgi.framework.executionenvironment=J2SE-1.7,JavaSE-1.7,J2SE-1.6,JavaSE-1.6,J2SE-1.5,JavaSE-1.5,J2SE-1.4,JavaSE-1.4,J2SE-1.3,JavaSE-1.3,J2SE-1.2,,JavaSE-1.2,CDC-1.1/Foundation-1.1,CDC-1.0/Foundation-1.0,J2ME,OSGi/Minimum-1.1,OSGi/Minimum-1.0
 
    This is necessary since by default the Felix OSGi container provided execution environments don't include `J2SE-1.7`, which is required by a transitive dependency of the `ceylon.net` module.
