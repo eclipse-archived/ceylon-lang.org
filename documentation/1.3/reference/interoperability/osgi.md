@@ -65,9 +65,7 @@ language web site:
 
 2. In the `conf/config.properties` file of the Felix installation directory, add the following property:
     
-    <!--try:-->
-        
-        org.osgi.framework.executionenvironment=J2SE-1.7,JavaSE-1.7,J2SE-1.6,JavaSE-1.6,J2SE-1.5,JavaSE-1.5,J2SE-1.4,JavaSE-1.4,J2SE-1.3,JavaSE-1.3,J2SE-1.2,,JavaSE-1.2,CDC-1.1/Foundation-1.1,CDC-1.0/Foundation-1.0,J2ME,OSGi/Minimum-1.1,OSGi/Minimum-1.0
+    `org.osgi.framework.executionenvironment=J2SE-1.7,JavaSE-1.7,J2SE-1.6,JavaSE-1.6,J2SE-1.5,JavaSE-1.5,J2SE-1.4,JavaSE-1.4,J2SE-1.3,JavaSE-1.3,J2SE-1.2,,JavaSE-1.2,CDC-1.1/Foundation-1.1,CDC-1.0/Foundation-1.0,J2ME,OSGi/Minimum-1.1,OSGi/Minimum-1.0`
 
    This is necessary since by default the Felix OSGi container provided execution environments don't include `J2SE-1.7`, which is required by a transitive dependency of the `ceylon.net` module.
 
@@ -76,28 +74,20 @@ language web site:
 4. Uncomment this property if necessary
 
 5. Add the 2 Ceylon following OBR urls at the end of this property (space-separated):
-    
-    <!--try:-->
-        
-        https://downloads.ceylon-lang.org/osgi/distribution/1.3.1/repository.xml https://downloads.ceylon-lang.org/osgi/sdk/1.3.1/repository.xml
+            
+    `https://downloads.ceylon-lang.org/osgi/distribution/1.3.1/repository.xml https://downloads.ceylon-lang.org/osgi/sdk/1.3.1/repository.xml`
 
 6. From the Felix installation directory, Start Felix with the following command:
     
-    <!--try:-->
-        
-        java -jar bin/felix.jar
+    `java -jar bin/felix.jar`
 
 7. From the Felix Gogo shell, deploy the Ceylon Distribution with:
     
-    <!--try:-->
-        
-        obr:deploy "Ceylon Distribution Bundle"
+    `obr:deploy "Ceylon Distribution Bundle`
 
 8. Deploy any SDK module you need with the following command:
     
-    <!--try:-->
-        
-        obr:deploy ceylon.file
+    `obr:deploy ceylon.file`
 
 ##### Glassfish v4.1:
 
@@ -108,21 +98,15 @@ Let's assume we start with a fresh installation of Glassfish v4.1
 
 1. Unzip the 2 zip archives mentioned earlier ([distribution](https://downloads.ceylon-lang.org/osgi/distribution/1.3.1/ceylon.distribution.osgi.bundles-1.3.1.zip) and [sdk](https://downloads.ceylon-lang.org/osgi/sdk/1.3.1/ceylon.sdk.osgi.bundles-1.3.1.zip)) into :
     
-    <!--try:-->
-        
-        ../glassfish4/glassfish/domains/domain1/autodeploy/bundles
+    `../glassfish4/glassfish/domains/domain1/autodeploy/bundles`
   
 2. start the glassfish server :
     
-    <!--try:-->
-        
-        ../glassfish4/bin/asadmin start-domain
+    `../glassfish4/bin/asadmin start-domain`
 
 3. verify that the various Ceylon bundles were deployed correctly in the following log file:
     
-    <!--try:-->
-        
-        ../glassfish4/glassfish/domains/domain1/logs
+    `../glassfish4/glassfish/domains/domain1/logs`
 
 ##### Apache Karaf 4.0.4 (Karaf is a part of JBoss Fuse) with Karaf features:
 
@@ -130,30 +114,20 @@ Let's assume we start with a fresh installation of Glassfish v4.1
 
 2. In the karaf installation directory, start Karaf with the following command:
    
-    <!--try:-->
-        
-        ./bin/karaf
+    `./bin/karaf`
 
 3. In the karaf shell, add the Ceylon distribution feature repository with the following command:
-    
-    <!--try:-->
-        
-        feature:repo-add https://downloads.ceylon-lang.org/osgi/distribution/1.3.1/karaf-features.xml
+            
+    `feature:repo-add https://downloads.ceylon-lang.org/osgi/distribution/1.3.1/karaf-features.xml`
 
 4. In the karaf shell, add the Ceylon SDK feature repository with the following command:
     
-    <!--try:-->
-        
-        feature:repo-add https://downloads.ceylon-lang.org/osgi/sdk/1.3.1/karaf-features.xml
+    `feature:repo-add https://downloads.ceylon-lang.org/osgi/sdk/1.3.1/karaf-features.xml`
 
 5. In the karaf shell, install the Ceylon distribution feature with the following command:
     
-    <!--try:-->
-        
-        feature:install ceylon.distribution.runtime
+    `feature:install ceylon.distribution.runtime`
 
 6. In the karaf shell, install the Ceylon SDK feature with the following command:
     
-    <!--try:-->
-        
-        feature:install ceylon.sdk
+    `feature:install ceylon.sdk`
