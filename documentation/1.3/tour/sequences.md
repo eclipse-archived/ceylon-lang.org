@@ -206,13 +206,15 @@ compilation time, and fails at runtime:
 
     assert ({1, 2}=={1, 2}); //warning: equality not well-defined
 
-We should rewrite this code to use some other data structure for which value 
-equality *is* well-defined. For example, if we we wanted to take order into
+We should rewrite this code to use some other data structure for which [value 
+equality][] *is* well-defined. For example, if we we wanted to take order into
 account, we could use sequences:
 
     assert ([1, 2]==[1, 2]);
 
 So now, naturally, it's time to learn about sequences.
+
+[value equality]: ../language-module/#equality_and_identity
 
 ## Sequences
 
