@@ -199,18 +199,22 @@ satisfy it. These various container types each have their own notions of what
 whereas in a `Set`, it isn't. Furthermore, there are infinite  streams for 
 which equality is not computable.
 
-Therefore, value equality&mdash;the `==` operator&mdash;is not considered a 
-well-defined operation for streams, unless the streams have some known 
+Therefore, [value equality][]&mdash;the `==` operator&mdash;is not considered 
+a well-defined operation for streams, unless the streams have some known 
 additional structure in common. The following assertion produces a warning at 
 compilation time, and fails at runtime:
 
-    assert ({1, 2}=={1, 2}); //warning: equality not well-defined
+    assert ({1, 2} == {1, 2}); //warning: equality not well-defined
 
-We should rewrite this code to use some other data structure for which [value 
-equality][] *is* well-defined. For example, if we we wanted to take order into
-account, we could use sequences:
+We should rewrite this code to use some other data structure for which value 
+equality *is* well-defined. For example, if we didn't care about order, we
+could compare `Set`s:
 
-    assert ([1, 2]==[1, 2]);
+    assert (set {1, 2} == set {2, 1});
+
+Or, if we did want to take order into account, we could use sequences:
+
+    assert ([1, 2] == [1, 2]);
 
 So now, naturally, it's time to learn about sequences.
 
