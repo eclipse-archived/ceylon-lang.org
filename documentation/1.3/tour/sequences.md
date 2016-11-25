@@ -202,7 +202,7 @@ which equality is not computable.
 Therefore, [value equality][]&mdash;the `==` operator&mdash;is not considered 
 a well-defined operation for streams, unless the streams have some known 
 additional structure in common. The following assertion produces a warning at 
-compilation time, and fails at runtime:
+compilation time:
 
     assert ({1, 2} == {1, 2}); //warning: equality not well-defined
 
