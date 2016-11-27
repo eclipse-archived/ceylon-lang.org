@@ -90,7 +90,7 @@ needing special adapter classes to be written.
 
 ## Activating EE mode
 
-EE mode is activated for all classes in a module when `javax.javaeeapi` or equivalently  `maven:"javax:javaee-api"` (any version) is imported in the `module.ceylon`.
+EE mode is activated for all classes in a module when `javax.javaeeapi` or equivalently  `maven:javax:"javaee-api"` (any version) is imported in the `module.ceylon`.
 
 EE mode is also activated for a class when that class is annotated with any of the following:
 

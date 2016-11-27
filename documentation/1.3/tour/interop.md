@@ -200,11 +200,10 @@ Maven via Aether. You can import a module from maven by specifying
 the `maven:` repository type:
 
 <!-- try: -->
-    import maven:"org.hibernate:hibernate-core" "5.0.4.Final";
+    import maven:org.hibernate:"hibernate-core" "5.0.4.Final";
 
 The module name is composed from the Maven group id and artifact id,
-and must be quoted because `:` and `-` aren't legal in a Ceylon
-module name.
+and the artifact id must be quoted.
 
 You can find more information [here](../../reference/repository/maven).
 
@@ -223,7 +222,7 @@ them like this:
 Alternatively, you can get them from Maven:
 
 <!-- try: -->
-    import maven:"javax:javaee-api" "7.0";
+    import maven:javax:"javaee-api" "7.0";
 
 The second approach might work better if you're also importing 
 other related Java modules from Maven.
