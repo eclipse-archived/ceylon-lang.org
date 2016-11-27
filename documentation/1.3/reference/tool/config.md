@@ -69,8 +69,8 @@ Now in reality it's a bit more complex than this, because before reading that lo
 file Ceylon will first see if a configuration file exists in the `.ceylon` folder of 
 the *parent* folder of the current working directory. And before reading *that* one 
 it will see if one exists in *its* parent folder, etc, etc, all the way up to the 
-root of the file system (it will ignore the user's and system configurtation files 
-if it happens to encounter them while traversing the file ssytem). This provides us 
+root of the file system (it will ignore the user's and system configuration files 
+if it happens to encounter them while traversing the file system). This provides us 
 with the possibility to set configuration options for a group of projects.
 
 ## Configuration file structure
@@ -190,33 +190,39 @@ separated by a period.
 The `[defaults]` section is used to change the default behaviour of the ceylon
 tool chain. Recognized settings include:
 
-* `encoding`:
+- `encoding`:
 The character set (e.g. `UTF-8`) to use when reading source files.
 If not specified, the default file encoding for the platform is assumed.
 
-* `offline`:
+- `offline`:
 Prevents the tool chains from trying to download modules from remote repositories. 
 Accepts `yes`, `true` (equivalent to `yes`), `no` or `false` (equivalent to `no`). 
 Defaults to `no` (`false`).
 
-* `timeout`:
+- `timeout`:
 The number of seconds to wait while connecting to a remote host before giving up.
 Platform specific default.
 
-* `overrides`:
+- `overrides`:
 A file specifying [module overrides](../../repository/overrides/).
 
 ### `[compiler]` section
 
+[`ceylon compile`]: ../ceylon/subcommands/ceylon-compile.html
+[`ceylon compile-js`]: ../ceylon/subcommands/ceylon-compile-js.html
+[`ceylon doc`]: ../ceylon/subcommands/ceylon-doc.html
+[`ceylon src`]: ../ceylon/subcommands/ceylon-src.html
+[`ceylon plugin`]: ../ceylon/subcommands/ceylon-plugin.html
+
 The `[compiler]` section is mainly used to change the default behaviour of the 
 compile tool. The possible settings include:
 
-* `source`:
+- `source`:
 Equivalent to supplying `--source` on the command line. 
 It takes a path to a folder containing sources. 
 May be specified multiple times.
 
-* `resource`:
+- `resource`:
 Equivalent to supplying `--resource` on the command line.
 It takes a path to a folder containing resources.
 May be specified multiple times.
@@ -225,61 +231,69 @@ May be specified multiple times.
 affect *any* tools that take `--source` or `--resource` options. If a tool normally 
 takes only a single of these options the first in the list will be used.
 
-* `module`:
+- `module`:
 Equivalent to supplying a `module` name on the command line.
 May be specified multiple times.
 
-* `resourceroot`: 
-Equivalent to supplying the [`--resource-root`](../ceylon/subcommands/ceylon-compile.html#option--resource-root) option to 
-[`ceylon compile`](../ceylon/subcommands/ceylon-compile.html), 
-[`ceylon compile-js`](../ceylon/subcommands/ceylon-compile-js.html) or 
-[`ceylon src`](../ceylon/subcommands/ceylon-src.html).
+- `resourceroot`: 
+Equivalent to supplying the 
+[`--resource-root`](../ceylon/subcommands/ceylon-compile.html#option--resource-root) 
+option to [`ceylon compile`][], [`ceylon compile-js`][] or [`ceylon src`][].
 
-* `suppresswarning`: 
-Equivalent to supplying the [`--suppress-warning`](../ceylon/subcommands/ceylon-compile.html#option--suppress-warning) option to 
-[`ceylon compile`](../ceylon/subcommands/ceylon-compile.html).
+- `suppresswarning`: 
+Equivalent to supplying the 
+[`--suppress-warning`](../ceylon/subcommands/ceylon-compile.html#option--suppress-warning) 
+option to [`ceylon compile`][].
 
-* `noosgi`:
-Equivalent to supplying the [`--no-osgi`](../ceylon/subcommands/ceylon-compile.html#option--no-osgi) option to 
-[`ceylon compile`](../ceylon/subcommands/ceylon-compile.html).
+- `noosgi`:
+Equivalent to supplying the 
+[`--no-osgi`](../ceylon/subcommands/ceylon-compile.html#option--no-osgi) 
+option to [`ceylon compile`][].
 
-* `osgiprovidedbundles`:
-Equivalent to supplying the [`--osgi-provided-bundles`](../ceylon/subcommands/ceylon-compile.html#option--osgi-provided-bundles) option to 
-[`ceylon compile`](../ceylon/subcommands/ceylon-compile.html).
+- `osgiprovidedbundles`:
+Equivalent to supplying the 
+[`--osgi-provided-bundles`](../ceylon/subcommands/ceylon-compile.html#option--osgi-provided-bundles) 
+option to [`ceylon compile`][].
 
-* `nopom`:
-Equivalent to supplying the [`--no-pom`](../ceylon/subcommands/ceylon-compile.html#option--no-pom) option to 
-[`ceylon compile`](../ceylon/subcommands/ceylon-compile.html).
+- `nopom`:
+Equivalent to supplying the 
+[`--no-pom`](../ceylon/subcommands/ceylon-compile.html#option--no-pom) 
+option to [`ceylon compile`][].
 
-* `generatemoduleinfo`:
-Equivalent to supplying the [`--generate-module-info`](../ceylon/subcommands/ceylon-compile.html#option--generate-module-info) option to 
-[`ceylon compile`](../ceylon/subcommands/ceylon-compile.html).
+- `generatemoduleinfo`:
+Equivalent to supplying the 
+[`--generate-module-info`](../ceylon/subcommands/ceylon-compile.html#option--generate-module-info) 
+option to [`ceylon compile`][].
 
-* `pack200`:
-Equivalent to supplying the [`--pack200`](../ceylon/subcommands/ceylon-compile.html#option--pack200) option to 
-[`ceylon compile`](../ceylon/subcommands/ceylon-compile.html).
+- `pack200`:
+Equivalent to supplying the 
+[`--pack200`](../ceylon/subcommands/ceylon-compile.html#option--pack200) 
+option to [`ceylon compile`][].
 
-* `progress`:
-Equivalent to supplying the [`--progress`](../ceylon/subcommands/ceylon-compile.html#option--progress) option to 
-[`ceylon compile`](../ceylon/subcommands/ceylon-compile.html).
+- `progress`:
+Equivalent to supplying the 
+[`--progress`](../ceylon/subcommands/ceylon-compile.html#option--progress) 
+option to [`ceylon compile`][].
 
-* `jdkprovider`:
-Equivalent to supplying the [`--jdk-provider`](../ceylon/subcommands/ceylon-compile.html#option--jdk-provider) option to 
-[`ceylon compile`](../ceylon/subcommands/ceylon-compile.html).
+- `jdkprovider`:
+Equivalent to supplying the 
+[`--jdk-provider`](../ceylon/subcommands/ceylon-compile.html#option--jdk-provider) 
+option to [`ceylon compile`][].
 
-* `javac`:
-Equivalent to supplying the [`--javac`](../ceylon/subcommands/ceylon-compile.html#option--javac) option to 
-[`ceylon compile`](../ceylon/subcommands/ceylon-compile.html).
+- `javac`:
+Equivalent to supplying the 
+[`--javac`](../ceylon/subcommands/ceylon-compile.html#option--javac) 
+option to [`ceylon compile`][].
 
-* `doc`:
-Equivalent to supplying the [`--doc`](../ceylon/subcommands/ceylon-doc.html#option--doc) option to 
-[`ceylon doc`](../ceylon/subcommands/ceylon-doc.html) or 
-[`ceylon src`](../ceylon/subcommands/ceylon-src.html).
+- `doc`:
+Equivalent to supplying the 
+[`--doc`](../ceylon/subcommands/ceylon-doc.html#option--doc) 
+option to [`ceylon doc`][] or [`ceylon src`][].
 
-* `script`:
-Equivalent to supplying the [`--script`](../ceylon/subcommands/ceylon-src.html#option--script) option to 
-[`ceylon src`](../ceylon/subcommands/ceylon-src.html) or 
-[`ceylon plugin`](../ceylon/subcommands/ceylon-plugin.html).
+- `script`:
+Equivalent to supplying the 
+[`--script`](../ceylon/subcommands/ceylon-src.html#option--script) 
+option to [`ceylon src`][] or [`ceylon plugin`][].
 
 ### `[compiler.BACKEND]` section
 
@@ -290,29 +304,31 @@ option for these sections is: `module` and it has the same meaning as above.
 
 ### `[runtool]` section
 
-* `compile`:
-Equivalent to supplying the [`--compile`](../ceylon/subcommands/ceylon-run.html#option--compile) option to 
-[`ceylon run`](../ceylon/subcommands/ceylon-run.html) or 
-[`ceylon run-js`](../ceylon/subcommands/ceylon-run-js.html).
+[`ceylon run`]: ../ceylon/subcommands/ceylon-run.html
+[`ceylon run-js`]: ../ceylon/subcommands/ceylon-run-js.html
 
-* `module`:
-Equivalent to supplying the `module` argument to [`ceylon run`](../ceylon/subcommands/ceylon-run.html) or 
-[`ceylon run-js`](../ceylon/subcommands/ceylon-run-js.html).
+- `compile`:
+Equivalent to supplying the 
+[`--compile`](../ceylon/subcommands/ceylon-run.html#option--compile) 
+option to [`ceylon run`][] or [`ceylon run-js`][].
 
-* `run`:
-Equivalent to supplying the [`--run`](../ceylon/subcommands/ceylon-run.html#option--run) option to 
-[`ceylon run`](../ceylon/subcommands/ceylon-run.html) or 
-[`ceylon run-js`](../ceylon/subcommands/ceylon-run-js.html).
-Is only taken into account when the `module` option is also specified, otherwise
-it's ignored.
+- `module`:
+Equivalent to supplying the `module` argument to [`ceylon run`][] or 
+[`ceylon run-js`][].
 
-* `arg`:
+- `run`:
+Equivalent to supplying the 
+[`--run`](../ceylon/subcommands/ceylon-run.html#option--run) 
+option to [`ceylon run`][] or [`ceylon run-js`][].
+Only taken into account when the `module` option is also specified, otherwise
+ignored.
+
+- `arg`:
 Equivalent to supplying arguments to the Ceylon application being run using
-[`ceylon run`](../ceylon/subcommands/ceylon-run.html) or 
-[`ceylon run-js`](../ceylon/subcommands/ceylon-run-js.html).
+[`ceylon run`][] or [`ceylon run-js`][].
 Can be specified multiple times. 
-Is only taken into account when the `module` option is also specified, otherwise 
-it's ignored.
+Only taken into account when the `module` option is also specified, otherwise 
+ignored.
 
 ### `[runtool.BACKEND]` section
 
@@ -323,23 +339,27 @@ are: `module`, `run` and `arg` and they have the same meaning as above.
 
 ### `[testtool]` section
 
-* `compile`:
-Equivalent to supplying the [`--compile`](../ceylon/subcommands/ceylon-test.html#option--compile) option to 
-[`ceylon test`](../ceylon/subcommands/ceylon-test.html) or 
-[`ceylon test-js`](../ceylon/subcommands/ceylon-test-js.html).
+[`ceylon test`]: ../ceylon/subcommands/ceylon-test.html
+[`ceylon test-js`]: ../ceylon/subcommands/ceylon-test-js.html
+
+- `compile`:
+Equivalent to supplying the 
+[`--compile`](../ceylon/subcommands/ceylon-test.html#option--compile) 
+option to [`ceylon test`][] or [`ceylon test-js`][].
 
 ### `[repositories]` section
 
 Ceylon uses a set of local and remote repositories for its modules. The order 
 and significance of the lookup (which is fixed) is:
 
-* `system` - Essential system modules
-* `cache`  - A cache of modules that were previously downloaded from remote repositories
-* `output` - Where the compiler stores newly created modules
-* `lookup` - Other local repositories
-* `global` - Predefined user and system global repositories
-* `remote` - User defined remote repositories
-* `other`  - Predefined remote repositories
+- `system` &mdash; Essential system modules
+- `cache`  &mdash; A cache of modules that were previously downloaded from remote 
+  repositories
+- `output` &mdash; Where the compiler stores newly created modules
+- `lookup` &mdash; Other local repositories
+- `global` &mdash; Predefined user and system global repositories
+- `remote` &mdash; User defined remote repositories
+- `other`  &mdash; Predefined remote repositories
 
 The `[repositories]` section can be used to override the default values for those
 entries thereby changing or extending the lookup order. Take a look at the 
@@ -404,16 +424,21 @@ could be:
 
 Supported properties include:
 
-* `url` - the URL of the repository. Besides remote URLs like `http://repo.example.com` and 
-  `maven:`, this includes references to folders on the local file system, either absolute 
-  like `/huge-disk/tom/ceylon/repocache`, or relative to the project folder like `modules` or 
-  `./my-modules`. This property is required.
-* `user` - the user name if the repository requires authentication
-* `password` - the plain text password if the repository allows plain text authentication
-* `password-alias` - the name of an alias in a `[keystore]` which holds the 
-  password, an alternative to using the `password` property.
-* `password-keystore` - the name of the `[keystore]` which holds 
-  the `password-alias`, if not the default `[keystore]`
+- `url` &mdash; the URL of the repository. May be:
+
+  - a remote URL like `http://repo.example.com` and `maven:`, or
+  - a reference to a folder on the local file system, either absolute like 
+    `/huge-disk/tom/ceylon/repocache`, or relative to the project folder like 
+    `modules` or `./my-modules`.
+  
+  This property is required.
+- `user` &mdash; the user name if the repository requires authentication
+- `password` &mdash; the plain text password if the repository allows plain text 
+  authentication
+- `password-alias` &mdash; the name of an alias in a `[keystore]` which holds the password, 
+  an alternative to using the `password` property.
+- `password-keystore` &mdash; the name of the `[keystore]` which holds the `password-alias`, 
+  or, if not, the default `[keystore]`
 
 Using `[repository]` definitions like the above you can now refer to it from within the
 `[repositories]` section like this (pay attention to the `+` sign which is required):
@@ -473,7 +498,7 @@ This can be overridden by setting the `ceylon.config` system property to point t
 the file that should be used.
 
 <!-- lang:none -->
-     [repository "USER"]
+    [repository "USER"]
     url=~/.ceylon/repo
 
 
@@ -491,7 +516,7 @@ that contains all the official Ceylon SDK modules and all other freely available
 #### `MAVEN` repository
 
 The remote repository points to the official Maven module repository that contains 
-so much of the Java eco system's finest contributions. By default this is `maven:`.
+so much of the Java ecosystem's finest contributions. By default this is `maven:`.
 
 <!-- lang:none -->
     [repository "MAVEN"]
@@ -500,7 +525,7 @@ so much of the Java eco system's finest contributions. By default this is `maven
 
 #### The `[repositories]` section revisited
 
-*This paragraph doesn't really contain any infomation necessary to be able to work
+*This paragraph doesn't really contain any information necessary to be able to work
 with the Ceylon tool chain, but it might be interesting for completeness sake.*
 
 Looking at the above list we now have sufficient information to be able to know 
@@ -517,7 +542,7 @@ what the default `[repositories]` section would look like:
     other=+MAVEN
 
 This also means that if you define your own `[repository]` section with one of the
-above pre-defined names you will *override* the default location for that 
+above predefined names you will *override* the default location for that 
 repository. (So in fact there are two ways to override predefined repositories.)
 
 
@@ -530,9 +555,10 @@ keystore corresponds to a `java.security.KeyStore`.
 
 Supported properties include:
 
-* `file` the name of a keystore file, for those keystores which are file based.
-* `store-type` - the `KeyStore` type. Default: `jceks`.
-* `store-provider` - the `KeyStore` provider. Default: `SunJCE`.
+- `file` &mdash; the name of a keystore file, for those keystores which are file 
+  based.
+- `store-type` &mdash; the `KeyStore` type. Default: `jceks`.
+- `store-provider` &mdash; the `KeyStore` provider. Default: `SunJCE`.
 
 
 ### `[proxy]` section
@@ -541,13 +567,13 @@ The `[proxy]` section defines a HTTP proxy to use when accessing the network.
 
 Supported properties include:
 
-* `host` - the hostname of the proxy server
-* `port` - the TCP port number of the proxy server. Default: `8080`.
-* `user` - the proxy user name, if authenticating to the proxy is required
-* `password` - the proxy password, in plain text, or
-* `password-alias` - the alias of a `[keystore]` entry which holds the 
-   password, an alternative to using the `password` property
-* `non-proxy-hosts` - a host name which can be accessed directly, without 
+- `host` &mdash; the hostname of the proxy server
+- `port` &mdash; the TCP port number of the proxy server. Default: `8080`.
+- `user` &mdash; the proxy user name, if authenticating to the proxy is required
+- `password` &mdash; the proxy password, in plain text, or
+- `password-alias` &mdash; the alias of a `[keystore]` entry which holds the 
+  password, an alternative to using the `password` property
+- `non-proxy-hosts` &mdash; a host name which can be accessed directly, without 
   going via the proxy.
 
 Tools should use the OS's default proxy settings automatically. If you want the 
