@@ -55,7 +55,7 @@ in the `Module Repositories` tab of the project-level compiler settings.
 
 [`settings.xml`]: https://maven.apache.org/settings.html
 
-### Resolving Maven conflicts
+## Resolving Maven conflicts
 
 Very often, when working with Maven repositories, we encounter one or all of
 the following:
