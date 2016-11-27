@@ -28,9 +28,9 @@ dependency on Hibernate ORM:
     import maven:"org.hibernate:hibernate-core" "5.0.4.Final";
 
 Note that, from the point of view of your Ceylon code, the name of the
-imported module is the whole string `org.hibernate:hibernate-core`.
-However, the packages belonging to this module are named simply
-`org.hibernate`, `org.hibernate.boot`, etc.
+imported module is the whole string `org.hibernate:hibernate-core`. However, 
+the packages belonging to this module are named simply `org.hibernate`, 
+`org.hibernate.boot`, etc.
 
 ### Maven group and artifact ids 
 
