@@ -35,12 +35,16 @@ the packages belonging to this module are named simply `org.hibernate`,
 
 ### Maven group and artifact ids 
 
-Ceylon uses a single identifier for module names, but Maven uses a _group id_ 
-together with an _artifact id_. So to import the Maven module with group id 
-`org.hibernate` and artifact id `hibernate-core`, we formed a module name 
-by concatenating the two identifiers with a `:` (colon) and quoting 
-the resulting identifier, resulting in the module name 
-`"org.hibernate:hibernate-core"` seen above.
+Ceylon uses a single identifier for module names, but Maven uses:
+
+- a _group id_, which usually obeys the Java package name format, 
+- together with an _artifact id_, which identifies a `.jar` file, and is
+  usually of form `foo-bar-baz`.
+
+So to import the Maven module with group id `org.hibernate` and artifact id 
+`hibernate-core`, we formed a module name by first quoting the artifact id, 
+and then concatenating the two identifiers with a `:` (colon), resulting 
+in the module name `org.hibernate:"hibernate-core"` seen above.
 
 ### Specifying explicit Maven settings 
 
