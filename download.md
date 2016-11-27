@@ -9,11 +9,13 @@ change_frequency: weekly
 ---
 <div id="banner"><div id="text">Download</div></div>
 
+[1.3.1]: /blog/2016/11/22/ceylon-1-3-1/
+
 # #{page.title}
 
-[Ceylon 1.3.0][1.3.0] _&ldquo;Total Internal Reflection&rdquo;_ 
-is now available for download! This is
-the 1.3 release of the language, command line tools, and IDEs.
+[Ceylon 1.3.1][1.3.1] _&ldquo;Now We Try It My Way&rdquo;_ is 
+now available for download! This is the 1.3.1 release of the 
+language, command line tools, and IDEs.
 
 ## Ceylon IDE
 
@@ -73,62 +75,60 @@ compiler, the test runner, the language module, the module
 runtimes for the JVM and Node.js, and a suite of additional 
 command line tools.
 
-[1.3.0]: /blog/2016/09/19/ceylon-1-3-0/
-
 <table>
     <tr>
         <td>
-        <a href="/download/dist/1_3_0" 
+        <a href="/download/dist/1_3_1" 
            title='Download the Zip archive'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_3_0?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_3_1?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
            <img src="/images/download/package-zip.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
         </a>
         </td>
         <td>Zip archive</td>
         <td>All Operating Systems</td>
         <td>
-        <a href="/download/dist/1_3_0" 
+        <a href="/download/dist/1_3_1" 
            title='Download the Zip archive'
            class='bubble-button'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_3_0?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_3_1?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
            DOWNLOAD
         </a>
         </td>
     </tr>
     <tr>
         <td>
-        <a href="/download/dist/1_3_0_rpm" 
+        <a href="/download/dist/1_3_1_rpm" 
            title='Download the RPM'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_3_0_rpm?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_3_1_rpm?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
            <img src="/images/download/package-fedora.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
         </a>
         </td>
         <td>RPM</td>
         <td>Fedora/Red Hat</td>
         <td>
-        <a href="/download/dist/1_3_0_rpm" 
+        <a href="/download/dist/1_3_1_rpm" 
            title='Download the RPM'
            class='bubble-button'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_3_0_rpm?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_3_1_rpm?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
            DOWNLOAD
         </a>
         </td>
     </tr>
     <tr>
         <td>
-        <a href="/download/dist/1_3_0_deb" 
+        <a href="/download/dist/1_3_1_deb" 
            title='Download the Debian package'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_3_0_deb?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_3_1_deb?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
            <img src="/images/download/package-debian.png" style="vertical-align: middle; float: right; margin-right: 0.5em"/>
         </a>
         </td>
         <td>DEB</td>
         <td>Debian/Ubuntu</td>
         <td>
-        <a href="/download/dist/1_3_0_deb" 
+        <a href="/download/dist/1_3_1_deb" 
            title='Download the Debian package'
            class='bubble-button'
-           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_3_0_deb?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
+           onClick="javascript: _gaq.push(['_trackPageview', '/download/dist/1_3_1_deb?utm_source=download&amp;utm_medium=web&amp;utm_content=dist&amp;utm_campaign=latestrelease']);">
            DOWNLOAD
         </a>
         </td>
@@ -138,7 +138,7 @@ command line tools.
 Instructions for getting started are contained in the file
 `README.md` in the root directory of the distribution, or
 [right here in GitHub][ceylon-dist readme]. To know what's 
-precisely in the release, read our [announcement][1.3.0].
+precisely in the release, read our [announcement][1.3.1].
 
 [ceylon-dist readme]: https://github.com/ceylon/ceylon/blob/master/dist/README.md
 
@@ -213,7 +213,7 @@ sudo apt-get update</code></pre>
 Once that is done, you can install any version of Ceylon with <code>apt-get</code>:
 </p>
 
-<pre data-language="shell"><code class="rainbow">sudo apt-get install ceylon-1.3.0</code></pre>
+<pre data-language="shell"><code class="rainbow">sudo apt-get install ceylon-1.3.1</code></pre>
   </div>
   <div role="tabpanel" class="tab-pane fade" id="fedora">
 <p>
@@ -234,9 +234,9 @@ Once that is done, you can install any version of Ceylon with <code>yum</code> (
 </p>
 
 <pre data-language="shell"><code class="rainbow"># If you're using yum:
-sudo yum install ceylon-1.3.0
+sudo yum install ceylon-1.3.1
 # If you're using dnf:
-sudo dnf install ceylon-1.3.0</code></pre>
+sudo dnf install ceylon-1.3.1</code></pre>
   </div>
 
   <div role="tabpanel" class="tab-pane fade" id="arch">
@@ -246,7 +246,7 @@ pacaur -S ceylon
 git clone https://aur.archlinux.org/ceylon
 cd ceylon
 makepkg
-sudo pacman -U ceylon-1.3.0-*.pkg*</code></pre>
+sudo pacman -U ceylon-1.3.1-*.pkg*</code></pre>
   </div>
 
 </div>

@@ -174,7 +174,7 @@ archive, you have two options:
   JBoss Modules metadata defined in a [`module.xml`][] or 
   [`module.properties`][] file, or
 - import the archive directly from a 
-  [legacy Maven repository](../../reference/repository/maven).
+  [Maven repository](../../reference/repository/maven).
 
 To add a Java `.jar` to a Ceylon module repository, you need to
 provide some metadata describing its dependencies. A `module.xml` 
@@ -752,9 +752,6 @@ a Java `enum`, just like you can in Java.
 
 ### Methods accepting a SAM interface
 
-_Warning: this subsection describes new pre-release 
-functionality that will be made available in Ceylon 1.3.1._
-
 Java has no true function types, so there's no equivalent to
 Ceylon's `Callable` interface in Java. Instead, Java features
 SAM (Single Abstract Method) conversion where an anonymous
@@ -782,11 +779,11 @@ SAM interface type.
     }
     import java.util.stream {
         Collectors { toList }
+        Stream { with=\iof }
     }
     
     value list
-        = Arrays.asList("hello", "world", "goodbye")
-            .stream()
+        = Stream.with("hello", "world", "goodbye")
             .filter((s) => s.longerThan(2))
             .map(String.uppercased)
             .collect(toList<String>());
@@ -1305,7 +1302,7 @@ functionality is considered experimental.
 
 ### Deploying Ceylon on Java EE or WildFly Swarm
 
-These command line tools make it easy to deploy a Ceylon module
+These command line tools make it easy to assemble a Ceylon module
 that makes use of Java EE APis in a Java EE environment:
 
 - [`ceylon war`][] repackages a module and its dependencies as
@@ -1319,10 +1316,10 @@ that makes use of Java EE APis in a Java EE environment:
 
 ### Deploying Ceylon as a fat jar
 
-Finally, if you wish to run a Ceylon program on a machine with
-no Ceylon distribution available, and without the runtime module 
+Finally, if you wish to run a Ceylon program on a machine with no 
+Ceylon distribution available, and without the runtime module 
 isolation provided by JBoss Modules, the command line tool
-[`ceylon fat-jar`][] is indispensable. The command simply produces
+[`ceylon fat-jar`][] is indispensable. The command simply assembles
 a Java `.jar` archive that contains a Ceylon module and everything
 it depends on at runtime.
 

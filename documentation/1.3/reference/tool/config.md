@@ -190,20 +190,20 @@ separated by a period.
 The `[defaults]` section is used to change the default behaviour of the ceylon
 tool chain. Recognized settings include:
 
-- `encoding`:
+- `encoding` &mdash; 
 The character set (e.g. `UTF-8`) to use when reading source files.
 If not specified, the default file encoding for the platform is assumed.
 
-- `offline`:
+- `offline` &mdash; 
 Prevents the tool chains from trying to download modules from remote repositories. 
 Accepts `yes`, `true` (equivalent to `yes`), `no` or `false` (equivalent to `no`). 
 Defaults to `no` (`false`).
 
-- `timeout`:
+- `timeout` &mdash; 
 The number of seconds to wait while connecting to a remote host before giving up.
 Platform specific default.
 
-- `overrides`:
+- `overrides` &mdash; 
 A file specifying [module overrides](../../repository/overrides/).
 
 ### `[compiler]` section
@@ -217,12 +217,12 @@ A file specifying [module overrides](../../repository/overrides/).
 The `[compiler]` section is mainly used to change the default behaviour of the 
 compile tool. The possible settings include:
 
-- `source`:
+- `source` &mdash; 
 Equivalent to supplying `--source` on the command line. 
 It takes a path to a folder containing sources. 
 May be specified multiple times.
 
-- `resource`:
+- `resource` &mdash; 
 Equivalent to supplying `--resource` on the command line.
 It takes a path to a folder containing resources.
 May be specified multiple times.
@@ -231,66 +231,66 @@ May be specified multiple times.
 affect *any* tools that take `--source` or `--resource` options. If a tool normally 
 takes only a single of these options the first in the list will be used.
 
-- `module`:
+- `module` &mdash; 
 Equivalent to supplying a `module` name on the command line.
 May be specified multiple times.
 
-- `resourceroot`: 
+- `resourceroot` &mdash; 
 Equivalent to supplying the 
 [`--resource-root`](../ceylon/subcommands/ceylon-compile.html#option--resource-root) 
 option to [`ceylon compile`][], [`ceylon compile-js`][] or [`ceylon src`][].
 
-- `suppresswarning`: 
+- `suppresswarning` &mdash; 
 Equivalent to supplying the 
 [`--suppress-warning`](../ceylon/subcommands/ceylon-compile.html#option--suppress-warning) 
 option to [`ceylon compile`][].
 
-- `noosgi`:
+- `noosgi` &mdash; 
 Equivalent to supplying the 
 [`--no-osgi`](../ceylon/subcommands/ceylon-compile.html#option--no-osgi) 
 option to [`ceylon compile`][].
 
-- `osgiprovidedbundles`:
+- `osgiprovidedbundles` &mdash; 
 Equivalent to supplying the 
 [`--osgi-provided-bundles`](../ceylon/subcommands/ceylon-compile.html#option--osgi-provided-bundles) 
 option to [`ceylon compile`][].
 
-- `nopom`:
+- `nopom` &mdash; 
 Equivalent to supplying the 
 [`--no-pom`](../ceylon/subcommands/ceylon-compile.html#option--no-pom) 
 option to [`ceylon compile`][].
 
-- `generatemoduleinfo`:
+- `generatemoduleinfo` &mdash; 
 Equivalent to supplying the 
 [`--generate-module-info`](../ceylon/subcommands/ceylon-compile.html#option--generate-module-info) 
 option to [`ceylon compile`][].
 
-- `pack200`:
+- `pack200` &mdash; 
 Equivalent to supplying the 
 [`--pack200`](../ceylon/subcommands/ceylon-compile.html#option--pack200) 
 option to [`ceylon compile`][].
 
-- `progress`:
+- `progress` &mdash; 
 Equivalent to supplying the 
 [`--progress`](../ceylon/subcommands/ceylon-compile.html#option--progress) 
 option to [`ceylon compile`][].
 
-- `jdkprovider`:
+- `jdkprovider` &mdash; 
 Equivalent to supplying the 
 [`--jdk-provider`](../ceylon/subcommands/ceylon-compile.html#option--jdk-provider) 
 option to [`ceylon compile`][].
 
-- `javac`:
+- `javac` &mdash; 
 Equivalent to supplying the 
 [`--javac`](../ceylon/subcommands/ceylon-compile.html#option--javac) 
 option to [`ceylon compile`][].
 
-- `doc`:
+- `doc` &mdash; 
 Equivalent to supplying the 
 [`--doc`](../ceylon/subcommands/ceylon-doc.html#option--doc) 
 option to [`ceylon doc`][] or [`ceylon src`][].
 
-- `script`:
+- `script` &mdash; 
 Equivalent to supplying the 
 [`--script`](../ceylon/subcommands/ceylon-src.html#option--script) 
 option to [`ceylon src`][] or [`ceylon plugin`][].
@@ -307,23 +307,23 @@ option for these sections is: `module` and it has the same meaning as above.
 [`ceylon run`]: ../ceylon/subcommands/ceylon-run.html
 [`ceylon run-js`]: ../ceylon/subcommands/ceylon-run-js.html
 
-- `compile`:
+- `compile` &mdash; 
 Equivalent to supplying the 
 [`--compile`](../ceylon/subcommands/ceylon-run.html#option--compile) 
 option to [`ceylon run`][] or [`ceylon run-js`][].
 
-- `module`:
+- `module` &mdash; 
 Equivalent to supplying the `module` argument to [`ceylon run`][] or 
 [`ceylon run-js`][].
 
-- `run`:
+- `run` &mdash; 
 Equivalent to supplying the 
 [`--run`](../ceylon/subcommands/ceylon-run.html#option--run) 
 option to [`ceylon run`][] or [`ceylon run-js`][].
 Only taken into account when the `module` option is also specified, otherwise
 ignored.
 
-- `arg`:
+- `arg` &mdash; 
 Equivalent to supplying arguments to the Ceylon application being run using
 [`ceylon run`][] or [`ceylon run-js`][].
 Can be specified multiple times. 
@@ -342,7 +342,7 @@ are: `module`, `run` and `arg` and they have the same meaning as above.
 [`ceylon test`]: ../ceylon/subcommands/ceylon-test.html
 [`ceylon test-js`]: ../ceylon/subcommands/ceylon-test-js.html
 
-- `compile`:
+- `compile` &mdash; 
 Equivalent to supplying the 
 [`--compile`](../ceylon/subcommands/ceylon-test.html#option--compile) 
 option to [`ceylon test`][] or [`ceylon test-js`][].

@@ -7,9 +7,9 @@ author: Bastien Jansen
 ---
 # #{page.title}
 
-The 1.3.0 release of the Ceylon IDE for IntelliJ is available from JetBrains' 
+The 1.3.1 release of the Ceylon IDE for IntelliJ is available from JetBrains' 
 plugins site. Note that the version of the Ceylon compiler embedded 
-in this release is compatible with the Ceylon 1.3.0 command line tools.
+in this release is compatible with the Ceylon 1.3.1 command line tools.
 
 ## IntelliJ platform
 

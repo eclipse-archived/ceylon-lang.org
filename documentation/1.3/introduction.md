@@ -194,10 +194,10 @@ Even `Null` is a class. Even `Tuple` is a class.
 The type system is based on analysis of "best" or *principal* types. For 
 every expression, a unique, most specific type may be determined, without 
 the need to analyze the rest of the expression in which it appears. And all 
-types used internally by the compiler are *denotable* - that is, they can be 
-expressed within the language itself. What this means in practice is that 
-the compiler always produces errors that humans can understand, even when 
-working with complex generic types. The Ceylon compiler *never* produces 
+types used internally by the compiler are *denotable* &mdash; that is, they 
+can be expressed within the language itself. What this means in practice is 
+that the compiler always produces errors that humans can understand, even 
+when working with complex generic types. The Ceylon compiler *never* produces 
 error messages involving mystifying non-denotable types like Java's 
 `List<capture#3-of ?>`.
 

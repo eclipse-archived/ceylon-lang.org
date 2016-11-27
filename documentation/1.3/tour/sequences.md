@@ -118,7 +118,7 @@ comes in handy here:
     }
 <!-- cat: } -->
 
-Now there's one more very important thing to know when you start mixing
+Now there's one very important thing to know when you start mixing
 streams with mutable objects, variables, or impure functions. This is
 a common source of error for folks new to Ceylon.
 
@@ -189,7 +189,36 @@ Alternatively, one could use a sequence:
     sequence = [1, *sequence];
     sequence = [2, *sequence];
 
+Laziness is not the _only_ stream-related gotcha.
+
+## Gotcha again!
+
+`Iterable` is an extremely abstract type, and many different container types
+satisfy it. These various container types each have their own notions of what
+"equality" means. For example, in a `List`, the order of elements is important, 
+whereas in a `Set`, it isn't. Furthermore, there are infinite  streams for 
+which equality is not computable.
+
+Therefore, [value equality][]&mdash;the `==` operator&mdash;is not considered 
+a well-defined operation for streams, unless the streams have some known 
+additional structure in common. The following assertion produces a warning at 
+compilation time:
+
+    assert ({1, 2} == {1, 2}); //warning: equality not well-defined
+
+We should rewrite this code to use some other data structure for which value 
+equality *is* well-defined. For example, if we didn't care about order, we
+could compare `Set`s:
+
+    assert (set {1, 2} == set {2, 1});
+
+Or, if we did want to take order into account, we could use sequences:
+
+    assert ([1, 2] == [1, 2]);
+
 So now, naturally, it's time to learn about sequences.
+
+[value equality]: ../language-module/#equality_and_identity
 
 ## Sequences
 

@@ -22,28 +22,43 @@ of Ceylon in a web browser:
 
 Furthermore:
 
-- The [Ceylon Services Example](http://try.ceylon-lang.org/?gist=796bc92790af4cd3db54a88853518c56)
-  demonstrates the use of Ceylon service providers, an 
-  abstraction of the Java service loader facility, on the 
-  JavaScript platform.
+- The [Ceylon Services Example][] demonstrates the use of 
+  Ceylon service providers, an abstraction of the Java 
+  service loader facility, on the JavaScript platform.
+
+[Ceylon Services Example]: http://try.ceylon-lang.org/?gist=796bc92790af4cd3db54a88853518c56
 
 ## Examples of server-side Ceylon
 
 Ceylon is a fantastic language for writing microservices:
 
 - [Wildfly Swarm and Ceylon][] demonstrates the use of Ceylon 
-  to write a Java EE-based microservice for [Swarm][], and of 
-  the `ceylon swarm` command to package it as a "fat" jar.
+  to write a Java EE-based microservice for [Swarm][], using
+  JPA, CDI, and JAX-RS, and of the `ceylon swarm` command to 
+  package it as a "fat" jar. Alternatively, you can use 
+  `ceylon war` to package it as a web archive and run it on a 
+  Java EE application server!
+- [Spring Boot and Ceylon][] demonstrates the use of Ceylon
+  with [Spring Boot][] and Spring Data.
 - The [Vert.x examples][] include several samples showing how
   to use Ceylon in [Vert.x][]. 
+- [Spark with Ceylon][] demonstrates how to use the Spark web
+  framework in Ceylon.
+- The [gyokuro demos][] show off the [gyokuro][] web 
+  framework, which is written in Ceylon.
 
 Documentation for Ceylon and Vert.x can be found at the 
 [Vert.x site](http://vertx.io/docs/vertx-core/ceylon/).
 
 [Wildfly Swarm and Ceylon]: https://github.com/DiegoCoronel/ceylon-jboss-swarm/
+[Spring Boot and Ceylon]: https://github.com/DiegoCoronel/ceylon-spring-boot
 [Vert.x examples]: https://github.com/vert-x3/vertx-examples/tree/master/ceylon
 [Swarm]: http://wildfly-swarm.io/
 [Vert.x]: http://vertx.io/
+[Spring Boot]: https://projects.spring.io/spring-boot/
+[Spark with Ceylon]: https://github.com/ceylon/ceylon-examples-spark
+[gyokuro demos]: https://github.com/bjansen/gyokuro/tree/master/demos/gyokuro/demo
+[gyokuro]: http://bjansen.github.io/gyokuro/
 
 ## Examples of full-stack applications
 
@@ -63,15 +78,32 @@ Documentation for Ceylon and Vert.x can be found at the
 
 Learn how to use Ceylon with these Java frameworks:
 
+- [JDK Collections and Streams in Ceylon][] shows how easy
+  and natural it is to use Java's collections and streams
+  APIs directly from Ceylon.
+- [Java Persistence in Ceylon][] demonstrates the use of JPA
+  for Object/Relational Mapping.
 - For Java-style dependency injection, check out 
   [Weld and Guice with Ceylon][], based on 
   [this blog post](/blog/2015/12/01/weld-guice/).
+- The [RxJava examples][] project is a port of the basic
+  [RxJava][] examples from the [RxJava documentation][] to 
+  Ceylon.
+- [OpenGL in Ceylon][] shows the use of [JOGL][] in a Swing 
+  application.
 - This [IntelliJ UI designer example][] shows how to use
-  Ceylon together with IntelliJ IDEA's [GUI Designer][].
+  IntelliJ IDEA's [GUI Designer][].
 
+[JDK Collections and Streams in Ceylon]: https://github.com/ceylon/ceylon-examples-jdk
+[Java Persistence in Ceylon]: https://github.com/ceylon/ceylon-examples-jpa
 [Weld and Guice with Ceylon]: https://github.com/ceylon/ceylon-examples-di
+[OpenGL in Ceylon]: https://github.com/ceylon/ceylon-examples-jogl
 [GUI Designer]: https://www.jetbrains.com/help/idea/2016.2/gui-designer-reference.html
 [IntelliJ UI designer example]: https://github.com/xkr47/ceylon-swing-with-intellij-ui-designer
+[RxJava examples]: https://github.com/ceylon/ceylon-examples-rx
+[RxJava]: https://github.com/ReactiveX/RxJava
+[RxJava documentation]: https://github.com/ReactiveX/RxJava/wiki/How-To-Use-RxJava
+[JOGL]: http://jogamp.org/
 
 ## Examples of libraries
 

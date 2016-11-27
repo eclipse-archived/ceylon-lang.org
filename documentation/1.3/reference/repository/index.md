@@ -9,7 +9,7 @@ doc_root: ../..
 
 # #{page.title_md}
 
-Ceylon supports modules natively. Ceylon Modules contain the following:
+Ceylon supports modules natively. Ceylon modules contain the following:
 
 - A [module descriptor](../structure/module), which contains:
   - A unique name and version
@@ -24,27 +24,31 @@ by Ceylon tools to consume and produce modules natively.
 
 ## Archive types
 
-Ceylon module archives contain the compiled code and are packaged in a `.car`
-file using the ZIP file format.
+The module system defines the following archive types:
 
-Ceylon source archives contain the source code and are packaged in a `.src`
-file using the ZIP file format.
+- *module archives* contain the compiled code and are packaged in a `.car` 
+  file using the ZIP file format.
+- *source archives* contain the source code and are packaged in a `.src` 
+  file using the ZIP file format.
+- *documentation archives* contain the HTML-format API documentation in a 
+  `module-doc` folder.
 
-Ceylon API documentation archives contain the API documentation in a `module-doc`
-folder, which holds HTML documentation.
+Finally, legacy Java archives contain compiled Java code and are packaged 
+in a `.jar` file using the ZIP file format just as they are for Java. They 
+are used instead of the corresponding `.car` archive (you can have on or the 
+other, but not both).
 
-Legacy Java archives contain the compiled code and are packaged in a `.jar`
-file using the ZIP file format just as they are for Java. They are used instead
-of the corresponding `.car` archive (you can have on or the other, not both).
 A legacy archive needs to follow the same naming rules and folder structure
-as defined for `.car` archives (see below). Also if the legacy archive has
-dependencies on other modules [they can be defined](../structure/module#legacy_modules)
-using a `modules.xml` or `module.properties` file or other external files.
+as defined for `.car` archives (see below). Furthermore, if the legacy archive 
+has dependencies on other modules [they must be specified][legacy modules] 
+using a `modules.xml` or `module.properties` file.
+
+[legacy modules]: ../structure/module#legacy_modules
 
 ## Repository structure
 
-Ceylon module repositories are organised using the following structure
-(using a module `com.foo.bar` of versions `0.1` and `1.0` as example):
+Ceylon module repositories are organized according to the following structure,
+for a module `com.foo.bar` with versions `0.1` and `1.0` as an example:
 
 <!-- lang: none -->
     root/
@@ -68,24 +72,30 @@ Ceylon module repositories are organised using the following structure
 
 ## Supported repository types
 
-At the moment, the Ceylon tools are able to use the following repository types:
+The Ceylon tools support the following repository types:
 
-- File system repository
-- HTTP repository (for reading)
-- WebDAV repository (for reading and publishing). You can specify the user name 
-  and password to use for WebDAV publishing in the [tools](../#tools)
-- A [_flat_ repository](../interoperability/ceylon-on-jvm#flat_repositories) for interop
-- [Legacy repositories](maven) (Maven…)
+- File system repositories
+- HTTP repositories (read-only)
+- WebDAV repositories (for reading and publishing)
+- [Maven repositories](maven) 
+- The `npm` repository
+- [Flat repositories][] &mdash; when integrating Ceylon in a foreign module 
+  runtime programmatically
+
+You can specify the user name and password to use for WebDAV publishing in the 
+[tools](../#tools).
+
+[Flat repositories]: ../interoperability/ceylon-on-jvm#flat_repositories
 
 ## Standard repositories
 
-The Ceylon tools use a number of standard repositories and support command line arguments
-to add references to your own. All of that is explained in detail on the section on
-[Dealing with repositories on the command line](tools).
+The Ceylon tools use a number of standard repositories and support command line 
+arguments to add references to your own. All of that is explained in detail on 
+the section on [dealing with repositories on the command line](tools).
 
-If you want to know more about how the Ceylon configuration file can be used to change the
-default behavior of the tools when looking up modules in repositories you can read the
-section on [tool configuration](../tool/config).
+If you want to know more about how the Ceylon configuration file can be used to 
+change the default behavior of the tools when looking up modules in repositories 
+you can read the section on [tool configuration](../tool/config).
 
 ## Legacy repositories
 
