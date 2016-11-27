@@ -33,7 +33,7 @@ The module system defines the following archive types:
 - *documentation archives* contain the HTML-format API documentation in a 
   `module-doc` folder.
 
-Finally, legacy Java archives contain the compiled code and are packaged 
+Finally, legacy Java archives contain compiled Java code and are packaged 
 in a `.jar` file using the ZIP file format just as they are for Java. They 
 are used instead of the corresponding `.car` archive (you can have on or the 
 other, but not both).
@@ -74,16 +74,18 @@ for a module `com.foo.bar` with versions `0.1` and `1.0` as an example:
 
 The Ceylon tools support the following repository types:
 
-- File system repository
-- HTTP repository (for reading)
-- WebDAV repository (for reading and publishing)
-- A [_flat_ repository][] for purposes of interoperability
-- Legacy repositories &mdash; [Maven](maven) and `npm`
+- File system repositories
+- HTTP repositories (read-only)
+- WebDAV repositories (for reading and publishing)
+- [Maven repositories](maven) 
+- The `npm` repository
+- [Flat repositories][] &mdash; when integrating Ceylon in a foreign module 
+  runtime programmatically
 
 You can specify the user name and password to use for WebDAV publishing in the 
 [tools](../#tools).
 
-[_flat_ repository]: ../interoperability/ceylon-on-jvm#flat_repositories
+[Flat repositories]: ../interoperability/ceylon-on-jvm#flat_repositories
 
 ## Standard repositories
 

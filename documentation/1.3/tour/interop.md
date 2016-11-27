@@ -174,7 +174,7 @@ archive, you have two options:
   JBoss Modules metadata defined in a [`module.xml`][] or 
   [`module.properties`][] file, or
 - import the archive directly from a 
-  [legacy Maven repository](../../reference/repository/maven).
+  [Maven repository](../../reference/repository/maven).
 
 To add a Java `.jar` to a Ceylon module repository, you need to
 provide some metadata describing its dependencies. A `module.xml` 

@@ -1,6 +1,6 @@
 ---
 layout: reference13
-title_md: Legacy repositories
+title_md: Maven repositories
 tab: documentation
 unique_id: docspage
 author: Stéphane Épardaud
@@ -9,10 +9,10 @@ doc_root: ../..
 
 # #{page.title_md}
 
-Ceylon's module system integrates with Maven repositores, and can obtain
+Ceylon's module system integrates with Maven repositories, and can obtain
 dependencies (Java `jar` archives) from a Maven repository via Aether.
 
-## Maven repositories
+## Importing Maven modules
 
 Maven modules are seamlessly supported in the Ceylon module descriptor,
 but:
@@ -57,11 +57,11 @@ in the `Module Repositories` tab of the project-level compiler settings.
 
 ### Resolving Maven conflicts
 
-Very often, when working with legacy Maven repositories, we encounter one or
-all of:
+Very often, when working with Maven repositories, we encounter one or all of
+the following:
 
 - versioning conflicts,
-- undeclared dependencies, or
+- undeclared dependencies, and/or
 - the need to export promote transitive dependencies.
 
 These problems arise from the fact that Maven metadata is often only tested

@@ -646,8 +646,8 @@ There are additional vendor-specific JDK modules, whose module/package-list mapp
 ## Obtaining Java `jar` dependencies
 
 You can either install Java `jar` dependencies in your Ceylon [repositories](../../repository) manually
-in order for Ceylon to find them, or you can resolve them from legacy 
-[Maven repositories](../../repository/maven). 
+in order for Ceylon to find them, or you can obtain them from a 
+[Maven repository](../../repository/maven). 
 
 ## See also
 
