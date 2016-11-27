@@ -9,8 +9,8 @@ doc_root: ../../..
 
 # #{page.title_md}
 
-The ceylon tools use a `git`-like configuration file format for 
-configuring their behaviour.
+The `ceylon` tools use a `git`-like configuration file format for configuring 
+their behavior.
 
 ## Example configuration file 
 
@@ -43,33 +43,35 @@ configuring their behaviour.
 
 ## Configuration file location
 
-There are several configuration files that can affect the configuration
-of the Ceylon tool chain. They go from least specific at the level of the
-system itself which affect all projects and all users to most specific at
-the level of a single project affecting only that project.
+There are several configuration files that can affect the configuration of the 
+Ceylon tool chain. They go from least specific at the level of the system itself 
+which affect all projects and all users to most specific at the level of a single 
+project affecting only that project.
 
-The first configuration file that gets read is the one at the system level
-which on Linux and Mac OS is `/etc/ceylon/config` and on (modern) Windows
-something like `C:\ProgramData\ceylon\config`.
+The first configuration file that gets read is the one at the system level which:
+ 
+- on Linux and Mac OS is `/etc/ceylon/config`, and 
+- on (modern) Windows something like `C:\ProgramData\ceylon\config`.
 
-After that comes the user's own configuration file which holds those values
-that only apply to that specific user. On Linux it is `/home/<username>/.ceylon/config`,
-on Mac OS it is `/Users/<username>/.ceylon/config` and on (modern) Windows
-it is something like `C:\Users\<username>\.ceylon\config`.
+After that comes the user's own configuration file which holds those values which 
+only apply to that specific user:
 
-And finally comes the most specific configuration file which is located
-in a subfolder of the current working directory: `.ceylon/config`.
-This means it depends on where you are executing the `ceylon` command from!
-(When using an IDE the current working directory is the project folder itself)
+- on Linux it is `/home/<username>/.ceylon/config`,
+- on Mac OS it is `/Users/<username>/.ceylon/config`, and 
+- on (modern) Windows it is something like `C:\Users\<username>\.ceylon\config`.
 
-Now in reality it's a bit more complex than this, because before reading that
-local file Ceylon will first see if a configuration file exists in the
-`.ceylon` folder of the *parent* folder of the current working directory.
-And before reading *that* one it will see if one exists in *its* parent folder
-etc etc all the way up to the root of the file system (it will ignore the
-user's and system configurtation files if it happens to encounter thme while
-traversing the file ssytem). This provides us with the possibility to set
-configuration options for a group of projects.
+Finally comes the most specific configuration file which is located in a subfolder 
+of the current working directory: `.ceylon/config`. This means it depends on the 
+working directory where you are executing the `ceylon` command! (When using an IDE 
+the current working directory is the project folder itself.)
+
+Now in reality it's a bit more complex than this, because before reading that local 
+file Ceylon will first see if a configuration file exists in the `.ceylon` folder of 
+the *parent* folder of the current working directory. And before reading *that* one 
+it will see if one exists in *its* parent folder, etc, etc, all the way up to the 
+root of the file system (it will ignore the user's and system configurtation files 
+if it happens to encounter them while traversing the file ssytem). This provides us 
+with the possibility to set configuration options for a group of projects.
 
 ## Configuration file structure
 
@@ -81,10 +83,11 @@ A *section* consists of a name surrounded by square brackets:
 <!-- lang:none -->
     [examplesection]
     
-These names must start with a letter and for the rest can only contain letters and
-digits (and periods as we'll see later, but they are not part of the name).
+These names must start with a letter and for the rest can only contain letters 
+and digits (and periods as we'll see later, but they are not part of the name).
 
-We can also add comments, either on their own line or at the end of an existing line:
+We can also add comments, either on their own line or at the end of an existing 
+line:
 
 <!-- lang:none -->
     # A comment on its own line
@@ -99,29 +102,29 @@ Within sections we can define key/value pairs, each on their own line:
 
 ### More about keys
 
-Key names can only contain letters, digits and dashes. To unambiguously refer
-to a certain key in a certain section you can use the "complete name" which
-for the above setting is `example-section.some-setting`. Its value is `300`.
-In this form all leading and trailing spaces and tabs are ignored (as are comments),
-so the following is exactly the same as the above:
+Key names can only contain letters, digits and dashes. To unambiguously refer to 
+a certain key in a certain section you can use the "complete name" which for the 
+above setting is `example-section.some-setting`. Its value is `300`. In this form all 
+leading and trailing spaces and tabs are ignored (as are comments), so the 
+following is exactly the same as the above:
 
 <!-- lang:none -->
     [ example-section ]
     some-setting  =  300 # Some comment
 
-Key names and main section names can never contain spaces or tabs, but values can.
-In those cases that you need to specify leading or trailing spaces and tabs as part
-of the value you need to *quote* the value like this:
+Key names and main section names can never contain spaces or tabs, but values 
+can. In those cases that you need to specify leading or trailing spaces and tabs 
+as part of the value you need to *quote* the value like this:
 
 <!-- lang:none -->
     [example-section]
     text=" An example text "
 
-Spaces and tabs within the quotes are part of the value, any spaces and tabs outside
-them are ignored.
+Spaces and tabs within the quotes are part of the value, any spaces and tabs 
+outside them are ignored.
 
-Sometimes it is necessary to specify values that span multiple lines, the easiest way
-to do that is like this:
+Sometimes it is necessary to specify values that span multiple lines, the easiest 
+way to do that is like this:
 
 <!-- lang:none -->
     [lines]
@@ -132,8 +135,9 @@ to do that is like this:
     very\
     long line."
 
-And the final item on the topic of values are *escapes*, sometimes it's necessary to
-be able to specify special character that cannot (easily) be entered in another way:
+And the final item on the topic of values are *escapes*, sometimes it's necessary 
+to be able to specify special character that cannot (easily) be entered in another 
+way:
 
 <!-- lang:none -->
     [escapes]
@@ -154,8 +158,8 @@ And that would be exactly the same. It's up to you to decide what you prefer.
 ### More about sections
 
 Now back to sections. For complex configurations it is possible to divide sections
-into sub-sections (and sub-sub-sections or sub-sub-sub-etc if necessary).
-This can be done in two different ways, either quoted or unquoted:
+into sub-sections (and sub-sub-sections or sub-sub-sub-etc if necessary). This can 
+be done in two different ways, either quoted or unquoted:
 
 <!-- lang:none -->
     [examplesection "Sub section 1"]
@@ -173,58 +177,57 @@ This can be done in two different ways, either quoted or unquoted:
     [examplesection.subsection2]
     some-setting=200
     
-In the quoted version the name sub-section can contain almost any characters
-you want and is meant to give more human-friendly names, in the unquoted version
-the name of the sub-section must adhere to the same rules as for the main
-section name (starts with a letter and only letters and digits after that)
-and names are separated by a period.
+In the quoted version the name sub-section can contain almost any characters you 
+want and is meant to give more human-friendly names, in the unquoted version the 
+name of the sub-section must adhere to the same rules as for the main section 
+name (starts with a letter and only letters and digits after that) and names are 
+separated by a period.
 
 ## Configuration file contents
 
 ### `[defaults]` section
 
 The `[defaults]` section is used to change the default behaviour of the ceylon
-tool chain. Recognised settings include:
+tool chain. Recognized settings include:
 
 * `encoding`:
 The character set (e.g. `UTF-8`) to use when reading source files.
-If not specified the default file encoding for the platform is assumed.
+If not specified, the default file encoding for the platform is assumed.
 
 * `offline`:
-Prevents the tool chains from trying to download modules 
-from remote repositories. Takes value `yes`, `true` (equivalent to `yes`), 
-`no` or `false` (equivalent to `no`). 
+Prevents the tool chains from trying to download modules from remote repositories. 
+Accepts `yes`, `true` (equivalent to `yes`), `no` or `false` (equivalent to `no`). 
 Defaults to `no` (`false`).
 
 * `timeout`:
-The number of seconds to wait while connecting to a remote host 
-before giving up. Platform specific default.
+The number of seconds to wait while connecting to a remote host before giving up.
+Platform specific default.
 
 * `overrides`:
-An file specifying [module overrides](../../repository/overrides/).
+A file specifying [module overrides](../../repository/overrides/).
 
 ### `[compiler]` section
 
-The `[compiler]` section is mainly used to change the default behaviour of the compile tool.
-The possible settings include:
+The `[compiler]` section is mainly used to change the default behaviour of the 
+compile tool. The possible settings include:
 
 * `source`:
-Equivalent to supplying `--source` on the command line.
+Equivalent to supplying `--source` on the command line. 
 It takes a path to a folder containing sources. 
-Can be specified multiple times.
+May be specified multiple times.
 
 * `resource`:
 Equivalent to supplying `--resource` on the command line.
-It takes a path to a folder containing resources. 
-Can be specified multiple times.
+It takes a path to a folder containing resources.
+May be specified multiple times.
 
-**Note:** although it appears in the `[compiler]` section these settings actually affect
-*any* tools that take `--source` or `--resource` options. If a tool normally takes only
-a single of these options the first in the list will be used.
+**Note:** although it appears in the `[compiler]` section these settings actually 
+affect *any* tools that take `--source` or `--resource` options. If a tool normally 
+takes only a single of these options the first in the list will be used.
 
 * `module`:
 Equivalent to supplying a `module` name on the command line.
-Can be specified multiple times.
+May be specified multiple times.
 
 * `resourceroot`: 
 Equivalent to supplying the [`--resource-root`](../ceylon/subcommands/ceylon-compile.html#option--resource-root) option to 
@@ -280,9 +283,10 @@ Equivalent to supplying the [`--script`](../ceylon/subcommands/ceylon-src.html#o
 
 ### `[compiler.BACKEND]` section
 
-These are a special sections for the compile tool that are specific to each backend. So there is a `compiler.jvm`
-section for the Java backend and a `[compiler.js]` section for the JavaScript backend and so forth.
-The available option for these sections is: `module` and it has the same meaning as above.
+These are a special sections for the compile tool that are specific to each 
+backend. So there is a `compiler.jvm` section for the Java backend and a 
+`[compiler.js]` section for the JavaScript backend and so forth. The available 
+option for these sections is: `module` and it has the same meaning as above.
 
 ### `[runtool]` section
 
@@ -299,20 +303,23 @@ Equivalent to supplying the `module` argument to [`ceylon run`](../ceylon/subcom
 Equivalent to supplying the [`--run`](../ceylon/subcommands/ceylon-run.html#option--run) option to 
 [`ceylon run`](../ceylon/subcommands/ceylon-run.html) or 
 [`ceylon run-js`](../ceylon/subcommands/ceylon-run-js.html).
-Is only taken into account when the `module` option is also specified, otherwise it's ignored.
+Is only taken into account when the `module` option is also specified, otherwise
+it's ignored.
 
 * `arg`:
 Equivalent to supplying arguments to the Ceylon application being run using
 [`ceylon run`](../ceylon/subcommands/ceylon-run.html) or 
 [`ceylon run-js`](../ceylon/subcommands/ceylon-run-js.html).
 Can be specified multiple times. 
-Is only taken into account when the `module` option is also specified, otherwise it's ignored.
+Is only taken into account when the `module` option is also specified, otherwise 
+it's ignored.
 
 ### `[runtool.BACKEND]` section
 
-These are a special sections for the run tool that are specific to each backend. So there is a `runtool.jvm`
-section for the Java backend and a `[runtool.js]` section for the JavaScript backend and so forth.
-The available options for these sections are: `module`, `run` and `arg` and they have the same meaning as above.
+These are a special sections for the run tool that are specific to each backend.
+So there is a `runtool.jvm` section for the Java backend and a `[runtool.js]` section 
+for the JavaScript backend and so forth. The available options for these sections 
+are: `module`, `run` and `arg` and they have the same meaning as above.
 
 ### `[testtool]` section
 
@@ -323,8 +330,8 @@ Equivalent to supplying the [`--compile`](../ceylon/subcommands/ceylon-test.html
 
 ### `[repositories]` section
 
-Ceylon uses a set of local and remote repositories for its modules. The order and
-significance of the lookup (which is fixed) is:
+Ceylon uses a set of local and remote repositories for its modules. The order 
+and significance of the lookup (which is fixed) is:
 
 * `system` - Essential system modules
 * `cache`  - A cache of modules that were previously downloaded from remote repositories
@@ -335,8 +342,8 @@ significance of the lookup (which is fixed) is:
 * `other`  - Predefined remote repositories
 
 The `[repositories]` section can be used to override the default values for those
-entries thereby changing or extending the lookup order. Take a look at the following
-example:
+entries thereby changing or extending the lookup order. Take a look at the 
+following example:
 
 <!-- lang:none -->
     [repositories]
@@ -348,42 +355,46 @@ example:
     remote=http://ceylon.example.com # An external site with Ceylon modules
 
 First of all, the values for `ouput` and `cache` (as well as `system`, but you should
-normally never try overriding it) can only be specified once, while the others (`lookup`,
-`global` and `remote`) can be specified multiple times, Ceylon will try them one by one
-in the order you specify in this list.
+normally never try overriding it) can only be specified once, while the others 
+(`lookup`, `global` and `remote`) can be specified multiple times, Ceylon will try them 
+one by one in the order you specify in this list.
 
-NB: When we say "in the order you specify" we refer to the ones with the same key name,
-so if you add several `remote` repositories they will be tried in the order you specify,
-but you cannot change the main ordering: `lookup` repositories will always be tried before
-`global`, which will always be tried before `remote`.
+NB: When we say "in the order you specify" we refer to the ones with the same key 
+name, so if you add several `remote` repositories they will be tried in the order 
+you specify, but you cannot change the main ordering: `lookup` repositories will 
+always be  tried before `global`, which will always be tried before `remote`.
 
-Now looking at `lookup` we see that it's specified 3 times, but one of those lines contains
-a path to the local `modules` folder, which (as we will see later) is actually already part
-of the default `lookup` list. So why is it specified here again? Well, it is important to
-realize that in the configuration file we can only *override* existing values, we cannot
-change them or append to them, so when overriding a value like `lookup` without changing the
-default behaviour we must take care to include existing values.
+Now looking at `lookup` we see that it's specified 3 times, but one of those lines 
+contains a path to the local `modules` folder, which (as we will see later) is 
+actually already part of the default `lookup` list. So why is it specified here again? 
+Well, it is important to realize that in the configuration file we can only *override* 
+existing values, we cannot change them or append to them, so when overriding a value 
+like `lookup` without changing the default behavior we must take care to include 
+existing values.
 
-The `remote` entry doesn't have any default value, so it can be easily used without having
-to worry about pre-existing values. It's specifically meant to add extra (normally remote)
-respositories that will be tried after all other options have been exhausted.
+The `remote` entry doesn't have any default value, so it can be easily used without 
+having to worry about pre-existing values. It's specifically meant to add extra 
+(normally remote) repositories that will be tried after all other options have been 
+exhausted.
 
-The `other` entry isn't mentioned in the above example because in general it is advisable
-to leave it alone, it contains a list of predefined repositories, among which is the main 
-Ceylon repository itself that contains most of the interesting 3rd party modules. You should
-only need to override it if for some reason you do *not* want the default behaviour.
+The `other` entry isn't mentioned in the above example because in general it is 
+advisable to leave it alone, it contains a list of predefined repositories, among 
+which is the main Ceylon repository itself that contains most of the interesting 
+3rd party modules. You should only need to override it if for some reason you do 
+*not* want the default behaviour.
 
 
 ### `[repository]` sections
 
-So far when specifying respositories we have been using simple files system paths and HTTP
-URLs, but this might not be enough in certain cases. You might want to refer to a complex
-URL from the command line for example without having to type it each time. Or in the case
-of a remote output repository it might be necessary to authenticate before you will be
-allowed to push anything to that server.
+So far when specifying respositories we have been using simple files system paths and 
+HTTP URLs, but this might not be enough in certain cases. You might want to refer to a 
+complex URL from the command line for example without having to type it each time. Or, 
+in the case of a remote output repository, it might be necessary to authenticate before 
+you will be allowed to push anything to that server.
 
-For that porpose we can create a `[repository]` definition. Because all respository definitions
-are actually sub-sections of `[repository]` they require a name. An example could be:
+For that porpose we can create a `[repository]` definition. Because all respository 
+definitions are actually sub-sections of `[repository]` they require a name. An example 
+could be:
 
 <!-- lang:none -->
     [repository "CompanyRepo"]
@@ -393,9 +404,10 @@ are actually sub-sections of `[repository]` they require a name. An example coul
 
 Supported properties include:
 
-* `url` - the URL of the repository. Besides remote URLs like `http://repo.example.com` and `maven:`,
-this includes references to folders on the local file system, either absolute like `/huge-disk/tom/ceylon/repocache`
-or relative to the project folder like `modules` or `./my-modules`. This property is required.
+* `url` - the URL of the repository. Besides remote URLs like `http://repo.example.com` and 
+  `maven:`, this includes references to folders on the local file system, either absolute 
+  like `/huge-disk/tom/ceylon/repocache`, or relative to the project folder like `modules` or 
+  `./my-modules`. This property is required.
 * `user` - the user name if the repository requires authentication
 * `password` - the plain text password if the repository allows plain text authentication
 * `password-alias` - the name of an alias in a `[keystore]` which holds the 
@@ -421,9 +433,9 @@ There are a few built-in repository names, as follows:
 
 #### `SYSTEM` repository
 
-The system repository holds the modules necessary to use the ceylon tools, for 
-example the compiler and language module. By default it is located in the 
-`repo` directory of the ceylon installation.
+The system repository holds the modules necessary to use the ceylon tools, for example, 
+the compiler and language module. By default it is located in the `repo` directory of 
+the ceylon installation.
 
 <!-- lang:none -->
     [repository "SYSTEM"]
@@ -432,9 +444,9 @@ example the compiler and language module. By default it is located in the
 
 #### `CACHE` repository
 
-The cache repository contains all modules fetched from remote repositories, 
-so they don't have to be downloaded each time they're needed. By default it is
-located in the `.ceylon/cache` folder located in the user's home directory.
+The cache repository contains all modules fetched from remote repositories, so they 
+don't have to be downloaded each time they're needed. By default it is located in the 
+`.ceylon/cache` folder located in the user's home directory.
 
 <!-- lang:none -->
     [repository "CACHE"]
@@ -478,9 +490,8 @@ that contains all the official Ceylon SDK modules and all other freely available
 
 #### `MAVEN` repository
 
-The remote repository points to the official Maven module repository
-that contains so much of the Java eco system's finest contributions.
-By default this is `maven:`.
+The remote repository points to the official Maven module repository that contains 
+so much of the Java eco system's finest contributions. By default this is `maven:`.
 
 <!-- lang:none -->
     [repository "MAVEN"]
@@ -492,8 +503,8 @@ By default this is `maven:`.
 *This paragraph doesn't really contain any infomation necessary to be able to work
 with the Ceylon tool chain, but it might be interesting for completeness sake.*
 
-Looking at the above list we now have sufficient information to be able to know what
-the default `[repositories]` section would look like:
+Looking at the above list we now have sufficient information to be able to know 
+what the default `[repositories]` section would look like:
 
 <!-- lang:none -->
     [repositories]
@@ -506,16 +517,16 @@ the default `[repositories]` section would look like:
     other=+MAVEN
 
 This also means that if you define your own `[repository]` section with one of the
-above pre-defined names you will *override* the default location for that repository.
-(So in fact there are two ways of overriding pre-defined repositories)
+above pre-defined names you will *override* the default location for that 
+repository. (So in fact there are two ways to override predefined repositories.)
 
 
 ### `[keystore]` section
 
 Although the config file supports specifying passwords in plain text, it also 
-supports them being stored in external keystores. The default keystore is 
-defined in the `[keystore]` section. Additional named `[keystore]`s can also be 
-defined. Each keystore corresponds to a `java.security.KeyStore`.
+supports them being stored in external keystores. The default keystore is defined 
+in the `[keystore]` section. Additional named `[keystore]`s can also be defined. Each 
+keystore corresponds to a `java.security.KeyStore`.
 
 Supported properties include:
 
@@ -539,6 +550,6 @@ Supported properties include:
 * `non-proxy-hosts` - a host name which can be accessed directly, without 
   going via the proxy.
 
-Tools should use the OS's default proxy settings automatically. If you want 
-the tools to not use any proxy, you can do us using an empty `[proxy]` section.
+Tools should use the OS's default proxy settings automatically. If you want the 
+tools to not use any proxy, you can do us using an empty `[proxy]` section.
 
