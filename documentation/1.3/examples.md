@@ -46,7 +46,14 @@ Ceylon is a fantastic language for writing microservices:
   framework in Ceylon.
 - The [gyokuro demos][] show off the [gyokuro][] web 
   framework, which is written in Ceylon.
-
+- The [Ceylon OSGI examples] demonstrates how to use Ceylon
+  modules as OSGI bundles in various use-cases:
+    - use the Ceylon http server inside an OSGI container,
+    - call standard OSGI services,
+    - integrate with [Pax-Web] in order to produce
+    web-applications packaged into a single Ceylon module,
+    - write an Eclipse plugin.
+    
 Documentation for Ceylon and Vert.x can be found at the 
 [Vert.x site](http://vertx.io/docs/vertx-core/ceylon/).
 
@@ -59,6 +66,8 @@ Documentation for Ceylon and Vert.x can be found at the
 [Spark with Ceylon]: https://github.com/ceylon/ceylon-examples-spark
 [gyokuro demos]: https://github.com/bjansen/gyokuro/tree/master/demos/gyokuro/demo
 [gyokuro]: http://bjansen.github.io/gyokuro/
+[ceylon OSGI examples]: https://github.com/davidfestal/Ceylon-Osgi-Examples
+[Pax-Web]: https://ops4j1.jira.com/wiki/display/paxweb/Pax+Web
 
 ## Examples of full-stack applications
 
