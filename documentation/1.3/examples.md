@@ -46,14 +46,7 @@ Ceylon is a fantastic language for writing microservices:
   framework in Ceylon.
 - The [gyokuro demos][] show off the [gyokuro][] web 
   framework, which is written in Ceylon.
-- The [Ceylon OSGI examples] demonstrates how to use Ceylon
-  modules as OSGI bundles in various use-cases:
-    - use the Ceylon http server inside an OSGI container,
-    - call standard OSGI services,
-    - integrate with [Pax-Web] in order to produce
-    web-applications packaged into a single Ceylon module,
-    - write an Eclipse plugin.
-    
+
 Documentation for Ceylon and Vert.x can be found at the 
 [Vert.x site](http://vertx.io/docs/vertx-core/ceylon/).
 
@@ -66,8 +59,6 @@ Documentation for Ceylon and Vert.x can be found at the
 [Spark with Ceylon]: https://github.com/ceylon/ceylon-examples-spark
 [gyokuro demos]: https://github.com/bjansen/gyokuro/tree/master/demos/gyokuro/demo
 [gyokuro]: http://bjansen.github.io/gyokuro/
-[ceylon OSGI examples]: https://github.com/davidfestal/Ceylon-Osgi-Examples
-[Pax-Web]: https://ops4j1.jira.com/wiki/display/paxweb/Pax+Web
 
 ## Examples of full-stack applications
 
@@ -113,6 +104,21 @@ Learn how to use Ceylon with these Java frameworks:
 [RxJava]: https://github.com/ReactiveX/RxJava
 [RxJava documentation]: https://github.com/ReactiveX/RxJava/wiki/How-To-Use-RxJava
 [JOGL]: http://jogamp.org/
+
+## OSGi examples
+
+The [Ceylon OSGi examples][] demonstrate how to use Ceylon
+modules as OSGi bundles, and how to:
+
+- run the Ceylon [HTTP server][] inside an OSGi container,
+- call standard OSGI services,
+- integrate with [Pax Web][] in order to produce a web 
+  application packaged as a single Ceylon module, or
+- write an Eclipse plugin.
+
+[Ceylon OSGi examples]: https://github.com/davidfestal/Ceylon-Osgi-Examples
+[HTTP server]: https://herd.ceylon-lang.org/modules/ceylon.http.server
+[Pax Web]: https://ops4j1.jira.com/wiki/display/paxweb/Pax+Web
 
 ## Examples of libraries
 
