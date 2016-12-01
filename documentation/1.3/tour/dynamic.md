@@ -83,12 +83,19 @@ Ceylon platform modules.
 
 [`StringBuilder`][] is a great starting point.
 
-But now, let's get on with the topic of dynamic typing.
-
 [native reference]: /documentation/reference/interoperability/native/
 [`StringBuilder`]: https://modules.ceylon-lang.org/repo/1/ceylon/language/1.3.1/module-doc/api/StringBuilder.ceylon.html
 
-## Partially typed declarations
+## Dynamic typing
+
+Now that we know how to declare a `native("js")` module or 
+function, we can start writing code which uses dynamic 
+typing. When we talk about "dynamic typing", we're talking
+about the *absence* of information&mdash;we're saying that 
+we're missing information about the type of a thing at 
+compile time.
+
+### Partially typed declarations
 
 The keyword `dynamic` may be used to declare a function or 
 value with missing type information. Such a declaration is 
@@ -113,7 +120,7 @@ considered assignable to a `dynamic` value or returnable by a
 `dynamic` function, whatever its type, and _whether we know its
 type or not_.
 
-## Dynamically typed expressions
+### Dynamically typed expressions
 
 A _dynamically typed expression_ is an expression that involves 
 references to program elements for which no typing information 
@@ -161,7 +168,7 @@ above, the compiler can't determine at compile time:
 Therefore, the expressions `XMLHttpRequest()` and `event.info`
 can, in principle, result in a runtime error when evaluated.
 
-## Interoperating with native JavaScript
+### Interoperating with native JavaScript
 
 The reason Ceylon supports partially typed declarations and
 dynamically typed expressions is to allow interoperation with
