@@ -135,7 +135,7 @@ Actually, we can even leave out the parameter names of other arguments!
 
 [comprehension]: ../comprehensions
 [spread operator]: ../functions/#the_spread_operator
-[stream]: .../sequences/#streams_iterables
+[stream]: ../sequences/#streams_iterables
 
 ## Leaving out the parameter names
 
