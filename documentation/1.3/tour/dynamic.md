@@ -164,7 +164,7 @@ illustrates the use of a native JavaScript API. Try it:
         dynamic req = XMLHttpRequest();
         req.open("HEAD", "https://try.ceylon-lang.org/", true);
         req.onreadystatechange = () {
-            if (req.readyState==4) {
+            if (req.readyState ==4 ) {
                 print(req.getAllResponseHeaders());
             }
         };
@@ -173,13 +173,37 @@ illustrates the use of a native JavaScript API. Try it:
 
 Note that this code isn't very different in appearence or
 semantics to what one would write in JavaScript itself. To
-port a fragment of JavaScript code to Ceylon, often the 
-only thing you need to do is replace `var` and `function`
-with `dynamic`!
+port a fragment of JavaScript code to Ceylon, often the only 
+thing you need to do is replace `var` and `function` with 
+`dynamic`!
+
+### Gotcha!
+
+A `dynamic` reference to a native JavaScript object like 
+`xmlHttpRequest` or `event` lacks a known type at compile 
+time. Moreover, the _actual JavaScript object itself_ lacks
+a Ceylon class at runtime!
+
+We can't even assign the JavaScript object to Ceylon's 
+`Object` type, since it doesn't have the operations declared 
+by `Object` (`string`, `equals()`, and `hash`). Nor can we 
+assign it to the enumerated type `Anything`, since it's 
+neither an `Object`, nor `null`.
+
+But of course that's not true for every value that can be 
+assigned to a `dynamic` reference. For example, the following
+values *are* instances of Ceylon's `Object` type:
+
+- JavaScript `String`s, `Number`s, and `Boolean`s, and
+- every object obtained by instantiating a Ceylon class,
+- any native JavaScript object assigned to a _dynamic 
+  interface type_.
+
+Let's learn about dynamic interfaces.
 
 ## Dynamic interfaces
 
-But writing dynamically-typed code is a frustrating, tedious, 
+Writing dynamically-typed code is a frustrating, tedious, 
 error-prone activity involving lots of debugging and lots of 
 finger-typing, since the IDE can't autocomplete the names of 
 members of a dynamic type, nor even show us the documentation 
@@ -368,13 +392,8 @@ even considered an instance of Ceylon's `Object` type. This code
 produces an exception at runtime:
 
     dynamic {
-        dynamic point 
-            = dynamic [ 
-            	x = 1.0; 
-            	y = 2.0; 
-            	type = "Stuff";
-        	];
-        Object thing = point;
+        dynamic obj = dynamic [ name = "Ceylon"; ];
+        Object thing = obj;
     }
 
 The reason for this is that the value produced by the dynamic
