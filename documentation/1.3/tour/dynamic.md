@@ -182,7 +182,7 @@ thing you need to do is replace `var` and `function` with
 A `dynamic` reference to a native JavaScript object like 
 `xmlHttpRequest` or `event` lacks a known type at compile 
 time. Moreover, the _actual JavaScript object itself_ lacks
-a Ceylon class at runtime!
+a Ceylon class at *runtime*.
 
 We can't even assign the JavaScript object to Ceylon's 
 `Object` type, since it doesn't have the operations declared 
@@ -194,10 +194,10 @@ But of course that's not true for every value that can be
 assigned to a `dynamic` reference. For example, the following
 values *are* instances of Ceylon's `Object` type:
 
-- JavaScript `String`s, `Number`s, and `Boolean`s, and
-- every object obtained by instantiating a Ceylon class,
-- any native JavaScript object assigned to a _dynamic 
-  interface type_.
+- JavaScript `String`s, `Number`s, and `Boolean`s,
+- every object obtained by instantiating a Ceylon class, and,
+- as we're just about to see, any native JavaScript object 
+  assigned to a _dynamic interface type_.
 
 Let's learn about dynamic interfaces.
 
