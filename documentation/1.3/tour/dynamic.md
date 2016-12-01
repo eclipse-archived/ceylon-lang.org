@@ -364,7 +364,22 @@ a [named argument list](../named-arguments).
 
 A dynamic enumeration expression is _not_ considered to produce 
 an instance of a Ceylon class, and the resulting value is not 
-even considered an instance of Ceylon's `Object` type.
+even considered an instance of Ceylon's `Object` type. This code
+produces an exception at runtime:
+
+    dynamic {
+        dynamic point 
+            = dynamic [ 
+            	x = 1.0; 
+            	y = 2.0; 
+            	type = "Stuff";
+        	];
+        Object thing = point;
+    }
+
+The reason for this is that the value produced by the dynamic
+enumeration expression just doesn't have the operations of
+`Object` (`string`, `equals()`, and `hash`).
 
 ### Tip: assigning a dynamic enumeration to a dynamic interface type
 
