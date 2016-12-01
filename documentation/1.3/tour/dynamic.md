@@ -151,7 +151,15 @@ the compiler:
 
 When a dynamically typed expression is evaluated, certain 
 runtime type checks are performed, which can result in a 
-runtime typing exception.
+runtime typing exception. For example, in the code examples
+above, the compiler can't determine at compile time:
+
+- whether there really is a function named `XMLHttpRequest`, 
+  nor
+- whether `event` has a member named `info`.
+
+Therefore, the expressions `XMLHttpRequest()` and `event.info`
+can, in principle, result in a runtime error when evaluated.
 
 ## Interoperating with native JavaScript
 
