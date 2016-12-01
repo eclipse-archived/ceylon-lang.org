@@ -171,7 +171,7 @@ illustrates the use of a native JavaScript API. Try it:
         req.send();
     }
 
-Note that this code isn't very different in appearence or
+Note that this code isn't very different in appearance or
 semantics to what one would write in JavaScript itself. To
 port a fragment of JavaScript code to Ceylon, often the only 
 thing you need to do is replace `var` and `function` with 
