@@ -109,11 +109,33 @@ construction expression:
     };
 <!-- cat: } -->
 
-Later we'll see that we can even use a [comprehension](../comprehensions) 
-or [spread operator](../functions/#the_spread_operator) here. 
+Later we'll see that we can even use a [comprehension][] or 
+[spread operator][] here. 
 
-Actually, we can even leave out the parameter names of the other 
-arguments!
+Back when we first met the concept of a [stream][], we saw the
+curly-brace syntax for instantiating a lazy stream of values. It's
+no accident that named argument lists and stream instantiation use
+a similar syntax; a stream instantiation expression is really just
+a named argument list where the class is being instantiated is 
+filled in implicitly by the compiler!
+
+Thus, we have a pretty uniform syntax for instantiating container 
+types in Ceylon:
+
+<!-- try: -->
+    import ceylon.collection { ArrayList, HashSet }
+
+    value stream = { "hello", "world" }
+    value list = ArrayList { "hello", "world" };
+    value set = HashSet { "hello", "world" };
+
+Even though there are no argument names in these expression, they're 
+all just named argument lists, each with one "iterable" argument. 
+Actually, we can even leave out the parameter names of other arguments!
+
+[comprehension]: ../comprehensions
+[spread operator]: ../functions/#the_spread_operator
+[stream]: .../sequences/#streams_iterables
 
 ## Leaving out the parameter names
 
