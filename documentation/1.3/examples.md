@@ -111,7 +111,7 @@ The [Ceylon OSGi examples][] demonstrate how to use Ceylon
 modules as OSGi bundles, and how to:
 
 - run the Ceylon [HTTP server][] inside an OSGi container,
-- call standard OSGI services,
+- call standard OSGi services,
 - integrate with [Pax Web][] in order to produce a web 
   application packaged as a single Ceylon module, or
 - write an Eclipse plugin.
