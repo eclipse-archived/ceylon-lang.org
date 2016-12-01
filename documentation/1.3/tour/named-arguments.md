@@ -116,8 +116,8 @@ Back when we first met the concept of a [stream][], we saw the
 curly-brace syntax for instantiating a lazy stream of values. It's
 no accident that named argument lists and stream instantiation use
 a similar syntax; a stream instantiation expression is really just
-a named argument list where the class is being instantiated is 
-filled in implicitly by the compiler!
+a named argument list where the name of the class that is being 
+instantiated is filled in implicitly by the compiler!
 
 Thus, we have a pretty uniform syntax for instantiating container 
 types in Ceylon:
@@ -131,6 +131,7 @@ types in Ceylon:
 
 Even though there are no argument names in these expression, they're 
 all just named argument lists, each with one "iterable" argument. 
+
 Actually, we can even leave out the parameter names of other arguments!
 
 [comprehension]: ../comprehensions
