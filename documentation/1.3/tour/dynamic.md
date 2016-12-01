@@ -179,7 +179,7 @@ illustrates the use of a native JavaScript API. Try it:
         dynamic req = XMLHttpRequest();
         req.open("HEAD", "https://try.ceylon-lang.org/", true);
         req.onreadystatechange = () {
-            if (req.readyState ==4) {
+            if (req.readyState == 4) {
                 String headers = req.getAllResponseHeaders();
                 for (header in headers.lines) {
                     print(header.replaceFirst(": ", " = "));
