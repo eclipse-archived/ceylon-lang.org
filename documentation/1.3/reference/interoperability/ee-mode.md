@@ -96,6 +96,7 @@ EE mode is also activated for a class when that class is annotated with any of t
 
 *  `javax.xml.bind.annotation.XmlAccessorType`
 * `javax.persistence.Entity`
+* `javax.persistence.Embeddable` (since Ceylon 1.3.2)
 * `javax.inject.Inject`
 * `javax.ejb.Stateless`
 * `javax.ejb.Stateful`
