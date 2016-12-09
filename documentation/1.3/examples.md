@@ -67,8 +67,9 @@ Documentation for Ceylon and Vert.x can be found at the
   HTTP and JSON APIs, and interoperation with native Java 
   libraries. The example even supports deployment to 
   the [OpenShift][] cloud platform.
-- The Ceylon [DDDSample][] demonstrates the use of Ceylon in 
-  Java EE.
+- The Ceylon [DDDSample][] demonstrates the use of Ceylon to 
+  write a complete Java EE application, making use of JPA, 
+  CDI, EJB, JAX-RS, JMS, JSF, and Facelets.
 
 [Ceylon Web IDE]: https://github.com/ceylon/ceylon-web-ide-backend
 [OpenShift]: https://openshift.redhat.com/
