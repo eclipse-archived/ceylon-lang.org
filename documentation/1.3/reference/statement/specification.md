@@ -63,7 +63,7 @@ annotation.
 ### Destructuring
 
 When extracting values from a `Tuple` or `Entry` you can use 
-[destructuring](../destructuring):
+[destructuring](../destructure/):
 
     // declares values x and y, where location is a tuple
     value [x, y] = object.location;
@@ -74,4 +74,4 @@ When extracting values from a `Tuple` or `Entry` you can use
   assigning a value to `variable` locals or attributes.
 * [Specification statements](#{site.urls.spec_current}#specificationstatements) 
   in the Ceylon language specification
-* [Destructuring](../destructuring)
+* [Destructuring](../destructure/)
