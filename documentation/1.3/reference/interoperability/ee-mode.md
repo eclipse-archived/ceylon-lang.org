@@ -19,12 +19,12 @@ not be able to override. This makes it safer to subclass a Ceylon class in Java.
 
 In EE mode, classes are generated without having the `final` modifier on their methods.
 
-The rationale for this to make these classes proxiable by runtime bytecode generation.
+The rationale for this is to make these classes proxiable by runtime bytecode generation.
 
 ## `public ` nullary constructor
 
 Normally the Ceylon compiler will generate a nullary constructor because 
-[Ceylon classes are implicitly `java.io.Serializable`](../java-from-ceylon/#java.io.Serializable], 
+[Ceylon classes are implicitly `java.io.Serializable`](../java-from-ceylon/#java.io.Serializable), 
 and so must have a non-`private` nullary constructor.
 
 In EE mode, this constructor is made `public`.
