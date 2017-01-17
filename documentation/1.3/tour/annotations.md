@@ -311,7 +311,7 @@ Here are two more examples, to make sure you get the idea:
     Scope scope = annotations(`ScopeAnnotation`, `class Person`)?.scope else request;
 
 <!-- try: -->
-    String[] todos = annotations(`TodoAnnotation`, `function method`)*.text;
+    String[] todos = annotations(`TodoAnnotation`, `function method`)*.string;
 
 Everything's set up so that `annotations()` returns `ScopeAnnotation?` for the 
 optional annotation type `ScopeAnnotation`, and `TodoAnnotation[]` for the 
