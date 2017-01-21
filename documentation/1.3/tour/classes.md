@@ -257,7 +257,7 @@ assignment.
     }
 <!-- cat: } -->
 
-But if there's no constructors in Ceylon, where precisely should we 
+But if our class doesn't have constructors, where precisely should we 
 put this code? We put it directly in the body of the class!
 
 <!-- try-post:
