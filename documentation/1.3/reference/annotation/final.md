@@ -25,7 +25,7 @@ Apart from annotation classes, most classes are not typically
 annotated `final`. The semantics of the `formal`, `default` and 
 `actual` annotations are intended so that the author of a class 
 or interface decides which members may be refined. It shouldn't 
-be possible for it to be broken by a subclasses, because the 
+be possible for it to be broken by a subclass, because the 
 subclass can only refine those members it is explicitly permitted 
 to refine.
 
