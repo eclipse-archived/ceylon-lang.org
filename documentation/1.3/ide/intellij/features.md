@@ -1,6 +1,6 @@
 ---
 title: Ceylon IDE for IntelliJ Features
-layout: default
+layout: intellij13
 tab: features
 unique_id: idefeaturespage
 author: Gavin King
