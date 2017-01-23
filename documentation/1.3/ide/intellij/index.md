@@ -7,11 +7,8 @@ author: Gavin King
 ---
 # #{page.title}
 
-[idea]: https://www.jetbrains.com/idea/
-[android studio]: https://developer.android.com/studio/index.html
-
-The Ceylon IDE for IntelliJ is a plugin for [IntelliJ IDEA][idea], also 
-compatible with [Android Studio][android studio]. It is the best-performing
+The Ceylon IDE for IntelliJ is a plugin for [IntelliJ IDEA][intellij], also 
+compatible with [Android Studio][studio]. It is the best-performing
 IDE for Ceylon, and is the preferred way to develop for Android in Ceylon.
 
 Ceylon IDE provides inline error reporting, syntax highlighting, code completion, 
@@ -30,6 +27,12 @@ to learn what the IDE provides is to [install it](install).
 
 <img src="/images/screenshots/1.3.0/intellij/intellij-darcula.png" style="box-shadow: 0 0 10px #888;margin-left:10px" width="95%"/>
 
+## Getting started
+
+In addition to the [Ceylon walkthrough][walkthrough], you can follow
+the [getting started guide][getting-started] to create and run your first
+project in Ceylon IDE for IntelliJ.
+
 ## Running the IDE
 
 You'll need a clean install of [IntelliJ 2016.x][intellij], 
@@ -40,3 +43,5 @@ Install Ceylon IDE for IntelliJ (which includes the Ceylon compiler) from the
 
 [intellij]: https://www.jetbrains.com/idea/
 [studio]: https://developer.android.com/studio/index.html
+[walkthrough]: /documentation/current/walkthrough/
+[getting-started]: /documentation/current/ide/intellij/getting-started
