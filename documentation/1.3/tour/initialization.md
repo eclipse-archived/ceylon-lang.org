@@ -745,10 +745,11 @@ A constructor may delegate to:
         
     }
 
-If the class directly extends `Basic`, and the constructor
-does not explicitly delegate to another constructor, it is
-understood to implicitly delegate to the initializer of 
-`Basic`.
+If a class directly extends the 
+[default superclass](../language-module/#the_default_superclass)
+[`Basic`], and the constructor does not explicitly delegate to 
+another constructor, it is understood to implicitly delegate to 
+the initializer of `Basic`.
 
 Constructors of a class which does not directly extend `Basic` 
 _must_ explicitly delegate.
