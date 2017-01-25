@@ -277,7 +277,7 @@ you know when you break the rules, and force you to fix your code.
 
 ### Initializer section
 
-The initializer section (or just _initializer_) is responsible for 
+The initializer section (or just "the initializer") is responsible for 
 initializing the state of the new instance of the class, before a reference 
 to the new instance is available to clients. The declaration section contains 
 members of the class which are only called after the instance has been fully 
