@@ -12,7 +12,17 @@ doc_root: ../..
 This is the second step in our tour of the Ceylon language. In the 
 [previous leg](../basics) you learned some of the basics of the 
 syntax of Ceylon. In this leg we're going to learn how to define 
-classes with methods and attributes.
+_classes_. A class is one kind of type, and what makes a type
+interesting is its _members_. In Ceylon, the members of a type are: 
+
+- methods (member functions),
+- attributes (member values), and
+- member classes.
+
+Methods, attributes, and member classes are _poymorphic_, that is,
+their definitions may be refined by a subtype.
+
+In this chapter we're going to focus on methods and attributes.
 
 First, we need to know about one little restriction that's quite 
 specific to Ceylon.
