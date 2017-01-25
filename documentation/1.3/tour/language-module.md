@@ -123,7 +123,7 @@ implementations of `equals()` and `hash`.
 [`Byte`]: #{site.urls.apidoc_1_3}/Byte.type.html
 [`Character`]: #{site.urls.apidoc_1_3}/Character.type.html
 
-## Equality and identity
+### Equality and identity
 
 On the other hand, since `Object` is a supertype of types like `Float` 
 which are passed by value at the level of the virtual machine, you can't 
