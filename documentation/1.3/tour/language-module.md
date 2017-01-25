@@ -160,6 +160,8 @@ classes. This is the normal way to get a customized behavior for the `==`
 operator, the only constraint being, that for subtypes of `Identifiable`, 
 `x===y` should imply `x==y`— equality should be consistent with identity.
 
+### The default superclass
+
 By default, a user-written class extends the class [`Basic`][], which 
 extends `Object` and satisfies `Identifiable`. It's possible for a 
 user-written class to directly extend `Object`, but most of the classes 
