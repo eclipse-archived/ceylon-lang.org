@@ -19,7 +19,7 @@ interesting is its _members_. In Ceylon, the members of a type are:
 - attributes (member values), and
 - member classes.
 
-Methods, attributes, and member classes are _poymorphic_, that is,
+Methods, attributes, and member classes are _polymorphic_, that is,
 their definitions may be refined by a subtype.
 
 In this chapter we're going to focus on methods and attributes.
@@ -109,6 +109,9 @@ There's two things in particular to notice here:
    can access the parameters `angle` and `radius` directly from the 
    `rotate()` and `dilate()` methods, and from the expression which 
    specifies the value of `description`.
+
+3. Logic to initialize the values of attributes of a class&mdash;it's
+   _initializer_&mdash;is written directly in the body of the class.
 
 Notice also that Ceylon doesn't have a `new` keyword to indicate 
 instantiation, we just "invoke the class", writing:
