@@ -760,7 +760,8 @@ used. The gory details are covered
 
 ### Constructors and extension
 
-When a class with a constructor extends a class with an 
+When a class with a constructor 
+[extends](../inheritance/#class_inheritance) a class with an 
 initializer or default constructor, it specifies just the name 
 of the extended class in the `extends` clause, and a regular 
 instantiation in the `extends` clause of the constructor:
