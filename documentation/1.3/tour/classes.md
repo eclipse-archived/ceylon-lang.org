@@ -23,6 +23,8 @@ Methods, attributes, and member classes are _polymorphic_, that is,
 their definitions may be refined by a subtype.
 
 In this chapter we're going to focus on methods and attributes.
+We'll discuss member classes in the 
+[next chapter](/anonymous-member-classes/#member_classes_and_member_class_refinement).
 
 First, we need to know about one little restriction that's quite 
 specific to Ceylon.
@@ -103,7 +105,7 @@ There's two things in particular to notice here:
    do have [constructors][] in Ceylon, but we rarely need them, and 
    they shouldn't be the first thing you reach for.
    
-2. We make use of the parameters of a class anywhere within the body   
+2. We make use of the parameters of a class anywhere within the body
    of the class. In Ceylon, we often don't need to define explicit 
    members of the class to hold the parameter values. Instead, we 
    can access the parameters `angle` and `radius` directly from the 
