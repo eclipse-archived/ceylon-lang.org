@@ -9,9 +9,10 @@ doc_root: ../..
 
 # #{page.title}
 
-This is the fourteenth part of the Tour of Ceylon. The [previous part](../comprehensions)
-introduced comprehensions. We're now going to learn about Ceylon's 
-_language module_ and some of the basic types it defines.
+This is the fourteenth part of the Tour of Ceylon. The 
+[previous part](../comprehensions) introduced comprehensions. We're now 
+going to learn about Ceylon's _language module_ and some of the basic 
+types it defines.
 
 The language module is special, because it is referred to by the language
 specification, and some language-level constructs are defined in terms of
@@ -27,6 +28,8 @@ The module [`ceylon.language`][] contains classes and interfaces that are
 referred to in the language specification, other declarations *they* refer 
 to, and a number of related useful functions and types. Let's meet the 
 main characters.
+
+### `Object` and `Null`
 
 Just like Java, Ceylon has a class named [`Object`][].
 
@@ -70,7 +73,12 @@ type of `null`.
 
 The object `null` is the only instance of this class.
 
-Therefore, `Object` and `Null` share a superclass, named [`Anything`][].
+Therefore, `Object` and `Null` share a superclass, named `Anything`.
+
+### The root class
+
+[`Anything`][] is the root supertype of the whole type system. It's an
+enumerated class:
 
 <!-- try: -->
 <!-- check:none:decl from ceylon.language -->
