@@ -24,7 +24,7 @@ their definitions may be refined by a subtype.
 
 In this chapter we're going to focus on methods and attributes.
 We'll discuss member classes in the 
-[next chapter](/anonymous-member-classes/#member_classes_and_member_class_refinement).
+[next chapter](../anonymous-member-classes/#member_classes_and_member_class_refinement).
 
 First, we need to know about one little restriction that's quite 
 specific to Ceylon.
