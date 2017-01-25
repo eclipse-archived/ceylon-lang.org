@@ -277,10 +277,11 @@ you know when you break the rules, and force you to fix your code.
 
 ### Initializer section
 
-The initializer section is responsible for initializing the state of the 
-new instance of the class, before a reference to the new instance is available 
-to clients. The declaration section contains members of the class which are 
-only called after the instance has been fully initialized.
+The initializer section (or just _initializer_) is responsible for 
+initializing the state of the new instance of the class, before a reference 
+to the new instance is available to clients. The declaration section contains 
+members of the class which are only called after the instance has been fully 
+initialized.
 
 Consider the following example:
 
@@ -651,7 +652,7 @@ Unlike Java and C#, we can't overload a default constructor. Instead,
 we must give a distinct name to each additional constructor of the 
 class.
 
-Constructors are considered to belong to the initialized section of
+Constructors are considered to belong to the initializer section of
 the class, so in this case the initializer section extends until the
 end of the default constructor declaration.
 
@@ -746,7 +747,8 @@ A constructor may delegate to:
 
 If the class directly extends `Basic`, and the constructor
 does not explicitly delegate to another constructor, it is
-understood to implicitly delegate to initializer of `Basic`.
+understood to implicitly delegate to the initializer of 
+`Basic`.
 
 Constructors of a class which does not directly extend `Basic` 
 _must_ explicitly delegate.
