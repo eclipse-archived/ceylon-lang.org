@@ -66,6 +66,13 @@ Of course you can refer to remote servers as well:
 <!-- lang: none -->
     --rep https://herd.mycompany.example.com
 
+You can even specify [Maven repositories][], indirectly, by pointing to a Maven
+`settings.xml` file:
+
+    --rep maven:/path/to/special/settings.xml
+
+[Maven repositories]: ../maven/#specifying_explicit_maven_settings
+
 It's perfectly acceptable to specify as many `--rep` arguments as you need.
 
 Note: You should aware of the fact that specifying *any* `--rep` argument on the 
