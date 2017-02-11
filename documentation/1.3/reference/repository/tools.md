@@ -69,6 +69,7 @@ Of course you can refer to remote servers as well:
 You can even specify [Maven repositories][], indirectly, by pointing to a Maven
 `settings.xml` file:
 
+<!-- lang: none -->
     --rep maven:/path/to/special/settings.xml
 
 [Maven repositories]: ../maven/#specifying_explicit_maven_settings
