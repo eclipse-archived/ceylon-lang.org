@@ -246,8 +246,9 @@ testing and narrowing the type of a value. In this case it tests the type of
 We'll come back to this construct 
 [later in the tour](../types/#narrowing_the_type_of_an_object_reference).
 
-Using the shortcut syntax for refinement that we just met, we _could_ 
-abbreviate the above code like this:
+Using the shortcut syntax for refinement that 
+[we just met](#shortcut_syntax_for_refinement), we _could_ abbreviate the 
+above code like this:
 
 <!-- try-pre:
     Float pi = 3.1415926535;
