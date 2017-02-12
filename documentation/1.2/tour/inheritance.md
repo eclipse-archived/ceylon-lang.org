@@ -300,7 +300,7 @@ an abstract superclass:
 
 Ceylon requires us to annotate abstract classes `abstract`, just like Java. 
 This annotation specifies that a class cannot be instantiated, and that it
-can define abstract members. Abstract members are members that don't specify
+can define abstract members. "Abstract" members are members that don't specify
 an implementation. Like Java, Ceylon also requires us to annotate abstract
 members explicitly. However, in this case, the required annotation is `formal`.
 The reason for having two different annotations, as we'll see 
