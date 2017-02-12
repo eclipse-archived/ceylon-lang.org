@@ -221,8 +221,8 @@ We should _definitely_ refine those:
         
         shared actual Boolean equals(Object that) {
             if (is Polar that) {
-                return radius==that.radius
-                   && azimuth==that.azimuth;
+                return azimuth==that.azimuth
+                    && radius==that.radius;
             }
             else {
                 return false;
@@ -269,8 +269,8 @@ above code like this:
         
         equals(Object that)
                 => if (is Polar that)
-                       radius==that.radius
-                   && azimuth==that.azimuth
+                then azimuth==that.azimuth
+                   && radius==that.radius
                 else false;
         
         hash => radius.hash;
