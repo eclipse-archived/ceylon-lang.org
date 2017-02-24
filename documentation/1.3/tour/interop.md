@@ -1323,6 +1323,10 @@ isolation provided by JBoss Modules, the command line tool
 a Java `.jar` archive that contains a Ceylon module and everything
 it depends on at runtime.
 
+(And [don't forget](../modules/#assembly_archives) that you can run 
+a Ceylon program assembled using `ceylon assemble --include-runtime` on 
+a machine with no Ceylon installation.)
+
 [`ceylon fat-jar`]: /documentation/current/reference/tool/ceylon/subcommands/ceylon-fat-jar.html
 
 
