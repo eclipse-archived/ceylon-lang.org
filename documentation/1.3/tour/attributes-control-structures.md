@@ -410,12 +410,12 @@ is extra important when the `assert` has more than one condition.
 -->
     assert (exists arg, !arg.empty);
 
-To customize the assertion message, add a `doc` annotation:
+To customize the assertion message, add a string literal or interpolated string:
 
 <!-- try-pre:
     value length = "hello world".size;
 -->
-    "length must be less than 10"
+    "length must be less than 10 but was ``length``"
     assert (length < 10);
 
 Where applicable, the typechecker uses `assert`ed type information when checking 
