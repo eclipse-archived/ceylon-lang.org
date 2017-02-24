@@ -184,7 +184,7 @@ There are several layers to the module system in Ceylon:
   and can even be executed using `java -jar` on a system which does not
   have Ceylon installed.
 
-Ceylon's module system has two important levels of granularity: packages 
+Ceylon's module system has two principal levels of granularity: packages 
 and modules. Each package within a module has its own namespace and 
 well-defined API. For many simple modules, this is overkill, and thus 
 it's perfectly acceptable for a module to have just one package. But more 
@@ -195,6 +195,8 @@ A third level of granularity is the *assembly*, a standalone, packaged,
 runnable program or application. Unlike a module archive, which may 
 depend on other modules, an assembly does not have external dependencies,
 because the assembly archive itself includes all the program's dependencies.
+In some scenarios, an assembly is unnecessary, but many programs are 
+ultimately packaged as an assembly for deployment or distribution.
 
 ### Module-level visibility and package descriptors
 

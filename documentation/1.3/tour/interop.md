@@ -1269,9 +1269,17 @@ JBoss Modules. But it's also possible to execute a Ceylon
 module in certain other module containers, or without any
 module container at all.
 
+### Tip: running your program without a Ceylon installation
+
+[Don't forget](../modules/#assembly_archives) that you can run 
+a Ceylon program assembled using `ceylon assemble --include-runtime` 
+on a machine with no Ceylon installation. In this case, the
+JBoss Modules-based module container is included in the `.cas`
+archive itself.
+
 ### Deploying Ceylon on OSGi
 
-Ceylon is fully interoperable with OSGi, so that Ceylon 
+Ceylon is fully interoperable with [OSGi][], so that Ceylon 
 modules:
 
 - can be deployed as pure OSGi bundles in an OSGi container 
@@ -1322,10 +1330,6 @@ isolation provided by JBoss Modules, the command line tool
 [`ceylon fat-jar`][] is indispensable. The command simply assembles
 a Java `.jar` archive that contains a Ceylon module and everything
 it depends on at runtime.
-
-(And [don't forget](../modules/#assembly_archives) that you can run 
-a Ceylon program assembled using `ceylon assemble --include-runtime` on 
-a machine with no Ceylon installation.)
 
 [`ceylon fat-jar`]: /documentation/current/reference/tool/ceylon/subcommands/ceylon-fat-jar.html
 
