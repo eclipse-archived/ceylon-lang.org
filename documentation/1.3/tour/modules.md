@@ -628,7 +628,7 @@ cases, it's most convenient to have an _assembler_ that accepts a
 compiled Ceylon module archive and repackages it, along with its 
 dependencies, for execution in the target environment.
 
-At present, there are six such tools, all implemented as plugins 
+At present, there are seven such tools, all implemented as plugins 
 for the `ceylon` command:
 
 - [`ceylon assemble`][] packages a module and its dependencies
@@ -647,6 +647,8 @@ for the `ceylon` command:
 - [`ceylon assemble-dart`][] packages a Ceylon module compiled
   using `ceylon compile-dart` as a standalone executable for the 
   Dart VM.
+- [`ceylon maven-export`][] assembles a Maven repository 
+  containing a list of modules and all their dependencies.
 
 Note that when repackaged by one of these tools, the runtime
 execution, classloading, and classloader isolation model is that 
@@ -656,8 +658,9 @@ of Ceylon's native module system.
 [right at the beginning of the tour]: ../#running_the_program_using_plain_java
 [`ceylon fat-jar`]: /documentation/current/reference/tool/ceylon/subcommands/ceylon-fat-jar.html
 [`ceylon assemble`]: /documentation/current/reference/tool/ceylon/subcommands/ceylon-assemble.html
-[`ceylon war`]: /documentation/1.3/reference/tool/ceylon/subcommands/ceylon-war.html
+[`ceylon war`]: /documentation/current/reference/tool/ceylon/subcommands/ceylon-war.html
 [`ceylon jigsaw`]: /documentation/current/reference/tool/ceylon/subcommands/ceylon-jigsaw.html
+[`ceylon maven-export`]: documentation/current/reference/tool/ceylon/subcommands/ceylon-maven-export.html
 [`ceylon swarm`]: https://github.com/ceylon/ceylon.swarm
 [`ceylon assemble-dart`]: https://github.com/jvasileff/ceylon-dart
 [Wildfly Swarm]: http://wildfly-swarm.io/

@@ -1333,6 +1333,25 @@ it depends on at runtime.
 
 [`ceylon fat-jar`]: /documentation/current/reference/tool/ceylon/subcommands/ceylon-fat-jar.html
 
+### Deploying Ceylon via Maven
+
+Alternatively, the [`ceylon maven-export`][] command assembles a 
+Maven repository containing Ceylon module archives, allowing you 
+to use your Ceylon modules directly from Java via Maven.
+
+You can specify the Maven group id and artifact id in your module
+descriptor:
+
+<!-- try: -->
+    module org.hibernate.core                    //Ceylon module name
+           maven:org.hibernate:"hibernate-core"  //Maven group id + artifact id
+           "2.1.1" {                             //module version
+       ...
+    } 
+
+TODO: MORE EXPLANATION HERE
+
+[`ceylon maven-export`]: /documentation/1.3/reference/tool/ceylon/subcommands/ceylon-maven-export.html
 
 ## There's more ...
 
