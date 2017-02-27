@@ -32,8 +32,9 @@ Improvements coming in Ceylon 1.3.2 include:
   string interpolation in `assert`ion failure messages
 - [#3544](https://github.com/ceylon/ceylon/issues/3544)
   attribute lazy initialization
-- [#6721](https://github.com/ceylon/ceylon/issues/6721)
-  allow `late` attributes in declaration section
+- [#6721](https://github.com/ceylon/ceylon/issues/6721),
+  [#6926](https://github.com/ceylon/ceylon/issues/6926)
+  relax initialization checking for `late` attributes
 - [#6804](https://github.com/ceylon/ceylon/issues/6804)
   much better return type for `Iterable.sequence()`
 - [#6797](https://github.com/ceylon/ceylon/issues/6797)
