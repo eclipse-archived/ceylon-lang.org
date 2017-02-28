@@ -79,3 +79,8 @@ In such scenarios, there are two main ways to proceed:
   flag of the command line tools, or
 - use a [module overrides](../overrides) file to resolve the problems
   individually by adjusting the module dependencies.  
+
+## Building with Maven
+
+You can also [build your Ceylon modules using Maven](../../interoperability/maven), which is very useful when
+you mix Java and Ceylon modules in your project.

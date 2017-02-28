@@ -1335,9 +1335,20 @@ it depends on at runtime.
 
 ### Deploying Ceylon via Maven
 
+Every compiled Ceylon module includes the proper metadata for Maven,
+in `META-INF/maven/groupId/artifactId/pom.xml` and
+`META-INF/maven/groupId/artifactId/pom.properties`.
+
+You can [build your Ceylon modules as part of a regular Maven project](/documentation/current/reference/interoperability/maven),
+which allows you to publish your Ceylon modules to Maven repositories
+such as Maven Central, as well as Ceylon Herd, naturally. 
+
 Alternatively, the [`ceylon maven-export`][] command assembles a 
 Maven repository containing Ceylon module archives, allowing you 
 to use your Ceylon modules directly from Java via Maven.
+
+Every module published on Ceylon Herd is also available as a Maven
+repository at [https://modules.ceylon-lang.org/maven/1/](https://modules.ceylon-lang.org/maven/1/).
 
 You can specify the Maven group id and artifact id in your module
 descriptor:
@@ -1348,8 +1359,6 @@ descriptor:
            "2.1.1" {                             //module version
        ...
     } 
-
-TODO: MORE EXPLANATION HERE
 
 [`ceylon maven-export`]: /documentation/1.3/reference/tool/ceylon/subcommands/ceylon-maven-export.html
 
