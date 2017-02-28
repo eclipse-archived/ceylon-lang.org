@@ -1333,22 +1333,11 @@ it depends on at runtime.
 
 [`ceylon fat-jar`]: /documentation/current/reference/tool/ceylon/subcommands/ceylon-fat-jar.html
 
-### Deploying Ceylon via Maven
+### Publishing Ceylon via Maven
 
-Every compiled Ceylon module includes the proper metadata for Maven,
-in `META-INF/maven/groupId/artifactId/pom.xml` and
+Every compiled Ceylon module archive includes generated Maven 
+metadata, in `META-INF/maven/groupId/artifactId/pom.xml` and
 `META-INF/maven/groupId/artifactId/pom.properties`.
-
-You can [build your Ceylon modules as part of a regular Maven project](/documentation/current/reference/interoperability/maven),
-which allows you to publish your Ceylon modules to Maven repositories
-such as Maven Central, as well as Ceylon Herd, naturally. 
-
-Alternatively, the [`ceylon maven-export`][] command assembles a 
-Maven repository containing Ceylon module archives, allowing you 
-to use your Ceylon modules directly from Java via Maven.
-
-Every module published on Ceylon Herd is also available as a Maven
-repository at [https://modules.ceylon-lang.org/maven/1/](https://modules.ceylon-lang.org/maven/1/).
 
 You can specify the Maven group id and artifact id in your module
 descriptor:
@@ -1360,7 +1349,27 @@ descriptor:
        ...
     } 
 
+If this information is missing, the group id and artifact id will
+be inferred from the module name.
+
+There are three ways to publish a Ceylon module to a Maven 
+repository, allowing use of the Ceylon module directly from Java 
+via Maven:
+
+- simply publish the Ceylon module to Ceylon Herd, which 
+  automatically makes it available in the [Herd Maven repository][],
+- use the [`ceylon maven-export`][] command to assemble a Maven 
+  repository containing Ceylon module archive and its 
+  dependencies, or
+- build the [Ceylon modules using Maven][].
+
+If you build your Ceylon modules using Maven, or if you use 
+`ceylon maven-export`, you can easily publish the resulting module
+archives to a Maven repository such as Maven Central.
+
+[Herd Maven repository]: https://modules.ceylon-lang.org/maven/1/
 [`ceylon maven-export`]: /documentation/1.3/reference/tool/ceylon/subcommands/ceylon-maven-export.html
+[Ceylon modules using Maven]: /documentation/1.3/reference/interoperability/maven
 
 ## There's more ...
 
