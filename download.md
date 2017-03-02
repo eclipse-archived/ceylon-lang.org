@@ -13,7 +13,7 @@ change_frequency: weekly
 
 # #{page.title}
 
-[Ceylon 1.3.2][1.3.2] _&ldquo;Now We Try It My Way&rdquo;_ is 
+[Ceylon 1.3.2][1.3.2] _&ldquo;Contents May Differ&rdquo;_ is 
 now available for download! This is the 1.3.2 release of the 
 language, command line tools, and IDEs.
 
