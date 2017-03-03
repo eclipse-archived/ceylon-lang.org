@@ -227,6 +227,7 @@ the [language module][] can be found on [the Herd][].
 * [Running Ceylon modules in OSGI containers](interoperability/osgi/)
 * [The JavaScript compiler](interoperability/js/)
 * [How to use native annotations](interoperability/native/)
+* [Building with Maven](interoperability/maven/)
 
 ## Module repositories
 

@@ -459,6 +459,143 @@ When implementing a Java interface or class in Ceylon, you can decide to make th
 parameters and return values optional or not. The same is true when implementing JavaBean
 properties (as Ceylon attributes). 
 
+## Using java modifiers
+
+The ceylon compiler generates appropriate modifiers for Ceylon declarations. 
+For example a `shared` attribute will be generated with a `public` getter method.
+However there are some modifiers which you might want applied to the 
+generated code but Ceylon doesn't support.
+
+### Declaring `transient` fields
+
+Most Ceylon classes are `java.io.Serializable`. 
+Since Ceylon 1.3.2, if you need a field underlying an attribute to be `transient` you can 
+use the "virtual" `transient` annotation from `java.lang` to annotate the attribute.
+
+    import java.lang{transient}
+    
+    class TransientExample(name) {
+        shared transient String? name;
+        shared transient String dangerous=name;
+    }
+    
+Not all attributes require a field, but it's not an error to apply the `transient` annotation
+to an attribute that doesn't have a field generated.
+
+When you deserialize a Ceylon class instances with a transient attribute, it will by default
+get the default value for the kind of field it is 
+(`null` for a reference field, zero for a numeric field, `false` for a `boolean` field). 
+This means that a deserialized `TransientExample` will have a null `dangerous` even though 
+it is declared to have the non-optional type `String`. It is advisible to only use 
+the `transient` annotation with optional types and/or write a `readResolve()` method to 
+substitute a suitable default value.
+
+### Declaring `volatile` fields
+
+Since Ceylon 1.3.2, if you need a field underlying an attribute to be `volatile` you can 
+use the "virtual" `volatile` annotation from `java.lang` to annotate the attribute.
+
+    import java.lang{volatile}
+    
+    class VolatileExample(name) {
+        shared volatile String name;
+    }
+    
+Not all attributes require a field, but it's not an error to apply the `volatile` annotation
+to an attribute that doesn't have a field generated.
+
+Note that top-level values are already thread-safe on the JVM and so it is not necessary to 
+annotate them `volatile`.
+
+### Declaring `synchronized` attributes and methods
+
+**Note:** `synchronized` is not usually the best approach to dealing with concurrency on 
+the JVM.  It is very low-level, and using `java.util.concurrent` is usually a better approach 
+than resorting to `synchronized`.
+
+If you really do need to use `synchronized` since Ceylon 1.3.2 you can 
+use the "virtual" `synchronized` annotation from `java.lang` to annotate the 
+value, attribute, function or method.
+
+    import java.lang{synchronized}
+    
+    class SynchronizedExample(name) {
+        shared synchronized String name;
+        shared synchronized String method() {
+            // ...
+        }        
+    }
+
+On a value or attribute the `synchronized` annotation will cause the `synchronized` 
+modifier to be added to the getter (and setter if the attribute is `variable`).
+
+On a function or method the `synchronized` annotation will cause the `synchronized` 
+modifier to be added to the method itself, but not the computation of the defaulted arguments. 
+If you need defaulted arguments to be `synchronized` you should factor each argument 
+out into a separate  method that is itself `synchronized`. 
+
+        shared synchronized String subtle(String s=defaulted()) {
+            // ...
+        }
+        synchronized String defaulted() {
+            // ...
+        }
+
+Even when you do this it is 
+worth noting that a named argument invocation such as `subtle{}` won't hold the objects 
+monitor for the 
+duration of the call, but rather it will be acquired for the call to `defaulted()`, released and 
+then re-aquired for the call to `subtle(String)`. If you need the complete invocation to be 
+synchronized use a positional invocation `subtle()`.
+
+Note that top-level values are already thread-safe on the JVM and so it is not necessary to 
+annotate them `synchronized`, though it could be useful for toplevel getters and setters.
+
+There is no support for `synchronized` blocks.
+
+### Declaring `native` attributes and methods
+
+Since Ceylon 1.3.2, it is possible to declare a `native` (in the Java sense) value, attribute, 
+function or method using the `native` annotation imported from `java.lang`. Because you're 
+not allowed to import a declaration whose name is the same as a ceylon.language 
+modifier annotation you have to use an import alias:
+
+    import java.lang{javaNative=native}
+    
+    class NativeExample() {
+        shared javaNative String name;
+        shared javaNative String method();
+    }
+    
+An attribute annotated with `javaNative`will cause the `native` 
+modifier to be added to the getter (and setter if the attribute is `variable`).
+
+### Declaring `strictfp` methods
+
+Since Ceylon 1.3.2, it is possible to declare a `strictfp` value, attribute, 
+function,  method, class or interface using the `strictfp` annotation imported 
+from `java.lang`.
+
+    import java.lang{strictfp}
+    
+    class StrictfpExample() {
+        shared strictfp Float name {
+            // ...
+        }
+        shared strictfp Float method() {
+            // ...
+        }
+        shared strictfp Float tricky = 1.0+1.0;
+    }
+    
+An attribute annotated with `strictfp` will have a `strictfp` getter (and setter if it is `variable`).
+
+If you declare an attribute with an initial value – such as `tricky` in the above example –
+that initial value is *not* computed `strictfp` (because it gets evaluated in the `StrictfpExample` 
+constructor, and `strictfp` is not permitted on a constructor). It is recommended to either 
+annotate the whole class `strictfp`, or factor the initial value computation into a 
+`strictfp` method.
+
 ## Using Java annotations on Ceylon declarations
 
 Ceylon annotations differ from Java annotations in an important respect: 

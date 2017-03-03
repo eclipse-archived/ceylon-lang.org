@@ -470,7 +470,7 @@ package manager), specifying the `npm:` repository type:
 
 <!-- try: -->
     native ("js")
-    module com.example.npm {
+    module com.example.npm "1.0.0" {
         import npm:"left-pad" "1.1.3";
     }
 
@@ -490,6 +490,17 @@ may only be called from within a `dynamic` block.
                 print(leftPad("hello", i));
             }
         }
+    }
+
+If you wish to export your own Ceylon module to npm, you can
+specify the npm module name explicitly in the module descriptor:
+
+<!-- try: -->
+    native ("js")
+    module com.example.npm          //Ceylon module name
+            npm:"ceylon-example"    //npm module name
+            "1.0.0" {               //module version
+        import npm:"left-pad" "1.1.3";
     }
 
 You can find more information about the representation of npm 

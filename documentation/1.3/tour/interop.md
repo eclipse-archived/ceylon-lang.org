@@ -200,11 +200,10 @@ Maven via Aether. You can import a module from maven by specifying
 the `maven:` repository type:
 
 <!-- try: -->
-    import maven:"org.hibernate:hibernate-core" "5.0.4.Final";
+    import maven:org.hibernate:"hibernate-core" "5.0.4.Final";
 
 The module name is composed from the Maven group id and artifact id,
-and must be quoted because `:` and `-` aren't legal in a Ceylon
-module name.
+and the artifact id must be quoted.
 
 You can find more information [here](../../reference/repository/maven).
 
@@ -223,7 +222,7 @@ them like this:
 Alternatively, you can get them from Maven:
 
 <!-- try: -->
-    import maven:"javax:javaee-api" "7.0";
+    import maven:javax:"javaee-api" "7.0";
 
 The second approach might work better if you're also importing 
 other related Java modules from Maven.
@@ -922,6 +921,35 @@ by passing the corresponding Ceylon `ClassDeclaration`. For
 example, you would use `` type = `class Person` `` where you 
 would have used `type = Person.class` in Java.
 
+### Java language modifiers are represented as annotations
+
+The following Java language modifiers do not naturally 
+correspond to any annotation in `ceylon.language`: 
+
+- `transient`,
+- `volatile`, 
+- `synchronized`, 
+- `native`, and 
+- `strictfp`.
+ 
+Ceylon [treats these modifiers as annotations][] belonging 
+to the package `java.lang` (in the module `java.base`).
+
+Therefore, if you want to use one of these JVM-specific 
+modifiers in Ceylon, you must explicitly import it:
+
+<!-- try: -->
+    import java.lang { volatile }
+    
+    volatile variable value counter = 0;
+
+Of these annotations, `transient` and `volatile` are the most
+commonly-used in Ceylon code. We discourage direct use of
+`synchronized`, which is *extremely* vulnerable to deadlocks, 
+preferring the use of `java.util.concurrent`.
+
+[treats these modifiers as annotations]: /documentation/1.3/reference/interoperability/java-from-ceylon
+
 ## Syntax sugar that applies to Java types
 
 Certain syntactic constructs that are defined by the language 
@@ -1008,7 +1036,8 @@ Java.
 
 ### Java collections and operators 
 
-Two of Ceylon's built-in operators may be applied to Java types:
+Two of Ceylon's built-in operators may be applied to Java 
+types:
 
 - the element lookup operator (`list[index]`) may be used with 
   Java arrays, `java.util.List`, and `java.util.Map`, and
@@ -1068,9 +1097,10 @@ A comprehension gives you even more power:
     JList<JString> strings = .... ;
     value sequenceOfStrings = [ for (str in strings) str.string ];
 
-However, copying collections by nature involves memory allocation
-and this can be slow. A more efficient approach is to wrap the
-Java collection. Fortunately, Ceylon has a library for that.
+However, copying collections by nature involves memory 
+allocation and this can be slow. A more efficient approach is 
+to wrap the Java collection. Fortunately, Ceylon has a library 
+for that.
 
 ## Utility functions and classes
 
@@ -1081,9 +1111,9 @@ collection types and Java collection types.
 
 ### Tip: converting between `Iterable`s
 
-An especially useful adaptor is [`CeylonIterable`][], which lets 
-you apply any of the usual operations of a Ceylon [stream][] to a 
-Java `Iterable`.
+An especially useful adaptor is [`CeylonIterable`][], which 
+lets you apply any of the usual operations of a Ceylon 
+[stream][] to a Java `Iterable`.
 
 <!-- try: -->
     import java.util { JList=List, JArrayList=ArrayList }
@@ -1097,12 +1127,14 @@ Java `Iterable`.
     
     CeylonIterable(strings).each(print);
 
-(Alternatively, we could have used [`CeylonList`][] in this example.)
+(Alternatively, we could have used [`CeylonList`][] in this 
+example.)
 
 Similarly there are `CeylonStringIterable`, `CeylonIntegerIterable`, 
 `CeylonFloatIterable`,`CeylonByteIterable` and `CeylonBooleanIterable` 
-classes which as well as converting the iterable type also convert
-the elements from their Java types to the corresponding Ceylon type.
+classes which as well as converting the iterable type also 
+convert the elements from their Java types to the corresponding 
+Ceylon type.
 
 [`CeylonIterable`]: #{site.urls.apidoc_current_interop_java}/CeylonIterable.type.html
 [`CeylonList`]: #{site.urls.apidoc_current_interop_java}/CeylonList.type.html
@@ -1110,8 +1142,8 @@ the elements from their Java types to the corresponding Ceylon type.
 
 ### Tip: getting a `java.util.Class`
 
-Another especially useful function is [`javaClass`][], which obtains 
-an instance of `java.util.Class` for a given type.
+Another especially useful function is [`javaClass`][], which 
+obtains an instance of `java.util.Class` for a given type.
 
 <!-- try: -->
     import ceylon.interop.java { javaClass }
@@ -1132,10 +1164,10 @@ The functions [`javaClassFromInstance`][] and
 Some Java frameworks and environments require metadata packaged 
 in the `META-INF` or `WEB-INF` directory of the module archive, 
 or sometimes even in the root directory of the module archive. 
-We've already seen how to [package resources](../modules/#resources) 
-in Ceylon module archives by placing the resource files in the 
-module-specific subdirectory of the resource directory, named 
-`resource` by default.
+We've already seen how to [package resources][] in Ceylon module 
+archives by placing the resource files in the module-specific 
+subdirectory of the resource directory, named `resource` by 
+default.
 
 Then, given a module named `net.example.foo`:
 
@@ -1148,21 +1180,24 @@ Then, given a module named `net.example.foo`:
   module archive should be placed in 
   `resource/net/example/foo/ROOT/WEB-INF/`.
 
+[package resources]: ../modules/#resources
+
 ## Interoperation with Java's `ServiceLoader`
 
-Ceylon [services and service providers](../modules/#services_and_service_providers)
-work transparently with Java's [service loader architecture][],
-having been designed and implemented as a simple abstraction
-of Java's `ServiceLoader`.
+Ceylon [services and service providers][] work transparently 
+with Java's [service loader architecture][], having been 
+designed and implemented as a simple abstraction of Java's 
+`ServiceLoader`.
 
 - Annotating a Ceylon class with the `service` annotation makes
   the class available to Java's `ServiceLoader`.
 - Similarly, a Ceylon module may gain access to Java services 
   just by calling [`Module.findServiceProviders()`][].
 
-The `service` annotation and `Module.findServiceProviders()`
-work portably across the JVM and JavaScript environments.
+The `service` annotation and `Module.findServiceProviders()` work 
+portably across the JVM and JavaScript environments.
 
+[services and service providers]: ../modules/#services_and_service_providers
 [service loader architecture]: https://docs.oracle.com/javase/8/docs/api/java/util/ServiceLoader.html
 [`Module.findServiceProviders()`]: #{site.urls.apidoc_1_3}/meta/declaration/Module.type.html#findServiceProviders
 
@@ -1234,9 +1269,17 @@ JBoss Modules. But it's also possible to execute a Ceylon
 module in certain other module containers, or without any
 module container at all.
 
+### Tip: running your program without a Ceylon installation
+
+[Don't forget](../modules/#assembly_archives) that you can run 
+a Ceylon program assembled using `ceylon assemble --include-runtime` 
+on a machine with no Ceylon installation. In this case, the
+JBoss Modules-based module container is included in the `.cas`
+archive itself.
+
 ### Deploying Ceylon on OSGi
 
-Ceylon is fully interoperable with OSGi, so that Ceylon 
+Ceylon is fully interoperable with [OSGi][], so that Ceylon 
 modules:
 
 - can be deployed as pure OSGi bundles in an OSGi container 
@@ -1290,6 +1333,43 @@ it depends on at runtime.
 
 [`ceylon fat-jar`]: /documentation/current/reference/tool/ceylon/subcommands/ceylon-fat-jar.html
 
+### Publishing Ceylon via Maven
+
+Every compiled Ceylon module archive includes generated Maven 
+metadata, in `META-INF/maven/groupId/artifactId/pom.xml` and
+`META-INF/maven/groupId/artifactId/pom.properties`.
+
+You can specify the Maven group id and artifact id in your module
+descriptor:
+
+<!-- try: -->
+    module org.hibernate.core                    //Ceylon module name
+           maven:org.hibernate:"hibernate-core"  //Maven group id + artifact id
+           "2.1.1" {                             //module version
+       ...
+    } 
+
+If this information is missing, the group id and artifact id will
+be inferred from the module name.
+
+There are three ways to publish a Ceylon module to a Maven 
+repository, allowing use of the Ceylon module directly from Java 
+via Maven:
+
+- simply publish the Ceylon module to Ceylon Herd, which 
+  automatically makes it available in the [Herd Maven repository][],
+- use the [`ceylon maven-export`][] command to assemble a Maven 
+  repository containing Ceylon module archive and its 
+  dependencies, or
+- build the [Ceylon modules using Maven][].
+
+If you build your Ceylon modules using Maven, or if you use 
+`ceylon maven-export`, you can easily publish the resulting module
+archives to a Maven repository such as Maven Central.
+
+[Herd Maven repository]: https://modules.ceylon-lang.org/maven/1/
+[`ceylon maven-export`]: /documentation/1.3/reference/tool/ceylon/subcommands/ceylon-maven-export.html
+[Ceylon modules using Maven]: /documentation/1.3/reference/interoperability/maven
 
 ## There's more ...
 

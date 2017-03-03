@@ -64,12 +64,12 @@ such as Maven or npm.
 
 <!-- check:none -->
 <!-- try: -->
-    import ceylon.collection "1.3.1";
-    import maven:"org.hibernate:hibernate-core" "5.0.4.Final";
+    import ceylon.collection "1.3.0";
+    import maven:org.hibernate:"hibernate-core" "5.0.4.Final";
 
 Module versions are must be quoted. Module names must be quoted if
-they contain characters like `:` or `-` which aren't legal in a
-Ceylon package name.
+they contain characters like `-` which aren't legal in a Ceylon 
+package name. Maven artifact ids must be quoted.
 
 A module `import` statement may be annotated `shared` and/or `optional`.
 
@@ -94,9 +94,10 @@ is discouraged, since:
 
 ## See also
 
-* [Packages and modules](/documentation/tour/modules/) in the Tour of Ceylon
+* [Packages and modules](/documentation/tour/modules/) in the 
+  Tour of Ceylon
 * [Module descriptors](../../structure/module#descriptor)
-* [Imports](#{site.urls.spec_current}#imports) in the Ceylon language 
-  specification
-* [Module system](#{site.urls.spec_current}#modulesystem) in the Ceylon language 
-  specification
+* [Imports](#{site.urls.spec_current}#imports) in the 
+  Ceylon language specification
+* [Module system](#{site.urls.spec_current}#modulesystem) in the 
+  Ceylon language specification

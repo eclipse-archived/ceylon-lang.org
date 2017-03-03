@@ -18,14 +18,15 @@ Maven modules are seamlessly supported in the Ceylon module descriptor,
 but:
 
 - the repository type `maven:` should be explicitly specified,
-- the module name must be quoted, and
-- the `:` separator must be used to separate Maven group and artifact ids.
+- the `:` separator must be used to separate Maven group and artifact ids, 
+  and
+- the artifact id must be quoted.
 
 For example, this line, occurring in `module.ceylon`, specifies a 
 dependency on Hibernate ORM:
 
 <!-- try: -->
-    import maven:"org.hibernate:hibernate-core" "5.0.4.Final";
+    import maven:org.hibernate:"hibernate-core" "5.0.4.Final";
 
 Note that, from the point of view of your Ceylon code, the name of the
 imported module is the whole string `org.hibernate:hibernate-core`. However, 
@@ -34,12 +35,16 @@ the packages belonging to this module are named simply `org.hibernate`,
 
 ### Maven group and artifact ids 
 
-Ceylon uses a single identifier for module names, but Maven uses a _group id_ 
-together with an _artifact id_. So to import the Maven module with group id 
-`org.hibernate` and artifact id `hibernate-core`, we formed a module name 
-by concatenating the two identifiers with a `:` (colon) and quoting 
-the resulting identifier, resulting in the module name 
-`"org.hibernate:hibernate-core"` seen above.
+Ceylon uses a single identifier for module names, but Maven uses:
+
+- a _group id_, which usually obeys the Java package name format, 
+- together with an _artifact id_, which identifies a `.jar` file, and is
+  usually of form `foo-bar-baz`.
+
+So to import the Maven module with group id `org.hibernate` and artifact id 
+`hibernate-core`, we formed a module name by first quoting the artifact id, 
+and then concatenating the two identifiers with a `:` (colon), resulting 
+in the module name `org.hibernate:"hibernate-core"` seen above.
 
 ### Specifying explicit Maven settings 
 
@@ -74,3 +79,8 @@ In such scenarios, there are two main ways to proceed:
   flag of the command line tools, or
 - use a [module overrides](../overrides) file to resolve the problems
   individually by adjusting the module dependencies.  
+
+## Building with Maven
+
+You can also [build your Ceylon modules using Maven](../../interoperability/maven), which is very useful when
+you mix Java and Ceylon modules in your project.

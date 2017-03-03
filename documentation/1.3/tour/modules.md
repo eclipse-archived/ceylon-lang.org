@@ -180,16 +180,23 @@ There are several layers to the module system in Ceylon:
   with others.
 * A suite of *assemblers*&mdash;tools for packaging a module and its
   dependencies into a standalone runnable archive.
+* A built-in assembly archive format that is understood by `ceylon run`
+  and can even be executed using `java -jar` on a system which does not
+  have Ceylon installed.
 
-Ceylon's module system has two levels of granularity: packages and modules.
-Each package within a module has its own namespace and well-defined API.
-For many simple modules, this is overkill, and thus it's perfectly 
-acceptable for a module to have just one package. But more complex
-modules, with their own internal subsystems, often benefit from the 
-additional level of granularity.
+Ceylon's module system has two principal levels of granularity: packages 
+and modules. Each package within a module has its own namespace and 
+well-defined API. For many simple modules, this is overkill, and thus 
+it's perfectly acceptable for a module to have just one package. But more 
+complex modules, with their own internal subsystems, often benefit from 
+the additional level of granularity.
 
-A third level of granularity is an *assembly*, a package of several modules
-that form a runnable program or application.
+A third level of granularity is the *assembly*, a standalone, packaged, 
+runnable program or application. Unlike a module archive, which may 
+depend on other modules, an assembly does not have external dependencies,
+because the assembly archive itself includes all the program's dependencies.
+In some scenarios, an assembly is unnecessary, but many programs are 
+ultimately packaged as an assembly for deployment or distribution.
 
 ### Module-level visibility and package descriptors
 
@@ -609,16 +616,23 @@ with Java's [service loader architecture][], as we'll see
 
 ## Assembler tools
 
-Certain environments, for example, Java EE, or [Wildfly Swarm][],
-define their own packaging format, along with a bootstrap process
-that isn't compatible with `ceylon run`. In such cases, it's most 
-convenient to have an _assembler_ that accepts a compiled Ceylon 
-module archive and repackages it, along with its dependencies, 
-for execution in the target environment.
+To distribute or deploy a Ceylon program or application, it may
+be convenient to package the program or application as an assembly.
+An assembly archive is completely self-contained, and allows the
+program to function without access to external module repositories.
 
-At present, there are five such tools, all implemented as plugins 
+On the other hand, certain environments, for example, Java EE, or 
+[Wildfly Swarm][], define their own packaging format, along with a 
+bootstrap process that isn't compatible with `ceylon run`. In such 
+cases, it's most convenient to have an _assembler_ that accepts a 
+compiled Ceylon module archive and repackages it, along with its 
+dependencies, for execution in the target environment.
+
+At present, there are seven such tools, all implemented as plugins 
 for the `ceylon` command:
 
+- [`ceylon assemble`][] packages a module and its dependencies
+  inside a standard Ceylon assembly archive.
 - [`ceylon fat-jar`][] repackages a module and its dependencies
   into a single archive, for execution via the `java` command,
   as already we saw, [right at the beginning of the tour][].
@@ -633,21 +647,47 @@ for the `ceylon` command:
 - [`ceylon assemble-dart`][] packages a Ceylon module compiled
   using `ceylon compile-dart` as a standalone executable for the 
   Dart VM.
+- [`ceylon maven-export`][] assembles a Maven repository 
+  containing a list of modules and all their dependencies.
 
 Note that when repackaged by one of these tools, the runtime
 execution, classloading, and classloader isolation model is that 
-of the given platform, and may not fully respect the semantics of 
-Ceylon's native module system. 
+of the given platform, and may not fully respect the semantics 
+of Ceylon's native module system. 
 
 [right at the beginning of the tour]: ../#running_the_program_using_plain_java
 [`ceylon fat-jar`]: /documentation/current/reference/tool/ceylon/subcommands/ceylon-fat-jar.html
-[`ceylon war`]: /documentation/1.3/reference/tool/ceylon/subcommands/ceylon-war.html
+[`ceylon assemble`]: /documentation/current/reference/tool/ceylon/subcommands/ceylon-assemble.html
+[`ceylon war`]: /documentation/current/reference/tool/ceylon/subcommands/ceylon-war.html
 [`ceylon jigsaw`]: /documentation/current/reference/tool/ceylon/subcommands/ceylon-jigsaw.html
+[`ceylon maven-export`]: documentation/current/reference/tool/ceylon/subcommands/ceylon-maven-export.html
 [`ceylon swarm`]: https://github.com/ceylon/ceylon.swarm
 [`ceylon assemble-dart`]: https://github.com/jvasileff/ceylon-dart
 [Wildfly Swarm]: http://wildfly-swarm.io/
 [Jigsaw]: http://openjdk.java.net/projects/jigsaw/
 
+### Assembly archives
+
+A `.cas` assembly archive is a `zip`-format archive containing a
+Ceylon module repository with all transitive dependencies of a 
+certain Ceylon module and, optionally, a Maven repository 
+containing all transitive Maven dependencies of the module.
+
+An assembly archive is produced using [`ceylon assemble`][], 
+and may be executed using `ceylon run --assembly`.
+
+Alternatively, if the assembly archive is assembled using the
+option `ceylon assemble --include-runtime`, it may be executed using
+`java -jar` on a system that does not have Ceylon installed.
+
+It's important to understand the difference between `ceylon assemble`
+and `ceylon fat-jar`:
+
+- a `.jar` archive assembled with `ceylon fat-jar` and executed 
+  using `java -jar` runs on a flat class path, but
+- a `.cas` archive assembled with `ceylon assemble` always runs
+  with full module isolation using Ceylon's standard module
+  runtime.
 
 ## There's more...
 
