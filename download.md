@@ -9,7 +9,7 @@ change_frequency: weekly
 ---
 <div id="banner"><div id="text">Download</div></div>
 
-[1.3.2]: /blog/2017/03/02/ceylon-1-3-2/
+[1.3.2]: /blog/2017/03/03/ceylon-1-3-2/
 
 # #{page.title}
 
