@@ -18,7 +18,6 @@ The Ceylon project is actually made up of several smaller components:
 - [Java compiler and other command line tools](#java_compiler_and_other_command_line_tools)
 - [JavaScript compiler](#javascript_compiler)
 - [Ceylon language module](#ceylonlanguage_module)
-- [Ceylon Eclipse IDE plugin](#ceylon_eclipse_ide_plugin)
 - [Module system](#module_system)
 - [Launcher](#launcher)
 - [Common code library](#common_code_library)
