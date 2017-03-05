@@ -28,6 +28,16 @@ Furthermore:
 
 [Ceylon Services Example]: http://try.ceylon-lang.org/?gist=796bc92790af4cd3db54a88853518c56
 
+## Examples of Ceylon on mobile platforms
+
+[This example project][DisplayingBitmaps] shows how to use
+Ceylon to create an Android application in Android Studio.
+It uses the [Ceylon Gradle plugin for Android][] to integrate
+with the Android toolchain.
+
+[DisplayingBitmaps]: https://github.com/gavinking/DisplayingBitmaps
+[Ceylon Gradle plugin for Android]: https://github.com/ceylon/ceylon-gradle-android
+
 ## Examples of server-side Ceylon
 
 Ceylon is a fantastic language for writing microservices:
