@@ -104,6 +104,9 @@ Learn how to use Ceylon with these Java frameworks:
   application.
 - This [IntelliJ UI designer example][] shows how to use
   IntelliJ IDEA's [GUI Designer][].
+- The [jOOQ Ceylon example][] demonstrates the use of the 
+  jOOQ library, as documented in [this blog post][jOOQ blog].
+  (Warning: this example is somewhat out of date.)
 
 [JDK Collections and Streams in Ceylon]: https://github.com/ceylon/ceylon-examples-jdk
 [Java Persistence in Ceylon]: https://github.com/ceylon/ceylon-examples-jpa
@@ -115,6 +118,8 @@ Learn how to use Ceylon with these Java frameworks:
 [RxJava]: https://github.com/ReactiveX/RxJava
 [RxJava documentation]: https://github.com/ReactiveX/RxJava/wiki/How-To-Use-RxJava
 [JOGL]: http://jogamp.org/
+[jOOQ Ceylon example]: https://github.com/bjansen/ceylon-jooq-example
+[jOOQ blog]: http://bjansen.github.io/ceylon/2015/08/24/ceylon-plus-jooq-equals-heart.html
 
 ## OSGi examples
 
