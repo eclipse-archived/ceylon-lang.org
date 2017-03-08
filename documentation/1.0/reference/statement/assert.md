@@ -87,9 +87,9 @@ Any expression of type [`Boolean`](#{site.urls.apidoc_1_0}/Boolean.type.html)
 may be occur in the condition list of an `assert` statement. The `assert` 
 statement also supports the use of typing conditions:
 
-* [`is` conditions](../conditions/#is_conditions), 
-* [`exists` conditions](../conditions/#exists_conditions), and
-* [`nonempty` conditions](../conditions/#nonempty_conditions).
+* [`is` conditions](../conditions/#_is_conditions), 
+* [`exists` conditions](../conditions/#_exists_conditions), and
+* [`nonempty` conditions](../conditions/#_nonempty_conditions).
 
 These conditions narrow the type of a reference in the statements following 
 the `assert`, and in later conditions in the condition list.
