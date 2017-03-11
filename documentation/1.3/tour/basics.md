@@ -195,7 +195,7 @@ The `doc` annotation may contain [Markdown][] formatting.
      command line like this:
          
          ceylon compile source/hello.ceylon
-         ceylon run -run hello default
+         ceylon run --run hello default
          
      Or you can use `Run As > Ceylon Application` 
      in the IDE.
