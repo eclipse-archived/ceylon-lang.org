@@ -35,7 +35,11 @@ Ceylon to create an Android application in Android Studio.
 It uses the [Ceylon Gradle plugin for Android][] to integrate
 with the Android toolchain.
 
+The [Universal Media Player][] is a much more elaborate sample,
+but depends on Ceylon 1.3.3, which is not yet released.
+
 [DisplayingBitmaps]: https://github.com/gavinking/DisplayingBitmaps
+[Universal Media Player]: https://github.com/gavinking/UniversalMusicPlayer
 [Ceylon Gradle plugin for Android]: https://github.com/ceylon/ceylon-gradle-android
 
 ## Examples of server-side Ceylon
