@@ -10,7 +10,7 @@ doc_root: ../../..
 # #{page.title_md}
 
 The non-associating, binary infix `in` operator is used to test whether its left-hand 
-operand is *contained in* its right-hand operand
+operand is *contained in* its right-hand operand.
 
 ## Usage 
 
@@ -26,7 +26,7 @@ The `in` operator is defined as follows:
 
 <!-- check:none -->
 <!-- try: -->
-    lhs.contained(rhs);
+    let (x=lhs) rhs.contains(x)
 
 Where the `rhs` has type `Category`. Since Ceylon 1.2.2 `rhs` with 
 type `java.util::Collection` is also supported.
@@ -37,7 +37,7 @@ See the [language specification](#{site.urls.spec_current}#equalitycomparison) f
 
 The `in` operator is [polymorphic](#{page.doc_root}/reference/operator/operator-polymorphism). 
 The meaning of `in` depends on the 
-[`Category`](#{site.urls.apidoc_1_3}/Category.type.html) interface
+[`Category`](#{site.urls.apidoc_1_3}/Category.type.html) interface.
 
 ### Type
 
