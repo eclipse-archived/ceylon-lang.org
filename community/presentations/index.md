@@ -19,4 +19,4 @@ Stef and Tom's presentation to the Virtual JBUG is [online
 here](http://www.slideshare.net/vjbug/2015-02ukjugs).
 
 The slides for Gavin's presentation of Ceylon on Android 
-are [also available][ceylon-on-android.pdf].
+are [also available](ceylon-on-android.pdf).
