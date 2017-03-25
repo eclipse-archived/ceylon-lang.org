@@ -36,11 +36,14 @@ It uses the [Ceylon Gradle plugin for Android][] to integrate
 with the Android toolchain.
 
 The [Universal Media Player][] is a much more elaborate sample,
-but depends on Ceylon 1.3.3, which is not yet released.
+but depends on Ceylon 1.3.3, which is not yet released. The
+process of developing the example application is discussed in 
+[this presentation][Android presentation].
 
 [DisplayingBitmaps]: https://github.com/gavinking/DisplayingBitmaps
 [Universal Media Player]: https://github.com/gavinking/UniversalMusicPlayer
 [Ceylon Gradle plugin for Android]: https://github.com/ceylon/ceylon-gradle-android
+[Android presentation]: /community/presentations/ceylon-on-android.pdf
 
 ## Examples of server-side Ceylon
 
