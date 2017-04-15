@@ -618,7 +618,7 @@ with Java's [service loader architecture][], as we'll see
 It's often necessary to override the service provider for a service
 used by a module ofter the module has already been compiled and
 distributed. This can be achieved using [module dependency overrides][],
-which may be specifies when a program or application is executed or
+which may be specified when a program or application is executed or
 assembled.
 
 [module dependency overrides]: ../reference/repository/overrides/
