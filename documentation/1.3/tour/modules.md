@@ -251,15 +251,15 @@ conflicting module versions of dependencies when assembling an application.
 ### Tip: overriding module imports
 
 To resolve conflicting module versions in the transitive dependencies of
-a module, we can specify _module overrides_ in an XML file, usually named
-`overrides.xml`. The format of this file is described in the reference 
-documentation for [module overrides][].
+a module, we can specify _module dependency overrides_ in an XML file, 
+usually named `overrides.xml`. The format of this file is described in the 
+reference documentation for [module dependency overrides][].
 
 Note that `overrides.xml` is considered a temporary stopgap measure. In a
 future version of Ceylon, it will be possible to specify module overrides
 using a more comfortable syntax based on the format of the module descriptor.
 
-[module overrides]: /documentation/reference/repository/overrides/
+[module dependency overrides]: /documentation/reference/repository/overrides/
 
 ### Module repositories
 
@@ -620,8 +620,6 @@ used by a module ofter the module has already been compiled and
 distributed. This can be achieved using [module dependency overrides][],
 which may be specified when a program or application is executed or
 assembled.
-
-[module dependency overrides]: ../reference/repository/overrides/
 
 ## Assembler tools
 
