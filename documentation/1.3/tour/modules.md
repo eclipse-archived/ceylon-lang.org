@@ -608,11 +608,20 @@ dependencies, specify the module explicitly:
 
 On the JVM, Ceylon services and service providers interoperate 
 with Java's [service loader architecture][], as we'll see 
-[later in the tour](../interop/#interoperation_with_javas_serviceloader).
+[later in the tour](../interop/#interoperation_with_java_s_serviceloader).
 
 [`Module.findServiceProviders()`]: #{site.urls.apidoc_1_3}/meta/declaration/Module.type.html#findServiceProviders
 [service loader architecture]: https://docs.oracle.com/javase/8/docs/api/java/util/ServiceLoader.html
 
+### Tip: specifying service providers at assembly time
+
+It's often necessary to override the service provider for a service
+used by a module ofter the module has already been compiled and
+distributed. This can be achieved using [module dependency overrides][],
+which may be specifies when a program or application is executed or
+assembled.
+
+[]: ../reference/repository/overrides/
 
 ## Assembler tools
 
