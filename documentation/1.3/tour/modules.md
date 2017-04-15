@@ -621,7 +621,7 @@ distributed. This can be achieved using [module dependency overrides][],
 which may be specifies when a program or application is executed or
 assembled.
 
-[]: ../reference/repository/overrides/
+[module dependency overrides]: ../reference/repository/overrides/
 
 ## Assembler tools
 
