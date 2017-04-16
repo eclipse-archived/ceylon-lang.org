@@ -667,7 +667,7 @@ of Ceylon's native module system.
 [`ceylon assemble`]: /documentation/current/reference/tool/ceylon/subcommands/ceylon-assemble.html
 [`ceylon war`]: /documentation/current/reference/tool/ceylon/subcommands/ceylon-war.html
 [`ceylon jigsaw`]: /documentation/current/reference/tool/ceylon/subcommands/ceylon-jigsaw.html
-[`ceylon maven-export`]: documentation/current/reference/tool/ceylon/subcommands/ceylon-maven-export.html
+[`ceylon maven-export`]: /documentation/current/reference/tool/ceylon/subcommands/ceylon-maven-export.html
 [`ceylon swarm`]: https://github.com/ceylon/ceylon.swarm
 [`ceylon assemble-dart`]: https://github.com/jvasileff/ceylon-dart
 [Wildfly Swarm]: http://wildfly-swarm.io/
