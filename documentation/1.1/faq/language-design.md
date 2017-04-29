@@ -313,7 +313,7 @@ goal of the language.
 
 The "best" default is the _most restrictive_ option. Otherwise,
 the developer of a module might accidently make something
-something shared that they don't intend to make shared, and
+shared that they don't intend to make shared, and
 be forced to either continue to support the 
 unintentionally-shared operation for the rest of the life of 
 the module, or break clients. There would be nothing the 
