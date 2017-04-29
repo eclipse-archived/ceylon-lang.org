@@ -55,6 +55,6 @@ a specific backend so it can use features specific to that backend.
 ## See also
 
 * [How to use native annotations](../../interoperability/native)
-* [`native`](#{site.urls.apidoc_1_2}/index.html#native) documentation
+* API documentation for [`native`](#{site.urls.apidoc_1_2}/index.html#native) documentation
 * Reference for [annotations in general](../../structure/annotation/)
 

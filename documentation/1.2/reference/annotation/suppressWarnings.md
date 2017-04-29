@@ -37,6 +37,6 @@ making warnings disappear: Its use should be considered on each occasion.
 
 ## See also
 
-* [`suppressWarnings`](#{site.urls.apidoc_1_2}/index.html#suppressWarnings)
+* API documentation for [`suppressWarnings`](#{site.urls.apidoc_1_2}/index.html#suppressWarnings)
 * Reference for [annotations in general](../../structure/annotation/)
 

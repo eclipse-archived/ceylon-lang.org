@@ -26,6 +26,6 @@ is available, but no error will occur if it is not available.
 
 ## See also
 
-* [`optional`](#{site.urls.apidoc_1_1}/index.html#optional)
+* API documentation for [`optional`](#{site.urls.apidoc_1_1}/index.html#optional)
 * Reference for [annotations in general](../../structure/annotation/)
 

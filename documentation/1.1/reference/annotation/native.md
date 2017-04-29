@@ -28,6 +28,6 @@ general use.
 
 ## See also
 
-* [`native`](#{site.urls.apidoc_1_1}/index.html#native)
+* API documentation for [`native`](#{site.urls.apidoc_1_1}/index.html#native)
 * Reference for [annotations in general](../../structure/annotation/)
 
