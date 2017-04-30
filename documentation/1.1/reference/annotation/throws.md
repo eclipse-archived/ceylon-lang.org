@@ -34,6 +34,6 @@ Its `description` is assumed to contain [Markdown formatted](../markdown/) text.
 
 ## See also
 
-* [`throws`](#{site.urls.apidoc_1_1}/index.html#throws)
+* API documentation for [`throws`](#{site.urls.apidoc_1_1}/index.html#throws)
 * Reference for [annotations in general](../../structure/annotation/)
 

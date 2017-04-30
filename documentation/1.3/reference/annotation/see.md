@@ -33,5 +33,5 @@ The `see` annotation is processed by the `ceylon doc` tool.
 
 ## See also
 
-* [`see`](#{site.urls.apidoc_1_3}/index.html#see)
+* API documentation for [`see`](#{site.urls.apidoc_1_3}/index.html#see)
 * Reference for [annotations in general](../../structure/annotation/)

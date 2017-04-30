@@ -45,6 +45,6 @@ The anonymous form is very strongly preferred.
 
 ## See also
 
-* [`doc`](#{site.urls.apidoc_1_3}/index.html#doc)
+* API documentation for [`doc`](#{site.urls.apidoc_1_3}/index.html#doc)
 * Reference for [annotations in general](../../structure/annotation/)
 

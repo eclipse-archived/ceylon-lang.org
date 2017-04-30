@@ -31,5 +31,6 @@ to the declaration name.
 
 ## See also
 
+* API documentation for [`aliased`](#{site.urls.apidoc_1_2}/index.html#aliased)
 * Reference for [annotations in general](../../structure/annotation/)
 
