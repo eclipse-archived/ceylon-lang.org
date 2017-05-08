@@ -54,7 +54,8 @@ Ceylon is a fantastic language for writing microservices:
   JPA, CDI, and JAX-RS, and of the `ceylon swarm` command to 
   package it as a "fat" jar. Alternatively, you can use 
   `ceylon war` to package it as a web archive and run it on a 
-  Java EE application server!
+  Java EE application server! The technologies demonstrated
+  here are discussed in [this presentation][Swarm presentation].
 - [Spring Boot and Ceylon][] demonstrates the use of Ceylon
   with [Spring Boot][] and Spring Data.
 - The [Vert.x examples][] include several samples showing how
@@ -76,6 +77,7 @@ Documentation for Ceylon and Vert.x can be found at the
 [Spark with Ceylon]: https://github.com/ceylon/ceylon-examples-spark
 [gyokuro demos]: https://github.com/bjansen/gyokuro/tree/master/demos/gyokuro/demo
 [gyokuro]: http://bjansen.github.io/gyokuro/
+[Swarm presentation]: /community/presentations/ceylon-swarm.pdf
 
 ## Examples of full-stack applications
 
