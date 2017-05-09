@@ -55,7 +55,7 @@ language web site:
     
     - `ceylon.sdk`, available in the following feature repository
       
-        [https://downloads.ceylon-lang.org/osgi/distribution/1.3.1/karaf-features.xml](https://downloads.ceylon-lang.org/osgi/distribution/1.3.1/karaf-features.xml)
+        [https://downloads.ceylon-lang.org/osgi/sdk/1.3.1/karaf-features.xml](https://downloads.ceylon-lang.org/osgi/sdk/1.3.1/karaf-features.xml)
 
 #### Installing the Ceylon Distribution and SDK in an OSGi container
 
