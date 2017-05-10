@@ -106,6 +106,8 @@ Learn how to use Ceylon with these Java frameworks:
 - For Java-style dependency injection, check out 
   [Weld and Guice with Ceylon][], based on 
   [this blog post](/blog/2015/12/01/weld-guice/).
+- The [JavaFX Samples for Ceylon][] show how to write a 
+  JavaFX UI in Ceylon. 
 - The [RxJava examples][] project is a port of the basic
   [RxJava][] examples from the [RxJava documentation][] to 
   Ceylon.
@@ -123,6 +125,7 @@ Learn how to use Ceylon with these Java frameworks:
 [OpenGL in Ceylon]: https://github.com/ceylon/ceylon-examples-jogl
 [GUI Designer]: https://www.jetbrains.com/help/idea/2016.2/gui-designer-reference.html
 [IntelliJ UI designer example]: https://github.com/xkr47/ceylon-swing-with-intellij-ui-designer
+[JavaFX Samples for Ceylon]: https://github.com/ceylon/ceylon-examples-javafx
 [RxJava examples]: https://github.com/ceylon/ceylon-examples-rx
 [RxJava]: https://github.com/ReactiveX/RxJava
 [RxJava documentation]: https://github.com/ReactiveX/RxJava/wiki/How-To-Use-RxJava
