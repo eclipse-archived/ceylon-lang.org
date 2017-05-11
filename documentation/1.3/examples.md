@@ -117,7 +117,6 @@ Learn how to use Ceylon with these Java frameworks:
   IntelliJ IDEA's [GUI Designer][].
 - The [jOOQ Ceylon example][] demonstrates the use of the 
   jOOQ library, as documented in [this blog post][jOOQ blog].
-  (Warning: this example is somewhat out of date.)
 
 [JDK Collections and Streams in Ceylon]: https://github.com/ceylon/ceylon-examples-jdk
 [Java Persistence in Ceylon]: https://github.com/ceylon/ceylon-examples-jpa
