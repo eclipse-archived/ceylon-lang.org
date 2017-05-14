@@ -62,6 +62,8 @@ Ceylon is a fantastic language for writing microservices:
   to use Ceylon in [Vert.x][]. 
 - [Spark with Ceylon][] demonstrates how to use the Spark web
   framework in Ceylon.
+- [Jooby with Ceylon][] contains a very simple example of the
+  Jooby web framework.
 - The [gyokuro demos][] show off the [gyokuro][] web 
   framework, which is written in Ceylon.
 
@@ -75,6 +77,7 @@ Documentation for Ceylon and Vert.x can be found at the
 [Vert.x]: http://vertx.io/
 [Spring Boot]: https://projects.spring.io/spring-boot/
 [Spark with Ceylon]: https://github.com/ceylon/ceylon-examples-spark
+[Jooby with Ceylon]: https://github.com/ceylon/ceylon-examples-jooby
 [gyokuro demos]: https://github.com/bjansen/gyokuro/tree/master/demos/gyokuro/demo
 [gyokuro]: http://bjansen.github.io/gyokuro/
 [Swarm presentation]: /community/presentations/ceylon-swarm.pdf
