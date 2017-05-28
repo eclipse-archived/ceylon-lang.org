@@ -258,7 +258,7 @@ abbreviate the above code like this:
         
         value azimuth => pi*(angle/pi).fractionalPart;
         
-        shared actual Boolean equals(Object that) {
+        equals(Object that) {
             if (is Polar that) {
                 return azimuth==that.azimuth && 
                        radius==that.radius; 
