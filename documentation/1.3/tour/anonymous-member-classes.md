@@ -18,8 +18,8 @@ Ceylon by learning about *anonymous classes* and *member classes*.
 
 If a class has no parameters, it's often possible to use a shortcut 
 declaration which defines a named instance of the class, without providing 
-any actual name for the class itself. This is usually most useful when we're 
-extending an `abstract` class or implementing an interface.
+an actual class declaration of the class itself. This is usually most useful
+when we're extending an `abstract` class or implementing an interface.
 
 <!-- implicit-id:polar: 
     "A polar coordinate"
