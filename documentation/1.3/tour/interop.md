@@ -731,10 +731,26 @@ is preferred to this:
 
 However, both options are accepted by the compiler.
 
+### Tip: switching over Java `enum` types
+
 A Java `enum` type is treated as as enumerated class. Each 
-enumerated value of the `enum` type is treated as a value 
-constructor of the class. Thus, it's possible to `switch` 
-over the members of a Java `enum`, just like you can in Java.
+enumerated value of the `enum` type is represented as a 
+[value constructor](../initialization/#value_constructors) 
+of the class. Thus, it's possible to `switch` over the members 
+of a Java `enum`, just like you can in Java.
+
+<!-- try: -->
+    RetentionPolicy policy = ... ;
+    switch (policy)
+    case (RetentionPolicy.source) {
+        ...
+    }
+    case (RetentionPolicy.runtime) {
+        ...
+    }
+    case (RetentionPolicy.\iclass) {
+        ...
+    }
 
 ## Java generic types
 
