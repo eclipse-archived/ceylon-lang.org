@@ -965,6 +965,22 @@ preferring the use of `java.util.concurrent`.
 
 [treats these modifiers as annotations]: /documentation/1.3/reference/interoperability/java-from-ceylon
 
+## Limitations
+
+A couple of features of the Ceylon language can't be used with 
+Java classes. Here's the limitations you should be aware of:
+
+- You can't call Java methods using the named argument 
+  syntax, since Java 7 doesn't expose the names of 
+  parameters at runtime, and Ceylon doesn't yet depend on 
+  language features only available in Java 8.
+- You can't obtain a method reference, nor a static method 
+  reference, to an overloaded method.
+- As detailed above, Java generic types don't carry reified 
+  type arguments at runtime, so certain operations that 
+  depend upon reified generics (for example, some `is` tests) 
+  are rejected at compile time, or unchecked at runtime.
+
 ## Syntax sugar that applies to Java types
 
 Certain syntactic constructs that are defined by the language 
@@ -1261,21 +1277,6 @@ with EE mode.
 [JAXB]: https://docs.oracle.com/javase/tutorial/jaxb/intro/
 [use the `late` annotation]: ../initialization/#tip_using_late_with_annotation_driven_frameworks
 
-## Limitations
-
-Here's a couple of limitations to be aware of:
-
-- You can't call Java methods using the named argument 
-  syntax, since Java 7 doesn't expose the names of 
-  parameters at runtime, and Ceylon doesn't yet depend on 
-  language features only available in Java 8.
-- You can't obtain a method reference, nor a static method 
-  reference, to an overloaded method.
-- As detailed above, Java generic types don't carry reified 
-  type arguments at runtime, so certain operations that 
-  depend upon reified generics (for example, some `is` tests) 
-  are rejected at compile time, or unchecked at runtime.
-
 ## Alternative module runtimes
 
 When you execute a Ceylon program using `ceylon run`, it
@@ -1404,7 +1405,8 @@ archives to a public Maven repository such as Maven Central.
 All Ceylon SDK platform modules are already available in Maven Central,
 under the group id [`org.ceylon-lang`][]. (They're also available in
 under the [same group id](https://herd.ceylon-lang.org/maven/1/org/ceylon-lang) 
-in the Herd Maven repository.)
+in the Herd Maven repository.) For example, `ceylon.collection` has the
+group id `org.ceylon-lang` and artifact id `ceylon.collection`.
 
 [Herd Maven repository]: https://modules.ceylon-lang.org/maven/1/
 [`ceylon maven-export`]: /documentation/1.3/reference/tool/ceylon/subcommands/ceylon-maven-export.html
