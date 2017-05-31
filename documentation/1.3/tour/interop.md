@@ -484,111 +484,41 @@ additional methods for working with these Java array types.
 [`Array`]: #{site.urls.apidoc_1_3}/Array.type.html
 [`ceylon.interop.java`]: #{site.urls.apidoc_current_interop_java}/index.html
 
-### Java generic types are represented without change
+### Java constants and enum values
 
-A generic instantiation of a Java type like `java.util.List<E>` 
-is representable without any special mapping rules. The Java 
-type `List<String>` may be written as `List<String>` in Ceylon, 
-after importing `List` and `String` from the module `java.base`.
-
-<!-- try: -->
-    import java.lang { String }
-    import java.util { List, ArrayList }
-    
-    List<String> strings = ArrayList<String>();
-
-The only problem here is that it's really easy to mix up
-Java's `String`, `List`, and `ArrayList` with the Ceylon 
-types with the same names!
-
-### Tip: disambiguating Java types using aliases
-
-It's usually a good idea to distinguish a Java type with the 
-same name as a common Ceylon type using an `import` alias. So 
-we would rewrite the code fragment above like this:
+Java constants like `Integer.MAX_VALUE` and Java enum values, 
+like `RetentionPolicy.RUNTIME`, follow an all-uppercase naming 
+convention. Since this looks rather alien in Ceylon code, it's
+acceptable to refer to them using camel case. This:
 
 <!-- try: -->
-    import java.lang { JString = String }
-    import java.util { JList = List, JArrayList = ArrayList }
-    
-    JList<JString> strings = JArrayList<JString>();
+    Integer maxInteger = JInteger.maxValue;
+    RetentionPolicy policy = RetentionPolicy.runtime;
 
-That's much less likely to cause confusion!
-
-### Wildcards and raw types are represented using use-site variance
-
-In pure Ceylon code, we almost always use 
-[declaration-site variance](../generics/#covariance_and_contravariance).
-However, this approach doesn't work when we interoperate with 
-Java generic types, which are by nature all invariant. In Java, 
-covariance or contravariance is represented at the point of use 
-of the generic type, using _wildcards_. Therefore, Ceylon also 
-supports use-site variance (wildcards).
-
-Use-site variance is indicated using the keywords `out` and `in`:
-
-- `List<out Object>` has a covariant wildcard, and is 
-  equivalent to `List<? extends Object>` in Java, and
-- `Topic<in Object>` has a contravariant wildcard, and is 
-  equivalent to `Topic<? super Object>` in Java.
-
-Java raw types are also represented with a covariant wildcard. 
-The raw type `List` is represented as `List<out Object>` in 
-Ceylon.
-
-Note that for any invariant generic type `Type<X>`, the 
-instantiations `Type<out Anything>` and `Type<in Nothing>` are 
-exactly equivalent, and are supertypes of every other 
-instantiation of `Type`.
-
-Wildcard types are unavoidable when interoperating with Java, 
-and perhaps occasionally useful in pure Ceylon code. But we 
-recommend avoiding them, except where there's a really good 
-reason.
-
-### Gotcha!
-
-Instances of Java generic types don't carry information about
-generic type arguments at runtime. So certain operations which
-are legal in Ceylon are rejected by the Ceylon compiler when
-a Java generic type is involved. For example, the following code
-is illegal, since `JList` is a Java generic type, with erased
-type arguments:
+is preferred to this:
 
 <!-- try: -->
-    import java.lang { JString = String }
-    import java.util { JList = List, JArrayList = ArrayList }
-    
-    Object something = JArrayList<JString>();
-    if (is JList<JString> something) { //error: type condition cannot be fully checked at runtime
-        ... 
-    }
+    Integer maxInteger = JInteger.\iMAX_VALUE;
+    RetentionPolicy policy = RetentionPolicy.\iRUNTIME;
 
-This isn't a limitation of Ceylon; the equivalent code is also
-illegal in Java!
+However, both options are accepted by the compiler.
 
-### Tip: dealing with Java type erasure
+Java enum types are treated as enumerated classes with no 
+visible constructor. Each enumerated value of the enum type 
+is treated as a static member `object` belonging to the enum 
+type. Thus, it's possible to `switch` over the members of
+a Java `enum`, just like you can in Java.
 
-When you encounter the need to narrow to an instantiation of a
-Java generic type, you can use an _unchecked_ type assertion:
+## Java object types and null values
 
-<!-- try: -->
-    import java.lang { JString = String }
-    import java.util { JList = List, JArrayList = ArrayList }
-    
-    Object something = JArrayList<JString>();
-    if (is JList<out Anything> something) { //ok
-        assert (is JList<JString> something); //warning: type condition might not be fully checked at runtime
-        ...
-    }
+Java's primitive types do not hold null values, so any 
+primitive type is mapped to a non-null Ceylon type. The
+situation is a bit more complicated for Java object types,
+which are treated differently depending upon wether they
+occur:
 
-This code is essentially the same as what you would do in Java:
-
-1. test against the raw type `List` using `instanceof`, and then
-2. narrow to `List<String>` using an unchecked typecast.
-
-Just like in Java, the above code produces a warning, since the
-type arguments in the assertion cannot be checked at runtime.
+- as a method return type or field type, or
+- as a method parameter type.
 
 ### Non-primitive parameter types are treated as nullable
 
@@ -763,31 +693,6 @@ methods from Ceylon.
 - You can't obtain a method reference, nor a static method 
   reference, to an overloaded method.
 
-### Java constants and enum values
-
-Java constants like `Integer.MAX_VALUE` and Java enum values, 
-like `RetentionPolicy.RUNTIME`, follow an all-uppercase naming 
-convention. Since this looks rather alien in Ceylon code, it's
-acceptable to refer to them using camel case. This:
-
-<!-- try: -->
-    Integer maxInteger = JInteger.maxValue;
-    RetentionPolicy policy = RetentionPolicy.runtime;
-
-is preferred to this:
-
-<!-- try: -->
-    Integer maxInteger = JInteger.\iMAX_VALUE;
-    RetentionPolicy policy = RetentionPolicy.\iRUNTIME;
-
-However, both options are accepted by the compiler.
-
-Java enum types are treated as enumerated classes with no 
-visible constructor. Each enumerated value of the enum type 
-is treated as a static member `object` belonging to the enum 
-type. Thus, it's possible to `switch` over the members of
-a Java `enum`, just like you can in Java.
-
 ### Methods accepting a SAM interface
 
 Java has no true function types, so there's no equivalent to
@@ -844,6 +749,112 @@ the conversion explicitly, just by taking a reference to the
 
 Remember, the Ceylon language defines no implicit type 
 conversions _anywhere_!
+
+## Java generic types
+
+A generic instantiation of a Java type like `java.util.List<E>` 
+is representable without any special mapping rules. The Java 
+type `List<String>` may be written as `List<String>` in Ceylon, 
+after importing `List` and `String` from the module `java.base`.
+
+<!-- try: -->
+    import java.lang { String }
+    import java.util { List, ArrayList }
+    
+    List<String> strings = ArrayList<String>();
+
+The only problem here is that it's really easy to mix up
+Java's `String`, `List`, and `ArrayList` with the Ceylon 
+types with the same names!
+
+### Tip: disambiguating Java types using aliases
+
+It's usually a good idea to distinguish a Java type with the 
+same name as a common Ceylon type using an `import` alias. So 
+we would rewrite the code fragment above like this:
+
+<!-- try: -->
+    import java.lang { JString = String }
+    import java.util { JList = List, JArrayList = ArrayList }
+    
+    JList<JString> strings = JArrayList<JString>();
+
+That's much less likely to cause confusion!
+
+### Wildcards and raw types are represented using use-site variance
+
+In pure Ceylon code, we almost always use 
+[declaration-site variance](../generics/#covariance_and_contravariance).
+However, this approach doesn't work when we interoperate with 
+Java generic types, which are by nature all invariant. In Java, 
+covariance or contravariance is represented at the point of use 
+of the generic type, using _wildcards_. Therefore, Ceylon also 
+supports use-site variance (wildcards).
+
+Use-site variance is indicated using the keywords `out` and `in`:
+
+- `List<out Object>` has a covariant wildcard, and is 
+  equivalent to `List<? extends Object>` in Java, and
+- `Topic<in Object>` has a contravariant wildcard, and is 
+  equivalent to `Topic<? super Object>` in Java.
+
+Java raw types are also represented with a covariant wildcard. 
+The raw type `List` is represented as `List<out Object>` in 
+Ceylon.
+
+Note that for any invariant generic type `Type<X>`, the 
+instantiations `Type<out Anything>` and `Type<in Nothing>` are 
+exactly equivalent, and are supertypes of every other 
+instantiation of `Type`.
+
+Wildcard types are unavoidable when interoperating with Java, 
+and perhaps occasionally useful in pure Ceylon code. But we 
+recommend avoiding them, except where there's a really good 
+reason.
+
+### Gotcha!
+
+Instances of Java generic types don't carry information about
+generic type arguments at runtime. So certain operations which
+are legal in Ceylon are rejected by the Ceylon compiler when
+a Java generic type is involved. For example, the following code
+is illegal, since `JList` is a Java generic type, with erased
+type arguments:
+
+<!-- try: -->
+    import java.lang { JString = String }
+    import java.util { JList = List, JArrayList = ArrayList }
+    
+    Object something = JArrayList<JString>();
+    if (is JList<JString> something) { //error: type condition cannot be fully checked at runtime
+        ... 
+    }
+
+This isn't a limitation of Ceylon; the equivalent code is also
+illegal in Java!
+
+### Tip: dealing with Java type erasure
+
+When you encounter the need to narrow to an instantiation of a
+Java generic type, you can use an _unchecked_ type assertion:
+
+<!-- try: -->
+    import java.lang { JString = String }
+    import java.util { JList = List, JArrayList = ArrayList }
+    
+    Object something = JArrayList<JString>();
+    if (is JList<out Anything> something) { //ok
+        assert (is JList<JString> something); //warning: type condition might not be fully checked at runtime
+        ...
+    }
+
+This code is essentially the same as what you would do in Java:
+
+1. test against the raw type `List` using `instanceof`, and then
+2. narrow to `List<String>` using an unchecked typecast.
+
+Just like in Java, the above code produces a warning, since the
+type arguments in the assertion cannot be checked at runtime.
 
 ## Inheriting Java types and refining Java methods
 
