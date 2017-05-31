@@ -475,9 +475,9 @@ additional methods for working with these Java array types.
 
 Java's primitive types do not hold null values, so any 
 primitive type is mapped to a non-null Ceylon type. The
-situation is a bit more complicated for Java object types,
-which are treated differently depending upon wether they
-occur:
+situation is a bit more complicated for Java object and
+array types, which are treated differently depending upon 
+whether they occur:
 
 - as a method return type or field type, or
 - as a method parameter type.
