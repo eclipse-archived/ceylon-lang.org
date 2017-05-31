@@ -280,19 +280,6 @@ in Ceylon code.
 [`Throwable`]: #{site.urls.apidoc_1_3}/Throwable.type.html
 [`Annotation`]: #{site.urls.apidoc_1_3}/Annotation.type.html
 
-### Ceylon classes are implicitly serializable
-
-When compiling a Ceylon class, the compiler adds the supertype 
-`java.io.Serializable` to the generated Java class, along with
-a package-private default constructor. Neither the supertype, 
-nor the constructor, are visible to other Ceylon code. But 
-they're enough to make the Ceylon class serializable via 
-Java's built-in binary serialization APIs.
-
-Of course, if your Ceylon object holds a reference to some
-other object that's not serializable, you still won't be able 
-to serialize the Ceylon object!
-
 ### Java primitive types are mapped to Ceylon types
 
 You're never exposed to Java primitive types when calling a
@@ -1208,7 +1195,12 @@ The functions [`javaClassFromInstance`][] and
 [`javaClassFromInstance`]: #{site.urls.apidoc_current_interop_java}/index.html#javaClassFromInstance
 [`javaClassFromDeclaration`]: #{site.urls.apidoc_current_interop_java}/index.html#javaClassFromDeclaration
 
-## `META-INF` and `WEB-INF`
+## Additional support for Java interoperation
+
+Ceylon provides the following additional features to support
+interoperation with the Java platform.
+
+### `META-INF` and `WEB-INF`
 
 Some Java frameworks and environments require metadata packaged 
 in the `META-INF` or `WEB-INF` directory of the module archive, 
@@ -1231,7 +1223,23 @@ Then, given a module named `net.example.foo`:
 
 [package resources]: ../modules/#resources
 
-## Interoperation with Java's `ServiceLoader`
+### Interoperation with Java serialization
+
+Ceylon classes are implicitly serializable by Java's built-in
+object serialization facility.
+
+When compiling a Ceylon class, the compiler adds the supertype 
+`java.io.Serializable` to the generated Java class, along with
+a package-private default constructor. Neither the supertype, 
+nor the constructor, are visible to other Ceylon code. But 
+they're enough to make the Ceylon class serializable via 
+Java's built-in binary serialization APIs.
+
+Of course, if your Ceylon object holds a reference to some
+other object that's not serializable, you still won't be able 
+to serialize the Ceylon object!
+
+### Interoperation with Java's `ServiceLoader`
 
 Ceylon [services and service providers][] work transparently 
 with Java's [service loader architecture][], having been 
@@ -1250,7 +1258,7 @@ portably across the JVM and JavaScript environments.
 [service loader architecture]: https://docs.oracle.com/javase/8/docs/api/java/util/ServiceLoader.html
 [`Module.findServiceProviders()`]: #{site.urls.apidoc_1_3}/meta/declaration/Module.type.html#findServiceProviders
 
-## Java EE and other annotation-driven frameworks
+### Java EE and other annotation-driven frameworks
 
 There are a number of widely-used Java frameworks that depend
 upon direct reflection-based access to the fields of annotated 
