@@ -1333,21 +1333,21 @@ or `ceylon swarm`, use ` --resource-root` or `-R`, for example:
 
 ### Deploying Ceylon as a fat jar
 
-Finally, if you wish to run a Ceylon program on a machine with no 
-Ceylon distribution available, and without the runtime module 
-isolation provided by JBoss Modules, the command line tool
-[`ceylon fat-jar`][] is indispensable. The command simply assembles
-a Java `.jar` archive that contains a Ceylon module and everything
-it depends on at runtime.
+To run a Ceylon program on a machine with no Ceylon distribution 
+available, and without the runtime module isolation provided by 
+JBoss Modules, the command line tool [`ceylon fat-jar`][] is 
+indispensable. The command simply assembles a Java `.jar` archive 
+that contains a Ceylon module and everything it depends on at 
+runtime.
 
 [`ceylon fat-jar`]: /documentation/current/reference/tool/ceylon/subcommands/ceylon-fat-jar.html
 
 ### Publishing Ceylon via Maven
 
-The [`ceylon maven-export`][] command assembles a Maven repository 
-containing a Ceylon module and its dependencies. This is most useful
-if we want to make a Ceylon module available to a Java project that
-is built using Maven.
+Finally, the [`ceylon maven-export`][] command assembles a Maven 
+repository containing a Ceylon module and its dependencies. This is 
+most useful if we want to make a Ceylon module available to a Java 
+project that is built using Maven.
 
 However, this isn't the only way to integrate Ceylon modules into a
 Maven build.
