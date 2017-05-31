@@ -740,6 +740,24 @@ Therefore:
 - to call the two-argument setter, use a method call like
   `foo.setBar(bar,baz)`.
 
+### Other Java methods are exposed as Ceylon methods
+
+An Java method that *doesn't* follow the JavaBeans property
+conventions is represented to the Ceylon program as a regular 
+method.
+
+### Gotcha: calling Java methods from Ceylon
+
+There's two minor limitations to be aware of when calling Java
+methods from Ceylon.
+
+- You can't call Java methods using the named argument syntax, 
+  since Java 7 doesn't expose the names of parameters at 
+  runtime (except for code compiled on Java 8 with a special
+  compiler switch explicitly enabled).
+- You can't obtain a method reference, nor a static method 
+  reference, to an overloaded method.
+
 ### Java constants and enum values
 
 Java constants like `Integer.MAX_VALUE` and Java enum values, 
@@ -964,22 +982,6 @@ commonly-used in Ceylon code. We discourage direct use of
 preferring the use of `java.util.concurrent`.
 
 [treats these modifiers as annotations]: /documentation/1.3/reference/interoperability/java-from-ceylon
-
-## Limitations
-
-A couple of features of the Ceylon language can't be used with 
-Java classes. Here's the limitations you should be aware of:
-
-- You can't call Java methods using the named argument 
-  syntax, since Java 7 doesn't expose the names of 
-  parameters at runtime, and Ceylon doesn't yet depend on 
-  language features only available in Java 8.
-- You can't obtain a method reference, nor a static method 
-  reference, to an overloaded method.
-- As detailed above, Java generic types don't carry reified 
-  type arguments at runtime, so certain operations that 
-  depend upon reified generics (for example, some `is` tests) 
-  are rejected at compile time, or unchecked at runtime.
 
 ## Syntax sugar that applies to Java types
 
