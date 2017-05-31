@@ -1313,8 +1313,8 @@ functionality is considered experimental.
 These command line tools make it easy to assemble a Ceylon module
 that makes use of Java EE APis in a Java EE environment:
 
-- [`ceylon war`][] repackages a module and its dependencies as
-  a Java EE `.war` web archive, and
+- [`ceylon war`][] repackages a module and its dependencies as a 
+  Java EE `.war` web archive, and
 - [`ceylon swarm`][] repackages a module, its dependencies, and
   the [Wildfly Swarm][] environment as a `.jar` archive.
 
@@ -1344,6 +1344,16 @@ it depends on at runtime.
 
 ### Publishing Ceylon via Maven
 
+The [`ceylon maven-export`][] command assembles a Maven repository 
+containing a Ceylon module and its dependencies. This is most useful
+if we want to make a Ceylon module available to a Java project that
+is built using Maven.
+
+However, this isn't the only way to integrate Ceylon modules into a
+Maven build.
+
+## Ceylon and Maven
+
 Every compiled Ceylon module archive includes generated Maven 
 metadata, in `META-INF/maven/groupId/artifactId/pom.xml` and
 `META-INF/maven/groupId/artifactId/pom.properties`.
@@ -1365,20 +1375,24 @@ There are three ways to publish a Ceylon module to a Maven
 repository, allowing use of the Ceylon module directly from Java 
 via Maven:
 
-- simply publish the Ceylon module to Ceylon Herd, which 
-  automatically makes it available in the [Herd Maven repository][],
-- use the [`ceylon maven-export`][] command to assemble a Maven 
-  repository containing Ceylon module archive and its 
-  dependencies, or
-- build the [Ceylon modules using Maven][].
+1. simply publish the Ceylon module to Ceylon Herd, which 
+   automatically makes it available in the [Herd Maven repository][],
+2. use the [`ceylon maven-export`][] command to assemble a Maven 
+   repository containing the Ceylon module archive and its 
+   dependencies, or
+3. build the [Ceylon modules using Maven][].
 
 If you build your Ceylon modules using Maven, or if you use 
 `ceylon maven-export`, you can easily publish the resulting module
-archives to a Maven repository such as Maven Central.
+archives to a public Maven repository such as Maven Central.
+
+All Ceylon SDK platform modules are already available in Maven Central,
+under the group id [`org.ceylon-lang`][].
 
 [Herd Maven repository]: https://modules.ceylon-lang.org/maven/1/
 [`ceylon maven-export`]: /documentation/1.3/reference/tool/ceylon/subcommands/ceylon-maven-export.html
 [Ceylon modules using Maven]: /documentation/1.3/reference/interoperability/maven
+[`org.ceylon-lang`]: http://repo1.maven.org/maven2/org/ceylon-lang/
 
 ## There's more ...
 
