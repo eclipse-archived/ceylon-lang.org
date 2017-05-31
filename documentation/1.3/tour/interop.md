@@ -113,7 +113,22 @@ and use it like any ordinary Ceylon class:
         value hashMap = HashMap<String,Object>();
     }
 
-_TODO: instructions for using JavaFX here._
+### Tip: using JavaFX
+
+[JavaFX][] is part of the JDK, but it's split into several modules, 
+`javafx.base`, `javafx.graphics`, `javafx.media`, etc, so you'll 
+probably need to import several of them, for example:
+
+<!-- try: -->
+    native ("jvm")
+    module example.javafx.circles "1.0.0" {
+        shared import java.base "8";
+        shared import javafx.base "8";
+        shared import javafx.graphics "8";
+        shared import javafx.controls "8";
+    }
+
+[JavaFX]: http://docs.oracle.com/javase/8/javase-clienttechnologies.htm
 
 ### Depending on the Android SDK
 
