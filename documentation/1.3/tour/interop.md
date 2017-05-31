@@ -1402,7 +1402,9 @@ If you build your Ceylon modules using Maven, or if you use
 archives to a public Maven repository such as Maven Central.
 
 All Ceylon SDK platform modules are already available in Maven Central,
-under the group id [`org.ceylon-lang`][].
+under the group id [`org.ceylon-lang`][]. (They're also available in
+under the [same group id](https://herd.ceylon-lang.org/maven/1/org/ceylon-lang) 
+in the Herd Maven repository.)
 
 [Herd Maven repository]: https://modules.ceylon-lang.org/maven/1/
 [`ceylon maven-export`]: /documentation/1.3/reference/tool/ceylon/subcommands/ceylon-maven-export.html
