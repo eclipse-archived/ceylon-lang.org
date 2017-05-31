@@ -687,6 +687,11 @@ So, as an exception to the above discussion, when one of
 these annotations is present, Java null values _are_ checked 
 at compile time, and no runtime checks are necessary.
 
+## Java methods and properties
+
+Ceylon makes use of the JavaBeans conventions when representing
+a Java class.
+
 ### Java properties are exposed as Ceylon attributes
 
 A getter or getter/setter pair belonging to a Java class will 
