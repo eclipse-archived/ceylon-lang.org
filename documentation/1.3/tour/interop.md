@@ -471,31 +471,6 @@ additional methods for working with these Java array types.
 [`Array`]: #{site.urls.apidoc_1_3}/Array.type.html
 [`ceylon.interop.java`]: #{site.urls.apidoc_current_interop_java}/index.html
 
-### Java constants and enum values
-
-Java constants like `Integer.MAX_VALUE` and Java enum values, 
-like `RetentionPolicy.RUNTIME`, follow an all-uppercase naming 
-convention. Since this looks rather alien in Ceylon code, it's
-acceptable to refer to them using camel case. This:
-
-<!-- try: -->
-    Integer maxInteger = JInteger.maxValue;
-    RetentionPolicy policy = RetentionPolicy.runtime;
-
-is preferred to this:
-
-<!-- try: -->
-    Integer maxInteger = JInteger.\iMAX_VALUE;
-    RetentionPolicy policy = RetentionPolicy.\iRUNTIME;
-
-However, both options are accepted by the compiler.
-
-Java enum types are treated as enumerated classes with no 
-visible constructor. Each enumerated value of the enum type 
-is treated as a static member `object` belonging to the enum 
-type. Thus, it's possible to `switch` over the members of
-a Java `enum`, just like you can in Java.
-
 ## Java object types and null values
 
 Java's primitive types do not hold null values, so any 
@@ -604,7 +579,7 @@ So, as an exception to the above discussion, when one of
 these annotations is present, Java null values _are_ checked 
 at compile time, and no runtime checks are necessary.
 
-## Java methods and properties
+## Java methods, properties, and constants
 
 Ceylon makes use of the JavaBeans conventions when representing
 a Java class.
@@ -736,6 +711,30 @@ the conversion explicitly, just by taking a reference to the
 
 Remember, the Ceylon language defines no implicit type 
 conversions _anywhere_!
+
+### Java constants and `enum` values
+
+Java constants like `Integer.MAX_VALUE` and Java enum values, 
+like `RetentionPolicy.RUNTIME`, follow an all-uppercase naming 
+convention. Since this looks rather alien in Ceylon code, it's
+acceptable to refer to them using camel case. This:
+
+<!-- try: -->
+    Integer maxInteger = JInteger.maxValue;
+    RetentionPolicy policy = RetentionPolicy.runtime;
+
+is preferred to this:
+
+<!-- try: -->
+    Integer maxInteger = JInteger.\iMAX_VALUE;
+    RetentionPolicy policy = RetentionPolicy.\iRUNTIME;
+
+However, both options are accepted by the compiler.
+
+A Java `enum` type is treated as as enumerated class. Each 
+enumerated value of the `enum` type is treated as a value 
+constructor of the class. Thus, it's possible to `switch` 
+over the members of a Java `enum`, just like you can in Java.
 
 ## Java generic types
 
