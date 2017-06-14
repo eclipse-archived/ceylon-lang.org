@@ -119,8 +119,8 @@ A `ConstrainedAnnotation` may constrain the program elements where it is allowed
 be used to any of the types satisfying 
 [`Annotated`](#{site.urls.apidoc_1_3}/metamodel/Annotated.type.html), which are
 
-* [Class declarations](../class), [class aliases](../class#alises) and their [parameters](../parameter-list),
-* [Interface declarations](../interface) and [interface alises](../interface#aliases)
+* [Class declarations](../class), [class aliases](../class#aliases) and their [parameters](../parameter-list),
+* [Interface declarations](../interface) and [interface aliases](../interface#aliases)
 * [Function declarations](../function) and their [parameters](../parameter-list)
 * [Value declarations](../value)), and their setters
 * [Module descriptors](../module#descriptor) and their `import`s.
@@ -128,7 +128,7 @@ be used to any of the types satisfying
 
 ### Using annotations
 
-To use an annotation you preceed the program element with an invocation of the annotation constructor:
+To use an annotation you precede the program element with an invocation of the annotation constructor:
 
 <!-- try: -->
     example()

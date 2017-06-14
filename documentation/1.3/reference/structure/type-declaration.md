@@ -117,7 +117,7 @@ The subtypes are called the *cases* of the class or interface type.
 ### Type aliases
 
 To avoid having to repeat long type expressions, you can declare a 
-[type alias](../alias#type_alises) for a type using the `alias` 
+[type alias](../alias#type_aliases) for a type using the `alias` 
 keyword:
 
 <!-- try: -->

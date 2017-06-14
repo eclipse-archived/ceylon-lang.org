@@ -159,7 +159,7 @@ or two type arguments. If we supply only one type argument, the default type
     
 Using a defaulted type parameter can be used as a more flexible alternative to 
 a [type `alias`](../alias#type_aliases). We could have declared `Iterable` 
-without a defaulted type parameter and used alises:
+without a defaulted type parameter and used aliases:
 
 <!-- try: -->
     alias PossiblyEmpty<T> => Iterable<String, Null>

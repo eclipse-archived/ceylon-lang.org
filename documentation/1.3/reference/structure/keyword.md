@@ -21,7 +21,7 @@ Usage depends on the keyword in question.
 The following are reserved keywords:
 
 * `abstracts` (currently unused)
-* [`alias`](../alias#type_alises)
+* [`alias`](../alias#type_aliases)
 * `assembly` (currently unused)
 * [`assert`](../../statement/assert)
 * [`assign`](../value#a_value_setter)
