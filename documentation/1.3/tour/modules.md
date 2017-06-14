@@ -18,23 +18,23 @@ We're going to learn about *packages* and *modules*.
 ## Packages and imports
 
 Every source file&mdash;along with everything declared in the 
-file&mdash;belongs to a package. Even source files that don't belong to a 
-named package are considered to belong to the "default" package. It's the 
-location of a source file within a source directory that determines which 
-package a source file belongs to.
+file&mdash;belongs to a package. Declarations from a different package
+have to be imported before they can be used in a source file.
 
 ### Source files and packages
 
 There's no `package` statement in Ceylon source files. The compiler determines 
 the package and module to which a toplevel program element belongs by the 
-location of the source file in which it is declared. For example, if `source` 
-is a source directory, and if a class named `Hello` is defined in the file 
-`source/org/jboss/hello/Hello.ceylon`, then `Hello` belongs to the package 
-`org.jboss.hello`.
+directory path of the source file in which it is declared. The file name itself 
+has no significance to the compiler, but conventionally follows the content 
+of the source file.
 
-Note that the name of the source file itself is not significant, as long as
-it has the extension `.ceylon`. It's only the directory in which the source 
-file is located that matters to the compiler.
+For example, if `source` is a source directory, then a class named `Hello` 
+in the package `org.jboss.hello` would be defined in the file 
+`source/org/jboss/hello/Hello.ceylon`. The file could also instead be 
+`source/org/jboss/hello/World.ceylon`; on the other hand, the path 
+`source/org/jboss/world/Hello.ceylon` would place the file in the 
+`org.jboss.world` package.
 
 ### Imports
 
@@ -43,30 +43,27 @@ another package, it must explicitly import that program element. Ceylon,
 unlike Java, does not support the use of qualified names within the source 
 file. We can't write `org.jboss.hello.Hello` in Ceylon.
 
-The syntax of the `import` statement is slightly different to Java. To import 
-a program element, we write:
+The syntax of the `import` statement is slightly different to Java. 
+To import program elements, we write the name of the package 
+and then list the program elements we want to import:
 
 <!-- try: -->
 <!-- check:none:pedagogical -->
-    import com.redhat.polar.core { Polar }
-
-To import several program elements from the same package, we write:
-
-<!-- try: -->
-<!-- check:none:pedagogical -->
-    import com.redhat.polar.core { Polar, pi }
+    import org.jboss.hello { Hello } // import a single declaration
+    import com.redhat.polar.core { Polar, pi } // import two declarations
 
 To import all toplevel program elements of a package, we write:
 
 <!-- try: -->
 <!-- check:none:pedagogical -->
-    import com.redhat.polar.core { ... }
+    import com.redhat.polar.core { ... } // import all declarations
 
 To resolve a name collision, we can rename an imported declaration:
 
 <!-- try: -->
 <!-- check:none:pedagogical -->
     import com.redhat.polar.core { PolarCoord = Polar }
+    // now, the name PolarCoord in this file refers to the Polar class
 
 We think renaming is a much cleaner solution than the use of qualified 
 names. We can even rename members of type:
