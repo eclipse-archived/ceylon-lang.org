@@ -9,7 +9,7 @@ doc_root: ../../..
 
 # #{page.title_md}
 
-The right-associative, binary infix `**` operator is used to scale an instance of `Scalable` but an amount.
+The right-associative, binary infix `**` operator is used to scale an instance of `Scalable` by an amount.
 
 ## Usage 
 
