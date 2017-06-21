@@ -50,6 +50,10 @@ allows us to:
 - edit a module dependency, for example making it `shared` (per module)
 - include/exclude parts of the jar (for example, to exclude certain packages from a jar)
 
+The format of the `overrides.xml` file is defined by [this XML schema][schema].
+
+[schema]: https://ceylon-lang.org/xsd/overrides
+
 ## Alternatives to the overrides file
 
 The `--use-flat-classpath` and `--auto-export-maven-dependencies` options to the `ceylon`
@@ -77,7 +81,7 @@ The overrides file must be a valid XML file named `overrides.xml` or `maven-over
 For example:
 
 <!--lang: xml -->
-    <overrides>
+    <overrides xmlns="http://www.ceylon-lang.org/xsd/overrides">
         <!-- Define a constant to be used in expressions -->
         <define name="restletVersion" value="2.0.10"/>
         <!-- Replace all versions of weld with version 1.1.4.Final -->
