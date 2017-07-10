@@ -616,7 +616,7 @@ with Java's [service loader architecture][], as we'll see
 ### Tip: specifying service providers at assembly time
 
 It's often necessary to override the service provider for a service
-used by a module ofter the module has already been compiled and
+used by a module after the module has already been compiled and
 distributed. This can be achieved using [module dependency overrides][],
 which may be specified when a program or application is executed or
 assembled.
