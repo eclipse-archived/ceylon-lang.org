@@ -705,13 +705,13 @@ class name, except within the body of the class itself:
 
 ### Constructor delegation
 
-A constructor may delegate to:
+A constructor may delegate:
 
-- another constructor of the class to which it belongs,
+- to another constructor of the class to which it belongs,
   whose declaration occurs earlier in the body of the class, 
   or 
 - directly to a constructor of its superclass or to the 
- initializer of its superclass, if any.
+  initializer of its superclass, if any.
  
  Constructor delegation is specified using `extends`:
 
@@ -760,6 +760,49 @@ initialization flows forward from the beginning of the body of
 the class, and each member must be initialized before it is 
 used. The gory details are covered 
 [here](../../../../blog/2015/06/21/constructors/#ordering_of_initialization_logic).
+
+### Partial constructors
+
+A partial constructor allows multiple constructors of a class 
+to shared part of the initialization logic. Unlike a regular
+constructor, a partial constructor:
+
+- is *not* required to leave every member of the class 
+  initialized, but
+- may only be called from the `extends` clause of another
+  constructor of the same class, and,
+- therefor, may not be declared `shared`.
+
+Partial constructors must be annotated `abstract`:
+
+    class Point {
+        shared Float x;
+        shared Float y;
+        shared String label;
+        
+        //partial constructor
+        abstract new xy(Float x, Float y) {
+            this.x = x;
+            this.y = y;
+        }
+        
+        //default constructor
+        shared new (Float x, Float y) 
+                extends xy(x, y) {
+            label = "";
+        }
+
+        //named constructor
+        shared new withLabel(Float x, Float y, String label) 
+                extends xy(x, y) {
+            this.label = label;
+        }
+    }
+
+In this example, the partial constructor `Point.xy()` leaves 
+the `label` uninitialized, which means that the regular 
+constructors which delegate to `xy()` must each complete the 
+initialization of the class by assigning a value to `label`.
 
 ### Constructors and extension
 
