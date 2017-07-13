@@ -771,7 +771,7 @@ constructor, a partial constructor:
   initialized, but
 - may only be called from the `extends` clause of another
   constructor of the same class, and,
-- therefor, may not be declared `shared`.
+- therefore, may not be declared `shared`.
 
 Partial constructors must be annotated `abstract`:
 
