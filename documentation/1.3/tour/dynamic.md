@@ -471,62 +471,76 @@ package manager), specifying the `npm:` repository type:
 <!-- try: -->
     native ("js")
     module com.example.npm "1.0.0" {
+    
         import npm:"left-pad" "1.1.3";
-        import npm:"pixi.js" "4.5.3";
-        import npm:"angular":"router" "4.3.1"; // @angular/router
+        import npm:"fast-html-parser" "1.0.1";
+        import npm:"express" "4.15.3";
+        
+        import npm:"request":"api" "0.6.0";
+        import npm:"request":"client" "0.1.0";
+        
     }
 
+Note that npm package names are quoted, and may have one or
+two elements:
+
+- an npm package like `fast-html-parser` with only a package
+  name and no scope may be specified using the syntax
+  `npm:"fast-html-parser"`, but
+- a scoped npm package like `@request/api` where `request` is 
+  a scope and `api` is the package name, must be specified 
+  using the syntax `npm:"request":"api"`. 
+
 ### Package names for imported modules
-The imported npm packages are made visible using Ceylon package
-names constructed from the npm package names. The Ceylon package
-name for an imported module is constructed by replacing all
-instances of `- _ :` in the npm package name with `.`. Therefore
-the above npm packages are available using the following
-packages:
 
-* left.pad
-* pixi.js
-* angular.router
+An `npm:` module import results in a Ceylon package 
+containing the things exported by the npm package. The name
+of this Ceylon package is constructed by replacing every `-` 
+and `_` in the npm scope and package name with `.`.
 
-e.g. `import left.pad { /* ... */ }`.
+For example, for the npm packages imported above, the 
+resulting Ceylon packages are:
+
+- `left.pad`
+- `fast.html.parser`
+- `express`
+- `request.api`
+- `request.client`
+
+### Gotcha!
+
+We must explicitly import things by name from these packages. 
+This wildcard `import` statement does nothing:
+
+<!-- try: -->
+    import request.api { ... }  //doesn't import anything
 
 ### CommonJS packages
 
-Modules that respect the CommonJS format, exporting only named
-entries work as-is.
+Most npm modules respect the CommonJS format, exporting only 
+named entries. Exported functions and objects may be imported
+by name from the corresponding Ceylon package.
 
-    import some.module { SomeClass, someFunction, someObject }
+<!-- try: -->
+    import fast.html.parser { parseHtml = parse, Matcher }
 
-Since the JS compiler has no way of knowing if those are valid
-declarations in the module, it will just create very simple
-declarations so they're usable. Uppercased declarations result
-in classes with a single variadic constructor, while lowercase
-declarations result in dynamically typed objects/functions, so
-they can only be used inside `dynamic` blocks. Classes declared
-as coming from npm packages are instantiated using `new` in the
-generated JS code.
+A function or object imported from an npm package is 
+dynamically typed and may only be called from within in a
+`dynamic` block. 
 
 ### Non-standard packages
 
-Npm packges that don't follow the CommonJS format and instead
-export a single object/function are treated in a different way.
-They are exposed as the sole item that is available for import.
-The name of the item is constructed from the npm package name by
-first removing the scope prefix if present and then removing all
-instances of `. _ -` and uppercasing the letters that were
-immediately to the right of the removed characters. Examples:
-* left-pad → leftPad
-* pixi.js → pixiJs
-* @angular/router → router
-
-If the exported object/function contains some members (for
-example, the `express` module) then the object/function itself
-is added as a member under the module's name.
+Some npm packages don't follow the CommonJS format and 
+instead export a single function or object. In this case,
+the exported function or object is available for import
+using a name constructed from the npm package name (ignoring
+the scope prefix) by replacing every `-`, `_`, and `.` with a
+"camel hump". For example:
 
 <!-- try: -->
-    import left.pad {
-        leftPad
-    }
+    import left.pad { leftPad }
+    import request.api { api }
+    import request.client { client }
     
     void run() {
         dynamic {
@@ -536,14 +550,20 @@ is added as a member under the module's name.
         }
     }
 
-# Calling npm
+If the exported function or object has members, then these
+members are may be imported by name.
 
-Both the `compile-js` and the `run-js` commands will install npm
-packages if needed. A `node_modules` directory will be created
-under the working directory, by simply calling the `npm`
-command, which must be on your executable path.
+<!-- try: -->
+    import express { express, request, response }
 
-# Publishing your Ceylon modules to npm
+### Tip: installation of npm packages
+
+Both the `compile-js` and the `run-js` commands will 
+automatically install npm packages named by `npm:` imports 
+if needed. A `node_modules` directory will be created under 
+the working directory.
+
+### Tip: publishing Ceylon modules to npm
 
 If you wish to export your own Ceylon module to npm, you can
 specify the npm package name explicitly in the module
@@ -556,6 +576,10 @@ descriptor:
             "1.0.0" {               //module version
         import npm:"left-pad" "1.1.3";
     }
+
+Now, after compiling the module with `ceylon compile-js`, you 
+can run `npm publish` from the module's directory in the 
+output module repository.
 
 ## There's more ...
 
