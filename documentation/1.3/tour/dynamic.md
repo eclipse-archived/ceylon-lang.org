@@ -515,6 +515,13 @@ This wildcard `import` statement does nothing:
 <!-- try: -->
     import request.api { ... }  //doesn't import anything
 
+### Gotcha again!
+
+There's no way to know about the things exported by a native
+JavaScript module at compile time, so the names listed in an
+`import` statement for an npm package aren't checked by the
+Ceylon compiler!
+
 ### CommonJS packages
 
 Most npm modules respect the CommonJS format, exporting only 
