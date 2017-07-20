@@ -462,7 +462,7 @@ value, leaving the following unsound code:
 
 Run this code to see it how cleanly it fails at runtime. 
 
-## Importing npm modules containing native JavaScript code
+## Importing npm packages containing native JavaScript code
 
 A Ceylon module may express a dependency on a native 
 JavaScript module by importing the module from npm (the node 
@@ -472,12 +472,56 @@ package manager), specifying the `npm:` repository type:
     native ("js")
     module com.example.npm "1.0.0" {
         import npm:"left-pad" "1.1.3";
+        import npm:"pixi.js" "4.5.3";
+        import npm:"angular":"router" "4.3.1"; // @angular/router
     }
 
-Functions defined by the JavaScript module are considered to
-belong to a package formed by replacing every `-` (dash) in the 
-npm module name with a `.` (period). Naturally, such functions 
-may only be called from within a `dynamic` block.
+### Package names for imported modules
+The imported npm packages are made visible using Ceylon package
+names constructed from the npm package names. The Ceylon package
+name for an imported module is constructed by replacing all
+instances of `- _ :` in the npm package name with `.`. Therefore
+the above npm packages are available using the following
+packages:
+
+* left.pad
+* pixi.js
+* angular.router
+
+e.g. `import left.pad { /* ... */ }`.
+
+### CommonJS packages
+
+Modules that respect the CommonJS format, exporting only named
+entries work as-is.
+
+    import some.module { SomeClass, someFunction, someObject }
+
+Since the JS compiler has no way of knowing if those are valid
+declarations in the module, it will just create very simple
+declarations so they're usable. Uppercased declarations result
+in classes with a single variadic constructor, while lowercase
+declarations result in dynamically typed objects/functions, so
+they can only be used inside `dynamic` blocks. Classes declared
+as coming from npm packages are instantiated using `new` in the
+generated JS code.
+
+### Non-standard packages
+
+Npm packges that don't follow the CommonJS format and instead
+export a single object/function are treated in a different way.
+They are exposed as the sole item that is available for import.
+The name of the item is constructed from the npm package name by
+first removing the scope prefix if present and then removing all
+instances of `. _ -` and uppercasing the letters that were
+immediately to the right of the removed characters. Examples:
+* left-pad → leftPad
+* pixi.js → pixiJs
+* @angular/router → router
+
+If the exported object/function contains some members (for
+example, the `express` module) then the object/function itself
+is added as a member under the module's name.
 
 <!-- try: -->
     import left.pad {
@@ -492,21 +536,26 @@ may only be called from within a `dynamic` block.
         }
     }
 
+# Calling npm
+
+Both the `compile-js` and the `run-js` commands will install npm
+packages if needed. A `node_modules` directory will be created
+under the working directory, by simply calling the `npm`
+command, which must be on your executable path.
+
+# Publishing your Ceylon modules to npm
+
 If you wish to export your own Ceylon module to npm, you can
-specify the npm module name explicitly in the module descriptor:
+specify the npm package name explicitly in the module
+descriptor:
 
 <!-- try: -->
     native ("js")
     module com.example.npm          //Ceylon module name
-            npm:"ceylon-example"    //npm module name
+            npm:"ceylon-example"    //npm package name
             "1.0.0" {               //module version
         import npm:"left-pad" "1.1.3";
     }
-
-You can find more information about the representation of npm 
-modules in Ceylon [right here][npm and Ceylon].
-
-[npm and Ceylon]: https://github.com/ceylon/ceylon/wiki/NPM-and-Ceylon-JS
 
 ## There's more ...
 
