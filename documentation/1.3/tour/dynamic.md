@@ -588,6 +588,9 @@ Now, after compiling the module with `ceylon compile-js`, you
 can run `npm publish` from the module's directory in the 
 output module repository.
 
+For publishing scoped packages, use the same syntax as for
+importing scoped packages e.g. `npm:"myscope":"ceylon-example"`.
+
 ## There's more ...
 
 Well, no, actually, we've finished the tour! Of course, there's 
