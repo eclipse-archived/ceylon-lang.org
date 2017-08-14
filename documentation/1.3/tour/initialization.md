@@ -22,12 +22,13 @@ object.
 ## Self references and outer instance references
 
 Whenever a method of a class is invoked upon an instance of the class, or
-when an attribute is evaluated or assigned, the body of the method, 
-getter, or setter is executed with an implicit reference to the instance. 
-This reference is called the _current instance_ of the class. Similarly,
-when a constructor of a class is invoked, the body of the constructor is
-executed with an implicit reference to the newly created instance of the 
-class, and this new instance is considered the current instance.
+when an attribute of the class is evaluated or assigned, the body of the 
+method, getter, or setter is executed with an implicit reference to the 
+instance. This reference is called the _current instance_ of the class. 
+Similarly, when a constructor of a class is invoked, the body of the 
+constructor is executed with an implicit reference to the newly created 
+instance of the class, and this new instance is considered the current 
+instance.
 
 Usually, we can refer to any other member of the current instance without 
 needing to explicitly specify the current instance.
