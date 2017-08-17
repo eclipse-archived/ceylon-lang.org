@@ -158,6 +158,15 @@ modules as OSGi bundles, and how to:
 [HTTP server]: https://herd.ceylon-lang.org/modules/ceylon.http.server
 [Pax Web]: https://ops4j1.jira.com/wiki/display/paxweb/Pax+Web
 
+## NPM examples
+
+The [Ceylon NPM integration examples][] project contains some 
+very simple examples showing how a Ceylon module can make use 
+of JavaScript modules belonging to the [node package manager][npm].
+
+[Ceylon NPM integration examples]: https://github.com/ceylon/ceylon-examples-npm
+[npm]: https://www.npmjs.com/
+
 ## Examples of libraries
 
 The [Ceylon SDK](https://github.com/ceylon/ceylon-sdk) includes 
