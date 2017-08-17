@@ -62,10 +62,12 @@ Ceylon is a fantastic language for writing microservices:
   to use Ceylon in [Vert.x][]. 
 - [Spark with Ceylon][] demonstrates how to use the Spark web
   framework in Ceylon.
-- [Jooby with Ceylon][] contains a very simple example of the
-  Jooby web framework.
+- [Jooby with Ceylon][] contains two very simple examples of 
+  the Jooby web framework.
 - The [gyokuro demos][] show off the [gyokuro][] web 
   framework, which is written in Ceylon.
+- The [Vaadin JAAS example][] demonstrates how to write a Java 
+  EE web application using [Vaadin][] and JAAS.
 
 Documentation for Ceylon and Vert.x can be found at the 
 [Vert.x site](http://vertx.io/docs/vertx-core/ceylon/).
@@ -80,6 +82,8 @@ Documentation for Ceylon and Vert.x can be found at the
 [Jooby with Ceylon]: https://github.com/ceylon/ceylon-examples-jooby
 [gyokuro demos]: https://github.com/bjansen/gyokuro/tree/master/demos/gyokuro/demo
 [gyokuro]: http://bjansen.github.io/gyokuro/
+[Vaadin JAAS example]: https://github.com/gavinking/ceylon-examples-vaadin
+[Vaadin]: https://vaadin.com/home
 [Swarm presentation]: /community/presentations/ceylon-swarm.pdf
 
 ## Examples of full-stack applications
@@ -120,6 +124,8 @@ Learn how to use Ceylon with these Java frameworks:
   IntelliJ IDEA's [GUI Designer][].
 - The [jOOQ Ceylon example][] demonstrates the use of the 
   jOOQ library, as documented in [this blog post][jOOQ blog].
+- The [Ceylon LWJGL samples][] project demonstrates the use 
+  of the [Lightweight Java Game Library][LWJGL].
 
 [JDK Collections and Streams in Ceylon]: https://github.com/ceylon/ceylon-examples-jdk
 [Java Persistence in Ceylon]: https://github.com/ceylon/ceylon-examples-jpa
@@ -134,6 +140,8 @@ Learn how to use Ceylon with these Java frameworks:
 [JOGL]: http://jogamp.org/
 [jOOQ Ceylon example]: https://github.com/bjansen/ceylon-jooq-example
 [jOOQ blog]: http://bjansen.github.io/ceylon/2015/08/24/ceylon-plus-jooq-equals-heart.html
+[LWJGL]: https://www.lwjgl.org/
+[Ceylon LWJGL samples]: https://github.com/gavinking/ceylon-examples-lwjgl
 
 ## OSGi examples
 
@@ -210,4 +218,4 @@ different approach to implementing tooling in Ceylon.
 The [Ceylon Dart][] project shows that it's possible to write a 
 whole backend for the Ceylon compiler in Ceylon.
 
-[Ceylon Dart]: https://github.com/jvasileff/ceylon-dart 
+[Ceylon Dart]: https://github.com/jvasileff/ceylon-dart
