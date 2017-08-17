@@ -16,7 +16,7 @@ are *equal*.
 
 <!-- try: -->
     void m(Object x, Object y) {
-        Boolean identical = x == y;
+        Boolean equal = x == y;
     }
 
 ## Description

@@ -515,6 +515,13 @@ This wildcard `import` statement does nothing:
 <!-- try: -->
     import request.api { ... }  //doesn't import anything
 
+### Gotcha again!
+
+There's no way to know about the things exported by a native
+JavaScript module at compile time, so the names listed in an
+`import` statement for an npm package aren't checked by the
+Ceylon compiler!
+
 ### CommonJS packages
 
 Most npm modules respect the CommonJS format, exporting only 
@@ -580,6 +587,9 @@ descriptor:
 Now, after compiling the module with `ceylon compile-js`, you 
 can run `npm publish` from the module's directory in the 
 output module repository.
+
+For publishing scoped packages, use the same syntax as for
+importing scoped packages e.g. `npm:"myscope":"ceylon-example"`.
 
 ## There's more ...
 

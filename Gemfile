@@ -26,3 +26,4 @@ gem 'rdiscount', '~> 2.0.7', :platforms => [:ruby]
 # The deeplink extension comes with a couple of dependencies
 gem 'nokogiri', '~> 1.5.10'
 gem 'unicode', '~> 0.4.4'
+gem 'eventmachine', '~> 1.0.4'

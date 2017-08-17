@@ -103,7 +103,7 @@ Ceylon also forces us to declare that an attribute or method refines
 (overrides) an attribute or method of a superclass by annotating it `actual`
 ([not "overrides" like Java](#{page.doc_root}/faq/language-design/#_overrides_vs_actual)). 
 All this annotating stuff costs a few extra keystrokes, but it helps the 
-compiler detect errors. We can't inadvertently refine a member or the 
+compiler detect errors. We can't inadvertently refine a member of the 
 superclass, or inadvertently fail to refine it.
 
 Notice that Ceylon goes out of its way to repudiate the idea of "duck" 

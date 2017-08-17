@@ -21,11 +21,17 @@ object.
 
 ## Self references and outer instance references
 
-When a method of a class is invoked upon an instance of the class, the body 
-if the method is executed with an implicit reference to the instance. This
-reference is called the _current instance_ of the class. Usually, we can
-refer to any other member of the current instance without needing to 
-explicitly specify the current instance.
+Whenever a method of a class is invoked upon an instance of the class, or
+when an attribute of the class is evaluated or assigned, the body of the 
+method, getter, or setter is executed with an implicit reference to the 
+instance. This reference is called the _current instance_ of the class. 
+Similarly, when a constructor of a class is invoked, the body of the 
+constructor is executed with an implicit reference to the newly created 
+instance of the class, and this new instance is considered the current 
+instance.
+
+Usually, we can refer to any other member of the current instance without 
+needing to explicitly specify the current instance.
 
     class Greeting(String name) {
         shared void greet()
@@ -44,7 +50,7 @@ We can resolve the name collision using the keyword `this`.
 
     class Greeting(String name) {
         shared void greet(String name) {
-            print("``name`` says 'Hello ``this.name``!'"); //oops, local name hides this.name!
+            print("``name`` says 'Hello ``this.name``!'");
         }
     } 
 
