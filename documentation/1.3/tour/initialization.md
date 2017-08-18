@@ -1024,9 +1024,9 @@ Now, of course, there's no [current instance][] for a static
 member, so within a static member we can't:
 
 - make use of `this` or `super`,
-- use parameters of the class itself, or
+- use parameters of the class it belongs to, or
 - call non-static members without providing an instance of
-  the class.
+  the class or interface.
 
 Therefore, Ceylon doesn't let us write something like this:
 
@@ -1036,23 +1036,25 @@ Therefore, Ceylon doesn't let us write something like this:
         static void staticMethod() {} //error!
     }
 
-In this code, it looks like `staticMethod()` should have 
-access to both the parameter `name`, and the method 
-`instanceMethod()`, since they're both in scope, according to 
-the usual scoping rules of the language.
+In this code, it looks like `staticMethod()` should have access 
+to both the parameter `name`, and the method `instanceMethod()`, 
+since they're both in scope, according to the usual scoping 
+rules of the language.
 
-So, in order to respect the block structure of the language, 
-there's two important restrictions:
+So, both interfaces and classes may declare _static members_, 
+but, in order to respect the block structure of the language, 
+there's two important restrictions on static members of 
+classes:
 
-- only a class with constructors may define _static members_,
+- only a class with constructors may define static members,
   and
 - static members must be defined right at the start of the
   class, _before_ the initializer section, before the
   constructors of the class, and before any regular non-static
   members of the class.
 
-A nested class or anonymous class may not declare static 
-members.
+A nested interface, class, or anonymous class may not declare 
+static members.
 
 [current instance]: #self_references_and_outer_instance_references
 
@@ -1089,7 +1091,8 @@ different sections:
 
 ### References to static members
 
-Static members are invoked directly on the class itself:
+Static members are invoked directly on the class or interface
+itself:
 
 <!-- try: -->
     Greeting.sayHello();
@@ -1143,6 +1146,11 @@ Unlike in Java, the type parameters of class are considered
 in scope within the definition of a static member. This lets
 us call factory functions for generic classes using the same
 syntax we just to call a constructor. 
+
+### Gotcha!
+
+In Ceylon 1.3, `static` interface members are not supported on Java 7.
+A Java 8 compiler and runtime is required.
 
 ## There's more...
 
