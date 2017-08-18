@@ -539,11 +539,8 @@ Now we can create `Polar` coordinates with or without labels:
     print(origin.description);
     print(coord.description);
 -->
-<!-- cat-id: polar -->
-<!-- cat: void m(Float r, Float theta) { -->
     Polar origin = Polar(0.0, 0.0, "origin");
     Polar coord = Polar(r, theta);
-<!-- cat: } -->
 
 Later, we'll learn about [named arguments](../named-arguments), which 
 we often use to make instantiation expressions more readable, especially
@@ -576,11 +573,8 @@ when the class has more than two parameters:
     print(origin.description);
     print(coord.description);
 -->
-<!-- cat-id: polar -->
-<!-- cat: void m(Float r, Float theta) { -->
     Polar origin = Polar { angle = 0.0; radius = 0.0; label = "origin"; };
     Polar coord = Polar { radius = r; angle = theta; };
-<!-- cat: } -->
 
 Finally, it's worth noting that very many uses cases for overloading 
 in Java involve the use of primitive types, which we can't abstract 
@@ -602,6 +596,15 @@ give the class one or more [named constructors][]. We'll learn about
 constructors much later in this tour, because they're only rarely used.
 
 [named constructors]: ../initialization/#constructors
+
+### Tip: overloading when compiling for the JVM
+
+Finally, the Ceylon compiler actually _does_ allow you to [declare an
+overloaded method or constructor][overloading] when compiling a class 
+that is explicitly marked `native("jvm")`. This feature is provided to
+ease interoperation with native Java code.
+
+[overloading]: ../interop/#overloading_methods_and_constructors
 
 ## There's more...
 
