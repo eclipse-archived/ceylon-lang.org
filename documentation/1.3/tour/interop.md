@@ -1192,16 +1192,39 @@ for that.
 
 ## Utility functions and classes
 
+The class `Types`, which is considered to belong to the package
+`java.lang` in the module `java.base` offers some extremely useful
+static utility methods. For example, `Types.nativeString()` 
+converts Ceylon strings to `java.lang.String`s and `Types.charArray()`
+converts Ceylon strings into Java `char[]` arrays.
+
 In the module [`ceylon.interop.java`][] you'll find a suite 
 of useful utility functions and classes for Java interoperation. 
 For example, there are classes that adapt between Ceylon 
 collection types and Java collection types.
 
+### Tip: getting a `java.util.Class`
+
+An especially useful function is `Types.classForType`, which 
+obtains an instance of `java.util.Class` for a given type.
+
+<!-- try: -->
+    import java.lang { 
+        JClass=Class, 
+        Types { classForType } 
+    }
+    
+    JClass<Integer> jc = classForType<Integer>();
+    print(jc.protectionDomain);
+
+The functions `Types.classForInstance`, `Types.classForModel`, and 
+`Types.classForDeclaration` are also useful.
+
 ### Tip: converting between `Iterable`s
 
-An especially useful adaptor is [`CeylonIterable`][], which 
-lets you apply any of the usual operations of a Ceylon 
-[stream][] to a Java `Iterable`.
+Another useful adaptor is [`CeylonIterable`][], which lets 
+you apply any of the usual operations of a Ceylon [stream][] 
+to a Java `Iterable`.
 
 <!-- try: -->
     import java.util { JList=List, JArrayList=ArrayList }
@@ -1227,25 +1250,6 @@ Ceylon type.
 [`CeylonIterable`]: #{site.urls.apidoc_current_interop_java}/CeylonIterable.type.html
 [`CeylonList`]: #{site.urls.apidoc_current_interop_java}/CeylonList.type.html
 [stream]: #{site.urls.apidoc_1_3}/Iterable.type.html
-
-### Tip: getting a `java.util.Class`
-
-Another especially useful function is [`javaClass`][], which 
-obtains an instance of `java.util.Class` for a given type.
-
-<!-- try: -->
-    import ceylon.interop.java { javaClass }
-    import java.lang { JClass=Class }
-    
-    JClass<Integer> jc = javaClass<Integer>();
-    print(jc.protectionDomain);
-
-The functions [`javaClassFromInstance`][] and 
-[`javaClassFromDeclaration`][] are also useful.
-
-[`javaClass`]: #{site.urls.apidoc_current_interop_java}/index.html#javaClass
-[`javaClassFromInstance`]: #{site.urls.apidoc_current_interop_java}/index.html#javaClassFromInstance
-[`javaClassFromDeclaration`]: #{site.urls.apidoc_current_interop_java}/index.html#javaClassFromDeclaration
 
 ## Additional support for Java interoperation
 
