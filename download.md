@@ -9,12 +9,12 @@ change_frequency: weekly
 ---
 <div id="banner"><div id="text">Download</div></div>
 
-[1.3.2]: /blog/2017/03/03/ceylon-1-3-2/
+[1.3.3]: /blog/2017/08/21/ceylon-1-3-3/
 
 # #{page.title}
 
-[Ceylon 1.3.2][1.3.2] _&ldquo;Smile Tolerantly&rdquo;_ is 
-now available for download! This is the 1.3.2 release of the 
+[Ceylon 1.3.3][1.3.3] _&ldquo;Contents May Differ&rdquo;_ is 
+now available for download! This is the 1.3.3 release of the 
 language, command line tools, and IDEs.
 
 ## Ceylon IDE
