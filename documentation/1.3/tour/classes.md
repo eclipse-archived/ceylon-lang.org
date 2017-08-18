@@ -154,9 +154,30 @@ Finally, packages are hidden from code outside the module to which
 the package belongs by default. Only explicitly shared packages are 
 visible to other modules.
 
-Got the idea? We're playing Russian dolls here.
-
 [no protected]: #{page.doc_root}/faq/language-design/#no_protected_modifier
+
+### Tip: using `restricted`
+
+The `shared` annotation is all we need, _almost_ all of the time. But
+sometimes we need a slightly more flexible way to control access to a
+declaration. Then the `restricted` annotation is useful:
+
+- a member annotated ``restricted shared`` is visible only within the 
+  package in which it is declared, even if the type it belongs to is 
+  `shared`,
+- a member or toplevel declaration annotated 
+  ``restricted(`module`) shared`` is visible only within the module in 
+  which it is declared, even if the package it belongs to is `shared`, 
+  and
+- a member or toplevel declaration annotated 
+  ``restricted(`module foo`, `module bar`) shared`` is visible only within the 
+  explicitly listed modules, and within the package in which it is
+  declared.  
+
+Note that adding the `restricted` annotation always _narrows_ the 
+visibility of a `shared` declaration. But adding additional modules as
+arguments to `restricted` _widens_ the visibility of a `restricted shared`
+declaration.
 
 ## Class attributes
 
