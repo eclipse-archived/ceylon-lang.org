@@ -858,6 +858,43 @@ This code is essentially the same as what you would do in Java:
 Just like in Java, the above code produces a warning, since the
 type arguments in the assertion cannot be checked at runtime.
 
+## Overloading methods and constructors
+
+When a class or interface is declared `native("jvm")`, it may 
+declare overloaded methods and constructors. Both default
+constructors and named constructors may be overloaded.
+
+An overloaded method or constructor must be marked with the
+annotation `overloaded`, which is considered to belong to the
+package `java.lang` in the module `java.base`.
+
+<!-- try: -->
+   import java.lang { overloaded }
+   
+    native("jvm")
+    class Native {
+        variable Integer int;
+        shared overloaded new () {
+            int = 0;
+        }
+        shared overloaded new (String string) {
+            int = parseInteger(string);
+        }
+        shared overloaded new (Integer int) {
+            this.int = int;
+        }
+        shared overloaded set(String string) {
+            int = parseInteger(string);
+        }
+        shared overloaded set(Integer int) {
+            this.int = int;
+        }
+        shared Integer get() => int;
+    }
+
+This is especially useful when implementing a Java interface 
+that declares an overloaded method.
+
 ## Inheriting Java types and refining Java methods
 
 A Ceylon class may extend a Java class and/or implement Java
