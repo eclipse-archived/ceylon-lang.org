@@ -377,7 +377,7 @@ Explicitly converting between [`String`][] and Java's
   string, and
 - one of the constructors of `java.lang.String` accepts a
   Ceylon `String`, or, alternatively,
-- the function `Types.nativeString` in the package `java.lang`
+- the function `Types.nativeString()` in the package `java.lang`
   converts a Ceylon string to a Java string without 
   requiring an object instantiation.
 
