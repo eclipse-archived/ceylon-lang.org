@@ -165,6 +165,11 @@
                     Use a specific classifier to download the Maven artifact.
                 ]]></xsd:documentation></xsd:annotation>
             </xsd:element>
+            <xsd:element type="xsd:string" name="version">
+                <xsd:annotation><xsd:documentation><![CDATA[
+                    Override the version number with a specific version.
+                ]]></xsd:documentation></xsd:annotation>
+            </xsd:element>
         </xsd:choice>
         <xsd:attributeGroup ref="ovr:artifactIdentification"/>
         <xsd:attribute type="xsd:string" name="version" use="optional"/>

@@ -154,9 +154,33 @@ Finally, packages are hidden from code outside the module to which
 the package belongs by default. Only explicitly shared packages are 
 visible to other modules.
 
-Got the idea? We're playing Russian dolls here.
-
 [no protected]: #{page.doc_root}/faq/language-design/#no_protected_modifier
+
+### Tip: using `restricted`
+
+The `shared` annotation is all we need, _almost_ all of the time. But
+sometimes we need a slightly more flexible way to control access to a
+package or declaration. Then the `restricted` annotation is useful:
+
+- a member declaration annotated ``restricted shared`` is accessible only 
+  within the package in which it is declared, even if the type it 
+  belongs to is `shared`,
+- a member or toplevel declaration annotated 
+  ``restricted(`module`) shared`` is accessible only within the module in 
+  which it is declared, even if the package it belongs to is `shared`, 
+  and
+- a declaration or package annotated 
+  ``restricted(`module foo`, `module bar`) shared`` is accessible only within 
+  the explicitly listed modules, and within the package in which it 
+  is declared.  
+
+Note that adding the `restricted` annotation always _narrows_ the 
+visibility of a `shared` declaration. But adding additional modules as
+arguments to `restricted` _widens_ the visibility of a `restricted shared`
+declaration.
+
+The modules listed as arguments to the `restricted` annotation are
+sometimes called "friend" modules.
 
 ## Class attributes
 
@@ -518,11 +542,8 @@ Now we can create `Polar` coordinates with or without labels:
     print(origin.description);
     print(coord.description);
 -->
-<!-- cat-id: polar -->
-<!-- cat: void m(Float r, Float theta) { -->
     Polar origin = Polar(0.0, 0.0, "origin");
     Polar coord = Polar(r, theta);
-<!-- cat: } -->
 
 Later, we'll learn about [named arguments](../named-arguments), which 
 we often use to make instantiation expressions more readable, especially
@@ -555,11 +576,8 @@ when the class has more than two parameters:
     print(origin.description);
     print(coord.description);
 -->
-<!-- cat-id: polar -->
-<!-- cat: void m(Float r, Float theta) { -->
     Polar origin = Polar { angle = 0.0; radius = 0.0; label = "origin"; };
     Polar coord = Polar { radius = r; angle = theta; };
-<!-- cat: } -->
 
 Finally, it's worth noting that very many uses cases for overloading 
 in Java involve the use of primitive types, which we can't abstract 
@@ -581,6 +599,15 @@ give the class one or more [named constructors][]. We'll learn about
 constructors much later in this tour, because they're only rarely used.
 
 [named constructors]: ../initialization/#constructors
+
+### Tip: overloading when compiling for the JVM
+
+Finally, the Ceylon compiler actually _does_ allow you to [declare an
+overloaded method or constructor][overloading] when compiling a class 
+that is explicitly marked `native("jvm")`. This feature is provided to
+ease interoperation with native Java code.
+
+[overloading]: ../interop/#overloading_methods_and_constructors
 
 ## There's more...
 

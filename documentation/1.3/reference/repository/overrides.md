@@ -75,8 +75,8 @@ It only makes all transitive dependencies visible to _Maven modules themselves_.
 
 ## Overrides file syntax
 
-The overrides file must be a valid XML file named `overrides.xml` or `maven-overrides.xml` 
-(the name is not significant).
+The overrides file must be an XML file named `overrides.xml` or `maven-overrides.xml` 
+(the name is not significant), valid according to the [overrides schema][schema].
 
 For example:
 
@@ -117,25 +117,40 @@ For example:
         </artifact>
     </overrides>
 
-Most `ceylon` commands accept the `--overrides` argument to specify this file.
+Most `ceylon` commands accept the `--overrides` (or `-O`) argument to specify this file.
+
+<!--lang: bash-->
+    ceylon compile --overrides=overrides.xml
 
 ### Artifact coordinates or module names
 
-Every element that works on modules accepts the following XML attributes:
+Every element that works on modules accepts the expects XML attributes that identify 
+the module or Maven artifact.
 
-- `groupId`: for Maven artifact/group pairs (the `artifactId` is also required then)
-- `artifactId`: for Maven artifact/group pairs (the `groupId` is also required then)
-- `module`: for Ceylon module names
-- `version`: an optional artifact/module version which will match every version if missing
+For a Ceylon module override:
+
+- `module` specifies the Ceylon module name
+- `version` optionally specifies the module version
+
+For a Maven module override:
+
+- `groupId` specifies the Maven group id
+- `artifactId` specifies the Maven artifact id
+- `classifier` optionally specifies a Maven classifier
+
+If `version` is missing, the override will match all versions of the module or Maven 
+artifact.
+
+[coords]: #artifact_coordinates_or_module_names
 
 ### Defining constants
 
-You define constants with the `define` element:
+Constants may be defined using the `define` element:
 
 <!--lang: xml -->
     <define name="version" value="2.0.10"/>
 
-And you use them in any subsequent XML attribute with the `${constantName}` syntax:
+A constant may be used in any subsequent XML attribute with the `${constantName}` syntax:
 
 <!--lang: xml -->
     <remove module="com.foo.bar" version="${version}"/>
@@ -147,7 +162,7 @@ You can remove a module entirely from every import:
 <!--lang: xml -->
     <remove module="com.foo.bar"/>
 
-This element accepts the common [Artifact coordinates or module names](#artifact_coordinates_or_module_names) attributes.
+This element accepts the common [module coordinate attributes][coords].
 
 ### Adding a module root
 
@@ -158,7 +173,7 @@ run-time.
 <!--lang: xml -->
      <add groupId="com.fasterxml.jackson.dataformat"  artifactId="jackson-dataformat-xml" version="2.6.5"/>
 
-This element accepts the common [Artifact coordinates or module names](#artifact_coordinates_or_module_names) attributes.
+This element accepts the common [module coordinate attributes][coords].
 
 ### Overriding a module version globally
 
@@ -167,9 +182,7 @@ You can replace every import of a given module to use a specific version:
 <!--lang: xml -->
     <set module="com.foo.bar" version="2"/>
 
-This element accepts the common 
-[Artifact coordinates or module names](#artifact_coordinates_or_module_names) 
-attributes.
+This element accepts the common [module coordinate attributes][coords].
 
 ### Replacing a module globally
 
@@ -180,9 +193,7 @@ You can replace every import of a given module to use another module:
         <with module="com.foo.gee" version="3"/>
     </replace>
 
-These elements accept the common 
-[Artifact coordinates or module names](#artifact_coordinates_or_module_names) 
-attributes.
+These elements accept the common [module coordinate attributes][coords].
 
 ### Overriding a single module's dependencies
 
@@ -206,9 +217,7 @@ Or for Maven artifacts:
         <share groupId="com.foo" artifactId="dep"/>
     </artifact>
 
-These elements accept the common 
-[Artifact coordinates or module names](#artifact_coordinates_or_module_names) 
-attributes.
+These elements accept the common [module coordinate attributes][coords].
 
 ### Overriding a single module's classifier
 
@@ -218,6 +227,25 @@ Some Maven modules require a custom classifier to be resolved properly:
     <artifact groupId="org.wildfly.swarm" artifactId="swarmtool">
         <!-- This will download the "-standalone" jar instead of the normal jar --> 
         <classifier>standalone</classifier>
+    </artifact>
+
+### Overriding a single module's version
+
+As an alternative to using `<set/>` to override a module version globally,
+you can override the version of a specific version of a module:
+
+<!--lang: xml -->
+    <module module="com.foo.bar" version="2">
+        <!-- Use version 3 instead of 2 --> 
+        <version>3</version>
+    </module>
+
+Or of a Maven artifact:
+
+<!--lang: xml -->
+    <artifact groupId="com.foo" artifactId="bar" version="2">
+        <!-- Use version 3 instead of 2 --> 
+        <version>3</version>
     </artifact>
 
 ### Filtering a single module's contents

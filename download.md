@@ -9,12 +9,12 @@ change_frequency: weekly
 ---
 <div id="banner"><div id="text">Download</div></div>
 
-[1.3.2]: /blog/2017/03/03/ceylon-1-3-2/
+[1.3.3]: /blog/2017/08/21/ceylon-1-3-3/
 
 # #{page.title}
 
-[Ceylon 1.3.2][1.3.2] _&ldquo;Smile Tolerantly&rdquo;_ is 
-now available for download! This is the 1.3.2 release of the 
+[Ceylon 1.3.3][1.3.3] _&ldquo;Contents May Differ&rdquo;_ is 
+now available for download! This is the 1.3.3 release of the 
 language, command line tools, and IDEs.
 
 ## Ceylon IDE
@@ -138,7 +138,7 @@ command line tools.
 Instructions for getting started are contained in the file
 `README.md` in the root directory of the distribution, or
 [right here in GitHub][ceylon-dist readme]. To know what's 
-precisely in the release, read our [announcement][1.3.2].
+precisely in the release, read our [announcement][1.3.3].
 
 [ceylon-dist readme]: https://github.com/ceylon/ceylon/blob/master/dist/README.md
 
@@ -213,7 +213,7 @@ sudo apt-get update</code></pre>
 Once that is done, you can install any version of Ceylon with <code>apt-get</code>:
 </p>
 
-<pre data-language="shell"><code class="rainbow">sudo apt-get install ceylon-1.3.2</code></pre>
+<pre data-language="shell"><code class="rainbow">sudo apt-get install ceylon-1.3.3</code></pre>
   </div>
   <div role="tabpanel" class="tab-pane fade" id="fedora">
 <p>
@@ -234,9 +234,9 @@ Once that is done, you can install any version of Ceylon with <code>yum</code> (
 </p>
 
 <pre data-language="shell"><code class="rainbow"># If you're using yum:
-sudo yum install ceylon-1.3.2
+sudo yum install ceylon-1.3.3
 # If you're using dnf:
-sudo dnf install ceylon-1.3.2</code></pre>
+sudo dnf install ceylon-1.3.3</code></pre>
   </div>
 
   <div role="tabpanel" class="tab-pane fade" id="arch">
@@ -246,7 +246,7 @@ pacaur -S ceylon
 git clone https://aur.archlinux.org/ceylon
 cd ceylon
 makepkg
-sudo pacman -U ceylon-1.3.2-*.pkg*</code></pre>
+sudo pacman -U ceylon-1.3.3-*.pkg*</code></pre>
   </div>
 
 </div>

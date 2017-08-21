@@ -377,11 +377,9 @@ Explicitly converting between [`String`][] and Java's
   string, and
 - one of the constructors of `java.lang.String` accepts a
   Ceylon `String`, or, alternatively,
-- the function [`javaString`][] in the module 
-  [`ceylon.interop.java`][] converts a Ceylon string to a 
-  Java string without requiring an object instantiation.
-
-[`javaString`]: #{site.urls.apidoc_current_interop_java}/index.html#javaString
+- the function `Types.nativeString()` in the package `java.lang`
+  converts a Ceylon string to a Java string without 
+  requiring an object instantiation.
 
 ### Tip: converting Java primitive wrapper types
 
@@ -858,6 +856,43 @@ This code is essentially the same as what you would do in Java:
 Just like in Java, the above code produces a warning, since the
 type arguments in the assertion cannot be checked at runtime.
 
+## Overloading methods and constructors
+
+When a class or interface is declared `native("jvm")`, it may 
+declare overloaded methods and constructors. Both default
+constructors and named constructors may be overloaded.
+
+An overloaded method or constructor must be marked with the
+annotation `overloaded`, which is considered to belong to the
+package `java.lang` in the module `java.base`.
+
+<!-- try: -->
+    import java.lang { overloaded }
+   
+    native("jvm")
+    class Native {
+        variable Integer int;
+        shared overloaded new () {
+            int = 0;
+        }
+        shared overloaded new (String string) {
+            int = parseInteger(string);
+        }
+        shared overloaded new (Integer int) {
+            this.int = int;
+        }
+        shared overloaded set(String string) {
+            int = parseInteger(string);
+        }
+        shared overloaded set(Integer int) {
+            this.int = int;
+        }
+        shared Integer get() => int;
+    }
+
+This is especially useful when implementing a Java interface 
+that declares an overloaded method.
+
 ## Inheriting Java types and refining Java methods
 
 A Ceylon class may extend a Java class and/or implement Java
@@ -1155,16 +1190,39 @@ for that.
 
 ## Utility functions and classes
 
+The class `Types`, which is considered to belong to the package
+`java.lang` in the module `java.base` offers some extremely useful
+static utility methods. For example, `Types.nativeString()` 
+converts Ceylon strings to `java.lang.String`s and `Types.charArray()`
+converts Ceylon strings into Java `char[]` arrays.
+
 In the module [`ceylon.interop.java`][] you'll find a suite 
 of useful utility functions and classes for Java interoperation. 
 For example, there are classes that adapt between Ceylon 
 collection types and Java collection types.
 
+### Tip: getting a `java.util.Class`
+
+An especially useful function is `Types.classForType`, which 
+obtains an instance of `java.util.Class` for a given type.
+
+<!-- try: -->
+    import java.lang { 
+        JClass=Class, 
+        Types { classForType } 
+    }
+    
+    JClass<Integer> jc = classForType<Integer>();
+    print(jc.protectionDomain);
+
+The functions `Types.classForInstance`, `Types.classForModel`, and 
+`Types.classForDeclaration` are also useful.
+
 ### Tip: converting between `Iterable`s
 
-An especially useful adaptor is [`CeylonIterable`][], which 
-lets you apply any of the usual operations of a Ceylon 
-[stream][] to a Java `Iterable`.
+Another useful adaptor is [`CeylonIterable`][], which lets 
+you apply any of the usual operations of a Ceylon [stream][] 
+to a Java `Iterable`.
 
 <!-- try: -->
     import java.util { JList=List, JArrayList=ArrayList }
@@ -1190,25 +1248,6 @@ Ceylon type.
 [`CeylonIterable`]: #{site.urls.apidoc_current_interop_java}/CeylonIterable.type.html
 [`CeylonList`]: #{site.urls.apidoc_current_interop_java}/CeylonList.type.html
 [stream]: #{site.urls.apidoc_1_3}/Iterable.type.html
-
-### Tip: getting a `java.util.Class`
-
-Another especially useful function is [`javaClass`][], which 
-obtains an instance of `java.util.Class` for a given type.
-
-<!-- try: -->
-    import ceylon.interop.java { javaClass }
-    import java.lang { JClass=Class }
-    
-    JClass<Integer> jc = javaClass<Integer>();
-    print(jc.protectionDomain);
-
-The functions [`javaClassFromInstance`][] and 
-[`javaClassFromDeclaration`][] are also useful.
-
-[`javaClass`]: #{site.urls.apidoc_current_interop_java}/index.html#javaClass
-[`javaClassFromInstance`]: #{site.urls.apidoc_current_interop_java}/index.html#javaClassFromInstance
-[`javaClassFromDeclaration`]: #{site.urls.apidoc_current_interop_java}/index.html#javaClassFromDeclaration
 
 ## Additional support for Java interoperation
 
