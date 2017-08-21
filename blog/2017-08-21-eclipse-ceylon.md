@@ -1,6 +1,6 @@
 ---
 title: Ceylon to move to the Eclipse Foundation
-author: St&#233;phane &#201;pardaud & Gavin King
+author: St&#233;phane &#201;pardaud &amp; Gavin King
 layout: blog
 unique_id: blogpage
 tab: blog
