@@ -24,7 +24,7 @@ of Red Hat. (Full disclosure: we ourselves are employed by Red Hat.)
 
 The Red Hat brand is a synonym for open-source, quality, and community trust. But we've 
 also had a growing fear that the strong association with just one company may have been 
-holding back our community. We've always seen this project as "nuetral ground", not as 
+holding back our community. We've always seen this project as "neutral ground", not as 
 a vehicle for the business goals of one company, but we're not sure if the project is 
 perceived that way from outside. 
 
