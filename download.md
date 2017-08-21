@@ -29,7 +29,7 @@ language, command line tools, and IDEs.
         </a>
         </td>
         <td><a href="/documentation/current/ide/eclipse">Ceylon IDE for Eclipse</a></td>
-        <td>Eclipse Luna/Mars/Neon</td>
+        <td>Eclipse Oxygen</td>
         <td>
         <a href="/documentation/current/ide/eclipse/install" 
            title='Install the IDE'
