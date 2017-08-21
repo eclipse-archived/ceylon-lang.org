@@ -33,10 +33,10 @@ annotation.
 
 <!-- try: -->
     native ("jvm")
-    module ceylon.formatter "1.3.1" {
+    module ceylon.formatter "1.3.3" {
         shared import java.base "7";
-        shared import com.redhat.ceylon.typechecker "1.3.1";
-        import ceylon.collection "1.3.1";
+        shared import com.redhat.ceylon.typechecker "1.3.3";
+        import ceylon.collection "1.3.3";
         ...
     }
 
@@ -46,10 +46,10 @@ statements that declare dependencies on native Java `jar`
 archives.
 
 <!-- try: -->
-    module ceylon.formatter "1.3.1" {
+    module ceylon.formatter "1.3.3" {
         native ("jvm") shared import java.base "7";
-        native ("jvm") shared import com.redhat.ceylon.typechecker "1.3.1";
-        import ceylon.collection "1.3.1";
+        native ("jvm") shared import com.redhat.ceylon.typechecker "1.3.3";
+        import ceylon.collection "1.3.3";
         ...
     }
 
