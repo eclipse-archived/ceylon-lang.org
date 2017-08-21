@@ -55,6 +55,7 @@ never copy and paste `sudo` commands!!! So read them carefully and type them by 
   -  $ sudo cp -r ceylon-1.2.1/doc/en/spec/{html,html_single,shared,pdf} /var/www/ceylonlang/documentation/1.2/spec/
   -  $ sudo chown -R webhook. /var/www/ceylonlang/documentation/1.2/spec
   -  $ sudo mv /var/www/ceylonlang/documentation/1.2/spec/pdf/Ceylon* /var/www/ceylonlang/documentation/1.2/spec/pdf/ceylon-language-specification.pdf
+  -  dbtoepub ~/ceylon/typechecker/en/master.xml -o ~/ceylon-lang.org/documentation/1.3/spec/ceylon-language-specification-1.3.3
 6. Put the new tooldocs
   -  $ sudo rm -rf /var/www/ceylonlang/documentation/1.2/reference/tool/ceylon/subcommands
   -  $ sudo cp -r ceylon-1.2.1/doc/en/toolset /var/www/ceylonlang/documentation/1.2/reference/tool/ceylon/subcommands
