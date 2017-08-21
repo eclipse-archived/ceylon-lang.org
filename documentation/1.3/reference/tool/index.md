@@ -46,5 +46,5 @@ dependencies to Java libraries.
 
 ### Maven
 
-There is also a [Maven plugin](https://github.com/vietj/ceylon-maven-plugin)
+There is also a [Maven plugin](https://github.com/ceylon/ceylon-maven-plugin)
 for Ceylon. You can learn about it [here](../interoperability/maven).
