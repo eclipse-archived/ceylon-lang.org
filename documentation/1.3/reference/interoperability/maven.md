@@ -24,7 +24,7 @@ lines to your `pom.xml`:
         <plugin>
           <groupId>org.ceylon-lang</groupId>
           <artifactId>ceylon-maven-plugin</artifactId>
-          <version>1.3.2</version>
+          <version>1.3.3</version>
           <configuration>
             <!-- 
              This is required if you intend to have Java modules that depend
@@ -70,7 +70,7 @@ For example, the following Ceylon module:
     module com.foo.bar
      maven:"my-group:my-artifact" 
      "1.2"{
-     import ceylon.collection "1.3.2";
+     import ceylon.collection "1.3.3";
     } 
 
 Should be declared like this in your `pom.xml`:
@@ -89,12 +89,12 @@ Should be declared like this in your `pom.xml`:
         <dependency>
           <groupId>org.ceylon-lang</groupId>
           <artifactId>ceylon.collection</artifactId>
-          <version>1.3.2</version>
+          <version>1.3.3</version>
         </dependency>
         <dependency>
           <groupId>org.ceylon-lang</groupId>
           <artifactId>ceylon.language</artifactId>
-          <version>1.3.2</version>
+          <version>1.3.3</version>
         </dependency>
       </dependencies>
       <build>
@@ -102,7 +102,7 @@ Should be declared like this in your `pom.xml`:
           <plugin>
             <groupId>org.ceylon-lang</groupId>
             <artifactId>ceylon-maven-plugin</artifactId>
-            <version>1.3.2</version>
+            <version>1.3.3</version>
             <configuration>
               <explode>true</explode>
             </configuration>
