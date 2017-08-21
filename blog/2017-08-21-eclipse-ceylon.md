@@ -10,7 +10,7 @@ tags: [news]
 <center>
 <p>
 <a href="https://projects.eclipse.org/proposals/eclipse-ceylon" title="Eclipse Ceylon">
-<img src="/images/eclipse-426x100.png" width="80%"/>
+<img src="/images/ceylon-eclipse.png" width="80%"/>
 </a>
 </p>
 </center>
