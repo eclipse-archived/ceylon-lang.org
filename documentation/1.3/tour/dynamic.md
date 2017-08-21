@@ -84,7 +84,7 @@ Ceylon platform modules.
 [`StringBuilder`][] is a great starting point.
 
 [native reference]: /documentation/reference/interoperability/native/
-[`StringBuilder`]: https://modules.ceylon-lang.org/repo/1/ceylon/language/1.3.1/module-doc/api/StringBuilder.ceylon.html
+[`StringBuilder`]: https://modules.ceylon-lang.org/repo/1/ceylon/language/1.3.3/module-doc/api/StringBuilder.ceylon.html
 
 ## Dynamic typing
 
