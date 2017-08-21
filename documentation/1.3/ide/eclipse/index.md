@@ -37,8 +37,8 @@ You can install Ceylon IDE for Eclipse (which includes the Ceylon compiler) eith
 
 * from our [Eclipse plugin update site](install), or 
 * from Eclipse Marketplace by dragging and dropping this button into 
-  a running Eclipse Indigo workspace:
-  <a href='http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=185799' title='Drag and drop into a running Eclipse Indigo workspace to install Ceylon IDE for Eclipse' style="display:block;text-align:center;font-weight:bold;text-decoration:none"> 
+  a running Eclipse Oxygen workspace:
+  <a href='http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=185799' title='Drag and drop into a running Eclipse Oxygen workspace to install Ceylon IDE for Eclipse' style="display:block;text-align:center;font-weight:bold;text-decoration:none"> 
   <img src='http://marketplace.eclipse.org/misc/installbutton.png'/>
   <br/>Ceylon IDE for Eclipse 
   </a>
