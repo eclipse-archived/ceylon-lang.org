@@ -25,9 +25,8 @@ what the IDE provides is to [install it](install).
 
 ## Running the IDE
 
-You'll need a clean install of [Eclipse 4.6 Neon][eclipse],
-[Eclipse 4.5 Mars][eclipse] or of 
-[Eclipse 4.4 Luna][eclipse] running on Java 7 or 8. 
+You'll need a clean install of [Eclipse 4.7 Oxygen][eclipse]
+running on Java 7 or 8. 
 
 Install Ceylon IDE for Eclipse (which includes the Ceylon compiler) from our 
 [Eclipse plugin update site](install).
