@@ -232,13 +232,13 @@ If you have two cases which aren't disjoint, for example, `Printable` and
 <!-- try-post:
     
     interface Printable {
-        shared String text;
+        shared formal String text;
     }
     interface Named {
-        shared String name;
+        shared formal String name;
     }
 -->
-    void print(Anything val) {
+    void print(Object val) {
         switch (val)
         case (is Printable) { print(val.text); }
         else case (is Named) { print(val.name); }
