@@ -25,13 +25,20 @@ The general form of the `switch` statement is
     case ( /* case */) {
         /* case block */
     }
+    else case ( /* case */) {
+        /* case block */
+    }
     else {
         /* else block */
     }
     /* code after switch statement */
 
-There can be one or more *disjoint* `case` clauses. The `else` clause is required 
-if (and only if) the cases are not [*exhaustive*](#exhaustivity_and_else).
+There must be one or more *disjoint* `case` clauses. There may optionally
+be one or more non-disjoint `else case` clauses. There may be at most one
+`else` clause.
+
+The `else` clause is required if (and only if) the cases are not 
+[*exhaustive*](#exhaustivity_and_else).
 
 ## Description
 
