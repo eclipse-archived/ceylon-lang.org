@@ -224,6 +224,27 @@ Since `String`, `Integer`, and `Float` are disjoint types, the above `switch`
 statement is legal. If a union type is formed from types which aren't disjoint,
 those types can't be used as distinct `case`s. 
 
+### Tip: cases which aren't disjoint
+
+If you have two cases which aren't disjoint, for example, `Printable` and
+`Named` in the example below, you can use an `else case`.
+
+<!-- try-post:
+    
+    interface Printable {
+        shared String text;
+    }
+    interface Named {
+        shared String name;
+    }
+-->
+    void print(Anything val) {
+        switch (val)
+        case (is Printable) { print(val.text); }
+        else case (is Named) { print(val.name); }
+        else { print(val.string); }
+    }
+
 ## Enumerated types
 
 Sometimes it's useful to be able to do the same kind of thing with the 
