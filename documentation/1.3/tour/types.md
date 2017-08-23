@@ -245,6 +245,9 @@ If you have two cases which aren't disjoint, for example, `Printable` and
         else { print(val.string); }
     }
 
+The regular `case` before the `else case` will be executed in preference to the
+`else case`, whenever they both match.
+
 ## Enumerated types
 
 Sometimes it's useful to be able to do the same kind of thing with the 
