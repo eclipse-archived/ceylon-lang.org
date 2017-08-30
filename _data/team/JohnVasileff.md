@@ -19,8 +19,10 @@ marketers. MarketingCentral was acquired by Unica in 2007,
 and its core product is available today as IBM Marketing 
 Operations OnDemand.
 
-More recently, John has become somewhat obsessed developing 
-with and contributing to the Ceylon language. He believes 
-Ceylon is perhaps the most exciting new programming language 
-available, possessing the rare combination of being 
-incredibly advanced, easy to use, and easy to understand.
+More recently, John has become a huge fan of Ceylon and
+enthusiastic contributor to the Ceylon project. He created
+the (unofficial) Dart backend and the VSCode extension for
+the Dart and Javascript backends, wrote the Whole, Random,
+and TOML SDK modules, and has contributed numerous patches
+and bug reports for the type checker and other parts of the
+distribution.
