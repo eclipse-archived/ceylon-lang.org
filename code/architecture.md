@@ -215,7 +215,7 @@ the model from precompiled Ceylon code in a module archive.
 
 ## Javascript backend
 
-There is another "half-compiler" (in the compiler-js directory of the repository)
+There is another "half-compiler" (in the `compiler-js` directory of the repository)
 that uses the typechecker's syntax
 tree to generate Javascript code. This, along with a full implementation
 of the language module done in Javascript, can be used to transform
