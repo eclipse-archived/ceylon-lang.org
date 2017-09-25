@@ -26,8 +26,8 @@ understand the Ceylon compiler.
 
 ## Typechecker
 
-What we call the *typechecker*, which is found in the `ceylon-spec` 
-repository, is actually responsible for much more than just
+What we call the *typechecker*, which is found in the `typechecker`
+directory of the repository, is actually responsible for much more than just
 typechecking. It includes:
 
 * an ANTLR-based lexer/parser,
@@ -87,7 +87,7 @@ the syntax tree.
 ## Compiler
 
 Thus, the thing we call the *compiler*, which is found in the 
-`ceylon-compiler` repository, is actually just half of the 
+`compiler-java` directory of the repository, is actually just half of the 
 compiler. This "compiler" actually calls the typechecker when 
 it needs the syntax tree for a compilation unit.
 
@@ -108,7 +108,8 @@ the Ceylon compiler.
 
 ## Launcher and module runtime
 
-The Ceylon module runtime is based on [JBoss Modules][jbm]. 
+The Ceylon module runtime (in the `runtime` directory of the repository)
+is based on [JBoss Modules][jbm]. 
 The Ceylon launcher simply starts `java` and invokes the module
 runtime. JBoss Modules bootstraps via a local repository, which 
 must contain the following dependencies:
@@ -152,7 +153,8 @@ where default version is `0.0.0` if missing.
 
 ## Documentation compiler
 
-The documentation compiler takes as its input the model produced 
+The documentation compiler (in the `compiler-java` directory of the
+repository, like the compiler) takes as its input the model produced 
 by the typechecker. It's job is to produce HTML documentation.
 There is currently no support for alternate output formats.
 
@@ -187,7 +189,7 @@ incremental compilation.
 
 ## Language module
 
-The language module is found in the `ceylon.language` repository.
+The language module is found in the `language` directory of the repository.
 The language module is special, because it contains types that
 are used by the compiler to compile other code. Therefore, the 
 language module itself can't be compiled - there is a 
@@ -213,7 +215,8 @@ the model from precompiled Ceylon code in a module archive.
 
 ## Javascript backend
 
-There is another "half-compiler" that uses the typechecker's syntax
+There is another "half-compiler" (in the `compiler-js` directory of the repository)
+that uses the typechecker's syntax
 tree to generate Javascript code. This, along with a full implementation
 of the language module done in Javascript, can be used to transform
 Ceylon source code into Javascript code, which can be run in node.js
