@@ -583,7 +583,7 @@ Here, `DefaultManager` is declared as a service provider for
 the service type `Manager`: 
 
 <!-- try: -->
-     service (`Manager`)
+     service (`interface Manager`)
      shared class DefaultManager() satisfies Manager {}
  
 Typically, the service type, service provider, and the client
