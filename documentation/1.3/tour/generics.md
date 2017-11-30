@@ -170,7 +170,7 @@ Where the pointy brackets act to disable type inference.
 
 ## Covariance and contravariance
 
-Ceylon eliminates, [mostly](../interop/#wildcards), one of the bits of Java 
+Ceylon eliminates, [mostly](../interop/#wildcards_and_raw_types_are_represented_using_use_site_variance), one of the bits of Java 
 generics that's hardest to get your head around: wildcard types. Wildcard 
 types were Java's solution to the problem of *covariance* in a generic type 
 system. Let's meet the idea of covariance, and then see how covariance works 
