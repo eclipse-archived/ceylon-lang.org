@@ -1,0 +1,57 @@
+---
+layout: base
+tab: to-be-defined
+priority: 0.75
+---
+.header-bar
+  //cannot use a partial as it loses the page.tab context :(
+  #header
+    %a#header-logo{:href=>'/'}
+      %h1
+        Ceylon
+    #header-tagline
+      %p
+        Say more, more clearly
+    #menu
+      %ul#menu-core
+        - idname = page.tab == "home" ? "selected" : "notselected"
+        %li{ :id=>"#{idname}" }
+          %a{ :href=>'/' } HOME
+        - idname = page.tab == "documentation" ? "selected" : "notselected"
+        %li{ :id=>"#{idname}" }
+          %a{ :href=>'/documentation/current' } LEARN
+        - idname = page.tab == "download" ? "selected" : "notselected"
+        %li{ :id=>"#{idname}" }
+          %a{ :href=>'/download' } DOWNLOAD
+        - idname = page.tab == "community" ? "selected" : "notselected"
+        %li{ :id=>"#{idname}" }
+          %a{ :href=>'/community' } COMMUNITY
+        - idname = page.tab == "code" ? "selected" : "notselected"
+        %li{ :id=>"#{idname}" }
+          %a{ :href=>'/code' } CODE
+        - idname = page.tab == "blog" ? "selected" : "notselected"
+        %li{ :id=>"#{idname}" }
+          %a{ :href=>'/blog' } BLOG
+#banner
+  #elephant
+    &nbsp;
+  #text
+    Static types that just work.
+  #code
+    <!-- lang: none -->
+    <!--try:-->
+    %pre{ 'data-language'=>'ceylon' }
+      %code
+        :preserve
+          shared void run() => newServer {
+                  Endpoint {
+                      path = startsWith("/");
+                      acceptMethod = { get };
+                      (request, response) =>
+                          response.writeString("Say more, more clearly");
+                  }
+              }.start();
+#primary-content
+  ~ content
+.footer-bar
+  = partial( 'footer.html.haml' )

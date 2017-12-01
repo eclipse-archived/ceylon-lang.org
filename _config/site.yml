@@ -1,0 +1,15 @@
+title: Ceylon
+interpolate: true
+
+haml|html:
+  :format: :xhtml
+
+profiles:
+  development:
+    disqus_developer: true
+    dev: true
+  production:
+    base_url: https://ceylon-lang.org/
+google_analytics: 
+  account: UA-24748553-1
+disqus: ceylonlang

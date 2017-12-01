@@ -1,0 +1,51 @@
+// Here is where you can define your constants for your application and to configure the blueprint framework.
+// Feel free to delete these if you want keep the defaults:
+
+$blueprint-grid-columns: 24;
+$blueprint-container-size: 950px;
+$blueprint-grid-margin: 10px;
+
+// Use this to calculate the width based on the total width.
+// Or you can set $blueprint-grid-width to a fixed value and unset $blueprint-container-size -- it will be calculated for you.
+$blueprint-grid-width: ($blueprint-container-size + $blueprint-grid-margin) / $blueprint-grid-columns - $blueprint-grid-margin;
+
+// 4 main colors that determine palette
+
+$header_color: #D0FFAE;
+$menu_color: #00A511;
+$menu_selected_color:#89FD39;
+$menu_hovered_color:#89FD39;
+$ceylon_logo_color:#000000;
+$h1_text_color:#456b6e;
+$h3plus_text_color:#8d5e0b;
+
+$color_dark: #4a5d75;
+$color_light: #656565;
+$page_title_color: #897F64;
+$page_background_color: #FBE9BB;
+
+$bar_background_color: #dddddf;
+
+$link_color: $color_dark;
+$link_visited_color: $color_dark;
+$link_hover_color: $color_dark + #222;
+
+$top_nav_border_color: $color_light;
+
+$code_border_color: #999;
+
+$post_nav_color: #999;
+$post_border_color: #CCC;
+$post_date_color: #555;
+$post_comments_border_color: #DDD;
+$post_tail_background_color: #EEE;
+$post_tail_border_color: #BBB;
+
+$pagination_border_color: #999;
+
+$downloads_th_border_color: black;
+$downloads_td_border_color: #777;
+
+$tcTable_border_color: #777;
+
+$team_account_color: #999;

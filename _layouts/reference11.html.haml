@@ -1,0 +1,43 @@
+---
+layout: default
+tab: to-be-defined
+toc: true
+---
+#sidebar
+  .point-dark-top 
+    &nbsp;
+  .sidebar-dark
+    :markdown  
+      ### [Quick introduction](/documentation/1.1/introduction)
+      ### [Tour of Ceylon](/documentation/1.1/tour)
+      ### [Ceylon Walkthrough](/documentation/1.1/walkthrough)
+      <!--  ### [Tutorial Videos](/documentation/1.1/videos) -->
+      ### [Language specification](/documentation/1.1/spec)
+      ### [Reference](/documentation/1.1/reference)
+      #{page.table_of_contents}      
+      ### [Language module API](#{site.urls.apidoc_1_1}/index.html)  
+      ### [FAQs](/documentation/1.1/faq)
+      ### [Roadmap](/documentation/1.1/roadmap)
+      ### [Ceylon IDE](/documentation/1.1/ide)
+  .point-dark-end 
+    &nbsp;
+#banner
+  #text
+    Reference (1.1)
+#core-page
+  %h4 
+    Note: information on this page refers to Ceylon 1.1, not to the 
+    %a{:href=>'/documentation/current'} current release.
+  - if ["Milestone 1", "Milestone 2", "Milestone 3", "Milestone 4", "Milestone 4"].index(page.milestone)
+    .milestone.check
+      :markdown
+        [#{page.milestone}](/documentation/1.1/roadmap/##{page.milestone.anchorize({:convert_spaces=>true})}_done "Support for this feature was introduced in #{page.milestone}")
+  - if ["Milestone 6"].index(page.milestone)
+    .milestone.future
+      :markdown
+        [Ceylon 1.1](/documentation/1.1/roadmap/#milestone_6_ceylon_10 "Support for this feature will be introduced in Ceylon 1.1")
+  - if ["Later"].index(page.milestone)
+    .milestone.future
+      :markdown
+        [Not yet implemented](/documentation/1.1/roadmap/#ceylon_11_or_later "Support for this feature will be introduced in Ceylon 1.1 or later")
+  ~ content

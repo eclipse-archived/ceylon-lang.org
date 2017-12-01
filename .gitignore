@@ -1,0 +1,23 @@
+#Ignored files
+
+#OS
+.DS_Store
+
+#Awestruct
+/.sass-cache
+/_site
+/_tmp
+/.awestruct
+/Gemfile.lock
+/.bin
+/.bundle
+
+#Editor
+*.tmproj
+
+#IDE
+/.idea
+/*.iml
+
+#RVM
+/.rvmrc

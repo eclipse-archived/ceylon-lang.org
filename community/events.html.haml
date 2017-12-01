@@ -1,0 +1,37 @@
+---
+title: Events where we talk about Ceylon  
+layout: community
+unique_id: communitypage
+tab: community
+author: Emmanuel Bernard
+---
+#upcoming-talks
+  - events = site.events.values
+  - now = Time.now
+  - a_few_days_ago = now - 4 * 24 * 60 * 60
+  - events = events.find_all{|item| item.effective_date.to_s >= a_few_days_ago.strftime("%Y%m%d")}
+  - events = events.sort{|l,r| l.effective_date <=> r.effective_date}
+  %h1 #{page.title}
+  - for event in events
+    .item{:id=>event.effective_date}
+      .event_details
+        .event_date
+          &= event.event_date
+        .event_location
+          #{event.location}
+      %h2
+        %a{:href=>event.event_url}
+          = event.event
+      - if ( event.event_logo_url )
+        %a{:href=>event.event_url}
+          %img.event_logo{:src=>event.event_logo_url}
+      %h3
+        &= event.title
+      .details
+        #{event.presentor} will present at #{event.event} in #{event.location}.
+        //.links
+      .details
+        #{event.content}
+        %a{:href=>event.event_url}
+          More about #{event.event}
+

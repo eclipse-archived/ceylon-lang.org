@@ -1,0 +1,35 @@
+!!!5
+-# DO NOT REMOVE the doctype, it's required for IE to render in standards mode
+%html
+  %head
+    %meta{ :'http-equiv'=>'content-type', :content=>'text/html; charset=utf-8' }
+    %title<
+      & #{site.title}: #{page.title}
+    %link{ :rel=>'shortcut icon', :type=>'image/vnd.microsoft.icon', :href=>'/images/favicon.ico' }
+    %link{ :rel=>'publisher', :href=>'https://plus.google.com/102481741611133754149' }
+    %link{ :href=>'/stylesheets/themes/paraiso-dark.css', :rel=>'stylesheet' }
+    %link{ :rel=>'stylesheet', :href=>'/stylesheets/screen.css', :media=>'screen, projection' }
+    %link{ :rel=>'stylesheet', :href=>'/stylesheets/print.css', :media=>'print' }
+    /[if lt IE 8]
+      %link{ :rel=>'stylesheet', :href=>'/stylesheets/ie.css', :media=>'screen, projection' }
+    %link{ :href=>'/blog/blog.atom', :rel=>'alternate', :type=>'application/atom+xml' }
+    %link{ :href=>'//fonts.googleapis.com/css?family=Source+Sans+Pro|PT+Sans|PT+Sans:700|Inconsolata|Inconsolata:700|Arvo', :rel=>'stylesheet', :type=>'text/css' }
+    %link{ :href=>'//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css', :rel=>'stylesheet' }
+    %script{ :src=>'https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js' }
+    %script{ :src=>'/js/jquery-ui-1.8.22.custom.min.js' }
+    %script{ :src=>'/js/common.js' }
+    %script{ :src=>'/js/rainbow.min.js' }
+    %script{ :src=>'/js/language/ceylon.js' }
+    %script{ :src=>'/js/language/java.js' }
+    %script{ :src=>'/js/language/javascript.js' }
+    %script{ :src=>'/js/language/html.js' }
+    %script{ :src=>'/js/language/shell.js' }
+    -# %script{ :src=>"https://sidecar.gitter.im/dist/sidecar.v1.js", :async=>true, :defer=>true }
+    -# :javascript
+    -#   ((window.gitter = {}).chat = {}).options = { room: 'ceylon/user' };
+    = google_analytics_universal
+  %body.bp
+    #container{:class => "#{page.unique_id}"}
+      ~ content
+  = page.disqus_comments_count
+  

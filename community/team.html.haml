@@ -1,0 +1,18 @@
+---
+title: The Ceylon team
+layout: community
+unique_id: communitypage
+tab: community
+author: Emmanuel Bernard
+---
+%h1 #{page.title}
+
+- members = site.team.values.sort_by{|a| [a.level, a.name]}
+- for member in members
+  %h2 #{member.name}
+  .teammember
+    .teammemberphoto
+      %img{:src=>member.photo, :height=>"150px", :width=>"150px"}
+    .teammemberbio
+      #{member.content}
+    

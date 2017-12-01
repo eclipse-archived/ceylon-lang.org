@@ -1,0 +1,122 @@
+---
+title: Team blog
+layout: default
+author: Emmanuel Bernard
+tab: blog
+unique_id: blogpage
+change_frequency: weekly
+priority: 0.75
+---
+
+#sidebar
+  
+  - if not page.blog_tag
+    .point-dark-top
+      &nbsp;
+    .sidebar-dark  
+      - if page.author_for_bio
+        :markdown
+          ### [#{page.author_for_bio}'s Feed](/blog/authors/#{sanitize(page.author_for_bio)}/blog.atom)
+      - else
+        :markdown
+          ### [Feed](/blog/blog.atom)
+    .point-dark-bottom
+      &nbsp;
+  - if page.author_for_bio
+    .point-light-top 
+      &nbsp;
+    - member = site.team.values.detect{|member| member.name == page.author_for_bio}
+    - if member
+      .sidebar-block
+        .expandable
+          %h3 Bio
+          #{member.content}
+    .point-light-bottom
+      &nbsp;
+  .point-light-top 
+    &nbsp;
+  .sidebar-block  
+    %h3 Recent posts
+    #blog-archive
+      - for post in site.posts[0,5] do
+        %h4 
+          %a{:href=>post.url}= post.title
+          %br
+          / Author is put in an array
+          by #{post.author[0]}
+          %br
+          #{post.date.strftime( '%d %B %Y' )}
+    %h3 Tags
+    .tag-cloud
+      = site.posts_tags_cloud
+    %h3 Authors
+    .tag-cloud
+      = site.posts_authors_cloud
+  .point-light-end 
+    &nbsp;
+  %a{ :href=>'/+', :style=>'cursor:pointer;margin-left:auto;margin-right:auto;display:block;text-align:center;padding-top:10px;padding-bottom:0px' }
+    %span{ :style=>'display:inline-block;font-weight:bold;vertical-align:top;margin-right:5px;margin-top:8px;' } Follow Ceylon:
+  %p{ :style=>'cursor:pointer;margin-left:auto;margin-right:auto;margin-top:2px;display:block;text-align:center;padding-top:0px' }
+    %a{ :href=>'/+' }
+      %i{ :class=>'fa fa-google-plus-square fa-2x', :alt=>'Google Plus', :height=>'32', :width=>'32' }
+    %a{ :href=>'http://twitter.com/ceylonlang' }
+      %i{:class=>'fa fa-twitter-square fa-2x', :alt=>'Twitter', :height=>'32', :width=>'32'}
+    %a{ :href=>'https://www.facebook.com/ceylonlang' }
+      %i{:class=>'fa fa-facebook-square fa-2x', :alt=>'Facebook', :height=>'32', :width=>'32'}
+#banner
+  #text
+    Blog
+#core-page
+  - if page.split_title
+    %h1
+      #{page.split_title}
+  - else
+    %h1
+      #{page.title}
+  - for post in page.posts
+    .post
+      %h1.title
+        %a{:href=>post.url}= post.title
+      .byline
+        .author
+          /there is only one author per post but the author splitter adds an array here
+          %a{:href=>post.author[0].primary_page.url} #{post.author[0]}
+        .date
+          #{post.date.strftime( '%d %B %Y' )}
+        .tags
+          - post.tags.each do |tag|
+            %a{:href=>tag.primary_page.url}
+              = tag
+      .body
+        ~ post.content
+      .tail
+        = post.disqus_comments_link
+  = page.posts.links   
+   
+:javascript
+  /* place div.expandable to 
+   * - minHeight by default 
+   * - full size on click
+   * - back to minHeight on second click
+   * with a jQuery animation
+   */
+  var minHeight=150;
+  $(document).ready( function() {
+    $("div.expandable").height(minHeight);     
+    $("div.expandable").click(function(e) 
+      {
+        if( !$(e.target).is("a")) {
+          $this = $(this); 
+          var currentHeight = $this.height();
+          if(currentHeight==minHeight) {
+            $this.css('height', 'auto');
+          }
+          else{
+            $this.css('height', minHeight + 'px');
+          };
+          var height = $this.height();
+          $this.css('height', currentHeight + 'px');
+          $this.animate({'height':height}, 500);
+      }
+    })
+  });

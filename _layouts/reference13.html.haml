@@ -1,0 +1,60 @@
+---
+layout: default
+tab: to-be-defined
+toc: true
+gh_editable: true
+priority: 0.95
+change_frequency: monthly
+---
+#sidebar
+  .point-dark-top 
+    &nbsp;
+  .sidebar-dark
+    :markdown  
+      ### [Quick introduction](/documentation/1.3/introduction)
+      ### [Tour of Ceylon](/documentation/1.3/tour)
+      ### [Ceylon Walkthrough](/documentation/1.3/walkthrough)
+      ### [Examples](/documentation/1.3/examples)
+      <!--  ### [Tutorial Videos](/documentation/1.3/videos) -->
+      ### [Language specification](/documentation/1.3/spec)
+      ### [Reference](/documentation/1.3/reference)
+      ### [Language module API](#{site.urls.apidoc_1_3}/index.html)  
+      ### [FAQs](/documentation/1.3/faq)
+      ### [Roadmap](/documentation/1.3/roadmap)
+      ### [Ceylon IDE for IntelliJ](/documentation/1.3/ide/intellij)
+      ### [Ceylon IDE for Eclipse](/documentation/1.3/ide/eclipse)
+      ### [Vert.x](http://vertx.io/docs/vertx-core/ceylon/)
+  .point-dark-bottom
+    &nbsp;
+  .point-light-top
+  .toc
+    :markdown
+      #{page.table_of_contents}
+  .point-light-end
+#banner
+  #text
+    Reference
+#core-page
+  - page.source_path_rel = Pathname.new(page.source_path).relative_path_from(site.dir)
+  - page.view_source_url = "https://github.com/ceylon/ceylon-lang.org/blob/master/#{page.source_path_rel}"
+  - page.edit_source_url = "https://github.com/ceylon/ceylon-lang.org/edit/master/#{page.source_path_rel}"
+  .gh-edit
+    %a{ :href => page.view_source_url }
+      View source 
+    - if page.gh_editable
+      |
+      %a{ :href => page.edit_source_url}
+        Edit
+  - if ["Milestone 1", "Milestone 2", "Milestone 3", "Milestone 4", "Milestone 4"].index(page.milestone)
+    .milestone.check
+      :markdown
+        [#{page.milestone}](/documentation/1.1/roadmap/##{page.milestone.anchorize({:convert_spaces=>true})}_done "Support for this feature was introduced in #{page.milestone}")
+  - if ["Milestone 6"].index(page.milestone)
+    .milestone.future
+      :markdown
+        [Ceylon 1.1](/documentation/1.1/roadmap/#milestone_6_ceylon_10 "Support for this feature will be introduced in Ceylon 1.1")
+  - if ["Later"].index(page.milestone)
+    .milestone.future
+      :markdown
+        [Not yet implemented](/documentation/1.1/roadmap/#ceylon_11_or_later "Support for this feature will be introduced in Ceylon 1.1 or later")
+  ~ content
