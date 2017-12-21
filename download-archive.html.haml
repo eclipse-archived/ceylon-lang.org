@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Download Previous Ceylon versions
+title: Download Previous Eclipse Ceylon versions
 tab: download
 unique_id: downloadpage
 author: Stef
@@ -324,7 +324,7 @@ author: Stef
  %select{ :onchange => "window.location.hash = this.options[this.selectedIndex].value;" }
   - for release in releases
    %option{ :value => release["version"] }
-    Ceylon #{release["version"]} "#{release["name"]}"
+    Eclipse Ceylon #{release["version"]} "#{release["name"]}"
 
 - for release in releases
  - if release["version"] != latest
@@ -332,7 +332,7 @@ author: Stef
  %i{ :style => "float:right" }
   Released on #{release["date"]}
  %h3{:id => release["version"]}
-  Ceylon #{release["version"]} "#{release["name"]}"
+  Eclipse Ceylon #{release["version"]} "#{release["name"]}"
   - if release["version"] == latest
    (Latest Release)
  %table
@@ -361,6 +361,6 @@ author: Stef
  Looking for nightly builds?
 
 %p
- You can download pre-release builds of Ceylon (distribution, SDK, IDEs) on our
+ You can download pre-release builds of Eclipse Ceylon (distribution, SDK, IDEs) on our
  %a{ :href => "https://ci-ceylon.rhcloud.com/" }
   Continuous Integration server.

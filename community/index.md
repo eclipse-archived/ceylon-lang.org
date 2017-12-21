@@ -7,7 +7,7 @@ author: Emmanuel Bernard
 ---
 # #{page.title}
 
-Ceylon is sponsored and supported by Red Hat. Like other things Red Hat 
+Eclipse Ceylon is an Eclipse project sponsored and supported by Red Hat. Like other things Red Hat 
 sponsors, it's first and foremost an open source community project.
 
 ## Stack Overflow

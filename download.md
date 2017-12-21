@@ -1,5 +1,5 @@
 ---
-title: Download Ceylon
+title: Download Eclipse Ceylon
 layout: default
 tab: download
 unique_id: downloadpage
@@ -13,11 +13,11 @@ change_frequency: weekly
 
 # #{page.title}
 
-[Ceylon 1.3.3][1.3.3] _&ldquo;Contents May Differ&rdquo;_ is 
+[Eclipse Ceylon 1.3.3][1.3.3] _&ldquo;Contents May Differ&rdquo;_ is 
 now available for download! This is the 1.3.3 release of the 
 language, command line tools, and IDEs.
 
-## Ceylon IDE
+## Eclipse Ceylon IDE
 
 <table>
     <tr>
@@ -60,7 +60,7 @@ language, command line tools, and IDEs.
     </tr>
 </table>
 
-After installing, get started with Ceylon 
+After installing, get started with Eclipse Ceylon 
 [in IntelliJ][get-started-intellij] or 
 [in Eclipse][get-started-eclipse].
 

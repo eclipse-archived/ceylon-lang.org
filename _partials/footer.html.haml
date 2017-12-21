@@ -1,17 +1,19 @@
 #footer
   #footer-core
     #sponsor
-      %a{:href=>"http://www.redhat.com", :title=>"Ceylon is sponsored by Red Hat"}<
+      %a{:href=>"http://www.eclipse.org", :title=>"Eclipse Ceylon is an Eclipse Foundation project"}<
+        %img{:src=>"/images/Eclipse2014_RGB.svg", :width=>"150px"}
+      %a{:href=>"http://www.redhat.com", :title=>"Eclipse Ceylon is sponsored by Red Hat"}<
         %img{:src=>"/images/companies/RedHat-white.svg", :width=>"150px"}
       %span
-        Ceylon is sponsored by <a href="http://www.redhat.com">Red Hat</a>.
+        Eclipse Ceylon is sponsored by <a href="http://www.redhat.com">Red Hat</a>.
     #copyright
       :markdown
         Copyright &copy; 2010-#{Time.now.strftime( '%Y' )}, 
         Red Hat, Inc. or third-party contributors &mdash;
-        Ceylon is a trademark of Red Hat, Inc. &mdash; 
-        [Terms of use](http://www.redhat.com/legal/legal_statement.html) &mdash; 
-        [Privacy policy](http://www.redhat.com/legal/privacy_statement.html)
+        Ceylon is a trademark of the [Eclipse Foundation](http://www.eclipse.org) &mdash; 
+        [Terms of use](https://eclipse.org/legal/termsofuse.php) &mdash; 
+        [Privacy policy](https://eclipse.org/legal/privacy.php)
       - if site.dev
         :markdown
           Found an issue? [Help improve the site](/code/website).

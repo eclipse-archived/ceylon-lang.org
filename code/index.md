@@ -1,5 +1,5 @@
 ---
-title: Contribute to Ceylon  
+title: Contribute to Eclipse Ceylon
 layout: code
 tab: code
 unique_id: codepage
@@ -7,7 +7,7 @@ author: Emmanuel Bernard
 ---
 # #{page.title}
 
-We're working hard to make Ceylon awesome. You can help by 
+We're working hard to make Eclipse Ceylon awesome. You can help by 
 trying out the latest release and contributing bug reports or 
 code.
 
