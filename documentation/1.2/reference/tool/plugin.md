@@ -146,7 +146,7 @@ script:
 Plugin files are used when the code you're trying to run is available as a Ceylon module and
 contains at least one class that implements the `com.redhat.ceylon.common.tools.Tool` interface.
 Right now the best way to learn how to write a command using `Tool` is to look at the
-[Ceylon tools](https://github.com/ceylon/ceylon/tree/master/compiler-java/src/com/redhat/ceylon/tools)
+[Ceylon tools](https://github.com/eclipse/ceylon/tree/master/compiler-java/src/com/redhat/ceylon/tools)
 included in the distribution.
 
 Writing the plugin file itself is easier luckily: you just need a simple text file, in the case

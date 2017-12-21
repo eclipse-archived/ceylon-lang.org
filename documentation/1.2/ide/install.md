@@ -36,7 +36,7 @@ Here's what you need to do to install the IDE:
 6. Go to `Help > Welcome to Ceylon` to get started.
 
 [eclipse]: http://www.eclipse.org/downloads/
-[issues]: https://github.com/ceylon/ceylon-ide-eclipse/issues
+[issues]: https://github.com/eclipse/ceylon-ide-eclipse/issues
 
 ## Installing from the development (unstable) update site
 

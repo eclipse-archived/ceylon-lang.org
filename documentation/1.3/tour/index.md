@@ -57,7 +57,7 @@ Instructions for getting started are contained in the file
 `README.md` in the root directory of the distribution, or
 [right here in GitHub][ceylon-dist readme].
 
-[ceylon-dist readme]: https://github.com/ceylon/ceylon/blob/master/dist/README.md 
+[ceylon-dist readme]: https://github.com/eclipse/ceylon/blob/master/dist/README.md 
 
 Now, let's just make sure we can compile and run our own program 
 from the command line and IDE.

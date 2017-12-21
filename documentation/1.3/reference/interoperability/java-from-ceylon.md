@@ -778,7 +778,7 @@ NIO and security
 - `java.compiler`: contains `javax.tools`, `javax.lang.model.**`, `javax.annotation.processing`
 
 There are additional vendor-specific JDK modules, whose module/package-list mappings are
-[defined in the source](https://github.com/ceylon/ceylon/blob/master/model/src/com/redhat/ceylon/model/cmr/package-list.oracle.jdk7).
+[defined in the source](https://github.com/eclipse/ceylon/blob/master/model/src/com/redhat/ceylon/model/cmr/package-list.oracle.jdk7).
 
 ## Obtaining Java `jar` dependencies
 

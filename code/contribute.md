@@ -19,9 +19,9 @@ And now you either set things up for HTTPS access (recommended for most people):
 - Clone the `ceylon` repository:
 
 <!-- lang: bash -->
-    $ git clone https://github.com/ceylon/ceylon.git
+    $ git clone https://github.com/eclipse/ceylon.git
 	
-(If you encounter an issue like "fatal: unable to access 'https://github.com/ceylon/ceylon.git/': 
+(If you encounter an issue like "fatal: unable to access 'https://github.com/eclipse/ceylon.git/': 
 Failed connect to github.com:443; No error", make sure you've set up your proxy as git config, ie: 
 <!-- lang: bash -->
 	$ git config --global http.proxy http://userName:password@proxyServer:port 
@@ -34,7 +34,7 @@ Or you set things up for SSH access (mainly contributors with push access):
 - Clone the `ceylon` repository:
 
 <!-- lang: bash -->
-    $ git clone git@github.com:ceylon/ceylon.git
+    $ git clone git@github.com:eclipse/ceylon.git
 
 After performing one of the two above cloning operations continue with the following:
 
@@ -63,7 +63,7 @@ If that's not the case you'll have to manually update those projects or first st
 
 ## Setting up Eclipse
 
-- Import all projects you find in the `ceylon` folder into Eclipse (see [README.eclipse](https://github.com/ceylon/ceylon/blob/master/README.eclipse) in ceylon-compiler)
+- Import all projects you find in the `ceylon` folder into Eclipse (see [README.eclipse](https://github.com/eclipse/ceylon/blob/master/README.eclipse) in ceylon-compiler)
 - Configure Eclipse's code formatting for the project's minimal [coding style](#coding_style).
 - Set your default `Text file encoding` to `UTF-8` and your default `New text file line delimiter` to `Unix` in your Eclipse preferences (`Window` -> `Preferences` -> `General` -> `Workspace`). Or at least set it in the properties for each of the imported projects (Right-click on the project, select `Properties` then `Resource`).
 - In Eclipse, run the unit tests: `com.redhat.ceylon.compiler.test.ConcurrentTests`
@@ -73,7 +73,7 @@ If that's not the case you'll have to manually update those projects or first st
 If you want to work on any of the SDK modules you simply clone the SDK project and build it like this:
 
 <!-- lang: bash -->
-    $ git clone https://github.com/ceylon/ceylon-sdk.git
+    $ git clone https://github.com/eclipse/ceylon-sdk.git
     $ cd ceylon-sdk
     $ ant clean publish
 
@@ -90,7 +90,7 @@ This will clone the `ceylon-sdk` repository in the parent directory of the `ceyl
 When you have decided on which project you are going to work you'll have to fork it in GitHub.
 For this example we assume you'll be working on `ceylon`.
 
-- Go to the [Ceylon project on GitHub](https://github.com/ceylon) and click on the repository you'll be working on
+- Go to the [Ceylon project on GitHub](https://github.com/eclipse) and click on the repository you'll be working on
 - Click the `Fork` button (in the top left of the page)
 - Now on the main page of your forked repository copy the **SSH** url
 - Go inside the local directory that corresponds with the repository (`ceylon`) and run
@@ -106,11 +106,11 @@ For this example we assume you'll be working on `ceylon`.
 - Add an "upstream" alias for easy remote access:
 
 <!-- lang: bash -->
-    $ git remote add upstream git@github.com:ceylon/ceylon.git
+    $ git remote add upstream git@github.com:eclipse/ceylon.git
 
 ## Typical workflow
 
-1. Check out the [list of issues](https://github.com/ceylon/ceylon/issues) for things to do.
+1. Check out the [list of issues](https://github.com/eclipse/ceylon/issues) for things to do.
     1. Try your luck on issues tagged `beginner` or `ceylondoc`
     1. Don't take on issues tagged `inprogress`
 1. Ask on our ceylon-dev mailing list for what to do.
@@ -176,7 +176,7 @@ first argument. In particular
 ### Parser and Typechecker
 
 They are part of the ceylon/typechecker component. Best to ask Emmanuel or Gavin about that part, or by 
-[filing an issue](https://github.com/ceylon/ceylon-spec/issues).
+[filing an issue](https://github.com/eclipse/ceylon/issues).
 
 ### Generator
 

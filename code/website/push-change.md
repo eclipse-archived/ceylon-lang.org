@@ -29,7 +29,7 @@ You can used two approaches:
 1. edit the page right on GitHub
 
 The second solution is particularly useful to small on the fly edits. For example to
-edit this page, go to GitHub at <https://github.com/ceylon/ceylon-lang.org/blob/master/code/website/push-change.md> 
+edit this page, go to GitHub at <https://github.com/eclipse/ceylon-lang.org/blob/master/code/website/push-change.md> 
 and click on _Edit this page_ on the right side.
 Make sure to add a proper comment (at the bottom of this page).
 

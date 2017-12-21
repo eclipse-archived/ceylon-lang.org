@@ -42,7 +42,7 @@ process of developing the example application is discussed in
 
 [DisplayingBitmaps]: https://github.com/gavinking/DisplayingBitmaps
 [Universal Media Player]: https://github.com/gavinking/UniversalMusicPlayer
-[Ceylon Gradle plugin for Android]: https://github.com/ceylon/ceylon-gradle-android
+[Ceylon Gradle plugin for Android]: https://github.com/eclipse/ceylon-gradle-android
 [Android presentation]: /community/presentations/ceylon-on-android.pdf
 
 ## Examples of server-side Ceylon
@@ -78,8 +78,8 @@ Documentation for Ceylon and Vert.x can be found at the
 [Swarm]: http://wildfly-swarm.io/
 [Vert.x]: http://vertx.io/
 [Spring Boot]: https://projects.spring.io/spring-boot/
-[Spark with Ceylon]: https://github.com/ceylon/ceylon-examples-spark
-[Jooby with Ceylon]: https://github.com/ceylon/ceylon-examples-jooby
+[Spark with Ceylon]: https://github.com/eclipse/ceylon-examples-spark
+[Jooby with Ceylon]: https://github.com/eclipse/ceylon-examples-jooby
 [gyokuro demos]: https://github.com/bjansen/gyokuro/tree/master/demos/gyokuro/demo
 [gyokuro]: http://bjansen.github.io/gyokuro/
 [Vaadin JAAS example]: https://github.com/gavinking/ceylon-examples-vaadin
@@ -97,7 +97,7 @@ Documentation for Ceylon and Vert.x can be found at the
   write a complete Java EE application, making use of JPA, 
   CDI, EJB, JAX-RS, JMS, JSF, and Facelets.
 
-[Ceylon Web IDE]: https://github.com/ceylon/ceylon-web-ide-backend
+[Ceylon Web IDE]: https://github.com/eclipse/ceylon-web-ide-backend
 [OpenShift]: https://openshift.redhat.com/
 [DDDSample]: https://github.com/sgalles/ceylon-dddsample 
 
@@ -127,14 +127,14 @@ Learn how to use Ceylon with these Java frameworks:
 - The [Ceylon LWJGL samples][] project demonstrates the use 
   of the [Lightweight Java Game Library][LWJGL].
 
-[JDK Collections and Streams in Ceylon]: https://github.com/ceylon/ceylon-examples-jdk
-[Java Persistence in Ceylon]: https://github.com/ceylon/ceylon-examples-jpa
-[Weld and Guice with Ceylon]: https://github.com/ceylon/ceylon-examples-di
-[OpenGL in Ceylon]: https://github.com/ceylon/ceylon-examples-jogl
+[JDK Collections and Streams in Ceylon]: https://github.com/eclipse/ceylon-examples-jdk
+[Java Persistence in Ceylon]: https://github.com/eclipse/ceylon-examples-jpa
+[Weld and Guice with Ceylon]: https://github.com/eclipse/ceylon-examples-di
+[OpenGL in Ceylon]: https://github.com/eclipse/ceylon-examples-jogl
 [GUI Designer]: https://www.jetbrains.com/help/idea/2016.2/gui-designer-reference.html
 [IntelliJ UI designer example]: https://github.com/xkr47/ceylon-swing-with-intellij-ui-designer
-[JavaFX Samples for Ceylon]: https://github.com/ceylon/ceylon-examples-javafx
-[RxJava examples]: https://github.com/ceylon/ceylon-examples-rx
+[JavaFX Samples for Ceylon]: https://github.com/eclipse/ceylon-examples-javafx
+[RxJava examples]: https://github.com/eclipse/ceylon-examples-rx
 [RxJava]: https://github.com/ReactiveX/RxJava
 [RxJava documentation]: https://github.com/ReactiveX/RxJava/wiki/How-To-Use-RxJava
 [JOGL]: http://jogamp.org/
@@ -164,12 +164,12 @@ The [Ceylon NPM integration examples][] project contains some
 very simple examples showing how a Ceylon module can make use 
 of JavaScript modules belonging to the [node package manager][npm].
 
-[Ceylon NPM integration examples]: https://github.com/ceylon/ceylon-examples-npm
+[Ceylon NPM integration examples]: https://github.com/eclipse/ceylon-examples-npm
 [npm]: https://www.npmjs.com/
 
 ## Examples of libraries
 
-The [Ceylon SDK](https://github.com/ceylon/ceylon-sdk) includes 
+The [Ceylon SDK](https://github.com/eclipse/ceylon-sdk) includes 
 plenty of good examples of Ceylon code, including:
 
 - [`ceylon.collection`][] demonstrates some very typical usage 
@@ -188,14 +188,14 @@ plenty of good examples of Ceylon code, including:
 - [`ceylon.json`][] illustrates a 
   [rather cool use of union types][ceylon.json::Value].
 
-[`ceylon.collection`]: https://github.com/ceylon/ceylon-sdk/tree/master/source/ceylon/collection
-[`ceylon.file`]: https://github.com/ceylon/ceylon-sdk/tree/master/source/ceylon/file
-[`ceylon.regex`]: https://github.com/ceylon/ceylon-sdk/tree/master/source/ceylon/regex
-[`ceylon.locale`]: https://github.com/ceylon/ceylon-sdk/tree/master/source/ceylon/locale
-[`ceylon.test`]: https://github.com/ceylon/ceylon-sdk/tree/master/source/ceylon/test
-[`ceylon.promise`]: https://github.com/ceylon/ceylon-sdk/tree/master/source/ceylon/promise
-[`ceylon.json`]: https://github.com/ceylon/ceylon-sdk/blob/master/source/ceylon/json/
-[ceylon.json::Value]: https://github.com/ceylon/ceylon-sdk/blob/master/source/ceylon/json/Value.ceylon
+[`ceylon.collection`]: https://github.com/eclipse/ceylon-sdk/tree/master/source/ceylon/collection
+[`ceylon.file`]: https://github.com/eclipse/ceylon-sdk/tree/master/source/ceylon/file
+[`ceylon.regex`]: https://github.com/eclipse/ceylon-sdk/tree/master/source/ceylon/regex
+[`ceylon.locale`]: https://github.com/eclipse/ceylon-sdk/tree/master/source/ceylon/locale
+[`ceylon.test`]: https://github.com/eclipse/ceylon-sdk/tree/master/source/ceylon/test
+[`ceylon.promise`]: https://github.com/eclipse/ceylon-sdk/tree/master/source/ceylon/promise
+[`ceylon.json`]: https://github.com/eclipse/ceylon-sdk/blob/master/source/ceylon/json/
+[ceylon.json::Value]: https://github.com/eclipse/ceylon-sdk/blob/master/source/ceylon/json/Value.ceylon
 
 ## Example `ceylon` plugins
 
@@ -206,8 +206,8 @@ your productivity.
   existing Java library.
 - [`ceylon format`][] is much more elaborate.
 
-[`ceylon swarm`]: https://github.com/ceylon/ceylon.swarm
-[`ceylon format`]: https://github.com/ceylon/ceylon.formatter
+[`ceylon swarm`]: https://github.com/eclipse/ceylon.swarm
+[`ceylon format`]: https://github.com/eclipse/ceylon.formatter
 
 ## Examples of real life warts-'n-all production code
 
@@ -216,8 +216,8 @@ projects sure aren't beautiful polished example code, but they
 do show how cleanly Ceylon interoperates with hairy, real-world, 
 legacy Java APIs.
 
-[Ceylon IDE Common]: https://github.com/ceylon/ceylon-ide-common
-[Ceylon IDE for IntelliJ]: https://github.com/ceylon/ceylon-ide-intellij
+[Ceylon IDE Common]: https://github.com/eclipse/ceylon-ide-common
+[Ceylon IDE for IntelliJ]: https://github.com/eclipse/ceylon-ide-intellij
 
 The [Ceylon plugin for VS Code][] exhibits a whole completely
 different approach to implementing tooling in Ceylon.

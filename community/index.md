@@ -43,7 +43,7 @@ called [#ceylonlang](http://www.wsirc.com/?username=&server=irc.freenode.net%3A6
 ## Issues
 
 Please report bugs and request improvements via GitHub's
-[issue tracking system](https://github.com/ceylon/). If you're not sure
+[issue tracking system](https://github.com/eclipse/ceylon). If you're not sure
 precisely which subproject your issue report belongs in, please ask us
 on Gitter or by emailing the development list.
 

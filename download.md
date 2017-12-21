@@ -140,7 +140,7 @@ Instructions for getting started are contained in the file
 [right here in GitHub][ceylon-dist readme]. To know what's 
 precisely in the release, read our [announcement][1.3.3].
 
-[ceylon-dist readme]: https://github.com/ceylon/ceylon/blob/master/dist/README.md
+[ceylon-dist readme]: https://github.com/eclipse/ceylon/blob/master/dist/README.md
 
 ### Package managers
 

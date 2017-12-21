@@ -33,7 +33,7 @@ Here's what you need to do to install Ceylon IDE:
 
 [intellij]: https://www.jetbrains.com/idea/
 [studio]: https://developer.android.com/studio/index.html
-[issues]: https://github.com/ceylon/ceylon-ide-intellij/issues
+[issues]: https://github.com/eclipse/ceylon-ide-intellij/issues
 [repositories]: https://www.jetbrains.com/idea/help/managing-enterprise-plugin-repositories.html
 
 ## Installing development builds and nightly builds

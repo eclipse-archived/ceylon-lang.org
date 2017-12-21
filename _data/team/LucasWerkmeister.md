@@ -15,6 +15,6 @@ a [participation][ceylon.ast] in the 2014 Google Summer of Code.
 [JFractalizer]: https://github.com/lucaswerkmeister/JFractalizer
 [wp_geohashing]: https://github.com/lucaswerkmeister/wp_geohashing
 [EDID]: https://en.wikipedia.org/wiki/Extended_display_identification_data
-[IDE#385]: https://github.com/ceylon/ceylon-ide-eclipse/issues/385
-[ceylon.formatter]: https://github.com/ceylon/ceylon.formatter
+[IDE#385]: https://github.com/eclipse/ceylon-ide-eclipse/issues/385
+[ceylon.formatter]: https://github.com/eclipse/ceylon.formatter
 [ceylon.ast]: https://github.com/ceylon/ceylon.ast

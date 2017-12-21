@@ -177,7 +177,7 @@ function makeMilestoneDiv(div, title, open, closed, milestone, repo){
 	div.empty();
 	
 	if(title != null){
-		jQuery("<div/>").addClass("title").text(title + ": ").append(jQuery("<a/>").attr("href", "https://github.com/ceylon/" + repo + "/milestones/" + milestone).text(milestone)).appendTo(div)
+		jQuery("<div/>").addClass("title").text(title + ": ").append(jQuery("<a/>").attr("href", "https://github.com/eclipse/" + repo + "/milestones/" + milestone).text(milestone)).appendTo(div)
 	}
 	jQuery("<div/>").addClass("count").text("closed: " + closed + " — open: " + open).appendTo(div);
 

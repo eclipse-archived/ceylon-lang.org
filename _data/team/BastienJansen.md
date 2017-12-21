@@ -15,7 +15,7 @@ Bastien started programming around year 2002, he tried a few languages like C, P
 settling down in the Java world. In late 2012, while looking for a new project involving IntelliJ 
 plugin development, he discovered Ceylon and decided that this fabulous language deserved a great IDE.
 
-He started [Ceylon IDE for IntelliJ](https://github.com/ceylon/ceylon-ide-intellij), and in mid-2015
+He started [Ceylon IDE for IntelliJ](https://github.com/eclipse/ceylon-ide-intellij), and in mid-2015
 he officially joined the Ceylon team to start working full-time on this project. 
    
 You can follow him on [twitter](https://twitter.com/BastienJansen) or read his [blog](bjansen.github.io).

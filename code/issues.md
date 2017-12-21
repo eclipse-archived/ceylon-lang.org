@@ -26,11 +26,11 @@ There is a dedicated issue tracker for:
 If your issue doesn't fall into one of these categories, it might be 
 better to send email to the [development mailing list][ceylon-dev].
 
-[ceylon]: https://github.com/ceylon/ceylon/issues
-[ceylon-sdk]: https://github.com/ceylon/ceylon-sdk/issues
-[ceylon-ide-eclipse]: https://github.com/ceylon/ceylon-ide-eclipse/issues
-[ceylon-ide-intellij]: https://github.com/ceylon/ceylon-ide-intellij/issues
-[ceylon-ide-common]: https://github.com/ceylon/ceylon-ide-common/issues
-[ceylon-herd]: https://github.com/ceylon/ceylon-herd/issues
-[this website]: https://github.com/ceylon/ceylon-lang.org/issues
+[ceylon]: https://github.com/eclipse/ceylon/issues
+[ceylon-sdk]: https://github.com/eclipse/ceylon-sdk/issues
+[ceylon-ide-eclipse]: https://github.com/eclipse/ceylon-ide-eclipse/issues
+[ceylon-ide-intellij]: https://github.com/eclipse/ceylon-ide-intellij/issues
+[ceylon-ide-common]: https://github.com/eclipse/ceylon-ide-common/issues
+[ceylon-herd]: https://github.com/eclipse/ceylon-herd/issues
+[this website]: https://github.com/eclipse/ceylon-lang.org/issues
 [ceylon-dev]: https://groups.google.com/forum/?fromgroups#!forum/ceylon-dev

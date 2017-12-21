@@ -355,7 +355,7 @@ open standard, so any organization can maintain its own public module
 repository. You can even [run your own][run Herd] internal instance of Herd!
 
 [Ceylon Herd]: https://herd.ceylon-lang.org
-[run Herd]: https://github.com/ceylon/ceylon-herd
+[run Herd]: https://github.com/eclipse/ceylon-herd
 
 ### Tip: developing modules in Ceylon IDE for Eclipse
 

@@ -22,7 +22,7 @@ of Ceylon in a web browser:
 
 ## Examples of full-stack applications
 
-- The [Ceylon Web IDE](https://github.com/ceylon/ceylon-web-ide-backend)
+- The [Ceylon Web IDE](https://github.com/eclipse/ceylon-web-ide-backend)
   is a great example of how to build a modern web application
   using Ceylon, making use of Ceylon's HTTP and JSON APIs, and 
   interoperation with native Java libraries. The example even
@@ -34,30 +34,30 @@ of Ceylon in a web browser:
 
 Learn how to use Ceylon with these Java frameworks:
 
-- [Weld and Guice with Ceylon](https://github.com/ceylon/ceylon-examples-di),
+- [Weld and Guice with Ceylon](https://github.com/eclipse/ceylon-examples-di),
   based on [this blog post](/blog/2015/12/01/weld-guice/).
 
 ## Examples of libraries
 
-The [Ceylon SDK](https://github.com/ceylon/ceylon-sdk) includes 
+The [Ceylon SDK](https://github.com/eclipse/ceylon-sdk) includes 
 plenty of good examples of Ceylon code, including:
 
-- [`ceylon.collection`](https://github.com/ceylon/ceylon-sdk/tree/master/source/ceylon/collection)
+- [`ceylon.collection`](https://github.com/eclipse/ceylon-sdk/tree/master/source/ceylon/collection)
   demonstrates some very typical usage of generics.
-- [`ceylon.file`](https://github.com/ceylon/ceylon-sdk/tree/master/source/ceylon/file)
+- [`ceylon.file`](https://github.com/eclipse/ceylon-sdk/tree/master/source/ceylon/file)
   demonstrates the use of enumerated types and shows how to 
   wrap a native Java API.
-- [`ceylon.regex`](https://github.com/ceylon/ceylon-sdk/tree/master/source/ceylon/regex)
+- [`ceylon.regex`](https://github.com/eclipse/ceylon-sdk/tree/master/source/ceylon/regex)
   is a cross-platform module that demonstrates the use of 
   `native` declarations and `dynamic` blocks.
-- [`ceylon.locale`](https://github.com/ceylon/ceylon-sdk/tree/master/source/ceylon/locale)
+- [`ceylon.locale`](https://github.com/eclipse/ceylon-sdk/tree/master/source/ceylon/locale)
   is a cross-platform module that demonstrates the use of 
   resource loading.
-- [`ceylon.test`](https://github.com/ceylon/ceylon-sdk/tree/master/source/ceylon/test)
+- [`ceylon.test`](https://github.com/eclipse/ceylon-sdk/tree/master/source/ceylon/test)
   demonstrates some very typical usage of the metamodel.
-- [`ceylon.promise`](https://github.com/ceylon/ceylon-sdk/tree/master/source/ceylon/promise)
+- [`ceylon.promise`](https://github.com/eclipse/ceylon-sdk/tree/master/source/ceylon/promise)
   demonstrates advanced use of abstraction over function 
   types.
-- [`ceylon.json`](https://github.com/ceylon/ceylon-sdk/blob/master/source/ceylon/json/)
-  illustrates a [rather cool use of union types](https://github.com/ceylon/ceylon-sdk/blob/master/source/ceylon/json/Value.ceylon).
+- [`ceylon.json`](https://github.com/eclipse/ceylon-sdk/blob/master/source/ceylon/json/)
+  illustrates a [rather cool use of union types](https://github.com/eclipse/ceylon-sdk/blob/master/source/ceylon/json/Value.ceylon).
   
