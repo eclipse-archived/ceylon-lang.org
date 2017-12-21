@@ -18,7 +18,6 @@ more specialized licenses:
   because it's based on OpenJDK's `javac` compiler.
 - Ceylon IDE for Eclipse is released under the
   [Eclipse Public License 1.0](http://eclipse.org/legal/epl-v10.html).
-- Ceylon Herd is released under the [AGPL v3](http://www.gnu.org/licenses/agpl-3.0.html).
 
 All other non tainted parts of Ceylon are released under the 
 [Apache Software License 2.0](http://www.apache.org/licenses/LICENSE-2.0.html).  
