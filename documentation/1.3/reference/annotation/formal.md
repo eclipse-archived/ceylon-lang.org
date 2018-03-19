@@ -26,7 +26,7 @@ one must be provided by subtypes.
 Methods, attributes, and member classes may be annotated `formal`.
 
 Because a member that is refinable must be visible outside the 
-scope of the type it's defined in, a `default` member is necessarily
+scope of the type it's defined in, a `formal` member is necessarily
 `shared`.
 
 Only `abstract` classes and interfaces are permitted to have `formal` members.
