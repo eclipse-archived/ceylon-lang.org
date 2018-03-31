@@ -25,11 +25,11 @@ declarations belonging to that package, with an optional wildcard:
 <!-- check:none -->
 <!-- try: -->
     // importing a list of declarations
-    import math { sqrt, pi, Complex }
+    import org.example.math { sqrt, pi, Complex }
     
     // importing all declarations in a package
     // (a 'wildcard' import)
-    import com.example.metasyntax { ... }
+    import org.example.metasyntax { ... }
     
     // assigning a different name to an imported declaration
     // (an 'alias' import)
@@ -83,7 +83,7 @@ _import alias_.
 
 ### Advice
 
-Use of wildcard `import`s (e.g. `import com.example.metasyntax { ... }`) 
+Use of wildcard `import`s (e.g. `import org.example.metasyntax { ... }`) 
 is discouraged, since:
 
 * when reading, it makes it harder to determine which package a particular 
