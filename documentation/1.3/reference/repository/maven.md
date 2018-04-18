@@ -49,7 +49,7 @@ in the module name `org.hibernate:"hibernate-core"` seen above.
 ### Specifying explicit Maven settings 
 
 If you have special requirements&mdash;for example, if you need to specify an 
-additional Maven respository&mdash;and need a Maven [`settings.xml`][], you can 
+additional Maven repository&mdash;and need a Maven [`settings.xml`][], you can 
 specify the file using the `--rep` flag:
 
 <!--lang: none -->
@@ -59,6 +59,11 @@ In Ceylon IDE, this option may be specified via `Lookup repositories on build pa
 in the `Module Repositories` tab of the project-level compiler settings.
 
 [`settings.xml`]: https://maven.apache.org/settings.html
+
+### Gotcha!
+
+You can't just pass the URL of a Maven repository using `--rep`. You _must_
+specify it in `settings.xml`.
 
 ## Resolving Maven conflicts
 
