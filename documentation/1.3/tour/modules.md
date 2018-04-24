@@ -227,7 +227,7 @@ This is accomplished via a _module descriptor_:
     "The best-ever ORM solution!"
     license ("http://www.gnu.org/licenses/lgpl.html")
     module org.hibernate "3.0.0.beta" {
-        import ceylon.collection "1.0.0";
+        import ceylon.collection "1.3.3";
         import java.base "7";
         shared import java.jdbc "7";
     }
@@ -260,6 +260,26 @@ future version of Ceylon, it will be possible to specify module overrides
 using a more comfortable syntax based on the format of the module descriptor.
 
 [module dependency overrides]: /documentation/reference/repository/overrides/
+
+### Tip: handling repeated version numbers
+
+Sometimes we import several modules with a common version number. For 
+example, it's common to import several modules from the same version of
+the Ceylon SDK, or several JDK modules. In this case, it can be helpful
+to give the version number a label.
+
+<!-- try: -->
+<!-- check:none-->
+    module org.hibernate "3.0.0.beta" {
+        value javaVersion = "8"
+        value ceylonVersion = "1.3.3"
+        
+        import ceylon.collection ceylonVersion;
+        import ceylon.file ceylonVersion;
+        import ceylon.process ceylonVersion;
+        import java.base javaVersion;
+        shared import java.jdbc javaVersion;
+    }
 
 ### Module repositories
 
