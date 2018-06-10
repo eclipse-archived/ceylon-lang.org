@@ -49,10 +49,14 @@ The general form of a function declaration looks like either of these:
 Where:
 
 * `ANNOTATIONS` is a list of function [annotations](../annotation)
-* `TYPE` is a [type expression](../type) for the reference returned from the function when it is invoked (or `void`).
-* `TYPE-PARAMETERS` is a `,`-separated list of [type parameters](../#type_parameters)
-* `PARAMETER-LISTS` is one or more `,`-separated list of [value parameters](../parameter-list), each list enclosed in parenthesis
-* `TYPE-PARAMETER-CONSTRAINTS` is a list of [constraints on type parameters](../type-parameters#constraints) 
+* `TYPE` is a [type expression](../type) for the reference returned from 
+  the function when it is invoked (or `void`).
+* `TYPE-PARAMETERS` is a `,`-separated list of 
+  [type parameters](../#type_parameters)
+* `PARAMETER-LISTS` is one or more `,`-separated list of 
+  [value parameters](../parameter-list), each list enclosed in parentheses
+* `TYPE-PARAMETER-CONSTRAINTS` is a list of 
+  [constraints on type parameters](../type-parameters#constraints) 
   declared in the type parameter list
 * `FUNCTION-BODY` is [block](#function_blocks) of statements
 * `EXPRESSION` is [specified result](#function_specifiers) of the function
@@ -61,21 +65,21 @@ Where:
 
 ### Method receiver
 
-Method invocations have a 'receiver', an instance of the type that declares 
+Method invocations have a _receiver_, an instance of the type that declares 
 the method. Within the method [body](#method_blocks), the expression 
 [`this`](../../expression/this) refers to this receiving instance.
 
-A [top level](../type-declaration#top_level_declarations) function does not have a 
-receiver. 
+A [top level](../type-declaration#top_level_declarations) function does not 
+have a receiver. 
 
 ### Return type
 
-A non-local function declaration always specifies the *return type* of the function, 
-or the keyword `void` if the function has no specific return value. 
+A non-local function declaration always specifies the *return type* of the 
+function, or the keyword `void` if the function has no specific return value. 
 
 The type system considers a `void` function identical to a function declared 
-to return [`Anything`](#{site.urls.apidoc_1_3}/Anything.type.html). 
-In particular, a `void` method may be refined by a subtype to return a more 
+to return [`Anything`](#{site.urls.apidoc_1_3}/Anything.type.html). In 
+particular, a `void` method may be refined by a subtype to return a more 
 specific type. The value actually returned from an unrefined `void` function 
 is always `null`:
 
@@ -101,12 +105,14 @@ keyword.
         function f() => 0; //inferred type Integer
     }
 
-If the local function doesn't return a value `void` is used instead of `function`.
+If the local function doesn't return a value `void` is used instead of 
+`function`.
 
 ### Type parameters
 
-A function declaration may have a list of [type parameters](../type-parameters) 
-enclosed in angle brackets (`<` and `>`) after the function name.
+A function declaration may have a list of 
+[type parameters](../type-parameters) enclosed in angle brackets 
+(`<` and `>`) after the function name.
 
 <!-- try: -->
     void generic<Foo, Bar>(){
@@ -123,8 +129,8 @@ Of course, methods may be members of types which themselves have
         }
     }
 
-A function declaration with type parameters may have a `given` clause 
-for each declared type parameter to 
+A function declaration with type parameters may have a `given` 
+clause for each declared type parameter to 
 [constrain the argument types](../type-parameters#constraints).
 
 ### Parameter list
@@ -141,8 +147,8 @@ higher order functions can use two or more:
 
 ### Function blocks
 
-The body of a function may be composed of [statements](../../#statement) in a 
-brace-delimited *block*.
+The body of a function may be composed of [statements](../../#statement) 
+in a brace-delimited *block*.
 
 The body of a non-`void` function must *definitely return* a value 
 using the [return statement](../../statement/return/). The 
@@ -155,21 +161,21 @@ following code will be rejected by the compiler:
         // error: missing return
     }
     
-Similarly a `void` function must only use the form of `return` which lacks
-an expression.
+Similarly a `void` function must only use the form of `return` which 
+lacks an expression.
 
 ### Function specifiers
 
-A block with a return statement is unnecessarily verbose for a function that
-just evaluates a single expression and returns its result. 
-In this case, we prefer to use the *fat arrow* 
-(`=>`) syntax:
+A block with a return statement is unnecessarily verbose for a function 
+that just evaluates a single expression and returns its result. In this 
+case, we prefer to use the *fat arrow* (`=>`) syntax:
 
 <!-- cat: void anotherFunction(){} -->
 <!-- try: -->
     Integer addTen(Integer i) => i+10;
 
-Note that you can use this to *partially apply* a function (or any `Callable`):
+Note that you can use this to *partially apply* a function (or any other 
+instance of `Callable`):
 
     function zeroTo(Integer n) => Range(0, n);
 
@@ -216,8 +222,8 @@ class or interface.
 
 #### `shared` functions
 
-A toplevel function declaration, or a function declaration nested inside the 
-body of a containing class or interface, may be annotated 
+A toplevel function declaration, or a function declaration nested inside 
+the body of a containing class or interface, may be annotated 
 [`shared`](../../annotation/shared).
 
 - A toplevel `shared` function is visible wherever the package that contains 
@@ -230,8 +236,8 @@ body of a containing class or interface, may be annotated
 
 Function declarations can be manipulated at runtime via their representation as
 [`FunctionDeclaration`](#{site.urls.apidoc_1_3}/meta/declaration/FunctionDeclaration.type.html) 
-instances. An *applied function* (i.e. with all type parameters specified) corresponds to 
-either a 
+instances. An *applied function* (i.e. with all type parameters specified) 
+corresponds to either a 
 [`Function`](#{site.urls.apidoc_1_3}/meta/model/Function.type.html) or 
 [`Method`](#{site.urls.apidoc_1_3}/meta/model/Method.type.html) model instance.
 
