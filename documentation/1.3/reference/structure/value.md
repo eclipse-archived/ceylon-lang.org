@@ -69,9 +69,11 @@ The general form of a value can look like any of these:
 Where:
 
 * `ANNOTATIONS` is a list of value [annotations](../annotation)
-* `TYPE` is a [type expression](../type) for the [type the reference](#value_type) returned when the value is evaluated
+* `TYPE` is a [type expression](../type) for the 
+  [type the reference](#value_type) returned when the value is evaluated
 * `INITIAL-EXPRESSION` is the intial value of the reference
-* `GETTER-EXPRESSION` is the [specified value](#function_specifiers) of the getter
+* `GETTER-EXPRESSION` is the [specified value](#function_specifiers) of 
+  the getter
 * `GETTER-BODY` is a [block](#function_blocks) of statements
 * `SETTER-BODY` is a [block](#function_blocks) of statements
 
@@ -84,9 +86,9 @@ A non-local value declaration always specifies the *type* of the value.
 
 #### Type inference
 
-Local value and attribute declarations don't need to explictly declare a type, 
-but can instead use [type inference](../type-inference) via the `value` 
-keyword.
+Local value and attribute declarations don't need to explictly declare a 
+type, but can instead use [type inference](../type-inference) via the 
+`value` keyword.
 
 <!-- try: -->
     void f() {
@@ -99,23 +101,25 @@ Reference values are just holders of state.
 
 A toplevel reference represents a "global constant" (or variable).
 
-A reference attribute declared within a 
-class body represents state associated with an instance of the class 
-(similar to a *field* in other programming languages). 
+A reference attribute declared within a class body represents state 
+associated with an instance of the class (similar to a *field* in other 
+programming languages). 
 
-A local reference (that is, a reference declared within a block) represents state 
-associated with execution of that block (similar to a *local variable* 
-in other programming languages).
+A local reference (that is, a reference declared within a block) 
+represents state associated with execution of that block (similar to a 
+*local variable* in other programming languages).
 
 Reference values are computed when the value is specified or assigned
-and the exact same instance returned thereafter 
-(unless the value is `variable` and is reassigned). 
+and the exact same instance returned thereafter (unless the value is 
+`variable` and is reassigned). 
 
 #### `variable` reference values
 
-If a reference value is annotated [`variable`](#{site.urls.apidoc_1_3}/index.html#variable), 
-it can be [assigned](#{page.doc_root}/reference/operator/assign) more than once.
-Otherwise it must be [specified](../../statement/specification) exactly once. 
+If a reference value is annotated 
+[`variable`](#{site.urls.apidoc_1_3}/index.html#variable), 
+it can be [assigned](#{page.doc_root}/reference/operator/assign) more 
+than once. Otherwise it must be [specified](../../statement/specification) 
+exactly once. 
 
 The specification or assignment must occur before its first use.
 
@@ -124,13 +128,14 @@ The specification or assignment must occur before its first use.
 A getter defines a derived value that is computed every time the 
 value is required (unlike a reference value).
 
-From the point of view of the code evaluating a value, it is impossible to 
-determine whether the value is implemented as a reference or as a getter. 
-It's even possible to refine a reference with a getter, or vice versa.
+From the point of view of the code evaluating a value, it is impossible 
+to determine whether the value is implemented as a reference or as a 
+getter. It's even possible to refine a reference with a getter, or vice 
+versa.
 
 Like [function declarations](../function), you can either use a 
-block of statements or the *fat arrow*
-(`=>`) syntax if the value can be computed from a single expression.
+block of statements or the *fat arrow* (`=>`) syntax if the value can be 
+computed from a single expression.
 
 ### Setters
 
@@ -148,13 +153,12 @@ setter declaration.
 
 ### Attribute receiver
 
-Attribute evaluations have a 'receiver', an instance of the type that 
-declares the method. Within the getter or setter body, the expression 
-[`this`](../../expression/this) refers to this receiving 
-instance.
+Attribute evaluations have a _receiver_, an instance of the type that 
+declares the attribute. Within the getter or setter body, the expression 
+[`this`](../../expression/this) refers to this receiving instance.
 
-A [top level](../type-declaration#top_level_declarations) value does not have a 
-receiver.
+A [top level](../type-declaration#top_level_declarations) value does not 
+have a receiver.
 
 
 ### Different kinds of value
@@ -162,8 +166,8 @@ receiver.
 #### `late` values
 
 A value can be declared [`late`](../../annotation/late/) in which case the 
-typechecker's [definite specification](../../annotation/late/#description) 
-checks are not performed. 
+[definite specification](../../annotation/late/#description) validation is 
+not performed. 
 
 #### `formal` and `default` attributes
 
@@ -184,19 +188,20 @@ A toplevel value declaration, or a value declaration nested inside the
 body of a containing class or interface, may be annotated 
 [`shared`](../../annotation/shared).
 
-- A toplevel `shared` value is visible wherever the package that contains it 
-  is visible.
-- A `shared` value nested inside a class or interface is visible wherever the 
-  containing class or interface is visible.
+- A toplevel `shared` value declaration is visible wherever the package that 
+  contains it is visible.
+- A `shared` value declaration nested inside a class or interface is visible 
+  wherever the containing class or interface is visible.
 
 ### Metamodel
 
 Value declarations can be manipulated at runtime via their representation as
 [`ValueDeclaration`](#{site.urls.apidoc_1_3}/meta/declaration/ValueDeclaration.type.html) 
-instances. An *applied function* (i.e. with all type parameters specified) corresponds to 
-either a 
+instances. An *applied function* (i.e. with all type parameters specified) 
+corresponds to either a 
 [`Value`](#{site.urls.apidoc_1_3}/meta/model/Value.type.html) or 
-[`Attribute`](#{site.urls.apidoc_1_3}/meta/model/Attribute.type.html) model instance.
+[`Attribute`](#{site.urls.apidoc_1_3}/meta/model/Attribute.type.html) model 
+instance.
 
 ## See also
 
