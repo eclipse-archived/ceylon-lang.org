@@ -375,13 +375,13 @@ First, consider a covariant type like `Producer<Element>`. Then for any types
 `X` and `Y`:
 
 - `Producer<X>|Producer<Y>` is a subtype of `Producer<X|Y>` , and
-- `Producer<X>&Producer<Y>` is a supertype of `Producer<X&Y>`.
+- `Producer<X>&Producer<Y>` is the same as `Producer<X&Y>`.
 
 Next, consider a contravariant type like `Consumer<Element>`. Then for any 
 types `X` and `Y`:
 
 - `Consumer<X>|Consumer<Y>` is a subtype of `Consumer<X&Y>` , and
-- `Consumer<X>&Consumer<Y>` is a supertype of `Consumer<X|Y>`.
+- `Consumer<X>&Consumer<Y>` is the same as `Consumer<X|Y>`.
 
 It's worth coming back to this section later, and trying to develop some 
 intuition about exactly why these relationships are correct and what they 
