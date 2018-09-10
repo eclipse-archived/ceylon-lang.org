@@ -957,6 +957,7 @@ we can also use value constructors:
 
 We can use this enumerated type in a `switch`:
 
+<!-- try: -->
     void printSuit(Suit suit) {
         switch (suit)
         case (Suit.hearts) { print("Heartzes"); }
