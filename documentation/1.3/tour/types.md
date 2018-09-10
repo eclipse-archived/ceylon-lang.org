@@ -588,6 +588,7 @@ Ceylon doesn't have anything exactly like Java's `enum` declaration. But we
 can emulate the effect using the `of` clause.
 
 <!-- id:Suit -->
+<!-- try: -->
     abstract class Suit(String name)
             of hearts | diamonds | clubs | spades {}
     
