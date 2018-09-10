@@ -946,15 +946,7 @@ to emulate a Java `enum`. We've already seen how to do it
 using [anonymous classes](../types/#enumerated_instances), but
 we can also use value constructors:
 
-<!-- try-post:
-    void printSuit(Suit suit) {
-        switch (suit)
-        case (Suit.hearts) { print("Heartzes"); }
-        case (Suit.diamonds) { print("Diamondzes"); }
-        case (Suit.clubs) { print("Clidubs"); }
-        case (Suit.spades) { print("Spidades"); }
-    }
--->
+<!-- try: -->
     class Suit of hearts | diamonds | clubs | spades {
         String name;
         shared new hearts { name = "hearts"; }
@@ -965,15 +957,6 @@ we can also use value constructors:
 
 We can use this enumerated type in a `switch`:
 
-<!-- try-pre:
-    class Suit of hearts | diamonds | clubs | spades {
-        String name;
-        shared new hearts { name = "hearts"; }
-        shared new diamonds { name = "diamonds"; }
-        shared new clubs { name = "clubs"; }
-        shared new spades { name = "spades"; }
-    }
--->
     void printSuit(Suit suit) {
         switch (suit)
         case (Suit.hearts) { print("Heartzes"); }
