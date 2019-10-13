@@ -342,7 +342,7 @@ Alternatively the constructor can delegate to another
 constructor of the *same* class:
 
     class SelfDelegation {
-        shared greet(String greeting, String subject) {
+        shared new greet(String greeting, String subject) {
         }
         shared new hello(String subject) extends greet("hello", subject) {
         }
