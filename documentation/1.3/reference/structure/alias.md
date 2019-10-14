@@ -71,7 +71,7 @@ and
 ## See also
 
 * [Type alias elimination](#{site.urls.spec_current}#typealiaselimination),
-  [Type aliases](#{site.urls.spec_current}#typealiases),
+  [Type aliases](#{site.urls.spec_current}#typealiasedeclarations),
   [Interface aliases](#{site.urls.spec_current}#interfacealiases), and
   [Class aliases](#{site.urls.spec_current}#classaliases) in the Ceylon
   language specification
