@@ -182,7 +182,7 @@ instance of `Callable`):
 ### Callable type
 
 The *callable type* of a function expresses, in terms of the 
-[`Callable`](#{site.urls.apidoc_1_3}/Anything.type.html) interface, is the 
+[`Callable`](#{site.urls.apidoc_1_3}/Callable.type.html) interface, is the 
 function's return type and parameter types. For example, the callable type 
 of:
 
