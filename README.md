@@ -12,10 +12,10 @@ A bit of Git, a bit a Ruby and you will get your local version of [ceylon-lang.o
 
 ## Prerequisites
 
-- Get [Git](http://git-scm.com)
-- Get [Ruby](https://www.ruby-lang.org/en/) > 2.1
+- Get [Git].(http://git-scm.com)
+- Get [Ruby].(https://www.ruby-lang.org/en/) > 2.1
 - If on Mac OS:
-    - Get [XCode](https://developer.apple.com/xcode/) (needed for compilation of native gems)
+    - Get [XCode](https://developer.apple.com/xcode/) (needed for compilation of native gems).
 - If on Linux:
     - Get *libxslt-dev* - eg via `sudo apt-get install libxslt-dev` (may be called *libxslt1-dev* for some distros)
 
